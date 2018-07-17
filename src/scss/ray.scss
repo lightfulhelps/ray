@@ -1,0 +1,103 @@
+/*
+ * Ray
+ */
+
+// Our variable overrides
+
+// Colors
+
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+
+$primary: #27b0cc;
+$secondary: #7941ff;
+$success: #27cc98;
+$info: #0095f1;
+$warning: #f0b954;
+$danger: #f25270;
+
+$body-color: #6c757c;
+$headings-color: $gray-900;
+
+// Fonts
+
+$font-family-sans-serif: 'Euclid Flex B', sans-serif;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 500;
+$font-weight-base: $font-weight-light;
+
+// Spacing
+
+$spacer: 10px;
+
+$spacers: (
+  0: 0,
+  1: $spacer,
+  2: $spacer * 2,
+  3: $spacer * 3,
+  4: $spacer * 4,
+  5: $spacer * 5,
+);
+
+// Components
+
+$border-radius: 5px;
+
+$radiuses: (
+  1: $border-radius,
+  2: $border-radius * 2,
+  3: $border-radius * 3,
+  4: $border-radius * 4,
+);
+
+$box-shadow-sm: 0 0 15px 0 rgba($gray-700, 0.04);
+$box-shadow: 0 0 30px 0 rgba($gray-700, 0.04);
+$box-shadow-lg: 0 0 30px 0 rgba($gray-700, 0.12);
+
+// Import Bootstrap
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// Custom CSS
+
+// Background classes for grays
+@each $color, $value in $grays {
+  @include bg-variant(".bg-gray-#{$color}", $value);
+}
+
+// Rounded classes for additional radiuses
+@each $size, $value in $radiuses {
+  .rounded-#{$size} {
+    border-radius: $value !important;
+  }
+
+  .rounded-top-#{$size} {
+    border-top-left-radius: $value !important;
+    border-top-right-radius: $value !important;
+  }
+
+  .rounded-right-#{$size} {
+    border-top-right-radius: $value !important;
+    border-bottom-right-radius: $value !important;
+  }
+
+  .rounded-bottom-#{$size} {
+    border-bottom-right-radius: $value !important;
+    border-bottom-left-radius: $value !important;
+  }
+
+  .rounded-left-#{$size} {
+    border-top-left-radius: $value !important;
+    border-bottom-left-radius: $value !important;
+  }
+}

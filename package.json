@@ -1,0 +1,27 @@
+{
+  "name": "ray",
+  "version": "1.0.0",
+  "description": "Lightful style guide and component library",
+  "author": "Lightful",
+  "private": true,
+  "scripts": {
+    "css": "yarn css:lint && yarn css:build",
+    "css:build": "node-sass src/scss/ray.scss dist/css/ray.css",
+    "css:lint": "stylelint 'src/scss/*.scss' --syntax scss",
+    "css:watch": "chokidar 'src/scss/*.scss' -c 'yarn css'",
+    "dist": "rm -rf dist && yarn css",
+    "start": "yarn css && yarn css:watch",
+    "test": "yarn lint:css"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.2"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^1.2.0",
+    "node-sass": "^4.9.2",
+    "stylelint": "^9.3.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-scss": "^3.1.3"
+  }
+}
