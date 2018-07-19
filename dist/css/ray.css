@@ -6312,6 +6312,9 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
+.text-wrap {
+  word-wrap: break-word !important; }
+
 .bg-gray-100 {
   background-color: #f8f9fa !important; }
 
