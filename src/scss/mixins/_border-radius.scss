@@ -1,0 +1,21 @@
+@mixin rounded-size($size, $radius) {
+  .rounded-#{$size} {
+    @include border-radius($radius);
+  }
+
+  .rounded-top-#{$size} {
+    @include border-top-radius($radius);
+  }
+
+  .rounded-right-#{$size} {
+    @include border-right-radius($radius);
+  }
+
+  .rounded-bottom-#{$size} {
+    @include border-bottom-radius($radius);
+  }
+
+  .rounded-left-#{$size} {
+    @include border-left-radius($radius);
+  }
+}

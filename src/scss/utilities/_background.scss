@@ -1,0 +1,4 @@
+// Background classes for grays
+@each $color, $value in $grays {
+  @include bg-variant('.bg-gray-#{$color}', $value);
+}

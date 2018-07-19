@@ -1,0 +1,17 @@
+.form-control {
+  font-weight: $font-weight-light;
+
+  &:hover:not(:focus):not(:disabled) {
+    border-color: $input-hover-border-color;
+  }
+}
+
+.form-control-sm {
+  font-size: $font-size-base;
+}
+
+.form-text {
+  margin-top: $spacer;
+  font-weight: $font-weight-light;
+  font-size: $font-size-sm;
+}

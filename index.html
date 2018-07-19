@@ -220,27 +220,22 @@
             <div class="row">
               <div class="col-md-6">
                 <h3 class="h6">Border Radius.</h3>
-                <p>Uniform border radius is normally applied equally to all corners, but can be applied to selected corners on specific designs. There are 4 sizes to choose from.</p>
+                <p>Uniform border radius is normally applied equally to all corners, but can be applied to selected corners on specific designs. There are 3 sizes to choose from.</p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-3">
+                <div class="rounded-sm bg-gray-200 p-2">
+                  <small>Small 5px</small>
+                </div>
+              </div>
+              <div class="col-md-3">
                 <div class="rounded bg-gray-200 p-2">
-                  <small>Extra Small 5px</small>
+                  <small>Regular 10px</small>
                 </div>
               </div>
               <div class="col-md-3">
-                <div class="rounded-2 bg-gray-200 p-2">
-                  <small>Small 10px</small>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="rounded-3 bg-gray-200 p-2">
-                  <small>Regular 15px</small>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="rounded-4 bg-gray-200 p-2">
+                <div class="rounded-lg bg-gray-200 p-2">
                   <small>Large 20px</small>
                 </div>
               </div>
@@ -255,7 +250,7 @@
             </div>
             <div class="row">
               <div class="col-md-9">
-                <div class="bg-gray-100 rounded-4 p-4">
+                <div class="bg-gray-100 rounded-lg p-4">
                   <div class="row">
                     <div class="col-md-4">
                       <div class="rounded bg-white shadow-sm p-2">Small Shadow</div>
@@ -296,31 +291,97 @@
           <div class="mb-4">
             <h3 class="h6">Button Sizes</h3>
             <p>Buttons can have different sizes.</p>
-            <button type="button" class="btn btn-primary btn-lg">Large</button>
-            <button type="button" class="btn btn-primary">Regular</button>
+            <button type="button" class="btn btn-primary btn-lg mr-1">Large</button>
+            <button type="button" class="btn btn-primary mr-1">Regular</button>
             <button type="button" class="btn btn-primary btn-sm">Small</button>
           </div>
           <div class="mb-4">
-            <h3 class="h6">Button.</h3>
+            <h3 class="h6">Primary Button.</h3>
             <p>Primary buttons should be used to signify necessary or mandatory actions.</p>
             <button type="button" class="btn btn-primary">Primary</button>
-            <button type="button" class="btn btn-secondary">Secondary</button>
-            <button type="button" class="btn btn-success">Success</button>
-            <button type="button" class="btn btn-info">Info</button>
-            <button type="button" class="btn btn-warning">Warning</button>
-            <button type="button" class="btn btn-danger">Danger</button>
           </div>
           <div class="mb-4">
             <h3 class="h6">Outline Buttons.</h3>
             <p>Outline buttons should be used to signify optional, infrequent or subtle actions, like &ldquo;cancel&rdquo; or &ldquo;go back&rdquo;. Often paired with a flat button as a second option.</p>
-            <button type="button" class="btn btn-outline-primary btn-lg">Large</button>
-            <button type="button" class="btn btn-outline-primary">Regular</button>
-            <button type="button" class="btn btn-outline-primary btn-sm">Small</button>
+            <button type="button" class="btn btn-outline-primary btn-lg mr-1">Large</button>
+            <button type="button" class="btn btn-outline-primary mr-1">Regular</button>
+            <button type="button" class="btn btn-outline-primary btn-sm mr-1">Small</button>
           </div>
           <div class="mb-4">
             <h3 class="h6">Disabled Button.</h3>
             <p>Disabled buttons don&rsquo;t have hover states, and don&rsquo;t change the mouse pointer on hover.</p>
             <button type="button" class="btn btn-primary" disabled>Disabled</button>
+          </div>
+        </div>
+        <div class="mb-4">
+          <h2 class="mb-4">Forms.</h2>
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <h3 class="h6">Text Inputs.</h3>
+              <p>Input fields comes in 3 sizes: large, regular, small.</p>
+              <div class="bg-gray-100 rounded-lg p-3">
+                <div class="form-group">
+                  <label>Large</label>
+                  <input type="text" class="form-control form-control-lg" placeholder="Placeholder text">
+                  <small class="form-text text-muted">Some helpful text</small>
+                </div>
+                <hr>
+                <div class="form-group">
+                  <label>Regular</label>
+                  <input type="text" class="form-control" placeholder="Placeholder text">
+                  <small class="form-text text-muted">Some helpful text</small>
+                </div>
+                <hr>
+                <div class="form-group">
+                  <label>Small</label>
+                  <input type="text" class="form-control form-control-sm" placeholder="Placeholder text">
+                  <small class="form-text text-muted">Some helpful text</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <h3 class="h6">Invalid Inputs.</h3>
+              <div class="bg-gray-100 rounded-lg p-3">
+                <div class="form-group">
+                  <label>Large</label>
+                  <input type="text" class="form-control form-control-lg is-invalid" placeholder="Placeholder text">
+                  <small class="form-text invalid-feedback">This is an error message</small>
+                </div>
+                <hr>
+                <div class="form-group">
+                  <label>Regular</label>
+                  <input type="text" class="form-control is-invalid" placeholder="Placeholder text">
+                  <small class="form-text invalid-feedback">This is an error message</small>
+                </div>
+                <hr>
+                <div class="form-group">
+                  <label>Small</label>
+                  <input type="text" class="form-control form-control-sm is-invalid" placeholder="Placeholder text">
+                  <small class="form-text invalid-feedback">This is an error message</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <h3 class="h6">Disabled Input.</h3>
+              <p>Similar to a disabled button, no mouse pointer on hover.</p>
+              <input type="text" class="form-control" disabled placeholder="Disabled Input">
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-8">
+              <h3 class="h6">Text Area.</h3>
+              <p>It has the same hover, active, writing and written state as an input field.</p>
+              <div class="bg-gray-100 rounded-lg p-3">
+                <div class="form-group">
+                  <label>Label</label>
+                  <textarea class="form-control form-control" placeholder="Placeholder text"></textarea>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
