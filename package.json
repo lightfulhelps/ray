@@ -10,6 +10,7 @@
     "css:lint": "stylelint 'src/scss/*.scss' --syntax scss",
     "css:watch": "chokidar 'src/scss/*.scss' -c 'yarn css'",
     "dist": "rm -rf dist && yarn css",
+    "serve": "http-server -o",
     "start": "yarn css && yarn css:watch",
     "test": "yarn lint:css"
   },
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
+    "http-server": "^0.11.1",
     "node-sass": "^4.9.2",
     "stylelint": "^9.3.0",
     "stylelint-config-recommended-scss": "^3.2.0",
