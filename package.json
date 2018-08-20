@@ -16,7 +16,7 @@
     "lint:css": "stylelint 'src/scss/*.scss' --syntax scss",
     "lint:html": "bootlint ./index.html -d W005",
     "lint:js": "eslint src/js -f table --ext .js",
-    "start": "",
+    "start": "run-s storybook",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "run-p test:css test:js",
     "test:css": "",
