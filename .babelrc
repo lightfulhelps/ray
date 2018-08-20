@@ -1,0 +1,7 @@
+{
+  "presets": ["env", "react"],
+  "ignore": [
+    "src/js/**/*.spec.js",
+    "src/js/**/*.story.js"
+  ],
+}
