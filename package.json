@@ -16,15 +16,13 @@
     "lint:css": "stylelint 'src/scss/*.scss' --syntax scss",
     "lint:html": "bootlint ./index.html -d W005",
     "lint:js": "eslint src/js -f table --ext .js",
-    "css": "yarn css:lint && yarn css:build",
-    "css:lint": "stylelint 'src/scss/*.scss' --syntax scss",
-    "css:watch": "chokidar 'src/scss/*.scss' -c 'yarn css'",
     "dist": "rm -rf dist && yarn css",
     "start": "",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "run-p test:css test:js",
     "test:css": "",
-    "test:js": ""
+    "test:js": "",
+    "watch:css": "chokidar 'src/scss/*.scss' -c 'run-s lint:css build:css'"
   },
   "husky": {
     "hooks": {
