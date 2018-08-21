@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PostCard /> should render 1`] = `
+<Card
+  className="post-card"
+>
+  Post Card
+</Card>
+`;

@@ -5,6 +5,7 @@ import classNames from 'classnames';
 type Props = {
   block?: boolean,
   children: React.Element<any>,
+  className?: string,
   color?: string,
   disabled?: boolean,
   onClick?: () => void,
@@ -16,6 +17,7 @@ type Props = {
 const Button = ({
   block,
   children,
+  className,
   color = 'primary',
   disabled,
   onClick = () => {},
@@ -24,6 +26,7 @@ const Button = ({
   tag: Tag = 'button',
 }: Props) => {
   const classes = classNames(
+    className,
     'btn',
     `btn${outline ? '-outline' : ''}-${color}`,
     size ? `btn-${size}` : false,

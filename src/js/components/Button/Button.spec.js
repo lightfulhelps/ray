@@ -39,6 +39,15 @@ describe('<Button />', () => {
     expect(wrapper.children().text()).toEqual('Click Me');
   });
 
+  it('should handle the className prop', () => {
+    const { wrapper } = setup();
+
+    wrapper.setProps({ className: 'custom' });
+
+    expect(wrapper.hasClass('btn')).toBe(true);
+    expect(wrapper.hasClass('custom')).toBe(true);
+  });
+
   it('should handle the color prop', () => {
     const { wrapper } = setup();
 
