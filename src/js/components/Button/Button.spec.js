@@ -23,16 +23,6 @@ describe('<Button />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should handle the block prop', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.hasClass('btn-block')).toBe(false);
-
-    wrapper.setProps({ block: true });
-
-    expect(wrapper.hasClass('btn-block')).toBe(true);
-  });
-
   it('should handle the children prop', () => {
     const { wrapper } = setup();
 
@@ -59,14 +49,34 @@ describe('<Button />', () => {
     expect(wrapper.hasClass('btn-secondary')).toBe(true);
   });
 
-  it('should handle the disabled prop', () => {
+  it('should handle the isBlock prop', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.hasClass('btn-block')).toBe(false);
+
+    wrapper.setProps({ isBlock: true });
+
+    expect(wrapper.hasClass('btn-block')).toBe(true);
+  });
+
+  it('should handle the isDisabled prop', () => {
     const { wrapper } = setup();
 
     expect(wrapper.hasClass('disabled')).toBe(false);
 
-    wrapper.setProps({ disabled: true });
+    wrapper.setProps({ isDisabled: true });
 
     expect(wrapper.hasClass('disabled')).toBe(true);
+  });
+
+  it('should handle the isOutline prop', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.hasClass('btn-outline-primary')).toBe(false);
+
+    wrapper.setProps({ isOutline: true });
+
+    expect(wrapper.hasClass('btn-outline-primary')).toBe(true);
   });
 
   it('should call onClick', () => {
@@ -75,16 +85,6 @@ describe('<Button />', () => {
     wrapper.simulate('click');
 
     expect(props.onClick).toHaveBeenCalledTimes(1);
-  });
-
-  it('should handle the outline prop', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.hasClass('btn-outline-primary')).toBe(false);
-
-    wrapper.setProps({ outline: true });
-
-    expect(wrapper.hasClass('btn-outline-primary')).toBe(true);
   });
 
   it('should handle the size prop', () => {

@@ -37,26 +37,6 @@ describe('<Card />', () => {
     expect(wrapper.hasClass('custom')).toBe(true);
   });
 
-  it('should handle the color prop', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.hasClass('bg-primary')).toBe(false);
-
-    wrapper.setProps({ color: 'primary' });
-
-    expect(wrapper.hasClass('bg-primary')).toBe(true);
-  });
-
-  it('should handle the outline prop', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.hasClass('border-primary')).toBe(false);
-
-    wrapper.setProps({ outline: true, color: 'primary' });
-
-    expect(wrapper.hasClass('border-primary')).toBe(true);
-  });
-
   it('should handle the tag prop', () => {
     const { wrapper } = setup();
 

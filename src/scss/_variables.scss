@@ -47,6 +47,7 @@ $spacers: (
 //
 // Settings for the `<body>` element.
 
+$body-bg: $gray-100;
 $body-color: $gray-600;
 
 // Components
@@ -132,3 +133,9 @@ $input-border-radius-sm: $border-radius-sm;
 $input-focus-box-shadow: none;
 
 $input-hover-border-color: $gray-500; // Ray
+
+// Cards
+
+$card-border-width: 2px;
+$card-border-radius: $border-radius-sm;
+$card-border-color: $white;

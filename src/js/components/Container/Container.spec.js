@@ -37,13 +37,13 @@ describe('<Container />', () => {
     expect(wrapper.hasClass('custom')).toBe(true);
   });
 
-  it('should handle the fluid prop', () => {
+  it('should handle the isFluid prop', () => {
     const { wrapper } = setup();
 
     expect(wrapper.hasClass('container')).toBe(true);
     expect(wrapper.hasClass('container-fluid')).toBe(false);
 
-    wrapper.setProps({ fluid: true });
+    wrapper.setProps({ isFluid: true });
 
     expect(wrapper.hasClass('container')).toBe(false);
     expect(wrapper.hasClass('container-fluid')).toBe(true);

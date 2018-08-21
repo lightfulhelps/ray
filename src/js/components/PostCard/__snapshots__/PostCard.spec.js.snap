@@ -2,7 +2,7 @@
 
 exports[`<PostCard /> should render 1`] = `
 <Card
-  className="post-card"
+  className="post-card shadow"
 >
   Post Card
 </Card>

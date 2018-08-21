@@ -5,12 +5,12 @@ import classNames from 'classnames';
 type Props = {
   children: React.ChildrenArray<React.Element<any>>,
   className?: string,
-  fluid?: boolean,
+  isFluid?: boolean,
   tag?: string,
 };
 
-const Container = ({ children, className, fluid, tag: Tag = 'div' }: Props) => {
-  const classes = classNames(className, fluid ? 'container-fluid' : 'container');
+const Container = ({ children, className, isFluid, tag: Tag = 'div' }: Props) => {
+  const classes = classNames(className, isFluid ? 'container-fluid' : 'container');
 
   return <Tag className={classes}>{children}</Tag>;
 };

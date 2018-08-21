@@ -1,3 +1,10 @@
 @include rounded-size('sm', $border-radius-sm);
 
 @include rounded-size('lg', $border-radius-lg);
+
+// Border classes for grays
+@each $color, $value in $grays {
+  .border-gray-#{$color} {
+    border-color: $value;
+  }
+}
