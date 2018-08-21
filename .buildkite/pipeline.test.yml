@@ -4,6 +4,6 @@ steps:
       - docker pull node:8.10
       - docker run -ti --rm -v $(pwd):/src -w=/src node:8.10 yarn
       - docker run -ti --rm -v $(pwd):/src -w=/src node:8.10 yarn lint
-      - docker run -ti --rm -v $(pwd):/src -w=/src node:8.10 yarn test
+      - docker run -ti --rm -v $(pwd):/src -w=/src node:8.10 yarn test:ci
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE}"
