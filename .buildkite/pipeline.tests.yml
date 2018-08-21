@@ -1,9 +1,9 @@
 steps:
   - label: Run tests
-    command:
-      - docker pull node:8.10
-      - docker run -ti --rm -v $(pwd):/src -w=/src node:8.10 yarn
-      - docker run -ti --rm -v $(pwd):/src -w=/src node:8.10 yarn lint
-      - docker run -ti --rm -v $(pwd):/src -w=/src node:8.10 yarn test:ci
-    agents:
-      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE}"
+    - command: yarn && yarn lint && yarn test:ci
+      plugins:
+        docker#v1.4.0:
+          image: "node:8.10"
+          workdir: /
+      agents:
+        queue: "${BUILDKITE_AGENT_META_DATA_QUEUE}"
