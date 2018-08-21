@@ -40,7 +40,7 @@ module.exports = {
     'import/no-extraneous-dependencies': [
       2,
       {
-        devDependencies: ['**/*.spec.js', '**/*.story.js'],
+        devDependencies: ['**/*.spec.js', '**/*.story.js', 'src/js/setupTests.js'],
       },
     ],
     'import/no-named-as-default': 0,

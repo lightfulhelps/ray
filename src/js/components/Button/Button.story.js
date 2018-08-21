@@ -21,7 +21,7 @@ const themes = {
 
 const sizes = {
   lg: 'Large',
-  md: 'Regular',
+  md: 'Medium',
   sm: 'Small',
 };
 
@@ -35,6 +35,6 @@ stories.add('Default', () => (
     disabled={boolean('Disabled', false)}
     size={select('Size', sizes, 'md')}
   >
-    {text('Children', 'Button Text')}
+    {text('Text', 'Click Me')}
   </Button>
 ));

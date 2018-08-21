@@ -1,7 +1,4 @@
 {
-  "presets": ["env", "react"],
-  "ignore": [
-    "src/js/**/*.spec.js",
-    "src/js/**/*.story.js"
-  ],
+  "presets": ["env", "react", "flow"],
+  "plugins": ["flow-react-proptypes"]
 }
