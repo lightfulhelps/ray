@@ -1,8 +1,5 @@
 steps:
-  - label: ':hammmer: Tests'
-    command: yarn && yarn lint && yarn test:ci
-    plugins:
-      docker#v1.4.0:
-        image: "node:8.10"
+  - name: Tests
+    command: yarn && yarn lint && yarn test:ci      
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE}"
