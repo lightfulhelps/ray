@@ -24,7 +24,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm build && git add && lint-staged"
     }
   },
   "lint-staged": {
