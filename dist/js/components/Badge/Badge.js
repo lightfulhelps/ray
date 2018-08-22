@@ -20,38 +20,33 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-var Button = function Button(_ref) {
+var Badge = function Badge(_ref) {
   var children = _ref.children,
       className = _ref.className,
-      _ref$theme = _ref.theme,
-      theme = _ref$theme === undefined ? 'primary' : _ref$theme,
-      isBlock = _ref.isBlock,
-      isDisabled = _ref.isDisabled,
-      isOutline = _ref.isOutline,
-      _ref$onClick = _ref.onClick,
-      onClick = _ref$onClick === undefined ? function () {} : _ref$onClick,
-      size = _ref.size,
+      color = _ref.color,
+      isPill = _ref.isPill,
       _ref$tag = _ref.tag,
-      Tag = _ref$tag === undefined ? 'button' : _ref$tag;
+      Tag = _ref$tag === undefined ? 'span' : _ref$tag,
+      _ref$theme = _ref.theme,
+      theme = _ref$theme === undefined ? 'primary' : _ref$theme;
 
-  var classes = (0, _classnames2.default)(className, 'btn', 'btn' + (isOutline ? '-outline' : '') + '-' + theme, size ? 'btn-' + size : false, { 'btn-block': isBlock }, { disabled: isDisabled });
+  var classes = (0, _classnames2.default)(className, 'badge', 'text-uppercase', theme ? 'badge-' + theme : null, {
+    'badge-pill': isPill
+  });
 
   return React.createElement(
     Tag,
-    { className: classes, onClick: onClick },
+    { className: classes, style: { backgroundColor: color } },
     children
   );
 };
 
-Button.propTypes = {
+Badge.propTypes = {
   children: _propTypes2.default.node.isRequired,
   className: _propTypes2.default.string,
-  isBlock: _propTypes2.default.bool,
-  isDisabled: _propTypes2.default.bool,
-  isOutline: _propTypes2.default.bool,
-  onClick: _propTypes2.default.func,
-  size: _propTypes2.default.oneOf(['lg', 'md', 'sm']),
+  color: _propTypes2.default.string,
+  isPill: _propTypes2.default.bool,
   tag: _propTypes2.default.string,
   theme: _propTypes2.default.string
 };
-exports.default = Button;
+exports.default = Badge;

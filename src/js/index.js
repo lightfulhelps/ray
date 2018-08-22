@@ -1,3 +1,4 @@
+export { default as Badge } from './components/Badge/Badge';
 export { default as Button } from './components/Button/Button';
 export { default as Card } from './components/Card/Card';
 export { default as Container } from './components/Container/Container';

@@ -16,6 +16,8 @@ var _format = require('date-fns/format');
 
 var _format2 = _interopRequireDefault(_format);
 
+var _ = require('../../');
+
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -23,7 +25,8 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var PostHeader = function PostHeader(_ref) {
-  var className = _ref.className,
+  var campaign = _ref.campaign,
+      className = _ref.className,
       date = _ref.date,
       _ref$dateFormat = _ref.dateFormat,
       dateFormat = _ref$dateFormat === undefined ? 'D MMM [at] HH:mm' : _ref$dateFormat,
@@ -45,11 +48,20 @@ var PostHeader = function PostHeader(_ref) {
         'div',
         { className: 'post-date small text-uppercase' },
         (0, _format2.default)(date, dateFormat)
+      ),
+      campaign && _react2.default.createElement(
+        _.Badge,
+        { color: campaign.color },
+        campaign.label
       )
     )
   );
 };
 PostHeader.propTypes = {
+  campaign: _propTypes2.default.shape({
+    color: _propTypes2.default.string.isRequired,
+    label: _propTypes2.default.string.isRequired
+  }),
   className: _propTypes2.default.string,
   date: _propTypes2.default.oneOfType([function () {
     return (typeof Date === 'function' ? _propTypes2.default.instanceOf(Date) : _propTypes2.default.any).apply(this, arguments);

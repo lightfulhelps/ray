@@ -4,6 +4,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _Badge = require('./components/Badge/Badge');
+
+Object.defineProperty(exports, 'Badge', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Badge).default;
+  }
+});
+
 var _Button = require('./components/Button/Button');
 
 Object.defineProperty(exports, 'Button', {
