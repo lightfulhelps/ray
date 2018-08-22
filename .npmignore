@@ -1,4 +1,5 @@
 .buildkite
+.github
 .storybook
 *.spec.js
 *.stories.js
