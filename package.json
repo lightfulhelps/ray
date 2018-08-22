@@ -8,7 +8,7 @@
   "scripts": {
     "build": "rm -rf dist && run-p build:css build:js",
     "build:css": "node-sass src/scss/ray.scss dist/css/ray.css",
-    "build:js": "babel src/js --out-dir dist/js --ignore '*.story.js, *.spec.js, setupTests.js'",
+    "build:js": "babel src/js --out-dir dist/js --ignore '*.stories.js, *.spec.js, setupTests.js'",
     "build:storybook": "build-storybook -c .storybook -o docs/storybook",
     "format": "run-p format:css format:js",
     "format:css": "prettier --write './src/scss/**/*.scss'",
@@ -24,7 +24,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && flow check && yarn build && git add dist"
     }
   },
   "lint-staged": {
@@ -42,6 +42,7 @@
   "dependencies": {
     "bootstrap": "^4.1.3",
     "classnames": "^2.2.6",
+    "date-fns": "^1.29.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-dotdotdot": "^1.2.3"

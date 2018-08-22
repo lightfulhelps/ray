@@ -21,19 +21,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var Button = function Button(_ref) {
-  var block = _ref.block,
-      children = _ref.children,
+  var children = _ref.children,
+      className = _ref.className,
       _ref$color = _ref.color,
       color = _ref$color === undefined ? 'primary' : _ref$color,
-      disabled = _ref.disabled,
+      isBlock = _ref.isBlock,
+      isDisabled = _ref.isDisabled,
+      isOutline = _ref.isOutline,
       _ref$onClick = _ref.onClick,
       onClick = _ref$onClick === undefined ? function () {} : _ref$onClick,
-      outline = _ref.outline,
       size = _ref.size,
       _ref$tag = _ref.tag,
       Tag = _ref$tag === undefined ? 'button' : _ref$tag;
 
-  var classes = (0, _classnames2.default)('btn', 'btn' + (outline ? '-outline' : '') + '-' + color, size ? 'btn-' + size : false, block ? 'btn-block' : false, { disabled: disabled });
+  var classes = (0, _classnames2.default)(className, 'btn', 'btn' + (isOutline ? '-outline' : '') + '-' + color, size ? 'btn-' + size : false, { 'btn-block': isBlock }, { disabled: isDisabled });
+
   return React.createElement(
     Tag,
     { className: classes, onClick: onClick },
@@ -42,13 +44,14 @@ var Button = function Button(_ref) {
 };
 
 Button.propTypes = {
-  block: _propTypes2.default.bool,
   children: _propTypes2.default.node.isRequired,
+  className: _propTypes2.default.string,
   color: _propTypes2.default.string,
-  disabled: _propTypes2.default.bool,
+  isBlock: _propTypes2.default.bool,
+  isDisabled: _propTypes2.default.bool,
+  isOutline: _propTypes2.default.bool,
   onClick: _propTypes2.default.func,
-  outline: _propTypes2.default.bool,
-  size: _propTypes2.default.oneOf(['lg', 'sm']),
+  size: _propTypes2.default.oneOf(['lg', 'md', 'sm']),
   tag: _propTypes2.default.string
 };
 exports.default = Button;

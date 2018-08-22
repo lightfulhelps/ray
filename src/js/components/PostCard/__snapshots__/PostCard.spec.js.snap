@@ -4,8 +4,8 @@ exports[`<PostCard /> should render 1`] = `
 <Card
   className="post-card shadow"
 >
-  <PostContent>
-    Odit qui odit harum qui nulla. Eveniet omnis delectus voluptates. Facere dolore impedit esse. Pariatur nisi dolores voluptatem quo architecto adipisci consectetur vel alias. Qui autem iste aut omnis sit quae velit. Cumque earum ducimus et.
-  </PostContent>
+  <p>
+    Post Card
+  </p>
 </Card>
 `;

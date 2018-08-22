@@ -1,16 +1,16 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import { Card, PostContent } from '../../';
+import { Card } from '../../';
 
 type Props = {
+  children: React.ChildrenArray<React.Element<any>>,
   className?: string,
-  content: string,
   isDraft?: boolean,
   isInvalid?: boolean,
 };
 
-const PostCard = ({ className, content, isDraft, isInvalid }: Props) => {
+const PostCard = ({ children, className, isDraft, isInvalid }: Props) => {
   const classes = classNames(
     className,
     'post-card',
@@ -19,11 +19,7 @@ const PostCard = ({ className, content, isDraft, isInvalid }: Props) => {
     { 'border-danger': isInvalid }
   );
 
-  return (
-    <Card className={classes}>
-      <PostContent>{content}</PostContent>
-    </Card>
-  );
+  return <Card className={classes}>{children}</Card>;
 };
 
 export default PostCard;

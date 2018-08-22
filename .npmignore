@@ -2,4 +2,4 @@
 .github
 .storybook
 *.spec.js
-*.story.js
+*.stories.js

@@ -4,8 +4,7 @@ import PostCard from './PostCard';
 
 const setup = (overrides = {}) => {
   const props = {
-    content:
-      'Odit qui odit harum qui nulla. Eveniet omnis delectus voluptates. Facere dolore impedit esse. Pariatur nisi dolores voluptatem quo architecto adipisci consectetur vel alias. Qui autem iste aut omnis sit quae velit. Cumque earum ducimus et.',
+    children: <p>Post Card</p>,
     ...overrides,
   };
   const wrapper = shallow(<PostCard {...props} />);

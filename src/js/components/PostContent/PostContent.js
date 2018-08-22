@@ -10,7 +10,7 @@ type Props = {
 };
 
 const PostContent = ({ children, className, lines = 5 }: Props) => {
-  const classes = classNames(className, 'post-content', 'my-1 mx-2', 'font-weight-light');
+  const classes = classNames(className, 'post-content', 'my-1 mx-2 font-weight-light');
 
   return (
     <div className={classes}>
