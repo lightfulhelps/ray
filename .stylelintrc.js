@@ -4,8 +4,4 @@ module.exports = {
     'stylelint-config-recommended-scss',
     'stylelint-config-prettier',
   ],
-  rules: {
-    'function-name-case': null,
-    'no-descending-specificity': null,
-  },
 };
