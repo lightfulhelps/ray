@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
-import { Container, Row, URLMetaPreview } from '../';
+import { Container, Row, Col, URLMetaPreview } from '../';
 
 import '../../scss/ray.scss';
 
@@ -13,7 +13,7 @@ stories.add('Default', () => (
   <Container>
     <h1 className="my-4">URLMetaPreview.</h1>
     <Row>
-      <div className="col-4">
+      <Col xs={4}>
         <URLMetaPreview
           title={text('Title', "National Living Wage 'fails to cover families' basic needs")}
           description={text(
@@ -27,7 +27,7 @@ stories.add('Default', () => (
           url={text('URL', 'https://www.bbc.co.uk/news/business-45242008')}
           isVertical={boolean('Vertical', false)}
         />
-      </div>
+      </Col>
     </Row>
   </Container>
 ));

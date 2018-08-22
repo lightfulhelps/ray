@@ -31,6 +31,15 @@ Object.defineProperty(exports, 'Card', {
   }
 });
 
+var _Col = require('./components/Col/Col');
+
+Object.defineProperty(exports, 'Col', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Col).default;
+  }
+});
+
 var _Container = require('./components/Container/Container');
 
 Object.defineProperty(exports, 'Container', {

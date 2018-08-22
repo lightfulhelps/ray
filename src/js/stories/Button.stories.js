@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
-import { Container, Row, Button } from '../';
+import { Container, Row, Col, Button } from '../';
 
 import '../../scss/ray.scss';
 
@@ -31,7 +31,7 @@ stories.add('Default', () => (
   <Container>
     <h1 className="my-4">Button.</h1>
     <Row>
-      <div className="col-6">
+      <Col xs={6}>
         <Button
           color={select('Theme', themes, 'primary')}
           isBlock={boolean('Block', false)}
@@ -42,7 +42,7 @@ stories.add('Default', () => (
         >
           {text('Text', 'Click Me')}
         </Button>
-      </div>
+      </Col>
     </Row>
   </Container>
 ));
