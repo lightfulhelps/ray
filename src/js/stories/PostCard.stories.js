@@ -12,7 +12,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1>PostCard.</h1>
+    <h1 className="my-4">PostCard.</h1>
     <Row>
       <div className="col-md-6 col-lg-4 mb-2">
         <PostCard isDraft={boolean('Draft', false)} isInvalid={boolean('Invalid', false)}>

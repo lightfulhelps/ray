@@ -26,7 +26,7 @@ var PostHeader = function PostHeader(_ref) {
   var className = _ref.className,
       date = _ref.date,
       _ref$dateFormat = _ref.dateFormat,
-      dateFormat = _ref$dateFormat === undefined ? 'D MMM [at] hh:mm' : _ref$dateFormat,
+      dateFormat = _ref$dateFormat === undefined ? 'D MMM [at] HH:mm' : _ref$dateFormat,
       title = _ref.title;
 
   var classes = (0, _classnames2.default)(className, 'post-header', 'd-flex mt-2 mr-2 mb-1 ml-2');
@@ -43,7 +43,7 @@ var PostHeader = function PostHeader(_ref) {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'small text-uppercase' },
+        { className: 'post-date small text-uppercase' },
         (0, _format2.default)(date, dateFormat)
       )
     )
