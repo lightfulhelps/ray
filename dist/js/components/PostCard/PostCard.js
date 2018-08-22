@@ -23,36 +23,25 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var PostCard = function PostCard(_ref) {
-  var className = _ref.className,
-      content = _ref.content,
-      date = _ref.date,
-      dateFormat = _ref.dateFormat,
+  var children = _ref.children,
+      className = _ref.className,
       isDraft = _ref.isDraft,
-      isInvalid = _ref.isInvalid,
-      title = _ref.title;
+      isInvalid = _ref.isInvalid;
 
   var classes = (0, _classnames2.default)(className, 'post-card', 'shadow', { 'bg-light border-gray-500': isDraft }, { 'border-danger': isInvalid });
 
   return React.createElement(
     _.Card,
     { className: classes },
-    React.createElement(_.PostHeader, { title: title, date: date, dateFormat: dateFormat }),
-    React.createElement(
-      _.PostContent,
-      null,
-      content
-    )
+    children
   );
 };
 PostCard.propTypes = {
+  children: function children() {
+    return (typeof (React.ChildrenArray == null ? {} : React.ChildrenArray) === 'function' ? _propTypes2.default.instanceOf(React.ChildrenArray == null ? {} : React.ChildrenArray).isRequired : _propTypes2.default.any.isRequired).apply(this, arguments);
+  },
   className: _propTypes2.default.string,
-  content: _propTypes2.default.string.isRequired,
-  date: _propTypes2.default.oneOfType([function () {
-    return (typeof Date === 'function' ? _propTypes2.default.instanceOf(Date) : _propTypes2.default.any).apply(this, arguments);
-  }, _propTypes2.default.number, _propTypes2.default.string]),
-  dateFormat: _propTypes2.default.string,
   isDraft: _propTypes2.default.bool,
-  isInvalid: _propTypes2.default.bool,
-  title: _propTypes2.default.string.isRequired
+  isInvalid: _propTypes2.default.bool
 };
 exports.default = PostCard;
