@@ -10,7 +10,7 @@ type Props = {
 };
 
 const Row = ({ children, className, noGutters, tag: Tag = 'div' }: Props) => {
-  const classes = classNames(className, 'row', noGutters ? 'no-gutters' : null);
+  const classes = classNames(className, 'row', { 'no-gutters': noGutters });
 
   return <Tag className={classes}>{children}</Tag>;
 };

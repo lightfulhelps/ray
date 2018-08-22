@@ -29,8 +29,8 @@ const Button = ({
     className,
     'btn',
     `btn${isOutline ? '-outline' : ''}-${color}`,
-    size ? `btn-${size}` : false,
-    isBlock ? 'btn-block' : false,
+    { [`btn-${size}`]: size },
+    { 'btn-block': isBlock },
     { disabled: isDisabled }
   );
 
