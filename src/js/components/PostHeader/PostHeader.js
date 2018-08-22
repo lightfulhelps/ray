@@ -7,7 +7,7 @@ import { Badge } from '../../';
 type Props = {
   campaign?: {
     color: string,
-    label: string,
+    name: string,
   },
   className?: string,
   date?: Date | number | string,
@@ -30,7 +30,11 @@ const PostHeader = ({
         {date && (
           <div className="post-date small text-uppercase">{formatDate(date, dateFormat)}</div>
         )}
-        {campaign && <Badge color={campaign.color}>{campaign.label}</Badge>}
+        {campaign && (
+          <Badge className="campaign-tag" color={campaign.color}>
+            {campaign.name}
+          </Badge>
+        )}
       </div>
     </div>
   );

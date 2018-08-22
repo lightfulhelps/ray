@@ -51,8 +51,8 @@ var PostHeader = function PostHeader(_ref) {
       ),
       campaign && _react2.default.createElement(
         _.Badge,
-        { color: campaign.color },
-        campaign.label
+        { className: 'campaign-tag', color: campaign.color },
+        campaign.name
       )
     )
   );
@@ -60,7 +60,7 @@ var PostHeader = function PostHeader(_ref) {
 PostHeader.propTypes = {
   campaign: _propTypes2.default.shape({
     color: _propTypes2.default.string.isRequired,
-    label: _propTypes2.default.string.isRequired
+    name: _propTypes2.default.string.isRequired
   }),
   className: _propTypes2.default.string,
   date: _propTypes2.default.oneOfType([function () {

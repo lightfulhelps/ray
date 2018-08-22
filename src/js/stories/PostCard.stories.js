@@ -20,7 +20,7 @@ stories.add('Default', () => (
             title={text('Title', 'Hope For Children')}
             date={date('Date', defaultDate)}
             campaign={{
-              label: text('Campaign Label', 'Campaign Tag'),
+              name: text('Campaign Name', 'Campaign Tag'),
               color: color('Campaign Color', '#27B0CC'),
             }}
           />
