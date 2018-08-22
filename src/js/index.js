@@ -5,3 +5,4 @@ export { default as PostCard } from './components/PostCard/PostCard';
 export { default as PostContent } from './components/PostContent/PostContent';
 export { default as PostHeader } from './components/PostHeader/PostHeader';
 export { default as Row } from './components/Row/Row';
+export { default as URLMetaPreview } from './components/URLMetaPreview/URLMetaPreview';
