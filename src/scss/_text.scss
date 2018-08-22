@@ -2,3 +2,7 @@ small,
 .small {
   font-size: $font-size-sm;
 }
+
+@each $color, $value in $grays {
+  @include text-emphasis-variant('.text-gray-#{$color}', $value);
+}

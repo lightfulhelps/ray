@@ -6338,6 +6338,60 @@ small,
 .small {
   font-size: 0.75rem; }
 
+.text-gray-100 {
+  color: #f8f9fa !important; }
+
+a.text-gray-100:hover, a.text-gray-100:focus {
+  color: #dae0e5 !important; }
+
+.text-gray-200 {
+  color: #e9ecef !important; }
+
+a.text-gray-200:hover, a.text-gray-200:focus {
+  color: #cbd3da !important; }
+
+.text-gray-300 {
+  color: #dee2e6 !important; }
+
+a.text-gray-300:hover, a.text-gray-300:focus {
+  color: #c1c9d0 !important; }
+
+.text-gray-400 {
+  color: #ced4da !important; }
+
+a.text-gray-400:hover, a.text-gray-400:focus {
+  color: #b1bbc4 !important; }
+
+.text-gray-500 {
+  color: #adb5bd !important; }
+
+a.text-gray-500:hover, a.text-gray-500:focus {
+  color: #919ca6 !important; }
+
+.text-gray-600 {
+  color: #6c757d !important; }
+
+a.text-gray-600:hover, a.text-gray-600:focus {
+  color: #545b62 !important; }
+
+.text-gray-700 {
+  color: #495057 !important; }
+
+a.text-gray-700:hover, a.text-gray-700:focus {
+  color: #32373b !important; }
+
+.text-gray-800 {
+  color: #343a40 !important; }
+
+a.text-gray-800:hover, a.text-gray-800:focus {
+  color: #1d2124 !important; }
+
+.text-gray-900 {
+  color: #212529 !important; }
+
+a.text-gray-900:hover, a.text-gray-900:focus {
+  color: #0a0c0d !important; }
+
 .bg-gray-100 {
   background-color: #f8f9fa !important; }
 
@@ -6409,6 +6463,15 @@ a.bg-gray-900:hover, a.bg-gray-900:focus,
 button.bg-gray-900:hover,
 button.bg-gray-900:focus {
   background-color: #0a0c0d !important; }
+
+.bg-contain {
+  background-size: contain; }
+
+.bg-cover {
+  background-size: cover; }
+
+.bg-center {
+  background-position: center; }
 
 .rounded-sm {
   border-radius: 0.325rem; }
