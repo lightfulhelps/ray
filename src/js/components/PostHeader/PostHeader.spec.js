@@ -32,6 +32,16 @@ describe('<PostHeader />', () => {
     expect(wrapper.hasClass('custom')).toBe(true);
   });
 
+  it('should optionally display date', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.find('.post-date').exists()).toBe(true);
+
+    wrapper.setProps({ date: null });
+
+    expect(wrapper.find('.post-date').exists()).toBe(false);
+  });
+
   it('should handle the dateFormat prop', () => {
     const { wrapper } = setup();
 

@@ -41,7 +41,7 @@ var PostHeader = function PostHeader(_ref) {
         { className: 'h5' },
         title
       ),
-      _react2.default.createElement(
+      date && _react2.default.createElement(
         'div',
         { className: 'post-date small text-uppercase' },
         (0, _format2.default)(date, dateFormat)

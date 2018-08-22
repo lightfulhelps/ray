@@ -24,7 +24,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn build && git add dist"
+      "pre-commit": "lint-staged && flow check && yarn build && git add dist"
     }
   },
   "lint-staged": {
