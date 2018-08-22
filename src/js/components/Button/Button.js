@@ -30,7 +30,7 @@ const Button = ({
     'btn',
     `btn${isOutline ? '-outline' : ''}-${color}`,
     size ? `btn-${size}` : false,
-    isBlock ? 'btn-block' : false,
+    { 'btn-block': isBlock },
     { disabled: isDisabled }
   );
 

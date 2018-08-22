@@ -1,24 +1,29 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import { Card } from '../../';
+import { Card, PostContent } from '../../';
 
 type Props = {
   className?: string,
+  content: string,
   isDraft?: boolean,
   isInvalid?: boolean,
 };
 
-const PostCard = ({ className, isDraft, isInvalid }: Props) => {
+const PostCard = ({ className, content, isDraft, isInvalid }: Props) => {
   const classes = classNames(
     className,
     'post-card',
     'shadow',
-    isDraft ? 'bg-light border-gray-500' : null,
-    isInvalid ? 'border-danger' : null
+    { 'bg-light border-gray-500': isDraft },
+    { 'border-danger': isInvalid }
   );
 
-  return <Card className={classes}>Post Card</Card>;
+  return (
+    <Card className={classes}>
+      <PostContent>{content}</PostContent>
+    </Card>
+  );
 };
 
 export default PostCard;
