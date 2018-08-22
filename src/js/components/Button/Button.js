@@ -5,19 +5,19 @@ import classNames from 'classnames';
 type Props = {
   children: React.Element<any>,
   className?: string,
-  color?: string,
   isBlock?: boolean,
   isDisabled?: boolean,
   isOutline?: boolean,
   onClick?: () => void,
   size?: 'lg' | 'md' | 'sm',
   tag?: string,
+  theme?: string,
 };
 
 const Button = ({
   children,
   className,
-  color = 'primary',
+  theme = 'primary',
   isBlock,
   isDisabled,
   isOutline,
@@ -28,7 +28,7 @@ const Button = ({
   const classes = classNames(
     className,
     'btn',
-    `btn${isOutline ? '-outline' : ''}-${color}`,
+    `btn${isOutline ? '-outline' : ''}-${theme}`,
     size ? `btn-${size}` : false,
     { 'btn-block': isBlock },
     { disabled: isDisabled }

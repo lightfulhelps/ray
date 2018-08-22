@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Badge /> should render 1`] = `
+<span
+  className="badge text-uppercase badge-primary"
+  style={
+    Object {
+      "backgroundColor": undefined,
+    }
+  }
+>
+  Badge
+</span>
+`;

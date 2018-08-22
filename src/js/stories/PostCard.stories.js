@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, date } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text, date, color } from '@storybook/addon-knobs';
 import { Container, Row, PostCard, PostContent, PostHeader } from '../';
 
 import '../../scss/ray.scss';
@@ -16,7 +16,14 @@ stories.add('Default', () => (
     <Row>
       <div className="col-md-6 col-lg-4 mb-2">
         <PostCard isDraft={boolean('Draft', false)} isInvalid={boolean('Invalid', false)}>
-          <PostHeader title={text('Title', 'Hope For Children')} date={date('Date', defaultDate)} />
+          <PostHeader
+            title={text('Title', 'Hope For Children')}
+            date={date('Date', defaultDate)}
+            campaign={{
+              name: text('Campaign Name', 'Campaign Tag'),
+              color: color('Campaign Color', '#27B0CC'),
+            }}
+          />
           <PostContent>
             {text(
               'Content',

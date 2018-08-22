@@ -3348,14 +3348,14 @@ input[type="button"].btn-block {
 
 .badge {
   display: inline-block;
-  padding: 0.25em 0.4em;
-  font-size: 75%;
-  font-weight: 500;
+  padding: 0.25em 0.5em;
+  font-size: 0.7rem;
+  font-weight: 300;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: 0.65rem; }
+  border-radius: 2px; }
   .badge:empty {
     display: none; }
 
