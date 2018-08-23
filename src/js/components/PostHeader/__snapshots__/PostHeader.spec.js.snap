@@ -4,7 +4,19 @@ exports[`<PostHeader /> should render 1`] = `
 <div
   className="post-header d-flex mt-2 mr-2 mb-1 ml-2"
 >
-  <div>
+  <div
+    style={
+      Object {
+        "height": "35px",
+        "width": "35px",
+      }
+    }
+  >
+    <Avatar />
+  </div>
+  <div
+    className="mx-1"
+  >
     <h1
       className="h5"
     >

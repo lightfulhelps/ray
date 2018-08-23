@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Avatar /> should render 1`] = `
+<div
+  className="avatar"
+>
+  <div
+    className="avatar-image-wrap"
+  >
+    <img
+      alt=""
+      className="avatar-image"
+      src="https://randomuser.me/api/portraits/women/47.jpg"
+    />
+  </div>
+  <div
+    className="avatar-provider avatar-provider-twitter"
+  >
+    <Icon
+      color="#ffffff"
+      name="twitter"
+      size={16}
+    />
+  </div>
+</div>
+`;

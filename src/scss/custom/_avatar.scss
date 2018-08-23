@@ -1,0 +1,36 @@
+.avatar {
+  position: relative;
+}
+
+.avatar-image-wrap {
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: $gray-300;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+}
+
+.avatar-provider {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: 2px solid $white;
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+
+  &-facebook {
+    background-color: $facebook;
+  }
+
+  &-twitter {
+    background-color: $twitter;
+  }
+
+  &-linkedin {
+    background-color: $linkedin;
+  }
+}

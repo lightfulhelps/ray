@@ -25,11 +25,13 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var PostHeader = function PostHeader(_ref) {
-  var campaign = _ref.campaign,
+  var avatarUrl = _ref.avatarUrl,
+      campaign = _ref.campaign,
       className = _ref.className,
       date = _ref.date,
       _ref$dateFormat = _ref.dateFormat,
       dateFormat = _ref$dateFormat === undefined ? 'D MMM [at] HH:mm' : _ref$dateFormat,
+      socialProvider = _ref.socialProvider,
       title = _ref.title;
 
   var classes = (0, _classnames2.default)(className, 'post-header', 'd-flex mt-2 mr-2 mb-1 ml-2');
@@ -38,7 +40,12 @@ var PostHeader = function PostHeader(_ref) {
     { className: classes },
     _react2.default.createElement(
       'div',
-      null,
+      { style: { width: '35px', height: '35px' } },
+      _react2.default.createElement(_.Avatar, { url: avatarUrl, provider: socialProvider })
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'mx-1' },
       _react2.default.createElement(
         'h1',
         { className: 'h5' },
@@ -58,6 +65,7 @@ var PostHeader = function PostHeader(_ref) {
   );
 };
 PostHeader.propTypes = {
+  avatarUrl: _propTypes2.default.string,
   campaign: _propTypes2.default.shape({
     color: _propTypes2.default.string.isRequired,
     name: _propTypes2.default.string.isRequired
@@ -67,6 +75,7 @@ PostHeader.propTypes = {
     return (typeof Date === 'function' ? _propTypes2.default.instanceOf(Date) : _propTypes2.default.any).apply(this, arguments);
   }, _propTypes2.default.number, _propTypes2.default.string]),
   dateFormat: _propTypes2.default.string,
+  socialProvider: _propTypes2.default.string,
   title: _propTypes2.default.string.isRequired
 };
 exports.default = PostHeader;
