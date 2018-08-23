@@ -62,8 +62,7 @@ var Icon = (_temp2 = _class = function (_Component) {
           className = _props.className,
           _props$color = _props.color,
           color = _props$color === undefined ? '#adb5bd' : _props$color,
-          _props$hoverColor = _props.hoverColor,
-          hoverColor = _props$hoverColor === undefined ? '#212529' : _props$hoverColor,
+          hoverColor = _props.hoverColor,
           name = _props.name,
           _props$size = _props.size,
           size = _props$size === undefined ? 24 : _props$size,
@@ -81,7 +80,7 @@ var Icon = (_temp2 = _class = function (_Component) {
           width: size,
           height: size,
           viewBox: viewBox,
-          style: Object.assign({ fill: this.state.hover ? hoverColor : color }, style),
+          style: Object.assign({ fill: this.state.hover && hoverColor ? hoverColor : color }, style),
           onMouseEnter: this.handleMouseEnter,
           onMouseLeave: this.handleMouseLeave
         },
