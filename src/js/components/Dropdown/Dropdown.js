@@ -10,10 +10,9 @@ import DropdownItem from './DropdownItem';
 - specify a light/dark prop - dark to be default
  */
 
-
-const Dropdown = (
-  {items}
-) => (
+const Dropdown = ({
+  actions,
+}) => (
   <div className="dropdown">
     <button
       className="btn btn-secondary dropdown-toggle"
@@ -26,17 +25,12 @@ const Dropdown = (
       Dropdown button
     </button>
     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    {console.log('items', items)}
-    {
-      items.map((item, i) => {
-        return (
-          <DropdownItem item={item} key={i} />
-        )
-      })
-    }
+      {console.log('actions', actions)}
+      {actions.map((action, i) => {
+        return <DropdownItem action={action} key={i} />;
+      })}
     </div>
   </div>
 );
 
 export default Dropdown;
-

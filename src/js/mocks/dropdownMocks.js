@@ -1,11 +1,11 @@
-export const mockData = [
+export const dropdownMockActions = [
   {
-    bleep: "bloop"
+    edit: () => console.log('edit'),
   },
   {
-    blap: "blah"
+    delete: () => console.log('delete'),
   },
   {
-    bloo: "blap"
+    retweet: () => console.log('retweet'),
   },
-]
+];

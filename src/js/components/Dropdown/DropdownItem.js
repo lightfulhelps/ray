@@ -6,8 +6,10 @@ import * as React from 'react';
 - onclick handler
 */
 
-const DropdownItem = ({item}) => (
-  <a class="dropdown-item" href="#">{item}</a>
-)
+const DropdownItem = ({ action }) => (
+  <a className="dropdown-item" href="#">
+    {action}
+  </a>
+);
 
-export default DropdownItem
+export default DropdownItem;
