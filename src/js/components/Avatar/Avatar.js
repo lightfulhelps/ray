@@ -5,12 +5,13 @@ import { Icon } from '../../';
 
 type Props = {
   className?: string,
+  isDisconnected?: boolean,
   provider?: 'facebook' | 'twitter' | 'linkedin',
   url?: string,
 };
 
-const Avatar = ({ className, url, provider }: Props) => {
-  const classes = classNames(className, 'avatar');
+const Avatar = ({ className, isDisconnected, url, provider }: Props) => {
+  const classes = classNames(className, 'avatar', { 'avatar-disconnected': isDisconnected });
 
   return (
     <div className={classes}>
@@ -19,7 +20,7 @@ const Avatar = ({ className, url, provider }: Props) => {
       </div>
       {provider && (
         <div className={`avatar-provider avatar-provider-${provider}`}>
-          <Icon name={provider} color="#ffffff" size={16} />
+          <Icon name={provider} color="#ffffff" />
         </div>
       )}
     </div>

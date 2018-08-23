@@ -22,10 +22,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Avatar = function Avatar(_ref) {
   var className = _ref.className,
+      isDisconnected = _ref.isDisconnected,
       url = _ref.url,
       provider = _ref.provider;
 
-  var classes = (0, _classnames2.default)(className, 'avatar');
+  var classes = (0, _classnames2.default)(className, 'avatar', { 'avatar-disconnected': isDisconnected });
 
   return _react2.default.createElement(
     'div',
@@ -38,12 +39,13 @@ var Avatar = function Avatar(_ref) {
     provider && _react2.default.createElement(
       'div',
       { className: 'avatar-provider avatar-provider-' + provider },
-      _react2.default.createElement(_.Icon, { name: provider, color: '#ffffff', size: 16 })
+      _react2.default.createElement(_.Icon, { name: provider, color: '#ffffff' })
     )
   );
 };
 Avatar.propTypes = {
   className: _propTypes2.default.string,
+  isDisconnected: _propTypes2.default.bool,
   provider: _propTypes2.default.oneOf(['facebook', 'twitter', 'linkedin']),
   url: _propTypes2.default.string
 };
