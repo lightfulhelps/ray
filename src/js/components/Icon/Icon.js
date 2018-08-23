@@ -34,7 +34,7 @@ class Icon extends Component<Props, State> {
     const {
       className,
       color = '#adb5bd',
-      hoverColor = '#212529',
+      hoverColor,
       name,
       size = 24,
       style = {},
@@ -48,7 +48,7 @@ class Icon extends Component<Props, State> {
         width={size}
         height={size}
         viewBox={viewBox}
-        style={Object.assign({ fill: this.state.hover ? hoverColor : color }, style)}
+        style={Object.assign({ fill: this.state.hover && hoverColor ? hoverColor : color }, style)}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >

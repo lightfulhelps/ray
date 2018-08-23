@@ -110,7 +110,21 @@ describe('<Icon />', () => {
     expect(wrapper.state('hover')).toBe(false);
   });
 
-  it('should update fill color on hover', () => {
+  it('should not update fill color on hover if hoverColor is not provided', () => {
+    const { wrapper } = setup({ color: 'red', hoverColor: null });
+
+    expect(wrapper.prop('style')).toEqual({ fill: 'red' });
+
+    wrapper.simulate('mouseEnter');
+
+    expect(wrapper.prop('style')).toEqual({ fill: 'red' });
+
+    wrapper.simulate('mouseLeave');
+
+    expect(wrapper.prop('style')).toEqual({ fill: 'red' });
+  });
+
+  it('should update fill color on hover if hoverColor is provided', () => {
     const { wrapper } = setup({ color: 'red', hoverColor: 'blue' });
 
     expect(wrapper.prop('style')).toEqual({ fill: 'red' });
