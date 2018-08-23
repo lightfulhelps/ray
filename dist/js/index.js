@@ -49,6 +49,15 @@ Object.defineProperty(exports, 'Container', {
   }
 });
 
+var _Icon = require('./components/Icon/Icon');
+
+Object.defineProperty(exports, 'Icon', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Icon).default;
+  }
+});
+
 var _PostCard = require('./components/PostCard/PostCard');
 
 Object.defineProperty(exports, 'PostCard', {
