@@ -1,12 +1,17 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, date, color } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text, date, color, select } from '@storybook/addon-knobs';
 import { Container, Row, Col, PostCard, PostContent, PostHeader } from '../';
 
 import '../../scss/ray.scss';
 
 const stories = storiesOf('PostCard', module);
 const defaultDate = new Date();
+const socialProviders = {
+  twitter: 'Twitter',
+  facebook: 'Facebook',
+  linkedin: 'LinkedIn',
+};
 
 stories.addDecorator(withKnobs);
 
@@ -23,6 +28,8 @@ stories.add('Default', () => (
               name: text('Campaign Name', 'Campaign Tag'),
               color: color('Campaign Color', '#27B0CC'),
             }}
+            avatarUrl={text('Avatar URL', 'https://randomuser.me/api/portraits/women/47.jpg')}
+            socialProvider={select('Social Provider', socialProviders, 'twitter')}
           />
           <PostContent>
             {text(
