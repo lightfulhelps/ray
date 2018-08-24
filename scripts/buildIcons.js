@@ -81,8 +81,8 @@ export const generateJSOutput = (icons: { [key: string]: string }): string => `
 
   export default {
     ${Object.keys(icons)
-      .map(key => `${key}: (${icons[key]}),\n`)
-      .join('')}
+      .map(key => `${key}: (${icons[key]})`)
+      .join(',')}
   }
 `;
 
