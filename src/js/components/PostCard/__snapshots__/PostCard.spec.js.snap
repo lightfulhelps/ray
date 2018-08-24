@@ -5,7 +5,7 @@ exports[`<PostCard /> should render 1`] = `
   className="post-card shadow"
 >
   <div
-    className="d-flex mt-2 mr-2 mb-1 ml-2"
+    className="d-flex mt-2 mr-2 mb-0 ml-2"
   >
     <div
       style={
@@ -48,7 +48,7 @@ exports[`<PostCard /> should render 1`] = `
     Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".
   </Dotdotdot>
   <div
-    className="inspiration-actions d-flex py-1 px-2 justify-content-between align-items-center h4 text-gray-500 border-top"
+    className="inspiration-actions d-flex py-1 px-2 justify-content-between align-items-center h4 mb-0 text-gray-500 border-top"
   >
     <Icon
       className="cursor-pointer"
