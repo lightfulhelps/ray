@@ -41,6 +41,7 @@ var PostCard = function PostCard(_ref) {
       inspirationActions = _ref.inspirationActions,
       isDraft = _ref.isDraft,
       isInvalid = _ref.isInvalid,
+      media = _ref.media,
       socialProvider = _ref.socialProvider,
       title = _ref.title;
 
@@ -51,7 +52,7 @@ var PostCard = function PostCard(_ref) {
     { className: classes },
     React.createElement(
       'div',
-      { className: 'd-flex mt-2 mr-2 mb-1 ml-2' },
+      { className: 'd-flex mt-2 mr-2 mb-0 ml-2' },
       React.createElement(
         'div',
         { style: { width: '35px', height: '35px' } },
@@ -82,9 +83,14 @@ var PostCard = function PostCard(_ref) {
       { className: 'my-1 mx-2 font-weight-light', clamp: 5 },
       content
     ),
+    media && React.createElement(
+      'div',
+      { style: { height: '164px' } },
+      React.createElement(_.PostMedia, { media: media })
+    ),
     inspirationActions && inspirationActions.length > 0 && React.createElement(
       'div',
-      { className: 'inspiration-actions d-flex py-1 px-2 justify-content-between align-items-center h4 text-gray-500 border-top' },
+      { className: 'inspiration-actions d-flex py-1 px-2 justify-content-between align-items-center h4 mb-0 text-gray-500 border-top' },
       inspirationActions.map(function (action, i) {
         return React.createElement(_.Icon, {
           key: i,
@@ -119,6 +125,10 @@ PostCard.propTypes = {
   }).isRequired),
   isDraft: _propTypes2.default.bool,
   isInvalid: _propTypes2.default.bool,
+  media: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+    type: _propTypes2.default.string.isRequired,
+    url: _propTypes2.default.string.isRequired
+  }).isRequired),
   socialProvider: _propTypes2.default.string,
   title: _propTypes2.default.string.isRequired
 };

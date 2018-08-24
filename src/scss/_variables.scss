@@ -38,7 +38,7 @@ $linkedin: #1c87bf;
 // variables. Mostly focused on spacing.
 // You can add more entries to the $spacers map, should you need more variation.
 
-$spacer: 0.65rem;
+$spacer: 0.7rem;
 
 $spacers: (
   0: 0,
@@ -84,7 +84,7 @@ $box-shadow-lg: 0 0 30px 0 rgba($gray-700, 0.12);
 
 $font-family-sans-serif: 'Euclid Flex B', sans-serif;
 
-$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$font-size-base: 0.9rem; // Assumes the browser default, typically `16px`
 $font-size-lg: ($font-size-base * 1.25);
 $font-size-sm: ($font-size-base * 0.75);
 
@@ -150,6 +150,6 @@ $card-border-color: $white;
 
 $badge-font-size: ($font-size-base * 0.7);
 $badge-font-weight: $font-weight-base;
-$badge-padding-y: 0.25em;
+$badge-padding-y: 0.4em;
 $badge-padding-x: 0.5em;
 $badge-border-radius: 2px;
