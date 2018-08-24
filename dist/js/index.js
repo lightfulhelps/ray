@@ -76,24 +76,6 @@ Object.defineProperty(exports, 'PostCard', {
   }
 });
 
-var _PostContent = require('./components/PostContent/PostContent');
-
-Object.defineProperty(exports, 'PostContent', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_PostContent).default;
-  }
-});
-
-var _PostHeader = require('./components/PostHeader/PostHeader');
-
-Object.defineProperty(exports, 'PostHeader', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_PostHeader).default;
-  }
-});
-
 var _Row = require('./components/Row/Row');
 
 Object.defineProperty(exports, 'Row', {

@@ -6538,8 +6538,14 @@ button.bg-gray-900:focus {
 .border-gray-900 {
   border-color: #212529; }
 
+.cursor-default {
+  cursor: default !important; }
+
+.cursor-pointer {
+  cursor: pointer !important; }
+
 .overflow-hidden {
-  overflow: hidden; }
+  overflow: hidden !important; }
 
 .text-wrap {
   word-wrap: break-word !important; }

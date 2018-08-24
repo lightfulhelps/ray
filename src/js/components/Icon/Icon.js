@@ -41,11 +41,13 @@ class Icon extends Component<Props, State> {
       style = {},
       title,
       viewBox = '0 0 24 24',
+      ...other
     } = this.props;
     const classes = classNames(className, 'icon');
 
     return (
       <svg
+        {...other}
         className={classes}
         width={size}
         height={size}
