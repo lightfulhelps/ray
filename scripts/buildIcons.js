@@ -5,7 +5,7 @@ import SVGO from 'svgo';
 import glob from 'glob';
 import util from 'util';
 import yargs from 'yargs';
-import snakeCase from 'lodash/snakeCase';
+import camelCase from 'lodash/camelCase';
 import prettier from 'prettier';
 
 const globAsync = util.promisify(glob);
@@ -96,7 +96,7 @@ const init = async ({ svgDir, outputFile, glob = '*.svg' }: ArgvType) => {
 
     for (const svgPath of svgPaths) {
       const data = await readFileAsync(svgPath, { encoding: 'utf8' });
-      const iconName = snakeCase(path.parse(svgPath).name);
+      const iconName = camelCase(path.parse(svgPath).name);
 
       console.log(`Optimizing ${iconName} icon...`);
 
