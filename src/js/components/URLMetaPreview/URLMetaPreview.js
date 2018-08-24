@@ -23,11 +23,11 @@ const URLMetaPreview = ({
   url,
 }: Props) => {
   const baseClass = 'url-meta-preview';
-  const classes = classNames(className, baseClass, 'bg-white');
+  const classes = classNames(className, baseClass, 'bg-white h-100');
 
   return (
     <div className={classes}>
-      <div className={isVertical ? '' : 'row'}>
+      <div className={isVertical ? '' : 'row h-100'}>
         {image && (
           <div className={isVertical ? '' : 'col-4 pr-0'}>
             <div
@@ -39,19 +39,21 @@ const URLMetaPreview = ({
           </div>
         )}
         <div className={isVertical ? '' : image ? 'col-8 pl-0' : 'col-12'}>
-          <div className="p-2">
-            <a
-              className={`${baseClass}__title d-block text-body text-truncate small font-weight-bold`}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {title}
-            </a>
+          <div className="d-flex flex-column justify-content-between h-100 p-2">
+            <Dotdotdot clamp={2}>
+              <a
+                className={`${baseClass}__title d-block text-body small font-weight-bold`}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {title}
+              </a>
+            </Dotdotdot>
             {description && (
               <Dotdotdot
                 className={`${baseClass}__description small font-weight-light text-gray-500`}
-                clamp={2}
+                clamp={3}
               >
                 {description}
               </Dotdotdot>

@@ -3,7 +3,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Dotdotdot from 'react-dotdotdot';
 import formatDate from 'date-fns/format';
-import { Card, Avatar, Badge, Icon, PostMedia } from '../../';
+import { Card, Avatar, Badge, Icon, PostMedia, URLMetaPreview } from '../../';
 
 type InspirationActionType = {
   activeColor?: string,
@@ -32,6 +32,12 @@ type Props = {
   isDraft?: boolean,
   isInvalid?: boolean,
   media?: MediaType[],
+  metaPreview?: {
+    description?: string,
+    image?: string,
+    title: string,
+    url: string,
+  },
   socialProvider?: string,
   title: string,
 };
@@ -47,6 +53,7 @@ const PostCard = ({
   isDraft,
   isInvalid,
   media,
+  metaPreview,
   socialProvider,
   title,
 }: Props) => {
@@ -82,6 +89,11 @@ const PostCard = ({
       {media && (
         <div style={{ height: '164px' }}>
           <PostMedia media={media} />
+        </div>
+      )}
+      {metaPreview && (
+        <div className="border-top" style={{ height: '164px' }}>
+          <URLMetaPreview {...metaPreview} />
         </div>
       )}
       {inspirationActions &&

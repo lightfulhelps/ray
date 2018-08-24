@@ -37,14 +37,14 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
       url = _ref.url;
 
   var baseClass = 'url-meta-preview';
-  var classes = (0, _classnames2.default)(className, baseClass, 'bg-white');
+  var classes = (0, _classnames2.default)(className, baseClass, 'bg-white h-100');
 
   return _react2.default.createElement(
     'div',
     { className: classes },
     _react2.default.createElement(
       'div',
-      { className: isVertical ? '' : 'row' },
+      { className: isVertical ? '' : 'row h-100' },
       image && _react2.default.createElement(
         'div',
         { className: isVertical ? '' : 'col-4 pr-0' },
@@ -62,22 +62,26 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
         { className: isVertical ? '' : image ? 'col-8 pl-0' : 'col-12' },
         _react2.default.createElement(
           'div',
-          { className: 'p-2' },
+          { className: 'd-flex flex-column justify-content-between h-100 p-2' },
           _react2.default.createElement(
-            'a',
-            {
-              className: baseClass + '__title d-block text-body text-truncate small font-weight-bold',
-              href: url,
-              target: '_blank',
-              rel: 'noopener noreferrer'
-            },
-            title
+            _reactDotdotdot2.default,
+            { clamp: 2 },
+            _react2.default.createElement(
+              'a',
+              {
+                className: baseClass + '__title d-block text-body small font-weight-bold',
+                href: url,
+                target: '_blank',
+                rel: 'noopener noreferrer'
+              },
+              title
+            )
           ),
           description && _react2.default.createElement(
             _reactDotdotdot2.default,
             {
               className: baseClass + '__description small font-weight-light text-gray-500',
-              clamp: 2
+              clamp: 3
             },
             description
           ),

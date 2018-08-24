@@ -42,6 +42,7 @@ var PostCard = function PostCard(_ref) {
       isDraft = _ref.isDraft,
       isInvalid = _ref.isInvalid,
       media = _ref.media,
+      metaPreview = _ref.metaPreview,
       socialProvider = _ref.socialProvider,
       title = _ref.title;
 
@@ -88,6 +89,11 @@ var PostCard = function PostCard(_ref) {
       { style: { height: '164px' } },
       React.createElement(_.PostMedia, { media: media })
     ),
+    metaPreview && React.createElement(
+      'div',
+      { className: 'border-top', style: { height: '164px' } },
+      React.createElement(_.URLMetaPreview, metaPreview)
+    ),
     inspirationActions && inspirationActions.length > 0 && React.createElement(
       'div',
       { className: 'inspiration-actions d-flex py-1 px-2 justify-content-between align-items-center h4 mb-0 text-gray-500 border-top' },
@@ -129,6 +135,12 @@ PostCard.propTypes = {
     type: _propTypes2.default.string.isRequired,
     url: _propTypes2.default.string.isRequired
   }).isRequired),
+  metaPreview: _propTypes2.default.shape({
+    description: _propTypes2.default.string,
+    image: _propTypes2.default.string,
+    title: _propTypes2.default.string.isRequired,
+    url: _propTypes2.default.string.isRequired
+  }),
   socialProvider: _propTypes2.default.string,
   title: _propTypes2.default.string.isRequired
 };
