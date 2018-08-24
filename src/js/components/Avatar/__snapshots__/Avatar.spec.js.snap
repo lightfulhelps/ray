@@ -19,7 +19,6 @@ exports[`<Avatar /> should render 1`] = `
     <Icon
       color="#ffffff"
       name="twitter"
-      size={16}
     />
   </div>
 </div>
