@@ -139,3 +139,11 @@ $input-hover-border-color: $gray-500; // Ray
 $card-border-width: 2px;
 $card-border-radius: $border-radius-sm;
 $card-border-color: $white;
+
+// Badges
+
+$badge-font-size: ($font-size-base * 0.7);
+$badge-font-weight: $font-weight-base;
+$badge-padding-y: 0.25em;
+$badge-padding-x: 0.5em;
+$badge-border-radius: 2px;

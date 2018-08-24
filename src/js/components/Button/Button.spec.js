@@ -38,17 +38,6 @@ describe('<Button />', () => {
     expect(wrapper.hasClass('custom')).toBe(true);
   });
 
-  it('should handle the color prop', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.hasClass('btn-primary')).toBe(true);
-
-    wrapper.setProps({ color: 'secondary' });
-
-    expect(wrapper.hasClass('btn-primary')).toBe(false);
-    expect(wrapper.hasClass('btn-secondary')).toBe(true);
-  });
-
   it('should handle the isBlock prop', () => {
     const { wrapper } = setup();
 
@@ -111,5 +100,16 @@ describe('<Button />', () => {
     wrapper.setProps({ tag: 'div' });
 
     expect(wrapper.type()).toBe('div');
+  });
+
+  it('should handle the theme prop', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.hasClass('btn-primary')).toBe(true);
+
+    wrapper.setProps({ theme: 'secondary' });
+
+    expect(wrapper.hasClass('btn-primary')).toBe(false);
+    expect(wrapper.hasClass('btn-secondary')).toBe(true);
   });
 });

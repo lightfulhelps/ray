@@ -15,6 +15,12 @@ exports[`<PostHeader /> should render 1`] = `
     >
       22 Aug at 14:34
     </div>
+    <Badge
+      className="campaign-tag"
+      color="#ff0000"
+    >
+      Campaign
+    </Badge>
   </div>
 </div>
 `;
