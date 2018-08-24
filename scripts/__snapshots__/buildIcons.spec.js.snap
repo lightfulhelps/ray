@@ -11,9 +11,7 @@ exports[`generateJSOutput should return expected format 1`] = `
   export type IconNameType = 'analytics' | 'comment';
 
   export default {
-    analytics: ([object Object]),
-comment: ([object Object]),
-
+    analytics: ([object Object]),comment: ([object Object])
   }
 "
 `;
