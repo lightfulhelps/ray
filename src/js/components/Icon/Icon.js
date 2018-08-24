@@ -10,6 +10,7 @@ type Props = {
   name: string,
   size?: number,
   style?: { [key: string]: any },
+  title?: string,
   viewBox?: string,
 };
 
@@ -33,11 +34,12 @@ class Icon extends Component<Props, State> {
   render() {
     const {
       className,
-      color = '#adb5bd',
+      color = 'currentColor',
       hoverColor,
       name,
-      size = 24,
+      size = '1em',
       style = {},
+      title,
       viewBox = '0 0 24 24',
     } = this.props;
     const classes = classNames(className, 'icon');
@@ -52,6 +54,7 @@ class Icon extends Component<Props, State> {
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >
+        {title && <title>{title}</title>}
         {icons[name]}
       </svg>
     );

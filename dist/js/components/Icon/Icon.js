@@ -61,13 +61,14 @@ var Icon = (_temp2 = _class = function (_Component) {
       var _props = this.props,
           className = _props.className,
           _props$color = _props.color,
-          color = _props$color === undefined ? '#adb5bd' : _props$color,
+          color = _props$color === undefined ? 'currentColor' : _props$color,
           hoverColor = _props.hoverColor,
           name = _props.name,
           _props$size = _props.size,
-          size = _props$size === undefined ? 24 : _props$size,
+          size = _props$size === undefined ? '1em' : _props$size,
           _props$style = _props.style,
           style = _props$style === undefined ? {} : _props$style,
+          title = _props.title,
           _props$viewBox = _props.viewBox,
           viewBox = _props$viewBox === undefined ? '0 0 24 24' : _props$viewBox;
 
@@ -84,6 +85,11 @@ var Icon = (_temp2 = _class = function (_Component) {
           onMouseEnter: this.handleMouseEnter,
           onMouseLeave: this.handleMouseLeave
         },
+        title && _react2.default.createElement(
+          'title',
+          null,
+          title
+        ),
         _icons2.default[name]
       );
     }
@@ -101,6 +107,7 @@ var Icon = (_temp2 = _class = function (_Component) {
       throw new Error('Prop `' + propName + '` has type \'any\' or \'mixed\', but was not provided to `' + componentName + '`. Pass undefined or any other value.');
     }
   }),
+  title: _propTypes2.default.string,
   viewBox: _propTypes2.default.string
 }, _temp2);
 exports.default = Icon;
