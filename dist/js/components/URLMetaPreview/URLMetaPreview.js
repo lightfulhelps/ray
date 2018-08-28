@@ -36,8 +36,8 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
       title = _ref.title,
       url = _ref.url;
 
-  var baseClass = 'url-meta-preview';
-  var classes = (0, _classnames2.default)(className, baseClass);
+  var blockClass = 'url-meta-preview';
+  var classes = (0, _classnames2.default)(className, blockClass);
 
   return _react2.default.createElement(
     'div',
@@ -50,7 +50,7 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
         { className: isVertical ? '' : 'col-4 pr-0' },
         _react2.default.createElement(
           'div',
-          { className: baseClass + '__image', style: { backgroundImage: 'url(' + image + ')' } },
+          { className: blockClass + '__image', style: { backgroundImage: 'url(' + image + ')' } },
           isVertical && _react2.default.createElement('img', { src: image, alt: '' })
         )
       ),
@@ -59,14 +59,14 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
         { className: isVertical ? '' : image ? 'col-8 pl-0' : 'col-12' },
         _react2.default.createElement(
           'div',
-          { className: baseClass + '__main' },
+          { className: blockClass + '__main' },
           _react2.default.createElement(
             _reactDotdotdot2.default,
             { clamp: 2 },
             _react2.default.createElement(
               'a',
               {
-                className: baseClass + '__title',
+                className: blockClass + '__title',
                 href: url,
                 target: '_blank',
                 rel: 'noopener noreferrer'
@@ -76,12 +76,17 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
           ),
           description && _react2.default.createElement(
             _reactDotdotdot2.default,
-            { className: baseClass + '__description', clamp: 3 },
+            { className: blockClass + '__description', clamp: 3 },
             description
           ),
           _react2.default.createElement(
             'a',
-            { className: baseClass + '__url', href: url, target: '_blank', rel: 'noopener noreferrer' },
+            {
+              className: blockClass + '__url',
+              href: url,
+              target: '_blank',
+              rel: 'noopener noreferrer'
+            },
             cleanURL(url)
           )
         )

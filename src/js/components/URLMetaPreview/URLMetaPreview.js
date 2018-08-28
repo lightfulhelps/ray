@@ -22,24 +22,24 @@ const URLMetaPreview = ({
   title,
   url,
 }: Props) => {
-  const baseClass = 'url-meta-preview';
-  const classes = classNames(className, baseClass);
+  const blockClass = 'url-meta-preview';
+  const classes = classNames(className, blockClass);
 
   return (
     <div className={classes}>
       <div className={isVertical ? '' : 'row h-100'}>
         {image && (
           <div className={isVertical ? '' : 'col-4 pr-0'}>
-            <div className={`${baseClass}__image`} style={{ backgroundImage: `url(${image})` }}>
+            <div className={`${blockClass}__image`} style={{ backgroundImage: `url(${image})` }}>
               {isVertical && <img src={image} alt="" />}
             </div>
           </div>
         )}
         <div className={isVertical ? '' : image ? 'col-8 pl-0' : 'col-12'}>
-          <div className={`${baseClass}__main`}>
+          <div className={`${blockClass}__main`}>
             <Dotdotdot clamp={2}>
               <a
-                className={`${baseClass}__title`}
+                className={`${blockClass}__title`}
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -48,11 +48,16 @@ const URLMetaPreview = ({
               </a>
             </Dotdotdot>
             {description && (
-              <Dotdotdot className={`${baseClass}__description`} clamp={3}>
+              <Dotdotdot className={`${blockClass}__description`} clamp={3}>
                 {description}
               </Dotdotdot>
             )}
-            <a className={`${baseClass}__url`} href={url} target="_blank" rel="noopener noreferrer">
+            <a
+              className={`${blockClass}__url`}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {cleanURL(url)}
             </a>
           </div>

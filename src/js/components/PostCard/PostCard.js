@@ -57,23 +57,23 @@ const PostCard = ({
   socialProvider,
   title,
 }: Props) => {
-  const baseClass = 'post-card';
+  const blockClass = 'post-card';
   const classes = classNames(
     className,
-    baseClass,
-    { [`${baseClass}--draft`]: isDraft },
-    { [`${baseClass}--invalid`]: isInvalid }
+    blockClass,
+    { [`${blockClass}--draft`]: isDraft },
+    { [`${blockClass}--invalid`]: isInvalid }
   );
 
   return (
     <Card className={classes}>
-      <div className={`${baseClass}__header`}>
+      <div className={`${blockClass}__header`}>
         <div style={{ width: '35px', height: '35px' }}>
           <Avatar url={avatarUrl} provider={socialProvider} />
         </div>
         <div className="mx-1">
-          <h1 className={`${baseClass}__title`}>{title}</h1>
-          {date && <div className={`${baseClass}__date`}>{formatDate(date, dateFormat)}</div>}
+          <h1 className={`${blockClass}__title`}>{title}</h1>
+          {date && <div className={`${blockClass}__date`}>{formatDate(date, dateFormat)}</div>}
           {campaign && (
             <Badge className="campaign-tag" color={campaign.color}>
               {campaign.name}
@@ -81,22 +81,22 @@ const PostCard = ({
           )}
         </div>
       </div>
-      <Dotdotdot className={`${baseClass}__content`} clamp={5}>
+      <Dotdotdot className={`${blockClass}__content`} clamp={5}>
         {content}
       </Dotdotdot>
       {media && (
-        <div className={`${baseClass}__media`}>
+        <div className={`${blockClass}__media`}>
           <PostMedia media={media} />
         </div>
       )}
       {metaPreview && (
-        <div className={`${baseClass}__media border-top`}>
+        <div className={`${blockClass}__media border-top`}>
           <URLMetaPreview {...metaPreview} />
         </div>
       )}
       {inspirationActions &&
         inspirationActions.length > 0 && (
-          <div className={`${baseClass}__inspiration-actions`}>
+          <div className={`${blockClass}__inspiration-actions`}>
             {inspirationActions.map((action, i) => (
               <Icon
                 key={i}
