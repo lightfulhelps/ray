@@ -15,19 +15,33 @@ type Props = {
   theme?: string,
 };
 
-const Dropdown = ({ theme = 'dark', actions }) => (
+const Dropdown = ({ theme = 'dark', actions, className }) => {
+
+  const classes = classNames(
+    className,
+    className,
+    'dropdown-menu',
+    `dropdown-menu-${theme}`
+  )
+
+  return(
   <div className="dropdown">
   <Button
     icon="menu"
     isDropdown
     theme={theme}
   />
-    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <div
+      className={classes}
+      aria-labelledby="dropdownMenuButton"
+    >
       {actions.map((action, i) => {
         return <DropdownItem action={action} key={i} />;
       })}
     </div>
   </div>
-);
+  );
+}
+
 
 export default Dropdown;

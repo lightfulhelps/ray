@@ -10,13 +10,15 @@ import Icon from '../Icon/Icon';
 
 const DropdownItem = ({ action }) => (
   <a className="dropdown-item" href="#">
-    <Icon
-      name={'addMedia'}
-      size={number('Size', 24)}
-      color={color('Color', '#adb5bd')}
-      hoverColor={color('Hover Color', '#212529')}
-    />
-    {action}
+    <span className="w-100 dropdown-item-content">
+      <Icon
+        name={'addMedia'}
+        size={number('Size', 24)}
+        color={color('Color', '#adb5bd')}
+        hoverColor={color('Hover Color', '#212529')}
+      />
+      {action}
+    </span>
   </a>
 );
 

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import Icon from '../Icon/Icon';
 
 type Props = {
-  children: React.Element<any>,
+  children?: React.Element<any>,
   className?: string,
   isBlock?: boolean,
   isDisabled?: boolean,
