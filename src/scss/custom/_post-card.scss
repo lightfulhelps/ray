@@ -27,7 +27,7 @@
 }
 
 .post-card__title {
-  @extend .h5;
+  @extend .h5, .text-truncate;
 }
 
 .post-card__date {
@@ -38,6 +38,7 @@
 .post-card__content {
   margin: map-get($spacers, 1) map-get($spacers, 2);
   font-weight: $font-weight-light;
+  height: $line-height-base * 5em;
 }
 
 .post-card__media {

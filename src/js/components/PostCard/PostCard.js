@@ -72,11 +72,11 @@ const PostCard = ({
     <Card className={classes}>
       <div className={`${blockClass}__header`}>
         {post.socialIdentity && (
-          <div style={{ width: '35px', height: '35px' }}>
+          <div style={{ width: '35px', height: '35px', minWidth: '35px', minHeight: '35px' }}>
             <Avatar url={post.socialIdentity.avatar} provider={post.socialProvider} />
           </div>
         )}
-        <div className="mx-1">
+        <div className="mx-1" style={{ minWidth: 0 }}>
           <h1 className={`${blockClass}__title`}>{post.title}</h1>
           {post.date && (
             <div className={`${blockClass}__date`}>{formatDate(post.date, dateFormat)}</div>

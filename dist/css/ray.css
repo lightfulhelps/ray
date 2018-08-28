@@ -6123,7 +6123,7 @@ button.bg-dark:focus {
 .text-nowrap {
   white-space: nowrap !important; }
 
-.text-truncate, .url-meta-preview__url {
+.text-truncate, .post-card__title, .url-meta-preview__url {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
@@ -6620,7 +6620,8 @@ button.bg-gray-900:focus {
 
 .post-card__content {
   margin: 0.7rem 1.4rem;
-  font-weight: 300; }
+  font-weight: 300;
+  height: 7.5em; }
 
 .post-card__media {
   height: 164px; }

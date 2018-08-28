@@ -53,12 +53,12 @@ var PostCard = function PostCard(_ref) {
       { className: blockClass + '__header' },
       post.socialIdentity && React.createElement(
         'div',
-        { style: { width: '35px', height: '35px' } },
+        { style: { width: '35px', height: '35px', minWidth: '35px', minHeight: '35px' } },
         React.createElement(_.Avatar, { url: post.socialIdentity.avatar, provider: post.socialProvider })
       ),
       React.createElement(
         'div',
-        { className: 'mx-1' },
+        { className: 'mx-1', style: { minWidth: 0 } },
         React.createElement(
           'h1',
           { className: blockClass + '__title' },
