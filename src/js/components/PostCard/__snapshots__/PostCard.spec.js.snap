@@ -4,8 +4,67 @@ exports[`<PostCard /> should render 1`] = `
 <Card
   className="post-card shadow"
 >
-  <p>
-    Post Card
-  </p>
+  <div
+    className="d-flex mt-2 mr-2 mb-1 ml-2"
+  >
+    <div
+      style={
+        Object {
+          "height": "35px",
+          "width": "35px",
+        }
+      }
+    >
+      <Avatar />
+    </div>
+    <div
+      className="mx-1"
+    >
+      <h1
+        className="h5"
+      >
+        Hope For Children
+      </h1>
+      <div
+        className="post-date small text-uppercase"
+      >
+        22 Aug at 14:34
+      </div>
+      <Badge
+        className="campaign-tag"
+        color="#ff0000"
+      >
+        Campaign
+      </Badge>
+    </div>
+  </div>
+  <Dotdotdot
+    clamp={5}
+    className="my-1 mx-2 font-weight-light"
+    tagName="div"
+    truncationChar="…"
+    useNativeClamp={true}
+  >
+    Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".
+  </Dotdotdot>
+  <div
+    className="inspiration-actions d-flex py-1 px-2 justify-content-between align-items-center h4 text-gray-500 border-top"
+  >
+    <Icon
+      className="cursor-pointer"
+      hoverColor="#343a40"
+      key="0"
+      name="follow"
+      onClick={[MockFunction]}
+    />
+    <Icon
+      className="cursor-pointer"
+      color="#f25270"
+      hoverColor="#f25270"
+      key="1"
+      name="like"
+      onClick={[MockFunction]}
+    />
+  </div>
 </Card>
 `;

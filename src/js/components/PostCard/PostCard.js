@@ -1,16 +1,48 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import { Card } from '../../';
+import Dotdotdot from 'react-dotdotdot';
+import formatDate from 'date-fns/format';
+import { Card, Avatar, Badge, Icon } from '../../';
 
-type Props = {
-  children: React.ChildrenArray<React.Element<any>>,
-  className?: string,
-  isDraft?: boolean,
-  isInvalid?: boolean,
+type InspirationActionType = {
+  activeColor?: string,
+  color?: string,
+  icon: string,
+  isActive?: boolean,
+  onClick?: () => void,
 };
 
-const PostCard = ({ children, className, isDraft, isInvalid }: Props) => {
+type Props = {
+  avatarUrl?: string,
+  campaign?: {
+    color: string,
+    name: string,
+  },
+  className?: string,
+  content: string,
+  date?: Date | number | string,
+  dateFormat?: string,
+  inspirationActions?: InspirationActionType[],
+  isDraft?: boolean,
+  isInvalid?: boolean,
+  socialProvider?: string,
+  title: string,
+};
+
+const PostCard = ({
+  avatarUrl,
+  campaign,
+  className,
+  content,
+  date,
+  dateFormat = 'D MMM [at] HH:mm',
+  inspirationActions,
+  isDraft,
+  isInvalid,
+  socialProvider,
+  title,
+}: Props) => {
   const classes = classNames(
     className,
     'post-card',
@@ -19,7 +51,44 @@ const PostCard = ({ children, className, isDraft, isInvalid }: Props) => {
     { 'border-danger': isInvalid }
   );
 
-  return <Card className={classes}>{children}</Card>;
+  return (
+    <Card className={classes}>
+      <div className="d-flex mt-2 mr-2 mb-1 ml-2">
+        <div style={{ width: '35px', height: '35px' }}>
+          <Avatar url={avatarUrl} provider={socialProvider} />
+        </div>
+        <div className="mx-1">
+          <h1 className="h5">{title}</h1>
+          {date && (
+            <div className="post-date small text-uppercase">{formatDate(date, dateFormat)}</div>
+          )}
+          {campaign && (
+            <Badge className="campaign-tag" color={campaign.color}>
+              {campaign.name}
+            </Badge>
+          )}
+        </div>
+      </div>
+      <Dotdotdot className="my-1 mx-2 font-weight-light" clamp={5}>
+        {content}
+      </Dotdotdot>
+      {inspirationActions &&
+        inspirationActions.length > 0 && (
+          <div className="inspiration-actions d-flex py-1 px-2 justify-content-between align-items-center h4 text-gray-500 border-top">
+            {inspirationActions.map((action, i) => (
+              <Icon
+                key={i}
+                name={action.icon}
+                className="cursor-pointer"
+                color={action.isActive ? action.activeColor : action.color}
+                hoverColor={action.isActive ? action.activeColor : '#343a40'}
+                onClick={action.onClick}
+              />
+            ))}
+          </div>
+        )}
+    </Card>
+  );
 };
 
 export default PostCard;

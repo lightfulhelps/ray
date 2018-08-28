@@ -4,6 +4,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _Avatar = require('./components/Avatar/Avatar');
+
+Object.defineProperty(exports, 'Avatar', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Avatar).default;
+  }
+});
+
 var _Badge = require('./components/Badge/Badge');
 
 Object.defineProperty(exports, 'Badge', {
@@ -49,30 +58,21 @@ Object.defineProperty(exports, 'Container', {
   }
 });
 
+var _Icon = require('./components/Icon/Icon');
+
+Object.defineProperty(exports, 'Icon', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Icon).default;
+  }
+});
+
 var _PostCard = require('./components/PostCard/PostCard');
 
 Object.defineProperty(exports, 'PostCard', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_PostCard).default;
-  }
-});
-
-var _PostContent = require('./components/PostContent/PostContent');
-
-Object.defineProperty(exports, 'PostContent', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_PostContent).default;
-  }
-});
-
-var _PostHeader = require('./components/PostHeader/PostHeader');
-
-Object.defineProperty(exports, 'PostHeader', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_PostHeader).default;
   }
 });
 
