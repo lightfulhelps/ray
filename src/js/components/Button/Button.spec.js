@@ -1,13 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
 import Button from './Button';
 
 const setup = (overrides = {}) => {
-  const props = {
-    children: 'Click Me',
-    onClick: jest.fn(),
-    ...overrides,
-  };
+  const props = merge(
+    {
+      children: 'Click Me',
+      onClick: jest.fn(),
+    },
+    overrides
+  );
   const wrapper = shallow(<Button {...props} />);
 
   return {

@@ -7,5 +7,6 @@ export { default as Col } from './components/Col/Col';
 export { default as Container } from './components/Container/Container';
 export { default as Icon } from './components/Icon/Icon';
 export { default as PostCard } from './components/PostCard/PostCard';
+export { default as PostMedia } from './components/PostMedia/PostMedia';
 export { default as Row } from './components/Row/Row';
 export { default as URLMetaPreview } from './components/URLMetaPreview/URLMetaPreview';

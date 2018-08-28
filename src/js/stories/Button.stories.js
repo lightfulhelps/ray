@@ -18,12 +18,55 @@ const themes = {
   light: 'Light',
   dark: 'Dark',
 };
+const iconPositions = {
+  none: null,
+  left: 'left',
+  right: 'right',
+}
+const icons = {
+  none: null,
+  addMedia: 'addMedia',
+  addSchedule: 'addSchedule',
+  analytics: 'analytics',
+  comment: 'comment',
+  create: 'create',
+  dashboard: 'dashboard',
+  delete: 'delete',
+  edit: 'edit',
+  exit: 'exit',
+  facebook: 'facebook',
+  follow: 'follow',
+  fundraising: 'fundraising',
+  helpChat: 'helpChat',
+  inspiration: 'inspiration',
+  like: 'like',
+  linkedin: 'linkedin',
+  mediaLibrary: 'mediaLibrary',
+  menu: 'menu',
+  multipleSocialProvider: 'multipleSocialProvider',
+  notifications: 'notifications',
+  organisationAccount: 'organisationAccount',
+  organisation: 'organisation',
+  personalAccount: 'personalAccount',
+  play: 'play',
+  posts: 'posts',
+  previewPost: 'previewPost',
+  reply: 'reply',
+  repost: 'repost',
+  settings: 'settings',
+  signOut: 'signOut',
+  storyBuilder: 'storyBuilder',
+  twitter: 'twitter',
+  unscheduled: 'unscheduled',
+}
 
 const sizes = {
   lg: 'Large',
   md: 'Medium',
   sm: 'Small',
 };
+
+const defaultValue = ''
 
 stories.addDecorator(withKnobs);
 
@@ -39,9 +82,10 @@ stories.add('Default', () => (
           isOutline={boolean('Outline', false)}
           onClick={action('clicked')}
           size={select('Size', sizes, 'md')}
-        >
-          {text('Text', 'Click Me')}
-        </Button>
+          label={text('Text', 'Click Me')}
+          icon={select('Icon', icons, defaultValue)}
+          iconPosition={select('Position', iconPositions, defaultValue)}
+        />
       </Col>
     </Row>
   </Container>

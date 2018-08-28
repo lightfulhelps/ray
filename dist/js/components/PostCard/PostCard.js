@@ -30,6 +30,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var PostCard = function PostCard(_ref) {
   var avatarUrl = _ref.avatarUrl,
       campaign = _ref.campaign,
@@ -41,17 +43,20 @@ var PostCard = function PostCard(_ref) {
       inspirationActions = _ref.inspirationActions,
       isDraft = _ref.isDraft,
       isInvalid = _ref.isInvalid,
+      media = _ref.media,
+      metaPreview = _ref.metaPreview,
       socialProvider = _ref.socialProvider,
       title = _ref.title;
 
-  var classes = (0, _classnames2.default)(className, 'post-card', 'shadow', { 'bg-light border-gray-500': isDraft }, { 'border-danger': isInvalid });
+  var blockClass = 'post-card';
+  var classes = (0, _classnames2.default)(className, blockClass, _defineProperty({}, blockClass + '--draft', isDraft), _defineProperty({}, blockClass + '--invalid', isInvalid));
 
   return React.createElement(
     _.Card,
     { className: classes },
     React.createElement(
       'div',
-      { className: 'd-flex mt-2 mr-2 mb-1 ml-2' },
+      { className: blockClass + '__header' },
       React.createElement(
         'div',
         { style: { width: '35px', height: '35px' } },
@@ -62,12 +67,12 @@ var PostCard = function PostCard(_ref) {
         { className: 'mx-1' },
         React.createElement(
           'h1',
-          { className: 'h5' },
+          { className: blockClass + '__title' },
           title
         ),
         date && React.createElement(
           'div',
-          { className: 'post-date small text-uppercase' },
+          { className: blockClass + '__date' },
           (0, _format2.default)(date, dateFormat)
         ),
         campaign && React.createElement(
@@ -79,12 +84,22 @@ var PostCard = function PostCard(_ref) {
     ),
     React.createElement(
       _reactDotdotdot2.default,
-      { className: 'my-1 mx-2 font-weight-light', clamp: 5 },
+      { className: blockClass + '__content', clamp: 5 },
       content
+    ),
+    media && React.createElement(
+      'div',
+      { className: blockClass + '__media' },
+      React.createElement(_.PostMedia, { media: media })
+    ),
+    metaPreview && React.createElement(
+      'div',
+      { className: blockClass + '__media border-top' },
+      React.createElement(_.URLMetaPreview, metaPreview)
     ),
     inspirationActions && inspirationActions.length > 0 && React.createElement(
       'div',
-      { className: 'inspiration-actions d-flex py-1 px-2 justify-content-between align-items-center h4 text-gray-500 border-top' },
+      { className: blockClass + '__inspiration-actions' },
       inspirationActions.map(function (action, i) {
         return React.createElement(_.Icon, {
           key: i,
@@ -98,6 +113,7 @@ var PostCard = function PostCard(_ref) {
     )
   );
 };
+
 PostCard.propTypes = {
   avatarUrl: _propTypes2.default.string,
   campaign: _propTypes2.default.shape({
@@ -119,6 +135,16 @@ PostCard.propTypes = {
   }).isRequired),
   isDraft: _propTypes2.default.bool,
   isInvalid: _propTypes2.default.bool,
+  media: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+    type: _propTypes2.default.string.isRequired,
+    url: _propTypes2.default.string.isRequired
+  }).isRequired),
+  metaPreview: _propTypes2.default.shape({
+    description: _propTypes2.default.string,
+    image: _propTypes2.default.string,
+    title: _propTypes2.default.string.isRequired,
+    url: _propTypes2.default.string.isRequired
+  }),
   socialProvider: _propTypes2.default.string,
   title: _propTypes2.default.string.isRequired
 };
