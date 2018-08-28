@@ -76,6 +76,15 @@ Object.defineProperty(exports, 'PostCard', {
   }
 });
 
+var _PostMedia = require('./components/PostMedia/PostMedia');
+
+Object.defineProperty(exports, 'PostMedia', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_PostMedia).default;
+  }
+});
+
 var _Row = require('./components/Row/Row');
 
 Object.defineProperty(exports, 'Row', {

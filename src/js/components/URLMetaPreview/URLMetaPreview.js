@@ -22,42 +22,38 @@ const URLMetaPreview = ({
   title,
   url,
 }: Props) => {
-  const baseClass = 'url-meta-preview';
-  const classes = classNames(className, baseClass, 'bg-white');
+  const blockClass = 'url-meta-preview';
+  const classes = classNames(className, blockClass);
 
   return (
     <div className={classes}>
-      <div className={isVertical ? '' : 'row'}>
+      <div className={isVertical ? '' : 'row h-100'}>
         {image && (
           <div className={isVertical ? '' : 'col-4 pr-0'}>
-            <div
-              className={`${baseClass}__image w-100 h-100 bg-cover bg-center`}
-              style={{ backgroundImage: `url(${image})` }}
-            >
-              {isVertical && <img className="mw-100" src={image} alt="" />}
+            <div className={`${blockClass}__image`} style={{ backgroundImage: `url(${image})` }}>
+              {isVertical && <img src={image} alt="" />}
             </div>
           </div>
         )}
         <div className={isVertical ? '' : image ? 'col-8 pl-0' : 'col-12'}>
-          <div className="p-2">
-            <a
-              className={`${baseClass}__title d-block text-body text-truncate small font-weight-bold`}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {title}
-            </a>
-            {description && (
-              <Dotdotdot
-                className={`${baseClass}__description small font-weight-light text-gray-500`}
-                clamp={2}
+          <div className={`${blockClass}__main`}>
+            <Dotdotdot clamp={2}>
+              <a
+                className={`${blockClass}__title`}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
               >
+                {title}
+              </a>
+            </Dotdotdot>
+            {description && (
+              <Dotdotdot className={`${blockClass}__description`} clamp={3}>
                 {description}
               </Dotdotdot>
             )}
             <a
-              className={`${baseClass}__url d-block text-body text-truncate small`}
+              className={`${blockClass}__url`}
               href={url}
               target="_blank"
               rel="noopener noreferrer"

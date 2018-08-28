@@ -1,33 +1,36 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
 import { PostCard, Icon } from '../../';
 
 const setup = (overrides = {}) => {
-  const props = {
-    title: 'Hope For Children',
-    date: '2018-08-22 14:34',
-    content:
-      'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".',
-    campaign: {
-      name: 'Campaign',
-      color: '#ff0000',
+  const props = merge(
+    {
+      title: 'Hope For Children',
+      date: '2018-08-22 14:34',
+      content:
+        'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".',
+      campaign: {
+        name: 'Campaign',
+        color: '#ff0000',
+      },
+      inspirationActions: [
+        {
+          icon: 'follow',
+          activeColor: '#0095f1',
+          isActive: false,
+          onClick: jest.fn(),
+        },
+        {
+          icon: 'like',
+          activeColor: '#f25270',
+          isActive: true,
+          onClick: jest.fn(),
+        },
+      ],
     },
-    inspirationActions: [
-      {
-        icon: 'follow',
-        activeColor: '#0095f1',
-        isActive: false,
-        onClick: jest.fn(),
-      },
-      {
-        icon: 'like',
-        activeColor: '#f25270',
-        isActive: true,
-        onClick: jest.fn(),
-      },
-    ],
-    ...overrides,
-  };
+    overrides
+  );
   const wrapper = shallow(<PostCard {...props} />);
 
   return {
@@ -55,43 +58,41 @@ describe('<PostCard />', () => {
   it('should handle the draft prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.hasClass('bg-light')).toBe(false);
-    expect(wrapper.hasClass('border-gray-500')).toBe(false);
+    expect(wrapper.hasClass('post-card--draft')).toBe(false);
 
     wrapper.setProps({ isDraft: true });
 
-    expect(wrapper.hasClass('bg-light')).toBe(true);
-    expect(wrapper.hasClass('border-gray-500')).toBe(true);
+    expect(wrapper.hasClass('post-card--draft')).toBe(true);
   });
 
   it('should handle the invalid prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.hasClass('border-danger')).toBe(false);
+    expect(wrapper.hasClass('post-card--invalid')).toBe(false);
 
     wrapper.setProps({ isInvalid: true });
 
-    expect(wrapper.hasClass('border-danger')).toBe(true);
+    expect(wrapper.hasClass('post-card--invalid')).toBe(true);
   });
 
   it('should optionally display date', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.post-date').exists()).toBe(true);
+    expect(wrapper.find('.post-card__date').exists()).toBe(true);
 
     wrapper.setProps({ date: null });
 
-    expect(wrapper.find('.post-date').exists()).toBe(false);
+    expect(wrapper.find('.post-card__date').exists()).toBe(false);
   });
 
   it('should handle the dateFormat prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.post-date').text()).toEqual('22 Aug at 14:34');
+    expect(wrapper.find('.post-card__date').text()).toEqual('22 Aug at 14:34');
 
     wrapper.setProps({ dateFormat: 'HH:MM [on] DD-MM-YYYY' });
 
-    expect(wrapper.find('.post-date').text()).toEqual('14:08 on 22-08-2018');
+    expect(wrapper.find('.post-card__date').text()).toEqual('14:08 on 22-08-2018');
   });
 
   it('should handle the campaign prop', () => {
@@ -131,7 +132,7 @@ describe('<PostCard />', () => {
       ],
     });
 
-    const inspirationActions = wrapper.find('.inspiration-actions').find(Icon);
+    const inspirationActions = wrapper.find('.post-card__inspiration-actions').find(Icon);
 
     expect(inspirationActions).toHaveLength(2);
 
@@ -151,14 +152,14 @@ describe('<PostCard />', () => {
   it('should optionall display inspirationActions', () => {
     const { wrapper } = setup({ inspirationActions: [{ icon: 'follow' }] });
 
-    expect(wrapper.find('.inspiration-actions').exists()).toBe(true);
+    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(true);
 
     wrapper.setProps({ inspirationActions: [] });
 
-    expect(wrapper.find('.inspiration-actions').exists()).toBe(false);
+    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
 
     wrapper.setProps({ inspirationActions: null });
 
-    expect(wrapper.find('.inspiration-actions').exists()).toBe(false);
+    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
   });
 });

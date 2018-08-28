@@ -1,0 +1,50 @@
+.post-card {
+  @extend .card;
+
+  box-shadow: $box-shadow;
+
+  &-draft {
+    background-color: $gray-100;
+    border-color: $gray-500;
+  }
+
+  &-invalid {
+    border-color: $danger;
+  }
+}
+
+.post-card__header {
+  display: flex;
+  margin-top: map-get($spacers, 2);
+  margin-right: map-get($spacers, 2);
+  margin-bottom: 0;
+  margin-left: map-get($spacers, 2);
+}
+
+.post-card__title {
+  @extend .h5;
+}
+
+.post-card__date {
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+}
+
+.post-card__content {
+  margin: map-get($spacers, 1) map-get($spacers, 2);
+  font-weight: $font-weight-light;
+}
+
+.post-card__media {
+  height: 164px;
+}
+
+.post-card__inspiration-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: map-get($spacers, 1) map-get($spacers, 2);
+  font-size: $h4-font-size;
+  color: $gray-500;
+  border-top: $border-width solid $border-color;
+}

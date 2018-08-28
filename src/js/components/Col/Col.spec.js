@@ -1,12 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
 import Col from './Col';
 
 const setup = (overrides = {}) => {
-  const props = {
-    children: <div>Content</div>,
-    ...overrides,
-  };
+  const props = merge(
+    {
+      children: <div>Content</div>,
+    },
+    overrides
+  );
   const wrapper = shallow(<Col {...props} />);
 
   return {

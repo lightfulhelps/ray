@@ -1,17 +1,20 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
 import URLMetaPreview from './URLMetaPreview';
 
 const setup = (overrides = {}) => {
-  const props = {
-    title: "National Living Wage 'fails to cover families' basic needs",
-    description:
-      "Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says.",
-    image:
-      'https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg',
-    url: 'https://www.bbc.co.uk/news/business-45242008',
-    ...overrides,
-  };
+  const props = merge(
+    {
+      title: "National Living Wage 'fails to cover families' basic needs",
+      description:
+        "Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says.",
+      image:
+        'https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg',
+      url: 'https://www.bbc.co.uk/news/business-45242008',
+    },
+    overrides
+  );
   const wrapper = shallow(<URLMetaPreview {...props} />);
 
   return {
