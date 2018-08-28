@@ -7,26 +7,35 @@
   font-size: $font-size-base;
 }
 
-.btn-icon- {
-  &left, &right {
+.btn-icon {
+  padding: .5em;
+  svg,
+  svg:hover {
+    fill: #fff !important;
+  }
+  &-left,
+  &-right {
+    svg,
+    svg:hover {
+      fill: #fff !important;
+    }
     display: flex;
     align-items: flex-end;
-    svg, svg:hover {
-      fill: #FFF !important;
-    }
   }
-  &left {
+  &-left {
     padding-left: 1em;
+    padding-right: 1.5em;
     svg {
       float: left;
-      margin-right: 0.5em
+      margin-right: 0.5em;
     }
   }
-  &right {
+  &-right {
     padding-right: 1em;
+    padding-left: 1.5em;
     svg {
       float: right;
-      margin-left: 0.5em
+      margin-left: 0.5em;
     }
   }
 }

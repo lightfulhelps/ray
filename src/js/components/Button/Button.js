@@ -30,6 +30,7 @@ const Button = ({
   tag: Tag = 'button',
   icon,
   iconPosition,
+  label
 }: Props) => {
   const classes = classNames(
     className,
@@ -38,20 +39,23 @@ const Button = ({
     size ? `btn-${size}` : false,
     { 'btn-block': isBlock },
     { disabled: isDisabled },
-    { [`btn-icon-${iconPosition}`]: iconPosition }
+    { 'btn-icon': icon && !label},
+    { [`btn-icon-${iconPosition}`]: iconPosition && label }
   );
 
   return (
     <Tag className={classes} onClick={onClick}>
-      <span>{children}</span>
-      {icon &&
+      {label && (
+        <span>{label}</span>
+      )}
+      {icon && (
         <Icon
           name={icon}
           size={number('Size', 24)}
           color={color('Color', '#adb5bd')}
           hoverColor={color('Hover Color', '#212529')}
         />
-      }
+      )}
     </Tag>
   );
 };
