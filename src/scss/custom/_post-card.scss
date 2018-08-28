@@ -2,13 +2,18 @@
   @extend .card;
 
   box-shadow: $box-shadow;
+  transition: box-shadow 0.3s;
 
-  &-draft {
+  &:hover {
+    box-shadow: $box-shadow-lg;
+  }
+
+  &--draft {
     background-color: $gray-100;
     border-color: $gray-500;
   }
 
-  &-invalid {
+  &--invalid {
     border-color: $danger;
   }
 }

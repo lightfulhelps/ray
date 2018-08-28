@@ -6597,11 +6597,14 @@ button.bg-gray-900:focus {
     height: 80%; }
 
 .post-card {
-  box-shadow: 0 0 30px 0 rgba(73, 80, 87, 0.04); }
-  .post-card-draft {
+  box-shadow: 0 0 30px 0 rgba(73, 80, 87, 0.04);
+  transition: box-shadow 0.3s; }
+  .post-card:hover {
+    box-shadow: 0 0 30px 0 rgba(73, 80, 87, 0.12); }
+  .post-card--draft {
     background-color: #f8f9fa;
     border-color: #adb5bd; }
-  .post-card-invalid {
+  .post-card--invalid {
     border-color: #f25270; }
 
 .post-card__header {
