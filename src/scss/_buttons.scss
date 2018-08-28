@@ -8,10 +8,25 @@
 }
 
 .btn-icon- {
+  &left, &right {
+    display: flex;
+    align-items: flex-end;
+    svg, svg:hover {
+      fill: #FFF !important;
+    }
+  }
   &left {
-    padding-left: 0;
+    padding-left: 1em;
+    svg {
+      float: left;
+      margin-right: 0.5em
+    }
   }
   &right {
-    padding-right: 0;
+    padding-right: 1em;
+    svg {
+      float: right;
+      margin-left: 0.5em
+    }
   }
 }
