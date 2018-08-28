@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { withKnobs, color, number } from '@storybook/addon-knobs';
+import { color, number } from '@storybook/addon-knobs';
 import Icon from '../Icon/Icon';
 
 /*
@@ -11,7 +11,7 @@ import Icon from '../Icon/Icon';
 const DropdownItem = ({ action }) => (
   <a className="dropdown-item" href="#">
     <Icon
-      name={"addMedia"}
+      name={'addMedia'}
       size={number('Size', 24)}
       color={color('Color', '#adb5bd')}
       hoverColor={color('Hover Color', '#212529')}

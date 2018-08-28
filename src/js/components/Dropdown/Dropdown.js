@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import '../../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min';
 import DropdownItem from './DropdownItem';
 
-
 /*
 - create and import dropdown items
 - pass an array of items to display in dropdown

@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
+import Icon from '../Icon/Icon';
 
 type Props = {
   children: React.Element<any>,
