@@ -41,21 +41,19 @@ const Button = ({
     size ? `btn-${size}` : false,
     { 'btn-block': isBlock },
     { disabled: isDisabled },
-    { 'btn-icon': icon && !label},
+    { 'btn-icon': icon && !label },
     { [`btn-icon-${iconPosition}`]: iconPosition && label }
   );
 
   return (
-    <Tag 
-      className={classes} 
+    <Tag
+      className={classes}
       onClick={onClick}
-      data-toggle={isDropdown && "dropdown"}
-      aria-haspopup={isDropdown && "true"}
-      aria-expanded={isDropdown && "false"}
+      data-toggle={isDropdown && 'dropdown'}
+      aria-haspopup={isDropdown && 'true'}
+      aria-expanded={isDropdown && 'false'}
     >
-      {label && (
-        <span>{label}</span>
-      )}
+      {label && <span>{label}</span>}
       {icon && (
         <Icon
           name={icon}

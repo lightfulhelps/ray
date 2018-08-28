@@ -1,27 +1,27 @@
-
 .dropdown-menu {
   .dropdown-item {
     font-weight: 200;
     text-transform: capitalize;
-    display: flex;
-    align-items: flex-end;
+    padding-left: $menu-item-padding-x;
+    padding-right: $menu-item-padding-x;
     &:hover {
-    background: initial;
+      background: initial;
     }
   }
-  
+
   &-dark {
     background: $gray-800;
     .dropdown-item {
-      color: #FFF;
+      color: #fff;
       &:not(:last-child) {
         .dropdown-item-content {
-        border-bottom: 1px solid $gray-500;
-        padding-bottom: 0.25rem;
+          border-bottom: 1px solid $gray-500;
+          padding-bottom: 0.5rem;
         }
       }
     }
-    svg, &:hover {
+    svg,
+    &:hover {
       fill: $gray-500 !important;
     }
   }
