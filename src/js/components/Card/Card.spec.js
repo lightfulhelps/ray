@@ -1,12 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
 import Card from './Card';
 
 const setup = (overrides = {}) => {
-  const props = {
-    children: <p>Children</p>,
-    ...overrides,
-  };
+  const props = merge(
+    {
+      children: <p>Children</p>,
+    },
+    overrides
+  );
   const wrapper = shallow(<Card {...props} />);
 
   return {

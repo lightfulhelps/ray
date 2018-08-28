@@ -2,10 +2,10 @@
 
 exports[`<PostCard /> should render 1`] = `
 <Card
-  className="post-card shadow"
+  className="post-card"
 >
   <div
-    className="d-flex mt-2 mr-2 mb-0 ml-2"
+    className="post-card__header"
   >
     <div
       style={
@@ -21,12 +21,12 @@ exports[`<PostCard /> should render 1`] = `
       className="mx-1"
     >
       <h1
-        className="h5"
+        className="post-card__title"
       >
         Hope For Children
       </h1>
       <div
-        className="post-date small text-uppercase"
+        className="post-card__date"
       >
         22 Aug at 14:34
       </div>
@@ -40,7 +40,7 @@ exports[`<PostCard /> should render 1`] = `
   </div>
   <Dotdotdot
     clamp={5}
-    className="my-1 mx-2 font-weight-light"
+    className="post-card__content"
     tagName="div"
     truncationChar="…"
     useNativeClamp={true}
@@ -48,7 +48,7 @@ exports[`<PostCard /> should render 1`] = `
     Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".
   </Dotdotdot>
   <div
-    className="inspiration-actions d-flex py-1 px-2 justify-content-between align-items-center h4 mb-0 text-gray-500 border-top"
+    className="post-card__inspiration-actions"
   >
     <Icon
       className="cursor-pointer"

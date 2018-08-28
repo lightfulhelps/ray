@@ -13,32 +13,31 @@ type Props = {
 };
 
 const PostMedia = ({ className, media }: Props) => {
-  const sharedClasses = classNames(className, 'post-media', `post-media--${media.length}`);
-  const emptyClasses = classNames(
-    sharedClasses,
-    'd-flex justify-content-center align-items-center bg-gray-100 text-gray-300 h5'
-  );
-  const videoClasses = classNames(sharedClasses);
-  const imageClasses = classNames(sharedClasses);
+  const blockClass = 'post-media';
+  const classes = classNames(className, blockClass, `${blockClass}--${media.length}`);
 
   if (!media.length) {
-    return <div className={emptyClasses}>No media</div>;
+    return <div className={`${classes} ${blockClass}--empty`}>No media</div>;
   }
 
   const video = media.find(m => m.type === 'video');
 
   if (video) {
     return (
-      <div className={videoClasses}>
-        <video className="post-media__video" controls src={video.url} />
+      <div className={classes}>
+        <video className={`${blockClass}__video`} controls src={video.url} />
       </div>
     );
   }
 
   return (
-    <div className={imageClasses}>
+    <div className={classes}>
       {media.map((m, i) => (
-        <div key={i} className="post-media__image" style={{ backgroundImage: `url(${m.url})` }} />
+        <div
+          key={i}
+          className={`${blockClass}__image`}
+          style={{ backgroundImage: `url(${m.url})` }}
+        />
       ))}
     </div>
   );

@@ -57,25 +57,23 @@ const PostCard = ({
   socialProvider,
   title,
 }: Props) => {
+  const baseClass = 'post-card';
   const classes = classNames(
     className,
-    'post-card',
-    'shadow',
-    { 'bg-light border-gray-500': isDraft },
-    { 'border-danger': isInvalid }
+    baseClass,
+    { [`${baseClass}--draft`]: isDraft },
+    { [`${baseClass}--invalid`]: isInvalid }
   );
 
   return (
     <Card className={classes}>
-      <div className="d-flex mt-2 mr-2 mb-0 ml-2">
+      <div className={`${baseClass}__header`}>
         <div style={{ width: '35px', height: '35px' }}>
           <Avatar url={avatarUrl} provider={socialProvider} />
         </div>
         <div className="mx-1">
-          <h1 className="h5">{title}</h1>
-          {date && (
-            <div className="post-date small text-uppercase">{formatDate(date, dateFormat)}</div>
-          )}
+          <h1 className={`${baseClass}__title`}>{title}</h1>
+          {date && <div className={`${baseClass}__date`}>{formatDate(date, dateFormat)}</div>}
           {campaign && (
             <Badge className="campaign-tag" color={campaign.color}>
               {campaign.name}
@@ -83,22 +81,22 @@ const PostCard = ({
           )}
         </div>
       </div>
-      <Dotdotdot className="my-1 mx-2 font-weight-light" clamp={5}>
+      <Dotdotdot className={`${baseClass}__content`} clamp={5}>
         {content}
       </Dotdotdot>
       {media && (
-        <div style={{ height: '164px' }}>
+        <div className={`${baseClass}__media`}>
           <PostMedia media={media} />
         </div>
       )}
       {metaPreview && (
-        <div className="border-top" style={{ height: '164px' }}>
+        <div className={`${baseClass}__media border-top`}>
           <URLMetaPreview {...metaPreview} />
         </div>
       )}
       {inspirationActions &&
         inspirationActions.length > 0 && (
-          <div className="inspiration-actions d-flex py-1 px-2 justify-content-between align-items-center h4 mb-0 text-gray-500 border-top">
+          <div className={`${baseClass}__inspiration-actions`}>
             {inspirationActions.map((action, i) => (
               <Icon
                 key={i}

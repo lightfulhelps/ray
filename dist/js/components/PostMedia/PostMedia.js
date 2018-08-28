@@ -22,15 +22,13 @@ var PostMedia = function PostMedia(_ref) {
   var className = _ref.className,
       media = _ref.media;
 
-  var sharedClasses = (0, _classnames2.default)(className, 'post-media', 'post-media--' + media.length);
-  var emptyClasses = (0, _classnames2.default)(sharedClasses, 'd-flex justify-content-center align-items-center bg-gray-100 text-gray-300 h5');
-  var videoClasses = (0, _classnames2.default)(sharedClasses);
-  var imageClasses = (0, _classnames2.default)(sharedClasses);
+  var blockClass = 'post-media';
+  var classes = (0, _classnames2.default)(className, blockClass, blockClass + '--' + media.length);
 
   if (!media.length) {
     return _react2.default.createElement(
       'div',
-      { className: emptyClasses },
+      { className: classes + ' ' + blockClass + '--empty' },
       'No media'
     );
   }
@@ -42,16 +40,20 @@ var PostMedia = function PostMedia(_ref) {
   if (video) {
     return _react2.default.createElement(
       'div',
-      { className: videoClasses },
-      _react2.default.createElement('video', { className: 'post-media__video', controls: true, src: video.url })
+      { className: classes },
+      _react2.default.createElement('video', { className: blockClass + '__video', controls: true, src: video.url })
     );
   }
 
   return _react2.default.createElement(
     'div',
-    { className: imageClasses },
+    { className: classes },
     media.map(function (m, i) {
-      return _react2.default.createElement('div', { key: i, className: 'post-media__image', style: { backgroundImage: 'url(' + m.url + ')' } });
+      return _react2.default.createElement('div', {
+        key: i,
+        className: blockClass + '__image',
+        style: { backgroundImage: 'url(' + m.url + ')' }
+      });
     })
   );
 };

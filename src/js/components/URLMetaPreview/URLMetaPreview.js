@@ -23,26 +23,23 @@ const URLMetaPreview = ({
   url,
 }: Props) => {
   const baseClass = 'url-meta-preview';
-  const classes = classNames(className, baseClass, 'bg-white h-100');
+  const classes = classNames(className, baseClass);
 
   return (
     <div className={classes}>
       <div className={isVertical ? '' : 'row h-100'}>
         {image && (
           <div className={isVertical ? '' : 'col-4 pr-0'}>
-            <div
-              className={`${baseClass}__image w-100 h-100 bg-cover bg-center`}
-              style={{ backgroundImage: `url(${image})` }}
-            >
-              {isVertical && <img className="mw-100" src={image} alt="" />}
+            <div className={`${baseClass}__image`} style={{ backgroundImage: `url(${image})` }}>
+              {isVertical && <img src={image} alt="" />}
             </div>
           </div>
         )}
         <div className={isVertical ? '' : image ? 'col-8 pl-0' : 'col-12'}>
-          <div className="d-flex flex-column justify-content-between h-100 p-2">
+          <div className={`${baseClass}__main`}>
             <Dotdotdot clamp={2}>
               <a
-                className={`${baseClass}__title d-block text-body small font-weight-bold`}
+                className={`${baseClass}__title`}
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -51,19 +48,11 @@ const URLMetaPreview = ({
               </a>
             </Dotdotdot>
             {description && (
-              <Dotdotdot
-                className={`${baseClass}__description small font-weight-light text-gray-500`}
-                clamp={3}
-              >
+              <Dotdotdot className={`${baseClass}__description`} clamp={3}>
                 {description}
               </Dotdotdot>
             )}
-            <a
-              className={`${baseClass}__url d-block text-body text-truncate small`}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a className={`${baseClass}__url`} href={url} target="_blank" rel="noopener noreferrer">
               {cleanURL(url)}
             </a>
           </div>

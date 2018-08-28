@@ -1,14 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
 import Avatar from './Avatar';
 import { Icon } from '../../';
 
 const setup = (overrides = {}) => {
-  const props = {
-    url: 'https://randomuser.me/api/portraits/women/47.jpg',
-    provider: 'twitter',
-    ...overrides,
-  };
+  const props = merge(
+    {
+      url: 'https://randomuser.me/api/portraits/women/47.jpg',
+      provider: 'twitter',
+    },
+    overrides
+  );
   const wrapper = shallow(<Avatar {...props} />);
 
   return {

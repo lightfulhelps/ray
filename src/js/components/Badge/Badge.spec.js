@@ -1,12 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
 import Badge from './Badge';
 
 const setup = (overrides = {}) => {
-  const props = {
-    children: 'Badge',
-    ...overrides,
-  };
+  const props = merge(
+    {
+      children: 'Badge',
+    },
+    overrides
+  );
   const wrapper = shallow(<Badge {...props} />);
 
   return {

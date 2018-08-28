@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
 import Icon from './Icon';
 import icons from './icons';
 
@@ -19,11 +20,13 @@ jest.mock('./icons', () => ({
 }));
 
 const setup = (overrides = {}) => {
-  const props = {
-    name: 'analytics',
-    size: 30,
-    ...overrides,
-  };
+  const props = merge(
+    {
+      name: 'analytics',
+      size: 30,
+    },
+    overrides
+  );
   const wrapper = shallow(<Icon {...props} />);
 
   return {

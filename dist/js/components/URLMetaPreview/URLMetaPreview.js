@@ -37,7 +37,7 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
       url = _ref.url;
 
   var baseClass = 'url-meta-preview';
-  var classes = (0, _classnames2.default)(className, baseClass, 'bg-white h-100');
+  var classes = (0, _classnames2.default)(className, baseClass);
 
   return _react2.default.createElement(
     'div',
@@ -50,11 +50,8 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
         { className: isVertical ? '' : 'col-4 pr-0' },
         _react2.default.createElement(
           'div',
-          {
-            className: baseClass + '__image w-100 h-100 bg-cover bg-center',
-            style: { backgroundImage: 'url(' + image + ')' }
-          },
-          isVertical && _react2.default.createElement('img', { className: 'mw-100', src: image, alt: '' })
+          { className: baseClass + '__image', style: { backgroundImage: 'url(' + image + ')' } },
+          isVertical && _react2.default.createElement('img', { src: image, alt: '' })
         )
       ),
       _react2.default.createElement(
@@ -62,14 +59,14 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
         { className: isVertical ? '' : image ? 'col-8 pl-0' : 'col-12' },
         _react2.default.createElement(
           'div',
-          { className: 'd-flex flex-column justify-content-between h-100 p-2' },
+          { className: baseClass + '__main' },
           _react2.default.createElement(
             _reactDotdotdot2.default,
             { clamp: 2 },
             _react2.default.createElement(
               'a',
               {
-                className: baseClass + '__title d-block text-body small font-weight-bold',
+                className: baseClass + '__title',
                 href: url,
                 target: '_blank',
                 rel: 'noopener noreferrer'
@@ -79,20 +76,12 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
           ),
           description && _react2.default.createElement(
             _reactDotdotdot2.default,
-            {
-              className: baseClass + '__description small font-weight-light text-gray-500',
-              clamp: 3
-            },
+            { className: baseClass + '__description', clamp: 3 },
             description
           ),
           _react2.default.createElement(
             'a',
-            {
-              className: baseClass + '__url d-block text-body text-truncate small',
-              href: url,
-              target: '_blank',
-              rel: 'noopener noreferrer'
-            },
+            { className: baseClass + '__url', href: url, target: '_blank', rel: 'noopener noreferrer' },
             cleanURL(url)
           )
         )
