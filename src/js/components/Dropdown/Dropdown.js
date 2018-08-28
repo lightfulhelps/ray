@@ -10,7 +10,12 @@ import DropdownItem from './DropdownItem';
 - specify a light/dark prop - dark to be default
  */
 
+type Props = {
+  theme?: string,
+}
+
 const Dropdown = ({
+  theme = 'dark',
   actions,
 }) => (
   <div className="dropdown">
@@ -25,7 +30,6 @@ const Dropdown = ({
       Dropdown button
     </button>
     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      {console.log('actions', actions)}
       {actions.map((action, i) => {
         return <DropdownItem action={action} key={i} />;
       })}
