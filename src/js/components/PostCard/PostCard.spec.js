@@ -6,13 +6,19 @@ import { PostCard, Icon } from '../../';
 const setup = (overrides = {}) => {
   const props = merge(
     {
-      title: 'Hope For Children',
-      date: '2018-08-22 14:34',
-      content:
-        'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".',
-      campaign: {
-        name: 'Campaign',
-        color: '#ff0000',
+      post: {
+        title: 'Hope For Children',
+        date: '2018-08-22 14:34',
+        content:
+          'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".',
+        campaign: {
+          name: 'Campaign',
+          color: '#ff0000',
+        },
+        socialIdentity: {
+          id: '1',
+          avatar: 'http://foo.com/avatar.jpg',
+        },
       },
       inspirationActions: [
         {
@@ -76,11 +82,11 @@ describe('<PostCard />', () => {
   });
 
   it('should optionally display date', () => {
-    const { wrapper } = setup();
+    const { wrapper, props } = setup();
 
     expect(wrapper.find('.post-card__date').exists()).toBe(true);
 
-    wrapper.setProps({ date: null });
+    wrapper.setProps({ post: merge(props.post, { date: null }) });
 
     expect(wrapper.find('.post-card__date').exists()).toBe(false);
   });
@@ -98,16 +104,16 @@ describe('<PostCard />', () => {
   it('should handle the campaign prop', () => {
     const { wrapper, props } = setup();
 
-    expect(wrapper.find('.campaign-tag').prop('color')).toEqual(props.campaign.color);
-    expect(wrapper.find('.campaign-tag').prop('children')).toEqual(props.campaign.name);
+    expect(wrapper.find('.campaign-tag').prop('color')).toEqual(props.post.campaign.color);
+    expect(wrapper.find('.campaign-tag').prop('children')).toEqual(props.post.campaign.name);
   });
 
   it('should optionally display the campaign tag', () => {
-    const { wrapper } = setup();
+    const { wrapper, props } = setup();
 
     expect(wrapper.find('.campaign-tag').exists()).toBe(true);
 
-    wrapper.setProps({ campaign: null });
+    wrapper.setProps({ post: merge(props.post, { campaign: null }) });
 
     expect(wrapper.find('.campaign-tag').exists()).toBe(false);
   });

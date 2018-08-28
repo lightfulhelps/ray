@@ -18,44 +18,47 @@ type MediaType = {
   url: string,
 };
 
-type Props = {
-  avatarUrl?: string,
+type PostType = {
   campaign?: {
     color: string,
     name: string,
   },
-  className?: string,
   content: string,
   date?: Date | number | string,
+  media?: MediaType[],
+  socialIdentity?: {
+    avatar?: string,
+    displayName?: string,
+    id: string,
+    username?: string,
+  },
+  socialProvider?: string,
+  title: string,
+};
+
+type Props = {
+  className?: string,
   dateFormat?: string,
   inspirationActions?: InspirationActionType[],
   isDraft?: boolean,
   isInvalid?: boolean,
-  media?: MediaType[],
   metaPreview?: {
     description?: string,
     image?: string,
     title: string,
     url: string,
   },
-  socialProvider?: string,
-  title: string,
+  post: PostType,
 };
 
 const PostCard = ({
-  avatarUrl,
-  campaign,
   className,
-  content,
-  date,
   dateFormat = 'D MMM [at] HH:mm',
   inspirationActions,
   isDraft,
   isInvalid,
-  media,
   metaPreview,
-  socialProvider,
-  title,
+  post,
 }: Props) => {
   const blockClass = 'post-card';
   const classes = classNames(
@@ -68,25 +71,29 @@ const PostCard = ({
   return (
     <Card className={classes}>
       <div className={`${blockClass}__header`}>
-        <div style={{ width: '35px', height: '35px' }}>
-          <Avatar url={avatarUrl} provider={socialProvider} />
-        </div>
+        {post.socialIdentity && (
+          <div style={{ width: '35px', height: '35px' }}>
+            <Avatar url={post.socialIdentity.avatar} provider={post.socialProvider} />
+          </div>
+        )}
         <div className="mx-1">
-          <h1 className={`${blockClass}__title`}>{title}</h1>
-          {date && <div className={`${blockClass}__date`}>{formatDate(date, dateFormat)}</div>}
-          {campaign && (
-            <Badge className="campaign-tag" color={campaign.color}>
-              {campaign.name}
+          <h1 className={`${blockClass}__title`}>{post.title}</h1>
+          {post.date && (
+            <div className={`${blockClass}__date`}>{formatDate(post.date, dateFormat)}</div>
+          )}
+          {post.campaign && (
+            <Badge className="campaign-tag" color={post.campaign.color}>
+              {post.campaign.name}
             </Badge>
           )}
         </div>
       </div>
       <Dotdotdot className={`${blockClass}__content`} clamp={5}>
-        {content}
+        {post.content}
       </Dotdotdot>
-      {media && (
+      {post.media && (
         <div className={`${blockClass}__media`}>
-          <PostMedia media={media} />
+          <PostMedia media={post.media} />
         </div>
       )}
       {metaPreview && (

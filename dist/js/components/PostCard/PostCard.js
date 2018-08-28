@@ -33,20 +33,14 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var PostCard = function PostCard(_ref) {
-  var avatarUrl = _ref.avatarUrl,
-      campaign = _ref.campaign,
-      className = _ref.className,
-      content = _ref.content,
-      date = _ref.date,
+  var className = _ref.className,
       _ref$dateFormat = _ref.dateFormat,
       dateFormat = _ref$dateFormat === undefined ? 'D MMM [at] HH:mm' : _ref$dateFormat,
       inspirationActions = _ref.inspirationActions,
       isDraft = _ref.isDraft,
       isInvalid = _ref.isInvalid,
-      media = _ref.media,
       metaPreview = _ref.metaPreview,
-      socialProvider = _ref.socialProvider,
-      title = _ref.title;
+      post = _ref.post;
 
   var blockClass = 'post-card';
   var classes = (0, _classnames2.default)(className, blockClass, _defineProperty({}, blockClass + '--draft', isDraft), _defineProperty({}, blockClass + '--invalid', isInvalid));
@@ -57,10 +51,10 @@ var PostCard = function PostCard(_ref) {
     React.createElement(
       'div',
       { className: blockClass + '__header' },
-      React.createElement(
+      post.socialIdentity && React.createElement(
         'div',
         { style: { width: '35px', height: '35px' } },
-        React.createElement(_.Avatar, { url: avatarUrl, provider: socialProvider })
+        React.createElement(_.Avatar, { url: post.socialIdentity.avatar, provider: post.socialProvider })
       ),
       React.createElement(
         'div',
@@ -68,29 +62,29 @@ var PostCard = function PostCard(_ref) {
         React.createElement(
           'h1',
           { className: blockClass + '__title' },
-          title
+          post.title
         ),
-        date && React.createElement(
+        post.date && React.createElement(
           'div',
           { className: blockClass + '__date' },
-          (0, _format2.default)(date, dateFormat)
+          (0, _format2.default)(post.date, dateFormat)
         ),
-        campaign && React.createElement(
+        post.campaign && React.createElement(
           _.Badge,
-          { className: 'campaign-tag', color: campaign.color },
-          campaign.name
+          { className: 'campaign-tag', color: post.campaign.color },
+          post.campaign.name
         )
       )
     ),
     React.createElement(
       _reactDotdotdot2.default,
       { className: blockClass + '__content', clamp: 5 },
-      content
+      post.content
     ),
-    media && React.createElement(
+    post.media && React.createElement(
       'div',
       { className: blockClass + '__media' },
-      React.createElement(_.PostMedia, { media: media })
+      React.createElement(_.PostMedia, { media: post.media })
     ),
     metaPreview && React.createElement(
       'div',
@@ -115,16 +109,7 @@ var PostCard = function PostCard(_ref) {
 };
 
 PostCard.propTypes = {
-  avatarUrl: _propTypes2.default.string,
-  campaign: _propTypes2.default.shape({
-    color: _propTypes2.default.string.isRequired,
-    name: _propTypes2.default.string.isRequired
-  }),
   className: _propTypes2.default.string,
-  content: _propTypes2.default.string.isRequired,
-  date: _propTypes2.default.oneOfType([function () {
-    return (typeof Date === 'function' ? _propTypes2.default.instanceOf(Date) : _propTypes2.default.any).apply(this, arguments);
-  }, _propTypes2.default.number, _propTypes2.default.string]),
   dateFormat: _propTypes2.default.string,
   inspirationActions: _propTypes2.default.arrayOf(_propTypes2.default.shape({
     activeColor: _propTypes2.default.string,
@@ -135,17 +120,33 @@ PostCard.propTypes = {
   }).isRequired),
   isDraft: _propTypes2.default.bool,
   isInvalid: _propTypes2.default.bool,
-  media: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    type: _propTypes2.default.string.isRequired,
-    url: _propTypes2.default.string.isRequired
-  }).isRequired),
   metaPreview: _propTypes2.default.shape({
     description: _propTypes2.default.string,
     image: _propTypes2.default.string,
     title: _propTypes2.default.string.isRequired,
     url: _propTypes2.default.string.isRequired
   }),
-  socialProvider: _propTypes2.default.string,
-  title: _propTypes2.default.string.isRequired
+  post: _propTypes2.default.shape({
+    campaign: _propTypes2.default.shape({
+      color: _propTypes2.default.string.isRequired,
+      name: _propTypes2.default.string.isRequired
+    }),
+    content: _propTypes2.default.string.isRequired,
+    date: _propTypes2.default.oneOfType([function () {
+      return (typeof Date === 'function' ? _propTypes2.default.instanceOf(Date) : _propTypes2.default.any).apply(this, arguments);
+    }, _propTypes2.default.number, _propTypes2.default.string]),
+    media: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+      type: _propTypes2.default.string.isRequired,
+      url: _propTypes2.default.string.isRequired
+    }).isRequired),
+    socialIdentity: _propTypes2.default.shape({
+      avatar: _propTypes2.default.string,
+      displayName: _propTypes2.default.string,
+      id: _propTypes2.default.string.isRequired,
+      username: _propTypes2.default.string
+    }),
+    socialProvider: _propTypes2.default.string,
+    title: _propTypes2.default.string.isRequired
+  }).isRequired
 };
 exports.default = PostCard;

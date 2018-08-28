@@ -15,7 +15,9 @@ exports[`<PostCard /> should render 1`] = `
         }
       }
     >
-      <Avatar />
+      <Avatar
+        url="http://foo.com/avatar.jpg"
+      />
     </div>
     <div
       className="mx-1"
