@@ -58,7 +58,7 @@ var PostCard = function PostCard(_ref) {
       ),
       React.createElement(
         'div',
-        { className: 'mx-1', style: { minWidth: 0 } },
+        { className: 'mx-1', style: { height: '64px', minWidth: 0 } },
         React.createElement(
           'h1',
           { className: blockClass + '__title' },
@@ -91,7 +91,7 @@ var PostCard = function PostCard(_ref) {
       { className: blockClass + '__media border-top' },
       React.createElement(_.URLMetaPreview, metaPreview)
     ),
-    post.metrics && React.createElement(
+    post.metrics && Object.keys(post.metrics).length > 0 && React.createElement(
       'div',
       { className: blockClass + '__metrics' },
       Object.keys(post.metrics).map(function (key) {

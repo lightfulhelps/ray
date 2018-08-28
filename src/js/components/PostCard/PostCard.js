@@ -79,7 +79,7 @@ const PostCard = ({
             <Avatar url={post.socialIdentity.avatar} provider={post.socialProvider} />
           </div>
         )}
-        <div className="mx-1" style={{ minWidth: 0 }}>
+        <div className="mx-1" style={{ height: '64px', minWidth: 0 }}>
           <h1 className={`${blockClass}__title`}>{post.title}</h1>
           {post.date && (
             <div className={`${blockClass}__date`}>{formatDate(post.date, dateFormat)}</div>
@@ -104,15 +104,16 @@ const PostCard = ({
           <URLMetaPreview {...metaPreview} />
         </div>
       )}
-      {post.metrics && (
-        <div className={`${blockClass}__metrics`}>
-          {Object.keys(post.metrics).map(key => (
-            <div key={key} className={`${blockClass}__metric`}>
-              <span>{post.metrics && post.metrics[key]}</span> {key}
-            </div>
-          ))}
-        </div>
-      )}
+      {post.metrics &&
+        Object.keys(post.metrics).length > 0 && (
+          <div className={`${blockClass}__metrics`}>
+            {Object.keys(post.metrics).map(key => (
+              <div key={key} className={`${blockClass}__metric`}>
+                <span>{post.metrics && post.metrics[key]}</span> {key}
+              </div>
+            ))}
+          </div>
+        )}
       {inspirationActions &&
         inspirationActions.length > 0 && (
           <div className={`${blockClass}__inspiration-actions`}>
