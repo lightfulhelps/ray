@@ -12,12 +12,9 @@ import DropdownItem from './DropdownItem';
 
 type Props = {
   theme?: string,
-}
+};
 
-const Dropdown = ({
-  theme = 'dark',
-  actions,
-}) => (
+const Dropdown = ({ theme = 'dark', actions }) => (
   <div className="dropdown">
     <button
       className="btn btn-secondary dropdown-toggle"
