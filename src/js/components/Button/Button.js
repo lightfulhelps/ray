@@ -16,10 +16,12 @@ type Props = {
   theme?: string,
   icon?: string,
   iconPosition?: string,
+  isDropdown?: boolean,
 };
 
 const Button = ({
   children,
+  label,
   className,
   theme = 'primary',
   isBlock,
@@ -30,7 +32,7 @@ const Button = ({
   tag: Tag = 'button',
   icon,
   iconPosition,
-  label
+  isDropdown,
 }: Props) => {
   const classes = classNames(
     className,
@@ -44,7 +46,13 @@ const Button = ({
   );
 
   return (
-    <Tag className={classes} onClick={onClick}>
+    <Tag 
+      className={classes} 
+      onClick={onClick}
+      data-toggle={isDropdown && "dropdown"}
+      aria-haspopup={isDropdown && "true"}
+      aria-expanded={isDropdown && "false"}
+    >
       {label && (
         <span>{label}</span>
       )}

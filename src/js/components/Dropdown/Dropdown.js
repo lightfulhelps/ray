@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import '../../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min';
 import DropdownItem from './DropdownItem';
+import Button from '../Button/Button';
 
 /*
 - create and import dropdown items
@@ -16,16 +17,11 @@ type Props = {
 
 const Dropdown = ({ theme = 'dark', actions }) => (
   <div className="dropdown">
-    <button
-      className="btn btn-secondary dropdown-toggle"
-      type="button"
-      id="dropdownMenuButton"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false"
-    >
-      Dropdown button
-    </button>
+  <Button
+    icon="menu"
+    isDropdown
+    theme={theme}
+  />
     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
       {actions.map((action, i) => {
         return <DropdownItem action={action} key={i} />;

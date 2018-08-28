@@ -5,10 +5,16 @@ import { Container, Row, Dropdown } from '../';
 import { dropdownMockActions } from '../mocks/dropdownMocks';
 
 import '../../scss/ray.scss';
+import { select } from '@storybook/addon-knobs/dist/vue';
 
 const stories = storiesOf('Dropdown', module);
 
 stories.addDecorator(withKnobs);
+
+const themes = {
+  primary: 'Primary',
+  dark: 'Dark',
+}
 
 stories.add('Default', () => (
   <Container>
@@ -18,6 +24,7 @@ stories.add('Default', () => (
       <div className="col-6">
         <Dropdown
           actions={['edit', 'delete']}
+          theme={select('Theme', themes)}
         />
       </div>
     </Row>
