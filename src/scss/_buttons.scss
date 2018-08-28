@@ -6,3 +6,12 @@
 .btn-sm {
   font-size: $font-size-base;
 }
+
+.btn-icon- {
+  &left {
+    padding-left: 0;
+  }
+  &right {
+    padding-right: 0;
+  }
+}
