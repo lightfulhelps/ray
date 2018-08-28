@@ -91,6 +91,23 @@ var PostCard = function PostCard(_ref) {
       { className: blockClass + '__media border-top' },
       React.createElement(_.URLMetaPreview, metaPreview)
     ),
+    post.metrics && React.createElement(
+      'div',
+      { className: blockClass + '__metrics' },
+      Object.keys(post.metrics).map(function (key) {
+        return React.createElement(
+          'div',
+          { key: key, className: blockClass + '__metric' },
+          React.createElement(
+            'span',
+            null,
+            post.metrics && post.metrics[key]
+          ),
+          ' ',
+          key
+        );
+      })
+    ),
     inspirationActions && inspirationActions.length > 0 && React.createElement(
       'div',
       { className: blockClass + '__inspiration-actions' },
@@ -139,6 +156,7 @@ PostCard.propTypes = {
       type: _propTypes2.default.string.isRequired,
       url: _propTypes2.default.string.isRequired
     }).isRequired),
+    metrics: _propTypes2.default.objectOf(_propTypes2.default.number.isRequired),
     socialIdentity: _propTypes2.default.shape({
       avatar: _propTypes2.default.string,
       displayName: _propTypes2.default.string,

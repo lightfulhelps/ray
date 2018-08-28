@@ -19,6 +19,10 @@ const setup = (overrides = {}) => {
           id: '1',
           avatar: 'http://foo.com/avatar.jpg',
         },
+        metrics: {
+          likes: 10,
+          shares: 5,
+        },
       },
       inspirationActions: [
         {
@@ -81,7 +85,7 @@ describe('<PostCard />', () => {
     expect(wrapper.hasClass('post-card--invalid')).toBe(true);
   });
 
-  it('should optionally display date', () => {
+  it('should optionally display post date', () => {
     const { wrapper, props } = setup();
 
     expect(wrapper.find('.post-card__date').exists()).toBe(true);
@@ -101,7 +105,7 @@ describe('<PostCard />', () => {
     expect(wrapper.find('.post-card__date').text()).toEqual('14:08 on 22-08-2018');
   });
 
-  it('should handle the campaign prop', () => {
+  it('should handle the post campaign prop', () => {
     const { wrapper, props } = setup();
 
     expect(wrapper.find('.campaign-tag').prop('color')).toEqual(props.post.campaign.color);
@@ -155,7 +159,7 @@ describe('<PostCard />', () => {
     expect(like).toHaveBeenCalledTimes(1);
   });
 
-  it('should optionall display inspirationActions', () => {
+  it('should optionally display inspirationActions', () => {
     const { wrapper } = setup({ inspirationActions: [{ icon: 'follow' }] });
 
     expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(true);
@@ -167,5 +171,15 @@ describe('<PostCard />', () => {
     wrapper.setProps({ inspirationActions: null });
 
     expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
+  });
+
+  it('should optionally display post metrics', () => {
+    const { wrapper, props } = setup({ post: { metrics: { likes: 3 } } });
+
+    expect(wrapper.find('.post-card__metrics').exists()).toBe(true);
+
+    wrapper.setProps({ post: { ...props.post, metrics: {} } });
+
+    expect(wrapper.find('.post-card__metrics').exists()).toBe(false);
   });
 });

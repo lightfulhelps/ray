@@ -11,6 +11,8 @@ exports[`<PostCard /> should render 1`] = `
       style={
         Object {
           "height": "35px",
+          "minHeight": "35px",
+          "minWidth": "35px",
           "width": "35px",
         }
       }
@@ -21,6 +23,11 @@ exports[`<PostCard /> should render 1`] = `
     </div>
     <div
       className="mx-1"
+      style={
+        Object {
+          "minWidth": 0,
+        }
+      }
     >
       <h1
         className="post-card__title"
@@ -49,6 +56,30 @@ exports[`<PostCard /> should render 1`] = `
   >
     Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".
   </Dotdotdot>
+  <div
+    className="post-card__metrics"
+  >
+    <div
+      className="post-card__metric"
+      key="likes"
+    >
+      <span>
+        10
+      </span>
+       
+      likes
+    </div>
+    <div
+      className="post-card__metric"
+      key="shares"
+    >
+      <span>
+        5
+      </span>
+       
+      shares
+    </div>
+  </div>
   <div
     className="post-card__inspiration-actions"
   >

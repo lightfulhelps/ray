@@ -26,6 +26,9 @@ type PostType = {
   content: string,
   date?: Date | number | string,
   media?: MediaType[],
+  metrics?: {
+    [key: string]: number,
+  },
   socialIdentity?: {
     avatar?: string,
     displayName?: string,
@@ -99,6 +102,15 @@ const PostCard = ({
       {metaPreview && (
         <div className={`${blockClass}__media border-top`}>
           <URLMetaPreview {...metaPreview} />
+        </div>
+      )}
+      {post.metrics && (
+        <div className={`${blockClass}__metrics`}>
+          {Object.keys(post.metrics).map(key => (
+            <div key={key} className={`${blockClass}__metric`}>
+              <span>{post.metrics && post.metrics[key]}</span> {key}
+            </div>
+          ))}
         </div>
       )}
       {inspirationActions &&
