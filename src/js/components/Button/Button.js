@@ -5,23 +5,21 @@ import classNames from 'classnames';
 import Icon from '../Icon/Icon';
 
 type Props = {
-  children?: React.Element<any>,
-  label: string,
   className?: string,
+  icon?: string,
+  iconPosition?: string,
   isBlock?: boolean,
   isDisabled?: boolean,
+  isDropdown?: boolean,
   isOutline?: boolean,
+  label: string,
   onClick?: () => void,
   size?: 'lg' | 'md' | 'sm',
   tag?: string,
   theme?: string,
-  icon?: string,
-  iconPosition?: string,
-  isDropdown?: boolean,
 };
 
 const Button = ({
-  children,
   label,
   className,
   theme = 'primary',
@@ -46,10 +44,8 @@ const Button = ({
     iconPosition && label ? `btn-icon-${iconPosition}` : false
   );
 
-  const labelClasses = classNames(
-    { 'order-1': iconPosition && iconPosition === 'left'}
-  )
-  
+  const labelClasses = classNames({ 'order-1': iconPosition && iconPosition === 'left' });
+
   return (
     <Tag
       className={classes}
