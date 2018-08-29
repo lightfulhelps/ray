@@ -2,12 +2,13 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Icon from '../Icon/Icon';
+import type { IconNameType } from '../Icon/icons';
 
 type Props = {
   children: string,
   className?: string,
-  icon?: string,
-  iconPosition?: string,
+  icon?: IconNameType,
+  iconPosition?: 'left' | 'right',
   isBlock?: boolean,
   isDisabled?: boolean,
   isOutline?: boolean,

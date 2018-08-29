@@ -2,12 +2,13 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import icons from './icons';
+import type { IconNameType } from './icons';
 
 type Props = {
   className?: string,
   color?: string,
   hoverColor?: string,
-  name: string,
+  name: IconNameType,
   size?: number,
   style?: { [key: string]: any },
   title?: string,
@@ -32,6 +33,7 @@ class Icon extends Component<Props, State> {
   };
 
   render() {
+    console.log(this.props);
     const {
       className,
       color = 'currentColor',
