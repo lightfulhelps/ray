@@ -6,6 +6,7 @@ import Icon from '../Icon/Icon';
 
 type Props = {
   children?: React.Element<any>,
+  label: string,
   className?: string,
   isBlock?: boolean,
   isDisabled?: boolean,
@@ -42,9 +43,13 @@ const Button = ({
     { 'btn-block': isBlock },
     { disabled: isDisabled },
     { 'btn-icon': icon && !label },
-    { [`btn-icon-${iconPosition}`]: iconPosition && label }
+    iconPosition && label ? `btn-icon-${iconPosition}` : false
   );
 
+  const labelClasses = classNames(
+    { 'order-1': iconPosition && iconPosition === 'left'}
+  )
+  
   return (
     <Tag
       className={classes}
@@ -53,7 +58,7 @@ const Button = ({
       aria-haspopup={isDropdown && 'true'}
       aria-expanded={isDropdown && 'false'}
     >
-      {label && <span className={`${iconPosition === 'left' && "order-1"}`}>{label}</span>}
+      {label && <span className={labelClasses}>{label}</span>}
       {icon && (
         <Icon
           name={icon}
