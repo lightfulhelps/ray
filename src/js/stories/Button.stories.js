@@ -78,10 +78,13 @@ stories.add('Default', () => (
           isOutline={boolean('Outline', false)}
           onClick={action('clicked')}
           size={select('Size', sizes, 'md')}
-          label={boolean('Show text', true) && text('Text', 'Click Me')}
           icon={boolean('Show Icon', false) && select('Icon', icons, 'addMedia')}
-          iconPosition={boolean('Show Icon', false) && select('Position', iconPositions, 'right')}
-        />
+          iconPosition={
+            boolean('Show Icon', false) && select('Icon Position', iconPositions, 'left')
+          }
+        >
+          {text('Text', 'Click Me')}
+        </Button>
       </Col>
     </Row>
   </Container>
