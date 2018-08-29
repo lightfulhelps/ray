@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { Container, Row, Dropdown } from '../';
 import { dropdownMockActions } from '../mocks/dropdownMocks';
 
@@ -14,17 +14,18 @@ stories.addDecorator(withKnobs);
 const themes = {
   primary: 'Primary',
   dark: 'Dark',
-}
+};
 
 stories.add('Default', () => (
   <Container>
-    {console.log("dropdownMockActions", dropdownMockActions)}
+    {console.log('dropdownMockActions', dropdownMockActions)}
     <h1 className="my-4">Dropdown.</h1>
     <Row>
       <div className="col-6">
         <Dropdown
           actions={['edit', 'delete']}
           theme={select('Theme', themes)}
+          footer={text('Footer', 'Some footer text')}
         />
       </div>
     </Row>
