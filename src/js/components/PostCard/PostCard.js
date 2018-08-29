@@ -25,6 +25,7 @@ type PostType = {
   },
   content: string,
   date?: Date | number | string,
+  id: string,
   media?: MediaType[],
   metrics?: {
     [key: string]: number,
@@ -56,12 +57,13 @@ type Props = {
 
 const PostCard = ({
   className,
-  dateFormat = 'D MMM [at] HH:mm',
+  dateFormat = 'D MMM [-] HH:mm',
   inspirationActions,
   isDraft,
   isInvalid,
   metaPreview,
   post,
+  ...other
 }: Props) => {
   const blockClass = 'post-card';
   const classes = classNames(
@@ -72,7 +74,7 @@ const PostCard = ({
   );
 
   return (
-    <Card className={classes}>
+    <Card {...other} className={classes}>
       <div className={`${blockClass}__header`}>
         {post.socialIdentity && (
           <div style={{ width: '35px', height: '35px', minWidth: '35px', minHeight: '35px' }}>

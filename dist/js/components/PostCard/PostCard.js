@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = require('react');
 
 var React = _interopRequireWildcard(_react);
@@ -22,32 +24,31 @@ var _format2 = _interopRequireDefault(_format);
 
 var _ = require('../../');
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 var PostCard = function PostCard(_ref) {
   var className = _ref.className,
       _ref$dateFormat = _ref.dateFormat,
-      dateFormat = _ref$dateFormat === undefined ? 'D MMM [at] HH:mm' : _ref$dateFormat,
+      dateFormat = _ref$dateFormat === undefined ? 'D MMM [-] HH:mm' : _ref$dateFormat,
       inspirationActions = _ref.inspirationActions,
       isDraft = _ref.isDraft,
       isInvalid = _ref.isInvalid,
       metaPreview = _ref.metaPreview,
-      post = _ref.post;
+      post = _ref.post,
+      other = _objectWithoutProperties(_ref, ['className', 'dateFormat', 'inspirationActions', 'isDraft', 'isInvalid', 'metaPreview', 'post']);
 
   var blockClass = 'post-card';
   var classes = (0, _classnames2.default)(className, blockClass, _defineProperty({}, blockClass + '--draft', isDraft), _defineProperty({}, blockClass + '--invalid', isInvalid));
 
   return React.createElement(
     _.Card,
-    { className: classes },
+    _extends({}, other, { className: classes }),
     React.createElement(
       'div',
       { className: blockClass + '__header' },
@@ -125,46 +126,4 @@ var PostCard = function PostCard(_ref) {
   );
 };
 
-PostCard.propTypes = {
-  className: _propTypes2.default.string,
-  dateFormat: _propTypes2.default.string,
-  inspirationActions: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    activeColor: _propTypes2.default.string,
-    color: _propTypes2.default.string,
-    icon: _propTypes2.default.string.isRequired,
-    isActive: _propTypes2.default.bool,
-    onClick: _propTypes2.default.func
-  }).isRequired),
-  isDraft: _propTypes2.default.bool,
-  isInvalid: _propTypes2.default.bool,
-  metaPreview: _propTypes2.default.shape({
-    description: _propTypes2.default.string,
-    image: _propTypes2.default.string,
-    title: _propTypes2.default.string.isRequired,
-    url: _propTypes2.default.string.isRequired
-  }),
-  post: _propTypes2.default.shape({
-    campaign: _propTypes2.default.shape({
-      color: _propTypes2.default.string.isRequired,
-      name: _propTypes2.default.string.isRequired
-    }),
-    content: _propTypes2.default.string.isRequired,
-    date: _propTypes2.default.oneOfType([function () {
-      return (typeof Date === 'function' ? _propTypes2.default.instanceOf(Date) : _propTypes2.default.any).apply(this, arguments);
-    }, _propTypes2.default.number, _propTypes2.default.string]),
-    media: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-      type: _propTypes2.default.string.isRequired,
-      url: _propTypes2.default.string.isRequired
-    }).isRequired),
-    metrics: _propTypes2.default.objectOf(_propTypes2.default.number.isRequired),
-    socialIdentity: _propTypes2.default.shape({
-      avatar: _propTypes2.default.string,
-      displayName: _propTypes2.default.string,
-      id: _propTypes2.default.string.isRequired,
-      username: _propTypes2.default.string
-    }),
-    socialProvider: _propTypes2.default.string,
-    title: _propTypes2.default.string.isRequired
-  }).isRequired
-};
 exports.default = PostCard;

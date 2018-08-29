@@ -18,6 +18,7 @@ const Badge = ({
   isPill,
   tag: Tag = 'span',
   theme = 'primary',
+  ...other
 }: Props) => {
   const classes = classNames(
     className,
@@ -30,7 +31,7 @@ const Badge = ({
   );
 
   return (
-    <Tag className={classes} style={{ backgroundColor: color }}>
+    <Tag {...other} className={classes} style={{ backgroundColor: color }}>
       {children}
     </Tag>
   );

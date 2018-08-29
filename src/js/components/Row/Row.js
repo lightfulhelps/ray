@@ -9,10 +9,14 @@ type Props = {
   tag?: string,
 };
 
-const Row = ({ children, className, noGutters, tag: Tag = 'div' }: Props) => {
+const Row = ({ children, className, noGutters, tag: Tag = 'div', ...other }: Props) => {
   const classes = classNames(className, 'row', { 'no-gutters': noGutters });
 
-  return <Tag className={classes}>{children}</Tag>;
+  return (
+    <Tag {...other} className={classes}>
+      {children}
+    </Tag>
+  );
 };
 
 export default Row;

@@ -47,7 +47,7 @@ const getColumnSizeClass = (isXs: boolean, colWidth: string, colSize: ColSizeTyp
 };
 
 const Col = (props: Props) => {
-  const { children, className, tag: Tag = 'div' } = props;
+  const { children, className, tag: Tag = 'div', ...other } = props;
   const colClasses = [];
 
   colWidths.forEach((colWidth, i) => {
@@ -84,7 +84,11 @@ const Col = (props: Props) => {
 
   const classes = classNames(className, colClasses);
 
-  return <Tag className={classes}>{children}</Tag>;
+  return (
+    <Tag {...other} className={classes}>
+      {children}
+    </Tag>
+  );
 };
 
 export default Col;

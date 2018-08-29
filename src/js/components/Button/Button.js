@@ -24,6 +24,7 @@ const Button = ({
   onClick = () => {},
   size,
   tag: Tag = 'button',
+  ...other
 }: Props) => {
   const classes = classNames(
     className,
@@ -35,7 +36,7 @@ const Button = ({
   );
 
   return (
-    <Tag className={classes} onClick={onClick}>
+    <Tag {...other} className={classes} onClick={onClick}>
       {children}
     </Tag>
   );

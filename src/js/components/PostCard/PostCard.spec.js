@@ -7,6 +7,7 @@ const setup = (overrides = {}) => {
   const props = merge(
     {
       post: {
+        id: '08a2a5c0-a77b-11e8-a45a-3bfafb0c9405',
         title: 'Hope For Children',
         date: '2018-08-22 14:34',
         content:
@@ -98,7 +99,7 @@ describe('<PostCard />', () => {
   it('should handle the dateFormat prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.post-card__date').text()).toEqual('22 Aug at 14:34');
+    expect(wrapper.find('.post-card__date').text()).toEqual('22 Aug - 14:34');
 
     wrapper.setProps({ dateFormat: 'HH:MM [on] DD-MM-YYYY' });
 
@@ -181,5 +182,12 @@ describe('<PostCard />', () => {
     wrapper.setProps({ post: { ...props.post, metrics: {} } });
 
     expect(wrapper.find('.post-card__metrics').exists()).toBe(false);
+  });
+
+  it('should pass through other props', () => {
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+
+    expect(wrapper.prop('tabIndex')).toEqual(1);
+    expect(wrapper.prop('id')).toEqual('test');
   });
 });
