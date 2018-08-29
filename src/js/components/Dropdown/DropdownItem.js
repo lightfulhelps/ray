@@ -10,10 +10,10 @@ import Icon from '../Icon/Icon';
 */
 
 const DropdownItem = ({ className, content, isFooter }) => {
-  const classes = classNames(className);
+  const classes = classNames(className, 'dropdown-item', {'dropdown-item-footer': isFooter});
   console.log('isFooter', isFooter)
   return (
-    <a className="dropdown-item" href="#">
+    <a className={classes} href="#">
       <span className="w-100 d-flex align-items-end dropdown-item-content">
         <Icon
           name={'addMedia'}
