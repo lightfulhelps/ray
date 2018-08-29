@@ -1,9 +1,16 @@
+// @flow
 import * as React from 'react';
 import classNames from 'classnames';
 import { color, number } from '@storybook/addon-knobs';
 import Icon from '../Icon/Icon';
 
-const DropdownItem = ({ className, label, icon, isFooter }) => {
+type Props = {
+  className?: string
+  label: string,
+  icon?: string,
+}
+
+const DropdownItem = ({ className, label, icon, }) => {
   const classes = classNames(className, 'dropdown-item', { 'dropdown-item-footer': isFooter });
   return (
     <a className={classes} href="#">

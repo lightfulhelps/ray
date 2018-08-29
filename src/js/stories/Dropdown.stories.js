@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { select } from '@storybook/addon-knobs/dist/vue';
 import { Container, Row, Dropdown } from '../';
-import { dropdownMockActions } from '../mocks/dropdownMocks';
 
 import '../../scss/ray.scss';
 
@@ -31,12 +30,9 @@ stories.add('Default', () => (
               label: 'delete',
               icon: 'delete',
             },
-            {
-              label: text('Footer', 'Some footer text'),
-              isFooter: true,
-            },
           ]}
           theme={select('Theme', themes)}
+          footer={text('Footer Text', 'Some footer text')}
         />
       </div>
     </Row>
