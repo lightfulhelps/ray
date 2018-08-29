@@ -3,7 +3,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Dotdotdot from 'react-dotdotdot';
 import formatDate from 'date-fns/format';
-import { Card, Avatar, Badge, Icon, PostMedia, URLMetaPreview } from '../../';
+import isFuture from 'date-fns/is_future';
+import { Card, Avatar, Badge, Button, Icon, PostMedia, URLMetaPreview } from '../../';
 
 type InspirationActionType = {
   activeColor?: string,
@@ -18,44 +19,54 @@ type MediaType = {
   url: string,
 };
 
-type Props = {
-  avatarUrl?: string,
+type PostType = {
   campaign?: {
     color: string,
     name: string,
   },
-  className?: string,
   content: string,
   date?: Date | number | string,
+  id: string,
+  media?: MediaType[],
+  metrics?: {
+    [key: string]: number,
+  },
+  socialIdentity?: {
+    avatar?: string,
+    displayName?: string,
+    id: string,
+    username?: string,
+  },
+  socialProvider?: string,
+  title: string,
+};
+
+type Props = {
+  className?: string,
   dateFormat?: string,
   inspirationActions?: InspirationActionType[],
   isDraft?: boolean,
   isInvalid?: boolean,
-  media?: MediaType[],
   metaPreview?: {
     description?: string,
     image?: string,
     title: string,
     url: string,
   },
-  socialProvider?: string,
-  title: string,
+  onApprove?: () => void,
+  post: PostType,
 };
 
 const PostCard = ({
-  avatarUrl,
-  campaign,
   className,
-  content,
-  date,
-  dateFormat = 'D MMM [at] HH:mm',
+  dateFormat = 'D MMM [-] HH:mm',
   inspirationActions,
   isDraft,
   isInvalid,
-  media,
   metaPreview,
-  socialProvider,
-  title,
+  onApprove,
+  post,
+  ...other
 }: Props) => {
   const blockClass = 'post-card';
   const classes = classNames(
@@ -66,27 +77,34 @@ const PostCard = ({
   );
 
   return (
-    <Card className={classes}>
+    <Card {...other} className={classes}>
       <div className={`${blockClass}__header`}>
-        <div style={{ width: '35px', height: '35px' }}>
-          <Avatar url={avatarUrl} provider={socialProvider} />
-        </div>
-        <div className="mx-1">
-          <h1 className={`${blockClass}__title`}>{title}</h1>
-          {date && <div className={`${blockClass}__date`}>{formatDate(date, dateFormat)}</div>}
-          {campaign && (
-            <Badge className="campaign-tag" color={campaign.color}>
-              {campaign.name}
+        {post.socialIdentity && (
+          <div style={{ width: '35px', height: '35px', minWidth: '35px', minHeight: '35px' }}>
+            <Avatar url={post.socialIdentity.avatar} provider={post.socialProvider} />
+          </div>
+        )}
+        <div className="mx-1" style={{ height: '68px', minWidth: 0 }}>
+          <h1 className={`${blockClass}__title`}>{post.title}</h1>
+          <div className={`${blockClass}__date`}>
+            {(!post.date || isFuture(post.date)) && (
+              <Icon name="unscheduled" size={20} color="#adb5bd" />
+            )}
+            {post.date ? formatDate(post.date, dateFormat) : 'Unscheduled'}
+          </div>
+          {post.campaign && (
+            <Badge className="campaign-tag" color={post.campaign.color}>
+              {post.campaign.name}
             </Badge>
           )}
         </div>
       </div>
       <Dotdotdot className={`${blockClass}__content`} clamp={5}>
-        {content}
+        {post.content}
       </Dotdotdot>
-      {media && (
+      {post.media && (
         <div className={`${blockClass}__media`}>
-          <PostMedia media={media} />
+          <PostMedia media={post.media} />
         </div>
       )}
       {metaPreview && (
@@ -94,6 +112,16 @@ const PostCard = ({
           <URLMetaPreview {...metaPreview} />
         </div>
       )}
+      {post.metrics &&
+        Object.keys(post.metrics).length > 0 && (
+          <div className={`${blockClass}__metrics`}>
+            {Object.keys(post.metrics).map(key => (
+              <div key={key} className={`${blockClass}__metric`}>
+                <span>{post.metrics && post.metrics[key]}</span> {key}
+              </div>
+            ))}
+          </div>
+        )}
       {inspirationActions &&
         inspirationActions.length > 0 && (
           <div className={`${blockClass}__inspiration-actions`}>
@@ -109,6 +137,11 @@ const PostCard = ({
             ))}
           </div>
         )}
+      {onApprove && (
+        <Button className={`${blockClass}__approve`} onClick={onApprove}>
+          Approve Post
+        </Button>
+      )}
     </Card>
   );
 };

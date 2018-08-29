@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -12,15 +14,14 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 var PostMedia = function PostMedia(_ref) {
   var className = _ref.className,
-      media = _ref.media;
+      media = _ref.media,
+      other = _objectWithoutProperties(_ref, ['className', 'media']);
 
   var blockClass = 'post-media';
   var classes = (0, _classnames2.default)(className, blockClass, blockClass + '--' + media.length);
@@ -28,7 +29,7 @@ var PostMedia = function PostMedia(_ref) {
   if (!media.length) {
     return _react2.default.createElement(
       'div',
-      { className: classes + ' ' + blockClass + '--empty' },
+      _extends({}, other, { className: classes + ' ' + blockClass + '--empty' }),
       'No media'
     );
   }
@@ -40,14 +41,14 @@ var PostMedia = function PostMedia(_ref) {
   if (video) {
     return _react2.default.createElement(
       'div',
-      { className: classes },
+      _extends({}, other, { className: classes }),
       _react2.default.createElement('video', { className: blockClass + '__video', controls: true, src: video.url })
     );
   }
 
   return _react2.default.createElement(
     'div',
-    { className: classes },
+    _extends({}, other, { className: classes }),
     media.map(function (m, i) {
       return _react2.default.createElement('div', {
         key: i,
@@ -58,11 +59,4 @@ var PostMedia = function PostMedia(_ref) {
   );
 };
 
-PostMedia.propTypes = {
-  className: _propTypes2.default.string,
-  media: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    type: _propTypes2.default.string.isRequired,
-    url: _propTypes2.default.string.isRequired
-  }).isRequired).isRequired
-};
 exports.default = PostMedia;

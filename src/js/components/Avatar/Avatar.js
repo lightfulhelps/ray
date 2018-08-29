@@ -10,11 +10,11 @@ type Props = {
   url?: string,
 };
 
-const Avatar = ({ className, isDisconnected, url, provider }: Props) => {
+const Avatar = ({ className, isDisconnected, url, provider, ...other }: Props) => {
   const classes = classNames(className, 'avatar', { 'avatar-disconnected': isDisconnected });
 
   return (
-    <div className={classes}>
+    <div {...other} className={classes}>
       <div className="avatar-image-wrap">
         {url && <img className="avatar-image" src={url} alt="" />}
       </div>

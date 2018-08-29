@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = require('react');
 
 var React = _interopRequireWildcard(_react);
@@ -18,17 +20,14 @@ var _Icon = require('../Icon/Icon');
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 var Button = function Button(_ref) {
-  var children = _ref.children,
-      label = _ref.label,
+  var label = _ref.label,
       className = _ref.className,
       _ref$theme = _ref.theme,
       theme = _ref$theme === undefined ? 'primary' : _ref$theme,
@@ -42,7 +41,8 @@ var Button = function Button(_ref) {
       Tag = _ref$tag === undefined ? 'button' : _ref$tag,
       icon = _ref.icon,
       iconPosition = _ref.iconPosition,
-      isDropdown = _ref.isDropdown;
+      isDropdown = _ref.isDropdown,
+      other = _objectWithoutProperties(_ref, ['label', 'className', 'theme', 'isBlock', 'isDisabled', 'isOutline', 'onClick', 'size', 'tag', 'icon', 'iconPosition', 'isDropdown']);
 
   var classes = (0, _classnames2.default)(className, 'btn', 'btn' + (isOutline ? '-outline' : '') + '-' + theme, size ? 'btn-' + size : false, { 'btn-block': isBlock }, { disabled: isDisabled }, { 'btn-icon': icon && !label }, iconPosition && label ? 'btn-icon-' + iconPosition : false);
 
@@ -50,13 +50,13 @@ var Button = function Button(_ref) {
 
   return React.createElement(
     Tag,
-    {
+    _extends({}, other, {
       className: classes,
       onClick: onClick,
       'data-toggle': isDropdown && 'dropdown',
       'aria-haspopup': isDropdown && 'true',
       'aria-expanded': isDropdown && 'false'
-    },
+    }),
     label && React.createElement(
       'span',
       { className: labelClasses },
@@ -71,19 +71,4 @@ var Button = function Button(_ref) {
   );
 };
 
-Button.propTypes = {
-  children: _propTypes2.default.node,
-  label: _propTypes2.default.string.isRequired,
-  className: _propTypes2.default.string,
-  isBlock: _propTypes2.default.bool,
-  isDisabled: _propTypes2.default.bool,
-  isOutline: _propTypes2.default.bool,
-  onClick: _propTypes2.default.func,
-  size: _propTypes2.default.oneOf(['lg', 'md', 'sm']),
-  tag: _propTypes2.default.string,
-  theme: _propTypes2.default.string,
-  icon: _propTypes2.default.string,
-  iconPosition: _propTypes2.default.string,
-  isDropdown: _propTypes2.default.bool
-};
 exports.default = Button;

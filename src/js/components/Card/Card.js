@@ -8,10 +8,14 @@ type Props = {
   tag?: string,
 };
 
-const Card = ({ children, className, tag: Tag = 'div' }: Props) => {
+const Card = ({ children, className, tag: Tag = 'div', ...other }: Props) => {
   const classes = classNames(className, 'card');
 
-  return <Tag className={classes}>{children}</Tag>;
+  return (
+    <Tag {...other} className={classes}>
+      {children}
+    </Tag>
+  );
 };
 
 export default Card;

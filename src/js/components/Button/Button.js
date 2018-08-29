@@ -32,6 +32,7 @@ const Button = ({
   icon,
   iconPosition,
   isDropdown,
+  ...other
 }: Props) => {
   const classes = classNames(
     className,
@@ -48,6 +49,7 @@ const Button = ({
 
   return (
     <Tag
+      {...other}
       className={classes}
       onClick={onClick}
       data-toggle={isDropdown && 'dropdown'}
