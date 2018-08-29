@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import Icon from '../Icon/Icon';
 
 type Props = {
-  children: React.Element<any>,
+  children?: React.Element<any>,
   className?: string,
   isBlock?: boolean,
   isDisabled?: boolean,
@@ -16,10 +16,12 @@ type Props = {
   theme?: string,
   icon?: string,
   iconPosition?: string,
+  isDropdown?: boolean,
 };
 
 const Button = ({
   children,
+  label,
   className,
   theme = 'primary',
   isBlock,
@@ -30,7 +32,7 @@ const Button = ({
   tag: Tag = 'button',
   icon,
   iconPosition,
-  label
+  isDropdown,
 }: Props) => {
   const classes = classNames(
     className,
@@ -39,15 +41,19 @@ const Button = ({
     size ? `btn-${size}` : false,
     { 'btn-block': isBlock },
     { disabled: isDisabled },
-    { 'btn-icon': icon && !label},
+    { 'btn-icon': icon && !label },
     { [`btn-icon-${iconPosition}`]: iconPosition && label }
   );
 
   return (
-    <Tag className={classes} onClick={onClick}>
-      {label && (
-        <span>{label}</span>
-      )}
+    <Tag
+      className={classes}
+      onClick={onClick}
+      data-toggle={isDropdown && 'dropdown'}
+      aria-haspopup={isDropdown && 'true'}
+      aria-expanded={isDropdown && 'false'}
+    >
+      {label && <span>{label}</span>}
       {icon && (
         <Icon
           name={icon}
