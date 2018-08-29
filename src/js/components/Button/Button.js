@@ -53,7 +53,7 @@ const Button = ({
       aria-haspopup={isDropdown && 'true'}
       aria-expanded={isDropdown && 'false'}
     >
-      {label && <span>{label}</span>}
+      {label && <span className={`${iconPosition === 'left' && "order-1"}`}>{label}</span>}
       {icon && (
         <Icon
           name={icon}
