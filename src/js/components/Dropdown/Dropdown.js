@@ -1,36 +1,27 @@
+// @flow
 import * as React from 'react';
 import classNames from 'classnames';
 import '../../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min';
 import DropdownItem from './DropdownItem';
 import Button from '../Button/Button';
 
-/*
-- create and import dropdown items
-- pass an array of items to display in dropdown
-- pass a component for the footer if required
-- specify a light/dark prop - dark to be default
- */
-
 type Props = {
   theme?: string,
+  dropdownItems: {  }
 };
 
-const Dropdown = ({ theme = 'dark', dropdownItems, className }) => {
+const Dropdown = ({ theme = 'dark', dropdownItems, className }: Props) => {
   const classes = classNames(className, 'dropdown-menu', `dropdown-menu-${theme}`);
+  items[...action, ]
+  push(footer)
   return (
     <div className="dropdown">
       <Button icon="menu" isDropdown theme={theme} />
       <div className={classes} aria-labelledby="dropdownMenuButton">
-        {dropdownItems.map(({label, icon, isFooter}, i) => {
-          return (
-            <DropdownItem
-              label={label}
-              icon={icon}
-              key={i}
-              isFooter={isFooter} 
-            />
-          );
-        })}
+        {dropdownItems.map(({ label, icon, isFooter }, i) => (
+          <DropdownItem label={label} icon={icon} key={i} isFooter={isFooter} />
+        ))}
+        footer && {<DropdownItem label={footer} icon={icon} key={i} isFooter={isFooter} />}
       </div>
     </div>
   );

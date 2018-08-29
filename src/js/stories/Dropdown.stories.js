@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs/dist/vue';
 import { Container, Row, Dropdown } from '../';
 import { dropdownMockActions } from '../mocks/dropdownMocks';
 
 import '../../scss/ray.scss';
-import { select } from '@storybook/addon-knobs/dist/vue';
 
 const stories = storiesOf('Dropdown', module);
 
@@ -18,15 +18,14 @@ const themes = {
 
 stories.add('Default', () => (
   <Container>
-    {console.log('dropdownMockActions', dropdownMockActions)}
     <h1 className="my-4">Dropdown.</h1>
     <Row>
       <div className="col-6">
         <Dropdown
-          dropdownItems={[
+          items={[
             {
               label: 'edit',
-              icon: 'edit'
+              icon: 'edit',
             },
             {
               label: 'delete',
@@ -35,7 +34,7 @@ stories.add('Default', () => (
             {
               label: text('Footer', 'Some footer text'),
               isFooter: true,
-            }
+            },
           ]}
           theme={select('Theme', themes)}
         />
