@@ -15,24 +15,19 @@ type Props = {
   theme?: string,
 };
 
-const Dropdown = ({ theme = 'dark', actions, className, footer }) => {
+const Dropdown = ({ theme = 'dark', dropdownItems, className }) => {
   const classes = classNames(className, 'dropdown-menu', `dropdown-menu-${theme}`);
-  console.log('footer', footer);
-  const dropdownItems = [...actions];
-  footer && dropdownItems.push(footer);
   return (
     <div className="dropdown">
       <Button icon="menu" isDropdown theme={theme} />
       <div className={classes} aria-labelledby="dropdownMenuButton">
-        {dropdownItems.map((item, i, arr) => {
-          console.log('i', i)
-          console.log('i+1', i+1)
-          console.log('arr.length', arr.length)
+        {dropdownItems.map(({label, icon, isFooter}, i) => {
           return (
             <DropdownItem
-              content={item}
+              label={label}
+              icon={icon}
               key={i}
-              isFooter={footer && i + 1 >= arr.length} 
+              isFooter={isFooter} 
             />
           );
         })}

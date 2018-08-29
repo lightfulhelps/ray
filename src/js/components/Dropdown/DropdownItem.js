@@ -9,20 +9,21 @@ import Icon from '../Icon/Icon';
 - onclick handler
 */
 
-const DropdownItem = ({ className, content, isFooter }) => {
+const DropdownItem = ({ className, label, icon, isFooter }) => {
   const classes = classNames(className, 'dropdown-item', {'dropdown-item-footer': isFooter});
-  console.log('isFooter', isFooter)
   return (
     <a className={classes} href="#">
-      <span className="w-100 d-flex align-items-end dropdown-item-content">
+      <span className="w-100 d-flex align-items-center dropdown-item-content">
+      {icon &&
         <Icon
-          name={'addMedia'}
+          name={icon}
           size={number('Size', 24)}
           color={color('Color', '#adb5bd')}
           hoverColor={color('Hover Color', '#212529')}
           className="mr-1"
         />
-        {content}
+      }
+        <span>{label}</span>
       </span>
     </a>
   );

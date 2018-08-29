@@ -23,9 +23,21 @@ stories.add('Default', () => (
     <Row>
       <div className="col-6">
         <Dropdown
-          actions={['edit', 'delete']}
+          dropdownItems={[
+            {
+              label: 'edit',
+              icon: 'edit'
+            },
+            {
+              label: 'delete',
+              icon: 'delete',
+            },
+            {
+              label: text('Footer', 'Some footer text'),
+              isFooter: true,
+            }
+          ]}
           theme={select('Theme', themes)}
-          footer={text('Footer', 'Some footer text')}
         />
       </div>
     </Row>
