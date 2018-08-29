@@ -125,7 +125,7 @@ stories.add('Default', () => (
             ),
             url: text('Meta URL', 'https://www.bbc.co.uk/news/business-45242008'),
           }}
-          approve={action('Approve')}
+          onApprove={action('Approve')}
         />
       </Col>
     </Row>
