@@ -214,6 +214,25 @@ describe('<PostCard />', () => {
     expect(wrapper.find('.post-card__metrics').exists()).toBe(false);
   });
 
+  it('should optionally display the approve button', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.find('.post-card__approve').exists()).toBe(false);
+
+    wrapper.setProps({ onApprove: jest.fn() });
+
+    expect(wrapper.find('.post-card__approve').exists()).toBe(true);
+  });
+
+  it('should call the approve function on click', () => {
+    const handleApprove = jest.fn();
+    const { wrapper } = setup({ onApprove: handleApprove });
+
+    wrapper.find('.post-card__approve').simulate('click');
+
+    expect(handleApprove).toHaveBeenCalledTimes(1);
+  });
+
   it('should pass through other props', () => {
     const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 

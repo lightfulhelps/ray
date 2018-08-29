@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Dotdotdot from 'react-dotdotdot';
 import formatDate from 'date-fns/format';
 import isFuture from 'date-fns/is_future';
-import { Card, Avatar, Badge, Icon, PostMedia, URLMetaPreview } from '../../';
+import { Card, Avatar, Badge, Button, Icon, PostMedia, URLMetaPreview } from '../../';
 
 type InspirationActionType = {
   activeColor?: string,
@@ -53,6 +53,7 @@ type Props = {
     title: string,
     url: string,
   },
+  onApprove?: () => void,
   post: PostType,
 };
 
@@ -63,6 +64,7 @@ const PostCard = ({
   isDraft,
   isInvalid,
   metaPreview,
+  onApprove,
   post,
   ...other
 }: Props) => {
@@ -135,6 +137,11 @@ const PostCard = ({
             ))}
           </div>
         )}
+      {onApprove && (
+        <Button className={`${blockClass}__approve`} onClick={onApprove}>
+          Approve Post
+        </Button>
+      )}
     </Card>
   );
 };

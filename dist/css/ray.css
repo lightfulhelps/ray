@@ -6659,6 +6659,9 @@ button.bg-gray-900:focus {
   color: #adb5bd;
   border-top: 1px solid #dee2e6; }
 
+.post-card__approve {
+  border-radius: 0 0 0.35rem 0.35rem; }
+
 .post-media {
   display: grid;
   grid-gap: 1px;

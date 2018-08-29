@@ -44,8 +44,9 @@ var PostCard = function PostCard(_ref) {
       isDraft = _ref.isDraft,
       isInvalid = _ref.isInvalid,
       metaPreview = _ref.metaPreview,
+      onApprove = _ref.onApprove,
       post = _ref.post,
-      other = _objectWithoutProperties(_ref, ['className', 'dateFormat', 'inspirationActions', 'isDraft', 'isInvalid', 'metaPreview', 'post']);
+      other = _objectWithoutProperties(_ref, ['className', 'dateFormat', 'inspirationActions', 'isDraft', 'isInvalid', 'metaPreview', 'onApprove', 'post']);
 
   var blockClass = 'post-card';
   var classes = (0, _classnames2.default)(className, blockClass, _defineProperty({}, blockClass + '--draft', isDraft), _defineProperty({}, blockClass + '--invalid', isInvalid));
@@ -127,6 +128,11 @@ var PostCard = function PostCard(_ref) {
           onClick: action.onClick
         });
       })
+    ),
+    onApprove && React.createElement(
+      _.Button,
+      { className: blockClass + '__approve', onClick: onApprove },
+      'Approve Post'
     )
   );
 };

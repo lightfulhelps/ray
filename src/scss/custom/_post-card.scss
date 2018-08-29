@@ -83,3 +83,7 @@
   color: $gray-500;
   border-top: $border-width solid $border-color;
 }
+
+.post-card__approve {
+  border-radius: 0 0 $border-radius-sm $border-radius-sm;
+}

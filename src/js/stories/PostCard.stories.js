@@ -113,23 +113,6 @@ stories.add('Default', () => (
           }}
           isDraft={boolean('Draft', false)}
           isInvalid={boolean('Invalid', false)}
-          inspirationActions={[
-            {
-              icon: 'follow',
-              activeColor: '#0095f1',
-              isActive: boolean('Following', true),
-              onClick: action('Follow'),
-            },
-            {
-              icon: 'like',
-              activeColor: '#f25270',
-              isActive: boolean('Liked', true),
-              onClick: action('Like'),
-            },
-            { icon: 'reply', isActive: false },
-            { icon: 'repost', isActive: false },
-            { icon: 'edit', isActive: false },
-          ]}
           metaPreview={{
             title: text('Meta Title', "National Living Wage 'fails to cover families' basic needs"),
             description: text(
@@ -142,6 +125,7 @@ stories.add('Default', () => (
             ),
             url: text('Meta URL', 'https://www.bbc.co.uk/news/business-45242008'),
           }}
+          approve={action('Approve')}
         />
       </Col>
     </Row>
