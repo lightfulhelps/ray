@@ -18,6 +18,45 @@ const themes = {
   light: 'Light',
   dark: 'Dark',
 };
+const iconPositions = {
+  left: 'left',
+  right: 'right',
+};
+const icons = {
+  addMedia: 'addMedia',
+  addSchedule: 'addSchedule',
+  analytics: 'analytics',
+  comment: 'comment',
+  create: 'create',
+  dashboard: 'dashboard',
+  delete: 'delete',
+  edit: 'edit',
+  exit: 'exit',
+  facebook: 'facebook',
+  follow: 'follow',
+  fundraising: 'fundraising',
+  helpChat: 'helpChat',
+  inspiration: 'inspiration',
+  like: 'like',
+  linkedin: 'linkedin',
+  mediaLibrary: 'mediaLibrary',
+  menu: 'menu',
+  multipleSocialProvider: 'multipleSocialProvider',
+  notifications: 'notifications',
+  organisationAccount: 'organisationAccount',
+  organisation: 'organisation',
+  personalAccount: 'personalAccount',
+  play: 'play',
+  posts: 'posts',
+  previewPost: 'previewPost',
+  reply: 'reply',
+  repost: 'repost',
+  settings: 'settings',
+  signOut: 'signOut',
+  storyBuilder: 'storyBuilder',
+  twitter: 'twitter',
+  unscheduled: 'unscheduled',
+};
 
 const sizes = {
   lg: 'Large',
@@ -39,6 +78,10 @@ stories.add('Default', () => (
           isOutline={boolean('Outline', false)}
           onClick={action('clicked')}
           size={select('Size', sizes, 'md')}
+          icon={boolean('Show Icon', false) && select('Icon', icons, 'addMedia')}
+          iconPosition={
+            boolean('Show Icon', false) && select('Icon Position', iconPositions, 'left')
+          }
         >
           {text('Text', 'Click Me')}
         </Button>

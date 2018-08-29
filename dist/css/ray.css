@@ -6330,6 +6330,20 @@ a.text-dark:hover, a.text-dark:focus {
 .btn-sm, .btn-group-sm > .btn {
   font-size: 0.9rem; }
 
+.btn-icon {
+  padding: 0.7rem; }
+  .btn-icon .icon {
+    margin: 0; }
+  .btn-icon-left, .btn-icon-right {
+    display: flex;
+    align-items: center; }
+  .btn-icon-left {
+    flex-direction: row-reverse; }
+    .btn-icon-left .icon {
+      margin-right: 0.35rem; }
+  .btn-icon-right .icon {
+    margin-left: 0.35rem; }
+
 .form-control {
   font-weight: 300; }
   .form-control:hover:not(:focus):not(:disabled):not(.is-invalid):not(.is-valid) {

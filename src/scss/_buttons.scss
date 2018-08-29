@@ -6,3 +6,31 @@
 .btn-sm {
   font-size: $font-size-base;
 }
+
+.btn-icon {
+  padding: $spacer;
+
+  .icon {
+    margin: 0;
+  }
+
+  &-left,
+  &-right {
+    display: flex;
+    align-items: center;
+  }
+
+  &-left {
+    flex-direction: row-reverse;
+
+    .icon {
+      margin-right: $spacer / 2;
+    }
+  }
+
+  &-right {
+    .icon {
+      margin-left: $spacer / 2;
+    }
+  }
+}

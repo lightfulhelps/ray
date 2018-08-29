@@ -62,6 +62,8 @@ var Icon = (_temp2 = _class = function (_Component) {
   _createClass(Icon, [{
     key: 'render',
     value: function render() {
+      console.log(this.props);
+
       var _props = this.props,
           className = _props.className,
           _props$color = _props.color,
@@ -105,7 +107,9 @@ var Icon = (_temp2 = _class = function (_Component) {
   className: _propTypes2.default.string,
   color: _propTypes2.default.string,
   hoverColor: _propTypes2.default.string,
-  name: _propTypes2.default.string.isRequired,
+  name: function name() {
+    return (typeof _icons.bpfrpt_proptype_IconNameType === 'function' ? _icons.bpfrpt_proptype_IconNameType.isRequired ? _icons.bpfrpt_proptype_IconNameType.isRequired : _icons.bpfrpt_proptype_IconNameType : _propTypes2.default.shape(_icons.bpfrpt_proptype_IconNameType).isRequired).apply(this, arguments);
+  },
   size: _propTypes2.default.number,
   style: _propTypes2.default.objectOf(function (props, propName, componentName) {
     if (!Object.prototype.hasOwnProperty.call(props, propName)) {

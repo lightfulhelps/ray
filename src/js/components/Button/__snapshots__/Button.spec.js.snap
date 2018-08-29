@@ -8,3 +8,16 @@ exports[`<Button /> should render 1`] = `
   Click Me
 </button>
 `;
+
+exports[`<Button /> should render with an icon 1`] = `
+<button
+  className="btn btn-primary btn-icon-left"
+  onClick={[MockFunction]}
+>
+  Click Me
+  <Icon
+    name="create"
+    size={24}
+  />
+</button>
+`;
