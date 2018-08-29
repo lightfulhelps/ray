@@ -6616,9 +6616,18 @@ button.bg-gray-900:focus {
   margin-bottom: 0;
   margin-left: 1.4rem; }
 
+.post-card__title {
+  margin-bottom: 0.2em; }
+
 .post-card__date {
+  display: flex;
+  align-items: center;
+  height: 20px;
   font-size: 0.675rem;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  margin-bottom: 0.2em; }
+  .post-card__date svg {
+    margin-right: 3px; }
 
 .post-card__content {
   margin: 0.7rem 1.4rem;

@@ -22,6 +22,10 @@ var _format = require('date-fns/format');
 
 var _format2 = _interopRequireDefault(_format);
 
+var _is_future = require('date-fns/is_future');
+
+var _is_future2 = _interopRequireDefault(_is_future);
+
 var _ = require('../../');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -59,16 +63,17 @@ var PostCard = function PostCard(_ref) {
       ),
       React.createElement(
         'div',
-        { className: 'mx-1', style: { height: '64px', minWidth: 0 } },
+        { className: 'mx-1', style: { height: '68px', minWidth: 0 } },
         React.createElement(
           'h1',
           { className: blockClass + '__title' },
           post.title
         ),
-        post.date && React.createElement(
+        React.createElement(
           'div',
           { className: blockClass + '__date' },
-          (0, _format2.default)(post.date, dateFormat)
+          (!post.date || (0, _is_future2.default)(post.date)) && React.createElement(_.Icon, { name: 'unscheduled', size: 20, color: '#adb5bd' }),
+          post.date ? (0, _format2.default)(post.date, dateFormat) : 'Unscheduled'
         ),
         post.campaign && React.createElement(
           _.Badge,

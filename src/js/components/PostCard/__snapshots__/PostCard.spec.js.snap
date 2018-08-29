@@ -25,7 +25,7 @@ exports[`<PostCard /> should render 1`] = `
       className="mx-1"
       style={
         Object {
-          "height": "64px",
+          "height": "68px",
           "minWidth": 0,
         }
       }

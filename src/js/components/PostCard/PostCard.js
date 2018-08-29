@@ -3,6 +3,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Dotdotdot from 'react-dotdotdot';
 import formatDate from 'date-fns/format';
+import isFuture from 'date-fns/is_future';
 import { Card, Avatar, Badge, Icon, PostMedia, URLMetaPreview } from '../../';
 
 type InspirationActionType = {
@@ -81,11 +82,14 @@ const PostCard = ({
             <Avatar url={post.socialIdentity.avatar} provider={post.socialProvider} />
           </div>
         )}
-        <div className="mx-1" style={{ height: '64px', minWidth: 0 }}>
+        <div className="mx-1" style={{ height: '68px', minWidth: 0 }}>
           <h1 className={`${blockClass}__title`}>{post.title}</h1>
-          {post.date && (
-            <div className={`${blockClass}__date`}>{formatDate(post.date, dateFormat)}</div>
-          )}
+          <div className={`${blockClass}__date`}>
+            {(!post.date || isFuture(post.date)) && (
+              <Icon name="unscheduled" size={20} color="#adb5bd" />
+            )}
+            {post.date ? formatDate(post.date, dateFormat) : 'Unscheduled'}
+          </div>
           {post.campaign && (
             <Badge className="campaign-tag" color={post.campaign.color}>
               {post.campaign.name}

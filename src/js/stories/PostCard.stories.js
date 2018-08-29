@@ -92,7 +92,6 @@ stories.add('Default', () => (
         <PostCard
           post={{
             title: text('Title', 'Hope For Children'),
-            date: date('Date', defaultDate),
             campaign: {
               name: text('Campaign Name', 'Campaign Tag'),
               color: color('Campaign Color', '#27B0CC'),

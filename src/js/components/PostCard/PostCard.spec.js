@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
+import addDays from 'date-fns/add_days';
 import { PostCard, Icon } from '../../';
 
 const setup = (overrides = {}) => {
@@ -89,11 +90,40 @@ describe('<PostCard />', () => {
   it('should optionally display post date', () => {
     const { wrapper, props } = setup();
 
-    expect(wrapper.find('.post-card__date').exists()).toBe(true);
+    expect(wrapper.find('.post-card__date').text()).toBe('22 Aug - 14:34');
 
-    wrapper.setProps({ post: merge(props.post, { date: null }) });
+    wrapper.setProps({ post: { ...props.post, date: null } });
 
-    expect(wrapper.find('.post-card__date').exists()).toBe(false);
+    expect(wrapper.find('.post-card__date').text()).toBe('<Icon />Unscheduled');
+  });
+
+  it('should include the unscheduled Icon if no date or date is in the future', () => {
+    const { wrapper, props } = setup({ post: { date: null } });
+
+    expect(
+      wrapper
+        .find('.post-card__date')
+        .find(Icon)
+        .exists()
+    ).toBe(true);
+
+    wrapper.setProps({ post: { ...props.post, date: '2018-08-22 14:34' } });
+
+    expect(
+      wrapper
+        .find('.post-card__date')
+        .find(Icon)
+        .exists()
+    ).toBe(false);
+
+    wrapper.setProps({ post: { ...props.post, date: addDays(new Date(), 1) } });
+
+    expect(
+      wrapper
+        .find('.post-card__date')
+        .find(Icon)
+        .exists()
+    ).toBe(true);
   });
 
   it('should handle the dateFormat prop', () => {

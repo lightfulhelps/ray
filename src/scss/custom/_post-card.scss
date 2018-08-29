@@ -30,11 +30,21 @@
 
 .post-card__title {
   @extend .h5, .text-truncate;
+
+  margin-bottom: 0.2em;
 }
 
 .post-card__date {
+  display: flex;
+  align-items: center;
+  height: 20px;
   font-size: $font-size-sm;
   text-transform: uppercase;
+  margin-bottom: 0.2em;
+
+  svg {
+    margin-right: 3px;
+  }
 }
 
 .post-card__content {
