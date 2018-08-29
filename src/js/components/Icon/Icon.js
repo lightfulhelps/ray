@@ -33,7 +33,6 @@ class Icon extends Component<Props, State> {
   };
 
   render() {
-    console.log(this.props);
     const {
       className,
       color = 'currentColor',
