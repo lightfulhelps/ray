@@ -6330,6 +6330,29 @@ a.text-dark:hover, a.text-dark:focus {
 .btn-sm, .btn-group-sm > .btn {
   font-size: 0.9rem; }
 
+.btn-icon {
+  padding: .5em; }
+  .btn-icon svg,
+  .btn-icon svg:hover {
+    fill: #fff !important; }
+  .btn-icon-left, .btn-icon-right {
+    display: flex;
+    align-items: flex-end; }
+    .btn-icon-left svg,
+    .btn-icon-left svg:hover, .btn-icon-right svg,
+    .btn-icon-right svg:hover {
+      fill: #fff !important; }
+  .btn-icon-left {
+    padding-left: 1em;
+    padding-right: 1.5em; }
+    .btn-icon-left svg {
+      margin-right: 0.5em; }
+  .btn-icon-right {
+    padding-right: 1em;
+    padding-left: 1.5em; }
+    .btn-icon-right svg {
+      margin-left: 0.5em; }
+
 .form-control {
   font-weight: 300; }
   .form-control:hover:not(:focus):not(:disabled):not(.is-invalid):not(.is-valid) {
