@@ -8,8 +8,8 @@
 }
 
 .btn-icon {
-  padding: $spacer;
-
+  padding: $spacer / 4;
+  border-radius: $btn-border-radius-sm;
   .icon {
     margin: 0;
   }
