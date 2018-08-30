@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.bpfrpt_proptype_DropdownItemType = undefined;
 
 var _react = require('react');
 
@@ -26,6 +27,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
+var bpfrpt_proptype_DropdownItemType = {
+  icon: function icon() {
+    return (typeof _icons.bpfrpt_proptype_IconNameType === 'function' ? _icons.bpfrpt_proptype_IconNameType : _propTypes2.default.shape(_icons.bpfrpt_proptype_IconNameType)).apply(this, arguments);
+  },
+  label: _propTypes2.default.string.isRequired,
+  onClick: _propTypes2.default.func
+};
+
+
 var DropdownItem = function DropdownItem(_ref) {
   var className = _ref.className,
       label = _ref.label,
@@ -45,12 +55,14 @@ var DropdownItem = function DropdownItem(_ref) {
     )
   );
 };
+
 DropdownItem.propTypes = {
-  className: _propTypes2.default.string,
   icon: function icon() {
     return (typeof _icons.bpfrpt_proptype_IconNameType === 'function' ? _icons.bpfrpt_proptype_IconNameType : _propTypes2.default.shape(_icons.bpfrpt_proptype_IconNameType)).apply(this, arguments);
   },
   label: _propTypes2.default.string.isRequired,
-  onClick: _propTypes2.default.func
+  onClick: _propTypes2.default.func,
+  className: _propTypes2.default.string
 };
 exports.default = DropdownItem;
+exports.bpfrpt_proptype_DropdownItemType = bpfrpt_proptype_DropdownItemType;

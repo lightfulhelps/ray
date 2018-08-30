@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
 import addDays from 'date-fns/add_days';
-import { PostCard, PostMedia, URLMetaPreview, Icon, Button } from '../../';
+import { PostCard, PostMedia, URLMetaPreview, Icon, Button, Dropdown } from '../../';
 
 const setup = (overrides = {}) => {
   const props = merge(
@@ -151,6 +151,22 @@ describe('<PostCard />', () => {
     wrapper.setProps({ post: merge(props.post, { campaign: null }) });
 
     expect(wrapper.find('.campaign-tag').exists()).toBe(false);
+  });
+
+  it('should optionally display a Dropdown', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.find(Dropdown).exists()).toBe(false);
+
+    wrapper.setProps({ actions: [{ icon: 'edit', label: 'Edit' }] });
+
+    expect(wrapper.find(Dropdown).exists()).toBe(true);
+  });
+
+  it('should pass post creator to Dropdown footer', () => {
+    const { wrapper } = setup({ post: { creator: 'Bruno' }, actions: [{ label: 'Edit' }] });
+
+    expect(wrapper.find(Dropdown).prop('footer')).toEqual('Bruno');
   });
 
   it('should set HTML in the post content', () => {

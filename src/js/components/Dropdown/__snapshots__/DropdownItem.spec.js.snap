@@ -1,16 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<DropdownItem /> should render 1`] = `
-<a
-  className="dropdown-item"
-  href="#"
+<div
+  className="dropdown-item clickable"
+  onClick={[Function]}
 >
-  <span
-    className="w-100 d-flex align-items-center dropdown-item-content"
-  >
-    <span>
-      some menu item
-    </span>
+  <span>
+    some menu item
   </span>
-</a>
+</div>
 `;

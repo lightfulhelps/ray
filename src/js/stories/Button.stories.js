@@ -85,6 +85,8 @@ stories.add('Default', () => (
         >
           {text('Text', 'Click Me')}
         </Button>
+
+        <Button icon="edit" size="sm" />
       </Col>
     </Row>
   </Container>

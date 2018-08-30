@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { storiesOf, action } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { select } from '@storybook/addon-knobs/dist/vue';
 import { Container, Row, Dropdown } from '../';
@@ -11,17 +11,19 @@ const stories = storiesOf('Dropdown', module);
 stories.addDecorator(withKnobs);
 
 const themes = {
-  primary: 'Primary',
-  dark: 'Dark',
-};
-const buttonThemes = {
   light: 'Light',
   dark: 'Dark',
 };
 
-const onClickHandler = () => {
-  // eslint-disable-next-line
-  alert(`this is the onClick handler`);
+const buttonSizes = {
+  lg: 'Large',
+  md: 'Medium',
+  sm: 'Small',
+};
+
+const buttonThemes = {
+  light: 'Light',
+  dark: 'Dark',
 };
 
 stories.add('Default', () => (
@@ -32,17 +34,20 @@ stories.add('Default', () => (
         <Dropdown
           items={[
             {
-              label: 'edit',
+              label: 'Edit',
               icon: 'edit',
+              onClick: action('Edit'),
             },
             {
-              label: 'delete',
+              label: 'Delete',
               icon: 'delete',
+              onClick: action('Delete'),
             },
           ]}
-          onClick={onClickHandler}
-          theme={select('Theme', themes)}
-          buttonTheme={select('Button Theme', buttonThemes)}
+          theme={select('Theme', themes, 'dark')}
+          position={select('Position', { left: 'Left', right: 'Right' }, 'left')}
+          buttonSize={select('Button Size', buttonSizes, 'sm')}
+          buttonTheme={select('Button Theme', buttonThemes, 'light')}
           footer={text('Footer Text', 'Some footer text')}
         />
       </div>

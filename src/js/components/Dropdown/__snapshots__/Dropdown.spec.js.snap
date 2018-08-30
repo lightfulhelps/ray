@@ -2,18 +2,19 @@
 
 exports[`<Dropdown /> should render 1`] = `
 <div
-  className="dropdown"
+  className="dropdown dropdown-dark d-inline-block"
 >
   <Button
-    aria-expanded="false"
+    aria-expanded={false}
     aria-haspopup="true"
-    data-toggle="dropdown"
     icon="menu"
+    onClick={[Function]}
+    size="sm"
     theme="light"
   />
   <div
     aria-labelledby="dropdownMenuButton"
-    className="dropdown-menu dropdown-menu-dark"
+    className="dropdown-menu dropdown-menu-left"
   >
     <DropdownItem
       icon="edit"

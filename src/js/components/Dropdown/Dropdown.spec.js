@@ -35,18 +35,25 @@ describe('<Dropdown />', () => {
   });
 
   it('should NOT render a footer if footer prop is NOT provided', () => {
-    const { dropdownItem, props } = setup();
+    const { wrapper } = setup();
 
-    let i;
-    for (i = 0; i < props.items.length; i++) {
-      expect(dropdownItem.at(i).html()).not.toContain('dropdown-item-footer');
-    }
-
-    expect(dropdownItem.last().html()).not.toContain('dropdown-item-footer');
+    expect(wrapper.find('.dropdown-footer').exists()).toBe(false);
   });
 
-  it('should render a footer as the last dropdown item if footer prop is provided', () => {
-    const { dropdownItem } = setup({ footer: 'some footer text' });
-    expect(dropdownItem.last().html()).toContain('dropdown-item-footer');
+  it('should render a footer if footer prop is provided', () => {
+    const { wrapper } = setup({ footer: 'Test' });
+
+    expect(wrapper.find('.dropdown-footer').exists()).toBe(true);
+    expect(wrapper.find('.dropdown-footer').text()).toEqual('Test');
+  });
+
+  it('should handle the position prop', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.find('.dropdown-menu').hasClass('dropdown-menu-left')).toBe(true);
+
+    wrapper.setProps({ position: 'right' });
+
+    expect(wrapper.find('.dropdown-menu').hasClass('dropdown-menu-right')).toBe(true);
   });
 });

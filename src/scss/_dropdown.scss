@@ -18,9 +18,11 @@
     .dropdown-item {
       color: $white;
       border-color: $dropdown-dark-divider-bg;
+
       &:hover {
         background-color: inherit;
       }
+
       &.clickable {
         @include hover-focus {
           color: $dropdown-dark-link-hover-color;

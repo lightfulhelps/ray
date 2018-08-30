@@ -1,21 +1,16 @@
 // @flow
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import DropdownItem from './DropdownItem';
+import DropdownItem, { type DropdownItemType } from './DropdownItem';
 import Button from '../Button/Button';
-import type { IconNameType } from '../Icon/icons';
 
 type Props = {
+  buttonSize?: 'lg' | 'md' | 'sm',
   buttonTheme?: string,
   className?: string,
   footer?: string,
-  items: [
-    {
-      icon?: IconNameType,
-      label: string,
-      onClick?: () => void,
-    },
-  ],
+  items: DropdownItemType[],
+  position?: 'left' | 'right',
   theme?: string,
 };
 
@@ -33,8 +28,16 @@ class Dropdown extends Component<Props, State> {
   }
 
   render() {
-    const { theme = 'dark', buttonTheme = 'light', items, className, footer } = this.props;
-    const classes = classNames(className, 'dropdown', `dropdown-${theme}`);
+    const {
+      buttonSize = 'sm',
+      buttonTheme = 'light',
+      className,
+      footer,
+      items,
+      position = 'left',
+      theme = 'dark',
+    } = this.props;
+    const classes = classNames(className, 'dropdown', `dropdown-${theme}`, 'd-inline-block');
 
     return (
       <div className={classes}>
@@ -42,17 +45,20 @@ class Dropdown extends Component<Props, State> {
           onClick={() => this.handleDropdown()}
           icon="menu"
           aria-haspopup="true"
-          aria-expanded="false"
+          aria-expanded={this.state.isOpen}
+          size={buttonSize}
           theme={buttonTheme}
         />
         <div
-          className={classNames('dropdown-menu', { show: this.state.isOpen })}
+          className={classNames('dropdown-menu', `dropdown-menu-${position}`, {
+            show: this.state.isOpen,
+          })}
           aria-labelledby="dropdownMenuButton"
         >
           {items.map((item, i) => (
-            <DropdownItem label={item.label} icon={item.icon} key={i} onClick={item.onClick} />
+            <DropdownItem key={i} label={item.label} icon={item.icon} onClick={item.onClick} />
           ))}
-          {footer && <DropdownItem label={footer} className="dropdown-item-footer" />}
+          {footer && <div className="dropdown-footer">{footer}</div>}
         </div>
       </div>
     );

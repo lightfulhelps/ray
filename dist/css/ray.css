@@ -4465,8 +4465,14 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 0.9rem; }
 
 .btn-icon {
-  padding: 0.175rem;
-  border-radius: 0.35rem; }
+  padding: 0.7rem;
+  border-radius: 0.7rem; }
+  .btn-icon.btn-sm, .btn-group-sm > .btn-icon.btn {
+    padding: 0.35rem;
+    border-radius: 0.35rem; }
+  .btn-icon.btn-lg, .btn-group-lg > .btn-icon.btn {
+    padding: 1.4rem;
+    border-radius: 0.7rem; }
   .btn-icon .icon {
     margin: 0; }
   .btn-icon-left, .btn-icon-right {
@@ -4802,6 +4808,7 @@ button.bg-gray-900:focus {
 
 .post-card__header {
   display: flex;
+  align-items: start;
   margin-top: 1.4rem;
   margin-right: 1.4rem;
   margin-bottom: 0;

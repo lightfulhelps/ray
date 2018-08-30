@@ -28,7 +28,7 @@ var _is_future2 = _interopRequireDefault(_is_future);
 
 var _ = require('../../');
 
-var _icons = require('../Icon/icons');
+var _DropdownItem = require('../Dropdown/DropdownItem');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -90,7 +90,7 @@ var PostCard = function PostCard(_ref) {
           post.campaign.name
         )
       ),
-      actions.length > 0 && React.createElement(_.Dropdown, { items: actions })
+      actions.length > 0 && React.createElement(_.Dropdown, { items: actions, buttonSize: 'sm', position: 'right', footer: post.creator })
     ),
     React.createElement(
       _reactDotdotdot2.default,

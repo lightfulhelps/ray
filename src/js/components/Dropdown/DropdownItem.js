@@ -4,11 +4,14 @@ import classNames from 'classnames';
 import Icon from '../Icon/Icon';
 import type { IconNameType } from '../Icon/icons';
 
-type Props = {
-  className?: string,
+export type DropdownItemType = {
   icon?: IconNameType,
   label: string,
   onClick?: () => void,
+};
+
+type Props = DropdownItemType & {
+  className?: string,
 };
 
 const DropdownItem = ({ className, label, icon, onClick = () => {} }: Props) => {

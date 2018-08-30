@@ -24,8 +24,6 @@ var _Button = require('../Button/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _icons = require('../Icon/icons');
-
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -68,15 +66,19 @@ var Dropdown = (_temp2 = _class = function (_Component) {
       var _this2 = this;
 
       var _props = this.props,
-          _props$theme = _props.theme,
-          theme = _props$theme === undefined ? 'dark' : _props$theme,
+          _props$buttonSize = _props.buttonSize,
+          buttonSize = _props$buttonSize === undefined ? 'sm' : _props$buttonSize,
           _props$buttonTheme = _props.buttonTheme,
           buttonTheme = _props$buttonTheme === undefined ? 'light' : _props$buttonTheme,
-          items = _props.items,
           className = _props.className,
-          footer = _props.footer;
+          footer = _props.footer,
+          items = _props.items,
+          _props$position = _props.position,
+          position = _props$position === undefined ? 'left' : _props$position,
+          _props$theme = _props.theme,
+          theme = _props$theme === undefined ? 'dark' : _props$theme;
 
-      var classes = (0, _classnames2.default)(className, 'dropdown', 'dropdown-' + theme);
+      var classes = (0, _classnames2.default)(className, 'dropdown', 'dropdown-' + theme, 'd-inline-block');
 
       return _react2.default.createElement(
         'div',
@@ -87,19 +89,26 @@ var Dropdown = (_temp2 = _class = function (_Component) {
           },
           icon: 'menu',
           'aria-haspopup': 'true',
-          'aria-expanded': 'false',
+          'aria-expanded': this.state.isOpen,
+          size: buttonSize,
           theme: buttonTheme
         }),
         _react2.default.createElement(
           'div',
           {
-            className: (0, _classnames2.default)('dropdown-menu', { show: this.state.isOpen }),
+            className: (0, _classnames2.default)('dropdown-menu', 'dropdown-menu-' + position, {
+              show: this.state.isOpen
+            }),
             'aria-labelledby': 'dropdownMenuButton'
           },
           items.map(function (item, i) {
-            return _react2.default.createElement(_DropdownItem2.default, { label: item.label, icon: item.icon, key: i, onClick: item.onClick });
+            return _react2.default.createElement(_DropdownItem2.default, { key: i, label: item.label, icon: item.icon, onClick: item.onClick });
           }),
-          footer && _react2.default.createElement(_DropdownItem2.default, { label: footer, className: 'dropdown-item-footer' })
+          footer && _react2.default.createElement(
+            'div',
+            { className: 'dropdown-footer' },
+            footer
+          )
         )
       );
     }
@@ -107,10 +116,14 @@ var Dropdown = (_temp2 = _class = function (_Component) {
 
   return Dropdown;
 }(_react.Component), _class.propTypes = {
+  buttonSize: _propTypes2.default.oneOf(['lg', 'md', 'sm']),
   buttonTheme: _propTypes2.default.string,
   className: _propTypes2.default.string,
   footer: _propTypes2.default.string,
-  items: _propTypes2.default.arrayOf(_propTypes2.default.any).isRequired,
+  items: _propTypes2.default.arrayOf(function () {
+    return (typeof _DropdownItem.bpfrpt_proptype_DropdownItemType === 'function' ? _DropdownItem.bpfrpt_proptype_DropdownItemType.isRequired ? _DropdownItem.bpfrpt_proptype_DropdownItemType.isRequired : _DropdownItem.bpfrpt_proptype_DropdownItemType : _propTypes2.default.shape(_DropdownItem.bpfrpt_proptype_DropdownItemType).isRequired).apply(this, arguments);
+  }).isRequired,
+  position: _propTypes2.default.oneOf(['left', 'right']),
   theme: _propTypes2.default.string
 }, _temp2);
 exports.default = Dropdown;
