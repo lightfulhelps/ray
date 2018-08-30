@@ -10,10 +10,10 @@ type Props = {
   label: string,
 };
 
-const DropdownItem = ({ className, label, icon }: Props) => {
+const DropdownItem = ({ className, label, icon, onClick }: Props) => {
   const classes = classNames(className, 'dropdown-item');
   return (
-    <a className={classes} href="#">
+    <a className={classes} href="#" onClick={onClick}>
       <span className="w-100 d-flex align-items-center dropdown-item-content">
         {icon && <Icon name={icon} className="mr-1" />}
         <span>{label}</span>

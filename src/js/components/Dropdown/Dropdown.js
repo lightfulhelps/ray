@@ -15,6 +15,7 @@ type Props = {
       label: string,
     },
   ],
+  onClick?: () => {},
   theme?: string,
 };
 
@@ -32,7 +33,7 @@ class Dropdown extends Component<Props, State> {
   }
 
   render() {
-    const { theme = 'dark', buttonTheme = 'light', items, className, footer } = this.props;
+    const { theme = 'dark', buttonTheme = 'light', items, className, footer, onClick } = this.props;
     const classes = classNames(className, 'dropdown-menu', `dropdown-menu-${theme}`, {
       show: this.state.isOpen,
     });
@@ -47,8 +48,8 @@ class Dropdown extends Component<Props, State> {
           theme={buttonTheme}
         />
         <div className={classes} aria-labelledby="dropdownMenuButton">
-          {items.map(({ icon, label }, i) => (
-            <DropdownItem label={label} icon={icon} key={i} />
+          {items.map((item, i) => (
+            <DropdownItem label={item.label} icon={item.icon} key={i} onClick={onClick} />
           ))}
           {footer && <DropdownItem label={footer} className="dropdown-item-footer" />}
         </div>

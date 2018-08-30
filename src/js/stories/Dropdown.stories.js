@@ -19,6 +19,11 @@ const buttonThemes = {
   dark: 'Dark',
 };
 
+const onClickHandler = () => {
+  // eslint-disable-next-line
+  alert(`this is the onClick handler`);
+};
+
 stories.add('Default', () => (
   <Container>
     <h1 className="my-4">Dropdown.</h1>
@@ -35,6 +40,7 @@ stories.add('Default', () => (
               icon: 'delete',
             },
           ]}
+          onClick={onClickHandler}
           theme={select('Theme', themes)}
           buttonTheme={select('Button Theme', buttonThemes)}
           footer={text('Footer Text', 'Some footer text')}
