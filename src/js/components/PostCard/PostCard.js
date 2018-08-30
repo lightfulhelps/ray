@@ -84,26 +84,24 @@ const PostCard = ({
   return (
     <Card {...other} className={classes}>
       <div className={`${blockClass}__header`}>
-        <div className="d-flex">
-          {post.socialIdentity && (
-            <div style={{ width: '35px', height: '35px', minWidth: '35px', minHeight: '35px' }}>
-              <Avatar url={post.socialIdentity.avatar} provider={post.socialProvider} />
-            </div>
-          )}
-          <div className="mx-1" style={{ height: '68px', minWidth: 0 }}>
-            <h1 className={`${blockClass}__title`}>{post.title}</h1>
-            <div className={`${blockClass}__date`}>
-              {(!post.date || isFuture(post.date)) && (
-                <Icon name="unscheduled" size={20} color="#adb5bd" />
-              )}
-              {post.date ? formatDate(post.date, dateFormat) : 'Unscheduled'}
-            </div>
-            {post.campaign && (
-              <Badge className="campaign-tag" color={post.campaign.color}>
-                {post.campaign.name}
-              </Badge>
-            )}
+        {post.socialIdentity && (
+          <div style={{ width: '35px', height: '35px', minWidth: '35px', minHeight: '35px' }}>
+            <Avatar url={post.socialIdentity.avatar} provider={post.socialIdentity.provider} />
           </div>
+        )}
+        <div className="mx-1" style={{ height: '68px', minWidth: 0, flex: 1 }}>
+          <h1 className={`${blockClass}__title`}>{post.title}</h1>
+          <div className={`${blockClass}__date`}>
+            {(!post.date || isFuture(post.date)) && (
+              <Icon name="unscheduled" size={20} color="#adb5bd" />
+            )}
+            {post.date ? formatDate(post.date, dateFormat) : 'Unscheduled'}
+          </div>
+          {post.campaign && (
+            <Badge className="campaign-tag" color={post.campaign.color}>
+              {post.campaign.name}
+            </Badge>
+          )}
         </div>
         <Dropdown
           items={[
