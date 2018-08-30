@@ -5,6 +5,7 @@ import Dotdotdot from 'react-dotdotdot';
 import formatDate from 'date-fns/format';
 import isFuture from 'date-fns/is_future';
 import { Card, Avatar, Badge, Button, Icon, PostMedia, URLMetaPreview, Dropdown } from '../../';
+import type { IconNameType } from '../Icon/icons';
 
 type InspirationActionType = {
   activeColor?: string,
@@ -41,7 +42,14 @@ type PostType = {
   title: string,
 };
 
+type ActionType = {
+  action?: () => void,
+  icon?: IconNameType,
+  label: string,
+};
+
 type Props = {
+  actions?: ActionType[],
   className?: string,
   dateFormat?: string,
   inspirationActions?: InspirationActionType[],
@@ -58,6 +66,7 @@ type Props = {
 };
 
 const PostCard = ({
+  actions = [],
   className,
   dateFormat = 'D MMM [-] HH:mm',
   inspirationActions,
@@ -103,18 +112,7 @@ const PostCard = ({
             </Badge>
           )}
         </div>
-        <Dropdown
-          items={[
-            {
-              label: 'edit',
-              icon: 'edit',
-            },
-            {
-              label: 'delete',
-              icon: 'delete',
-            },
-          ]}
-        />
+        {actions.length > 0 && <Dropdown items={actions} />}
       </div>
       <Dotdotdot className={`${blockClass}__content`} clamp={5}>
         <div

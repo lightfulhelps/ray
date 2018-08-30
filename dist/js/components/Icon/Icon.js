@@ -62,8 +62,6 @@ var Icon = (_temp2 = _class = function (_Component) {
   _createClass(Icon, [{
     key: 'render',
     value: function render() {
-      console.log(this.props);
-
       var _props = this.props,
           className = _props.className,
           _props$color = _props.color,
