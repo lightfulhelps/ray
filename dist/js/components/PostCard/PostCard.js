@@ -60,7 +60,7 @@ var PostCard = function PostCard(_ref) {
       post.socialIdentity && React.createElement(
         'div',
         { style: { width: '35px', height: '35px', minWidth: '35px', minHeight: '35px' } },
-        React.createElement(_.Avatar, { url: post.socialIdentity.avatar, provider: post.socialProvider })
+        React.createElement(_.Avatar, { url: post.socialIdentity.avatar, provider: post.socialIdentity.provider })
       ),
       React.createElement(
         'div',

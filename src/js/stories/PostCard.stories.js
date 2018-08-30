@@ -54,8 +54,8 @@ stories.add('Default', () => (
             socialIdentity: {
               id: '123',
               avatar: text('Avatar URL', 'https://randomuser.me/api/portraits/women/47.jpg'),
+              provider: select('Social Provider', socialProviders, 'twitter'),
             },
-            socialProvider: select('Social Provider', socialProviders, 'twitter'),
             content: text(
               'Content',
               'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".'
@@ -99,8 +99,8 @@ stories.add('Default', () => (
             socialIdentity: {
               id: '123',
               avatar: text('Avatar URL', 'https://randomuser.me/api/portraits/women/47.jpg'),
+              provider: select('Social Provider', socialProviders, 'twitter'),
             },
-            socialProvider: select('Social Provider', socialProviders, 'twitter'),
             content: text(
               'Content',
               'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".'

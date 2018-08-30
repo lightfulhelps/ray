@@ -35,9 +35,9 @@ type PostType = {
     avatar?: string,
     displayName?: string,
     id: string,
+    provider: 'facebook' | 'twitter' | 'linkedin',
     username?: string,
   },
-  socialProvider?: string,
   title: string,
 };
 
@@ -81,7 +81,7 @@ const PostCard = ({
       <div className={`${blockClass}__header`}>
         {post.socialIdentity && (
           <div style={{ width: '35px', height: '35px', minWidth: '35px', minHeight: '35px' }}>
-            <Avatar url={post.socialIdentity.avatar} provider={post.socialProvider} />
+            <Avatar url={post.socialIdentity.avatar} provider={post.socialIdentity.provider} />
           </div>
         )}
         <div className="mx-1" style={{ height: '68px', minWidth: 0 }}>
