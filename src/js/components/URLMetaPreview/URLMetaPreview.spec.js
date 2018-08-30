@@ -24,6 +24,12 @@ const setup = (overrides = {}) => {
 };
 
 describe('<URLMetaPreview />', () => {
+  it('should return null if no url', () => {
+    const { wrapper } = setup({ url: null });
+
+    expect(wrapper.type()).toBe(null);
+  });
+
   it('should render', () => {
     const { wrapper } = setup();
 

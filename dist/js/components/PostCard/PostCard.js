@@ -50,6 +50,9 @@ var PostCard = function PostCard(_ref) {
 
   var blockClass = 'post-card';
   var classes = (0, _classnames2.default)(className, blockClass, _defineProperty({}, blockClass + '--draft', isDraft), _defineProperty({}, blockClass + '--invalid', isInvalid));
+  var showPostMedia = post.media && post.media.length > 0;
+  var showMetaPreview = (!post.media || post.media && post.media.length === 0) && metaPreview && metaPreview.url;
+  var showMediaEmpty = post.media && post.media.length === 0 && (!metaPreview || metaPreview && !metaPreview.url);
 
   return React.createElement(
     _.Card,
@@ -92,15 +95,16 @@ var PostCard = function PostCard(_ref) {
         }
       })
     ),
-    post.media && React.createElement(
+    React.createElement(
       'div',
       { className: blockClass + '__media' },
-      React.createElement(_.PostMedia, { media: post.media })
-    ),
-    metaPreview && React.createElement(
-      'div',
-      { className: blockClass + '__media border-top border-bottom' },
-      React.createElement(_.URLMetaPreview, metaPreview)
+      showPostMedia && React.createElement(_.PostMedia, { media: post.media }),
+      showMetaPreview && React.createElement(_.URLMetaPreview, _extends({}, metaPreview, { className: 'border-top border-bottom' })),
+      showMediaEmpty && React.createElement(
+        'div',
+        { className: 'post-media--empty' },
+        'No media'
+      )
     ),
     post.metrics && Object.keys(post.metrics).length > 0 && React.createElement(
       'div',
