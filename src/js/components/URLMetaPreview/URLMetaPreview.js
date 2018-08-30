@@ -8,8 +8,8 @@ type Props = {
   description?: string,
   image?: string,
   isVertical?: boolean,
-  title: string,
-  url: string,
+  title?: string,
+  url?: string,
 };
 
 const cleanURL = (url: string): string => url.replace(/https?:\/\/(www.)?/, '');
@@ -25,6 +25,10 @@ const URLMetaPreview = ({
 }: Props) => {
   const blockClass = 'url-meta-preview';
   const classes = classNames(className, blockClass);
+
+  if (!url) {
+    return null;
+  }
 
   return (
     <div {...other} className={classes}>

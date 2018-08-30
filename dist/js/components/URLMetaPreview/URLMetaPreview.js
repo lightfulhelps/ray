@@ -39,6 +39,10 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
   var blockClass = 'url-meta-preview';
   var classes = (0, _classnames2.default)(className, blockClass);
 
+  if (!url) {
+    return null;
+  }
+
   return _react2.default.createElement(
     'div',
     _extends({}, other, { className: classes }),

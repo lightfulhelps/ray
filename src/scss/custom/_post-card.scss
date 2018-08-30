@@ -22,7 +22,6 @@
 
 .post-card__header {
   display: flex;
-  justify-content: space-between;
   margin-top: map-get($spacers, 2);
   margin-right: map-get($spacers, 2);
   margin-bottom: 0;
@@ -86,5 +85,6 @@
 }
 
 .post-card__approve {
+  margin-top: 1px;
   border-radius: 0 0 $border-radius-sm $border-radius-sm;
 }

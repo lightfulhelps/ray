@@ -64,6 +64,9 @@ exports[`<PostCard /> should render 1`] = `
     />
   </Dotdotdot>
   <div
+    className="post-card__media"
+  />
+  <div
     className="post-card__metrics"
   >
     <div
