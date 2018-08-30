@@ -5,7 +5,7 @@ import Icon from '../Icon/Icon';
 import type { IconNameType } from '../Icon/icons';
 
 type Props = {
-  children: string,
+  children?: string,
   className?: string,
   icon?: IconNameType,
   iconPosition?: 'left' | 'right',
