@@ -15,7 +15,7 @@ const themes = {
   dark: 'Dark',
 };
 const buttonThemes = {
-  primary: 'Primary',
+  light: 'Light',
   dark: 'Dark',
 };
 

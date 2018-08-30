@@ -4488,20 +4488,23 @@ a.text-dark:hover, a.text-dark:focus {
   .dropdown-item:last-child {
     border: none; }
 
-.dropdown-menu-dark {
+.dropdown-dark .dropdown-menu {
   background-color: #343a40; }
-  .dropdown-menu-dark .dropdown-item {
+  .dropdown-dark .dropdown-menu .dropdown-item {
     color: #fff;
     border-color: #495057; }
-    .dropdown-menu-dark .dropdown-item:hover, .dropdown-menu-dark .dropdown-item:focus {
+    .dropdown-dark .dropdown-menu .dropdown-item:hover {
+      background-color: inherit; }
+    .dropdown-dark .dropdown-menu .dropdown-item.clickable:hover, .dropdown-dark .dropdown-menu .dropdown-item.clickable:focus {
       color: #f2f2f2;
       text-decoration: none;
-      background-color: #495057; }
-    .dropdown-menu-dark .dropdown-item.active, .dropdown-menu-dark .dropdown-item:active {
+      background-color: #495057;
+      cursor: pointer; }
+    .dropdown-dark .dropdown-menu .dropdown-item.active, .dropdown-dark .dropdown-menu .dropdown-item:active {
       color: #fff;
       text-decoration: none;
       background-color: #495057; }
-    .dropdown-menu-dark .dropdown-item.disabled, .dropdown-menu-dark .dropdown-item:disabled {
+    .dropdown-dark .dropdown-menu .dropdown-item.disabled, .dropdown-dark .dropdown-menu .dropdown-item:disabled {
       color: #6c757c;
       background-color: transparent; }
 

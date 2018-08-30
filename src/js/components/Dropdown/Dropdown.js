@@ -34,11 +34,9 @@ class Dropdown extends Component<Props, State> {
 
   render() {
     const { theme = 'dark', buttonTheme = 'light', items, className, footer, onClick } = this.props;
-    const classes = classNames(className, 'dropdown-menu', `dropdown-menu-${theme}`, {
-      show: this.state.isOpen,
-    });
+    const classes = classNames(className, 'dropdown', `dropdown-${theme}`);
     return (
-      <div className="dropdown">
+      <div className={classes}>
         <Button
           onClick={() => this.handleDropdown()}
           icon="menu"
@@ -47,7 +45,10 @@ class Dropdown extends Component<Props, State> {
           aria-expanded="false"
           theme={buttonTheme}
         />
-        <div className={classes} aria-labelledby="dropdownMenuButton">
+        <div
+          className={`dropdown-menu ${this.state.isOpen && 'show'}`}
+          aria-labelledby="dropdownMenuButton"
+        >
           {items.map((item, i) => (
             <DropdownItem label={item.label} icon={item.icon} key={i} onClick={onClick} />
           ))}

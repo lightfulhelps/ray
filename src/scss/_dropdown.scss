@@ -11,30 +11,37 @@
   }
 }
 
-.dropdown-menu-dark {
-  background-color: $gray-800;
+.dropdown-dark {
+  .dropdown-menu {
+    background-color: $gray-800;
 
-  .dropdown-item {
-    color: $white;
-    border-color: $dropdown-dark-divider-bg;
+    .dropdown-item {
+      color: $white;
+      border-color: $dropdown-dark-divider-bg;
+      &:hover {
+        background-color: inherit;
+      }
+      &.clickable {
+        @include hover-focus {
+          color: $dropdown-dark-link-hover-color;
+          text-decoration: none;
+          background-color: $dropdown-dark-link-hover-bg;
+          cursor: pointer;
+        }
+      }
 
-    @include hover-focus {
-      color: $dropdown-dark-link-hover-color;
-      text-decoration: none;
-      background-color: $dropdown-dark-link-hover-bg;
-    }
+      &.active,
+      &:active {
+        color: $dropdown-dark-link-active-color;
+        text-decoration: none;
+        background-color: $dropdown-dark-link-active-bg;
+      }
 
-    &.active,
-    &:active {
-      color: $dropdown-dark-link-active-color;
-      text-decoration: none;
-      background-color: $dropdown-dark-link-active-bg;
-    }
-
-    &.disabled,
-    &:disabled {
-      color: $dropdown-dark-link-disabled-color;
-      background-color: transparent;
+      &.disabled,
+      &:disabled {
+        color: $dropdown-dark-link-disabled-color;
+        background-color: transparent;
+      }
     }
   }
 }

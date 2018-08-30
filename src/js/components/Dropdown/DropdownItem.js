@@ -8,17 +8,16 @@ type Props = {
   className?: string,
   icon?: IconNameType,
   label: string,
+  onClick: () => {},
 };
 
 const DropdownItem = ({ className, label, icon, onClick }: Props) => {
-  const classes = classNames(className, 'dropdown-item');
+  const classes = classNames(className, 'dropdown-item', { clickable: onClick });
   return (
-    <a className={classes} href="#" onClick={onClick}>
-      <span className="w-100 d-flex align-items-center dropdown-item-content">
-        {icon && <Icon name={icon} className="mr-1" />}
-        <span>{label}</span>
-      </span>
-    </a>
+    <div className={classes} onClick={onClick}>
+      {icon && <Icon name={icon} className="mr-1" />}
+      <span>{label}</span>
+    </div>
   );
 };
 
