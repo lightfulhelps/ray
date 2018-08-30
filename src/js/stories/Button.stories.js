@@ -72,7 +72,7 @@ stories.add('Default', () => (
     <Row>
       <Col xs={6}>
         <Button
-          color={select('Theme', themes, 'primary')}
+          theme={select('Theme', themes, 'primary')}
           isBlock={boolean('Block', false)}
           isDisabled={boolean('Disabled', false)}
           isOutline={boolean('Outline', false)}
