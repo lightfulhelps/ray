@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropdownItem /> should render 1`] = `
+<a
+  className="dropdown-item"
+  href="#"
+>
+  <span
+    className="w-100 d-flex align-items-center dropdown-item-content"
+  >
+    <span>
+      some menu item
+    </span>
+  </span>
+</a>
+`;
