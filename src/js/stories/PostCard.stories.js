@@ -109,6 +109,10 @@ stories.add('Default', () => (
               shares: 69,
             },
           }}
+          actions={[
+            { icon: 'edit', label: 'Edit', action: action('Edit') },
+            { icon: 'delete', label: 'Delete', action: action('Delete') },
+          ]}
           isDraft={boolean('Draft', false)}
           isInvalid={boolean('Invalid', false)}
           metaPreview={{

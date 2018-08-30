@@ -30,6 +30,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 var Button = function Button(_ref) {
   var children = _ref.children,
+      label = _ref.label,
       className = _ref.className,
       icon = _ref.icon,
       _ref$iconPosition = _ref.iconPosition,
@@ -44,14 +45,13 @@ var Button = function Button(_ref) {
       Tag = _ref$tag === undefined ? 'button' : _ref$tag,
       _ref$theme = _ref.theme,
       theme = _ref$theme === undefined ? 'primary' : _ref$theme,
-      other = _objectWithoutProperties(_ref, ['children', 'className', 'icon', 'iconPosition', 'isBlock', 'isDisabled', 'isOutline', 'onClick', 'size', 'tag', 'theme']);
+      other = _objectWithoutProperties(_ref, ['children', 'label', 'className', 'icon', 'iconPosition', 'isBlock', 'isDisabled', 'isOutline', 'onClick', 'size', 'tag', 'theme']);
 
   var classes = (0, _classnames2.default)(className, 'btn', 'btn' + (isOutline ? '-outline' : '') + '-' + theme, size ? 'btn-' + size : false, { 'btn-block': isBlock }, { disabled: isDisabled }, { 'btn-icon': icon && !children }, _defineProperty({}, 'btn-icon-' + iconPosition, icon && children));
-
   return React.createElement(
     Tag,
     _extends({}, other, { className: classes, onClick: onClick }),
-    children,
+    children && children,
     icon && React.createElement(_Icon2.default, { name: icon, size: 24 })
   );
 };

@@ -28,6 +28,8 @@ var _is_future2 = _interopRequireDefault(_is_future);
 
 var _ = require('../../');
 
+var _icons = require('../Icon/icons');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
@@ -37,7 +39,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 var PostCard = function PostCard(_ref) {
-  var className = _ref.className,
+  var _ref$actions = _ref.actions,
+      actions = _ref$actions === undefined ? [] : _ref$actions,
+      className = _ref.className,
       _ref$dateFormat = _ref.dateFormat,
       dateFormat = _ref$dateFormat === undefined ? 'D MMM [-] HH:mm' : _ref$dateFormat,
       inspirationActions = _ref.inspirationActions,
@@ -46,7 +50,7 @@ var PostCard = function PostCard(_ref) {
       metaPreview = _ref.metaPreview,
       onApprove = _ref.onApprove,
       post = _ref.post,
-      other = _objectWithoutProperties(_ref, ['className', 'dateFormat', 'inspirationActions', 'isDraft', 'isInvalid', 'metaPreview', 'onApprove', 'post']);
+      other = _objectWithoutProperties(_ref, ['actions', 'className', 'dateFormat', 'inspirationActions', 'isDraft', 'isInvalid', 'metaPreview', 'onApprove', 'post']);
 
   var blockClass = 'post-card';
   var classes = (0, _classnames2.default)(className, blockClass, _defineProperty({}, blockClass + '--draft', isDraft), _defineProperty({}, blockClass + '--invalid', isInvalid));
@@ -67,7 +71,7 @@ var PostCard = function PostCard(_ref) {
       ),
       React.createElement(
         'div',
-        { className: 'mx-1', style: { height: '68px', minWidth: 0 } },
+        { className: 'mx-1', style: { height: '68px', minWidth: 0, flex: 1 } },
         React.createElement(
           'h1',
           { className: blockClass + '__title' },
@@ -84,7 +88,8 @@ var PostCard = function PostCard(_ref) {
           { className: 'campaign-tag', color: post.campaign.color },
           post.campaign.name
         )
-      )
+      ),
+      actions.length > 0 && React.createElement(_.Dropdown, { items: actions })
     ),
     React.createElement(
       _reactDotdotdot2.default,

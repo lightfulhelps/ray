@@ -31,6 +31,15 @@ Object.defineProperty(exports, 'Button', {
   }
 });
 
+var _Dropdown = require('./components/Dropdown/Dropdown');
+
+Object.defineProperty(exports, 'Dropdown', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Dropdown).default;
+  }
+});
+
 var _Card = require('./components/Card/Card');
 
 Object.defineProperty(exports, 'Card', {
