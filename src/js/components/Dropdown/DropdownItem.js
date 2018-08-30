@@ -5,13 +5,13 @@ import { color, number } from '@storybook/addon-knobs';
 import Icon from '../Icon/Icon';
 
 type Props = {
-  className?: string
-  label: string,
+  className?: string,
   icon?: string,
-}
+  label: string,
+};
 
-const DropdownItem = ({ className, label, icon, }) => {
-  const classes = classNames(className, 'dropdown-item', { 'dropdown-item-footer': isFooter });
+const DropdownItem = ({ className, label, icon }: Props) => {
+  const classes = classNames(className, 'dropdown-item');
   return (
     <a className={classes} href="#">
       <span className="w-100 d-flex align-items-center dropdown-item-content">

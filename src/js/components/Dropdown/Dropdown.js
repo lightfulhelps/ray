@@ -9,8 +9,8 @@ type Props = {
   className?: string,
   footer?: string,
   items: {
-    label: string,
     icon?: string,
+    label: string,
   },
   theme?: string,
 };
@@ -21,7 +21,7 @@ const Dropdown = ({ theme = 'dark', items, className, footer }: Props) => {
     <div className="dropdown">
       <Button icon="menu" isDropdown theme={theme} />
       <div className={classes} aria-labelledby="dropdownMenuButton">
-        {items.map(({ label, icon, isFooter }, i) => (
+        {items.map(({ icon, label, isFooter }, i) => (
           <DropdownItem label={label} icon={icon} key={i} isFooter={isFooter} />
         ))}
         {footer && <DropdownItem label={footer} className="dropdown-item-footer" />}
