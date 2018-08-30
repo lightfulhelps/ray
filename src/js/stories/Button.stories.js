@@ -19,12 +19,10 @@ const themes = {
   dark: 'Dark',
 };
 const iconPositions = {
-  none: null,
   left: 'left',
   right: 'right',
-}
+};
 const icons = {
-  none: null,
   addMedia: 'addMedia',
   addSchedule: 'addSchedule',
   analytics: 'analytics',
@@ -58,15 +56,13 @@ const icons = {
   storyBuilder: 'storyBuilder',
   twitter: 'twitter',
   unscheduled: 'unscheduled',
-}
+};
 
 const sizes = {
   lg: 'Large',
   md: 'Medium',
   sm: 'Small',
 };
-
-const defaultValue = ''
 
 stories.addDecorator(withKnobs);
 
@@ -82,10 +78,13 @@ stories.add('Default', () => (
           isOutline={boolean('Outline', false)}
           onClick={action('clicked')}
           size={select('Size', sizes, 'md')}
-          label={text('Text', 'Click Me')}
-          icon={select('Icon', icons, defaultValue)}
-          iconPosition={select('Position', iconPositions, defaultValue)}
-        />
+          icon={boolean('Show Icon', false) && select('Icon', icons, 'addMedia')}
+          iconPosition={
+            boolean('Show Icon', false) && select('Icon Position', iconPositions, 'left')
+          }
+        >
+          {text('Text', 'Click Me')}
+        </Button>
       </Col>
     </Row>
   </Container>

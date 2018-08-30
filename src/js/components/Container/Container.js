@@ -9,10 +9,14 @@ type Props = {
   tag?: string,
 };
 
-const Container = ({ children, className, isFluid, tag: Tag = 'div' }: Props) => {
+const Container = ({ children, className, isFluid, tag: Tag = 'div', ...other }: Props) => {
   const classes = classNames(className, isFluid ? 'container-fluid' : 'container');
 
-  return <Tag className={classes}>{children}</Tag>;
+  return (
+    <Tag {...other} className={classes}>
+      {children}
+    </Tag>
+  );
 };
 
 export default Container;

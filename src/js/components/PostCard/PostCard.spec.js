@@ -1,18 +1,30 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
+import addDays from 'date-fns/add_days';
 import { PostCard, Icon } from '../../';
 
 const setup = (overrides = {}) => {
   const props = merge(
     {
-      title: 'Hope For Children',
-      date: '2018-08-22 14:34',
-      content:
-        'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".',
-      campaign: {
-        name: 'Campaign',
-        color: '#ff0000',
+      post: {
+        id: '08a2a5c0-a77b-11e8-a45a-3bfafb0c9405',
+        title: 'Hope For Children',
+        date: '2018-08-22 14:34',
+        content:
+          'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".',
+        campaign: {
+          name: 'Campaign',
+          color: '#ff0000',
+        },
+        socialIdentity: {
+          id: '1',
+          avatar: 'http://foo.com/avatar.jpg',
+        },
+        metrics: {
+          likes: 10,
+          shares: 5,
+        },
       },
       inspirationActions: [
         {
@@ -75,39 +87,68 @@ describe('<PostCard />', () => {
     expect(wrapper.hasClass('post-card--invalid')).toBe(true);
   });
 
-  it('should optionally display date', () => {
-    const { wrapper } = setup();
+  it('should optionally display post date', () => {
+    const { wrapper, props } = setup();
 
-    expect(wrapper.find('.post-card__date').exists()).toBe(true);
+    expect(wrapper.find('.post-card__date').text()).toBe('22 Aug - 14:34');
 
-    wrapper.setProps({ date: null });
+    wrapper.setProps({ post: { ...props.post, date: null } });
 
-    expect(wrapper.find('.post-card__date').exists()).toBe(false);
+    expect(wrapper.find('.post-card__date').text()).toBe('<Icon />Unscheduled');
+  });
+
+  it('should include the unscheduled Icon if no date or date is in the future', () => {
+    const { wrapper, props } = setup({ post: { date: null } });
+
+    expect(
+      wrapper
+        .find('.post-card__date')
+        .find(Icon)
+        .exists()
+    ).toBe(true);
+
+    wrapper.setProps({ post: { ...props.post, date: '2018-08-22 14:34' } });
+
+    expect(
+      wrapper
+        .find('.post-card__date')
+        .find(Icon)
+        .exists()
+    ).toBe(false);
+
+    wrapper.setProps({ post: { ...props.post, date: addDays(new Date(), 1) } });
+
+    expect(
+      wrapper
+        .find('.post-card__date')
+        .find(Icon)
+        .exists()
+    ).toBe(true);
   });
 
   it('should handle the dateFormat prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.post-card__date').text()).toEqual('22 Aug at 14:34');
+    expect(wrapper.find('.post-card__date').text()).toEqual('22 Aug - 14:34');
 
     wrapper.setProps({ dateFormat: 'HH:MM [on] DD-MM-YYYY' });
 
     expect(wrapper.find('.post-card__date').text()).toEqual('14:08 on 22-08-2018');
   });
 
-  it('should handle the campaign prop', () => {
+  it('should handle the post campaign prop', () => {
     const { wrapper, props } = setup();
 
-    expect(wrapper.find('.campaign-tag').prop('color')).toEqual(props.campaign.color);
-    expect(wrapper.find('.campaign-tag').prop('children')).toEqual(props.campaign.name);
+    expect(wrapper.find('.campaign-tag').prop('color')).toEqual(props.post.campaign.color);
+    expect(wrapper.find('.campaign-tag').prop('children')).toEqual(props.post.campaign.name);
   });
 
   it('should optionally display the campaign tag', () => {
-    const { wrapper } = setup();
+    const { wrapper, props } = setup();
 
     expect(wrapper.find('.campaign-tag').exists()).toBe(true);
 
-    wrapper.setProps({ campaign: null });
+    wrapper.setProps({ post: merge(props.post, { campaign: null }) });
 
     expect(wrapper.find('.campaign-tag').exists()).toBe(false);
   });
@@ -149,7 +190,7 @@ describe('<PostCard />', () => {
     expect(like).toHaveBeenCalledTimes(1);
   });
 
-  it('should optionall display inspirationActions', () => {
+  it('should optionally display inspirationActions', () => {
     const { wrapper } = setup({ inspirationActions: [{ icon: 'follow' }] });
 
     expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(true);
@@ -161,5 +202,41 @@ describe('<PostCard />', () => {
     wrapper.setProps({ inspirationActions: null });
 
     expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
+  });
+
+  it('should optionally display post metrics', () => {
+    const { wrapper, props } = setup({ post: { metrics: { likes: 3 } } });
+
+    expect(wrapper.find('.post-card__metrics').exists()).toBe(true);
+
+    wrapper.setProps({ post: { ...props.post, metrics: {} } });
+
+    expect(wrapper.find('.post-card__metrics').exists()).toBe(false);
+  });
+
+  it('should optionally display the approve button', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.find('.post-card__approve').exists()).toBe(false);
+
+    wrapper.setProps({ onApprove: jest.fn() });
+
+    expect(wrapper.find('.post-card__approve').exists()).toBe(true);
+  });
+
+  it('should call the approve function on click', () => {
+    const handleApprove = jest.fn();
+    const { wrapper } = setup({ onApprove: handleApprove });
+
+    wrapper.find('.post-card__approve').simulate('click');
+
+    expect(handleApprove).toHaveBeenCalledTimes(1);
+  });
+
+  it('should pass through other props', () => {
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+
+    expect(wrapper.prop('tabIndex')).toEqual(1);
+    expect(wrapper.prop('id')).toEqual('test');
   });
 });

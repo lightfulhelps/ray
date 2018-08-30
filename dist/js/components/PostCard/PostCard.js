@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = require('react');
 
 var React = _interopRequireWildcard(_react);
@@ -20,11 +22,11 @@ var _format = require('date-fns/format');
 
 var _format2 = _interopRequireDefault(_format);
 
+var _is_future = require('date-fns/is_future');
+
+var _is_future2 = _interopRequireDefault(_is_future);
+
 var _ = require('../../');
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32,70 +34,86 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 var PostCard = function PostCard(_ref) {
-  var avatarUrl = _ref.avatarUrl,
-      campaign = _ref.campaign,
-      className = _ref.className,
-      content = _ref.content,
-      date = _ref.date,
+  var className = _ref.className,
       _ref$dateFormat = _ref.dateFormat,
-      dateFormat = _ref$dateFormat === undefined ? 'D MMM [at] HH:mm' : _ref$dateFormat,
+      dateFormat = _ref$dateFormat === undefined ? 'D MMM [-] HH:mm' : _ref$dateFormat,
       inspirationActions = _ref.inspirationActions,
       isDraft = _ref.isDraft,
       isInvalid = _ref.isInvalid,
-      media = _ref.media,
       metaPreview = _ref.metaPreview,
-      socialProvider = _ref.socialProvider,
-      title = _ref.title;
+      onApprove = _ref.onApprove,
+      post = _ref.post,
+      other = _objectWithoutProperties(_ref, ['className', 'dateFormat', 'inspirationActions', 'isDraft', 'isInvalid', 'metaPreview', 'onApprove', 'post']);
 
   var blockClass = 'post-card';
   var classes = (0, _classnames2.default)(className, blockClass, _defineProperty({}, blockClass + '--draft', isDraft), _defineProperty({}, blockClass + '--invalid', isInvalid));
 
   return React.createElement(
     _.Card,
-    { className: classes },
+    _extends({}, other, { className: classes }),
     React.createElement(
       'div',
       { className: blockClass + '__header' },
-      React.createElement(
+      post.socialIdentity && React.createElement(
         'div',
-        { style: { width: '35px', height: '35px' } },
-        React.createElement(_.Avatar, { url: avatarUrl, provider: socialProvider })
+        { style: { width: '35px', height: '35px', minWidth: '35px', minHeight: '35px' } },
+        React.createElement(_.Avatar, { url: post.socialIdentity.avatar, provider: post.socialProvider })
       ),
       React.createElement(
         'div',
-        { className: 'mx-1' },
+        { className: 'mx-1', style: { height: '68px', minWidth: 0 } },
         React.createElement(
           'h1',
           { className: blockClass + '__title' },
-          title
+          post.title
         ),
-        date && React.createElement(
+        React.createElement(
           'div',
           { className: blockClass + '__date' },
-          (0, _format2.default)(date, dateFormat)
+          (!post.date || (0, _is_future2.default)(post.date)) && React.createElement(_.Icon, { name: 'unscheduled', size: 20, color: '#adb5bd' }),
+          post.date ? (0, _format2.default)(post.date, dateFormat) : 'Unscheduled'
         ),
-        campaign && React.createElement(
+        post.campaign && React.createElement(
           _.Badge,
-          { className: 'campaign-tag', color: campaign.color },
-          campaign.name
+          { className: 'campaign-tag', color: post.campaign.color },
+          post.campaign.name
         )
       )
     ),
     React.createElement(
       _reactDotdotdot2.default,
       { className: blockClass + '__content', clamp: 5 },
-      content
+      post.content
     ),
-    media && React.createElement(
+    post.media && React.createElement(
       'div',
       { className: blockClass + '__media' },
-      React.createElement(_.PostMedia, { media: media })
+      React.createElement(_.PostMedia, { media: post.media })
     ),
     metaPreview && React.createElement(
       'div',
       { className: blockClass + '__media border-top' },
       React.createElement(_.URLMetaPreview, metaPreview)
+    ),
+    post.metrics && Object.keys(post.metrics).length > 0 && React.createElement(
+      'div',
+      { className: blockClass + '__metrics' },
+      Object.keys(post.metrics).map(function (key) {
+        return React.createElement(
+          'div',
+          { key: key, className: blockClass + '__metric' },
+          React.createElement(
+            'span',
+            null,
+            post.metrics && post.metrics[key]
+          ),
+          ' ',
+          key
+        );
+      })
     ),
     inspirationActions && inspirationActions.length > 0 && React.createElement(
       'div',
@@ -110,42 +128,13 @@ var PostCard = function PostCard(_ref) {
           onClick: action.onClick
         });
       })
+    ),
+    onApprove && React.createElement(
+      _.Button,
+      { className: blockClass + '__approve', onClick: onApprove },
+      'Approve Post'
     )
   );
 };
 
-PostCard.propTypes = {
-  avatarUrl: _propTypes2.default.string,
-  campaign: _propTypes2.default.shape({
-    color: _propTypes2.default.string.isRequired,
-    name: _propTypes2.default.string.isRequired
-  }),
-  className: _propTypes2.default.string,
-  content: _propTypes2.default.string.isRequired,
-  date: _propTypes2.default.oneOfType([function () {
-    return (typeof Date === 'function' ? _propTypes2.default.instanceOf(Date) : _propTypes2.default.any).apply(this, arguments);
-  }, _propTypes2.default.number, _propTypes2.default.string]),
-  dateFormat: _propTypes2.default.string,
-  inspirationActions: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    activeColor: _propTypes2.default.string,
-    color: _propTypes2.default.string,
-    icon: _propTypes2.default.string.isRequired,
-    isActive: _propTypes2.default.bool,
-    onClick: _propTypes2.default.func
-  }).isRequired),
-  isDraft: _propTypes2.default.bool,
-  isInvalid: _propTypes2.default.bool,
-  media: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    type: _propTypes2.default.string.isRequired,
-    url: _propTypes2.default.string.isRequired
-  }).isRequired),
-  metaPreview: _propTypes2.default.shape({
-    description: _propTypes2.default.string,
-    image: _propTypes2.default.string,
-    title: _propTypes2.default.string.isRequired,
-    url: _propTypes2.default.string.isRequired
-  }),
-  socialProvider: _propTypes2.default.string,
-  title: _propTypes2.default.string.isRequired
-};
 exports.default = PostCard;

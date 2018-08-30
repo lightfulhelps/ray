@@ -8,34 +8,29 @@
 }
 
 .btn-icon {
-  padding: .5em;
-  svg,
-  svg:hover {
-    fill: #fff !important;
+  padding: $spacer;
+
+  .icon {
+    margin: 0;
   }
+
   &-left,
   &-right {
-    svg,
-    svg:hover {
-      fill: #fff !important;
-    }
     display: flex;
-    align-items: flex-end;
+    align-items: center;
   }
+
   &-left {
-    padding-left: 1em;
-    padding-right: 1.5em;
-    svg {
-      float: left;
-      margin-right: 0.5em;
+    flex-direction: row-reverse;
+
+    .icon {
+      margin-right: $spacer / 2;
     }
   }
+
   &-right {
-    padding-right: 1em;
-    padding-left: 1.5em;
-    svg {
-      float: right;
-      margin-left: 0.5em;
+    .icon {
+      margin-left: $spacer / 2;
     }
   }
 }

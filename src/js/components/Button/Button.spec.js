@@ -26,6 +26,12 @@ describe('<Button />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should render with an icon', () => {
+    const { wrapper } = setup({ icon: 'create' });
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('should handle the children prop', () => {
     const { wrapper } = setup();
 
@@ -113,6 +119,28 @@ describe('<Button />', () => {
     wrapper.setProps({ theme: 'secondary' });
 
     expect(wrapper.hasClass('btn-primary')).toBe(false);
+
     expect(wrapper.hasClass('btn-secondary')).toBe(true);
+  });
+
+  it('should handle the iconPosition prop', () => {
+    const { wrapper } = setup({ icon: 'create' });
+
+    expect(wrapper.hasClass('btn-icon-left')).toBe(true);
+
+    wrapper.setProps({ iconPosition: 'right' });
+
+    expect(wrapper.hasClass('btn-icon-right')).toBe(true);
+
+    wrapper.setProps({ iconPosition: 'left' });
+
+    expect(wrapper.hasClass('btn-icon-left')).toBe(true);
+  });
+
+  it('should pass through other props', () => {
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+
+    expect(wrapper.prop('tabIndex')).toEqual(1);
+    expect(wrapper.prop('id')).toEqual('test');
   });
 });

@@ -138,4 +138,11 @@ describe('<Icon />', () => {
 
     expect(wrapper.prop('style')).toEqual({ fill: 'red' });
   });
+
+  it('should pass through other props', () => {
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+
+    expect(wrapper.prop('tabIndex')).toEqual(1);
+    expect(wrapper.prop('id')).toEqual('test');
+  });
 });

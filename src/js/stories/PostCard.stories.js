@@ -44,18 +44,29 @@ stories.add('Default', () => (
     <Row>
       <Col className="mb-2" md={6} lg={4}>
         <PostCard
-          title={text('Title', 'Hope For Children')}
-          date={date('Date', defaultDate)}
-          campaign={{
-            name: text('Campaign Name', 'Campaign Tag'),
-            color: color('Campaign Color', '#27B0CC'),
+          post={{
+            title: text('Title', 'Hope For Children'),
+            date: date('Date', defaultDate),
+            campaign: {
+              name: text('Campaign Name', 'Campaign Tag'),
+              color: color('Campaign Color', '#27B0CC'),
+            },
+            socialIdentity: {
+              id: '123',
+              avatar: text('Avatar URL', 'https://randomuser.me/api/portraits/women/47.jpg'),
+            },
+            socialProvider: select('Social Provider', socialProviders, 'twitter'),
+            content: text(
+              'Content',
+              'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".'
+            ),
+            media,
+            metrics: {
+              likes: 12,
+              replies: 30,
+              shares: 69,
+            },
           }}
-          avatarUrl={text('Avatar URL', 'https://randomuser.me/api/portraits/women/47.jpg')}
-          socialProvider={select('Social Provider', socialProviders, 'twitter')}
-          content={text(
-            'Content',
-            'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".'
-          )}
           inspirationActions={[
             {
               icon: 'follow',
@@ -75,40 +86,31 @@ stories.add('Default', () => (
           ]}
           isDraft={boolean('Draft', false)}
           isInvalid={boolean('Invalid', false)}
-          media={media}
         />
       </Col>
       <Col className="mb-2" md={6} lg={4}>
         <PostCard
-          title={text('Title', 'Hope For Children')}
-          date={date('Date', defaultDate)}
-          campaign={{
-            name: text('Campaign Name', 'Campaign Tag'),
-            color: color('Campaign Color', '#27B0CC'),
+          post={{
+            title: text('Title', 'Hope For Children'),
+            campaign: {
+              name: text('Campaign Name', 'Campaign Tag'),
+              color: color('Campaign Color', '#27B0CC'),
+            },
+            socialIdentity: {
+              id: '123',
+              avatar: text('Avatar URL', 'https://randomuser.me/api/portraits/women/47.jpg'),
+            },
+            socialProvider: select('Social Provider', socialProviders, 'twitter'),
+            content: text(
+              'Content',
+              'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".'
+            ),
+            metrics: {
+              likes: 12,
+              replies: 30,
+              shares: 69,
+            },
           }}
-          avatarUrl={text('Avatar URL', 'https://randomuser.me/api/portraits/women/47.jpg')}
-          socialProvider={select('Social Provider', socialProviders, 'twitter')}
-          content={text(
-            'Content',
-            'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".'
-          )}
-          inspirationActions={[
-            {
-              icon: 'follow',
-              activeColor: '#0095f1',
-              isActive: boolean('Following', true),
-              onClick: action('Follow'),
-            },
-            {
-              icon: 'like',
-              activeColor: '#f25270',
-              isActive: boolean('Liked', true),
-              onClick: action('Like'),
-            },
-            { icon: 'reply', isActive: false },
-            { icon: 'repost', isActive: false },
-            { icon: 'edit', isActive: false },
-          ]}
           isDraft={boolean('Draft', false)}
           isInvalid={boolean('Invalid', false)}
           metaPreview={{
@@ -123,6 +125,7 @@ stories.add('Default', () => (
             ),
             url: text('Meta URL', 'https://www.bbc.co.uk/news/business-45242008'),
           }}
+          onApprove={action('Approve')}
         />
       </Col>
     </Row>

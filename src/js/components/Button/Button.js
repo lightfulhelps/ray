@@ -1,12 +1,14 @@
 // @flow
 import * as React from 'react';
-import { color, number } from '@storybook/addon-knobs';
 import classNames from 'classnames';
 import Icon from '../Icon/Icon';
+import type { IconNameType } from '../Icon/icons';
 
 type Props = {
-  children?: React.Element<any>,
+  children: string,
   className?: string,
+  icon?: IconNameType,
+  iconPosition?: 'left' | 'right',
   isBlock?: boolean,
   isDisabled?: boolean,
   isOutline?: boolean,
@@ -14,25 +16,22 @@ type Props = {
   size?: 'lg' | 'md' | 'sm',
   tag?: string,
   theme?: string,
-  icon?: string,
-  iconPosition?: string,
-  isDropdown?: boolean,
 };
 
 const Button = ({
   children,
   label,
   className,
-  theme = 'primary',
+  icon,
+  iconPosition = 'left',
   isBlock,
   isDisabled,
   isOutline,
   onClick = () => {},
   size,
   tag: Tag = 'button',
-  icon,
-  iconPosition,
-  isDropdown,
+  theme = 'primary',
+  ...other
 }: Props) => {
   const classes = classNames(
     className,
@@ -41,27 +40,14 @@ const Button = ({
     size ? `btn-${size}` : false,
     { 'btn-block': isBlock },
     { disabled: isDisabled },
-    { 'btn-icon': icon && !label },
-    { [`btn-icon-${iconPosition}`]: iconPosition && label }
+    { 'btn-icon': icon && !children },
+    { [`btn-icon-${iconPosition}`]: icon && children }
   );
 
   return (
-    <Tag
-      className={classes}
-      onClick={onClick}
-      data-toggle={isDropdown && 'dropdown'}
-      aria-haspopup={isDropdown && 'true'}
-      aria-expanded={isDropdown && 'false'}
-    >
-      {label && <span>{label}</span>}
-      {icon && (
-        <Icon
-          name={icon}
-          size={number('Size', 24)}
-          color={color('Color', '#adb5bd')}
-          hoverColor={color('Hover Color', '#212529')}
-        />
-      )}
+    <Tag {...other} className={classes} onClick={onClick}>
+      {children}
+      {icon && <Icon name={icon} size={24} />}
     </Tag>
   );
 };

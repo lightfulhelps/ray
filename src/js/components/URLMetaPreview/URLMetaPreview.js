@@ -21,12 +21,13 @@ const URLMetaPreview = ({
   isVertical = false,
   title,
   url,
+  ...other
 }: Props) => {
   const blockClass = 'url-meta-preview';
   const classes = classNames(className, blockClass);
 
   return (
-    <div className={classes}>
+    <div {...other} className={classes}>
       <div className={isVertical ? '' : 'row h-100'}>
         {image && (
           <div className={isVertical ? '' : 'col-4 pr-0'}>
