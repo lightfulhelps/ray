@@ -20,7 +20,6 @@ type Props = {
 
 const Button = ({
   children,
-  label,
   className,
   icon,
   iconPosition = 'left',
