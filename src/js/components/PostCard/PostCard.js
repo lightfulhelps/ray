@@ -11,7 +11,7 @@ type InspirationActionType = {
   color?: string,
   icon: string,
   isActive?: boolean,
-  onClick?: () => void,
+  onClick: () => void,
 };
 
 type MediaType = {
@@ -138,7 +138,9 @@ const PostCard = ({
                 className="cursor-pointer"
                 color={action.isActive ? action.activeColor : action.color}
                 hoverColor={action.isActive ? action.activeColor : '#343a40'}
-                onClick={action.onClick}
+                onClick={() => {
+                  if (!action.isActive) action.onClick();
+                }}
               />
             ))}
           </div>

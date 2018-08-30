@@ -133,7 +133,9 @@ var PostCard = function PostCard(_ref) {
           className: 'cursor-pointer',
           color: action.isActive ? action.activeColor : action.color,
           hoverColor: action.isActive ? action.activeColor : '#343a40',
-          onClick: action.onClick
+          onClick: function onClick() {
+            if (!action.isActive) action.onClick();
+          }
         });
       })
     ),

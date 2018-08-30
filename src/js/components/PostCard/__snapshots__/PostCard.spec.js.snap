@@ -98,7 +98,7 @@ exports[`<PostCard /> should render 1`] = `
       hoverColor="#343a40"
       key="0"
       name="follow"
-      onClick={[MockFunction]}
+      onClick={[Function]}
     />
     <Icon
       className="cursor-pointer"
@@ -106,7 +106,7 @@ exports[`<PostCard /> should render 1`] = `
       hoverColor="#f25270"
       key="1"
       name="like"
-      onClick={[MockFunction]}
+      onClick={[Function]}
     />
   </div>
 </Card>

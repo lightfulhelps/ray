@@ -203,6 +203,20 @@ describe('<PostCard />', () => {
     expect(wrapper.find('.post-media--empty').exists()).toBe(true);
   });
 
+  it('should optionally display inspirationActions', () => {
+    const { wrapper } = setup({ inspirationActions: [{ icon: 'follow' }] });
+
+    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(true);
+
+    wrapper.setProps({ inspirationActions: [] });
+
+    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
+
+    wrapper.setProps({ inspirationActions: null });
+
+    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
+  });
+
   it('should handle the inspirationActions prop', () => {
     const follow = jest.fn();
     const like = jest.fn();
@@ -237,21 +251,7 @@ describe('<PostCard />', () => {
     inspirationActions.at(1).simulate('click');
 
     expect(follow).toHaveBeenCalledTimes(1);
-    expect(like).toHaveBeenCalledTimes(1);
-  });
-
-  it('should optionally display inspirationActions', () => {
-    const { wrapper } = setup({ inspirationActions: [{ icon: 'follow' }] });
-
-    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(true);
-
-    wrapper.setProps({ inspirationActions: [] });
-
-    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
-
-    wrapper.setProps({ inspirationActions: null });
-
-    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
+    expect(like).toHaveBeenCalledTimes(0); // because like isActive
   });
 
   it('should optionally display post metrics', () => {
