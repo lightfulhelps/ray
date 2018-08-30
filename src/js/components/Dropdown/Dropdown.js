@@ -7,8 +7,7 @@ import Button from '../Button/Button';
 import type { IconNameType } from '../Icon/icons';
 
 type Props = {
-  buttonTheme: string,
-  children: string,
+  buttonTheme?: string,
   className?: string,
   footer?: string,
   items: [
