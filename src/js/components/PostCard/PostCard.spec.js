@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
 import addDays from 'date-fns/add_days';
-import { PostCard, Icon } from '../../';
+import { PostCard, PostMedia, URLMetaPreview, Icon } from '../../';
 
 const setup = (overrides = {}) => {
   const props = merge(
@@ -160,6 +160,47 @@ describe('<PostCard />', () => {
     expect(wrapper.find('.post-card__content div').prop('dangerouslySetInnerHTML')).toEqual({
       __html: content,
     });
+  });
+
+  it('should show PostMedia if has media', () => {
+    const { wrapper, props } = setup();
+
+    expect(wrapper.find(PostMedia).exists()).toBe(false);
+
+    wrapper.setProps({ post: { ...props.post, media: [{ id: 1 }] } });
+
+    expect(wrapper.find(PostMedia).exists()).toBe(true);
+  });
+
+  it('should show URLMetaPreview if no media and metaPreview.url value', () => {
+    const { wrapper, props } = setup({ post: { media: [{ id: 1 }] } });
+
+    expect(wrapper.find(PostMedia).exists()).toBe(true);
+
+    wrapper.setProps({
+      post: { ...props.post, media: [] },
+      metaPreview: { url: 'http://foo.com' },
+    });
+
+    expect(wrapper.find(PostMedia).exists()).toBe(false);
+    expect(wrapper.find(URLMetaPreview).exists()).toBe(true);
+  });
+
+  it('should display the empty media message if no media and no metaPreview', () => {
+    const { wrapper, props } = setup({ post: { media: [{ id: 1 }] } });
+
+    expect(wrapper.find('.post-media--empty').exists()).toBe(false);
+
+    wrapper.setProps({
+      post: { ...props.post, media: [] },
+      metaPreview: { url: 'http://foo.com' },
+    });
+
+    expect(wrapper.find('.post-media--empty').exists()).toBe(false);
+
+    wrapper.setProps({ metaPreview: {} });
+
+    expect(wrapper.find('.post-media--empty').exists()).toBe(true);
   });
 
   it('should handle the inspirationActions prop', () => {

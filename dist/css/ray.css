@@ -4832,6 +4832,7 @@ button.bg-gray-900:focus {
   border-top: 1px solid #dee2e6; }
 
 .post-card__approve {
+  margin-top: 1px;
   border-radius: 0 0 0.35rem 0.35rem; }
 
 .post-media {
@@ -4841,6 +4842,8 @@ button.bg-gray-900:focus {
   height: 100%; }
 
 .post-media--empty {
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

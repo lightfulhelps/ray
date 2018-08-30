@@ -75,6 +75,11 @@ const PostCard = ({
     { [`${blockClass}--draft`]: isDraft },
     { [`${blockClass}--invalid`]: isInvalid }
   );
+  const showPostMedia = post.media && post.media.length > 0;
+  const showMetaPreview =
+    (!post.media || (post.media && post.media.length === 0)) && metaPreview && metaPreview.url;
+  const showMediaEmpty =
+    post.media && post.media.length === 0 && (!metaPreview || (metaPreview && !metaPreview.url));
 
   return (
     <Card {...other} className={classes}>
@@ -120,16 +125,13 @@ const PostCard = ({
           }}
         />
       </Dotdotdot>
-      {post.media && (
-        <div className={`${blockClass}__media`}>
-          <PostMedia media={post.media} />
-        </div>
-      )}
-      {metaPreview && (
-        <div className={`${blockClass}__media border-top border-bottom`}>
-          <URLMetaPreview {...metaPreview} />
-        </div>
-      )}
+      <div className={`${blockClass}__media`}>
+        {showPostMedia && <PostMedia media={post.media} />}
+        {showMetaPreview && (
+          <URLMetaPreview {...metaPreview} className="border-top border-bottom" />
+        )}
+        {showMediaEmpty && <div className="post-media--empty">No media</div>}
+      </div>
       {post.metrics &&
         Object.keys(post.metrics).length > 0 && (
           <div className={`${blockClass}__metrics`}>
