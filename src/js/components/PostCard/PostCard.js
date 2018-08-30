@@ -35,9 +35,9 @@ type PostType = {
     avatar?: string,
     displayName?: string,
     id: string,
+    provider: 'facebook' | 'twitter' | 'linkedin',
     username?: string,
   },
-  socialProvider?: string,
   title: string,
 };
 
@@ -114,7 +114,11 @@ const PostCard = ({
         />
       </div>
       <Dotdotdot className={`${blockClass}__content`} clamp={5}>
-        {post.content}
+        <div
+          dangerouslySetInnerHTML={{
+            __html: post.content,
+          }}
+        />
       </Dotdotdot>
       {post.media && (
         <div className={`${blockClass}__media`}>
@@ -122,7 +126,7 @@ const PostCard = ({
         </div>
       )}
       {metaPreview && (
-        <div className={`${blockClass}__media border-top`}>
+        <div className={`${blockClass}__media border-top border-bottom`}>
           <URLMetaPreview {...metaPreview} />
         </div>
       )}

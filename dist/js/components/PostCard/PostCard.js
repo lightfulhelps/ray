@@ -60,7 +60,7 @@ var PostCard = function PostCard(_ref) {
       post.socialIdentity && React.createElement(
         'div',
         { style: { width: '35px', height: '35px', minWidth: '35px', minHeight: '35px' } },
-        React.createElement(_.Avatar, { url: post.socialIdentity.avatar, provider: post.socialProvider })
+        React.createElement(_.Avatar, { url: post.socialIdentity.avatar, provider: post.socialIdentity.provider })
       ),
       React.createElement(
         'div',
@@ -86,7 +86,11 @@ var PostCard = function PostCard(_ref) {
     React.createElement(
       _reactDotdotdot2.default,
       { className: blockClass + '__content', clamp: 5 },
-      post.content
+      React.createElement('div', {
+        dangerouslySetInnerHTML: {
+          __html: post.content
+        }
+      })
     ),
     post.media && React.createElement(
       'div',
@@ -95,7 +99,7 @@ var PostCard = function PostCard(_ref) {
     ),
     metaPreview && React.createElement(
       'div',
-      { className: blockClass + '__media border-top' },
+      { className: blockClass + '__media border-top border-bottom' },
       React.createElement(_.URLMetaPreview, metaPreview)
     ),
     post.metrics && Object.keys(post.metrics).length > 0 && React.createElement(

@@ -153,6 +153,15 @@ describe('<PostCard />', () => {
     expect(wrapper.find('.campaign-tag').exists()).toBe(false);
   });
 
+  it('should set HTML in the post content', () => {
+    const content = 'Hi <a href="">@Buttle</a>';
+    const { wrapper } = setup({ post: { content } });
+
+    expect(wrapper.find('.post-card__content div').prop('dangerouslySetInnerHTML')).toEqual({
+      __html: content,
+    });
+  });
+
   it('should handle the inspirationActions prop', () => {
     const follow = jest.fn();
     const like = jest.fn();
