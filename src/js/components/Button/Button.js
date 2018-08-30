@@ -43,7 +43,6 @@ const Button = ({
     { 'btn-icon': icon && !children },
     { [`btn-icon-${iconPosition}`]: icon && children }
   );
-
   return (
     <Tag {...other} className={classes} onClick={onClick}>
       {children}
