@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
 import addDays from 'date-fns/add_days';
-import { PostCard, PostMedia, URLMetaPreview, Icon } from '../../';
+import { PostCard, PostMedia, URLMetaPreview, Icon, Button } from '../../';
 
 const setup = (overrides = {}) => {
   const props = merge(
@@ -264,23 +264,14 @@ describe('<PostCard />', () => {
     expect(wrapper.find('.post-card__metrics').exists()).toBe(false);
   });
 
-  it('should optionally display the approve button', () => {
+  it('should optionally display a footer button', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.post-card__approve').exists()).toBe(false);
+    expect(wrapper.find('.post-card__footer').exists()).toBe(false);
 
-    wrapper.setProps({ onApprove: jest.fn() });
+    wrapper.setProps({ footerButton: <Button>Click</Button> });
 
-    expect(wrapper.find('.post-card__approve').exists()).toBe(true);
-  });
-
-  it('should call the approve function on click', () => {
-    const handleApprove = jest.fn();
-    const { wrapper } = setup({ onApprove: handleApprove });
-
-    wrapper.find('.post-card__approve').simulate('click');
-
-    expect(handleApprove).toHaveBeenCalledTimes(1);
+    expect(wrapper.find('.post-card__footer').exists()).toBe(true);
   });
 
   it('should pass through other props', () => {

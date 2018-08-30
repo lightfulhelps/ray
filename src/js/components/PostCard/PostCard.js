@@ -44,6 +44,7 @@ type PostType = {
 type Props = {
   className?: string,
   dateFormat?: string,
+  footerButton?: React.Element<Button>,
   inspirationActions?: InspirationActionType[],
   isDraft?: boolean,
   isInvalid?: boolean,
@@ -53,13 +54,13 @@ type Props = {
     title: string,
     url: string,
   },
-  onApprove?: () => void,
   post: PostType,
 };
 
 const PostCard = ({
   className,
   dateFormat = 'D MMM [-] HH:mm',
+  footerButton,
   inspirationActions,
   isDraft,
   isInvalid,
@@ -145,11 +146,7 @@ const PostCard = ({
             ))}
           </div>
         )}
-      {onApprove && (
-        <Button className={`${blockClass}__approve`} onClick={onApprove}>
-          Approve Post
-        </Button>
-      )}
+      {footerButton && <div className={`${blockClass}__footer`}>{footerButton}</div>}
     </Card>
   );
 };

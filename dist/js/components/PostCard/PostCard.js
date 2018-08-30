@@ -40,13 +40,14 @@ var PostCard = function PostCard(_ref) {
   var className = _ref.className,
       _ref$dateFormat = _ref.dateFormat,
       dateFormat = _ref$dateFormat === undefined ? 'D MMM [-] HH:mm' : _ref$dateFormat,
+      footerButton = _ref.footerButton,
       inspirationActions = _ref.inspirationActions,
       isDraft = _ref.isDraft,
       isInvalid = _ref.isInvalid,
       metaPreview = _ref.metaPreview,
       onApprove = _ref.onApprove,
       post = _ref.post,
-      other = _objectWithoutProperties(_ref, ['className', 'dateFormat', 'inspirationActions', 'isDraft', 'isInvalid', 'metaPreview', 'onApprove', 'post']);
+      other = _objectWithoutProperties(_ref, ['className', 'dateFormat', 'footerButton', 'inspirationActions', 'isDraft', 'isInvalid', 'metaPreview', 'onApprove', 'post']);
 
   var blockClass = 'post-card';
   var classes = (0, _classnames2.default)(className, blockClass, _defineProperty({}, blockClass + '--draft', isDraft), _defineProperty({}, blockClass + '--invalid', isInvalid));
@@ -139,10 +140,10 @@ var PostCard = function PostCard(_ref) {
         });
       })
     ),
-    onApprove && React.createElement(
-      _.Button,
-      { className: blockClass + '__approve', onClick: onApprove },
-      'Approve Post'
+    footerButton && React.createElement(
+      'div',
+      { className: blockClass + '__footer' },
+      footerButton
     )
   );
 };

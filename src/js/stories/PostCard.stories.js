@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, text, date, color, select } from '@storybook/addon-knobs';
-import { Container, Row, Col, PostCard } from '../';
+import { Container, Row, Col, PostCard, Button } from '../';
 
 import '../../scss/ray.scss';
 
@@ -127,7 +127,7 @@ stories.add('Default', () => (
             ),
             url: text('Meta URL', 'https://www.bbc.co.uk/news/business-45242008'),
           }}
-          onApprove={action('Approve')}
+          footerButton={<Button onClick={action('Approve')}>Approve Post</Button>}
         />
       </Col>
     </Row>
