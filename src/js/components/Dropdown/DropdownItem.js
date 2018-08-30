@@ -8,10 +8,10 @@ type Props = {
   className?: string,
   icon?: IconNameType,
   label: string,
-  onClick: () => {},
+  onClick?: () => void,
 };
 
-const DropdownItem = ({ className, label, icon, onClick }: Props) => {
+const DropdownItem = ({ className, label, icon, onClick = () => {} }: Props) => {
   const classes = classNames(className, 'dropdown-item', { clickable: onClick });
   return (
     <div className={classes} onClick={onClick}>

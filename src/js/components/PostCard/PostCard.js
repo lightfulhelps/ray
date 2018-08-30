@@ -12,7 +12,7 @@ type InspirationActionType = {
   color?: string,
   icon: string,
   isActive?: boolean,
-  onClick?: () => void,
+  onClick: () => void,
 };
 
 type MediaType = {
@@ -52,6 +52,7 @@ type Props = {
   actions?: ActionType[],
   className?: string,
   dateFormat?: string,
+  footerButton?: React.Element<Button>,
   inspirationActions?: InspirationActionType[],
   isDraft?: boolean,
   isInvalid?: boolean,
@@ -61,7 +62,6 @@ type Props = {
     title: string,
     url: string,
   },
-  onApprove?: () => void,
   post: PostType,
 };
 
@@ -69,6 +69,7 @@ const PostCard = ({
   actions = [],
   className,
   dateFormat = 'D MMM [-] HH:mm',
+  footerButton,
   inspirationActions,
   isDraft,
   isInvalid,
@@ -148,16 +149,14 @@ const PostCard = ({
                 className="cursor-pointer"
                 color={action.isActive ? action.activeColor : action.color}
                 hoverColor={action.isActive ? action.activeColor : '#343a40'}
-                onClick={action.onClick}
+                onClick={() => {
+                  if (!action.isActive) action.onClick();
+                }}
               />
             ))}
           </div>
         )}
-      {onApprove && (
-        <Button className={`${blockClass}__approve`} onClick={onApprove}>
-          Approve Post
-        </Button>
-      )}
+      {footerButton && <div className={`${blockClass}__footer`}>{footerButton}</div>}
     </Card>
   );
 };

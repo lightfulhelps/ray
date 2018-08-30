@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
 import addDays from 'date-fns/add_days';
-import { PostCard, PostMedia, URLMetaPreview, Icon } from '../../';
+import { PostCard, PostMedia, URLMetaPreview, Icon, Button } from '../../';
 
 const setup = (overrides = {}) => {
   const props = merge(
@@ -203,6 +203,20 @@ describe('<PostCard />', () => {
     expect(wrapper.find('.post-media--empty').exists()).toBe(true);
   });
 
+  it('should optionally display inspirationActions', () => {
+    const { wrapper } = setup({ inspirationActions: [{ icon: 'follow' }] });
+
+    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(true);
+
+    wrapper.setProps({ inspirationActions: [] });
+
+    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
+
+    wrapper.setProps({ inspirationActions: null });
+
+    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
+  });
+
   it('should handle the inspirationActions prop', () => {
     const follow = jest.fn();
     const like = jest.fn();
@@ -237,21 +251,7 @@ describe('<PostCard />', () => {
     inspirationActions.at(1).simulate('click');
 
     expect(follow).toHaveBeenCalledTimes(1);
-    expect(like).toHaveBeenCalledTimes(1);
-  });
-
-  it('should optionally display inspirationActions', () => {
-    const { wrapper } = setup({ inspirationActions: [{ icon: 'follow' }] });
-
-    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(true);
-
-    wrapper.setProps({ inspirationActions: [] });
-
-    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
-
-    wrapper.setProps({ inspirationActions: null });
-
-    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
+    expect(like).toHaveBeenCalledTimes(0); // because like isActive
   });
 
   it('should optionally display post metrics', () => {
@@ -264,23 +264,14 @@ describe('<PostCard />', () => {
     expect(wrapper.find('.post-card__metrics').exists()).toBe(false);
   });
 
-  it('should optionally display the approve button', () => {
+  it('should optionally display a footer button', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.post-card__approve').exists()).toBe(false);
+    expect(wrapper.find('.post-card__footer').exists()).toBe(false);
 
-    wrapper.setProps({ onApprove: jest.fn() });
+    wrapper.setProps({ footerButton: <Button>Click</Button> });
 
-    expect(wrapper.find('.post-card__approve').exists()).toBe(true);
-  });
-
-  it('should call the approve function on click', () => {
-    const handleApprove = jest.fn();
-    const { wrapper } = setup({ onApprove: handleApprove });
-
-    wrapper.find('.post-card__approve').simulate('click');
-
-    expect(handleApprove).toHaveBeenCalledTimes(1);
+    expect(wrapper.find('.post-card__footer').exists()).toBe(true);
   });
 
   it('should pass through other props', () => {

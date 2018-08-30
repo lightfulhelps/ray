@@ -13,14 +13,14 @@ type Props = {
     {
       icon?: IconNameType,
       label: string,
+      onClick?: () => void,
     },
   ],
-  onClick?: () => {},
   theme?: string,
 };
 
 type State = {
-  isOpen: Boolean,
+  isOpen: boolean,
 };
 
 class Dropdown extends Component<Props, State> {
@@ -33,24 +33,24 @@ class Dropdown extends Component<Props, State> {
   }
 
   render() {
-    const { theme = 'dark', buttonTheme = 'light', items, className, footer, onClick } = this.props;
+    const { theme = 'dark', buttonTheme = 'light', items, className, footer } = this.props;
     const classes = classNames(className, 'dropdown', `dropdown-${theme}`);
+
     return (
       <div className={classes}>
         <Button
           onClick={() => this.handleDropdown()}
           icon="menu"
-          data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
           theme={buttonTheme}
         />
         <div
-          className={`dropdown-menu ${this.state.isOpen && 'show'}`}
+          className={classNames('dropdown-menu', { show: this.state.isOpen })}
           aria-labelledby="dropdownMenuButton"
         >
           {items.map((item, i) => (
-            <DropdownItem label={item.label} icon={item.icon} key={i} onClick={onClick} />
+            <DropdownItem label={item.label} icon={item.icon} key={i} onClick={item.onClick} />
           ))}
           {footer && <DropdownItem label={footer} className="dropdown-item-footer" />}
         </div>

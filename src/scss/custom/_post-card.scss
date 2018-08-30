@@ -84,7 +84,11 @@
   border-top: $border-width solid $border-color;
 }
 
-.post-card__approve {
+.post-card__footer {
   margin-top: 1px;
-  border-radius: 0 0 $border-radius-sm $border-radius-sm;
+
+  .btn {
+    width: 100%;
+    border-radius: 0 0 $border-radius-sm $border-radius-sm;
+  }
 }

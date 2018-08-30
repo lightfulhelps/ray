@@ -29,21 +29,19 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var DropdownItem = function DropdownItem(_ref) {
   var className = _ref.className,
       label = _ref.label,
-      icon = _ref.icon;
+      icon = _ref.icon,
+      _ref$onClick = _ref.onClick,
+      onClick = _ref$onClick === undefined ? function () {} : _ref$onClick;
 
-  var classes = (0, _classnames2.default)(className, 'dropdown-item');
+  var classes = (0, _classnames2.default)(className, 'dropdown-item', { clickable: onClick });
   return React.createElement(
-    'a',
-    { className: classes, href: '#' },
+    'div',
+    { className: classes, onClick: onClick },
+    icon && React.createElement(_Icon2.default, { name: icon, className: 'mr-1' }),
     React.createElement(
       'span',
-      { className: 'w-100 d-flex align-items-center dropdown-item-content' },
-      icon && React.createElement(_Icon2.default, { name: icon, className: 'mr-1' }),
-      React.createElement(
-        'span',
-        null,
-        label
-      )
+      null,
+      label
     )
   );
 };
@@ -52,6 +50,7 @@ DropdownItem.propTypes = {
   icon: function icon() {
     return (typeof _icons.bpfrpt_proptype_IconNameType === 'function' ? _icons.bpfrpt_proptype_IconNameType : _propTypes2.default.shape(_icons.bpfrpt_proptype_IconNameType)).apply(this, arguments);
   },
-  label: _propTypes2.default.string.isRequired
+  label: _propTypes2.default.string.isRequired,
+  onClick: _propTypes2.default.func
 };
 exports.default = DropdownItem;
