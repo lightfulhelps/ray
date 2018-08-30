@@ -14,6 +14,10 @@ const themes = {
   primary: 'Primary',
   dark: 'Dark',
 };
+const buttonThemes = {
+  primary: 'Primary',
+  dark: 'Dark',
+};
 
 stories.add('Default', () => (
   <Container>
@@ -32,6 +36,7 @@ stories.add('Default', () => (
             },
           ]}
           theme={select('Theme', themes)}
+          buttonTheme={select('Button Theme', buttonThemes)}
           footer={text('Footer Text', 'Some footer text')}
         />
       </div>

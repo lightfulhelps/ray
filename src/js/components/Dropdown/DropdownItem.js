@@ -1,12 +1,12 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import { color, number } from '@storybook/addon-knobs';
 import Icon from '../Icon/Icon';
+import type { IconNameType } from '../Icon/icons';
 
 type Props = {
   className?: string,
-  icon?: string,
+  icon?: IconNameType,
   label: string,
 };
 
@@ -15,15 +15,7 @@ const DropdownItem = ({ className, label, icon }: Props) => {
   return (
     <a className={classes} href="#">
       <span className="w-100 d-flex align-items-center dropdown-item-content">
-        {icon && (
-          <Icon
-            name={icon}
-            size={number('Size', 24)}
-            color={color('Color', '#adb5bd')}
-            hoverColor={color('Hover Color', '#212529')}
-            className="mr-1"
-          />
-        )}
+        {icon && <Icon name={icon} className="mr-1" />}
         <span>{label}</span>
       </span>
     </a>
