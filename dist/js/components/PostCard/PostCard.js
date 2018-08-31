@@ -136,6 +136,7 @@ var PostCard = function PostCard(_ref) {
         return React.createElement(_.Icon, {
           key: i,
           name: action.icon,
+          title: action.icon,
           className: 'cursor-pointer',
           color: action.isActive ? action.activeColor : action.color,
           hoverColor: action.isActive ? action.activeColor : '#343a40',

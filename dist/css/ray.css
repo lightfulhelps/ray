@@ -4315,7 +4315,7 @@ button.bg-dark:focus {
 .text-nowrap {
   white-space: nowrap !important; }
 
-.text-truncate, .post-card__title, .url-meta-preview__url {
+.text-truncate, .post-card__title, .post-card__date, .url-meta-preview__url {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
@@ -4494,23 +4494,21 @@ a.text-dark:hover, a.text-dark:focus {
   .dropdown-item:last-child {
     border: none; }
 
-.dropdown-dark .dropdown-menu {
+.dropdown-menu-dark {
   background-color: #343a40; }
-  .dropdown-dark .dropdown-menu .dropdown-item {
+  .dropdown-menu-dark .dropdown-item {
     color: #fff;
     border-color: #495057; }
-    .dropdown-dark .dropdown-menu .dropdown-item:hover {
-      background-color: inherit; }
-    .dropdown-dark .dropdown-menu .dropdown-item.clickable:hover, .dropdown-dark .dropdown-menu .dropdown-item.clickable:focus {
+    .dropdown-menu-dark .dropdown-item:hover, .dropdown-menu-dark .dropdown-item:focus {
       color: #f2f2f2;
       text-decoration: none;
       background-color: #495057;
       cursor: pointer; }
-    .dropdown-dark .dropdown-menu .dropdown-item.active, .dropdown-dark .dropdown-menu .dropdown-item:active {
+    .dropdown-menu-dark .dropdown-item.active, .dropdown-menu-dark .dropdown-item:active {
       color: #fff;
       text-decoration: none;
       background-color: #495057; }
-    .dropdown-dark .dropdown-menu .dropdown-item.disabled, .dropdown-dark .dropdown-menu .dropdown-item:disabled {
+    .dropdown-menu-dark .dropdown-item.disabled, .dropdown-menu-dark .dropdown-item:disabled {
       color: #6c757c;
       background-color: transparent; }
 
@@ -4522,7 +4520,8 @@ a.text-dark:hover, a.text-dark:focus {
   display: block;
   padding: 0.7rem 1.4rem;
   color: #adb5bd;
-  font-size: 0.675rem; }
+  font-size: 0.675rem;
+  cursor: default; }
   .dropdown-footer:hover, .dropdown-footer:focus {
     color: #adb5bd;
     text-decoration: none; }

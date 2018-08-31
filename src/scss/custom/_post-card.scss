@@ -36,6 +36,8 @@
 }
 
 .post-card__date {
+  @extend .text-truncate;
+
   display: flex;
   align-items: center;
   height: 20px;

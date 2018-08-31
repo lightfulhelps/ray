@@ -15,7 +15,8 @@ type Props = DropdownItemType & {
 };
 
 const DropdownItem = ({ className, label, icon, onClick = () => {} }: Props) => {
-  const classes = classNames(className, 'dropdown-item', { clickable: onClick });
+  const classes = classNames(className, 'dropdown-item');
+
   return (
     <div className={classes} onClick={onClick}>
       {icon && <Icon name={icon} className="mr-1" />}

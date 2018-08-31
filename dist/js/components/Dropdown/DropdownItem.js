@@ -43,7 +43,8 @@ var DropdownItem = function DropdownItem(_ref) {
       _ref$onClick = _ref.onClick,
       onClick = _ref$onClick === undefined ? function () {} : _ref$onClick;
 
-  var classes = (0, _classnames2.default)(className, 'dropdown-item', { clickable: onClick });
+  var classes = (0, _classnames2.default)(className, 'dropdown-item');
+
   return React.createElement(
     'div',
     { className: classes, onClick: onClick },

@@ -2,11 +2,15 @@
 
 exports[`<DropdownItem /> should render 1`] = `
 <div
-  className="dropdown-item clickable"
-  onClick={[Function]}
+  className="dropdown-item"
+  onClick={[MockFunction]}
 >
+  <Icon
+    className="mr-1"
+    name="edit"
+  />
   <span>
-    some menu item
+    Edit
   </span>
 </div>
 `;
