@@ -71,6 +71,7 @@ stories.add('Default', () => (
     <h1 className="my-4">Button.</h1>
     <Row>
       <Col xs={6}>
+        <h2 className="h4 mb-2">Regular.</h2>
         <Button
           theme={select('Theme', themes, 'primary')}
           isBlock={boolean('Block', false)}
@@ -85,8 +86,10 @@ stories.add('Default', () => (
         >
           {text('Text', 'Click Me')}
         </Button>
-
-        <Button icon="edit" size="sm" />
+      </Col>
+      <Col xs={6}>
+        <h2 className="h4 mb-2">Icon Only.</h2>
+        <Button icon={select('Icon', icons, 'addMedia')} />
       </Col>
     </Row>
   </Container>

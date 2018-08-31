@@ -4364,7 +4364,7 @@ button.bg-dark:focus {
 .text-lowercase {
   text-transform: lowercase !important; }
 
-.text-uppercase {
+.text-uppercase, .post-card__metric {
   text-transform: uppercase !important; }
 
 .text-capitalize {
@@ -4755,6 +4755,10 @@ button.bg-gray-900:focus {
 .text-wrap {
   word-wrap: break-word !important; }
 
+.text-uppercase, .post-card__metric {
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important; }
+
 .avatar,
 .avatar-image-wrap,
 .avatar-image {
@@ -4842,8 +4846,7 @@ button.bg-gray-900:focus {
 .post-card__metric {
   margin-right: 0.7rem;
   font-weight: 300;
-  font-size: 0.765rem;
-  text-transform: uppercase; }
+  font-size: 0.765rem; }
   .post-card__metric span {
     font-weight: 500; }
 

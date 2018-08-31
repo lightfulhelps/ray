@@ -67,10 +67,11 @@
 }
 
 .post-card__metric {
+  @extend .text-uppercase;
+
   margin-right: map-get($spacers, 1);
   font-weight: $font-weight-light;
   font-size: $font-size-base * 0.85;
-  text-transform: uppercase;
 
   span {
     font-weight: $font-weight-bold;
