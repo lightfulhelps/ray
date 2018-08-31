@@ -140,6 +140,29 @@ $input-focus-box-shadow: none;
 
 $input-hover-border-color: $gray-500; // Ray
 
+// Dropdowns
+
+$dropdown-padding-y: $spacer;
+$dropdown-padding-x: 0; // Ray
+
+$dropdown-link-color: $gray-900;
+$dropdown-link-hover-color: darken($gray-900, 5%);
+$dropdown-link-hover-bg: $gray-100;
+$dropdown-link-active-color: $gray-900;
+$dropdown-link-active-bg: $gray-100;
+$dropdown-link-disabled-color: $gray-600;
+
+$dropdown-dark-divider-bg: $gray-700; // Ray
+$dropdown-dark-link-color: $white; // Ray
+$dropdown-dark-link-hover-color: darken($white, 5%); // Ray
+$dropdown-dark-link-hover-bg: $gray-700; // Ray
+$dropdown-dark-link-active-color: $white; // Ray
+$dropdown-dark-link-active-bg: $gray-700; // Ray
+$dropdown-dark-link-disabled-color: $gray-600; // Ray
+
+$dropdown-item-padding-y: $spacer;
+$dropdown-item-padding-x: $spacer * 2;
+
 // Cards
 
 $card-border-width: 2px;

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Dropdown /> should render 1`] = `
+<div
+  className="dropdown d-inline-block"
+>
+  <Button
+    aria-expanded={false}
+    aria-haspopup="true"
+    icon="menu"
+    onClick={[Function]}
+    size="sm"
+    theme="light"
+  />
+  <div
+    aria-labelledby="dropdownMenuButton"
+    className="dropdown-menu dropdown-menu-dark dropdown-menu-left"
+  >
+    <DropdownItem
+      icon="edit"
+      key="0"
+      label="Edit"
+      onClick={[Function]}
+    />
+    <DropdownItem
+      icon="delete"
+      key="1"
+      label="Delete"
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;

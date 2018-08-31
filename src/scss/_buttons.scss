@@ -9,6 +9,17 @@
 
 .btn-icon {
   padding: $spacer;
+  border-radius: $btn-border-radius;
+
+  &.btn-sm {
+    padding: $spacer / 2;
+    border-radius: $btn-border-radius-sm;
+  }
+
+  &.btn-lg {
+    padding: $spacer * 2;
+    border-radius: $btn-border-radius-lg;
+  }
 
   .icon {
     margin: 0;

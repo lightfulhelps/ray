@@ -25,6 +25,7 @@ exports[`<PostCard /> should render 1`] = `
       className="mx-1"
       style={
         Object {
+          "flex": 1,
           "height": "68px",
           "minWidth": 0,
         }
@@ -99,6 +100,7 @@ exports[`<PostCard /> should render 1`] = `
       key="0"
       name="follow"
       onClick={[Function]}
+      title="follow"
     />
     <Icon
       className="cursor-pointer"
@@ -107,6 +109,7 @@ exports[`<PostCard /> should render 1`] = `
       key="1"
       name="like"
       onClick={[Function]}
+      title="like"
     />
   </div>
 </Card>

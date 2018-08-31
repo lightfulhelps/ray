@@ -4,7 +4,8 @@ import classNames from 'classnames';
 import Dotdotdot from 'react-dotdotdot';
 import formatDate from 'date-fns/format';
 import isFuture from 'date-fns/is_future';
-import { Card, Avatar, Badge, Button, Icon, PostMedia, URLMetaPreview } from '../../';
+import { Card, Avatar, Badge, Icon, PostMedia, URLMetaPreview, Dropdown } from '../../';
+import type { DropdownItemType } from '../Dropdown/DropdownItem';
 
 type InspirationActionType = {
   activeColor?: string,
@@ -25,6 +26,7 @@ type PostType = {
     name: string,
   },
   content: string,
+  creator?: string,
   date?: Date | number | string,
   id: string,
   media?: MediaType[],
@@ -42,9 +44,10 @@ type PostType = {
 };
 
 type Props = {
+  actions?: DropdownItemType[],
   className?: string,
   dateFormat?: string,
-  footerButton?: React.Element<Button>,
+  footerButton?: React.Element<any>,
   inspirationActions?: InspirationActionType[],
   isDraft?: boolean,
   isInvalid?: boolean,
@@ -58,6 +61,7 @@ type Props = {
 };
 
 const PostCard = ({
+  actions = [],
   className,
   dateFormat = 'D MMM [-] HH:mm',
   footerButton,
@@ -90,7 +94,7 @@ const PostCard = ({
             <Avatar url={post.socialIdentity.avatar} provider={post.socialIdentity.provider} />
           </div>
         )}
-        <div className="mx-1" style={{ height: '68px', minWidth: 0 }}>
+        <div className="mx-1" style={{ height: '68px', minWidth: 0, flex: 1 }}>
           <h1 className={`${blockClass}__title`}>{post.title}</h1>
           <div className={`${blockClass}__date`}>
             {(!post.date || isFuture(post.date)) && (
@@ -104,6 +108,9 @@ const PostCard = ({
             </Badge>
           )}
         </div>
+        {actions.length > 0 && (
+          <Dropdown items={actions} buttonSize="sm" position="right" footer={post.creator} />
+        )}
       </div>
       <Dotdotdot className={`${blockClass}__content`} clamp={5}>
         <div
@@ -136,6 +143,7 @@ const PostCard = ({
               <Icon
                 key={i}
                 name={action.icon}
+                title={action.icon}
                 className="cursor-pointer"
                 color={action.isActive ? action.activeColor : action.color}
                 hoverColor={action.isActive ? action.activeColor : '#343a40'}

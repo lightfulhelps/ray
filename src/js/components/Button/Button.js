@@ -5,7 +5,7 @@ import Icon from '../Icon/Icon';
 import type { IconNameType } from '../Icon/icons';
 
 type Props = {
-  children: string,
+  children?: string,
   className?: string,
   icon?: IconNameType,
   iconPosition?: 'left' | 'right',
@@ -42,7 +42,6 @@ const Button = ({
     { 'btn-icon': icon && !children },
     { [`btn-icon-${iconPosition}`]: icon && children }
   );
-
   return (
     <Tag {...other} className={classes} onClick={onClick}>
       {children}

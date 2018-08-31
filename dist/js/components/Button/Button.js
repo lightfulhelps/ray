@@ -47,7 +47,6 @@ var Button = function Button(_ref) {
       other = _objectWithoutProperties(_ref, ['children', 'className', 'icon', 'iconPosition', 'isBlock', 'isDisabled', 'isOutline', 'onClick', 'size', 'tag', 'theme']);
 
   var classes = (0, _classnames2.default)(className, 'btn', 'btn' + (isOutline ? '-outline' : '') + '-' + theme, size ? 'btn-' + size : false, { 'btn-block': isBlock }, { disabled: isDisabled }, { 'btn-icon': icon && !children }, _defineProperty({}, 'btn-icon-' + iconPosition, icon && children));
-
   return React.createElement(
     Tag,
     _extends({}, other, { className: classes, onClick: onClick }),

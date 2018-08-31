@@ -22,6 +22,7 @@
 
 .post-card__header {
   display: flex;
+  align-items: start;
   margin-top: map-get($spacers, 2);
   margin-right: map-get($spacers, 2);
   margin-bottom: 0;
@@ -35,6 +36,8 @@
 }
 
 .post-card__date {
+  @extend .text-truncate;
+
   display: flex;
   align-items: center;
   height: 20px;
