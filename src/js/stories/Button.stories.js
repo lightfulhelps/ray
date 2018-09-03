@@ -89,7 +89,13 @@ stories.add('Default', () => (
       </Col>
       <Col xs={6}>
         <h2 className="h4 mb-2">Icon Only.</h2>
-        <Button icon={select('Icon', icons, 'addMedia')} />
+        <Button
+          theme={select('Theme', themes, 'primary')}
+          icon={select('Icon', icons, 'addMedia')}
+          isDisabled={boolean('Disabled', false)}
+          isOutline={boolean('Outline', false)}
+          size={select('Size', sizes, 'md')}
+        />
       </Col>
     </Row>
   </Container>
