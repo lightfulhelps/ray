@@ -163,10 +163,10 @@ describe('<PostCard />', () => {
     expect(wrapper.find(Dropdown).exists()).toBe(true);
   });
 
-  it('should pass post creator to Dropdown footer', () => {
+  it('should pass post creator to Dropdown', () => {
     const { wrapper } = setup({ post: { creator: 'Bruno' }, actions: [{ label: 'Edit' }] });
 
-    expect(wrapper.find(Dropdown).prop('footer')).toEqual('Bruno');
+    expect(wrapper.find(Dropdown).prop('menuFooter')).toEqual('Bruno');
   });
 
   it('should set HTML in the post content', () => {

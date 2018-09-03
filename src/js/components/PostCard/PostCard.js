@@ -5,7 +5,7 @@ import Dotdotdot from 'react-dotdotdot';
 import formatDate from 'date-fns/format';
 import isFuture from 'date-fns/is_future';
 import { Card, Avatar, Badge, Icon, PostMedia, URLMetaPreview, Dropdown } from '../../';
-import type { DropdownItemType } from '../Dropdown/DropdownItem';
+import type { DropdownItemType } from '../DropdownItem/DropdownItem';
 
 type InspirationActionType = {
   activeColor?: string,
@@ -109,7 +109,12 @@ const PostCard = ({
           )}
         </div>
         {actions.length > 0 && (
-          <Dropdown items={actions} buttonSize="sm" position="right" footer={post.creator} />
+          <Dropdown
+            buttonSize="sm"
+            menuItems={actions}
+            menuPosition="right"
+            menuFooter={post.creator}
+          />
         )}
       </div>
       <Dotdotdot className={`${blockClass}__content`} clamp={5}>

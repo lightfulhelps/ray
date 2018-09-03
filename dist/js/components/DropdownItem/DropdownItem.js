@@ -13,9 +13,7 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Icon = require('../Icon/Icon');
-
-var _Icon2 = _interopRequireDefault(_Icon);
+var _ = require('../../');
 
 var _icons = require('../Icon/icons');
 
@@ -48,7 +46,7 @@ var DropdownItem = function DropdownItem(_ref) {
   return React.createElement(
     'div',
     { className: classes, onClick: onClick },
-    icon && React.createElement(_Icon2.default, { name: icon, className: 'mr-1' }),
+    icon && React.createElement(_.Icon, { name: icon, className: 'mr-1' }),
     React.createElement(
       'span',
       null,

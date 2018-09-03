@@ -10,11 +10,6 @@ const stories = storiesOf('Dropdown', module);
 
 stories.addDecorator(withKnobs);
 
-const themes = {
-  light: 'Light',
-  dark: 'Dark',
-};
-
 const buttonSizes = {
   lg: 'Large',
   md: 'Medium',
@@ -26,13 +21,20 @@ const buttonThemes = {
   dark: 'Dark',
 };
 
+const menuThemes = {
+  light: 'Light',
+  dark: 'Dark',
+};
+
 stories.add('Default', () => (
   <Container>
     <h1 className="my-4">Dropdown.</h1>
     <Row>
       <div className="col-6">
         <Dropdown
-          items={[
+          buttonSize={select('Button Size', buttonSizes, 'sm')}
+          buttonTheme={select('Button Theme', buttonThemes, 'light')}
+          menuItems={[
             {
               label: 'Edit',
               icon: 'edit',
@@ -44,11 +46,9 @@ stories.add('Default', () => (
               onClick: action('Delete'),
             },
           ]}
-          theme={select('Theme', themes, 'dark')}
-          position={select('Position', { left: 'Left', right: 'Right' }, 'left')}
-          buttonSize={select('Button Size', buttonSizes, 'sm')}
-          buttonTheme={select('Button Theme', buttonThemes, 'light')}
-          footer={text('Footer Text', 'Some footer text')}
+          menuTheme={select('Menu Theme', menuThemes, 'dark')}
+          menuPosition={select('Menu Position', { left: 'Left', right: 'Right' }, 'left')}
+          menuFooter={text('Menu Footer', 'Some footer text')}
         />
       </div>
     </Row>

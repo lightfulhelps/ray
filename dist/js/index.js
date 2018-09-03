@@ -40,12 +40,21 @@ Object.defineProperty(exports, 'Dropdown', {
   }
 });
 
-var _DropdownItem = require('./components/Dropdown/DropdownItem');
+var _DropdownItem = require('./components/DropdownItem/DropdownItem');
 
 Object.defineProperty(exports, 'DropdownItem', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_DropdownItem).default;
+  }
+});
+
+var _DropdownMenu = require('./components/DropdownMenu/DropdownMenu');
+
+Object.defineProperty(exports, 'DropdownMenu', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_DropdownMenu).default;
   }
 });
 
