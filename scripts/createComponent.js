@@ -32,29 +32,27 @@ export const getNames = (name: string): NamesType => {
   return { componentName, className };
 };
 
-export const getComponentTemplate = async () => {
+export const getComponentTemplate = async (data: NamesType): Promise<string> => {
   const template = await readFileAsync(path.join(__dirname, 'templates/component.js.hbs'), {
     encoding: 'utf8',
   });
 
-  return Handlebars.compile(template);
+  return Handlebars.compile(template)(data);
 };
 
-export const getSpecTemplate = async () => {
+export const getSpecTemplate = async (data: NamesType): Promise<string> => {
   const template = await readFileAsync(path.join(__dirname, 'templates/spec.js.hbs'), {
     encoding: 'utf8',
   });
 
-  return Handlebars.compile(template);
+  return Handlebars.compile(template)(data);
 };
 
 const init = async ({ dir, name }: ArgvType) => {
   try {
     const names = getNames(name);
-    const componentTemplate = await getComponentTemplate();
-    const specTemplate = await getSpecTemplate();
-    const componentString = componentTemplate(names);
-    const specString = specTemplate(names);
+    const componentString = await getComponentTemplate(names);
+    const specString = await getSpecTemplate(names);
     const dirPath = `${dir}/${names.componentName}`;
     const componentPath = `${dirPath}/${names.componentName}.js`;
     const specPath = `${dirPath}/${names.componentName}.spec.js`;

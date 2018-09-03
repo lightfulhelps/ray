@@ -1,4 +1,4 @@
-import { getNames } from './createComponent';
+import { getNames, getComponentTemplate, getSpecTemplate } from './createComponent';
 
 describe('getNames', () => {
   it('should throw if no argument', () => {
@@ -39,5 +39,21 @@ describe('getNames', () => {
     expect(getNames('foo').className).toEqual('foo');
     expect(getNames('foo bar').className).toEqual('foo-bar');
     expect(getNames('fooBar').className).toEqual('foo-bar');
+  });
+});
+
+describe('getComponentTemplate', () => {
+  it('matches snapshot', async () => {
+    const names = { componentName: 'FooBar', className: 'foo-bar' };
+
+    await expect(getComponentTemplate(names)).resolves.toMatchSnapshot();
+  });
+});
+
+describe('getSpecTemplate', () => {
+  it('matches snapshot', async () => {
+    const names = { componentName: 'FooBar', className: 'foo-bar' };
+
+    await expect(getSpecTemplate(names)).resolves.toMatchSnapshot();
   });
 });

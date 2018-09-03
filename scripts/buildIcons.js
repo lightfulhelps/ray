@@ -13,6 +13,18 @@ const globAsync = util.promisify(glob);
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
+type ArgvType = {
+  svgDir: string,
+  outputFile: string,
+  glob?: string,
+};
+
+type IconsType = {
+  icons: {
+    [key: string]: string,
+  },
+};
+
 const svgo = new SVGO({
   floatPrecision: 4,
   plugins: [
@@ -69,18 +81,12 @@ export const sanitizeSVG = (data: string): string =>
     .replace(/fill-rule=/g, 'fillRule=')
     .replace(/stroke-width=/g, 'strokeWidth=');
 
-export const getIconsTemplate = async () => {
+export const getIconsTemplate = async (data: IconsType): Promise<string> => {
   const template = await readFileAsync(path.join(__dirname, 'templates/icons.js.hbs'), {
     encoding: 'utf8',
   });
 
-  return Handlebars.compile(template, { noEscape: true });
-};
-
-type ArgvType = {
-  svgDir: string,
-  outputFile: string,
-  glob?: string,
+  return Handlebars.compile(template, { noEscape: true })(data);
 };
 
 const init = async ({ svgDir, outputFile, glob = '*.svg' }: ArgvType) => {
@@ -101,8 +107,7 @@ const init = async ({ svgDir, outputFile, glob = '*.svg' }: ArgvType) => {
       icons[iconName] = sanitizeSVG(optimizedSVG.data);
     }
 
-    const iconsTemplate = await getIconsTemplate();
-    const outputJS = iconsTemplate({ icons });
+    const outputJS = await getIconsTemplate({ icons });
     const prettierConfig = await prettier.resolveConfig(process.cwd());
     const formattedOutputJS = prettier.format(
       outputJS,
