@@ -12,22 +12,25 @@ exports[`<Dropdown /> should render 1`] = `
     size="sm"
     theme="light"
   />
-  <div
-    aria-labelledby="dropdownMenuButton"
-    className="dropdown-menu dropdown-menu-dark dropdown-menu-left"
-  >
-    <DropdownItem
-      icon="edit"
-      key="0"
-      label="Edit"
-      onClick={[Function]}
-    />
-    <DropdownItem
-      icon="delete"
-      key="1"
-      label="Delete"
-      onClick={[Function]}
-    />
-  </div>
+  <DropdownMenu
+    isOpen={false}
+    items={
+      Array [
+        Object {
+          "icon": "edit",
+          "label": "Edit",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "icon": "delete",
+          "label": "Delete",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    onClick={[Function]}
+    position="left"
+    theme="dark"
+  />
 </div>
 `;

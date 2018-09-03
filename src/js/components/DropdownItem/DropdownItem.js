@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import Icon from '../Icon/Icon';
+import { Icon } from '../../';
 import type { IconNameType } from '../Icon/icons';
 
 export type DropdownItemType = {
