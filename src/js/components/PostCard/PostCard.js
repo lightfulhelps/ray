@@ -113,7 +113,7 @@ const PostCard = ({
             buttonSize="sm"
             menuItems={actions}
             menuPosition="right"
-            menuFooter={post.creator}
+            menuFooter={post.creator ? `Creator: ${post.creator}` : null}
           />
         )}
       </div>

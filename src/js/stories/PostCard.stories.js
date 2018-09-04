@@ -61,7 +61,7 @@ stories.add('Default', () => (
             media,
             metrics: {
               likes: 12,
-              replies: 30,
+              comments: 30,
               shares: 69,
             },
           }}
@@ -74,13 +74,13 @@ stories.add('Default', () => (
             },
             {
               icon: 'like',
-              activeColor: '#f25270',
+              activeColor: '#0095f1',
               isActive: boolean('Liked', true),
               onClick: action('Like'),
             },
-            { icon: 'reply', isActive: false },
             { icon: 'repost', isActive: false },
-            { icon: 'edit', isActive: false },
+            { icon: 'reply', isActive: false },
+            { icon: 'create', isActive: false },
           ]}
           isDraft={boolean('Draft', false)}
           isInvalid={boolean('Invalid', false)}
@@ -94,6 +94,7 @@ stories.add('Default', () => (
               name: text('Campaign Name', 'Campaign Tag'),
               color: color('Campaign Color', '#27B0CC'),
             },
+            creator: 'Bruno La Versa',
             socialIdentity: {
               id: '123',
               avatar: text('Avatar URL', 'https://randomuser.me/api/portraits/women/47.jpg'),
@@ -105,7 +106,7 @@ stories.add('Default', () => (
             ),
             metrics: {
               likes: 12,
-              replies: 30,
+              comments: 30,
               shares: 69,
             },
           }}

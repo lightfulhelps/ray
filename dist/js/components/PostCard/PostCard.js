@@ -94,7 +94,7 @@ var PostCard = function PostCard(_ref) {
         buttonSize: 'sm',
         menuItems: actions,
         menuPosition: 'right',
-        menuFooter: post.creator
+        menuFooter: post.creator ? 'Creator: ' + post.creator : null
       })
     ),
     React.createElement(
