@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import { DropdownMenu, Button } from '../../';
 import type { DropdownItemType } from '../DropdownItem/DropdownItem';
@@ -20,14 +20,36 @@ type State = {
   isOpen: boolean,
 };
 
-class Dropdown extends Component<Props, State> {
+class Dropdown extends React.Component<Props, State> {
+  node = null;
+
   state = {
     isOpen: false,
   };
 
+  componentDidMount() {
+    document.addEventListener('click', this.handleDocumentClick, true);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleDocumentClick, true);
+  }
+
   handleDropdown() {
     this.setState({ isOpen: !this.state.isOpen });
   }
+
+  handleDocumentClick = (e: Event) => {
+    if (
+      !e ||
+      (e && !e.target) ||
+      (this.node && this.node.contains((e.target: any)) && this.node !== e.target)
+    ) {
+      return;
+    }
+
+    this.setState({ isOpen: false });
+  };
 
   handleMenuClick = () => this.setState({ isOpen: false });
 
@@ -46,7 +68,13 @@ class Dropdown extends Component<Props, State> {
     const classes = classNames(className, 'dropdown', 'd-inline-block');
 
     return (
-      <div {...other} className={classes}>
+      <div
+        {...other}
+        className={classes}
+        ref={node => {
+          this.node = node;
+        }}
+      >
         <Button
           onClick={() => this.handleDropdown()}
           icon={buttonIcon}

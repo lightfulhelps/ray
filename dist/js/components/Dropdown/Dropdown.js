@@ -12,7 +12,7 @@ var _class, _temp2;
 
 var _react = require('react');
 
-var _react2 = _interopRequireDefault(_react);
+var React = _interopRequireWildcard(_react);
 
 var _classnames = require('classnames');
 
@@ -30,6 +30,8 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38,8 +40,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Dropdown = (_temp2 = _class = function (_Component) {
-  _inherits(Dropdown, _Component);
+var Dropdown = (_temp2 = _class = function (_React$Component) {
+  _inherits(Dropdown, _React$Component);
 
   function Dropdown() {
     var _ref;
@@ -52,14 +54,30 @@ var Dropdown = (_temp2 = _class = function (_Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Dropdown.__proto__ || Object.getPrototypeOf(Dropdown)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Dropdown.__proto__ || Object.getPrototypeOf(Dropdown)).call.apply(_ref, [this].concat(args))), _this), _this.node = null, _this.state = {
       isOpen: false
+    }, _this.handleDocumentClick = function (e) {
+      if (!e || e && !e.target || _this.node && _this.node.contains(e.target) && _this.node !== e.target) {
+        return;
+      }
+
+      _this.setState({ isOpen: false });
     }, _this.handleMenuClick = function () {
       return _this.setState({ isOpen: false });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Dropdown, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      document.addEventListener('click', this.handleDocumentClick, true);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      document.removeEventListener('click', this.handleDocumentClick, true);
+    }
+  }, {
     key: 'handleDropdown',
     value: function handleDropdown() {
       this.setState({ isOpen: !this.state.isOpen });
@@ -87,10 +105,15 @@ var Dropdown = (_temp2 = _class = function (_Component) {
 
       var classes = (0, _classnames2.default)(className, 'dropdown', 'd-inline-block');
 
-      return _react2.default.createElement(
+      return React.createElement(
         'div',
-        _extends({}, other, { className: classes }),
-        _react2.default.createElement(_.Button, {
+        _extends({}, other, {
+          className: classes,
+          ref: function ref(node) {
+            _this2.node = node;
+          }
+        }),
+        React.createElement(_.Button, {
           onClick: function onClick() {
             return _this2.handleDropdown();
           },
@@ -100,7 +123,7 @@ var Dropdown = (_temp2 = _class = function (_Component) {
           size: buttonSize,
           theme: buttonTheme
         }),
-        _react2.default.createElement(_.DropdownMenu, {
+        React.createElement(_.DropdownMenu, {
           footer: menuFooter,
           items: menuItems,
           isOpen: this.state.isOpen,
@@ -113,7 +136,7 @@ var Dropdown = (_temp2 = _class = function (_Component) {
   }]);
 
   return Dropdown;
-}(_react.Component), _class.propTypes = {
+}(React.Component), _class.propTypes = {
   buttonIcon: function buttonIcon() {
     return (typeof _icons.bpfrpt_proptype_IconNameType === 'function' ? _icons.bpfrpt_proptype_IconNameType : _propTypes2.default.shape(_icons.bpfrpt_proptype_IconNameType)).apply(this, arguments);
   },

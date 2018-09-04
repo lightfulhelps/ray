@@ -143,4 +143,16 @@ describe('<Dropdown />', () => {
 
     expect(wrapper.state('isOpen')).toBe(false);
   });
+
+  it('should set isOpen false on document click', () => {
+    const { wrapper } = setup();
+
+    wrapper.find(Button).simulate('click');
+
+    expect(wrapper.state('isOpen')).toBe(true);
+
+    document.body.click();
+
+    expect(wrapper.state('isOpen')).toBe(false);
+  });
 });
