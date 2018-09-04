@@ -49,21 +49,24 @@ exports[`<PostCard /> should render 1`] = `
       </Badge>
     </div>
   </div>
-  <Dotdotdot
-    clamp={5}
+  <div
     className="post-card__content"
-    tagName="div"
-    truncationChar="…"
-    useNativeClamp={true}
   >
-    <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\".",
+    <Dotdotdot
+      clamp={5}
+      tagName="div"
+      truncationChar="…"
+      useNativeClamp={true}
+    >
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\".",
+          }
         }
-      }
-    />
-  </Dotdotdot>
+      />
+    </Dotdotdot>
+  </div>
   <div
     className="post-card__media"
   />

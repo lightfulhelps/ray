@@ -98,13 +98,17 @@ var PostCard = function PostCard(_ref) {
       })
     ),
     React.createElement(
-      _reactDotdotdot2.default,
-      { className: blockClass + '__content', clamp: 5 },
-      React.createElement('div', {
-        dangerouslySetInnerHTML: {
-          __html: post.content
-        }
-      })
+      'div',
+      { className: blockClass + '__content' },
+      React.createElement(
+        _reactDotdotdot2.default,
+        { clamp: 5 },
+        React.createElement('div', {
+          dangerouslySetInnerHTML: {
+            __html: post.content
+          }
+        })
+      )
     ),
     React.createElement(
       'div',

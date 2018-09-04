@@ -117,13 +117,15 @@ const PostCard = ({
           />
         )}
       </div>
-      <Dotdotdot className={`${blockClass}__content`} clamp={5}>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: post.content,
-          }}
-        />
-      </Dotdotdot>
+      <div className={`${blockClass}__content`}>
+        <Dotdotdot clamp={5}>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: post.content,
+            }}
+          />
+        </Dotdotdot>
+      </div>
       <div className={`${blockClass}__media`}>
         {showPostMedia && <PostMedia media={post.media} />}
         {showMetaPreview && (
