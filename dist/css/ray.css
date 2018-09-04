@@ -4468,10 +4468,10 @@ a.text-dark:hover, a.text-dark:focus {
   padding: 0.7rem;
   border-radius: 0.7rem; }
   .btn-icon.btn-sm, .btn-group-sm > .btn-icon.btn {
-    padding: 0.35rem;
+    padding: 0.46667rem;
     border-radius: 0.35rem; }
   .btn-icon.btn-lg, .btn-group-lg > .btn-icon.btn {
-    padding: 1.4rem;
+    padding: 1.05rem;
     border-radius: 0.7rem; }
   .btn-icon .icon {
     margin: 0; }

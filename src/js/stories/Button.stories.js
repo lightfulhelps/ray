@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col, Button } from '../';
+import allIcons from '../components/Icon/icons';
 
 import '../../scss/ray.scss';
 
@@ -18,50 +19,22 @@ const themes = {
   light: 'Light',
   dark: 'Dark',
 };
-const iconPositions = {
-  left: 'left',
-  right: 'right',
-};
-const icons = {
-  addMedia: 'addMedia',
-  addSchedule: 'addSchedule',
-  analytics: 'analytics',
-  comment: 'comment',
-  create: 'create',
-  dashboard: 'dashboard',
-  delete: 'delete',
-  edit: 'edit',
-  exit: 'exit',
-  facebook: 'facebook',
-  follow: 'follow',
-  fundraising: 'fundraising',
-  helpChat: 'helpChat',
-  inspiration: 'inspiration',
-  like: 'like',
-  linkedin: 'linkedin',
-  mediaLibrary: 'mediaLibrary',
-  menu: 'menu',
-  multipleSocialProvider: 'multipleSocialProvider',
-  notifications: 'notifications',
-  organisationAccount: 'organisationAccount',
-  organisation: 'organisation',
-  personalAccount: 'personalAccount',
-  play: 'play',
-  posts: 'posts',
-  previewPost: 'previewPost',
-  reply: 'reply',
-  repost: 'repost',
-  settings: 'settings',
-  signOut: 'signOut',
-  storyBuilder: 'storyBuilder',
-  twitter: 'twitter',
-  unscheduled: 'unscheduled',
-};
 
 const sizes = {
   lg: 'Large',
   md: 'Medium',
   sm: 'Small',
+};
+
+const icons = {};
+
+Object.keys(allIcons).forEach(key => {
+  icons[key] = key;
+});
+
+const iconPositions = {
+  left: 'left',
+  right: 'right',
 };
 
 stories.addDecorator(withKnobs);
