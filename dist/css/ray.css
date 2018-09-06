@@ -4840,13 +4840,14 @@ button.bg-gray-900:focus {
 
 .post-card__metrics {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   padding: 0.7rem 1.4rem; }
 
 .post-card__metric {
   margin-right: 0.7rem;
   font-weight: 300;
-  font-size: 0.765rem; }
+  font-size: 0.675rem; }
   .post-card__metric span {
     font-weight: 500; }
 

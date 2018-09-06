@@ -63,6 +63,7 @@ stories.add('Default', () => (
               likes: 12,
               comments: 30,
               shares: 69,
+              clicks: 30,
             },
           }}
           inspirationActions={[
@@ -108,6 +109,7 @@ stories.add('Default', () => (
               likes: 12,
               comments: 30,
               shares: 69,
+              clicks: 30,
             },
           }}
           actions={[
