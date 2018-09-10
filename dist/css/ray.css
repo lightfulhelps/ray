@@ -2359,7 +2359,7 @@ input[type="button"].btn-block {
 .badge {
   display: inline-block;
   padding: 0.4em 0.5em;
-  font-size: 0.7rem;
+  font-size: 0.625rem;
   font-weight: 300;
   line-height: 1;
   text-align: center;
@@ -4936,7 +4936,7 @@ a.text-dark:hover, a.text-dark:focus {
   display: block;
   padding: 1.25rem 1.25rem;
   color: #adb5bd;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   cursor: default; }
   .dropdown-footer:hover, .dropdown-footer:focus {
     color: #adb5bd;
@@ -5240,15 +5240,16 @@ button.bg-gray-900:focus {
   display: flex;
   align-items: center;
   height: 20px;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   margin-bottom: 0.2em; }
   .post-card__date svg {
     margin-right: 3px; }
 
 .post-card__content {
-  margin: 0.625rem 1.25rem;
+  margin: 1.25rem;
   font-weight: 300;
+  font-size: 0.875rem;
   height: 7.5em; }
 
 .post-card__media {
@@ -5263,7 +5264,7 @@ button.bg-gray-900:focus {
 .post-card__metric {
   margin-right: 0.625rem;
   font-weight: 300;
-  font-size: 0.875rem; }
+  font-size: 0.75rem; }
   .post-card__metric span {
     font-weight: 500; }
 
@@ -5370,7 +5371,7 @@ button.bg-gray-900:focus {
   justify-content: space-between;
   height: 100%;
   padding: 1.25rem;
-  font-size: 0.875rem; }
+  font-size: 0.75rem; }
 
 .url-meta-preview__title {
   display: block;

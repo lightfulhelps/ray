@@ -72,7 +72,7 @@ var PostCard = function PostCard(_ref) {
       ),
       React.createElement(
         'div',
-        { className: 'mx-1', style: { height: '68px', minWidth: 0, flex: 1 } },
+        { className: 'mx-1', style: { height: '74px', minWidth: 0, flex: 1 } },
         React.createElement(
           'h1',
           { className: blockClass + '__title' },

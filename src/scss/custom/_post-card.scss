@@ -41,7 +41,7 @@
   display: flex;
   align-items: center;
   height: 20px;
-  font-size: $font-size-sm;
+  font-size: $font-size-xs;
   text-transform: uppercase;
   margin-bottom: 0.2em;
 
@@ -51,8 +51,9 @@
 }
 
 .post-card__content {
-  margin: map-get($spacers, 1) map-get($spacers, 2);
+  margin: map-get($spacers, 2);
   font-weight: $font-weight-light;
+  font-size: $font-size-sm;
   height: $line-height-base * 5em;
 }
 
@@ -72,7 +73,7 @@
 
   margin-right: map-get($spacers, 1);
   font-weight: $font-weight-light;
-  font-size: $font-size-sm;
+  font-size: $font-size-xs;
 
   span {
     font-weight: $font-weight-bold;

@@ -52,7 +52,7 @@
   display: block;
   padding: $dropdown-item-padding-y $dropdown-item-padding-x;
   color: $gray-500;
-  font-size: $font-size-sm;
+  font-size: $font-size-xs;
   cursor: default;
 
   @include hover-focus {
