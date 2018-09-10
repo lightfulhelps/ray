@@ -45,7 +45,7 @@ const Button = ({
   return (
     <Tag {...other} className={classes} onClick={onClick}>
       {children}
-      {icon && <Icon name={icon} size={24} />}
+      {icon && <Icon name={icon} />}
     </Tag>
   );
 };

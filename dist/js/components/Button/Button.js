@@ -51,7 +51,7 @@ var Button = function Button(_ref) {
     Tag,
     _extends({}, other, { className: classes, onClick: onClick }),
     children,
-    icon && React.createElement(_Icon2.default, { name: icon, size: 24 })
+    icon && React.createElement(_Icon2.default, { name: icon })
   );
 };
 
