@@ -7,6 +7,7 @@ import { type DropdownItemType } from '../DropdownItem/DropdownItem';
 type Props = {
   className?: string,
   footer?: string,
+  iconColor?: string,
   isOpen: boolean,
   items: DropdownItemType[],
   onClick?: () => void,
@@ -17,6 +18,7 @@ type Props = {
 const DropdownMenu = ({
   className,
   footer,
+  iconColor,
   items,
   isOpen,
   onClick = () => {},
@@ -35,7 +37,13 @@ const DropdownMenu = ({
   return (
     <div {...other} className={classes} onClick={onClick}>
       {items.map((item, i) => (
-        <DropdownItem key={i} label={item.label} icon={item.icon} onClick={item.onClick} />
+        <DropdownItem
+          key={i}
+          label={item.label}
+          icon={item.icon}
+          iconColor={iconColor}
+          onClick={item.onClick}
+        />
       ))}
       {footer && <div className="dropdown-footer">{footer}</div>}
     </div>

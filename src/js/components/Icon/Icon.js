@@ -8,6 +8,7 @@ type Props = {
   className?: string,
   color?: string,
   hoverColor?: string,
+  iconColor?: string,
   name: IconNameType,
   size?: number,
   style?: { [key: string]: any },
@@ -45,7 +46,6 @@ class Icon extends Component<Props, State> {
       ...other
     } = this.props;
     const classes = classNames(className, 'icon');
-
     return (
       <svg
         {...other}

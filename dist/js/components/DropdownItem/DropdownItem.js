@@ -29,6 +29,7 @@ var bpfrpt_proptype_DropdownItemType = {
   icon: function icon() {
     return (typeof _icons.bpfrpt_proptype_IconNameType === 'function' ? _icons.bpfrpt_proptype_IconNameType : _propTypes2.default.shape(_icons.bpfrpt_proptype_IconNameType)).apply(this, arguments);
   },
+  iconColor: _propTypes2.default.string,
   label: _propTypes2.default.string.isRequired,
   onClick: _propTypes2.default.func
 };
@@ -38,6 +39,7 @@ var DropdownItem = function DropdownItem(_ref) {
   var className = _ref.className,
       label = _ref.label,
       icon = _ref.icon,
+      iconColor = _ref.iconColor,
       _ref$onClick = _ref.onClick,
       onClick = _ref$onClick === undefined ? function () {} : _ref$onClick;
 
@@ -46,7 +48,7 @@ var DropdownItem = function DropdownItem(_ref) {
   return React.createElement(
     'div',
     { className: classes, onClick: onClick },
-    icon && React.createElement(_.Icon, { name: icon, className: 'mr-1' }),
+    icon && React.createElement(_.Icon, { name: icon, color: iconColor, className: 'mr-1' }),
     React.createElement(
       'span',
       null,
@@ -59,6 +61,7 @@ DropdownItem.propTypes = {
   icon: function icon() {
     return (typeof _icons.bpfrpt_proptype_IconNameType === 'function' ? _icons.bpfrpt_proptype_IconNameType : _propTypes2.default.shape(_icons.bpfrpt_proptype_IconNameType)).apply(this, arguments);
   },
+  iconColor: _propTypes2.default.string,
   label: _propTypes2.default.string.isRequired,
   onClick: _propTypes2.default.func,
   className: _propTypes2.default.string

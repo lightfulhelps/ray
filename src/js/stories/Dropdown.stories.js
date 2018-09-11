@@ -26,6 +26,13 @@ const menuThemes = {
   dark: 'Dark',
 };
 
+const iconColors = {
+  currentColor: 'Default',
+  '#5586ed': 'Facebook',
+  '#1dcaff': 'Twitter',
+  '#1c87bf': 'LinkedIn',
+};
+
 stories.add('Default', () => (
   <Container>
     <h1 className="my-4">Dropdown.</h1>
@@ -49,6 +56,7 @@ stories.add('Default', () => (
           menuTheme={select('Menu Theme', menuThemes, 'dark')}
           menuPosition={select('Menu Position', { left: 'Left', right: 'Right' }, 'left')}
           menuFooter={text('Menu Footer', 'Some footer text')}
+          iconColor={select('Icon Color', iconColors, 'currentColor')}
         />
       </div>
     </Row>
