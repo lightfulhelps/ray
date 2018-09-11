@@ -26,7 +26,7 @@ exports[`<PostCard /> should render 1`] = `
       style={
         Object {
           "flex": 1,
-          "height": "68px",
+          "height": "74px",
           "minWidth": 0,
         }
       }
