@@ -4891,7 +4891,8 @@ a.text-dark:hover, a.text-dark:focus {
     margin: 0; }
   .btn-icon-left, .btn-icon-right {
     display: flex;
-    align-items: center; }
+    align-items: center;
+    justify-content: center; }
   .btn-icon-left {
     flex-direction: row-reverse; }
     .btn-icon-left .icon {
