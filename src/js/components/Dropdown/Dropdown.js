@@ -66,7 +66,6 @@ class Dropdown extends React.Component<Props, State> {
       ...other
     } = this.props;
     const classes = classNames(className, 'dropdown', 'd-inline-block');
-
     return (
       <div
         {...other}

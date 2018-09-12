@@ -45,7 +45,6 @@ class Icon extends Component<Props, State> {
       ...other
     } = this.props;
     const classes = classNames(className, 'icon');
-
     return (
       <svg
         {...other}

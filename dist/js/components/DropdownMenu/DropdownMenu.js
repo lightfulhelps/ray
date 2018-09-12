@@ -43,7 +43,13 @@ var DropdownMenu = function DropdownMenu(_ref) {
     'div',
     _extends({}, other, { className: classes, onClick: onClick }),
     items.map(function (item, i) {
-      return React.createElement(_.DropdownItem, { key: i, label: item.label, icon: item.icon, onClick: item.onClick });
+      return React.createElement(_.DropdownItem, {
+        key: i,
+        label: item.label,
+        icon: item.icon,
+        iconColor: item.iconColor,
+        onClick: item.onClick
+      });
     }),
     footer && React.createElement(
       'div',
