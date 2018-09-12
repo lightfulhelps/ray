@@ -104,7 +104,6 @@ var Dropdown = (_temp2 = _class = function (_React$Component) {
           other = _objectWithoutProperties(_props, ['buttonIcon', 'buttonSize', 'buttonTheme', 'className', 'menuFooter', 'menuItems', 'menuPosition', 'menuTheme']);
 
       var classes = (0, _classnames2.default)(className, 'dropdown', 'd-inline-block');
-
       return React.createElement(
         'div',
         _extends({}, other, {

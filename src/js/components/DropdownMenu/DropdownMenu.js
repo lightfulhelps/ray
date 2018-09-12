@@ -35,7 +35,13 @@ const DropdownMenu = ({
   return (
     <div {...other} className={classes} onClick={onClick}>
       {items.map((item, i) => (
-        <DropdownItem key={i} label={item.label} icon={item.icon} onClick={item.onClick} />
+        <DropdownItem
+          key={i}
+          label={item.label}
+          icon={item.icon}
+          iconColor={item.iconColor}
+          onClick={item.onClick}
+        />
       ))}
       {footer && <div className="dropdown-footer">{footer}</div>}
     </div>

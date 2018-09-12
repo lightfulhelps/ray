@@ -78,7 +78,6 @@ var Icon = (_temp2 = _class = function (_Component) {
           other = _objectWithoutProperties(_props, ['className', 'color', 'hoverColor', 'name', 'size', 'style', 'title', 'viewBox']);
 
       var classes = (0, _classnames2.default)(className, 'icon');
-
       return _react2.default.createElement(
         'svg',
         _extends({}, other, {
