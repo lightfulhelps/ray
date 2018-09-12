@@ -4,6 +4,10 @@
   }
 }
 
+.btn-white {
+  @include button-variant($white, $white);
+}
+
 @each $color, $value in $grays {
   .btn-outline-gray-#{$color} {
     @include button-outline-variant($value);

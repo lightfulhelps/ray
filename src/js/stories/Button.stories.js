@@ -18,6 +18,7 @@ const themes = {
   info: 'Info',
   light: 'Light',
   dark: 'Dark',
+  white: 'White',
 };
 
 const sizes = {
