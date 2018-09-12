@@ -27,7 +27,6 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 var DropdownMenu = function DropdownMenu(_ref) {
   var className = _ref.className,
       footer = _ref.footer,
-      iconColor = _ref.iconColor,
       items = _ref.items,
       isOpen = _ref.isOpen,
       _ref$onClick = _ref.onClick,
@@ -36,7 +35,7 @@ var DropdownMenu = function DropdownMenu(_ref) {
       position = _ref$position === undefined ? 'left' : _ref$position,
       _ref$theme = _ref.theme,
       theme = _ref$theme === undefined ? 'light' : _ref$theme,
-      other = _objectWithoutProperties(_ref, ['className', 'footer', 'iconColor', 'items', 'isOpen', 'onClick', 'position', 'theme']);
+      other = _objectWithoutProperties(_ref, ['className', 'footer', 'items', 'isOpen', 'onClick', 'position', 'theme']);
 
   var classes = (0, _classnames2.default)(className, 'dropdown-menu', 'dropdown-menu-' + theme, 'dropdown-menu-' + position, { show: isOpen });
 
@@ -48,7 +47,7 @@ var DropdownMenu = function DropdownMenu(_ref) {
         key: i,
         label: item.label,
         icon: item.icon,
-        iconColor: iconColor,
+        iconColor: item.iconColor,
         onClick: item.onClick
       });
     }),

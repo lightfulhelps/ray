@@ -8,7 +8,6 @@ type Props = {
   className?: string,
   color?: string,
   hoverColor?: string,
-  iconColor?: string,
   name: IconNameType,
   size?: number,
   style?: { [key: string]: any },

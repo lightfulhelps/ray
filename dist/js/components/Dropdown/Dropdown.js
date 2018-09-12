@@ -101,8 +101,7 @@ var Dropdown = (_temp2 = _class = function (_React$Component) {
           menuPosition = _props$menuPosition === undefined ? 'left' : _props$menuPosition,
           _props$menuTheme = _props.menuTheme,
           menuTheme = _props$menuTheme === undefined ? 'dark' : _props$menuTheme,
-          iconColor = _props.iconColor,
-          other = _objectWithoutProperties(_props, ['buttonIcon', 'buttonSize', 'buttonTheme', 'className', 'menuFooter', 'menuItems', 'menuPosition', 'menuTheme', 'iconColor']);
+          other = _objectWithoutProperties(_props, ['buttonIcon', 'buttonSize', 'buttonTheme', 'className', 'menuFooter', 'menuItems', 'menuPosition', 'menuTheme']);
 
       var classes = (0, _classnames2.default)(className, 'dropdown', 'd-inline-block');
       return React.createElement(
@@ -129,8 +128,7 @@ var Dropdown = (_temp2 = _class = function (_React$Component) {
           isOpen: this.state.isOpen,
           onClick: this.handleMenuClick,
           position: menuPosition,
-          theme: menuTheme,
-          iconColor: iconColor
+          theme: menuTheme
         })
       );
     }
@@ -144,7 +142,6 @@ var Dropdown = (_temp2 = _class = function (_React$Component) {
   buttonSize: _propTypes2.default.oneOf(['lg', 'md', 'sm']),
   buttonTheme: _propTypes2.default.oneOf(['light', 'dark']),
   className: _propTypes2.default.string,
-  iconColor: _propTypes2.default.string,
   menuFooter: _propTypes2.default.string,
   menuItems: _propTypes2.default.arrayOf(function () {
     return (typeof _DropdownItem.bpfrpt_proptype_DropdownItemType === 'function' ? _DropdownItem.bpfrpt_proptype_DropdownItemType.isRequired ? _DropdownItem.bpfrpt_proptype_DropdownItemType.isRequired : _DropdownItem.bpfrpt_proptype_DropdownItemType : _propTypes2.default.shape(_DropdownItem.bpfrpt_proptype_DropdownItemType).isRequired).apply(this, arguments);

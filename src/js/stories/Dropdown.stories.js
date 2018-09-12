@@ -46,17 +46,18 @@ stories.add('Default', () => (
               label: 'Edit',
               icon: 'edit',
               onClick: action('Edit'),
+              iconColor: select('Icon Color', iconColors, 'currentColor'),
             },
             {
               label: 'Delete',
               icon: 'delete',
               onClick: action('Delete'),
+              iconColor: select('Icon Color', iconColors, 'currentColor'),
             },
           ]}
           menuTheme={select('Menu Theme', menuThemes, 'dark')}
           menuPosition={select('Menu Position', { left: 'Left', right: 'Right' }, 'left')}
           menuFooter={text('Menu Footer', 'Some footer text')}
-          iconColor={select('Icon Color', iconColors, 'currentColor')}
         />
       </div>
     </Row>

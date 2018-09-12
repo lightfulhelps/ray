@@ -104,7 +104,6 @@ var Icon = (_temp2 = _class = function (_Component) {
   className: _propTypes2.default.string,
   color: _propTypes2.default.string,
   hoverColor: _propTypes2.default.string,
-  iconColor: _propTypes2.default.string,
   name: function name() {
     return (typeof _icons.bpfrpt_proptype_IconNameType === 'function' ? _icons.bpfrpt_proptype_IconNameType.isRequired ? _icons.bpfrpt_proptype_IconNameType.isRequired : _icons.bpfrpt_proptype_IconNameType : _propTypes2.default.shape(_icons.bpfrpt_proptype_IconNameType).isRequired).apply(this, arguments);
   },

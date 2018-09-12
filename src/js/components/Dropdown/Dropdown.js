@@ -10,7 +10,6 @@ type Props = {
   buttonSize?: 'lg' | 'md' | 'sm',
   buttonTheme?: 'light' | 'dark',
   className?: string,
-  iconColor?: string,
   menuFooter?: string,
   menuItems: DropdownItemType[],
   menuPosition?: 'left' | 'right',
@@ -64,7 +63,6 @@ class Dropdown extends React.Component<Props, State> {
       menuItems,
       menuPosition = 'left',
       menuTheme = 'dark',
-      iconColor,
       ...other
     } = this.props;
     const classes = classNames(className, 'dropdown', 'd-inline-block');
@@ -91,7 +89,6 @@ class Dropdown extends React.Component<Props, State> {
           onClick={this.handleMenuClick}
           position={menuPosition}
           theme={menuTheme}
-          iconColor={iconColor}
         />
       </div>
     );
