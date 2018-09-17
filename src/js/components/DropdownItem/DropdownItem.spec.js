@@ -1,7 +1,7 @@
 import React from 'react';
 import merge from 'lodash/merge';
 import { shallow } from 'enzyme';
-import DropdownItem from './DropdownItem';
+import { DropdownItem, Icon } from '../../';
 
 const setup = (overrides = {}) => {
   const props = merge(
@@ -30,11 +30,17 @@ describe('<DropdownItem />', () => {
   it('should render icon if valid icon name is provided', () => {
     const { wrapper } = setup({ icon: null });
 
-    expect(wrapper.find('Icon')).toHaveLength(0);
+    expect(wrapper.find(Icon)).toHaveLength(0);
 
     wrapper.setProps({ icon: 'addMedia' });
 
-    expect(wrapper.find('Icon')).toHaveLength(1);
+    expect(wrapper.find(Icon)).toHaveLength(1);
+  });
+
+  it('should pass iconColor to the Icon component', () => {
+    const { wrapper } = setup({ icon: 'edit', iconColor: '#ff0000' });
+
+    expect(wrapper.find(Icon).prop('color')).toEqual('#ff0000');
   });
 
   it('should use onClick prop', () => {
