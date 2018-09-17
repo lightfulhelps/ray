@@ -44,12 +44,14 @@ var Button = function Button(_ref) {
       Tag = _ref$tag === undefined ? 'button' : _ref$tag,
       _ref$theme = _ref.theme,
       theme = _ref$theme === undefined ? 'primary' : _ref$theme,
-      other = _objectWithoutProperties(_ref, ['children', 'className', 'icon', 'iconPosition', 'isBlock', 'isDisabled', 'isOutline', 'onClick', 'size', 'tag', 'theme']);
+      _ref$type = _ref.type,
+      type = _ref$type === undefined ? 'button' : _ref$type,
+      other = _objectWithoutProperties(_ref, ['children', 'className', 'icon', 'iconPosition', 'isBlock', 'isDisabled', 'isOutline', 'onClick', 'size', 'tag', 'theme', 'type']);
 
   var classes = (0, _classnames2.default)(className, 'btn', 'btn' + (isOutline ? '-outline' : '') + '-' + theme, size ? 'btn-' + size : false, { 'btn-block': isBlock }, { disabled: isDisabled }, { 'btn-icon': icon && !children }, _defineProperty({}, 'btn-icon-' + iconPosition, icon && children));
   return React.createElement(
     Tag,
-    _extends({}, other, { className: classes, onClick: onClick }),
+    _extends({}, other, { className: classes, onClick: onClick, type: type }),
     children,
     icon && React.createElement(_Icon2.default, { name: icon })
   );

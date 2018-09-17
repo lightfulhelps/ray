@@ -123,6 +123,16 @@ describe('<Button />', () => {
     expect(wrapper.hasClass('btn-secondary')).toBe(true);
   });
 
+  it('should handle the type prop', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.prop('type')).toEqual('button');
+
+    wrapper.setProps({ type: 'submit' });
+
+    expect(wrapper.prop('type')).toEqual('submit');
+  });
+
   it('should handle the iconPosition prop', () => {
     const { wrapper } = setup({ icon: 'create' });
 

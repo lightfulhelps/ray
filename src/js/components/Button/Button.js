@@ -16,6 +16,7 @@ type Props = {
   size?: 'lg' | 'md' | 'sm',
   tag?: string,
   theme?: string,
+  type?: 'button' | 'submit' | 'reset',
 };
 
 const Button = ({
@@ -30,6 +31,7 @@ const Button = ({
   size,
   tag: Tag = 'button',
   theme = 'primary',
+  type = 'button',
   ...other
 }: Props) => {
   const classes = classNames(
@@ -43,7 +45,7 @@ const Button = ({
     { [`btn-icon-${iconPosition}`]: icon && children }
   );
   return (
-    <Tag {...other} className={classes} onClick={onClick}>
+    <Tag {...other} className={classes} onClick={onClick} type={type}>
       {children}
       {icon && <Icon name={icon} />}
     </Tag>
