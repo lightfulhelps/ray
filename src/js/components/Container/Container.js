@@ -3,7 +3,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 type Props = {
-  children: React.ChildrenArray<React.Element<any>>,
+  children: React.Node,
   className?: string,
   isFluid?: boolean,
   tag?: string,

@@ -1,16 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
-import { DropdownMenu, DropdownItem } from '../../';
+import { DropdownMenu } from '../../';
 
 const setup = (overrides = {}) => {
   const props = merge(
     {
-      items: [
-        { icon: 'edit', label: 'Edit', onClick: jest.fn() },
-        { icon: 'delete', label: 'Delete', onClick: jest.fn() },
-      ],
-      footer: 'Test',
+      children: 'Children',
+      footer: 'Footer',
     },
     overrides
   );
@@ -24,6 +21,17 @@ describe('<DropdownMenu />', () => {
     const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should handle the children prop', () => {
+    const { wrapper } = setup();
+
+    expect(
+      wrapper
+        .children()
+        .at(0)
+        .text()
+    ).toEqual('Children');
   });
 
   it('should handle className', () => {
@@ -53,14 +61,6 @@ describe('<DropdownMenu />', () => {
     expect(wrapper.find('.dropdown-footer').text()).toEqual('Test');
   });
 
-  it('should handle the items prop', () => {
-    const { wrapper } = setup({
-      items: [{ icon: 'repost', label: 'Reschedule' }, { icon: 'like', label: 'Like' }],
-    });
-
-    expect(wrapper.find(DropdownItem)).toHaveLength(2);
-  });
-
   it('should handle the isOpen prop', () => {
     const { wrapper } = setup();
 
@@ -80,6 +80,14 @@ describe('<DropdownMenu />', () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
+  it('should not error if onClick is not a function', () => {
+    const { wrapper } = setup({ onClick: 'foo' });
+
+    expect(() => {
+      wrapper.simulate('click');
+    }).not.toThrowError();
+  });
+
   it('should handle the position prop', () => {
     const { wrapper } = setup();
 
@@ -88,6 +96,16 @@ describe('<DropdownMenu />', () => {
     wrapper.setProps({ position: 'right' });
 
     expect(wrapper.find('.dropdown-menu').hasClass('dropdown-menu-right')).toBe(true);
+  });
+
+  it('should handle the tag prop', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.type()).toBe('div');
+
+    wrapper.setProps({ tag: 'a' });
+
+    expect(wrapper.type()).toBe('a');
   });
 
   it('should handle the theme prop', () => {

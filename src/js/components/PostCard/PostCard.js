@@ -4,8 +4,19 @@ import classNames from 'classnames';
 import Dotdotdot from 'react-dotdotdot';
 import formatDate from 'date-fns/format';
 import isFuture from 'date-fns/is_future';
-import { Card, Avatar, Badge, Icon, PostMedia, URLMetaPreview, Dropdown } from '../../';
-import type { DropdownItemType } from '../DropdownItem/DropdownItem';
+import {
+  Card,
+  Avatar,
+  Badge,
+  Icon,
+  PostMedia,
+  URLMetaPreview,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
+  Button,
+} from '../../';
+import { type IconNameType } from '../Icon/icons';
 
 type InspirationActionType = {
   activeColor?: string,
@@ -43,8 +54,14 @@ type PostType = {
   title: string,
 };
 
+type PostActionType = {
+  icon?: IconNameType,
+  label: string,
+  onClick: () => void,
+};
+
 type Props = {
-  actions?: DropdownItemType[],
+  actions?: PostActionType[],
   className?: string,
   dateFormat?: string,
   footerButton?: React.Element<any>,
@@ -110,10 +127,24 @@ const PostCard = ({
         </div>
         {actions.length > 0 && (
           <Dropdown
-            buttonSize="sm"
-            menuItems={actions}
-            menuPosition="right"
-            menuFooter={post.creator ? `Creator: ${post.creator}` : null}
+            render={(isOpen, onToggle) => (
+              <React.Fragment>
+                <Button icon="menu" onClick={onToggle} size="sm" theme="light" />
+                <DropdownMenu
+                  isOpen={isOpen}
+                  onClick={onToggle}
+                  position="right"
+                  footer={post.creator ? `Creator: ${post.creator}` : null}
+                >
+                  {actions.map((action, i) => (
+                    <DropdownItem key={i} onClick={action.onClick}>
+                      {action.icon && <Icon name={action.icon} className="mr-1" />}
+                      {action.label}
+                    </DropdownItem>
+                  ))}
+                </DropdownMenu>
+              </React.Fragment>
+            )}
           />
         )}
       </div>

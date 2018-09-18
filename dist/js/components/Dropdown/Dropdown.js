@@ -18,12 +18,6 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _ = require('../../');
-
-var _DropdownItem = require('../DropdownItem/DropdownItem');
-
-var _icons = require('../Icon/icons');
-
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -56,14 +50,14 @@ var Dropdown = (_temp2 = _class = function (_React$Component) {
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Dropdown.__proto__ || Object.getPrototypeOf(Dropdown)).call.apply(_ref, [this].concat(args))), _this), _this.node = null, _this.state = {
       isOpen: false
+    }, _this.handleToggle = function () {
+      _this.setState({ isOpen: !_this.state.isOpen });
     }, _this.handleDocumentClick = function (e) {
       if (!e || e && !e.target || _this.node && _this.node.contains(e.target) && _this.node !== e.target) {
         return;
       }
 
       _this.setState({ isOpen: false });
-    }, _this.handleMenuClick = function () {
-      return _this.setState({ isOpen: false });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -78,32 +72,17 @@ var Dropdown = (_temp2 = _class = function (_React$Component) {
       document.removeEventListener('click', this.handleDocumentClick, true);
     }
   }, {
-    key: 'handleDropdown',
-    value: function handleDropdown() {
-      this.setState({ isOpen: !this.state.isOpen });
-    }
-  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
 
       var _props = this.props,
-          _props$buttonIcon = _props.buttonIcon,
-          buttonIcon = _props$buttonIcon === undefined ? 'menu' : _props$buttonIcon,
-          _props$buttonSize = _props.buttonSize,
-          buttonSize = _props$buttonSize === undefined ? 'sm' : _props$buttonSize,
-          _props$buttonTheme = _props.buttonTheme,
-          buttonTheme = _props$buttonTheme === undefined ? 'light' : _props$buttonTheme,
           className = _props.className,
-          menuFooter = _props.menuFooter,
-          menuItems = _props.menuItems,
-          _props$menuPosition = _props.menuPosition,
-          menuPosition = _props$menuPosition === undefined ? 'left' : _props$menuPosition,
-          _props$menuTheme = _props.menuTheme,
-          menuTheme = _props$menuTheme === undefined ? 'dark' : _props$menuTheme,
-          other = _objectWithoutProperties(_props, ['buttonIcon', 'buttonSize', 'buttonTheme', 'className', 'menuFooter', 'menuItems', 'menuPosition', 'menuTheme']);
+          render = _props.render,
+          other = _objectWithoutProperties(_props, ['className', 'render']);
 
-      var classes = (0, _classnames2.default)(className, 'dropdown', 'd-inline-block');
+      var classes = (0, _classnames2.default)(className, 'dropdown');
+
       return React.createElement(
         'div',
         _extends({}, other, {
@@ -112,41 +91,14 @@ var Dropdown = (_temp2 = _class = function (_React$Component) {
             _this2.node = node;
           }
         }),
-        React.createElement(_.Button, {
-          onClick: function onClick() {
-            return _this2.handleDropdown();
-          },
-          icon: buttonIcon,
-          'aria-haspopup': 'true',
-          'aria-expanded': this.state.isOpen,
-          size: buttonSize,
-          theme: buttonTheme
-        }),
-        React.createElement(_.DropdownMenu, {
-          footer: menuFooter,
-          items: menuItems,
-          isOpen: this.state.isOpen,
-          onClick: this.handleMenuClick,
-          position: menuPosition,
-          theme: menuTheme
-        })
+        render(this.state.isOpen, this.handleToggle)
       );
     }
   }]);
 
   return Dropdown;
 }(React.Component), _class.propTypes = {
-  buttonIcon: function buttonIcon() {
-    return (typeof _icons.bpfrpt_proptype_IconNameType === 'function' ? _icons.bpfrpt_proptype_IconNameType : _propTypes2.default.shape(_icons.bpfrpt_proptype_IconNameType)).apply(this, arguments);
-  },
-  buttonSize: _propTypes2.default.oneOf(['lg', 'md', 'sm']),
-  buttonTheme: _propTypes2.default.oneOf(['light', 'dark']),
   className: _propTypes2.default.string,
-  menuFooter: _propTypes2.default.string,
-  menuItems: _propTypes2.default.arrayOf(function () {
-    return (typeof _DropdownItem.bpfrpt_proptype_DropdownItemType === 'function' ? _DropdownItem.bpfrpt_proptype_DropdownItemType.isRequired ? _DropdownItem.bpfrpt_proptype_DropdownItemType.isRequired : _DropdownItem.bpfrpt_proptype_DropdownItemType : _propTypes2.default.shape(_DropdownItem.bpfrpt_proptype_DropdownItemType).isRequired).apply(this, arguments);
-  }).isRequired,
-  menuPosition: _propTypes2.default.oneOf(['left', 'right']),
-  menuTheme: _propTypes2.default.oneOf(['light', 'dark'])
+  render: _propTypes2.default.func.isRequired
 }, _temp2);
 exports.default = Dropdown;

@@ -1,26 +1,26 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import { DropdownItem } from '../../';
-import { type DropdownItemType } from '../DropdownItem/DropdownItem';
 
 type Props = {
+  children: React.Node,
   className?: string,
   footer?: string,
   isOpen: boolean,
-  items: DropdownItemType[],
-  onClick?: () => void,
+  onClick?: (SyntheticMouseEvent<>) => void,
   position?: 'left' | 'right',
+  tag?: string,
   theme?: 'light' | 'dark',
 };
 
 const DropdownMenu = ({
+  children,
   className,
   footer,
-  items,
   isOpen,
-  onClick = () => {},
+  onClick,
   position = 'left',
+  tag: Tag = 'div',
   theme = 'light',
   ...other
 }: Props) => {
@@ -32,19 +32,17 @@ const DropdownMenu = ({
     { show: isOpen }
   );
 
+  function handleClick(e: SyntheticMouseEvent<>) {
+    if (typeof onClick === 'function') {
+      onClick(e);
+    }
+  }
+
   return (
-    <div {...other} className={classes} onClick={onClick}>
-      {items.map((item, i) => (
-        <DropdownItem
-          key={i}
-          label={item.label}
-          icon={item.icon}
-          iconColor={item.iconColor}
-          onClick={item.onClick}
-        />
-      ))}
+    <Tag {...other} className={classes} onClick={handleClick}>
+      {children}
       {footer && <div className="dropdown-footer">{footer}</div>}
-    </div>
+    </Tag>
   );
 };
 

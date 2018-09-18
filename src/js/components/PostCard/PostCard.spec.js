@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
 import addDays from 'date-fns/add_days';
-import { PostCard, PostMedia, URLMetaPreview, Icon, Button, Dropdown } from '../../';
+import { PostCard, PostMedia, URLMetaPreview, Icon, Button, Dropdown, DropdownMenu } from '../../';
 
 const setup = (overrides = {}) => {
   const props = merge(
@@ -166,7 +166,13 @@ describe('<PostCard />', () => {
   it('should pass post creator to Dropdown', () => {
     const { wrapper } = setup({ post: { creator: 'Bruno' }, actions: [{ label: 'Edit' }] });
 
-    expect(wrapper.find(Dropdown).prop('menuFooter')).toEqual('Creator: Bruno');
+    expect(
+      wrapper
+        .find(Dropdown)
+        .dive()
+        .find(DropdownMenu)
+        .prop('footer')
+    ).toEqual('Creator: Bruno');
   });
 
   it('should set HTML in the post content', () => {

@@ -2,35 +2,6 @@
 
 exports[`<Dropdown /> should render 1`] = `
 <div
-  className="dropdown d-inline-block"
->
-  <Button
-    aria-expanded={false}
-    aria-haspopup="true"
-    icon="menu"
-    onClick={[Function]}
-    size="sm"
-    theme="light"
-  />
-  <DropdownMenu
-    isOpen={false}
-    items={
-      Array [
-        Object {
-          "icon": "edit",
-          "label": "Edit",
-          "onClick": [MockFunction],
-        },
-        Object {
-          "icon": "delete",
-          "label": "Delete",
-          "onClick": [MockFunction],
-        },
-      ]
-    }
-    onClick={[Function]}
-    position="left"
-    theme="dark"
-  />
-</div>
+  className="dropdown"
+/>
 `;

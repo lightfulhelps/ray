@@ -14,10 +14,6 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _ = require('../../');
-
-var _DropdownItem = require('../DropdownItem/DropdownItem');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
@@ -25,32 +21,31 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 var DropdownMenu = function DropdownMenu(_ref) {
-  var className = _ref.className,
+  var children = _ref.children,
+      className = _ref.className,
       footer = _ref.footer,
-      items = _ref.items,
       isOpen = _ref.isOpen,
-      _ref$onClick = _ref.onClick,
-      onClick = _ref$onClick === undefined ? function () {} : _ref$onClick,
+      onClick = _ref.onClick,
       _ref$position = _ref.position,
       position = _ref$position === undefined ? 'left' : _ref$position,
+      _ref$tag = _ref.tag,
+      Tag = _ref$tag === undefined ? 'div' : _ref$tag,
       _ref$theme = _ref.theme,
       theme = _ref$theme === undefined ? 'light' : _ref$theme,
-      other = _objectWithoutProperties(_ref, ['className', 'footer', 'items', 'isOpen', 'onClick', 'position', 'theme']);
+      other = _objectWithoutProperties(_ref, ['children', 'className', 'footer', 'isOpen', 'onClick', 'position', 'tag', 'theme']);
 
   var classes = (0, _classnames2.default)(className, 'dropdown-menu', 'dropdown-menu-' + theme, 'dropdown-menu-' + position, { show: isOpen });
 
+  function handleClick(e) {
+    if (typeof onClick === 'function') {
+      onClick(e);
+    }
+  }
+
   return React.createElement(
-    'div',
-    _extends({}, other, { className: classes, onClick: onClick }),
-    items.map(function (item, i) {
-      return React.createElement(_.DropdownItem, {
-        key: i,
-        label: item.label,
-        icon: item.icon,
-        iconColor: item.iconColor,
-        onClick: item.onClick
-      });
-    }),
+    Tag,
+    _extends({}, other, { className: classes, onClick: handleClick }),
+    children,
     footer && React.createElement(
       'div',
       { className: 'dropdown-footer' },

@@ -89,9 +89,7 @@ var Col = function Col(props) {
 };
 
 Col.propTypes = {
-  children: function children() {
-    return (typeof (React.ChildrenArray == null ? {} : React.ChildrenArray) === 'function' ? _propTypes2.default.instanceOf(React.ChildrenArray == null ? {} : React.ChildrenArray).isRequired : _propTypes2.default.any.isRequired).apply(this, arguments);
-  },
+  children: _propTypes2.default.node.isRequired,
   className: _propTypes2.default.string,
 
   // eslint-disable-next-line react/no-unused-prop-types

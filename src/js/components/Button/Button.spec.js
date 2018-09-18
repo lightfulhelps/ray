@@ -77,14 +77,6 @@ describe('<Button />', () => {
     expect(wrapper.hasClass('btn-outline-primary')).toBe(true);
   });
 
-  it('should call onClick', () => {
-    const { wrapper, props } = setup();
-
-    wrapper.simulate('click');
-
-    expect(props.onClick).toHaveBeenCalledTimes(1);
-  });
-
   it('should handle the size prop', () => {
     const { wrapper } = setup();
 
@@ -123,14 +115,20 @@ describe('<Button />', () => {
     expect(wrapper.hasClass('btn-secondary')).toBe(true);
   });
 
-  it('should handle the type prop', () => {
+  it('should default the type prop to button if Tag is button', () => {
     const { wrapper } = setup();
+
+    wrapper.setProps({ tag: 'button' });
 
     expect(wrapper.prop('type')).toEqual('button');
 
     wrapper.setProps({ type: 'submit' });
 
     expect(wrapper.prop('type')).toEqual('submit');
+
+    wrapper.setProps({ tag: 'a' });
+
+    expect(wrapper.prop('type')).toEqual(undefined);
   });
 
   it('should handle the iconPosition prop', () => {
@@ -152,5 +150,39 @@ describe('<Button />', () => {
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');
+  });
+
+  describe('onClick', () => {
+    it('should call onClick with data provided', () => {
+      const { wrapper, props } = setup();
+
+      wrapper.simulate('click', { foo: 'bar' });
+
+      expect(props.onClick).toHaveBeenCalledTimes(1);
+      expect(props.onClick).toHaveBeenCalledWith({ foo: 'bar' });
+    });
+
+    it('should preventDefault if isDisabled', () => {
+      const preventDefault = jest.fn();
+      const { wrapper } = setup();
+
+      wrapper.simulate('click');
+
+      expect(preventDefault).not.toHaveBeenCalled();
+
+      wrapper.setProps({ isDisabled: true });
+
+      wrapper.simulate('click', { preventDefault });
+
+      expect(preventDefault).toHaveBeenCalledTimes(1);
+    });
+
+    it('should not error if onClick is not a function', () => {
+      const { wrapper } = setup({ onClick: 'foo' });
+
+      expect(() => {
+        wrapper.simulate('click');
+      }).not.toThrowError();
+    });
   });
 });

@@ -4928,6 +4928,8 @@ a.text-dark:hover, a.text-dark:focus {
   overflow: hidden; }
 
 .dropdown-item {
+  display: flex;
+  align-items: center;
   font-weight: 300;
   border-bottom: 1px solid #e9ecef;
   line-height: 1; }

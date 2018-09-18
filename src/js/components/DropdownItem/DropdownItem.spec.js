@@ -1,13 +1,12 @@
 import React from 'react';
 import merge from 'lodash/merge';
 import { shallow } from 'enzyme';
-import { DropdownItem, Icon } from '../../';
+import { DropdownItem } from '../../';
 
 const setup = (overrides = {}) => {
   const props = merge(
     {
-      icon: 'edit',
-      label: 'Edit',
+      children: 'Test',
       onClick: jest.fn(),
     },
     overrides
@@ -27,27 +26,83 @@ describe('<DropdownItem />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should render icon if valid icon name is provided', () => {
-    const { wrapper } = setup({ icon: null });
+  it('should handle the children prop', () => {
+    const { wrapper } = setup();
 
-    expect(wrapper.find(Icon)).toHaveLength(0);
-
-    wrapper.setProps({ icon: 'addMedia' });
-
-    expect(wrapper.find(Icon)).toHaveLength(1);
+    expect(wrapper.children().text()).toEqual('Test');
   });
 
-  it('should pass iconColor to the Icon component', () => {
-    const { wrapper } = setup({ icon: 'edit', iconColor: '#ff0000' });
+  it('should handle the className prop', () => {
+    const { wrapper } = setup();
 
-    expect(wrapper.find(Icon).prop('color')).toEqual('#ff0000');
+    wrapper.setProps({ className: 'custom' });
+
+    expect(wrapper.hasClass('dropdown-item')).toBe(true);
+    expect(wrapper.hasClass('custom')).toBe(true);
   });
 
-  it('should use onClick prop', () => {
-    const { wrapper, props } = setup();
+  it('should handle the isActive prop', () => {
+    const { wrapper } = setup({ isActive: true });
 
-    wrapper.simulate('click');
+    expect(wrapper.hasClass('dropdown-item')).toBe(true);
+    expect(wrapper.hasClass('active')).toBe(true);
+  });
 
-    expect(props.onClick).toHaveBeenCalledTimes(1);
+  it('should handle the isDisabled prop', () => {
+    const { wrapper } = setup({ isDisabled: true });
+
+    expect(wrapper.hasClass('dropdown-item')).toBe(true);
+    expect(wrapper.hasClass('disabled')).toBe(true);
+  });
+
+  it('should handle the isHeader prop', () => {
+    const { wrapper } = setup({ isHeader: true });
+
+    expect(wrapper.hasClass('dropdown-item')).toBe(false);
+    expect(wrapper.hasClass('dropdown-header')).toBe(true);
+  });
+
+  it('should handle the tag prop', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.type()).toBe('div');
+
+    wrapper.setProps({ tag: 'a' });
+
+    expect(wrapper.type()).toBe('a');
+  });
+
+  describe('onClick', () => {
+    it('should call onClick with data provided', () => {
+      const { wrapper, props } = setup();
+
+      wrapper.simulate('click', { foo: 'bar' });
+
+      expect(props.onClick).toHaveBeenCalledTimes(1);
+      expect(props.onClick).toHaveBeenCalledWith({ foo: 'bar' });
+    });
+
+    it('should preventDefault if isDisabled', () => {
+      const preventDefault = jest.fn();
+      const { wrapper } = setup();
+
+      wrapper.simulate('click');
+
+      expect(preventDefault).not.toHaveBeenCalled();
+
+      wrapper.setProps({ isDisabled: true });
+
+      wrapper.simulate('click', { preventDefault });
+
+      expect(preventDefault).toHaveBeenCalledTimes(1);
+    });
+
+    it('should not error if onClick is not a function', () => {
+      const { wrapper } = setup({ onClick: 'foo' });
+
+      expect(() => {
+        wrapper.simulate('click');
+      }).not.toThrowError();
+    });
   });
 });

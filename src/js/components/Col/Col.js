@@ -17,7 +17,7 @@ type ColumnType =
     };
 
 type Props = {
-  children: React.ChildrenArray<React.Element<any>>,
+  children: React.Node,
   className?: string,
   // eslint-disable-next-line react/no-unused-prop-types
   lg?: ColumnType,

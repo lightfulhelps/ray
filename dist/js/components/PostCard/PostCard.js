@@ -28,7 +28,7 @@ var _is_future2 = _interopRequireDefault(_is_future);
 
 var _ = require('../../');
 
-var _DropdownItem = require('../DropdownItem/DropdownItem');
+var _icons = require('../Icon/icons');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -91,10 +91,30 @@ var PostCard = function PostCard(_ref) {
         )
       ),
       actions.length > 0 && React.createElement(_.Dropdown, {
-        buttonSize: 'sm',
-        menuItems: actions,
-        menuPosition: 'right',
-        menuFooter: post.creator ? 'Creator: ' + post.creator : null
+        render: function render(isOpen, onToggle) {
+          return React.createElement(
+            React.Fragment,
+            null,
+            React.createElement(_.Button, { icon: 'menu', onClick: onToggle, size: 'sm', theme: 'light' }),
+            React.createElement(
+              _.DropdownMenu,
+              {
+                isOpen: isOpen,
+                onClick: onToggle,
+                position: 'right',
+                footer: post.creator ? 'Creator: ' + post.creator : null
+              },
+              actions.map(function (action, i) {
+                return React.createElement(
+                  _.DropdownItem,
+                  { key: i, onClick: action.onClick },
+                  action.icon && React.createElement(_.Icon, { name: action.icon, className: 'mr-1' }),
+                  action.label
+                );
+              })
+            )
+          );
+        }
       })
     ),
     React.createElement(

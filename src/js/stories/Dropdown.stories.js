@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { select } from '@storybook/addon-knobs/dist/vue';
-import { Container, Row, Dropdown } from '../';
+import { Container, Row, Dropdown, DropdownMenu, DropdownItem, Button, Icon } from '../';
 
 import '../../scss/ray.scss';
 
@@ -10,27 +10,14 @@ const stories = storiesOf('Dropdown', module);
 
 stories.addDecorator(withKnobs);
 
-const buttonSizes = {
-  lg: 'Large',
-  md: 'Medium',
-  sm: 'Small',
-};
-
-const buttonThemes = {
-  light: 'Light',
-  dark: 'Dark',
-};
-
 const menuThemes = {
   light: 'Light',
   dark: 'Dark',
 };
 
-const iconColors = {
-  currentColor: 'Default',
-  '#5586ed': 'Facebook',
-  '#1dcaff': 'Twitter',
-  '#1c87bf': 'LinkedIn',
+const menuPositions = {
+  left: 'Left',
+  right: 'Right',
 };
 
 stories.add('Default', () => (
@@ -39,25 +26,48 @@ stories.add('Default', () => (
     <Row>
       <div className="col-6">
         <Dropdown
-          buttonSize={select('Button Size', buttonSizes, 'sm')}
-          buttonTheme={select('Button Theme', buttonThemes, 'light')}
-          menuItems={[
-            {
-              label: 'Edit',
-              icon: 'edit',
-              onClick: action('Edit'),
-              iconColor: select('Icon Color', iconColors, 'currentColor'),
-            },
-            {
-              label: 'Delete',
-              icon: 'delete',
-              onClick: action('Delete'),
-              iconColor: select('Icon Color', iconColors, 'currentColor'),
-            },
-          ]}
-          menuTheme={select('Menu Theme', menuThemes, 'dark')}
-          menuPosition={select('Menu Position', { left: 'Left', right: 'Right' }, 'left')}
-          menuFooter={text('Menu Footer', 'Some footer text')}
+          render={(isOpen, onToggle) => (
+            <React.Fragment>
+              <Button onClick={onToggle} icon="menu" iconPosition="right">
+                Dropdown
+              </Button>
+              <DropdownMenu
+                isOpen={isOpen}
+                onClick={onToggle}
+                position={select('Menu Position', menuPositions, 'left')}
+                theme={select('Menu Theme', menuThemes, 'light')}
+              >
+                <DropdownItem isHeader>Header</DropdownItem>
+                <DropdownItem onClick={action('Edit')}>
+                  <Icon className="mr-1" name="edit" />
+                  Edit
+                </DropdownItem>
+                <DropdownItem isDisabled onClick={action('Edit')}>
+                  <Icon className="mr-1" name="edit" />
+                  Disabled
+                </DropdownItem>
+              </DropdownMenu>
+            </React.Fragment>
+          )}
+        />
+      </div>
+      <div className="col-6">
+        <Dropdown
+          render={(isOpen, onToggle) => (
+            <React.Fragment>
+              <Button icon="menu" theme="light" onClick={onToggle} />
+              <DropdownMenu
+                isOpen={isOpen}
+                onClick={onToggle}
+                position={select('Menu Position', menuPositions, 'left')}
+                theme={select('Menu Theme', menuThemes, 'light')}
+                footer={text('Menu Footer', 'Created by: Bruno')}
+              >
+                <DropdownItem onClick={action('Edit')}>Edit</DropdownItem>
+                <DropdownItem onClick={action('Delete')}>Delete</DropdownItem>
+              </DropdownMenu>
+            </React.Fragment>
+          )}
         />
       </div>
     </Row>

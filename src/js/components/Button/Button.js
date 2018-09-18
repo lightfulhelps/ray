@@ -5,14 +5,14 @@ import Icon from '../Icon/Icon';
 import type { IconNameType } from '../Icon/icons';
 
 type Props = {
-  children?: string,
+  children?: React.Node,
   className?: string,
   icon?: IconNameType,
   iconPosition?: 'left' | 'right',
   isBlock?: boolean,
   isDisabled?: boolean,
   isOutline?: boolean,
-  onClick?: () => void,
+  onClick?: (SyntheticMouseEvent<>) => void,
   size?: 'lg' | 'md' | 'sm',
   tag?: string,
   theme?: string,
@@ -27,7 +27,7 @@ const Button = ({
   isBlock,
   isDisabled,
   isOutline,
-  onClick = () => {},
+  onClick,
   size,
   tag: Tag = 'button',
   theme = 'primary',
@@ -44,8 +44,23 @@ const Button = ({
     { 'btn-icon': icon && !children },
     { [`btn-icon-${iconPosition}`]: icon && children }
   );
+
+  function handleClick(e: SyntheticMouseEvent<>) {
+    if (isDisabled) {
+      e.preventDefault();
+      return;
+    }
+
+    if (typeof onClick === 'function') onClick(e);
+  }
+
   return (
-    <Tag {...other} className={classes} onClick={onClick} type={type}>
+    <Tag
+      {...other}
+      className={classes}
+      onClick={handleClick}
+      type={Tag === 'button' ? type : undefined}
+    >
       {children}
       {icon && <Icon name={icon} />}
     </Tag>

@@ -1,28 +1,49 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import { Icon } from '../../';
-import type { IconNameType } from '../Icon/icons';
 
-export type DropdownItemType = {
-  icon?: IconNameType,
-  iconColor?: string,
-  label: string,
-  onClick?: () => void,
-};
-
-type Props = DropdownItemType & {
+export type Props = {
+  children: React.Node,
   className?: string,
+  isActive?: boolean,
+  isDisabled?: boolean,
+  isHeader?: boolean,
+  onClick?: (SyntheticMouseEvent<>) => void,
+  tag?: string,
 };
 
-const DropdownItem = ({ className, label, icon, iconColor, onClick = () => {} }: Props) => {
-  const classes = classNames(className, 'dropdown-item');
+const DropdownItem = ({
+  children,
+  className,
+  isActive,
+  isDisabled,
+  isHeader,
+  onClick,
+  tag: Tag = 'div',
+  ...other
+}: Props) => {
+  const classes = classNames(
+    className,
+    { 'dropdown-item': !isHeader },
+    { 'dropdown-header': isHeader },
+    { active: isActive },
+    { disabled: isDisabled },
+    { 'cursor-pointer': onClick && !isDisabled }
+  );
+
+  function handleClick(e: SyntheticMouseEvent<>) {
+    if (isDisabled) {
+      e.preventDefault();
+      return;
+    }
+
+    if (typeof onClick === 'function') onClick(e);
+  }
 
   return (
-    <div className={classes} onClick={onClick}>
-      {icon && <Icon name={icon} color={iconColor} className="mr-1" />}
-      <span>{label}</span>
-    </div>
+    <Tag {...other} className={classes} onClick={handleClick}>
+      {children}
+    </Tag>
   );
 };
 

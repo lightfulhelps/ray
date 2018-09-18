@@ -5,22 +5,11 @@ exports[`<DropdownMenu /> should render 1`] = `
   className="dropdown-menu dropdown-menu-light dropdown-menu-left"
   onClick={[Function]}
 >
-  <DropdownItem
-    icon="edit"
-    key="0"
-    label="Edit"
-    onClick={[MockFunction]}
-  />
-  <DropdownItem
-    icon="delete"
-    key="1"
-    label="Delete"
-    onClick={[MockFunction]}
-  />
+  Children
   <div
     className="dropdown-footer"
   >
-    Test
+    Footer
   </div>
 </div>
 `;

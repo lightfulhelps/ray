@@ -37,8 +37,7 @@ var Button = function Button(_ref) {
       isBlock = _ref.isBlock,
       isDisabled = _ref.isDisabled,
       isOutline = _ref.isOutline,
-      _ref$onClick = _ref.onClick,
-      onClick = _ref$onClick === undefined ? function () {} : _ref$onClick,
+      onClick = _ref.onClick,
       size = _ref.size,
       _ref$tag = _ref.tag,
       Tag = _ref$tag === undefined ? 'button' : _ref$tag,
@@ -49,9 +48,23 @@ var Button = function Button(_ref) {
       other = _objectWithoutProperties(_ref, ['children', 'className', 'icon', 'iconPosition', 'isBlock', 'isDisabled', 'isOutline', 'onClick', 'size', 'tag', 'theme', 'type']);
 
   var classes = (0, _classnames2.default)(className, 'btn', 'btn' + (isOutline ? '-outline' : '') + '-' + theme, size ? 'btn-' + size : false, { 'btn-block': isBlock }, { disabled: isDisabled }, { 'btn-icon': icon && !children }, _defineProperty({}, 'btn-icon-' + iconPosition, icon && children));
+
+  function handleClick(e) {
+    if (isDisabled) {
+      e.preventDefault();
+      return;
+    }
+
+    if (typeof onClick === 'function') onClick(e);
+  }
+
   return React.createElement(
     Tag,
-    _extends({}, other, { className: classes, onClick: onClick, type: type }),
+    _extends({}, other, {
+      className: classes,
+      onClick: handleClick,
+      type: Tag === 'button' ? type : undefined
+    }),
     children,
     icon && React.createElement(_Icon2.default, { name: icon })
   );

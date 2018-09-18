@@ -113,8 +113,8 @@ stories.add('Default', () => (
             },
           }}
           actions={[
-            { icon: 'edit', label: 'Edit', action: action('Edit') },
-            { icon: 'delete', label: 'Delete', action: action('Delete') },
+            { icon: 'edit', label: 'Edit', onClick: action('Edit') },
+            { icon: 'delete', label: 'Delete', onClick: action('Delete') },
           ]}
           isDraft={boolean('Draft', false)}
           isInvalid={boolean('Invalid', false)}

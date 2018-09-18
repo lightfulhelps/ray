@@ -3,7 +3,7 @@
 exports[`<Button /> should render 1`] = `
 <button
   className="btn btn-primary"
-  onClick={[MockFunction]}
+  onClick={[Function]}
   type="button"
 >
   Click Me
@@ -13,7 +13,7 @@ exports[`<Button /> should render 1`] = `
 exports[`<Button /> should render with an icon 1`] = `
 <button
   className="btn btn-primary btn-icon-left"
-  onClick={[MockFunction]}
+  onClick={[Function]}
   type="button"
 >
   Click Me
