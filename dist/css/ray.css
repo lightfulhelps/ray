@@ -4922,9 +4922,9 @@ a.text-dark:hover, a.text-dark:focus {
   .btn-icon-left {
     flex-direction: row-reverse; }
     .btn-icon-left .icon {
-      margin-right: 0.3125rem; }
+      margin-right: 0.625rem; }
   .btn-icon-right .icon {
-    margin-left: 0.3125rem; }
+    margin-left: 0.625rem; }
 
 .dropdown-menu {
   padding: 0 0;

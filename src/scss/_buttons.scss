@@ -58,13 +58,13 @@
     flex-direction: row-reverse;
 
     .icon {
-      margin-right: $spacer / 2;
+      margin-right: $spacer;
     }
   }
 
   &-right {
     .icon {
-      margin-left: $spacer / 2;
+      margin-left: $spacer;
     }
   }
 }
