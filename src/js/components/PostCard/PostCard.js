@@ -131,10 +131,11 @@ const PostCard = ({
               <React.Fragment>
                 <Button icon="menu" onClick={onToggle} size="sm" theme="light" />
                 <DropdownMenu
+                  footer={post.creator ? `Creator: ${post.creator}` : null}
                   isOpen={isOpen}
                   onClick={onToggle}
                   position="right"
-                  footer={post.creator ? `Creator: ${post.creator}` : null}
+                  theme="dark"
                 >
                   {actions.map((action, i) => (
                     <DropdownItem key={i} onClick={action.onClick}>

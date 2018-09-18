@@ -99,10 +99,11 @@ var PostCard = function PostCard(_ref) {
             React.createElement(
               _.DropdownMenu,
               {
+                footer: post.creator ? 'Creator: ' + post.creator : null,
                 isOpen: isOpen,
                 onClick: onToggle,
                 position: 'right',
-                footer: post.creator ? 'Creator: ' + post.creator : null
+                theme: 'dark'
               },
               actions.map(function (action, i) {
                 return React.createElement(
