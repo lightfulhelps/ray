@@ -6,6 +6,12 @@
 
 .btn-white {
   @include button-variant($white, $white);
+
+  &:hover,
+  &:focus {
+    background-color: $white;
+    border-color: $white;
+  }
 }
 
 @each $color, $value in $grays {

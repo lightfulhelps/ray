@@ -1788,7 +1788,7 @@ input[type="button"].btn-block {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 10rem;
+  min-width: 100%;
   padding: 0 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
@@ -4687,6 +4687,9 @@ a.text-dark:hover, a.text-dark:focus {
     .btn-white:not(:disabled):not(.disabled):active:focus, .btn-white:not(:disabled):not(.disabled).active:focus,
     .show > .btn-white.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5); }
+  .btn-white:hover, .btn-white:focus {
+    background-color: #fff;
+    border-color: #fff; }
 
 .btn-outline-gray-100 {
   color: #f8f9fa;
