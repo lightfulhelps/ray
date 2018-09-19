@@ -4856,6 +4856,10 @@ a.text-dark:hover, a.text-dark:focus {
   .btn-icon-right .icon {
     margin-left: 0.625rem; }
 
+.dropdown-toggle {
+  font-weight: 300;
+  background-color: #fff; }
+
 .dropdown-menu {
   padding: 0 0;
   overflow: hidden; }

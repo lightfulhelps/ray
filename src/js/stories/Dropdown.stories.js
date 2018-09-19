@@ -46,14 +46,17 @@ stories.add('Default', () => (
                 position={select('Menu Position', menuPositions, 'left')}
                 theme={select('Menu Theme', menuThemes, 'light')}
               >
-                <DropdownItem isHeader>Header</DropdownItem>
                 <DropdownItem onClick={action('Edit')}>
                   <Icon className="mr-1" name="edit" />
                   Edit
                 </DropdownItem>
+                <DropdownItem onClick={action('Comment')}>
+                  <Icon className="mr-1" name="comment" />
+                  Comment
+                </DropdownItem>
                 <DropdownItem isDisabled onClick={action('Edit')}>
                   <Icon className="mr-1" name="edit" />
-                  Disabled
+                  Delete
                 </DropdownItem>
               </DropdownMenu>
             </React.Fragment>
@@ -72,8 +75,12 @@ stories.add('Default', () => (
                 theme={select('Menu Theme', menuThemes, 'light')}
                 footer={text('Menu Footer', 'Created by: Bruno')}
               >
-                <DropdownItem onClick={action('Edit')}>Edit</DropdownItem>
-                <DropdownItem onClick={action('Delete')}>Delete</DropdownItem>
+                <DropdownItem isHeader>Header</DropdownItem>
+                <DropdownItem>Option 1</DropdownItem>
+                <DropdownItem>Option 2</DropdownItem>
+                <DropdownItem isHeader>Header</DropdownItem>
+                <DropdownItem>Option 3</DropdownItem>
+                <DropdownItem>Option 4</DropdownItem>
               </DropdownMenu>
             </React.Fragment>
           )}

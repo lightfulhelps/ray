@@ -31,8 +31,10 @@ var DropdownToggle = function DropdownToggle(_ref) {
   var classes = (0, _classnames2.default)(className, 'dropdown-toggle');
 
   return React.createElement(_.Button, _extends({
-    icon: isOpen ? 'chevronUp' : 'chevronDown',
-    iconPosition: 'right'
+    icon: isOpen ? 'caretUp' : 'caretDown',
+    iconPosition: 'right',
+    isOutline: true,
+    theme: 'gray-600'
   }, other, {
     className: classes
   }));

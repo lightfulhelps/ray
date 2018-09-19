@@ -3,7 +3,9 @@
 exports[`<DropdownToggle /> should render 1`] = `
 <Button
   className="dropdown-toggle"
-  icon="chevronDown"
+  icon="caretDown"
   iconPosition="right"
+  isOutline={true}
+  theme="gray-600"
 />
 `;

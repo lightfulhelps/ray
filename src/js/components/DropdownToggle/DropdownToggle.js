@@ -13,8 +13,10 @@ const DropdownToggle = ({ className, isOpen = false, ...other }: Props) => {
 
   return (
     <Button
-      icon={isOpen ? 'chevronUp' : 'chevronDown'}
+      icon={isOpen ? 'caretUp' : 'caretDown'}
       iconPosition="right"
+      isOutline
+      theme="gray-600"
       {...other}
       className={classes}
     />

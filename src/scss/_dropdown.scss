@@ -1,3 +1,8 @@
+.dropdown-toggle {
+  font-weight: $font-weight-light;
+  background-color: $white;
+}
+
 .dropdown-menu {
   padding: $dropdown-padding-y $dropdown-padding-x;
   overflow: hidden;
