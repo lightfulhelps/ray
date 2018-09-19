@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropdownToggle /> should render 1`] = `
+<Button
+  className="dropdown-toggle"
+  icon="chevronDown"
+  iconPosition="right"
+/>
+`;

@@ -2,7 +2,16 @@ import React from 'react';
 import { storiesOf, action } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { select } from '@storybook/addon-knobs/dist/vue';
-import { Container, Row, Dropdown, DropdownMenu, DropdownItem, Button, Icon } from '../';
+import {
+  Container,
+  Row,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
+  DropdownToggle,
+  Button,
+  Icon,
+} from '../';
 
 import '../../scss/ray.scss';
 
@@ -28,9 +37,9 @@ stories.add('Default', () => (
         <Dropdown
           render={(isOpen, onToggle) => (
             <React.Fragment>
-              <Button onClick={onToggle} icon="menu" iconPosition="right">
+              <DropdownToggle isOpen={isOpen} onClick={onToggle}>
                 Dropdown
-              </Button>
+              </DropdownToggle>
               <DropdownMenu
                 isOpen={isOpen}
                 onClick={onToggle}

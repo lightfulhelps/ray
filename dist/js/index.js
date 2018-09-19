@@ -58,6 +58,15 @@ Object.defineProperty(exports, 'DropdownMenu', {
   }
 });
 
+var _DropdownToggle = require('./components/DropdownToggle/DropdownToggle');
+
+Object.defineProperty(exports, 'DropdownToggle', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_DropdownToggle).default;
+  }
+});
+
 var _Card = require('./components/Card/Card');
 
 Object.defineProperty(exports, 'Card', {
