@@ -47,10 +47,12 @@
 
 // Ray Bootstrap modifications and extensions
 @import 'mixins';
+@import 'reboot';
+@import 'type';
+@import 'forms';
 @import 'buttons';
 @import 'dropdown';
-@import 'forms';
-@import 'text';
+@import 'nav';
 @import 'utilities';
 
 // Custom Ray components

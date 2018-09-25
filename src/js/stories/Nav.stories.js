@@ -11,22 +11,26 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">Navs.</h1>
+    <h1 className="my-4">Nav.</h1>
     <Row>
       <Col>
         <Nav
           isFill={boolean('Fill', false)}
           isPills={boolean('Pills', false)}
-          isTabs={boolean('Tabs', false)}
+          isTabs={boolean('Tabs', true)}
         >
           <NavItem>
-            <NavLink isActive>First</NavLink>
+            <NavLink href="#" isActive={boolean('Active Link', true)}>
+              First
+            </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink>Second</NavLink>
+            <NavLink href="#">Second</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink>Third</NavLink>
+            <NavLink href="#" isDisabled={boolean('Disabled Link', true)}>
+              Third
+            </NavLink>
           </NavItem>
         </Nav>
       </Col>

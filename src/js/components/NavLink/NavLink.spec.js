@@ -26,6 +26,36 @@ describe('<NavLink />', () => {
     expect(wrapper.hasClass('custom')).toBe(true);
   });
 
+  it('should handle isActive', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.hasClass('active')).toBe(false);
+
+    wrapper.setProps({ isActive: true });
+
+    expect(wrapper.hasClass('active')).toBe(true);
+  });
+
+  it('should handle isDisabled', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.hasClass('disabled')).toBe(false);
+
+    wrapper.setProps({ isDisabled: true });
+
+    expect(wrapper.hasClass('disabled')).toBe(true);
+  });
+
+  it('should handle the tag prop', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.type()).toBe('a');
+
+    wrapper.setProps({ tag: 'div' });
+
+    expect(wrapper.type()).toBe('div');
+  });
+
   it('should pass through other props', () => {
     const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
