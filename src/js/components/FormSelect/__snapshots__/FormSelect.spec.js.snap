@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormSelect /> should render 1`] = `
+<select
+  className="form-control"
+/>
+`;
