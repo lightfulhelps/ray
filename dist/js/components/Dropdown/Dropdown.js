@@ -78,10 +78,11 @@ var Dropdown = (_temp2 = _class = function (_React$Component) {
 
       var _props = this.props,
           className = _props.className,
+          isBlock = _props.isBlock,
           render = _props.render,
-          other = _objectWithoutProperties(_props, ['className', 'render']);
+          other = _objectWithoutProperties(_props, ['className', 'isBlock', 'render']);
 
-      var classes = (0, _classnames2.default)(className, 'dropdown');
+      var classes = (0, _classnames2.default)(className, 'dropdown', isBlock ? 'd-block' : 'd-inline-block');
 
       return React.createElement(
         'div',
@@ -99,6 +100,7 @@ var Dropdown = (_temp2 = _class = function (_React$Component) {
   return Dropdown;
 }(React.Component), _class.propTypes = {
   className: _propTypes2.default.string,
+  isBlock: _propTypes2.default.bool,
   render: _propTypes2.default.func.isRequired
 }, _temp2);
 exports.default = Dropdown;

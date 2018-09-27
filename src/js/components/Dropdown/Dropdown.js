@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 type Props = {
   className?: string,
+  isBlock?: boolean,
   render: (boolean, () => void) => React.Node,
 };
 
@@ -43,8 +44,8 @@ class Dropdown extends React.Component<Props, State> {
   };
 
   render() {
-    const { className, render, ...other } = this.props;
-    const classes = classNames(className, 'dropdown');
+    const { className, isBlock, render, ...other } = this.props;
+    const classes = classNames(className, 'dropdown', isBlock ? 'd-block' : 'd-inline-block');
 
     return (
       <div

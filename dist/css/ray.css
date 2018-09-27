@@ -1711,7 +1711,7 @@ input[type="button"].btn-block {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.625rem; }
+  border-radius: 0.3125rem; }
 
 .dropdown-menu-right {
   right: 0;
@@ -4834,9 +4834,6 @@ a.text-gray-900:hover, a.text-gray-900:focus {
   .btn-icon-right .icon {
     margin-left: 0.625rem; }
 
-.dropdown {
-  display: inline-block; }
-
 .dropdown-menu {
   min-width: 100%;
   padding: 0 0;
@@ -5133,6 +5130,8 @@ button.bg-gray-900:focus {
   margin-right: 1.25rem;
   margin-bottom: 0;
   margin-left: 1.25rem; }
+  .post-card__header .dropdown-menu {
+    min-width: 190px; }
 
 .post-card__title {
   margin-bottom: 0.2em; }

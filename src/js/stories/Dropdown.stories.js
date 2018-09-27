@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { select } from '@storybook/addon-knobs/dist/vue';
 import {
   Container,
@@ -35,9 +35,10 @@ stories.add('Default', () => (
     <Row>
       <div className="col-6">
         <Dropdown
+          isBlock={boolean('Block', false)}
           render={(isOpen, onToggle) => (
             <React.Fragment>
-              <DropdownToggle isOpen={isOpen} onClick={onToggle}>
+              <DropdownToggle isBlock={boolean('Block', false)} isOpen={isOpen} onClick={onToggle}>
                 Dropdown
               </DropdownToggle>
               <DropdownMenu

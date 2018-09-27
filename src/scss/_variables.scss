@@ -162,7 +162,7 @@ $input-hover-border-color: $gray-500; // Ray
 
 $dropdown-padding-y: 0; // Ray
 $dropdown-padding-x: 0; // Ray
-
+$dropdown-border-radius: $border-radius-sm;
 $dropdown-link-color: $gray-900;
 $dropdown-link-hover-color: darken($gray-900, 5%);
 $dropdown-link-hover-bg: $gray-100;
