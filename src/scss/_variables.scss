@@ -119,6 +119,8 @@ $input-btn-padding-y: $spacer * 1.5;
 $input-btn-padding-x: $spacer * 2;
 $input-btn-line-height: 1;
 
+$input-btn-focus-box-shadow: none;
+
 $input-btn-padding-y-sm: $spacer * 1.1;
 $input-btn-padding-x-sm: $spacer * 2;
 $input-btn-line-height-sm: 1;
@@ -133,8 +135,11 @@ $btn-padding-x: $spacer * 3;
 $btn-padding-x-sm: $spacer * 3;
 $btn-padding-x-lg: $spacer * 4;
 
-$btn-border-radius: $border-radius;
-$btn-border-radius-lg: $border-radius;
+$btn-focus-box-shadow: none;
+$btn-active-box-shadow: none;
+
+$btn-border-radius: $border-radius-sm;
+$btn-border-radius-lg: $border-radius-sm;
 $btn-border-radius-sm: $border-radius-sm;
 
 // Forms

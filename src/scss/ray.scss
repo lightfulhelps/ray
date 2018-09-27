@@ -5,7 +5,8 @@
 // Bootstrap mixins
 @import 'node_modules/bootstrap/scss/mixins';
 
-// Ray variables
+// Ray mixins & variables
+@import 'mixins';
 @import 'variables';
 
 // Bootstrap
@@ -46,7 +47,6 @@
 // @import 'node_modules/bootstrap/scss/print';
 
 // Ray Bootstrap modifications and extensions
-@import 'mixins';
 @import 'reboot';
 @import 'type';
 @import 'forms';

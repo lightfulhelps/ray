@@ -19,6 +19,7 @@ const themes = {
   light: 'Light',
   dark: 'Dark',
   white: 'White',
+  'gray-600': 'Gray 600',
 };
 
 const sizes = {
