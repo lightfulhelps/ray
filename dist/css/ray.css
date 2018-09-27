@@ -1324,7 +1324,7 @@ textarea.form-control {
 
 .btn {
   display: inline-block;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -4836,10 +4836,6 @@ a.text-gray-900:hover, a.text-gray-900:focus {
 
 .dropdown {
   display: inline-block; }
-
-.dropdown-toggle {
-  font-weight: 300;
-  background-color: #fff; }
 
 .dropdown-menu {
   min-width: 100%;
