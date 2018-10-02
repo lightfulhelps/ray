@@ -16,7 +16,7 @@ const Badge = ({
   className,
   color,
   isPill,
-  tag: Tag = 'span',
+  tag: Tag = 'div',
   theme = 'primary',
   ...other
 }: Props) => {
@@ -24,6 +24,8 @@ const Badge = ({
     className,
     'badge',
     'text-uppercase',
+    'text-truncate',
+    'mw-100',
     theme ? `badge-${theme}` : null,
     {
       'badge-pill': isPill,
