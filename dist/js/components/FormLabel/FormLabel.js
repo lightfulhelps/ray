@@ -28,10 +28,15 @@ var FormLabel = function FormLabel(_ref) {
 
   var classes = (0, _classnames2.default)(className, isCheck ? 'form-check-label' : 'form-label');
 
-  return React.createElement(
-    'label',
-    _extends({}, other, { className: classes }),
-    children
+  return (
+    /* eslint-disable jsx-a11y/label-has-associated-control */
+    React.createElement(
+      'label',
+      _extends({}, other, { className: classes }),
+      children
+    )
+    /* eslint-enable jsx-a11y/label-has-associated-control */
+
   );
 };
 
