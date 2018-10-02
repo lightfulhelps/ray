@@ -1,9 +1,5 @@
-.dropdown-toggle {
-  font-weight: $font-weight-light;
-  background-color: $white;
-}
-
 .dropdown-menu {
+  min-width: 100%;
   padding: $dropdown-padding-y $dropdown-padding-x;
   overflow: hidden;
 }

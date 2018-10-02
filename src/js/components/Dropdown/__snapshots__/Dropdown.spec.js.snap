@@ -2,6 +2,6 @@
 
 exports[`<Dropdown /> should render 1`] = `
 <div
-  className="dropdown"
+  className="dropdown d-inline-block"
 />
 `;
