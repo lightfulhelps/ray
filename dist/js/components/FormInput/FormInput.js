@@ -20,26 +20,21 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-var Badge = function Badge(_ref) {
-  var children = _ref.children,
-      className = _ref.className,
-      color = _ref.color,
-      isPill = _ref.isPill,
-      _ref$tag = _ref.tag,
-      Tag = _ref$tag === undefined ? 'div' : _ref$tag,
-      _ref$theme = _ref.theme,
-      theme = _ref$theme === undefined ? 'primary' : _ref$theme,
-      other = _objectWithoutProperties(_ref, ['children', 'className', 'color', 'isPill', 'tag', 'theme']);
+var FormInput = function FormInput(_ref) {
+  var className = _ref.className,
+      isInvalid = _ref.isInvalid,
+      isValid = _ref.isValid,
+      size = _ref.size,
+      type = _ref.type,
+      other = _objectWithoutProperties(_ref, ['className', 'isInvalid', 'isValid', 'size', 'type']);
 
-  var classes = (0, _classnames2.default)(className, 'badge', 'text-uppercase', 'text-truncate', 'mw-100', theme ? 'badge-' + theme : null, {
-    'badge-pill': isPill
-  });
+  var checkInput = type === 'radio' || type === 'checkbox';
+  var fileInput = type === 'file';
+  var classes = (0, _classnames2.default)(className, checkInput ? 'form-check-input' : fileInput ? 'form-control-file' : 'form-control', size ? 'form-control-' + size : false, {
+    'is-invalid': isInvalid
+  }, { 'is-valid': isValid });
 
-  return React.createElement(
-    Tag,
-    _extends({}, other, { className: classes, style: { backgroundColor: color } }),
-    children
-  );
+  return React.createElement('input', _extends({}, other, { className: classes, type: type }));
 };
 
-exports.default = Badge;
+exports.default = FormInput;

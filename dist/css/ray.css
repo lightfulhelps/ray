@@ -987,7 +987,7 @@ mark,
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #dee2e6;
-  border-radius: 0.625rem;
+  border-radius: 0.3125rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media screen and (prefers-reduced-motion: reduce) {
     .form-control {
@@ -1063,7 +1063,7 @@ select.form-control:focus::-ms-value {
   padding: 1.25rem 1.25rem;
   font-size: 1.25rem;
   line-height: 1;
-  border-radius: 0.625rem; }
+  border-radius: 0.3125rem; }
 
 select.form-control[size], select.form-control[multiple] {
   height: auto; }
@@ -1974,7 +1974,7 @@ input[type="button"].btn-block {
   white-space: nowrap;
   background-color: #e9ecef;
   border: 1px solid #dee2e6;
-  border-radius: 0.625rem; }
+  border-radius: 0.3125rem; }
   .input-group-text input[type="radio"],
   .input-group-text input[type="checkbox"] {
     margin-top: 0; }
@@ -1988,7 +1988,7 @@ input[type="button"].btn-block {
   padding: 1.25rem 1.25rem;
   font-size: 1.25rem;
   line-height: 1;
-  border-radius: 0.625rem; }
+  border-radius: 0.3125rem; }
 
 .input-group-sm > .form-control,
 .input-group-sm > .input-group-prepend > .input-group-text,

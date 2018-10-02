@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormTextarea /> should render 1`] = `
+<textarea
+  className="form-control"
+/>
+`;

@@ -20,26 +20,24 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-var Badge = function Badge(_ref) {
+var FormLabel = function FormLabel(_ref) {
   var children = _ref.children,
       className = _ref.className,
-      color = _ref.color,
-      isPill = _ref.isPill,
-      _ref$tag = _ref.tag,
-      Tag = _ref$tag === undefined ? 'div' : _ref$tag,
-      _ref$theme = _ref.theme,
-      theme = _ref$theme === undefined ? 'primary' : _ref$theme,
-      other = _objectWithoutProperties(_ref, ['children', 'className', 'color', 'isPill', 'tag', 'theme']);
+      isCheck = _ref.isCheck,
+      other = _objectWithoutProperties(_ref, ['children', 'className', 'isCheck']);
 
-  var classes = (0, _classnames2.default)(className, 'badge', 'text-uppercase', 'text-truncate', 'mw-100', theme ? 'badge-' + theme : null, {
-    'badge-pill': isPill
-  });
+  var classes = (0, _classnames2.default)(className, isCheck ? 'form-check-label' : 'form-label');
 
-  return React.createElement(
-    Tag,
-    _extends({}, other, { className: classes, style: { backgroundColor: color } }),
-    children
+  return (
+    /* eslint-disable jsx-a11y/label-has-associated-control */
+    React.createElement(
+      'label',
+      _extends({}, other, { className: classes }),
+      children
+    )
+    /* eslint-enable jsx-a11y/label-has-associated-control */
+
   );
 };
 
-exports.default = Badge;
+exports.default = FormLabel;
