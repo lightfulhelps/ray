@@ -63,15 +63,15 @@ describe('<Badge />', () => {
   it('should handle the tag prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.type()).toBe('span');
+    expect(wrapper.type()).toBe('div');
 
     wrapper.setProps({ tag: 'a' });
 
     expect(wrapper.type()).toBe('a');
 
-    wrapper.setProps({ tag: 'div' });
+    wrapper.setProps({ tag: 'span' });
 
-    expect(wrapper.type()).toBe('div');
+    expect(wrapper.type()).toBe('span');
   });
 
   it('should handle the theme prop', () => {
