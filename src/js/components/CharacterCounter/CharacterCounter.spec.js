@@ -29,11 +29,11 @@ describe('<CharacterCounter />', () => {
   it('should handle icon', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find(Icon).prop('name')).toEqual('multipleSocialProvider');
+    expect(wrapper.find(Icon).prop('name')).toEqual('characterCount');
 
-    wrapper.setProps({ icon: 'comment' });
+    wrapper.setProps({ icon: 'characterCountOutline' });
 
-    expect(wrapper.find(Icon).prop('name')).toEqual('comment');
+    expect(wrapper.find(Icon).prop('name')).toEqual('characterCountOutline');
   });
 
   it('should handle max', () => {

@@ -5,7 +5,7 @@ exports[`<CharacterCounter /> should render 1`] = `
   className="character-counter"
 >
   <Icon
-    name="multipleSocialProvider"
+    name="characterCount"
   />
   4
   /5
