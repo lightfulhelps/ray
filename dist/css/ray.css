@@ -5110,6 +5110,16 @@ button.bg-gray-900:focus {
     width: 80%;
     height: 80%; }
 
+.character-counter {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  line-height: 1;
+  color: #212529;
+  font-weight: 500; }
+  .character-counter .icon {
+    margin-right: 0.625rem; }
+
 .post-card {
   width: 100%;
   height: 100%;
