@@ -40,6 +40,15 @@ Object.defineProperty(exports, 'Card', {
   }
 });
 
+var _CharacterCounter = require('./components/CharacterCounter/CharacterCounter');
+
+Object.defineProperty(exports, 'CharacterCounter', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_CharacterCounter).default;
+  }
+});
+
 var _Col = require('./components/Col/Col');
 
 Object.defineProperty(exports, 'Col', {
