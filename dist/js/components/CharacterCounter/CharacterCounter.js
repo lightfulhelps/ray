@@ -16,8 +16,6 @@ var _classnames2 = _interopRequireDefault(_classnames);
 
 var _ = require('../../');
 
-var _icons = require('../Icon/icons');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
@@ -27,7 +25,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 var CharacterCounter = function CharacterCounter(_ref) {
   var className = _ref.className,
       _ref$icon = _ref.icon,
-      icon = _ref$icon === undefined ? 'multipleSocialProvider' : _ref$icon,
+      icon = _ref$icon === undefined ? 'characterCount' : _ref$icon,
       max = _ref.max,
       _ref$text = _ref.text,
       text = _ref$text === undefined ? '' : _ref$text,

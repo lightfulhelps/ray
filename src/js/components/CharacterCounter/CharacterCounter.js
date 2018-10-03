@@ -2,18 +2,17 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Icon } from '../../';
-import type { IconNameType } from '../Icon/icons';
 
 type Props = {
   className?: string,
-  icon?: IconNameType,
+  icon?: 'characterCount' | 'characterCountOutline',
   max?: number,
   text: string,
 };
 
 const CharacterCounter = ({
   className,
-  icon = 'multipleSocialProvider',
+  icon = 'characterCount',
   max,
   text = '',
   ...other
