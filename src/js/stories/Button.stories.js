@@ -66,7 +66,7 @@ stories.add('Default', () => (
         <h2 className="h4 mb-2">Icon Only.</h2>
         <Button
           theme={select('Theme', themes, 'primary')}
-          icon={select('Icon', icons, 'addMedia')}
+          icon={select('Icon', icons, 'media')}
           isDisabled={boolean('Disabled', false)}
           isOutline={boolean('Outline', false)}
           size={select('Size', sizes, 'md')}

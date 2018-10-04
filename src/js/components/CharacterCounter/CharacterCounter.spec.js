@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
-import { CharacterCounter, Icon } from '../../';
+import { CharacterCounter } from '../../';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
@@ -24,16 +24,6 @@ describe('<CharacterCounter />', () => {
 
     expect(wrapper.hasClass('character-counter')).toBe(true);
     expect(wrapper.hasClass('custom')).toBe(true);
-  });
-
-  it('should handle icon', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.find(Icon).prop('name')).toEqual('characterCount');
-
-    wrapper.setProps({ icon: 'characterCountOutline' });
-
-    expect(wrapper.find(Icon).prop('name')).toEqual('characterCountOutline');
   });
 
   it('should handle max', () => {

@@ -115,7 +115,7 @@ const PostCard = ({
           <h1 className={`${blockClass}__title`}>{post.title}</h1>
           <div className={`${blockClass}__date`}>
             {(!post.date || isFuture(post.date)) && (
-              <Icon name="unscheduled" size={20} color="#adb5bd" />
+              <Icon name="schedule" size={20} color="#adb5bd" />
             )}
             {post.date ? formatDate(post.date, dateFormat) : 'Unscheduled'}
           </div>

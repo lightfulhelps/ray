@@ -97,7 +97,7 @@ describe('<PostCard />', () => {
     expect(wrapper.find('.post-card__date').text()).toBe('<Icon />Unscheduled');
   });
 
-  it('should include the unscheduled Icon if no date or date is in the future', () => {
+  it('should include the schedule Icon if no date or date is in the future', () => {
     const { wrapper, props } = setup({ post: { date: null } });
 
     expect(
