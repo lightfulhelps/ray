@@ -81,7 +81,7 @@ var PostCard = function PostCard(_ref) {
         React.createElement(
           'div',
           { className: blockClass + '__date' },
-          (!post.date || (0, _is_future2.default)(post.date)) && React.createElement(_.Icon, { name: 'unscheduled', size: 20, color: '#adb5bd' }),
+          (!post.date || (0, _is_future2.default)(post.date)) && React.createElement(_.Icon, { name: 'schedule', size: 20, color: '#adb5bd' }),
           post.date ? (0, _format2.default)(post.date, dateFormat) : 'Unscheduled'
         ),
         post.campaign && React.createElement(

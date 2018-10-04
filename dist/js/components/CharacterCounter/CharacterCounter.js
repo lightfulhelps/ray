@@ -24,12 +24,10 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 var CharacterCounter = function CharacterCounter(_ref) {
   var className = _ref.className,
-      _ref$icon = _ref.icon,
-      icon = _ref$icon === undefined ? 'characterCount' : _ref$icon,
       max = _ref.max,
       _ref$text = _ref.text,
       text = _ref$text === undefined ? '' : _ref$text,
-      other = _objectWithoutProperties(_ref, ['className', 'icon', 'max', 'text']);
+      other = _objectWithoutProperties(_ref, ['className', 'max', 'text']);
 
   var classes = (0, _classnames2.default)(className, 'character-counter', {
     'text-danger': max && text.length >= max
@@ -38,7 +36,7 @@ var CharacterCounter = function CharacterCounter(_ref) {
   return React.createElement(
     'div',
     _extends({}, other, { className: classes }),
-    React.createElement(_.Icon, { name: icon }),
+    React.createElement(_.Icon, { name: 'characterCount' }),
     text.length,
     max && '/' + max
   );

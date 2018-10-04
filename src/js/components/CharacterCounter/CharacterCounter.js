@@ -5,25 +5,18 @@ import { Icon } from '../../';
 
 type Props = {
   className?: string,
-  icon?: 'characterCount' | 'characterCountOutline',
   max?: number,
   text: string,
 };
 
-const CharacterCounter = ({
-  className,
-  icon = 'characterCount',
-  max,
-  text = '',
-  ...other
-}: Props) => {
+const CharacterCounter = ({ className, max, text = '', ...other }: Props) => {
   const classes = classNames(className, 'character-counter', {
     'text-danger': max && text.length >= max,
   });
 
   return (
     <div {...other} className={classes}>
-      <Icon name={icon} />
+      <Icon name="characterCount" />
       {text.length}
       {max && `/${max}`}
     </div>
