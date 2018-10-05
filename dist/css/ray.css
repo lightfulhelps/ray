@@ -995,7 +995,7 @@ mark,
   .form-control::-ms-expand {
     background-color: transparent;
     border: 0; }
-  .form-control:focus {
+  .form-control.focus, .form-control:focus {
     color: #212529;
     background-color: #fff;
     border-color: #8ad9e9;
@@ -4441,7 +4441,7 @@ a.text-gray-900:hover, a.text-gray-900:focus {
 
 .form-control {
   font-weight: 300; }
-  .form-control:hover:not(:focus):not(:disabled):not(.is-invalid):not(.is-valid) {
+  .form-control:hover:not(:focus):not(.focus):not(:disabled):not(.is-invalid):not(.is-valid) {
     border-color: #adb5bd; }
 
 .form-control-sm {

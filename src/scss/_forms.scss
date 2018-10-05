@@ -1,7 +1,7 @@
 .form-control {
   font-weight: $font-weight-light;
 
-  &:hover:not(:focus):not(:disabled):not(.is-invalid):not(.is-valid) {
+  &:hover:not(:focus):not(.focus):not(:disabled):not(.is-invalid):not(.is-valid) {
     border-color: $input-hover-border-color;
   }
 }
