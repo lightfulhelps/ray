@@ -4911,6 +4911,78 @@ a.text-gray-900:hover, a.text-gray-900:focus {
   .nav-pills .nav-link.disabled {
     color: #ced4da; }
 
+.badge-gray-100 {
+  color: #212529;
+  background-color: #f8f9fa; }
+  .badge-gray-100[href]:hover, .badge-gray-100[href]:focus {
+    color: #212529;
+    text-decoration: none;
+    background-color: #dae0e5; }
+
+.badge-gray-200 {
+  color: #212529;
+  background-color: #e9ecef; }
+  .badge-gray-200[href]:hover, .badge-gray-200[href]:focus {
+    color: #212529;
+    text-decoration: none;
+    background-color: #cbd3da; }
+
+.badge-gray-300 {
+  color: #212529;
+  background-color: #dee2e6; }
+  .badge-gray-300[href]:hover, .badge-gray-300[href]:focus {
+    color: #212529;
+    text-decoration: none;
+    background-color: #c1c9d0; }
+
+.badge-gray-400 {
+  color: #212529;
+  background-color: #ced4da; }
+  .badge-gray-400[href]:hover, .badge-gray-400[href]:focus {
+    color: #212529;
+    text-decoration: none;
+    background-color: #b1bbc4; }
+
+.badge-gray-500 {
+  color: #212529;
+  background-color: #adb5bd; }
+  .badge-gray-500[href]:hover, .badge-gray-500[href]:focus {
+    color: #212529;
+    text-decoration: none;
+    background-color: #919ca6; }
+
+.badge-gray-600 {
+  color: #fff;
+  background-color: #6c757c; }
+  .badge-gray-600[href]:hover, .badge-gray-600[href]:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #545b61; }
+
+.badge-gray-700 {
+  color: #fff;
+  background-color: #495057; }
+  .badge-gray-700[href]:hover, .badge-gray-700[href]:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #32373b; }
+
+.badge-gray-800 {
+  color: #fff;
+  background-color: #343a40; }
+  .badge-gray-800[href]:hover, .badge-gray-800[href]:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #1d2124; }
+
+.badge-gray-900 {
+  color: #fff;
+  background-color: #212529; }
+  .badge-gray-900[href]:hover, .badge-gray-900[href]:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #0a0c0d; }
+
 .bg-gray-100 {
   background-color: #f8f9fa !important; }
 

@@ -1,0 +1,6 @@
+// Ray
+@each $color, $value in $grays {
+  .badge-gray-#{$color} {
+    @include badge-variant($value);
+  }
+}
