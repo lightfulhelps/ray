@@ -24,7 +24,7 @@ export const highlightMatches = (option: string, search: string): string => {
   if (!search) return option;
 
   const regex = new RegExp(`(${search})`, 'gi');
-  const ret = option.replace(regex, `<strong>$&</strong>`);
+  const ret = option.replace(regex, `<strong class="text-gray-900">$&</strong>`);
 
   return ret;
 };
@@ -39,7 +39,7 @@ const SearchSuggest = ({
   onRemove,
   onSelect,
   options = [],
-  search,
+  search = '',
   title,
   ...other
 }: Props) => {
@@ -91,7 +91,7 @@ const SearchSuggest = ({
         output.length > 0 &&
         output.map((option, i) => (
           <DropdownItem
-            className="d-flex justify-content-between align-items-center"
+            className="d-flex justify-content-between align-items-center text-body"
             data-test-id="search-suggest-item"
             key={i}
             onClick={() => onSelect(option, i)}

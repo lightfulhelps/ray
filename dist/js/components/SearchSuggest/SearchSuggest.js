@@ -31,7 +31,7 @@ var highlightMatches = exports.highlightMatches = function highlightMatches(opti
   if (!search) return option;
 
   var regex = new RegExp('(' + search + ')', 'gi');
-  var ret = option.replace(regex, '<strong>$&</strong>');
+  var ret = option.replace(regex, '<strong class="text-gray-900">$&</strong>');
 
   return ret;
 };
@@ -47,7 +47,8 @@ var SearchSuggest = function SearchSuggest(_ref) {
       onSelect = _ref.onSelect,
       _ref$options = _ref.options,
       options = _ref$options === undefined ? [] : _ref$options,
-      search = _ref.search,
+      _ref$search = _ref.search,
+      search = _ref$search === undefined ? '' : _ref$search,
       title = _ref.title,
       other = _objectWithoutProperties(_ref, ['className', 'isLoading', 'isOpen', 'limit', 'onClear', 'onClick', 'onRemove', 'onSelect', 'options', 'search', 'title']);
 
@@ -100,7 +101,7 @@ var SearchSuggest = function SearchSuggest(_ref) {
       return React.createElement(
         _.DropdownItem,
         {
-          className: 'd-flex justify-content-between align-items-center',
+          className: 'd-flex justify-content-between align-items-center text-body',
           'data-test-id': 'search-suggest-item',
           key: i,
           onClick: function onClick() {

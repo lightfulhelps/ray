@@ -22,7 +22,7 @@ exports[`<SearchSuggest /> should render 1`] = `
     </div>
   </DropdownItem>
   <DropdownItem
-    className="d-flex justify-content-between align-items-center"
+    className="d-flex justify-content-between align-items-center text-body"
     data-test-id="search-suggest-item"
     key="0"
     onClick={[Function]}
@@ -30,7 +30,7 @@ exports[`<SearchSuggest /> should render 1`] = `
     <div
       dangerouslySetInnerHTML={
         Object {
-          "__html": "<strong>T</strong>wo",
+          "__html": "<strong class=\\"text-gray-900\\">T</strong>wo",
         }
       }
     />
@@ -42,7 +42,7 @@ exports[`<SearchSuggest /> should render 1`] = `
     />
   </DropdownItem>
   <DropdownItem
-    className="d-flex justify-content-between align-items-center"
+    className="d-flex justify-content-between align-items-center text-body"
     data-test-id="search-suggest-item"
     key="1"
     onClick={[Function]}
@@ -50,7 +50,7 @@ exports[`<SearchSuggest /> should render 1`] = `
     <div
       dangerouslySetInnerHTML={
         Object {
-          "__html": "<strong>T</strong>hree",
+          "__html": "<strong class=\\"text-gray-900\\">T</strong>hree",
         }
       }
     />
@@ -62,7 +62,7 @@ exports[`<SearchSuggest /> should render 1`] = `
     />
   </DropdownItem>
   <DropdownItem
-    className="d-flex justify-content-between align-items-center"
+    className="d-flex justify-content-between align-items-center text-body"
     data-test-id="search-suggest-item"
     key="2"
     onClick={[Function]}
@@ -70,7 +70,7 @@ exports[`<SearchSuggest /> should render 1`] = `
     <div
       dangerouslySetInnerHTML={
         Object {
-          "__html": "Eigh<strong>t</strong>",
+          "__html": "Eigh<strong class=\\"text-gray-900\\">t</strong>",
         }
       }
     />
@@ -82,7 +82,7 @@ exports[`<SearchSuggest /> should render 1`] = `
     />
   </DropdownItem>
   <DropdownItem
-    className="d-flex justify-content-between align-items-center"
+    className="d-flex justify-content-between align-items-center text-body"
     data-test-id="search-suggest-item"
     key="3"
     onClick={[Function]}
@@ -90,7 +90,7 @@ exports[`<SearchSuggest /> should render 1`] = `
     <div
       dangerouslySetInnerHTML={
         Object {
-          "__html": "<strong>T</strong>en",
+          "__html": "<strong class=\\"text-gray-900\\">T</strong>en",
         }
       }
     />
@@ -102,7 +102,7 @@ exports[`<SearchSuggest /> should render 1`] = `
     />
   </DropdownItem>
   <DropdownItem
-    className="d-flex justify-content-between align-items-center"
+    className="d-flex justify-content-between align-items-center text-body"
     data-test-id="search-suggest-item"
     key="4"
     onClick={[Function]}
@@ -110,7 +110,7 @@ exports[`<SearchSuggest /> should render 1`] = `
     <div
       dangerouslySetInnerHTML={
         Object {
-          "__html": "<strong>T</strong>welve",
+          "__html": "<strong class=\\"text-gray-900\\">T</strong>welve",
         }
       }
     />

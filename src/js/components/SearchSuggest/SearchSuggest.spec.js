@@ -203,10 +203,14 @@ describe('highlightMatches()', () => {
     expect(highlightMatches('foo', '')).toEqual('foo');
   });
 
-  it('should wrap matching strings in <strong> tags', () => {
-    expect(highlightMatches('Test', 'T')).toEqual('<strong>T</strong>es<strong>t</strong>');
-    expect(highlightMatches('Test', 't')).toEqual('<strong>T</strong>es<strong>t</strong>');
-    expect(highlightMatches('Test', 'te')).toEqual('<strong>Te</strong>st');
-    expect(highlightMatches('Test', 'est')).toEqual('T<strong>est</strong>');
+  it('should wrap matching strings in <strong class="text-gray-900"> tags', () => {
+    expect(highlightMatches('Test', 'T')).toEqual(
+      '<strong class="text-gray-900">T</strong>es<strong class="text-gray-900">t</strong>'
+    );
+    expect(highlightMatches('Test', 't')).toEqual(
+      '<strong class="text-gray-900">T</strong>es<strong class="text-gray-900">t</strong>'
+    );
+    expect(highlightMatches('Test', 'te')).toEqual('<strong class="text-gray-900">Te</strong>st');
+    expect(highlightMatches('Test', 'est')).toEqual('T<strong class="text-gray-900">est</strong>');
   });
 });
