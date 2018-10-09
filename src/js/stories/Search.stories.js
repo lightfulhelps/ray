@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
-import { Container, Row, Col, SearchSuggest } from '../';
+import { Container, Row, Col, SearchInput, SearchSuggest } from '../';
 
 import '../../scss/ray.scss';
 
@@ -109,6 +109,22 @@ const breeds = [
   'Turkish Van',
   'Ukrainian Levkoy',
 ];
+
+stories.add('Input', () => (
+  <Container>
+    <h1 className="my-4">Search Input.</h1>
+    <Row>
+      <Col className="mb-2">
+        <SearchInput
+          value={text('Search', '')}
+          onChange={action('Change')}
+          onSearch={action('Search')}
+          placeholder={text('Placeholder', 'Search...')}
+        />
+      </Col>
+    </Row>
+  </Container>
+));
 
 stories.add('Suggest', () => (
   <Container>

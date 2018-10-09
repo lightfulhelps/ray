@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchInput /> should render 1`] = `
+<div
+  className="search-input input-group shadow"
+>
+  <FormInput
+    data-test-id="search-input"
+    onChange={[MockFunction]}
+    onKeyPress={[Function]}
+    placeholder="Search..."
+  />
+  <div
+    className="input-group-append"
+  >
+    <Button
+      data-test-id="search-input-button"
+      icon="search"
+      isOutline={true}
+      onClick={[MockFunction]}
+      theme="gray-600"
+    />
+  </div>
+</div>
+`;

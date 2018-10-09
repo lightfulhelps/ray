@@ -4806,12 +4806,6 @@ a.text-gray-900:hover, a.text-gray-900:focus {
     background-color: #fff;
     border-color: #212529; }
 
-.btn, .btn-lg, .btn-group-lg > .btn {
-  font-size: 1.125rem; }
-
-.btn-sm, .btn-group-sm > .btn {
-  font-size: 1rem; }
-
 .btn-icon {
   padding: 0.9375rem;
   border-radius: 0.3125rem; }
@@ -4833,6 +4827,10 @@ a.text-gray-900:hover, a.text-gray-900:focus {
       margin-right: 0.625rem; }
   .btn-icon-right .icon {
     margin-left: 0.625rem; }
+
+.input-group-prepend .btn,
+.input-group-append .btn {
+  display: flex; }
 
 .dropdown-menu {
   min-width: 100%;
