@@ -30,12 +30,21 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
+
   const wrapper = shallow(<SearchSuggest {...props} />);
 
   return { wrapper, props };
 };
 
 describe('<SearchSuggest />', () => {
+  it('should return null if no search and options', () => {
+    const { wrapper, props } = setup();
+
+    wrapper.setProps({ ...props, search: '', options: [] });
+
+    expect(wrapper.type()).toBe(null);
+  });
+
   it('should render', () => {
     const { wrapper } = setup();
 

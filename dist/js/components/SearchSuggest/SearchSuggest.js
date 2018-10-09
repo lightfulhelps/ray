@@ -58,6 +58,8 @@ var SearchSuggest = function SearchSuggest(_ref) {
     return findMatches(option, search);
   }).splice(0, count);
 
+  if (!search.length && !output.length) return null;
+
   return React.createElement(
     _.DropdownMenu,
     _extends({}, other, {
@@ -90,7 +92,7 @@ var SearchSuggest = function SearchSuggest(_ref) {
       { 'data-test-id': 'search-suggest-loading', isDisabled: true },
       'Loading...'
     ),
-    !isLoading && output.length === 0 && React.createElement(
+    !isLoading && search.length > 0 && output.length === 0 && React.createElement(
       _.DropdownItem,
       { 'data-test-id': 'search-suggest-empty' },
       'No results for \u201C',

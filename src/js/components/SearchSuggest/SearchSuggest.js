@@ -47,6 +47,8 @@ const SearchSuggest = ({
   const count = limit && limit > 0 ? limit : 10;
   const output = options.filter(option => findMatches(option, search)).splice(0, count);
 
+  if (!search.length && !output.length) return null;
+
   return (
     <DropdownMenu
       {...other}
@@ -80,6 +82,7 @@ const SearchSuggest = ({
         </DropdownItem>
       )}
       {!isLoading &&
+        search.length > 0 &&
         output.length === 0 && (
           <DropdownItem data-test-id="search-suggest-empty">
             No results for &ldquo;
