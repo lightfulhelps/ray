@@ -45,9 +45,10 @@ const SearchSuggest = ({
 }: Props) => {
   const classes = classNames(className, 'search-suggest');
   const count = limit && limit > 0 ? limit : 10;
-  const output = options.filter(option => findMatches(option, search)).splice(0, count);
+  const filteredOptions = options.filter(option => findMatches(option, search));
 
-  if (!search.length && !output.length) return null;
+  if (!isLoading && !options.length) return null;
+  if (search.length > 0 && !filteredOptions.length) return null;
 
   return (
     <DropdownMenu
@@ -82,17 +83,7 @@ const SearchSuggest = ({
         </DropdownItem>
       )}
       {!isLoading &&
-        search.length > 0 &&
-        output.length === 0 && (
-          <DropdownItem data-test-id="search-suggest-empty">
-            No results for &ldquo;
-            {search}
-            &rdquo;
-          </DropdownItem>
-        )}
-      {!isLoading &&
-        output.length > 0 &&
-        output.map((option, i) => (
+        filteredOptions.slice(0, count).map((option, i) => (
           <DropdownItem
             className="d-flex justify-content-between align-items-center text-body"
             data-test-id="search-suggest-item"

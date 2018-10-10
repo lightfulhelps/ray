@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
 import SearchSuggest, { findMatches, highlightMatches } from './SearchSuggest';
+import DropdownMenu from '../DropdownMenu/DropdownMenu';
 
 const setup = (overrides = {}) => {
   const props = merge(
@@ -37,10 +38,26 @@ const setup = (overrides = {}) => {
 };
 
 describe('<SearchSuggest />', () => {
-  it('should return null if no search and options', () => {
+  it('should return null if not loading and no options', () => {
     const { wrapper, props } = setup();
 
-    wrapper.setProps({ ...props, search: '', options: [] });
+    wrapper.setProps({ ...props, isLoading: true, search: '', options: [] });
+
+    expect(wrapper.type()).toBe(DropdownMenu);
+
+    wrapper.setProps({ ...props, isLoading: false, search: '', options: [] });
+
+    expect(wrapper.type()).toBe(null);
+  });
+
+  it('should return null if search value and no matching options', () => {
+    const { wrapper, props } = setup();
+
+    wrapper.setProps({ ...props, search: 'a', options: ['a', 'b', 'c'] });
+
+    expect(wrapper.type()).toBe(DropdownMenu);
+
+    wrapper.setProps({ ...props, search: 'd' });
 
     expect(wrapper.type()).toBe(null);
   });

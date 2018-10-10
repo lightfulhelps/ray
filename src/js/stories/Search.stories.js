@@ -139,9 +139,9 @@ stories.add('Suggest', () => (
           onClear={action('Clear')}
           onRemove={action('Remove')}
           onSelect={action('Select')}
-          options={breeds}
+          options={boolean('Has options?', true) ? breeds : []}
           search={text('Search', '')}
-          title="Recent Searches"
+          title={text('Title', 'Recent Searches')}
         />
       </Col>
     </Row>

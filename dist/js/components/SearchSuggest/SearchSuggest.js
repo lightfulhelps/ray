@@ -54,11 +54,12 @@ var SearchSuggest = function SearchSuggest(_ref) {
 
   var classes = (0, _classnames2.default)(className, 'search-suggest');
   var count = limit && limit > 0 ? limit : 10;
-  var output = options.filter(function (option) {
+  var filteredOptions = options.filter(function (option) {
     return findMatches(option, search);
-  }).splice(0, count);
+  });
 
-  if (!search.length && !output.length) return null;
+  if (!isLoading && !options.length) return null;
+  if (search.length > 0 && !filteredOptions.length) return null;
 
   return React.createElement(
     _.DropdownMenu,
@@ -92,14 +93,7 @@ var SearchSuggest = function SearchSuggest(_ref) {
       { 'data-test-id': 'search-suggest-loading', isDisabled: true },
       'Loading...'
     ),
-    !isLoading && search.length > 0 && output.length === 0 && React.createElement(
-      _.DropdownItem,
-      { 'data-test-id': 'search-suggest-empty' },
-      'No results for \u201C',
-      search,
-      '\u201D'
-    ),
-    !isLoading && output.length > 0 && output.map(function (option, i) {
+    !isLoading && filteredOptions.slice(0, count).map(function (option, i) {
       return React.createElement(
         _.DropdownItem,
         {
