@@ -30,12 +30,26 @@ describe('<CharacterCounter />', () => {
     const { wrapper } = setup({ max: 10 });
 
     expect(wrapper.text()).toEqual('<Icon />0/10');
+
+    wrapper.setProps({ max: 60000 });
+
+    expect(wrapper.text()).toEqual('<Icon />0/60,000');
   });
 
   it('should handle text', () => {
     const { wrapper } = setup({ text: 'This is my text' });
 
     expect(wrapper.text()).toEqual('<Icon />15');
+
+    let longText = '';
+
+    for (let i = 1; i < 10000; i++) {
+      longText += 'a';
+    }
+
+    wrapper.setProps({ text: longText });
+
+    expect(wrapper.text()).toEqual('<Icon />9,999');
   });
 
   it('should pass through other props', () => {

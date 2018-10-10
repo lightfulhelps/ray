@@ -17,8 +17,8 @@ const CharacterCounter = ({ className, max, text = '', ...other }: Props) => {
   return (
     <div {...other} className={classes}>
       <Icon name="characterCount" />
-      {text.length}
-      {max && `/${max}`}
+      {text.length.toLocaleString()}
+      {max && `/${max.toLocaleString()}`}
     </div>
   );
 };
