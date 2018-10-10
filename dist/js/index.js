@@ -220,6 +220,24 @@ Object.defineProperty(exports, 'Row', {
   }
 });
 
+var _SearchInput = require('./components/SearchInput/SearchInput');
+
+Object.defineProperty(exports, 'SearchInput', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_SearchInput).default;
+  }
+});
+
+var _SearchSuggest = require('./components/SearchSuggest/SearchSuggest');
+
+Object.defineProperty(exports, 'SearchSuggest', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_SearchSuggest).default;
+  }
+});
+
 var _URLMetaPreview = require('./components/URLMetaPreview/URLMetaPreview');
 
 Object.defineProperty(exports, 'URLMetaPreview', {
