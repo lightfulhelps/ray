@@ -54,6 +54,7 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 0,
     'jsx-a11y/no-noninteractive-element-interactions': 0,
     'no-case-declarations': 0,
+    'no-console': 2,
     'no-nested-ternary': 0,
     'no-param-reassign': 1,
     'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
