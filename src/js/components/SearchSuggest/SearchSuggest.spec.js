@@ -254,4 +254,16 @@ describe('highlightMatches()', () => {
     expect(highlightMatches('Test', 'te')).toEqual('<strong class="text-gray-900">Te</strong>st');
     expect(highlightMatches('Test', 'est')).toEqual('T<strong class="text-gray-900">est</strong>');
   });
+
+  it('should exclude specified string from highlight', () => {
+    expect(highlightMatches('test', '@test', '@')).toEqual(
+      '<strong class="text-gray-900">test</strong>'
+    );
+  });
+
+  it('should exclude characters in specified regex from highlight', () => {
+    expect(highlightMatches('test', '@t£e$s%t', /[^a-z]/g)).toEqual(
+      '<strong class="text-gray-900">test</strong>'
+    );
+  });
 });

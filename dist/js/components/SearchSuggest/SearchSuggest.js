@@ -31,10 +31,10 @@ var findMatches = exports.findMatches = function findMatches(option, search, exc
   return normalize(option).includes(normalize(search));
 };
 
-var highlightMatches = exports.highlightMatches = function highlightMatches(option, search) {
+var highlightMatches = exports.highlightMatches = function highlightMatches(option, search, exclude) {
   if (!search) return option;
 
-  var regex = new RegExp('(' + search + ')', 'gi');
+  var regex = new RegExp('(' + search.replace(exclude, '') + ')', 'gi');
   var ret = option.replace(regex, '<strong class="text-gray-900">$&</strong>');
 
   return ret;
@@ -109,7 +109,7 @@ var SearchSuggest = function SearchSuggest(_ref) {
             return onSelect(option, i);
           }
         },
-        React.createElement('div', { dangerouslySetInnerHTML: { __html: highlightMatches(option, search) } }),
+        React.createElement('div', { dangerouslySetInnerHTML: { __html: highlightMatches(option, search, exclude) } }),
         onRemove && React.createElement(_.Icon, {
           className: 'ml-1',
           'data-test-id': 'search-suggest-remove',

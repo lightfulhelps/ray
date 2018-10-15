@@ -3,9 +3,11 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { DropdownMenu, DropdownItem, Icon } from '../../';
 
+type ExcludeType = string | RegExp;
+
 type Props = {
   className?: string,
-  exclude: string | RegExp,
+  exclude: ExcludeType,
   isLoading?: boolean,
   isOpen: boolean,
   limit?: number,
@@ -18,16 +20,16 @@ type Props = {
   title?: string,
 };
 
-export const findMatches = (option: string, search: string, exclude: string | RegExp): boolean => {
+export const findMatches = (option: string, search: string, exclude: ExcludeType): boolean => {
   const normalize = str => str.replace(exclude, '').toLowerCase();
 
   return normalize(option).includes(normalize(search));
 };
 
-export const highlightMatches = (option: string, search: string): string => {
+export const highlightMatches = (option: string, search: string, exclude: ExcludeType): string => {
   if (!search) return option;
 
-  const regex = new RegExp(`(${search})`, 'gi');
+  const regex = new RegExp(`(${search.replace(exclude, '')})`, 'gi');
   const ret = option.replace(regex, `<strong class="text-gray-900">$&</strong>`);
 
   return ret;
@@ -95,7 +97,7 @@ const SearchSuggest = ({
             key={i}
             onClick={() => onSelect(option, i)}
           >
-            <div dangerouslySetInnerHTML={{ __html: highlightMatches(option, search) }} />
+            <div dangerouslySetInnerHTML={{ __html: highlightMatches(option, search, exclude) }} />
             {onRemove && (
               <Icon
                 className="ml-1"
