@@ -5,6 +5,7 @@ import { DropdownMenu, DropdownItem, Icon } from '../../';
 
 type Props = {
   className?: string,
+  exclude: string | RegExp,
   isLoading?: boolean,
   isOpen: boolean,
   limit?: number,
@@ -17,8 +18,8 @@ type Props = {
   title?: string,
 };
 
-export const findMatches = (option: string, search: string): boolean =>
-  option.toLowerCase().includes(search.toLowerCase());
+export const findMatches = (option: string, search: string, exclude: string | RegExp): boolean =>
+  option.toLowerCase().includes(search.replace(exclude, '').toLowerCase());
 
 export const highlightMatches = (option: string, search: string): string => {
   if (!search) return option;
@@ -31,6 +32,7 @@ export const highlightMatches = (option: string, search: string): string => {
 
 const SearchSuggest = ({
   className,
+  exclude,
   isLoading,
   isOpen,
   limit,
@@ -45,7 +47,7 @@ const SearchSuggest = ({
 }: Props) => {
   const classes = classNames(className, 'search-suggest');
   const count = limit && limit > 0 ? limit : 10;
-  const filteredOptions = options.filter(option => findMatches(option, search));
+  const filteredOptions = options.filter(option => findMatches(option, search, exclude));
 
   if (!isLoading && !options.length) return null;
   if (search.length > 0 && !filteredOptions.length) return null;

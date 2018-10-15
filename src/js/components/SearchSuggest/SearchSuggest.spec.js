@@ -221,6 +221,16 @@ describe('findMatches()', () => {
     expect(findMatches('Test String', 'Tests')).toBe(false);
     expect(findMatches('Test String', 'TestString')).toBe(false);
   });
+
+  it('should exclude specified string when searching', () => {
+    expect(findMatches('test', '#test')).toBe(false);
+    expect(findMatches('test', '#test', '#')).toBe(true);
+  });
+
+  it('should exclude specified regex when searching', () => {
+    expect(findMatches('test', '#test')).toBe(false);
+    expect(findMatches('test', '#test', /[^a-z]/)).toBe(true);
+  });
 });
 
 describe('highlightMatches()', () => {

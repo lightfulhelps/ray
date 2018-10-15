@@ -23,8 +23,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-var findMatches = exports.findMatches = function findMatches(option, search) {
-  return option.toLowerCase().includes(search.toLowerCase());
+var findMatches = exports.findMatches = function findMatches(option, search, exclude) {
+  return option.toLowerCase().includes(search.replace(exclude, '').toLowerCase());
 };
 
 var highlightMatches = exports.highlightMatches = function highlightMatches(option, search) {
@@ -38,6 +38,7 @@ var highlightMatches = exports.highlightMatches = function highlightMatches(opti
 
 var SearchSuggest = function SearchSuggest(_ref) {
   var className = _ref.className,
+      exclude = _ref.exclude,
       isLoading = _ref.isLoading,
       isOpen = _ref.isOpen,
       limit = _ref.limit,
@@ -50,12 +51,12 @@ var SearchSuggest = function SearchSuggest(_ref) {
       _ref$search = _ref.search,
       search = _ref$search === undefined ? '' : _ref$search,
       title = _ref.title,
-      other = _objectWithoutProperties(_ref, ['className', 'isLoading', 'isOpen', 'limit', 'onClear', 'onClick', 'onRemove', 'onSelect', 'options', 'search', 'title']);
+      other = _objectWithoutProperties(_ref, ['className', 'exclude', 'isLoading', 'isOpen', 'limit', 'onClear', 'onClick', 'onRemove', 'onSelect', 'options', 'search', 'title']);
 
   var classes = (0, _classnames2.default)(className, 'search-suggest');
   var count = limit && limit > 0 ? limit : 10;
   var filteredOptions = options.filter(function (option) {
-    return findMatches(option, search);
+    return findMatches(option, search, exclude);
   });
 
   if (!isLoading && !options.length) return null;
