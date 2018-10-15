@@ -24,7 +24,11 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 var findMatches = exports.findMatches = function findMatches(option, search, exclude) {
-  return option.toLowerCase().includes(search.replace(exclude, '').toLowerCase());
+  var normalize = function normalize(str) {
+    return str.replace(exclude, '').toLowerCase();
+  };
+
+  return normalize(option).includes(normalize(search));
 };
 
 var highlightMatches = exports.highlightMatches = function highlightMatches(option, search) {

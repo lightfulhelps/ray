@@ -18,8 +18,11 @@ type Props = {
   title?: string,
 };
 
-export const findMatches = (option: string, search: string, exclude: string | RegExp): boolean =>
-  option.toLowerCase().includes(search.replace(exclude, '').toLowerCase());
+export const findMatches = (option: string, search: string, exclude: string | RegExp): boolean => {
+  const normalize = str => str.replace(exclude, '').toLowerCase();
+
+  return normalize(option).includes(normalize(search));
+};
 
 export const highlightMatches = (option: string, search: string): string => {
   if (!search) return option;

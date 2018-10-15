@@ -225,11 +225,16 @@ describe('findMatches()', () => {
   it('should exclude specified string when searching', () => {
     expect(findMatches('test', '#test')).toBe(false);
     expect(findMatches('test', '#test', '#')).toBe(true);
+    expect(findMatches('test #string', 'test string', '#')).toBe(true);
+    // Only first occurence of a string will be replaced - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Parameters
+    expect(findMatches('test', '#test#', '#')).toBe(false);
+    expect(findMatches('test #str#ing', 'test string', '#')).toBe(false);
   });
 
-  it('should exclude specified regex when searching', () => {
-    expect(findMatches('test', '#test')).toBe(false);
-    expect(findMatches('test', '#test', /[^a-z]/)).toBe(true);
+  it('should exclude characters in specified regex when searching', () => {
+    expect(findMatches('test', '#t@e$s%t')).toBe(false);
+    expect(findMatches('test', '#t@e$s%t', /[^a-z]/g)).toBe(true);
+    expect(findMatches('t£e$s%t s$t)r*i*n&g', 'teststring', /[^a-z]/g)).toBe(true);
   });
 });
 
