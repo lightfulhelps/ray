@@ -3,8 +3,11 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { DropdownMenu, DropdownItem, Icon } from '../../';
 
+type ExcludeType = string | RegExp;
+
 type Props = {
   className?: string,
+  exclude: ExcludeType,
   isLoading?: boolean,
   isOpen: boolean,
   limit?: number,
@@ -17,13 +20,16 @@ type Props = {
   title?: string,
 };
 
-export const findMatches = (option: string, search: string): boolean =>
-  option.toLowerCase().includes(search.toLowerCase());
+export const findMatches = (option: string, search: string, exclude: ExcludeType): boolean => {
+  const normalize = str => str.replace(exclude, '').toLowerCase();
 
-export const highlightMatches = (option: string, search: string): string => {
+  return normalize(option).includes(normalize(search));
+};
+
+export const highlightMatches = (option: string, search: string, exclude: ExcludeType): string => {
   if (!search) return option;
 
-  const regex = new RegExp(`(${search})`, 'gi');
+  const regex = new RegExp(`(${search.replace(exclude, '')})`, 'gi');
   const ret = option.replace(regex, `<strong class="text-gray-900">$&</strong>`);
 
   return ret;
@@ -31,6 +37,7 @@ export const highlightMatches = (option: string, search: string): string => {
 
 const SearchSuggest = ({
   className,
+  exclude,
   isLoading,
   isOpen,
   limit,
@@ -45,7 +52,7 @@ const SearchSuggest = ({
 }: Props) => {
   const classes = classNames(className, 'search-suggest');
   const count = limit && limit > 0 ? limit : 10;
-  const filteredOptions = options.filter(option => findMatches(option, search));
+  const filteredOptions = options.filter(option => findMatches(option, search, exclude));
 
   if (!isLoading && !options.length) return null;
   if (search.length > 0 && !filteredOptions.length) return null;
@@ -90,7 +97,7 @@ const SearchSuggest = ({
             key={i}
             onClick={() => onSelect(option, i)}
           >
-            <div dangerouslySetInnerHTML={{ __html: highlightMatches(option, search) }} />
+            <div dangerouslySetInnerHTML={{ __html: highlightMatches(option, search, exclude) }} />
             {onRemove && (
               <Icon
                 className="ml-1"

@@ -221,6 +221,21 @@ describe('findMatches()', () => {
     expect(findMatches('Test String', 'Tests')).toBe(false);
     expect(findMatches('Test String', 'TestString')).toBe(false);
   });
+
+  it('should exclude specified string when searching', () => {
+    expect(findMatches('test', '#test')).toBe(false);
+    expect(findMatches('test', '#test', '#')).toBe(true);
+    expect(findMatches('test #string', 'test string', '#')).toBe(true);
+    // Only first occurence of a string will be replaced - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Parameters
+    expect(findMatches('test', '#test#', '#')).toBe(false);
+    expect(findMatches('test #str#ing', 'test string', '#')).toBe(false);
+  });
+
+  it('should exclude characters in specified regex when searching', () => {
+    expect(findMatches('test', '#t@e$s%t')).toBe(false);
+    expect(findMatches('test', '#t@e$s%t', /[^a-z]/g)).toBe(true);
+    expect(findMatches('t£e$s%t s$t)r*i*n&g', 'teststring', /[^a-z]/g)).toBe(true);
+  });
 });
 
 describe('highlightMatches()', () => {
@@ -238,5 +253,17 @@ describe('highlightMatches()', () => {
     );
     expect(highlightMatches('Test', 'te')).toEqual('<strong class="text-gray-900">Te</strong>st');
     expect(highlightMatches('Test', 'est')).toEqual('T<strong class="text-gray-900">est</strong>');
+  });
+
+  it('should exclude specified string from highlight', () => {
+    expect(highlightMatches('test', '@test', '@')).toEqual(
+      '<strong class="text-gray-900">test</strong>'
+    );
+  });
+
+  it('should exclude characters in specified regex from highlight', () => {
+    expect(highlightMatches('test', '@t£e$s%t', /[^a-z]/g)).toEqual(
+      '<strong class="text-gray-900">test</strong>'
+    );
   });
 });
