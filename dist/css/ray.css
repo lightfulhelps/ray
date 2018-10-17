@@ -5365,3 +5365,15 @@ button.bg-gray-900:focus {
 .url-meta-preview__url {
   display: block;
   color: #6c757c; }
+
+.ghost {
+  background-color: #f8f9fa;
+  border-radius: 0.15625rem;
+  margin-bottom: 0.625rem;
+  min-height: 0.625rem; }
+
+.ghost-sm {
+  min-height: 0.3125rem; }
+
+.ghost-lg {
+  min-height: 2.5rem; }

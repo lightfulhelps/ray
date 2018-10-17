@@ -1,0 +1,14 @@
+.ghost {
+  background-color: $gray-100;
+  border-radius: $border-radius-sm / 2;
+  margin-bottom: $spacer;
+  min-height: $spacer;
+}
+
+.ghost-sm {
+  min-height: $spacer / 2;
+}
+
+.ghost-lg {
+  min-height: $spacer * 4;
+}
