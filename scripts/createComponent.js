@@ -26,7 +26,7 @@ export const getNames = (name: string): NamesType => {
     throw new Error('Invalid name');
   }
 
-  const componentName = startCase(name).replace(' ', '');
+  const componentName = startCase(name).replace(/ /g, '');
   const className = kebabCase(name);
 
   return { componentName, className };

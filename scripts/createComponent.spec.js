@@ -33,12 +33,14 @@ describe('getNames', () => {
     expect(getNames('foo').componentName).toEqual('Foo');
     expect(getNames('foo bar').componentName).toEqual('FooBar');
     expect(getNames('foo-bar').componentName).toEqual('FooBar');
+    expect(getNames('foo bar foo').componentName).toEqual('FooBarFoo');
   });
 
   it('should return className as kebab case', () => {
     expect(getNames('foo').className).toEqual('foo');
     expect(getNames('foo bar').className).toEqual('foo-bar');
     expect(getNames('fooBar').className).toEqual('foo-bar');
+    expect(getNames('foo bar foo').className).toEqual('foo-bar-foo');
   });
 });
 
