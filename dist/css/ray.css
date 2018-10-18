@@ -5190,6 +5190,63 @@ button.bg-gray-900:focus {
   .character-counter .icon {
     margin-right: 0.625rem; }
 
+.icon-primary {
+  fill: #27b0cc; }
+
+.icon-secondary {
+  fill: #7941ff; }
+
+.icon-success {
+  fill: #27cc98; }
+
+.icon-info {
+  fill: #0095f1; }
+
+.icon-warning {
+  fill: #f0b954; }
+
+.icon-danger {
+  fill: #f25270; }
+
+.icon-light {
+  fill: #f8f9fa; }
+
+.icon-dark {
+  fill: #343a40; }
+
+.icon-gray-100 {
+  fill: #f8f9fa; }
+
+.icon-gray-200 {
+  fill: #e9ecef; }
+
+.icon-gray-300 {
+  fill: #dee2e6; }
+
+.icon-gray-400 {
+  fill: #ced4da; }
+
+.icon-gray-500 {
+  fill: #adb5bd; }
+
+.icon-gray-600 {
+  fill: #6c757c; }
+
+.icon-gray-700 {
+  fill: #495057; }
+
+.icon-gray-800 {
+  fill: #343a40; }
+
+.icon-gray-900 {
+  fill: #212529; }
+
+.icon-white {
+  fill: #fff; }
+
+.icon-black {
+  fill: #000; }
+
 .post-card {
   width: 100%;
   height: 100%;

@@ -11,6 +11,7 @@ type Props = {
   name: IconNameType,
   size?: number,
   style?: { [key: string]: any },
+  theme?: string,
   title?: string,
   viewBox?: string,
 };
@@ -40,11 +41,19 @@ class Icon extends Component<Props, State> {
       name,
       size = '1em',
       style = {},
+      theme,
       title,
       viewBox = '0 0 24 24',
       ...other
     } = this.props;
-    const classes = classNames(className, 'icon');
+    const classes = classNames(className, 'icon', theme ? `icon-${theme}` : '');
+
+    if (theme) {
+      delete style.fill;
+    } else {
+      style.fill = this.state.hover && hoverColor ? hoverColor : color;
+    }
+
     return (
       <svg
         {...other}
@@ -52,7 +61,7 @@ class Icon extends Component<Props, State> {
         width={size}
         height={size}
         viewBox={viewBox}
-        style={Object.assign({ fill: this.state.hover && hoverColor ? hoverColor : color }, style)}
+        style={style}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >

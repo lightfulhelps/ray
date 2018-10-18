@@ -1,0 +1,19 @@
+@each $color, $value in $theme-colors {
+  .icon-#{$color} {
+    fill: $value;
+  }
+}
+
+@each $color, $value in $grays {
+  .icon-gray-#{$color} {
+    fill: $value;
+  }
+}
+
+.icon-white {
+  fill: $white;
+}
+
+.icon-black {
+  fill: $black;
+}

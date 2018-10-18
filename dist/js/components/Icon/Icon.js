@@ -72,12 +72,20 @@ var Icon = (_temp2 = _class = function (_Component) {
           size = _props$size === undefined ? '1em' : _props$size,
           _props$style = _props.style,
           style = _props$style === undefined ? {} : _props$style,
+          theme = _props.theme,
           title = _props.title,
           _props$viewBox = _props.viewBox,
           viewBox = _props$viewBox === undefined ? '0 0 24 24' : _props$viewBox,
-          other = _objectWithoutProperties(_props, ['className', 'color', 'hoverColor', 'name', 'size', 'style', 'title', 'viewBox']);
+          other = _objectWithoutProperties(_props, ['className', 'color', 'hoverColor', 'name', 'size', 'style', 'theme', 'title', 'viewBox']);
 
-      var classes = (0, _classnames2.default)(className, 'icon');
+      var classes = (0, _classnames2.default)(className, 'icon', theme ? 'icon-' + theme : '');
+
+      if (theme) {
+        delete style.fill;
+      } else {
+        style.fill = this.state.hover && hoverColor ? hoverColor : color;
+      }
+
       return _react2.default.createElement(
         'svg',
         _extends({}, other, {
@@ -85,7 +93,7 @@ var Icon = (_temp2 = _class = function (_Component) {
           width: size,
           height: size,
           viewBox: viewBox,
-          style: Object.assign({ fill: this.state.hover && hoverColor ? hoverColor : color }, style),
+          style: style,
           onMouseEnter: this.handleMouseEnter,
           onMouseLeave: this.handleMouseLeave
         }),
@@ -113,6 +121,7 @@ var Icon = (_temp2 = _class = function (_Component) {
       throw new Error('Prop `' + propName + '` has type \'any\' or \'mixed\', but was not provided to `' + componentName + '`. Pass undefined or any other value.');
     }
   }),
+  theme: _propTypes2.default.string,
   title: _propTypes2.default.string,
   viewBox: _propTypes2.default.string
 }, _temp2);
