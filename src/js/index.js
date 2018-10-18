@@ -20,6 +20,7 @@ export { default as Nav } from './components/Nav/Nav';
 export { default as NavItem } from './components/NavItem/NavItem';
 export { default as NavLink } from './components/NavLink/NavLink';
 export { default as PostCard } from './components/PostCard/PostCard';
+export { default as PostCardGhost } from './components/PostCardGhost/PostCardGhost';
 export { default as PostMedia } from './components/PostMedia/PostMedia';
 export { default as Row } from './components/Row/Row';
 export { default as SearchInput } from './components/SearchInput/SearchInput';
