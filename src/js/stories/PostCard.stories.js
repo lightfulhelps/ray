@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, text, date, color, select } from '@storybook/addon-knobs';
-import { Container, Row, Col, PostCard, Button } from '../';
+import { Container, Row, Col, PostCard, PostCardGhost, Button } from '../';
 
 import '../../scss/ray.scss';
 
@@ -132,6 +132,23 @@ stories.add('Default', () => (
           }}
           footerButton={<Button onClick={action('Approve')}>Approve Post</Button>}
         />
+      </Col>
+    </Row>
+  </Container>
+));
+
+stories.add('Ghost', () => (
+  <Container>
+    <h1 className="my-4">PostCardGhost.</h1>
+    <Row>
+      <Col className="mb-2" md={6} lg={4}>
+        <PostCardGhost />
+      </Col>
+      <Col className="mb-2" md={6} lg={4}>
+        <PostCardGhost />
+      </Col>
+      <Col className="mb-2" md={6} lg={4}>
+        <PostCardGhost />
       </Col>
     </Row>
   </Container>
