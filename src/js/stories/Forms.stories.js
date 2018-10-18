@@ -17,6 +17,25 @@ import '../../scss/ray.scss';
 
 const stories = storiesOf('Forms', module);
 
+const selectOptions = [
+  {
+    label: 're',
+    value: 're',
+  },
+  {
+    label: 'act',
+    value: 'act',
+  },
+  {
+    label: 'sel',
+    value: 'sel',
+  },
+  {
+    label: 'ect',
+    value: 'ect',
+  },
+];
+
 stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
@@ -39,19 +58,11 @@ stories.add('Default', () => (
         </FormGroup>
         <FormGroup>
           <FormLabel>Select</FormLabel>
-          <FormSelect>
-            <option value="a">First</option>
-            <option value="b">First</option>
-            <option value="c">First</option>
-          </FormSelect>
+          <FormSelect options={selectOptions} />
         </FormGroup>
         <FormGroup>
           <FormLabel>Multiple Select</FormLabel>
-          <FormSelect multiple>
-            <option value="a">First</option>
-            <option value="b">First</option>
-            <option value="c">First</option>
-          </FormSelect>
+          <FormSelect isMulti options={selectOptions} />
         </FormGroup>
         <FormGroup>
           <FormLabel>Textarea</FormLabel>
