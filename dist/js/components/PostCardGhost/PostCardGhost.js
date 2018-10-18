@@ -27,7 +27,7 @@ var PostCardGhost = function PostCardGhost(_ref) {
       isLoading = _ref.isLoading,
       other = _objectWithoutProperties(_ref, ['className', 'isLoading']);
 
-  var classes = (0, _classnames2.default)(className, 'post-card-ghost', 'shadow border-0', {
+  var classes = (0, _classnames2.default)(className, 'post-card-ghost', 'bg-gray-200 border-0 overflow-hidden', {
     loading: isLoading
   });
 
@@ -36,36 +36,27 @@ var PostCardGhost = function PostCardGhost(_ref) {
     _extends({}, other, { className: classes }),
     React.createElement(
       'div',
-      { className: 'd-flex align-items-center px-2 pt-2 pb-0' },
-      React.createElement('div', { className: 'ghost rounded-circle mr-2 mb-0', style: { width: '40px', height: '40px' } }),
+      { className: 'd-flex align-items-top px-2 pt-2 pb-0' },
+      React.createElement('div', { className: 'ghost rounded-circle mr-2 mb-0', style: { width: '35px', height: '35px' } }),
       React.createElement(
         'div',
         { className: 'flex-fill' },
+        React.createElement('div', { className: 'ghost ghost-lg w-75' }),
         React.createElement('div', { className: 'ghost w-50' }),
-        React.createElement('div', { className: 'ghost ghost-sm w-25' }),
-        React.createElement('div', { className: 'ghost ghost-sm w-25 mb-0' })
-      )
+        React.createElement('div', { className: 'ghost w-50 mb-0' })
+      ),
+      React.createElement('div', { className: 'ghost rounded-sm', style: { width: '26px', height: '26px' } })
     ),
     React.createElement(
       'div',
       { className: 'p-2' },
-      React.createElement('div', { className: 'ghost' }),
-      React.createElement('div', { className: 'ghost' }),
-      React.createElement('div', { className: 'ghost' }),
-      React.createElement('div', { className: 'ghost' }),
-      React.createElement('div', { className: 'ghost mb-0' })
+      React.createElement('div', { className: 'ghost ghost-sm' }),
+      React.createElement('div', { className: 'ghost ghost-sm' }),
+      React.createElement('div', { className: 'ghost ghost-sm' }),
+      React.createElement('div', { className: 'ghost ghost-sm' }),
+      React.createElement('div', { className: 'ghost ghost-sm mb-0 w-75' })
     ),
-    React.createElement(
-      'div',
-      null,
-      React.createElement('div', { className: 'ghost ghost-lg mb-0', style: { height: '164px' } })
-    ),
-    React.createElement(
-      'div',
-      { className: 'd-flex justify-content-between m-2' },
-      React.createElement('div', { className: 'ghost w-50 mb-0' }),
-      React.createElement('div', { className: 'ghost w-25 mb-0' })
-    )
+    React.createElement('div', { className: 'ghost mb-0', style: { height: '164px' } })
   );
 };
 
