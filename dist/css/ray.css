@@ -2089,7 +2089,7 @@ input[type="button"].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 2px solid #fff;
+  border: 0 solid #fff;
   border-radius: 0.3125rem; }
   .card > hr, .post-card > hr {
     margin-right: 0;
@@ -2125,18 +2125,18 @@ input[type="button"].btn-block {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 2px solid #fff; }
+  border-bottom: 0 solid #fff; }
   .card-header:first-child {
-    border-radius: calc(0.3125rem - 2px) calc(0.3125rem - 2px) 0 0; }
+    border-radius: calc(0.3125rem - 0) calc(0.3125rem - 0) 0 0; }
   .card-header + .list-group .list-group-item:first-child {
     border-top: 0; }
 
 .card-footer {
   padding: 0.75rem 1.25rem;
   background-color: rgba(0, 0, 0, 0.03);
-  border-top: 2px solid #fff; }
+  border-top: 0 solid #fff; }
   .card-footer:last-child {
-    border-radius: 0 0 calc(0.3125rem - 2px) calc(0.3125rem - 2px); }
+    border-radius: 0 0 calc(0.3125rem - 0) calc(0.3125rem - 0); }
 
 .card-header-tabs {
   margin-right: -0.625rem;
@@ -2158,17 +2158,17 @@ input[type="button"].btn-block {
 
 .card-img {
   width: 100%;
-  border-radius: calc(0.3125rem - 2px); }
+  border-radius: calc(0.3125rem - 0); }
 
 .card-img-top {
   width: 100%;
-  border-top-left-radius: calc(0.3125rem - 2px);
-  border-top-right-radius: calc(0.3125rem - 2px); }
+  border-top-left-radius: calc(0.3125rem - 0);
+  border-top-right-radius: calc(0.3125rem - 0); }
 
 .card-img-bottom {
   width: 100%;
-  border-bottom-right-radius: calc(0.3125rem - 2px);
-  border-bottom-left-radius: calc(0.3125rem - 2px); }
+  border-bottom-right-radius: calc(0.3125rem - 0);
+  border-bottom-left-radius: calc(0.3125rem - 0); }
 
 .card-deck {
   display: flex;
@@ -4284,7 +4284,7 @@ button.bg-dark:focus {
 .text-lowercase {
   text-transform: lowercase !important; }
 
-.text-uppercase, .post-card__metric {
+.text-uppercase, .post-card__campaign, .post-card__metric {
   text-transform: uppercase !important; }
 
 .text-capitalize {
@@ -5139,7 +5139,7 @@ button.bg-gray-900:focus {
 .text-wrap {
   word-wrap: break-word !important; }
 
-.text-uppercase, .post-card__metric {
+.text-uppercase, .post-card__campaign, .post-card__metric {
   text-transform: uppercase !important;
   letter-spacing: 0.04em !important; }
 
@@ -5199,9 +5199,13 @@ button.bg-gray-900:focus {
     box-shadow: 0 0 30px 0 rgba(73, 80, 87, 0.12); }
   .post-card--draft {
     background-color: #f8f9fa;
-    border-color: #adb5bd; }
+    box-shadow: 0 0 0 2px #adb5bd, 0 0 30px 0 rgba(73, 80, 87, 0.04); }
+    .post-card--draft:hover {
+      box-shadow: 0 0 0 2px #adb5bd, 0 0 30px 0 rgba(73, 80, 87, 0.12); }
   .post-card--invalid {
-    border-color: #f25270; }
+    box-shadow: 0 0 0 2px #f25270, 0 0 30px 0 rgba(73, 80, 87, 0.04); }
+    .post-card--invalid:hover {
+      box-shadow: 0 0 0 2px #f25270, 0 0 30px 0 rgba(73, 80, 87, 0.12); }
 
 .post-card__header {
   display: flex;
@@ -5214,7 +5218,7 @@ button.bg-gray-900:focus {
     min-width: 190px; }
 
 .post-card__title {
-  margin-bottom: 0.2em; }
+  margin-bottom: 0.3125rem; }
 
 .post-card__date {
   display: flex;
@@ -5222,9 +5226,12 @@ button.bg-gray-900:focus {
   height: 20px;
   font-size: 0.75rem;
   text-transform: uppercase;
-  margin-bottom: 0.2em; }
+  margin-bottom: 0.3125rem; }
   .post-card__date svg {
     margin-right: 3px; }
+
+.post-card__campaign {
+  font-size: 0.6375rem; }
 
 .post-card__content {
   margin: 1.25rem;
@@ -5234,6 +5241,39 @@ button.bg-gray-900:focus {
 
 .post-card__media {
   height: 164px; }
+
+.post-card__tags {
+  display: flex;
+  align-items: center;
+  background-color: #e9ecef;
+  padding: 0 1.25rem;
+  height: 54px; }
+  .post-card__tags .tag {
+    font-size: 0.875rem;
+    margin-right: 0.3125rem; }
+    .post-card__tags .tag:last-of-type {
+      margin-right: 0; }
+
+.post-card__tags-count {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  margin-right: 0.625rem; }
+  .post-card__tags-count .icon {
+    margin-left: 0.20833rem; }
+
+.post-card__tags-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #6c757c;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-left: 0.625rem; }
 
 .post-card__metrics {
   display: flex;
