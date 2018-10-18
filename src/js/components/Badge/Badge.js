@@ -23,7 +23,6 @@ const Badge = ({
   const classes = classNames(
     className,
     'badge',
-    'text-uppercase',
     'text-truncate',
     'mw-100',
     theme ? `badge-${theme}` : null,

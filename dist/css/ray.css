@@ -2279,8 +2279,8 @@ input[type="button"].btn-block {
 .badge {
   display: inline-block;
   padding: 0.4em 0.5em;
-  font-size: 0.625rem;
-  font-weight: 300;
+  font-size: 75%;
+  font-weight: 500;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
@@ -2294,8 +2294,8 @@ input[type="button"].btn-block {
   top: -1px; }
 
 .badge-pill {
-  padding-right: 0.6em;
-  padding-left: 0.6em;
+  padding-right: 0.75em;
+  padding-left: 0.75em;
   border-radius: 10rem; }
 
 .badge-primary {
@@ -5332,6 +5332,15 @@ button.bg-gray-900:focus {
   .post-media--4 .post-media__image:nth-child(4) {
     grid-column: 2;
     grid-row: 2 / 3; }
+
+.tag {
+  font-size: 100%; }
+  .tag .icon {
+    width: 0.75em;
+    height: 0.75em;
+    vertical-align: 0%;
+    margin-left: 0.48077rem;
+    margin-bottom: -1px; }
 
 .url-meta-preview {
   background-color: #fff;

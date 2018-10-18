@@ -4,23 +4,11 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col, Button } from '../';
 import allIcons from '../components/Icon/icons';
+import themes from './utils/themes';
 
 import '../../scss/ray.scss';
 
 const stories = storiesOf('Button', module);
-
-const themes = {
-  primary: 'Primary',
-  secondary: 'Secondary',
-  success: 'Success',
-  danger: 'Danger',
-  warning: 'Warning',
-  info: 'Info',
-  light: 'Light',
-  dark: 'Dark',
-  white: 'White',
-  'gray-600': 'Gray 600',
-};
 
 const sizes = {
   lg: 'Large',
