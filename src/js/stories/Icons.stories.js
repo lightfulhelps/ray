@@ -16,7 +16,7 @@ const themes = {
   light: 'Light',
   dark: 'Dark',
   white: 'White',
-  'gray-600': 'Gray 600',
+  'gray-500': 'Gray 500',
 };
 
 const stories = storiesOf('Icons', module);

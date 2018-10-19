@@ -36,7 +36,7 @@ var CharacterCounter = function CharacterCounter(_ref) {
   return React.createElement(
     'div',
     _extends({}, other, { className: classes }),
-    React.createElement(_.Icon, { name: 'characterCount' }),
+    React.createElement(_.Icon, { name: 'characterCount', theme: 'gray-500' }),
     text.length.toLocaleString(),
     max && '/' + max.toLocaleString()
   );

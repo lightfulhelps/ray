@@ -4235,7 +4235,7 @@ button.bg-dark:focus {
 .text-nowrap {
   white-space: nowrap !important; }
 
-.text-truncate, .post-card__title, .post-card__date, .url-meta-preview__url {
+.text-truncate, .post-card__title, .post-card__date, .post-card__metrics, .url-meta-preview__url {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
@@ -5192,60 +5192,113 @@ button.bg-gray-900:focus {
 
 .icon-primary {
   fill: #27b0cc; }
+  .icon-primary:not(.disabled):not(.active):hover {
+    fill: #124f5c; }
 
 .icon-secondary {
   fill: #7941ff; }
+  .icon-secondary:not(.disabled):not(.active):hover {
+    fill: #2a0090; }
 
 .icon-success {
   fill: #27cc98; }
+  .icon-success:not(.disabled):not(.active):hover {
+    fill: #125c44; }
 
 .icon-info {
   fill: #0095f1; }
+  .icon-info:not(.disabled):not(.active):hover {
+    fill: #00436c; }
 
 .icon-warning {
   fill: #f0b954; }
+  .icon-warning:not(.disabled):not(.active):hover {
+    fill: #865b0c; }
 
 .icon-danger {
   fill: #f25270; }
+  .icon-danger:not(.disabled):not(.active):hover {
+    fill: #880a22; }
 
 .icon-light {
   fill: #f8f9fa; }
+  .icon-light:not(.disabled):not(.active):hover {
+    fill: #5d7083; }
 
 .icon-dark {
   fill: #343a40; }
+  .icon-dark:not(.disabled):not(.active):hover {
+    fill: #171a1d; }
 
 .icon-gray-100 {
   fill: #f8f9fa; }
+  .icon-gray-100:not(.disabled):not(.active):hover {
+    fill: #5d7083; }
 
 .icon-gray-200 {
   fill: #e9ecef; }
+  .icon-gray-200:not(.disabled):not(.active):hover {
+    fill: #596a7b; }
 
 .icon-gray-300 {
   fill: #dee2e6; }
+  .icon-gray-300:not(.disabled):not(.active):hover {
+    fill: #586674; }
 
 .icon-gray-400 {
   fill: #ced4da; }
+  .icon-gray-400:not(.disabled):not(.active):hover {
+    fill: #525f6d; }
 
 .icon-gray-500 {
   fill: #adb5bd; }
+  .icon-gray-500:not(.disabled):not(.active):hover {
+    fill: #49515a; }
 
 .icon-gray-600 {
   fill: #6c757c; }
+  .icon-gray-600:not(.disabled):not(.active):hover {
+    fill: #313538; }
 
 .icon-gray-700 {
   fill: #495057; }
+  .icon-gray-700:not(.disabled):not(.active):hover {
+    fill: #212427; }
 
 .icon-gray-800 {
   fill: #343a40; }
+  .icon-gray-800:not(.disabled):not(.active):hover {
+    fill: #171a1d; }
 
 .icon-gray-900 {
   fill: #212529; }
+  .icon-gray-900:not(.disabled):not(.active):hover {
+    fill: #0f1112; }
 
 .icon-white {
   fill: #fff; }
+  .icon-white:not(.disabled):not(.active):hover {
+    fill: #737373; }
 
 .icon-black {
   fill: #000; }
+  .icon-black:not(.disabled):not(.active):hover {
+    fill: black; }
+
+.icon-facebook {
+  fill: #5586ed; }
+  .icon-facebook:not(.disabled):not(.active):hover {
+    fill: #0e3483; }
+
+.icon-twitter {
+  fill: #1dcaff; }
+  .icon-twitter:not(.disabled):not(.active):hover {
+    fill: #006280; }
+
+.icon-linkedin {
+  fill: #1c87bf; }
+  .icon-linkedin:not(.disabled):not(.active):hover {
+    fill: #0d3d56; }
 
 .post-card {
   width: 100%;
@@ -5311,7 +5364,6 @@ button.bg-gray-900:focus {
   align-items: center;
   padding: 0.625rem 1.25rem;
   font-size: 1.5rem;
-  color: #adb5bd;
   border-top: 1px solid #dee2e6; }
 
 .post-card__footer {

@@ -8,7 +8,10 @@ type Props = {
   className?: string,
   color?: string,
   hoverColor?: string,
+  isActive?: boolean,
+  isDisabled?: boolean,
   name: IconNameType,
+  onClick?: () => void,
   size?: number,
   style?: { [key: string]: any },
   theme?: string,
@@ -38,6 +41,8 @@ class Icon extends Component<Props, State> {
       className,
       color = 'currentColor',
       hoverColor,
+      isActive,
+      isDisabled,
       name,
       size = '1em',
       style = {},
@@ -46,7 +51,14 @@ class Icon extends Component<Props, State> {
       viewBox = '0 0 24 24',
       ...other
     } = this.props;
-    const classes = classNames(className, 'icon', theme ? `icon-${theme}` : '');
+    const classes = classNames(
+      className,
+      'icon',
+      theme ? `icon-${theme}` : '',
+      { disabled: isDisabled },
+      { active: isActive },
+      { 'cursor-pointer': typeof other.onClick === 'function' }
+    );
 
     if (theme) {
       delete style.fill;

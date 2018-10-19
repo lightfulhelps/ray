@@ -67,6 +67,8 @@ var Icon = (_temp2 = _class = function (_Component) {
           _props$color = _props.color,
           color = _props$color === undefined ? 'currentColor' : _props$color,
           hoverColor = _props.hoverColor,
+          isActive = _props.isActive,
+          isDisabled = _props.isDisabled,
           name = _props.name,
           _props$size = _props.size,
           size = _props$size === undefined ? '1em' : _props$size,
@@ -76,9 +78,9 @@ var Icon = (_temp2 = _class = function (_Component) {
           title = _props.title,
           _props$viewBox = _props.viewBox,
           viewBox = _props$viewBox === undefined ? '0 0 24 24' : _props$viewBox,
-          other = _objectWithoutProperties(_props, ['className', 'color', 'hoverColor', 'name', 'size', 'style', 'theme', 'title', 'viewBox']);
+          other = _objectWithoutProperties(_props, ['className', 'color', 'hoverColor', 'isActive', 'isDisabled', 'name', 'size', 'style', 'theme', 'title', 'viewBox']);
 
-      var classes = (0, _classnames2.default)(className, 'icon', theme ? 'icon-' + theme : '');
+      var classes = (0, _classnames2.default)(className, 'icon', theme ? 'icon-' + theme : '', { disabled: isDisabled }, { active: isActive }, { 'cursor-pointer': typeof other.onClick === 'function' });
 
       if (theme) {
         delete style.fill;
@@ -112,9 +114,12 @@ var Icon = (_temp2 = _class = function (_Component) {
   className: _propTypes2.default.string,
   color: _propTypes2.default.string,
   hoverColor: _propTypes2.default.string,
+  isActive: _propTypes2.default.bool,
+  isDisabled: _propTypes2.default.bool,
   name: function name() {
     return (typeof _icons.bpfrpt_proptype_IconNameType === 'function' ? _icons.bpfrpt_proptype_IconNameType.isRequired ? _icons.bpfrpt_proptype_IconNameType.isRequired : _icons.bpfrpt_proptype_IconNameType : _propTypes2.default.shape(_icons.bpfrpt_proptype_IconNameType).isRequired).apply(this, arguments);
   },
+  onClick: _propTypes2.default.func,
   size: _propTypes2.default.number,
   style: _propTypes2.default.objectOf(function (props, propName, componentName) {
     if (!Object.prototype.hasOwnProperty.call(props, propName)) {

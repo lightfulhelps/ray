@@ -69,19 +69,19 @@ stories.add('Default', () => (
           inspirationActions={[
             {
               icon: 'follow',
-              activeColor: '#0095f1',
-              isActive: boolean('Following', true),
+              isActive: true,
+              theme: 'info',
               onClick: action('Follow'),
             },
             {
               icon: 'like',
-              activeColor: '#0095f1',
-              isActive: boolean('Liked', true),
+              isActive: true,
+              theme: 'info',
               onClick: action('Like'),
             },
-            { icon: 'repost', isActive: false },
-            { icon: 'reply', isActive: false },
-            { icon: 'create', isActive: false },
+            { icon: 'repost', theme: 'gray-500' },
+            { icon: 'reply', theme: 'gray-500' },
+            { icon: 'create', theme: 'gray-500' },
           ]}
           isDraft={boolean('Draft', false)}
           isInvalid={boolean('Invalid', false)}
