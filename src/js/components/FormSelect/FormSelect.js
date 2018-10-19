@@ -36,19 +36,32 @@ const FormSelect = ({
   );
 
   const customStyles = {
-    control: (base, state) => ({
+    control: (base, { isFocused }) => ({
       ...base,
       height: 'calc(2.875rem + 2px)',
       padding: '0.9375rem',
       'box-shadow': 'none',
       ':hover': {
-        'border-color': state.isFocused ? '#27b0cc' : '#adb5bd',
+        'border-color': isFocused ? '#27b0cc' : '#adb5bd',
       },
-      'border-color': state.isFocused ? '#27b0cc' : '#dee2e6',
+      'border-color': isFocused ? '#27b0cc' : '#dee2e6',
     }),
     valueContainer: base => ({
       ...base,
       padding: 'none',
+    }),
+    menu: base => ({
+      ...base,
+      'box-shadow': 'none',
+      border: '1px solid #dee2e6',
+    }),
+    option: (base, { isFocused }) => ({
+      ...base,
+      backgroundColor: isFocused ? '#f8f9fa' : 'inherit',
+      borderBottom: '1px solid #e9ecef',
+      ':last-child': {
+        border: 'none',
+      },
     }),
   };
 

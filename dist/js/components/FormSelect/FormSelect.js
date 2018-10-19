@@ -34,29 +34,42 @@ var FormSelect = function FormSelect(_ref) {
       isClearable = _ref.isClearable,
       other = _objectWithoutProperties(_ref, ['options', 'className', 'isInvalid', 'isValid', 'size', 'isMulti', 'isClearable']);
 
-  var classes = (0, _classnames2.default)(className,
-  // to do; put these styles in:
-  // 'form-control',
-  // size ? `form-control-${size}` : false,
-  {
+  var classes = (0, _classnames2.default)(className, {
     'is-invalid': isInvalid
   }, { 'is-valid': isValid });
 
   var customStyles = {
-    control: function control(base, state) {
+    control: function control(base, _ref2) {
+      var isFocused = _ref2.isFocused;
       return _extends({}, base, {
         height: 'calc(2.875rem + 2px)',
         padding: '0.9375rem',
         'box-shadow': 'none',
         ':hover': {
-          'border-color': state.isFocused ? '#27b0cc' : '#adb5bd'
+          'border-color': isFocused ? '#27b0cc' : '#adb5bd'
         },
-        'border-color': state.isFocused ? '#27b0cc' : '#dee2e6'
+        'border-color': isFocused ? '#27b0cc' : '#dee2e6'
       });
     },
     valueContainer: function valueContainer(base) {
       return _extends({}, base, {
         padding: 'none'
+      });
+    },
+    menu: function menu(base) {
+      return _extends({}, base, {
+        'box-shadow': 'none',
+        border: '1px solid #dee2e6'
+      });
+    },
+    option: function option(base, _ref3) {
+      var isFocused = _ref3.isFocused;
+      return _extends({}, base, {
+        backgroundColor: isFocused ? '#f8f9fa' : 'inherit',
+        borderBottom: '1px solid #e9ecef',
+        ':last-child': {
+          border: 'none'
+        }
       });
     }
   };
