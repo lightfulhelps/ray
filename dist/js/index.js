@@ -202,6 +202,15 @@ Object.defineProperty(exports, 'PostCard', {
   }
 });
 
+var _PostCardGhost = require('./components/PostCardGhost/PostCardGhost');
+
+Object.defineProperty(exports, 'PostCardGhost', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_PostCardGhost).default;
+  }
+});
+
 var _PostMedia = require('./components/PostMedia/PostMedia');
 
 Object.defineProperty(exports, 'PostMedia', {
