@@ -35,8 +35,26 @@ const FormSelect = ({
     { 'is-valid': isValid }
   );
 
+  const customStyles = {
+    control: (base, state) => ({
+      ...base,
+      height: 'calc(2.875rem + 2px)',
+      padding: '0.9375rem',
+      'box-shadow': 'none',
+      ':hover': {
+        'border-color': state.isFocused ? '#27b0cc' : '#adb5bd',
+      },
+      'border-color': state.isFocused ? '#27b0cc' : '#dee2e6',
+    }),
+    valueContainer: base => ({
+      ...base,
+      padding: 'none',
+    }),
+  };
+
   return (
     <CreatableSelect
+      styles={customStyles}
       isMulti={isMulti}
       isClearable={isClearable}
       className={classes}

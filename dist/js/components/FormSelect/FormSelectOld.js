@@ -14,60 +14,29 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Creatable = require('react-select/lib/Creatable');
-
-var _Creatable2 = _interopRequireDefault(_Creatable);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-var FormSelect = function FormSelect(_ref) {
-  var options = _ref.options,
+var FormSelectOld = function FormSelectOld(_ref) {
+  var children = _ref.children,
       className = _ref.className,
       isInvalid = _ref.isInvalid,
       isValid = _ref.isValid,
       size = _ref.size,
-      isMulti = _ref.isMulti,
-      isClearable = _ref.isClearable,
-      other = _objectWithoutProperties(_ref, ['options', 'className', 'isInvalid', 'isValid', 'size', 'isMulti', 'isClearable']);
+      other = _objectWithoutProperties(_ref, ['children', 'className', 'isInvalid', 'isValid', 'size']);
 
-  var classes = (0, _classnames2.default)(className,
-  // to do; put these styles in:
-  // 'form-control',
-  // size ? `form-control-${size}` : false,
-  {
+  var classes = (0, _classnames2.default)(className, 'form-control', size ? 'form-control-' + size : false, {
     'is-invalid': isInvalid
   }, { 'is-valid': isValid });
 
-  var customStyles = {
-    control: function control(base, state) {
-      return _extends({}, base, {
-        height: 'calc(2.875rem + 2px)',
-        padding: '0.9375rem',
-        'box-shadow': 'none',
-        ':hover': {
-          'border-color': state.isFocused ? '#27b0cc' : '#adb5bd'
-        },
-        'border-color': state.isFocused ? '#27b0cc' : '#dee2e6'
-      });
-    },
-    valueContainer: function valueContainer(base) {
-      return _extends({}, base, {
-        padding: 'none'
-      });
-    }
-  };
-
-  return React.createElement(_Creatable2.default, _extends({
-    styles: customStyles,
-    isMulti: isMulti,
-    isClearable: isClearable,
-    className: classes,
-    options: options
-  }, other));
+  return React.createElement(
+    'select',
+    _extends({}, other, { className: classes }),
+    children
+  );
 };
 
-exports.default = FormSelect;
+exports.default = FormSelectOld;
