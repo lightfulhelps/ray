@@ -39,16 +39,15 @@ var FormSelect = function FormSelect(_ref) {
   }, { 'is-valid': isValid });
 
   var customStyles = {
-    control: function control(base, _ref2) {
-      var isFocused = _ref2.isFocused;
+    control: function control(base, state) {
       return _extends({}, base, {
         height: 'calc(2.875rem + 2px)',
         padding: '0.9375rem',
         'box-shadow': 'none',
         ':hover': {
-          'border-color': isFocused ? '#27b0cc' : '#adb5bd'
+          'border-color': state.isFocused ? '#27b0cc' : '#adb5bd'
         },
-        'border-color': isFocused ? '#27b0cc' : '#dee2e6'
+        'border-color': state.isFocused ? '#27b0cc' : '#dee2e6'
       });
     },
     valueContainer: function valueContainer(base) {
@@ -62,10 +61,9 @@ var FormSelect = function FormSelect(_ref) {
         border: '1px solid #dee2e6'
       });
     },
-    option: function option(base, _ref3) {
-      var isFocused = _ref3.isFocused;
+    option: function option(base, state) {
       return _extends({}, base, {
-        backgroundColor: isFocused ? '#f8f9fa' : 'inherit',
+        backgroundColor: state.isFocused ? '#f8f9fa' : 'inherit',
         borderBottom: '1px solid #e9ecef',
         ':last-child': {
           border: 'none'

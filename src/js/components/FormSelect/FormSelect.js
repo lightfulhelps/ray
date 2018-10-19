@@ -26,9 +26,6 @@ const FormSelect = ({
 }: Props) => {
   const classes = classNames(
     className,
-    // to do; put these styles in:
-    // 'form-control',
-    // size ? `form-control-${size}` : false,
     {
       'is-invalid': isInvalid,
     },
@@ -36,15 +33,15 @@ const FormSelect = ({
   );
 
   const customStyles = {
-    control: (base, { isFocused }) => ({
+    control: (base, state) => ({
       ...base,
       height: 'calc(2.875rem + 2px)',
       padding: '0.9375rem',
       'box-shadow': 'none',
       ':hover': {
-        'border-color': isFocused ? '#27b0cc' : '#adb5bd',
+        'border-color': state.isFocused ? '#27b0cc' : '#adb5bd',
       },
-      'border-color': isFocused ? '#27b0cc' : '#dee2e6',
+      'border-color': state.isFocused ? '#27b0cc' : '#dee2e6',
     }),
     valueContainer: base => ({
       ...base,
@@ -55,9 +52,9 @@ const FormSelect = ({
       'box-shadow': 'none',
       border: '1px solid #dee2e6',
     }),
-    option: (base, { isFocused }) => ({
+    option: (base, state) => ({
       ...base,
-      backgroundColor: isFocused ? '#f8f9fa' : 'inherit',
+      backgroundColor: state.isFocused ? '#f8f9fa' : 'inherit',
       borderBottom: '1px solid #e9ecef',
       ':last-child': {
         border: 'none',
