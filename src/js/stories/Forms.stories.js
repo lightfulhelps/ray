@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs/dist/vue';
 import {
   Container,
   Row,
@@ -36,6 +37,12 @@ const selectOptions = [
   },
 ];
 
+const sizes = {
+  md: 'Default',
+  sm: 'Small',
+  lg: 'Large',
+};
+
 stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
@@ -58,7 +65,11 @@ stories.add('Default', () => (
         </FormGroup>
         <FormGroup>
           <FormLabel>Select</FormLabel>
-          <FormSelect options={selectOptions} />
+          <FormSelect
+            isInvalid={boolean('Select; Is Valid', false)}
+            size={select('Select; Size', sizes, 'md')}
+            options={selectOptions}
+          />
         </FormGroup>
         <FormGroup>
           <FormLabel>Multiple Select</FormLabel>

@@ -38,16 +38,54 @@ var FormSelect = function FormSelect(_ref) {
     'is-invalid': isInvalid
   }, { 'is-valid': isValid });
 
+  var getSize = function getSize() {
+    if (size === 'lg') {
+      return {
+        padding: '.5rem 1rem',
+        fontSize: '1.25rem',
+        height: 'inherit'
+      };
+    }
+    if (size === 'sm') {
+      return {
+        padding: '0 .5rem',
+        fontSize: '.875rem',
+        height: 'inherit'
+      };
+    }
+    return {
+      padding: '0.9375rem',
+      fontSize: 'inherit',
+      height: 'calc(2.875rem + 2px)'
+    };
+  };
+
+  var getBorder = function getBorder(isFocused, isHovered) {
+    if (isInvalid) return '#f25270';
+
+    if (isHovered) return '#adb5bd';
+
+    if (isFocused) return '#27b0cc';
+
+    return '#dee2e6';
+  };
+
+  var _getSize = getSize(),
+      height = _getSize.height,
+      padding = _getSize.padding,
+      fontSize = _getSize.fontSize;
+
   var customStyles = {
     control: function control(base, state) {
       return _extends({}, base, {
-        height: 'calc(2.875rem + 2px)',
-        padding: '0.9375rem',
+        height: height,
+        padding: padding,
+        fontSize: fontSize,
         'box-shadow': 'none',
         ':hover': {
-          'border-color': state.isFocused ? '#27b0cc' : '#adb5bd'
+          'border-color': getBorder(null, true)
         },
-        'border-color': state.isFocused ? '#27b0cc' : '#dee2e6'
+        'border-color': getBorder(state.isFocused)
       });
     },
     valueContainer: function valueContainer(base) {

@@ -1,7 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FormSelect /> should render 1`] = `
-<select
-  className="form-control"
+<StateManager
+  className=""
+  defaultInputValue=""
+  defaultMenuIsOpen={false}
+  defaultValue={null}
+  styles={
+    Object {
+      "control": [Function],
+      "menu": [Function],
+      "option": [Function],
+      "valueContainer": [Function],
+    }
+  }
 />
 `;
