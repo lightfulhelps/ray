@@ -13,8 +13,6 @@ import {
   FormTextarea,
 } from '../';
 
-import FormSelectOld from '../components/FormSelect/FormSelectOld';
-
 import '../../scss/ray.scss';
 
 const stories = storiesOf('Forms', module);
@@ -57,14 +55,6 @@ stories.add('Default', () => (
         <FormGroup>
           <FormLabel>Password</FormLabel>
           <FormInput name="password" type="password" />
-        </FormGroup>
-        <FormGroup>
-          <FormLabel>Select OLD</FormLabel>
-          <FormSelectOld>
-            <option value="a">1</option>
-            <option value="b">2</option>
-            <option value="c">3</option>
-          </FormSelectOld>
         </FormGroup>
         <FormGroup>
           <FormLabel>Select</FormLabel>

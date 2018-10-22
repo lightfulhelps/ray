@@ -55,6 +55,7 @@ const FormSelect = ({
     option: (base, state) => ({
       ...base,
       backgroundColor: state.isFocused ? '#f8f9fa' : 'inherit',
+      color: 'inherit',
       borderBottom: '1px solid #e9ecef',
       ':last-child': {
         border: 'none',

@@ -64,6 +64,7 @@ var FormSelect = function FormSelect(_ref) {
     option: function option(base, state) {
       return _extends({}, base, {
         backgroundColor: state.isFocused ? '#f8f9fa' : 'inherit',
+        color: 'inherit',
         borderBottom: '1px solid #e9ecef',
         ':last-child': {
           border: 'none'
