@@ -2,7 +2,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import CreatableSelect from 'react-select/lib/Creatable';
-import IconOption from './IconOption';
+import SelectOption from './SelectOption';
 
 type Props = {
   children: React.ChildrenArray<React.Element<'option'>>,
@@ -109,7 +109,7 @@ const FormSelect = ({
       options={options}
       placeholder={placeholder}
       styles={customStyles}
-      components={{ Option: IconOption }}
+      components={{ Option: SelectOption }}
       {...other}
     />
   );

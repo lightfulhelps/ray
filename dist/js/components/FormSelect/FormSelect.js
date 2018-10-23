@@ -18,9 +18,9 @@ var _Creatable = require('react-select/lib/Creatable');
 
 var _Creatable2 = _interopRequireDefault(_Creatable);
 
-var _IconOption = require('./IconOption');
+var _SelectOption = require('./SelectOption');
 
-var _IconOption2 = _interopRequireDefault(_IconOption);
+var _SelectOption2 = _interopRequireDefault(_SelectOption);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -123,7 +123,7 @@ var FormSelect = function FormSelect(_ref) {
     options: options,
     placeholder: placeholder,
     styles: customStyles,
-    components: { Option: _IconOption2.default }
+    components: { Option: _SelectOption2.default }
   }, other));
 };
 

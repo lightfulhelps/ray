@@ -21,7 +21,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var Option = _reactSelect.components.Option;
 
 
-var IconOption = function IconOption(props) {
+var SelectOption = function SelectOption(props) {
   return React.createElement(
     Option,
     props,
@@ -30,4 +30,4 @@ var IconOption = function IconOption(props) {
   );
 };
 
-exports.default = IconOption;
+exports.default = SelectOption;
