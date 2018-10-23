@@ -18,25 +18,15 @@ var _Creatable = require('react-select/lib/Creatable');
 
 var _Creatable2 = _interopRequireDefault(_Creatable);
 
-var _reactSelect = require('react-select');
+var _IconOption = require('./IconOption');
+
+var _IconOption2 = _interopRequireDefault(_IconOption);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-var Option = _reactSelect.components.Option;
-
-
-var IconOption = function IconOption(props) {
-  return React.createElement(
-    Option,
-    props,
-    React.createElement('img', { src: 'https://res-1.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_120,w_120,f_auto,b_white,q_auto:eco/v1432049687/qbhv1wb2jsqtf85bnzzm.png' }),
-    'some label'
-  );
-};
 
 var FormSelect = function FormSelect(_ref) {
   var className = _ref.className,
@@ -133,7 +123,7 @@ var FormSelect = function FormSelect(_ref) {
     options: options,
     placeholder: placeholder,
     styles: customStyles,
-    components: { Option: IconOption }
+    components: { Option: _IconOption2.default }
   }, other));
 };
 

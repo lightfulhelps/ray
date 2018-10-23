@@ -2,17 +2,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import CreatableSelect from 'react-select/lib/Creatable';
-import { components } from 'react-select';
-
-const { Option } = components;
-
-const IconOption = props => (
-  <Option {...props}>
-    <img src="https://res-1.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_120,w_120,f_auto,b_white,q_auto:eco/v1432049687/qbhv1wb2jsqtf85bnzzm.png" />
-    {/* {props.data.label} */}
-    some label
-  </Option>
-);
+import IconOption from './IconOption';
 
 type Props = {
   children: React.ChildrenArray<React.Element<'option'>>,

@@ -22,18 +22,22 @@ const selectOptions = [
   {
     label: 're',
     value: 're',
+    icon: 'tag',
   },
   {
     label: 'act',
     value: 'act',
+    icon: 'tag',
   },
   {
     label: 'sel',
     value: 'sel',
+    icon: 'tag',
   },
   {
     label: 'ect',
     value: 'ect',
+    icon: 'tag',
   },
 ];
 
