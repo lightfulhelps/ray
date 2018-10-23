@@ -70,6 +70,7 @@ stories.add('Default', () => (
         <FormGroup>
           <FormLabel>Select</FormLabel>
           <FormSelect
+            handleOnChange={data => alert(data.label)}
             isInvalid={boolean('Select; Is Valid', false)}
             size={select('Select; Size', sizes, 'md')}
             options={selectOptions}

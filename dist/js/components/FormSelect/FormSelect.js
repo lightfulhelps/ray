@@ -30,6 +30,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 var FormSelect = function FormSelect(_ref) {
   var className = _ref.className,
+      handleOnChange = _ref.handleOnChange,
       isClearable = _ref.isClearable,
       isInvalid = _ref.isInvalid,
       isMulti = _ref.isMulti,
@@ -37,7 +38,7 @@ var FormSelect = function FormSelect(_ref) {
       options = _ref.options,
       placeholder = _ref.placeholder,
       size = _ref.size,
-      other = _objectWithoutProperties(_ref, ['className', 'isClearable', 'isInvalid', 'isMulti', 'isValid', 'options', 'placeholder', 'size']);
+      other = _objectWithoutProperties(_ref, ['className', 'handleOnChange', 'isClearable', 'isInvalid', 'isMulti', 'isValid', 'options', 'placeholder', 'size']);
 
   var classes = (0, _classnames2.default)(className, {
     'is-invalid': isInvalid
@@ -117,6 +118,7 @@ var FormSelect = function FormSelect(_ref) {
   };
 
   return React.createElement(_Creatable2.default, _extends({
+    onChange: handleOnChange,
     className: classes,
     isClearable: isClearable,
     isMulti: isMulti,

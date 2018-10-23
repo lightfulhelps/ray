@@ -7,6 +7,7 @@ import SelectOption from './SelectOption';
 type Props = {
   children: React.ChildrenArray<React.Element<'option'>>,
   className?: string,
+  handleOnChange?: () => void,
   isClearable?: boolean,
   isInvalid?: boolean,
   isMulti?: boolean,
@@ -18,6 +19,7 @@ type Props = {
 
 const FormSelect = ({
   className,
+  handleOnChange,
   isClearable,
   isInvalid,
   isMulti,
@@ -103,6 +105,7 @@ const FormSelect = ({
 
   return (
     <CreatableSelect
+      onChange={handleOnChange}
       className={classes}
       isClearable={isClearable}
       isMulti={isMulti}
