@@ -69,6 +69,7 @@ stories.add('Default', () => (
             isInvalid={boolean('Select; Is Valid', false)}
             size={select('Select; Size', sizes, 'md')}
             options={selectOptions}
+            placeholder="Some placeholder text..."
           />
         </FormGroup>
         <FormGroup>
