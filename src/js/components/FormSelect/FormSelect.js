@@ -107,25 +107,6 @@ const FormSelect = ({
     }),
   };
 
-  // const createOptionsObject = () => {
-  //   if (!Array.isArray(options)) {
-  //     console.error('you must pass an array of objects in the options prop')
-  //     return
-  //   }
-  //   return options.map(option => {
-  //     if (typeof option !== 'object') {
-  //       console.error('you must pass an array of objects in the options prop')
-  //       return
-  //     }
-  //     const optionObject = { ...option }
-
-  //     optionObject.label = option[label]
-  //     optionObject.value = option[value]
-  //     return optionObject
-  //     }
-  //   )
-  // }
-
   return (
     <CreatableSelect
       onChange={handleOnChange}

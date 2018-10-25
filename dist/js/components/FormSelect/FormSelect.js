@@ -119,25 +119,6 @@ var FormSelect = function FormSelect(_ref) {
     }
   };
 
-  // const createOptionsObject = () => {
-  //   if (!Array.isArray(options)) {
-  //     console.error('you must pass an array of objects in the options prop')
-  //     return
-  //   }
-  //   return options.map(option => {
-  //     if (typeof option !== 'object') {
-  //       console.error('you must pass an array of objects in the options prop')
-  //       return
-  //     }
-  //     const optionObject = { ...option }
-
-  //     optionObject.label = option[label]
-  //     optionObject.value = option[value]
-  //     return optionObject
-  //     }
-  //   )
-  // }
-
   return React.createElement(_Creatable2.default, _extends({
     onChange: handleOnChange,
     className: classes,

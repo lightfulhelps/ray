@@ -21,22 +21,22 @@ const stories = storiesOf('Forms', module);
 // const selectOptions = 'bleep'
 const selectOptions = [
   {
-    name: 're',
+    label: 're',
     value: 're',
     icon: 'tag',
   },
   {
-    name: 'act',
+    label: 'act',
     value: 'act',
     icon: 'tag',
   },
   {
-    name: 'sel',
+    label: 'sel',
     value: 'sel',
     icon: 'tag',
   },
   {
-    name: 'ect',
+    label: 'ect',
     value: 'ect',
     icon: 'tag',
   },
@@ -75,8 +75,8 @@ stories.add('Default', () => (
             isInvalid={boolean('Select; Is Valid', false)}
             size={select('Select; Size', sizes, 'md')}
             options={selectOptions}
-            label='name'
-            value='value'
+            label="name"
+            value="value"
             placeholder="Some placeholder text..."
           />
         </FormGroup>
