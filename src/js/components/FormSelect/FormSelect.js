@@ -12,9 +12,11 @@ type Props = {
   isInvalid?: boolean,
   isMulti?: boolean,
   isValid?: boolean,
+  label?: string,
   options: { [string]: any },
   placeholder?: string,
   size?: 'sm' | 'md' | 'lg',
+  value?: string,
 };
 
 const FormSelect = ({
@@ -24,9 +26,11 @@ const FormSelect = ({
   isInvalid,
   isMulti,
   isValid,
+  label,
   options,
   placeholder,
   size,
+  value,
   ...other
 }: Props) => {
   const classes = classNames(
@@ -103,13 +107,32 @@ const FormSelect = ({
     }),
   };
 
+  const createOptionsObject = () => {
+    if (!Array.isArray(options)) {
+      console.error('you must pass an array of objects in the options prop')
+      return
+    }
+    return options.map(option => {
+      if (typeof option !== 'object') {
+        console.error('you must pass an array of objects in the options prop')
+        return
+      }
+      const optionObject = { ...option }
+
+      optionObject.label = option[label]
+      optionObject.value = option[value]
+      return optionObject
+      }
+    )
+  }
+
   return (
     <CreatableSelect
       onChange={handleOnChange}
       className={classes}
       isClearable={isClearable}
       isMulti={isMulti}
-      options={options}
+      options={createOptionsObject()}
       placeholder={placeholder}
       styles={customStyles}
       components={{ Option: SelectOption }}

@@ -18,24 +18,25 @@ import '../../scss/ray.scss';
 
 const stories = storiesOf('Forms', module);
 
+// const selectOptions = 'bleep'
 const selectOptions = [
   {
-    label: 're',
+    name: 're',
     value: 're',
     icon: 'tag',
   },
   {
-    label: 'act',
+    name: 'act',
     value: 'act',
     icon: 'tag',
   },
   {
-    label: 'sel',
+    name: 'sel',
     value: 'sel',
     icon: 'tag',
   },
   {
-    label: 'ect',
+    name: 'ect',
     value: 'ect',
     icon: 'tag',
   },
@@ -74,6 +75,8 @@ stories.add('Default', () => (
             isInvalid={boolean('Select; Is Valid', false)}
             size={select('Select; Size', sizes, 'md')}
             options={selectOptions}
+            label='name'
+            value='value'
             placeholder="Some placeholder text..."
           />
         </FormGroup>
