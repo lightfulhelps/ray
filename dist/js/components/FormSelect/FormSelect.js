@@ -35,10 +35,12 @@ var FormSelect = function FormSelect(_ref) {
       isInvalid = _ref.isInvalid,
       isMulti = _ref.isMulti,
       isValid = _ref.isValid,
+      label = _ref.label,
       options = _ref.options,
       placeholder = _ref.placeholder,
       size = _ref.size,
-      other = _objectWithoutProperties(_ref, ['className', 'handleOnChange', 'isClearable', 'isInvalid', 'isMulti', 'isValid', 'options', 'placeholder', 'size']);
+      value = _ref.value,
+      other = _objectWithoutProperties(_ref, ['className', 'handleOnChange', 'isClearable', 'isInvalid', 'isMulti', 'isValid', 'label', 'options', 'placeholder', 'size', 'value']);
 
   var classes = (0, _classnames2.default)(className, {
     'is-invalid': isInvalid
@@ -116,6 +118,25 @@ var FormSelect = function FormSelect(_ref) {
       });
     }
   };
+
+  // const createOptionsObject = () => {
+  //   if (!Array.isArray(options)) {
+  //     console.error('you must pass an array of objects in the options prop')
+  //     return
+  //   }
+  //   return options.map(option => {
+  //     if (typeof option !== 'object') {
+  //       console.error('you must pass an array of objects in the options prop')
+  //       return
+  //     }
+  //     const optionObject = { ...option }
+
+  //     optionObject.label = option[label]
+  //     optionObject.value = option[value]
+  //     return optionObject
+  //     }
+  //   )
+  // }
 
   return React.createElement(_Creatable2.default, _extends({
     onChange: handleOnChange,
