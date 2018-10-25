@@ -66,6 +66,8 @@
 }
 
 .post-card__metrics {
+  @extend .text-truncate;
+
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -90,7 +92,6 @@
   align-items: center;
   padding: map-get($spacers, 1) map-get($spacers, 2);
   font-size: $h4-font-size;
-  color: $gray-500;
   border-top: $border-width solid $border-color;
 }
 

@@ -6,6 +6,7 @@ exports[`<CharacterCounter /> should render 1`] = `
 >
   <Icon
     name="characterCount"
+    theme="gray-500"
   />
   4
   /5

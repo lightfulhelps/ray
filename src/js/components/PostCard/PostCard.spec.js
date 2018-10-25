@@ -29,15 +29,15 @@ const setup = (overrides = {}) => {
       inspirationActions: [
         {
           icon: 'follow',
-          activeColor: '#0095f1',
           isActive: false,
           onClick: jest.fn(),
+          theme: 'gray-500',
         },
         {
           icon: 'like',
-          activeColor: '#f25270',
           isActive: true,
           onClick: jest.fn(),
+          theme: 'gray-500',
         },
       ],
     },
@@ -246,15 +246,15 @@ describe('<PostCard />', () => {
       inspirationActions: [
         {
           icon: 'follow',
-          activeColor: '#0095f1',
           isActive: false,
           onClick: follow,
+          theme: 'gray-500',
         },
         {
           icon: 'like',
-          activeColor: '#f25270',
           isActive: true,
           onClick: like,
+          theme: 'gray-500',
         },
       ],
     });
@@ -264,10 +264,9 @@ describe('<PostCard />', () => {
     expect(inspirationActions).toHaveLength(2);
 
     expect(inspirationActions.at(0).prop('name')).toEqual('follow');
-    expect(inspirationActions.at(0).prop('hoverColor')).toEqual('#343a40');
+    expect(inspirationActions.at(0).prop('theme')).toEqual('gray-500');
     expect(inspirationActions.at(1).prop('name')).toEqual('like');
-    expect(inspirationActions.at(1).prop('color')).toEqual('#f25270');
-    expect(inspirationActions.at(1).prop('hoverColor')).toEqual('#f25270');
+    expect(inspirationActions.at(1).prop('theme')).toEqual('gray-500');
 
     inspirationActions.at(0).simulate('click');
     inspirationActions.at(1).simulate('click');
