@@ -98,20 +98,19 @@ exports[`<PostCard /> should render 1`] = `
     className="post-card__inspiration-actions"
   >
     <Icon
-      className="cursor-pointer"
-      hoverColor="#343a40"
+      isActive={false}
       key="0"
       name="follow"
       onClick={[Function]}
+      theme="gray-500"
       title="follow"
     />
     <Icon
-      className="cursor-pointer"
-      color="#f25270"
-      hoverColor="#f25270"
+      isActive={true}
       key="1"
       name="like"
       onClick={[Function]}
+      theme="gray-500"
       title="like"
     />
   </div>
