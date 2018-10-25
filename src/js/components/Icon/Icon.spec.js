@@ -169,4 +169,18 @@ describe('<Icon />', () => {
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');
   });
+
+  it('should have cursor pointer if onClick and not disabled', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.hasClass('cursor-pointer')).toBe(false);
+
+    wrapper.setProps({ onClick: jest.fn() });
+
+    expect(wrapper.hasClass('cursor-pointer')).toBe(true);
+
+    wrapper.setProps({ isDisabled: true });
+
+    expect(wrapper.hasClass('cursor-pointer')).toBe(false);
+  });
 });
