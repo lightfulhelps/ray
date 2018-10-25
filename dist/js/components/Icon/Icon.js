@@ -80,7 +80,7 @@ var Icon = (_temp2 = _class = function (_Component) {
           viewBox = _props$viewBox === undefined ? '0 0 24 24' : _props$viewBox,
           other = _objectWithoutProperties(_props, ['className', 'color', 'hoverColor', 'isActive', 'isDisabled', 'name', 'size', 'style', 'theme', 'title', 'viewBox']);
 
-      var classes = (0, _classnames2.default)(className, 'icon', theme ? 'icon-' + theme : '', { disabled: isDisabled }, { active: isActive }, { 'cursor-pointer': typeof other.onClick === 'function' });
+      var classes = (0, _classnames2.default)(className, 'icon', theme ? 'icon-' + theme : '', { disabled: isDisabled }, { active: isActive }, { 'cursor-pointer': typeof other.onClick === 'function' && !isDisabled });
 
       if (theme) {
         delete style.fill;

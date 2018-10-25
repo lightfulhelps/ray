@@ -980,7 +980,7 @@ mark,
   display: block;
   width: 100%;
   height: calc(2.875rem + 2px);
-  padding: 0.9375rem 1.25rem;
+  padding: 0.9375rem 1.5625rem;
   font-size: 1rem;
   line-height: 1;
   color: #212529;
@@ -1031,8 +1031,8 @@ select.form-control:focus::-ms-value {
   line-height: 1; }
 
 .col-form-label-sm {
-  padding-top: calc(0.6875rem + 1px);
-  padding-bottom: calc(0.6875rem + 1px);
+  padding-top: calc(0.625rem + 1px);
+  padding-bottom: calc(0.625rem + 1px);
   font-size: 0.875rem;
   line-height: 1; }
 
@@ -1052,15 +1052,15 @@ select.form-control:focus::-ms-value {
     padding-left: 0; }
 
 .form-control-sm {
-  height: calc(2.25rem + 2px);
-  padding: 0.6875rem 1.25rem;
+  height: calc(2.125rem + 2px);
+  padding: 0.625rem 0.9375rem;
   font-size: 0.875rem;
   line-height: 1;
   border-radius: 0.3125rem; }
 
 .form-control-lg {
   height: calc(3.75rem + 2px);
-  padding: 1.25rem 1.25rem;
+  padding: 1.25rem 1.875rem;
   font-size: 1.25rem;
   line-height: 1;
   border-radius: 0.3125rem; }
@@ -1330,7 +1330,7 @@ textarea.form-control {
   vertical-align: middle;
   user-select: none;
   border: 1px solid transparent;
-  padding: 0.9375rem 1.875rem;
+  padding: 0.9375rem 1.5625rem;
   font-size: 1rem;
   line-height: 1;
   border-radius: 0.3125rem;
@@ -1666,13 +1666,13 @@ fieldset:disabled a.btn {
     pointer-events: none; }
 
 .btn-lg, .btn-group-lg > .btn {
-  padding: 1.25rem 2.5rem;
+  padding: 1.25rem 1.875rem;
   font-size: 1.25rem;
   line-height: 1;
   border-radius: 0.3125rem; }
 
 .btn-sm, .btn-group-sm > .btn {
-  padding: 0.6875rem 1.875rem;
+  padding: 0.625rem 0.9375rem;
   font-size: 0.875rem;
   line-height: 1;
   border-radius: 0.3125rem; }
@@ -1840,8 +1840,8 @@ input[type="button"].btn-block {
   border-bottom-left-radius: 0; }
 
 .dropdown-toggle-split {
-  padding-right: 1.40625rem;
-  padding-left: 1.40625rem; }
+  padding-right: 1.17188rem;
+  padding-left: 1.17188rem; }
   .dropdown-toggle-split::after,
   .dropup .dropdown-toggle-split::after,
   .dropright .dropdown-toggle-split::after {
@@ -1850,12 +1850,12 @@ input[type="button"].btn-block {
     margin-right: 0; }
 
 .btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split {
-  padding-right: 1.40625rem;
-  padding-left: 1.40625rem; }
+  padding-right: 0.70312rem;
+  padding-left: 0.70312rem; }
 
 .btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split {
-  padding-right: 1.875rem;
-  padding-left: 1.875rem; }
+  padding-right: 1.40625rem;
+  padding-left: 1.40625rem; }
 
 .btn-group-vertical {
   flex-direction: column;
@@ -1964,7 +1964,7 @@ input[type="button"].btn-block {
 .input-group-text {
   display: flex;
   align-items: center;
-  padding: 0.9375rem 1.25rem;
+  padding: 0.9375rem 1.5625rem;
   margin-bottom: 0;
   font-size: 1rem;
   font-weight: 400;
@@ -1985,7 +1985,7 @@ input[type="button"].btn-block {
 .input-group-lg > .input-group-prepend > .btn,
 .input-group-lg > .input-group-append > .btn {
   height: calc(3.75rem + 2px);
-  padding: 1.25rem 1.25rem;
+  padding: 1.25rem 1.875rem;
   font-size: 1.25rem;
   line-height: 1;
   border-radius: 0.3125rem; }
@@ -1995,8 +1995,8 @@ input[type="button"].btn-block {
 .input-group-sm > .input-group-append > .input-group-text,
 .input-group-sm > .input-group-prepend > .btn,
 .input-group-sm > .input-group-append > .btn {
-  height: calc(2.25rem + 2px);
-  padding: 0.6875rem 1.25rem;
+  height: calc(2.125rem + 2px);
+  padding: 0.625rem 0.9375rem;
   font-size: 0.875rem;
   line-height: 1;
   border-radius: 0.3125rem; }
@@ -4439,6 +4439,10 @@ a.text-gray-800:hover, a.text-gray-800:focus {
 a.text-gray-900:hover, a.text-gray-900:focus {
   color: #0a0c0d !important; }
 
+label {
+  color: #212529;
+  font-weight: 500; }
+
 .form-control {
   font-weight: 300; }
   .form-control:hover:not(:focus):not(.focus):not(:disabled):not(.is-invalid):not(.is-valid) {
@@ -4810,7 +4814,7 @@ a.text-gray-900:hover, a.text-gray-900:focus {
   padding: 0.9375rem;
   border-radius: 0.3125rem; }
   .btn-icon.btn-sm, .btn-group-sm > .btn-icon.btn {
-    padding: 0.6875rem;
+    padding: 0.625rem;
     border-radius: 0.3125rem; }
   .btn-icon.btn-lg, .btn-group-lg > .btn-icon.btn {
     padding: 1.25rem;
@@ -4827,6 +4831,9 @@ a.text-gray-900:hover, a.text-gray-900:focus {
       margin-right: 0.625rem; }
   .btn-icon-right .icon {
     margin-left: 0.625rem; }
+
+.btn-sm, .btn-group-sm > .btn {
+  font-size: 1rem; }
 
 .input-group-prepend .btn,
 .input-group-append .btn {

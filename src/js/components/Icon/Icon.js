@@ -57,7 +57,7 @@ class Icon extends Component<Props, State> {
       theme ? `icon-${theme}` : '',
       { disabled: isDisabled },
       { active: isActive },
-      { 'cursor-pointer': typeof other.onClick === 'function' }
+      { 'cursor-pointer': typeof other.onClick === 'function' && !isDisabled }
     );
 
     if (theme) {
