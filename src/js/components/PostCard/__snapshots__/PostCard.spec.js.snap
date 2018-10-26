@@ -90,21 +90,21 @@ exports[`<PostCard /> should render 1`] = `
       />
     </div>
     <Tag
-      className="flex-fill text-xs mr-1"
+      className="text-xs mr-1"
       key="0"
       theme="light"
     >
       charity
     </Tag>
     <Tag
-      className="flex-fill text-xs mr-1"
+      className="text-xs mr-1"
       key="1"
       theme="light"
     >
       social for good
     </Tag>
     <Tag
-      className="flex-fill text-xs "
+      className="text-xs "
       key="2"
       theme="light"
     >

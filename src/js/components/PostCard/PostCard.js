@@ -182,7 +182,7 @@ const PostCard = ({
             </div>
             {post.tags.slice(0, config.tagLimit).map((tag, i) => (
               <Tag
-                className={`flex-fill text-xs ${i < config.tagLimit - 1 ? 'mr-1' : ''}`}
+                className={`text-xs ${i < config.tagLimit - 1 ? 'mr-1' : ''}`}
                 key={i}
                 theme="light"
               >

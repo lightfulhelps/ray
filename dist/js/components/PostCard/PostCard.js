@@ -162,7 +162,7 @@ var PostCard = function PostCard(_ref) {
         return React.createElement(
           _.Tag,
           {
-            className: 'flex-fill text-xs ' + (i < config.tagLimit - 1 ? 'mr-1' : ''),
+            className: 'text-xs ' + (i < config.tagLimit - 1 ? 'mr-1' : ''),
             key: i,
             theme: 'light'
           },
