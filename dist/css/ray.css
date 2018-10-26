@@ -5335,6 +5335,9 @@ button.bg-gray-900:focus {
     box-shadow: 0 0 0 2px #f25270, 0 0 30px 0 rgba(73, 80, 87, 0.04); }
     .post-card--invalid:hover {
       box-shadow: 0 0 0 2px #f25270, 0 0 30px 0 rgba(73, 80, 87, 0.12); }
+  .post-card > div:last-child {
+    border-bottom-left-radius: 0.3125rem;
+    border-bottom-right-radius: 0.3125rem; }
 
 .post-card__header {
   display: flex;

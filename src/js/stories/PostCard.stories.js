@@ -149,15 +149,13 @@ const inspirationPost = {
   inspirationActions: [
     {
       icon: 'follow',
-      isActive: boolean('Following', true),
       onClick: action('Follow'),
-      theme: 'gray-500',
+      theme: boolean('Following', true) ? 'primary' : 'gray-500',
     },
     {
       icon: 'like',
-      isActive: boolean('Liked', true),
       onClick: action('Like'),
-      theme: 'gray-500',
+      theme: boolean('Like', true) ? 'primary' : 'gray-500',
     },
     { icon: 'repost', isActive: false, theme: 'gray-500' },
     { icon: 'reply', isActive: false, theme: 'gray-500' },
