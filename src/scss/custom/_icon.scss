@@ -1,0 +1,39 @@
+@mixin icon-variant($color) {
+  fill: $color;
+
+  &:not(.disabled):not(.active):hover {
+    fill: scale-color($color, $lightness: -55%);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .icon-#{$color} {
+    @include icon-variant($value);
+  }
+}
+
+@each $color, $value in $grays {
+  .icon-gray-#{$color} {
+    @include icon-variant($value);
+  }
+}
+
+.icon-white {
+  @include icon-variant($white);
+}
+
+.icon-black {
+  @include icon-variant($black);
+}
+
+.icon-facebook {
+  @include icon-variant($facebook);
+}
+
+.icon-twitter {
+  @include icon-variant($twitter);
+}
+
+.icon-linkedin {
+  @include icon-variant($linkedin);
+}

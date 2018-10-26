@@ -193,11 +193,10 @@ var PostCard = function PostCard(_ref) {
       inspirationActions.map(function (action, i) {
         return React.createElement(_.Icon, {
           key: i,
+          isActive: action.isActive,
           name: action.icon,
           title: action.icon,
-          className: 'cursor-pointer',
-          color: action.isActive ? action.activeColor : action.color,
-          hoverColor: action.isActive ? action.activeColor : '#343a40',
+          theme: action.theme,
           onClick: function onClick() {
             if (!action.isActive) action.onClick();
           }

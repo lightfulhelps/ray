@@ -36,6 +36,12 @@ describe('<CharacterCounter />', () => {
     expect(wrapper.text()).toEqual('<Icon />0/60,000');
   });
 
+  it('should handle count', () => {
+    const { wrapper } = setup({ count: 5 });
+
+    expect(wrapper.text()).toEqual('<Icon />5');
+  });
+
   it('should handle text', () => {
     const { wrapper } = setup({ text: 'This is my text' });
 
@@ -50,6 +56,12 @@ describe('<CharacterCounter />', () => {
     wrapper.setProps({ text: longText });
 
     expect(wrapper.text()).toEqual('<Icon />9,999');
+  });
+
+  it('should use count over text length', () => {
+    const { wrapper } = setup({ count: 5, text: 'This is my text' });
+
+    expect(wrapper.text()).toEqual('<Icon />5');
   });
 
   it('should pass through other props', () => {

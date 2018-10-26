@@ -42,7 +42,7 @@ stories.add('Default', () => (
           isOutline={boolean('Outline', false)}
           onClick={action('clicked')}
           size={select('Size', sizes, 'md')}
-          icon={boolean('Show Icon', false) && select('Icon', icons, 'addMedia')}
+          icon={boolean('Show Icon', false) && select('Icon', icons, 'media')}
           iconPosition={
             boolean('Show Icon', false) && select('Icon Position', iconPositions, 'left')
           }

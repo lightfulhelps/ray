@@ -8,9 +8,13 @@ type Props = {
   className?: string,
   color?: string,
   hoverColor?: string,
+  isActive?: boolean,
+  isDisabled?: boolean,
   name: IconNameType,
+  onClick?: () => void,
   size?: number,
   style?: { [key: string]: any },
+  theme?: string,
   title?: string,
   viewBox?: string,
 };
@@ -37,14 +41,31 @@ class Icon extends Component<Props, State> {
       className,
       color = 'currentColor',
       hoverColor,
+      isActive,
+      isDisabled,
       name,
       size = '1em',
       style = {},
+      theme,
       title,
       viewBox = '0 0 24 24',
       ...other
     } = this.props;
-    const classes = classNames(className, 'icon');
+    const classes = classNames(
+      className,
+      'icon',
+      theme ? `icon-${theme}` : '',
+      { disabled: isDisabled },
+      { active: isActive },
+      { 'cursor-pointer': typeof other.onClick === 'function' && !isDisabled }
+    );
+
+    if (theme) {
+      delete style.fill;
+    } else {
+      style.fill = this.state.hover && hoverColor ? hoverColor : color;
+    }
+
     return (
       <svg
         {...other}
@@ -52,7 +73,7 @@ class Icon extends Component<Props, State> {
         width={size}
         height={size}
         viewBox={viewBox}
-        style={Object.assign({ fill: this.state.hover && hoverColor ? hoverColor : color }, style)}
+        style={style}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >
