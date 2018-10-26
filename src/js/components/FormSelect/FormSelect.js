@@ -5,7 +5,6 @@ import CreatableSelect from 'react-select/lib/Creatable';
 import SelectOption from './SelectOption';
 
 type Props = {
-  children: React.ChildrenArray<React.Element<'option'>>,
   className?: string,
   handleOnChange?: () => void,
   isClearable?: boolean,
@@ -17,6 +16,38 @@ type Props = {
   placeholder?: string,
   size?: 'sm' | 'md' | 'lg',
   value?: string,
+};
+
+const getBorder = (isFocused, isHovered, isInvalid) => {
+  if (isInvalid) return '#f25270';
+
+  if (isHovered) return '#adb5bd';
+
+  if (isFocused) return '#27b0cc';
+
+  return '#dee2e6';
+};
+
+const getSize = size => {
+  if (size === 'lg') {
+    return {
+      padding: '.5rem 1rem',
+      fontSize: '1.25rem',
+      height: 'inherit',
+    };
+  }
+  if (size === 'sm') {
+    return {
+      padding: '0 .5rem',
+      fontSize: '.875rem',
+      height: 'inherit',
+    };
+  }
+  return {
+    padding: '0.9375rem',
+    fontSize: 'inherit',
+    height: 'calc(2.875rem + 2px)',
+  };
 };
 
 const FormSelect = ({
@@ -41,39 +72,7 @@ const FormSelect = ({
     { 'is-valid': isValid }
   );
 
-  const getSize = () => {
-    if (size === 'lg') {
-      return {
-        padding: '.5rem 1rem',
-        fontSize: '1.25rem',
-        height: 'inherit',
-      };
-    }
-    if (size === 'sm') {
-      return {
-        padding: '0 .5rem',
-        fontSize: '.875rem',
-        height: 'inherit',
-      };
-    }
-    return {
-      padding: '0.9375rem',
-      fontSize: 'inherit',
-      height: 'calc(2.875rem + 2px)',
-    };
-  };
-
-  const getBorder = (isFocused, isHovered) => {
-    if (isInvalid) return '#f25270';
-
-    if (isHovered) return '#adb5bd';
-
-    if (isFocused) return '#27b0cc';
-
-    return '#dee2e6';
-  };
-
-  const { height, padding, fontSize } = getSize();
+  const { height, padding, fontSize } = getSize(size);
 
   const customStyles = {
     control: (base, state) => ({
@@ -83,9 +82,9 @@ const FormSelect = ({
       fontSize,
       'box-shadow': 'none',
       ':hover': {
-        'border-color': getBorder(null, true),
+        'border-color': getBorder(null, true, isInvalid),
       },
-      'border-color': getBorder(state.isFocused),
+      'border-color': getBorder(state.isFocused, null, isInvalid),
     }),
     valueContainer: base => ({
       ...base,

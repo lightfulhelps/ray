@@ -28,6 +28,38 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+var getBorder = function getBorder(isFocused, isHovered, isInvalid) {
+  if (isInvalid) return '#f25270';
+
+  if (isHovered) return '#adb5bd';
+
+  if (isFocused) return '#27b0cc';
+
+  return '#dee2e6';
+};
+
+var getSize = function getSize(size) {
+  if (size === 'lg') {
+    return {
+      padding: '.5rem 1rem',
+      fontSize: '1.25rem',
+      height: 'inherit'
+    };
+  }
+  if (size === 'sm') {
+    return {
+      padding: '0 .5rem',
+      fontSize: '.875rem',
+      height: 'inherit'
+    };
+  }
+  return {
+    padding: '0.9375rem',
+    fontSize: 'inherit',
+    height: 'calc(2.875rem + 2px)'
+  };
+};
+
 var FormSelect = function FormSelect(_ref) {
   var className = _ref.className,
       handleOnChange = _ref.handleOnChange,
@@ -46,39 +78,7 @@ var FormSelect = function FormSelect(_ref) {
     'is-invalid': isInvalid
   }, { 'is-valid': isValid });
 
-  var getSize = function getSize() {
-    if (size === 'lg') {
-      return {
-        padding: '.5rem 1rem',
-        fontSize: '1.25rem',
-        height: 'inherit'
-      };
-    }
-    if (size === 'sm') {
-      return {
-        padding: '0 .5rem',
-        fontSize: '.875rem',
-        height: 'inherit'
-      };
-    }
-    return {
-      padding: '0.9375rem',
-      fontSize: 'inherit',
-      height: 'calc(2.875rem + 2px)'
-    };
-  };
-
-  var getBorder = function getBorder(isFocused, isHovered) {
-    if (isInvalid) return '#f25270';
-
-    if (isHovered) return '#adb5bd';
-
-    if (isFocused) return '#27b0cc';
-
-    return '#dee2e6';
-  };
-
-  var _getSize = getSize(),
+  var _getSize = getSize(size),
       height = _getSize.height,
       padding = _getSize.padding,
       fontSize = _getSize.fontSize;
@@ -91,9 +91,9 @@ var FormSelect = function FormSelect(_ref) {
         fontSize: fontSize,
         'box-shadow': 'none',
         ':hover': {
-          'border-color': getBorder(null, true)
+          'border-color': getBorder(null, true, isInvalid)
         },
-        'border-color': getBorder(state.isFocused)
+        'border-color': getBorder(state.isFocused, null, isInvalid)
       });
     },
     valueContainer: function valueContainer(base) {
