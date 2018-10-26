@@ -25,4 +25,5 @@ export { default as PostMedia } from './components/PostMedia/PostMedia';
 export { default as Row } from './components/Row/Row';
 export { default as SearchInput } from './components/SearchInput/SearchInput';
 export { default as SearchSuggest } from './components/SearchSuggest/SearchSuggest';
+export { default as Tag } from './components/Tag/Tag';
 export { default as URLMetaPreview } from './components/URLMetaPreview/URLMetaPreview';

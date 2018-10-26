@@ -201,17 +201,23 @@ $nav-pills-link-color: $nav-link-color; // Ray
 
 // Cards
 
-$card-border-width: 2px;
+$card-border-width: 0;
 $card-border-radius: $border-radius-sm;
 $card-border-color: $white;
 
 // Badges
 
-$badge-font-size: ($font-size-base * 0.625);
-$badge-font-weight: $font-weight-base;
+$badge-font-size: 75%;
+$badge-font-weight: $font-weight-bold;
 $badge-padding-y: 0.4em;
 $badge-padding-x: 0.5em;
 $badge-border-radius: 2px;
+
+$badge-pill-padding-x: 0.75em;
+
+// Tags
+
+$tag-font-size: 100%; // Ray
 
 // Ghosts
 

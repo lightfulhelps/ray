@@ -3,6 +3,22 @@ small,
   font-size: $font-size-sm;
 }
 
+.text-lg {
+  font-size: $font-size-lg !important;
+}
+
+.text-sm {
+  font-size: $font-size-sm !important;
+}
+
+.text-xs {
+  font-size: $font-size-xs !important;
+}
+
+.text-xxs {
+  font-size: $font-size-xxs !important;
+}
+
 @each $color, $value in $grays {
   @include text-emphasis-variant('.text-gray-#{$color}', $value);
 }
