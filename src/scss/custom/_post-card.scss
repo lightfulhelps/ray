@@ -80,41 +80,18 @@
 }
 
 .post-card__tags {
-  display: flex;
-  align-items: center;
-  background-color: $gray-200;
-  padding: 0 map-get($spacers, 2);
-  height: 54px;
-
-  .tag {
-    font-size: $font-size-sm;
-    margin-right: $spacer / 2;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-  }
-}
-
-.post-card__tags-count {
-  display: flex;
-  align-items: center;
-  font-weight: $font-weight-bold;
-  margin-right: $spacer;
-
-  .icon {
-    margin-left: $spacer / 3;
-  }
+  height: 45px;
 }
 
 .post-card__tags-more {
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background-color: $gray-600;
+  background-color: $gray-800;
   color: $white;
   font-size: $font-size-xs;
   font-weight: $font-weight-bold;

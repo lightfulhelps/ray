@@ -173,26 +173,29 @@ const PostCard = ({
         )}
         {showMediaEmpty && <div className="post-media--empty">No media</div>}
       </div>
-      <div className={`${blockClass}__tags`}>
-        {post.tags &&
-          post.tags.length > 0 && (
-            <React.Fragment>
-              <div className={`${blockClass}__tags-count`}>
-                {post.tags.length} <Icon name="tag" />
+      {post.tags &&
+        post.tags.length > 0 && (
+          <div className={`${blockClass}__tags d-flex align-items-center bg-gray-200 px-2 py-1`}>
+            <div className="d-flex align-items-center text-gray-900 font-weight-bold mr-1">
+              {post.tags.length}{' '}
+              <Icon name="tag" theme="gray-500" isActive style={{ marginLeft: '2px' }} />
+            </div>
+            {post.tags.slice(0, config.tagLimit).map((tag, i) => (
+              <Tag
+                className={`flex-fill text-xs ${i < config.tagLimit - 1 ? 'mr-1' : ''}`}
+                key={i}
+                theme="light"
+              >
+                {tag}
+              </Tag>
+            ))}
+            {post.tags.length > config.tagLimit && (
+              <div className={`${blockClass}__tags-more`}>
+                +{post.tags.length - config.tagLimit}
               </div>
-              {post.tags.slice(0, config.tagLimit).map((tag, i) => (
-                <Tag className="flex-fill" key={i} theme="light">
-                  {tag}
-                </Tag>
-              ))}
-              {/* {post.tags.length > config.tagLimit && (
-                <div className={`${blockClass}__tags-more`}>
-                  +{post.tags.length - config.tagLimit}
-                </div>
-              )} */}
-            </React.Fragment>
-          )}
-      </div>
+            )}
+          </div>
+        )}
       {post.metrics &&
         Object.keys(post.metrics).length > 0 && (
           <div className={`${blockClass}__metrics`}>

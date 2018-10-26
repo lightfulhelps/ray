@@ -148,26 +148,32 @@ var PostCard = function PostCard(_ref) {
         'No media'
       )
     ),
-    React.createElement(
+    post.tags && post.tags.length > 0 && React.createElement(
       'div',
-      { className: blockClass + '__tags' },
-      post.tags && post.tags.length > 0 && React.createElement(
-        React.Fragment,
-        null,
-        React.createElement(
-          'div',
-          { className: blockClass + '__tags-count' },
-          post.tags.length,
-          ' ',
-          React.createElement(_.Icon, { name: 'tag' })
-        ),
-        post.tags.slice(0, config.tagLimit).map(function (tag, i) {
-          return React.createElement(
-            _.Tag,
-            { className: 'flex-fill', key: i, theme: 'light' },
-            tag
-          );
-        })
+      { className: blockClass + '__tags d-flex align-items-center bg-gray-200 px-2 py-1' },
+      React.createElement(
+        'div',
+        { className: 'd-flex align-items-center text-gray-900 font-weight-bold mr-1' },
+        post.tags.length,
+        ' ',
+        React.createElement(_.Icon, { name: 'tag', theme: 'gray-500', isActive: true, style: { marginLeft: '2px' } })
+      ),
+      post.tags.slice(0, config.tagLimit).map(function (tag, i) {
+        return React.createElement(
+          _.Tag,
+          {
+            className: 'flex-fill text-xs ' + (i < config.tagLimit - 1 ? 'mr-1' : ''),
+            key: i,
+            theme: 'light'
+          },
+          tag
+        );
+      }),
+      post.tags.length > config.tagLimit && React.createElement(
+        'div',
+        { className: blockClass + '__tags-more' },
+        '+',
+        post.tags.length - config.tagLimit
       )
     ),
     post.metrics && Object.keys(post.metrics).length > 0 && React.createElement(

@@ -4385,6 +4385,18 @@ small,
 .small {
   font-size: 0.875rem; }
 
+.text-lg {
+  font-size: 1.25rem !important; }
+
+.text-sm {
+  font-size: 0.875rem !important; }
+
+.text-xs {
+  font-size: 0.75rem !important; }
+
+.text-xxs {
+  font-size: 0.5rem !important; }
+
 .text-gray-100 {
   color: #f8f9fa !important; }
 
@@ -5360,33 +5372,17 @@ button.bg-gray-900:focus {
   height: 164px; }
 
 .post-card__tags {
-  display: flex;
-  align-items: center;
-  background-color: #e9ecef;
-  padding: 0 1.25rem;
-  height: 54px; }
-  .post-card__tags .tag {
-    font-size: 0.875rem;
-    margin-right: 0.3125rem; }
-    .post-card__tags .tag:last-of-type {
-      margin-right: 0; }
-
-.post-card__tags-count {
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  margin-right: 0.625rem; }
-  .post-card__tags-count .icon {
-    margin-left: 0.20833rem; }
+  height: 45px; }
 
 .post-card__tags-more {
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background-color: #6c757c;
+  background-color: #343a40;
   color: #fff;
   font-size: 0.75rem;
   font-weight: 500;
