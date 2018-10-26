@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getSize = exports.getBorder = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -28,7 +29,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-var getBorder = function getBorder(isFocused, isHovered, isInvalid) {
+var getBorder = exports.getBorder = function getBorder(isFocused, isHovered, isInvalid) {
   if (isInvalid) return '#f25270';
 
   if (isHovered) return '#adb5bd';
@@ -38,7 +39,7 @@ var getBorder = function getBorder(isFocused, isHovered, isInvalid) {
   return '#dee2e6';
 };
 
-var getSize = function getSize(size) {
+var getSize = exports.getSize = function getSize(size) {
   if (size === 'lg') {
     return {
       padding: '.5rem 1rem',

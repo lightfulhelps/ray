@@ -8,6 +8,8 @@ type Props = {
   className?: string,
   handleOnChange?: () => void,
   isClearable?: boolean,
+  isFocused: boolean,
+  isHovered: boolean,
   isInvalid?: boolean,
   isMulti?: boolean,
   isValid?: boolean,
@@ -18,7 +20,11 @@ type Props = {
   value?: string,
 };
 
-const getBorder = (isFocused, isHovered, isInvalid) => {
+export const getBorder = (
+  isFocused: boolean | null | typeof undefined,
+  isHovered: boolean | null | typeof undefined,
+  isInvalid: boolean | typeof undefined
+) => {
   if (isInvalid) return '#f25270';
 
   if (isHovered) return '#adb5bd';
@@ -28,7 +34,7 @@ const getBorder = (isFocused, isHovered, isInvalid) => {
   return '#dee2e6';
 };
 
-const getSize = size => {
+export const getSize = (size: 'sm' | 'md' | 'lg' | typeof undefined) => {
   if (size === 'lg') {
     return {
       padding: '.5rem 1rem',

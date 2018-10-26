@@ -3,6 +3,11 @@
 exports[`<FormSelect /> should render 1`] = `
 <StateManager
   className=""
+  components={
+    Object {
+      "Option": [Function],
+    }
+  }
   defaultInputValue=""
   defaultMenuIsOpen={false}
   defaultValue={null}
