@@ -6,7 +6,7 @@
   "main": "dist/js",
   "private": true,
   "scripts": {
-    "build": "rm -rf dist && yarn build:icons && run-p build:css build:js build:storybook",
+    "build": "rm -rf dist && yarn build:icons && run-p build:css build:js",
     "build:css": "node-sass src/scss/ray.scss dist/css/ray.css",
     "build:icons": "babel-node scripts/buildIcons.js --svg-dir src/icons --output-file src/js/components/Icon/icons.js",
     "build:js": "babel src/js --out-dir dist/js --ignore '*.stories.js, *.spec.js, setupTests.js'",
