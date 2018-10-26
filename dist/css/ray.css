@@ -5409,11 +5409,9 @@ button.bg-gray-900:focus {
   font-size: 1.5rem;
   border-top: 1px solid #dee2e6; }
 
-.post-card__footer {
-  margin-top: 1px; }
-  .post-card__footer .btn {
-    width: 100%;
-    border-radius: 0 0 0.3125rem 0.3125rem; }
+.post-card__footer .btn {
+  width: 100%;
+  border-radius: 0 0 0.3125rem 0.3125rem; }
 
 .post-media {
   display: grid;

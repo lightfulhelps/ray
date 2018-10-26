@@ -158,17 +158,21 @@ var PostCard = function PostCard(_ref) {
         ' ',
         React.createElement(_.Icon, { name: 'tag', theme: 'gray-500', isActive: true, style: { marginLeft: '2px' } })
       ),
-      post.tags.slice(0, config.tagLimit).map(function (tag, i) {
-        return React.createElement(
-          _.Tag,
-          {
-            className: 'text-xs ' + (i < config.tagLimit - 1 ? 'mr-1' : ''),
-            key: i,
-            theme: 'light'
-          },
-          tag
-        );
-      }),
+      React.createElement(
+        'div',
+        { className: 'd-flex flex-fill', style: { minWidth: 0 } },
+        post.tags.slice(0, config.tagLimit).map(function (tag, i) {
+          return React.createElement(
+            _.Tag,
+            {
+              className: 'text-xs ' + (i < config.tagLimit - 1 ? 'mr-1' : ''),
+              key: i,
+              theme: 'light'
+            },
+            tag
+          );
+        })
+      ),
       post.tags.length > config.tagLimit && React.createElement(
         'div',
         { className: blockClass + '__tags-more' },

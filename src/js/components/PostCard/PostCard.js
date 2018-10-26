@@ -180,15 +180,17 @@ const PostCard = ({
               {post.tags.length}{' '}
               <Icon name="tag" theme="gray-500" isActive style={{ marginLeft: '2px' }} />
             </div>
-            {post.tags.slice(0, config.tagLimit).map((tag, i) => (
-              <Tag
-                className={`text-xs ${i < config.tagLimit - 1 ? 'mr-1' : ''}`}
-                key={i}
-                theme="light"
-              >
-                {tag}
-              </Tag>
-            ))}
+            <div className="d-flex flex-fill" style={{ minWidth: 0 }}>
+              {post.tags.slice(0, config.tagLimit).map((tag, i) => (
+                <Tag
+                  className={`text-xs ${i < config.tagLimit - 1 ? 'mr-1' : ''}`}
+                  key={i}
+                  theme="light"
+                >
+                  {tag}
+                </Tag>
+              ))}
+            </div>
             {post.tags.length > config.tagLimit && (
               <div className={`${blockClass}__tags-more`}>
                 +{post.tags.length - config.tagLimit}

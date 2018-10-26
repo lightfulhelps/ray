@@ -38,7 +38,7 @@ const media = [
   },
 ];
 
-const tags = ['Social For Good', 'Charity', 'Campaign', 'Lightful', 'Giving'];
+const tags = ['Social For Good', 'Charity', 'Lightful', 'Giving', 'Tech For Good'];
 
 const scheduledPost = {
   post: {
@@ -144,6 +144,7 @@ const inspirationPost = {
       shares: 69,
       clicks: 30,
     },
+    tags: [],
   },
   inspirationActions: [
     {

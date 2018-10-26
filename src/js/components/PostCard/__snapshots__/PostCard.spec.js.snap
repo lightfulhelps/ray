@@ -89,27 +89,36 @@ exports[`<PostCard /> should render 1`] = `
         theme="gray-500"
       />
     </div>
-    <Tag
-      className="text-xs mr-1"
-      key="0"
-      theme="light"
+    <div
+      className="d-flex flex-fill"
+      style={
+        Object {
+          "minWidth": 0,
+        }
+      }
     >
-      charity
-    </Tag>
-    <Tag
-      className="text-xs mr-1"
-      key="1"
-      theme="light"
-    >
-      social for good
-    </Tag>
-    <Tag
-      className="text-xs "
-      key="2"
-      theme="light"
-    >
-      campaigns
-    </Tag>
+      <Tag
+        className="text-xs mr-1"
+        key="0"
+        theme="light"
+      >
+        charity
+      </Tag>
+      <Tag
+        className="text-xs mr-1"
+        key="1"
+        theme="light"
+      >
+        social for good
+      </Tag>
+      <Tag
+        className="text-xs "
+        key="2"
+        theme="light"
+      >
+        campaigns
+      </Tag>
+    </div>
     <div
       className="post-card__tags-more"
     >
