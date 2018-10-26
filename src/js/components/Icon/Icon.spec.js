@@ -49,14 +49,6 @@ describe('<Icon />', () => {
     expect(wrapper.hasClass('custom')).toBe(true);
   });
 
-  it('should handle the color prop', () => {
-    const { wrapper } = setup({ color: '#ffff00' });
-
-    expect(wrapper.prop('style')).toEqual({
-      fill: '#ffff00',
-    });
-  });
-
   it('should handle the name prop', () => {
     const { wrapper } = setup({ name: 'analytics' });
 
@@ -72,23 +64,6 @@ describe('<Icon />', () => {
 
     expect(wrapper.prop('width')).toEqual(20);
     expect(wrapper.prop('height')).toEqual(20);
-  });
-
-  it('should handle the style prop', () => {
-    const { wrapper } = setup({ style: { marginTop: '5px' } });
-
-    expect(wrapper.prop('style')).toEqual({
-      fill: 'currentColor',
-      marginTop: '5px',
-    });
-  });
-
-  it('should overwrite existing styles', () => {
-    const { wrapper } = setup({ style: { fill: 'blue' } });
-
-    expect(wrapper.prop('style')).toEqual({
-      fill: 'blue',
-    });
   });
 
   it('should handle the viewBox prop', () => {
@@ -109,6 +84,55 @@ describe('<Icon />', () => {
     wrapper.simulate('mouseLeave');
 
     expect(wrapper.state('hover')).toBe(false);
+  });
+
+  it('should handle the style prop', () => {
+    const { wrapper } = setup({ style: { marginTop: '5px' } });
+
+    expect(wrapper.prop('style')).toEqual({
+      fill: 'currentColor',
+      marginTop: '5px',
+    });
+  });
+
+  it('should handle the color prop', () => {
+    const { wrapper } = setup({ color: '#ffff00' });
+
+    expect(wrapper.prop('style')).toEqual({
+      fill: '#ffff00',
+    });
+  });
+
+  it('should handle the theme prop', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.hasClass('icon-primary')).toBe(false);
+
+    wrapper.setProps({ theme: 'primary' });
+
+    expect(wrapper.hasClass('icon-primary')).toBe(true);
+  });
+
+  it('should not use color if theme is provided', () => {
+    const { wrapper } = setup({ color: 'blue' });
+
+    expect(wrapper.prop('style').fill).toBe('blue');
+
+    wrapper.setProps({ theme: 'primary' });
+
+    expect(wrapper.prop('style').fill).toBe(undefined);
+  });
+
+  it('should not use hoverColor if theme is provided', () => {
+    const { wrapper } = setup({ hoverColor: 'blue' });
+
+    wrapper.setState({ hover: true });
+
+    expect(wrapper.prop('style').fill).toBe('blue');
+
+    wrapper.setProps({ theme: 'primary' });
+
+    expect(wrapper.prop('style').fill).toBe(undefined);
   });
 
   it('should not update fill color on hover if hoverColor is not provided', () => {
@@ -144,5 +168,19 @@ describe('<Icon />', () => {
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');
+  });
+
+  it('should have cursor pointer if onClick and not disabled', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.hasClass('cursor-pointer')).toBe(false);
+
+    wrapper.setProps({ onClick: jest.fn() });
+
+    expect(wrapper.hasClass('cursor-pointer')).toBe(true);
+
+    wrapper.setProps({ isDisabled: true });
+
+    expect(wrapper.hasClass('cursor-pointer')).toBe(false);
   });
 });

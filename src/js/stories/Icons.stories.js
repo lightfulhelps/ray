@@ -1,10 +1,23 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, color, number } from '@storybook/addon-knobs';
+import { withKnobs, color, number, boolean, select } from '@storybook/addon-knobs';
 import { Container, Row, Col, Icon } from '../';
 import icons from '../components/Icon/icons';
 
 import '../../scss/ray.scss';
+
+const themes = {
+  primary: 'Primary',
+  secondary: 'Secondary',
+  success: 'Success',
+  danger: 'Danger',
+  warning: 'Warning',
+  info: 'Info',
+  light: 'Light',
+  dark: 'Dark',
+  white: 'White',
+  'gray-500': 'Gray 500',
+};
 
 const stories = storiesOf('Icons', module);
 
@@ -24,6 +37,7 @@ stories.add('Default', () => (
                   size={number('Size', 24)}
                   color={color('Color', '#adb5bd')}
                   hoverColor={color('Hover Color', '#212529')}
+                  theme={boolean('Use theme?') && select('Theme', themes, 'primary')}
                 />
                 <div>{icon}</div>
               </Col>
