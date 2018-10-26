@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tag /> should render 1`] = `
+<Badge
+  className="tag"
+  isPill={true}
+>
+  Social For Good
+</Badge>
+`;
+
+exports[`<Tag /> should render with a remove Icon 1`] = `
+<Badge
+  className="tag"
+  isPill={true}
+>
+  Social For Good
+  <Icon
+    className="cursor-pointer"
+    name="close"
+    onClick={[MockFunction]}
+  />
+</Badge>
+`;

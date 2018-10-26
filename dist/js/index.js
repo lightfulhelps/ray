@@ -247,6 +247,15 @@ Object.defineProperty(exports, 'SearchSuggest', {
   }
 });
 
+var _Tag = require('./components/Tag/Tag');
+
+Object.defineProperty(exports, 'Tag', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Tag).default;
+  }
+});
+
 var _URLMetaPreview = require('./components/URLMetaPreview/URLMetaPreview');
 
 Object.defineProperty(exports, 'URLMetaPreview', {

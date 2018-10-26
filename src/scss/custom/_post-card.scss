@@ -12,11 +12,24 @@
 
   &--draft {
     background-color: $gray-100;
-    border-color: $gray-500;
+    box-shadow: 0 0 0 2px $gray-500, $box-shadow;
+
+    &:hover {
+      box-shadow: 0 0 0 2px $gray-500, $box-shadow-lg;
+    }
   }
 
   &--invalid {
-    border-color: $danger;
+    box-shadow: 0 0 0 2px $danger, $box-shadow;
+
+    &:hover {
+      box-shadow: 0 0 0 2px $danger, $box-shadow-lg;
+    }
+  }
+
+  > div:last-child {
+    border-bottom-left-radius: $border-radius-sm;
+    border-bottom-right-radius: $border-radius-sm;
   }
 }
 
@@ -36,7 +49,7 @@
 .post-card__title {
   @extend .h5, .text-truncate;
 
-  margin-bottom: 0.2em;
+  margin-bottom: $spacer / 2;
 }
 
 .post-card__date {
@@ -47,11 +60,17 @@
   height: 20px;
   font-size: $font-size-xs;
   text-transform: uppercase;
-  margin-bottom: 0.2em;
+  margin-bottom: $spacer / 2;
 
   svg {
     margin-right: 3px;
   }
+}
+
+.post-card__campaign {
+  @extend .text-uppercase;
+
+  font-size: $font-size-xs * 0.85;
 }
 
 .post-card__content {
@@ -63,6 +82,25 @@
 
 .post-card__media {
   height: 164px;
+}
+
+.post-card__tags {
+  height: 45px;
+}
+
+.post-card__tags-more {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: $gray-800;
+  color: $white;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  margin-left: $spacer;
 }
 
 .post-card__metrics {
@@ -96,8 +134,6 @@
 }
 
 .post-card__footer {
-  margin-top: 1px;
-
   .btn {
     width: 100%;
     border-radius: 0 0 $border-radius-sm $border-radius-sm;

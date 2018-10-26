@@ -26,7 +26,7 @@ exports[`<PostCard /> should render 1`] = `
       style={
         Object {
           "flex": 1,
-          "height": "74px",
+          "height": "72px",
           "minWidth": 0,
         }
       }
@@ -42,7 +42,7 @@ exports[`<PostCard /> should render 1`] = `
         22 Aug - 14:34
       </div>
       <Badge
-        className="campaign-tag"
+        className="post-card__campaign"
         color="#ff0000"
       >
         Campaign
@@ -70,6 +70,62 @@ exports[`<PostCard /> should render 1`] = `
   <div
     className="post-card__media"
   />
+  <div
+    className="post-card__tags d-flex align-items-center bg-gray-200 px-2 py-1"
+  >
+    <div
+      className="d-flex align-items-center text-gray-900 font-weight-bold mr-1"
+    >
+      4
+       
+      <Icon
+        isActive={true}
+        name="tag"
+        style={
+          Object {
+            "marginLeft": "2px",
+          }
+        }
+        theme="gray-500"
+      />
+    </div>
+    <div
+      className="d-flex flex-fill"
+      style={
+        Object {
+          "minWidth": 0,
+        }
+      }
+    >
+      <Tag
+        className="text-xs mr-1"
+        key="0"
+        theme="light"
+      >
+        charity
+      </Tag>
+      <Tag
+        className="text-xs mr-1"
+        key="1"
+        theme="light"
+      >
+        social for good
+      </Tag>
+      <Tag
+        className="text-xs "
+        key="2"
+        theme="light"
+      >
+        campaigns
+      </Tag>
+    </div>
+    <div
+      className="post-card__tags-more"
+    >
+      +
+      1
+    </div>
+  </div>
   <div
     className="post-card__metrics"
   >

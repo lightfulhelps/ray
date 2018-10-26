@@ -25,6 +25,7 @@ const setup = (overrides = {}) => {
           likes: 10,
           shares: 5,
         },
+        tags: ['charity', 'social for good', 'campaigns', 'lightful'],
       },
       inspirationActions: [
         {
@@ -139,18 +140,18 @@ describe('<PostCard />', () => {
   it('should handle the post campaign prop', () => {
     const { wrapper, props } = setup();
 
-    expect(wrapper.find('.campaign-tag').prop('color')).toEqual(props.post.campaign.color);
-    expect(wrapper.find('.campaign-tag').prop('children')).toEqual(props.post.campaign.name);
+    expect(wrapper.find('.post-card__campaign').prop('color')).toEqual(props.post.campaign.color);
+    expect(wrapper.find('.post-card__campaign').prop('children')).toEqual(props.post.campaign.name);
   });
 
   it('should optionally display the campaign tag', () => {
     const { wrapper, props } = setup();
 
-    expect(wrapper.find('.campaign-tag').exists()).toBe(true);
+    expect(wrapper.find('.post-card__campaign').exists()).toBe(true);
 
     wrapper.setProps({ post: merge(props.post, { campaign: null }) });
 
-    expect(wrapper.find('.campaign-tag').exists()).toBe(false);
+    expect(wrapper.find('.post-card__campaign').exists()).toBe(false);
   });
 
   it('should optionally display a Dropdown', () => {

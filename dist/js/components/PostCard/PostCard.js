@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.config = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -38,6 +39,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+var config = exports.config = {
+  contentLines: 5,
+  tagLimit: 3
+};
+
 var PostCard = function PostCard(_ref) {
   var _ref$actions = _ref.actions,
       actions = _ref$actions === undefined ? [] : _ref$actions,
@@ -72,7 +78,7 @@ var PostCard = function PostCard(_ref) {
       ),
       React.createElement(
         'div',
-        { className: 'mx-1', style: { height: '74px', minWidth: 0, flex: 1 } },
+        { className: 'mx-1', style: { height: '72px', minWidth: 0, flex: 1 } },
         React.createElement(
           'h1',
           { className: blockClass + '__title' },
@@ -86,7 +92,7 @@ var PostCard = function PostCard(_ref) {
         ),
         post.campaign && React.createElement(
           _.Badge,
-          { className: 'campaign-tag', color: post.campaign.color },
+          { className: blockClass + '__campaign', color: post.campaign.color },
           post.campaign.name
         )
       ),
@@ -123,7 +129,7 @@ var PostCard = function PostCard(_ref) {
       { className: blockClass + '__content' },
       React.createElement(
         _reactDotdotdot2.default,
-        { clamp: 5 },
+        { clamp: config.contentLines },
         React.createElement('div', {
           dangerouslySetInnerHTML: {
             __html: post.content
@@ -140,6 +146,38 @@ var PostCard = function PostCard(_ref) {
         'div',
         { className: 'post-media--empty' },
         'No media'
+      )
+    ),
+    post.tags && post.tags.length > 0 && React.createElement(
+      'div',
+      { className: blockClass + '__tags d-flex align-items-center bg-gray-200 px-2 py-1' },
+      React.createElement(
+        'div',
+        { className: 'd-flex align-items-center text-gray-900 font-weight-bold mr-1' },
+        post.tags.length,
+        ' ',
+        React.createElement(_.Icon, { name: 'tag', theme: 'gray-500', isActive: true, style: { marginLeft: '2px' } })
+      ),
+      React.createElement(
+        'div',
+        { className: 'd-flex flex-fill', style: { minWidth: 0 } },
+        post.tags.slice(0, config.tagLimit).map(function (tag, i) {
+          return React.createElement(
+            _.Tag,
+            {
+              className: 'text-xs ' + (i < config.tagLimit - 1 ? 'mr-1' : ''),
+              key: i,
+              theme: 'light'
+            },
+            tag
+          );
+        })
+      ),
+      post.tags.length > config.tagLimit && React.createElement(
+        'div',
+        { className: blockClass + '__tags-more' },
+        '+',
+        post.tags.length - config.tagLimit
       )
     ),
     post.metrics && Object.keys(post.metrics).length > 0 && React.createElement(

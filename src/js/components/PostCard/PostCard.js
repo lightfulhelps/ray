@@ -15,6 +15,7 @@ import {
   DropdownMenu,
   DropdownItem,
   Button,
+  Tag,
 } from '../../';
 import { type IconNameType } from '../Icon/icons';
 
@@ -52,6 +53,7 @@ type PostType = {
     provider: 'facebook' | 'twitter' | 'linkedin',
     username?: string,
   },
+  tags: [string],
   title: string,
 };
 
@@ -76,6 +78,11 @@ type Props = {
     url: string,
   },
   post: PostType,
+};
+
+export const config = {
+  contentLines: 5,
+  tagLimit: 3,
 };
 
 const PostCard = ({
@@ -112,7 +119,7 @@ const PostCard = ({
             <Avatar url={post.socialIdentity.avatar} provider={post.socialIdentity.provider} />
           </div>
         )}
-        <div className="mx-1" style={{ height: '74px', minWidth: 0, flex: 1 }}>
+        <div className="mx-1" style={{ height: '72px', minWidth: 0, flex: 1 }}>
           <h1 className={`${blockClass}__title`}>{post.title}</h1>
           <div className={`${blockClass}__date`}>
             {(!post.date || isFuture(post.date)) && (
@@ -121,7 +128,7 @@ const PostCard = ({
             {post.date ? formatDate(post.date, dateFormat) : 'Unscheduled'}
           </div>
           {post.campaign && (
-            <Badge className="campaign-tag" color={post.campaign.color}>
+            <Badge className={`${blockClass}__campaign`} color={post.campaign.color}>
               {post.campaign.name}
             </Badge>
           )}
@@ -151,7 +158,7 @@ const PostCard = ({
         )}
       </div>
       <div className={`${blockClass}__content`}>
-        <Dotdotdot clamp={5}>
+        <Dotdotdot clamp={config.contentLines}>
           <div
             dangerouslySetInnerHTML={{
               __html: post.content,
@@ -166,6 +173,31 @@ const PostCard = ({
         )}
         {showMediaEmpty && <div className="post-media--empty">No media</div>}
       </div>
+      {post.tags &&
+        post.tags.length > 0 && (
+          <div className={`${blockClass}__tags d-flex align-items-center bg-gray-200 px-2 py-1`}>
+            <div className="d-flex align-items-center text-gray-900 font-weight-bold mr-1">
+              {post.tags.length}{' '}
+              <Icon name="tag" theme="gray-500" isActive style={{ marginLeft: '2px' }} />
+            </div>
+            <div className="d-flex flex-fill" style={{ minWidth: 0 }}>
+              {post.tags.slice(0, config.tagLimit).map((tag, i) => (
+                <Tag
+                  className={`text-xs ${i < config.tagLimit - 1 ? 'mr-1' : ''}`}
+                  key={i}
+                  theme="light"
+                >
+                  {tag}
+                </Tag>
+              ))}
+            </div>
+            {post.tags.length > config.tagLimit && (
+              <div className={`${blockClass}__tags-more`}>
+                +{post.tags.length - config.tagLimit}
+              </div>
+            )}
+          </div>
+        )}
       {post.metrics &&
         Object.keys(post.metrics).length > 0 && (
           <div className={`${blockClass}__metrics`}>
