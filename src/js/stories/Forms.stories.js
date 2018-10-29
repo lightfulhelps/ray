@@ -73,7 +73,7 @@ stories.add('Default', () => (
             onChange={action('Select change')}
             options={selectOptions}
             placeholder="Some placeholder text..."
-            size={select('Select Size', sizes, 'md')}
+            size={select('Select Size', sizes)}
           />
         </FormGroup>
         <FormGroup>

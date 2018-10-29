@@ -17,9 +17,22 @@ exports[`<FormSelect /> should render 1`] = `
   defaultValue={null}
   styles={
     Object {
+      "clearIndicator": [Function],
+      "container": [Function],
       "control": [Function],
+      "dropdownIndicator": [Function],
+      "indicatorSeparator": [Function],
+      "indicatorsContainer": [Function],
+      "input": [Function],
       "menu": [Function],
+      "menuList": [Function],
+      "multiValue": [Function],
+      "multiValueLabel": [Function],
+      "multiValueRemove": [Function],
+      "noOptionsMessage": [Function],
       "option": [Function],
+      "placeholder": [Function],
+      "singleValue": [Function],
       "valueContainer": [Function],
     }
   }
