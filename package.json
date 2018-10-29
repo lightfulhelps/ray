@@ -80,7 +80,7 @@
     "handlebars": "^4.0.12",
     "husky": "^1.1.2",
     "jest": "^23.6.0",
-    "lint-staged": "^7.3.0",
+    "lint-staged": "^8.0.0",
     "lodash": "^4.17.11",
     "node-sass": "^4.9.4",
     "npm-run-all": "^4.1.3",
