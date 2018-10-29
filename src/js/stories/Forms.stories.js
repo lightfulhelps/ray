@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { storiesOf, action } from '@storybook/react';
 import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import {
   Container,
@@ -17,7 +17,6 @@ import '../../scss/ray.scss';
 
 const stories = storiesOf('Forms', module);
 
-// const selectOptions = 'bleep'
 const selectOptions = [
   {
     label: 're',
@@ -70,18 +69,21 @@ stories.add('Default', () => (
         <FormGroup>
           <FormLabel>Select</FormLabel>
           <FormSelect
-            handleOnChange={data => alert(data.label)}
-            isInvalid={boolean('Select; Is Valid', false)}
-            size={select('Select; Size', sizes, 'md')}
+            isInvalid={boolean('Select Invalid', false)}
+            onChange={action('Select change')}
             options={selectOptions}
-            label="name"
-            value="value"
             placeholder="Some placeholder text..."
+            size={select('Select Size', sizes, 'md')}
           />
         </FormGroup>
         <FormGroup>
           <FormLabel>Multiple Select</FormLabel>
-          <FormSelect isMulti options={selectOptions} />
+          <FormSelect
+            isCreatable
+            isMulti
+            onChange={action('Multiple Select change')}
+            options={selectOptions}
+          />
         </FormGroup>
         <FormGroup>
           <FormLabel>Textarea</FormLabel>

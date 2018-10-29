@@ -1,35 +1,29 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import CreatableSelect from 'react-select/lib/Creatable';
+import Select from 'react-select';
+import Creatable from 'react-select/lib/Creatable';
+import { Icon, Tag } from '../../';
 import SelectOption from './SelectOption';
 
 type Props = {
   className?: string,
-  handleOnChange?: () => void,
-  isClearable?: boolean,
-  isFocused: boolean,
-  isHovered: boolean,
+  isCreatable?: boolean,
   isInvalid?: boolean,
-  isMulti?: boolean,
   isValid?: boolean,
-  label?: string,
-  options: { [string]: any },
-  placeholder?: string,
-  size?: 'sm' | 'md' | 'lg',
-  value?: string,
+  size?: 'sm' | 'lg',
 };
 
 export const getBorder = (
-  isFocused: boolean | null | typeof undefined,
   isHovered: boolean | null | typeof undefined,
+  isFocused: boolean | null | typeof undefined,
   isInvalid: boolean | typeof undefined
 ) => {
   if (isInvalid) return '#f25270';
 
-  if (isHovered) return '#adb5bd';
-
   if (isFocused) return '#27b0cc';
+
+  if (isHovered) return '#adb5bd';
 
   return '#dee2e6';
 };
@@ -56,26 +50,28 @@ export const getSize = (size: 'sm' | 'md' | 'lg' | typeof undefined) => {
   };
 };
 
-const FormSelect = ({
-  className,
-  handleOnChange,
-  isClearable,
-  isInvalid,
-  isMulti,
-  isValid,
-  label,
-  options,
-  placeholder,
-  size,
-  value,
-  ...other
-}: Props) => {
+const FormSelect = ({ className, isCreatable, isInvalid, isValid, size, ...other }: Props) => {
+  const classNamePrefix = 'form-select';
+
   const classes = classNames(
     className,
+    size ? `${classNamePrefix}-${size}` : classNamePrefix,
     {
       'is-invalid': isInvalid,
     },
     { 'is-valid': isValid }
+  );
+
+  const Component = isCreatable ? Creatable : Select;
+
+  const ClearIndicator = ({ innerProps }) => <Icon {...innerProps} name="close" />;
+
+  const DropdownIndicator = () => <Icon name="caretDown" />;
+
+  const MultiValue = props => (
+    <Tag className="mr-1" onRemove={props.removeProps.onClick} theme="gray-900">
+      {props.children}
+    </Tag>
   );
 
   const { height, padding, fontSize } = getSize(size);
@@ -88,7 +84,7 @@ const FormSelect = ({
       fontSize,
       'box-shadow': 'none',
       ':hover': {
-        'border-color': getBorder(null, true, isInvalid),
+        'border-color': getBorder(state.isFocused, true, isInvalid),
       },
       'border-color': getBorder(state.isFocused, null, isInvalid),
     }),
@@ -99,6 +95,7 @@ const FormSelect = ({
     menu: base => ({
       ...base,
       'box-shadow': 'none',
+      margin: '0',
       border: '1px solid #dee2e6',
     }),
     option: (base, state) => ({
@@ -113,16 +110,17 @@ const FormSelect = ({
   };
 
   return (
-    <CreatableSelect
-      onChange={handleOnChange}
-      className={classes}
-      isClearable={isClearable}
-      isMulti={isMulti}
-      options={options}
-      placeholder={placeholder}
-      styles={customStyles}
-      components={{ Option: SelectOption }}
+    <Component
       {...other}
+      className={classes}
+      classNamePrefix={classNamePrefix}
+      components={{
+        ClearIndicator,
+        DropdownIndicator,
+        MultiValue,
+        Option: SelectOption,
+      }}
+      styles={customStyles}
     />
   );
 };

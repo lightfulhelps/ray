@@ -2,9 +2,13 @@
 
 exports[`<FormSelect /> should render 1`] = `
 <StateManager
-  className=""
+  className="form-select"
+  classNamePrefix="form-select"
   components={
     Object {
+      "ClearIndicator": [Function],
+      "DropdownIndicator": [Function],
+      "MultiValue": [Function],
       "Option": [Function],
     }
   }

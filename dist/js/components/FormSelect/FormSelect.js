@@ -15,9 +15,15 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _reactSelect = require('react-select');
+
+var _reactSelect2 = _interopRequireDefault(_reactSelect);
+
 var _Creatable = require('react-select/lib/Creatable');
 
 var _Creatable2 = _interopRequireDefault(_Creatable);
+
+var _ = require('../../');
 
 var _SelectOption = require('./SelectOption');
 
@@ -29,12 +35,12 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-var getBorder = exports.getBorder = function getBorder(isFocused, isHovered, isInvalid) {
+var getBorder = exports.getBorder = function getBorder(isHovered, isFocused, isInvalid) {
   if (isInvalid) return '#f25270';
 
-  if (isHovered) return '#adb5bd';
-
   if (isFocused) return '#27b0cc';
+
+  if (isHovered) return '#adb5bd';
 
   return '#dee2e6';
 };
@@ -63,21 +69,36 @@ var getSize = exports.getSize = function getSize(size) {
 
 var FormSelect = function FormSelect(_ref) {
   var className = _ref.className,
-      handleOnChange = _ref.handleOnChange,
-      isClearable = _ref.isClearable,
+      isCreatable = _ref.isCreatable,
       isInvalid = _ref.isInvalid,
-      isMulti = _ref.isMulti,
       isValid = _ref.isValid,
-      label = _ref.label,
-      options = _ref.options,
-      placeholder = _ref.placeholder,
       size = _ref.size,
-      value = _ref.value,
-      other = _objectWithoutProperties(_ref, ['className', 'handleOnChange', 'isClearable', 'isInvalid', 'isMulti', 'isValid', 'label', 'options', 'placeholder', 'size', 'value']);
+      other = _objectWithoutProperties(_ref, ['className', 'isCreatable', 'isInvalid', 'isValid', 'size']);
 
-  var classes = (0, _classnames2.default)(className, {
+  var classNamePrefix = 'form-select';
+
+  var classes = (0, _classnames2.default)(className, size ? classNamePrefix + '-' + size : classNamePrefix, {
     'is-invalid': isInvalid
   }, { 'is-valid': isValid });
+
+  var Component = isCreatable ? _Creatable2.default : _reactSelect2.default;
+
+  var ClearIndicator = function ClearIndicator(_ref2) {
+    var innerProps = _ref2.innerProps;
+    return React.createElement(_.Icon, _extends({}, innerProps, { name: 'close' }));
+  };
+
+  var DropdownIndicator = function DropdownIndicator() {
+    return React.createElement(_.Icon, { name: 'caretDown' });
+  };
+
+  var MultiValue = function MultiValue(props) {
+    return React.createElement(
+      _.Tag,
+      { className: 'mr-1', onRemove: props.removeProps.onClick, theme: 'gray-900' },
+      props.children
+    );
+  };
 
   var _getSize = getSize(size),
       height = _getSize.height,
@@ -92,7 +113,7 @@ var FormSelect = function FormSelect(_ref) {
         fontSize: fontSize,
         'box-shadow': 'none',
         ':hover': {
-          'border-color': getBorder(null, true, isInvalid)
+          'border-color': getBorder(state.isFocused, true, isInvalid)
         },
         'border-color': getBorder(state.isFocused, null, isInvalid)
       });
@@ -105,6 +126,7 @@ var FormSelect = function FormSelect(_ref) {
     menu: function menu(base) {
       return _extends({}, base, {
         'box-shadow': 'none',
+        margin: '0',
         border: '1px solid #dee2e6'
       });
     },
@@ -120,16 +142,17 @@ var FormSelect = function FormSelect(_ref) {
     }
   };
 
-  return React.createElement(_Creatable2.default, _extends({
-    onChange: handleOnChange,
+  return React.createElement(Component, _extends({}, other, {
     className: classes,
-    isClearable: isClearable,
-    isMulti: isMulti,
-    options: options,
-    placeholder: placeholder,
-    styles: customStyles,
-    components: { Option: _SelectOption2.default }
-  }, other));
+    classNamePrefix: classNamePrefix,
+    components: {
+      ClearIndicator: ClearIndicator,
+      DropdownIndicator: DropdownIndicator,
+      MultiValue: MultiValue,
+      Option: _SelectOption2.default
+    },
+    styles: customStyles
+  }));
 };
 
 exports.default = FormSelect;

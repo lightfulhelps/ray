@@ -998,7 +998,7 @@ mark,
   .form-control.focus, .form-control:focus {
     color: #212529;
     background-color: #fff;
-    border-color: #8ad9e9;
+    border-color: #27b0cc;
     outline: 0;
     box-shadow: none; }
   .form-control::placeholder {
