@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
+import Select from 'react-select';
+import Creatable from 'react-select/lib/Creatable';
 import FormSelect from './FormSelect';
 
 const setup = (overrides = {}) => {
@@ -21,9 +23,19 @@ describe('<FormSelect />', () => {
     const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
-
-    expect(wrapper.hasClass('form-control')).toBe(true);
     expect(wrapper.hasClass('custom')).toBe(true);
+  });
+
+  it('should handle isCreatable', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.find(Select)).toHaveLength(1);
+    expect(wrapper.find(Creatable)).toHaveLength(0);
+
+    wrapper.setProps({ isCreatable: true });
+
+    expect(wrapper.find(Select)).toHaveLength(0);
+    expect(wrapper.find(Creatable)).toHaveLength(1);
   });
 
   it('should handle isInvalid', () => {
@@ -49,13 +61,13 @@ describe('<FormSelect />', () => {
   it('should handle size', () => {
     const { wrapper } = setup();
 
-    wrapper.setProps({ size: 'lg' });
-
-    expect(wrapper.hasClass('form-control-lg')).toBe(true);
-
     wrapper.setProps({ size: 'sm' });
 
-    expect(wrapper.hasClass('form-control-sm')).toBe(true);
+    expect(wrapper.hasClass('form-select-sm')).toBe(true);
+
+    wrapper.setProps({ size: 'lg' });
+
+    expect(wrapper.hasClass('form-select-lg')).toBe(true);
   });
 
   it('should pass through other props', () => {

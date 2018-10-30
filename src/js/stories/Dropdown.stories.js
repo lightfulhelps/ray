@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@storybook/react';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
-import { select } from '@storybook/addon-knobs/dist/vue';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import {
   Container,
   Row,
