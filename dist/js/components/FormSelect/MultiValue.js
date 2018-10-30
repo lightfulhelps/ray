@@ -15,7 +15,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var MultiValue = function MultiValue(props) {
   return _react2.default.createElement(
     _.Tag,
-    { onRemove: props.removeProps.onClick, theme: 'gray-900' },
+    { onRemove: props.removeProps.onClick, theme: 'gray-800' },
     props.children
   );
 };

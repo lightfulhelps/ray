@@ -5279,7 +5279,7 @@ button.bg-gray-900:focus {
   align-items: center;
   flex: 1 1 auto; }
 
-.form-select__value-container--is-multi.form-select__value-container--has-more {
+.form-select__value-container--is-multi.form-select__value-container--has-value {
   margin-top: -0.3125rem;
   margin-bottom: -0.3125rem; }
 
