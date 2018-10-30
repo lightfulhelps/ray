@@ -21,6 +21,8 @@ exports[`<FormSelect /> should render 1`] = `
       "container": [Function],
       "control": [Function],
       "dropdownIndicator": [Function],
+      "group": [Function],
+      "groupHeading": [Function],
       "indicatorSeparator": [Function],
       "indicatorsContainer": [Function],
       "input": [Function],
