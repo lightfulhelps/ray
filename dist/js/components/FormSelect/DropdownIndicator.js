@@ -13,7 +13,7 @@ var _ = require('../../');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var DropdownIndicator = function DropdownIndicator() {
-  return _react2.default.createElement(_.Icon, { name: 'caretDown', title: 'Open' });
+  return _react2.default.createElement(_.Icon, { name: 'caretDown', title: 'Open', theme: 'gray-500' });
 };
 
 exports.default = DropdownIndicator;

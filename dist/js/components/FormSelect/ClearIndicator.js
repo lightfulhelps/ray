@@ -16,7 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var ClearIndicator = function ClearIndicator(_ref) {
   var innerProps = _ref.innerProps;
-  return _react2.default.createElement(_.Icon, _extends({}, innerProps, { name: 'close', title: 'Clear' }));
+  return _react2.default.createElement(_.Icon, _extends({}, innerProps, { name: 'close', title: 'Clear', theme: 'gray-500' }));
 };
 
 exports.default = ClearIndicator;

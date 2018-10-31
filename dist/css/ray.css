@@ -980,7 +980,7 @@ mark,
   display: block;
   width: 100%;
   height: calc(2.875rem + 2px);
-  padding: 0.9375rem 1.5625rem;
+  padding: 0.9375rem 1.25rem;
   font-size: 1rem;
   line-height: 1;
   color: #212529;
@@ -1053,14 +1053,14 @@ select.form-control:focus::-ms-value {
 
 .form-control-sm {
   height: calc(2.125rem + 2px);
-  padding: 0.625rem 0.9375rem;
+  padding: 0.625rem 1.25rem;
   font-size: 0.875rem;
   line-height: 1;
   border-radius: 0.3125rem; }
 
 .form-control-lg {
   height: calc(3.75rem + 2px);
-  padding: 1.25rem 1.875rem;
+  padding: 1.25rem 1.25rem;
   font-size: 1.25rem;
   line-height: 1;
   border-radius: 0.3125rem; }
@@ -1964,7 +1964,7 @@ input[type="button"].btn-block {
 .input-group-text {
   display: flex;
   align-items: center;
-  padding: 0.9375rem 1.5625rem;
+  padding: 0.9375rem 1.25rem;
   margin-bottom: 0;
   font-size: 1rem;
   font-weight: 400;
@@ -1985,7 +1985,7 @@ input[type="button"].btn-block {
 .input-group-lg > .input-group-prepend > .btn,
 .input-group-lg > .input-group-append > .btn {
   height: calc(3.75rem + 2px);
-  padding: 1.25rem 1.875rem;
+  padding: 1.25rem 1.25rem;
   font-size: 1.25rem;
   line-height: 1;
   border-radius: 0.3125rem; }
@@ -1996,7 +1996,7 @@ input[type="button"].btn-block {
 .input-group-sm > .input-group-prepend > .btn,
 .input-group-sm > .input-group-append > .btn {
   height: calc(2.125rem + 2px);
-  padding: 0.625rem 0.9375rem;
+  padding: 0.625rem 1.25rem;
   font-size: 0.875rem;
   line-height: 1;
   border-radius: 0.3125rem; }
@@ -4460,7 +4460,8 @@ label {
   .form-control:hover:not(:focus):not(.focus):not(:disabled):not(.is-invalid):not(.is-valid) {
     border-color: #adb5bd; }
 
-.form-control-sm {
+.form-control-sm,
+.form-control-lg {
   font-size: 1rem; }
 
 .form-text {
@@ -5224,7 +5225,7 @@ button.bg-gray-900:focus {
   justify-content: space-between;
   align-items: center;
   min-height: calc(2.875rem + 2px);
-  padding: 0.9375rem 1.5625rem;
+  padding: 0.9375rem 1.25rem;
   font-size: 1rem;
   line-height: 1;
   color: #212529;
@@ -5245,15 +5246,15 @@ button.bg-gray-900:focus {
     background-color: #e9ecef; }
 
 .form-select-sm .form-select__control {
-  height: calc(2.125rem + 2px);
-  padding: 0.625rem 0.9375rem;
+  min-height: calc(2.125rem + 2px);
+  padding: 0.625rem 1.25rem;
   font-size: 1rem;
   line-height: 1;
   border-radius: 0.3125rem; }
 
 .form-select-lg .form-select__control {
-  height: calc(3.75rem + 2px);
-  padding: 1.25rem 1.875rem;
+  min-height: calc(3.75rem + 2px);
+  padding: 1.25rem 1.25rem;
   font-size: 1.25rem;
   line-height: 1;
   border-radius: 0.3125rem; }

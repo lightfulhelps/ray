@@ -117,17 +117,17 @@ $text-muted: $gray-600;
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
 
 $input-btn-padding-y: $spacer * 1.5;
-$input-btn-padding-x: $spacer * 2.5;
+$input-btn-padding-x: $spacer * 2;
 $input-btn-line-height: 1;
 
 $input-btn-focus-box-shadow: none;
 
 $input-btn-padding-y-sm: $spacer;
-$input-btn-padding-x-sm: $spacer * 1.5;
+$input-btn-padding-x-sm: $spacer * 2;
 $input-btn-line-height-sm: 1;
 
 $input-btn-padding-y-lg: $spacer * 2;
-$input-btn-padding-x-lg: $spacer * 3;
+$input-btn-padding-x-lg: $spacer * 2;
 $input-btn-line-height-lg: 1;
 
 // Buttons
