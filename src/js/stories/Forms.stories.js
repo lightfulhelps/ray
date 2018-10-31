@@ -1,6 +1,6 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { storiesOf, action } from '@storybook/react';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import {
   Container,
   Row,
@@ -16,6 +16,35 @@ import {
 import '../../scss/ray.scss';
 
 const stories = storiesOf('Forms', module);
+
+const selectOptions = [
+  {
+    label: 're',
+    value: 're',
+    icon: 'tag',
+  },
+  {
+    label: 'act',
+    value: 'act',
+    icon: 'tag',
+  },
+  {
+    label: 'sel',
+    value: 'sel',
+    icon: 'tag',
+  },
+  {
+    label: 'ect',
+    value: 'ect',
+    icon: 'tag',
+  },
+];
+
+const sizes = {
+  md: 'Default',
+  sm: 'Small',
+  lg: 'Large',
+};
 
 stories.addDecorator(withKnobs);
 
@@ -39,19 +68,22 @@ stories.add('Default', () => (
         </FormGroup>
         <FormGroup>
           <FormLabel>Select</FormLabel>
-          <FormSelect>
-            <option value="a">First</option>
-            <option value="b">First</option>
-            <option value="c">First</option>
-          </FormSelect>
+          <FormSelect
+            isInvalid={boolean('Select Invalid', false)}
+            onChange={action('Select change')}
+            options={selectOptions}
+            placeholder="Some placeholder text..."
+            size={select('Select Size', sizes)}
+          />
         </FormGroup>
         <FormGroup>
           <FormLabel>Multiple Select</FormLabel>
-          <FormSelect multiple>
-            <option value="a">First</option>
-            <option value="b">First</option>
-            <option value="c">First</option>
-          </FormSelect>
+          <FormSelect
+            isCreatable
+            isMulti
+            onChange={action('Multiple Select change')}
+            options={selectOptions}
+          />
         </FormGroup>
         <FormGroup>
           <FormLabel>Textarea</FormLabel>

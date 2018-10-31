@@ -998,7 +998,7 @@ mark,
   .form-control.focus, .form-control:focus {
     color: #212529;
     background-color: #fff;
-    border-color: #8ad9e9;
+    border-color: #27b0cc;
     outline: 0;
     box-shadow: none; }
   .form-control::placeholder {
@@ -4884,7 +4884,8 @@ label {
       background-color: transparent; }
 
 .dropdown-header {
-  padding: 1.875rem 1.25rem 0.625rem 1.25rem;
+  padding: 1.25rem 1.25rem 0.625rem 1.25rem;
+  font-size: 0.75rem;
   text-transform: uppercase; }
 
 .dropdown-footer {
@@ -5208,6 +5209,154 @@ button.bg-gray-900:focus {
   font-weight: 500; }
   .character-counter .icon {
     margin-right: 0.625rem; }
+
+.form-select {
+  position: relative; }
+  .form-select--is-disabled {
+    pointer-events: none;
+    cursor: default; }
+  .form-select .tag {
+    font-size: 0.875rem;
+    margin: 0.15625rem; }
+
+.form-select__control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: calc(2.875rem + 2px);
+  padding: 0.9375rem 1.5625rem;
+  font-size: 1rem;
+  line-height: 1;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #dee2e6;
+  border-radius: 0.3125rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+  @media screen and (prefers-reduced-motion: reduce) {
+    .form-select__control {
+      transition: none; } }
+  .form-select__control--is-focused {
+    color: #212529;
+    background-color: #fff;
+    border-color: #27b0cc;
+    outline: 0; }
+  .form-select__control--is-disabled {
+    background-color: #e9ecef; }
+
+.form-select-sm .form-select__control {
+  height: calc(2.125rem + 2px);
+  padding: 0.625rem 0.9375rem;
+  font-size: 1rem;
+  line-height: 1;
+  border-radius: 0.3125rem; }
+
+.form-select-lg .form-select__control {
+  height: calc(3.75rem + 2px);
+  padding: 1.25rem 1.875rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  border-radius: 0.3125rem; }
+
+.form-select.is-valid .form-select__control {
+  border-color: #27cc98; }
+
+.form-select.is-invalid .form-select__control {
+  border-color: #f25270; }
+
+.form-select__control:hover:not(.form-select__control--is-focused) {
+  border-color: #adb5bd; }
+
+.form-select__placeholder {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757c; }
+
+.form-select__value-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex: 1 1 auto; }
+
+.form-select__value-container--is-multi.form-select__value-container--has-value {
+  margin-top: -0.3125rem;
+  margin-bottom: -0.3125rem; }
+
+.form-select__single-value {
+  color: #212529;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: auto; }
+
+.form-select__indicators {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; }
+  .form-select__indicators .icon {
+    margin-left: 0.625rem;
+    cursor: pointer; }
+
+.form-select__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 100%;
+  padding: 0 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #6c757c;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  border-radius: 0.3125rem; }
+
+.form-select__menu-list {
+  max-height: 300px;
+  overflow-y: auto; }
+
+.form-select__option,
+.form-select__menu-notice {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1.25rem 1.25rem;
+  font-weight: 300;
+  color: #212529;
+  white-space: nowrap;
+  border-bottom: 1px solid #e9ecef;
+  line-height: 1;
+  cursor: pointer; }
+  .form-select__option:last-child,
+  .form-select__menu-notice:last-child {
+    border: none; }
+  .form-select__option:hover, .form-select__option:focus,
+  .form-select__menu-notice:hover,
+  .form-select__menu-notice:focus {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #f8f9fa; }
+
+.form-select__group {
+  border-bottom: 1px solid #e9ecef; }
+  .form-select__group:last-child {
+    border: none; }
+
+.form-select__group-heading {
+  display: block;
+  margin-bottom: 0;
+  padding: 1.25rem 1.25rem 0.625rem 1.25rem;
+  font-size: 0.75rem;
+  color: #6c757c;
+  text-transform: uppercase;
+  white-space: nowrap; }
 
 .icon-primary {
   fill: #27b0cc; }

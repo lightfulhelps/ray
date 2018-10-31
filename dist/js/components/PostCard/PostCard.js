@@ -132,7 +132,7 @@ var PostCard = function PostCard(_ref) {
         { clamp: config.contentLines },
         React.createElement('div', {
           dangerouslySetInnerHTML: {
-            __html: post.content
+            __html: post.content.replace(/\n/g, '<br />')
           }
         })
       )
