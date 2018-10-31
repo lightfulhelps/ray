@@ -55,16 +55,21 @@ stories.add('Default', () => (
       <Col>
         <FormGroup>
           <FormLabel>Name</FormLabel>
-          <FormInput isInvalid name="name" type="text" />
+          <FormInput isInvalid name="name" type="text" size={select('Select Size', sizes)} />
           <FormFeedback>This field is invalid</FormFeedback>
         </FormGroup>
         <FormGroup>
           <FormLabel>Email</FormLabel>
-          <FormInput name="email" placeholder="e.g. foo@bar.com" type="email" />
+          <FormInput
+            name="email"
+            placeholder="e.g. foo@bar.com"
+            type="email"
+            size={select('Select Size', sizes)}
+          />
         </FormGroup>
         <FormGroup>
           <FormLabel>Password</FormLabel>
-          <FormInput name="password" type="password" />
+          <FormInput name="password" type="password" size={select('Select Size', sizes)} />
         </FormGroup>
         <FormGroup>
           <FormLabel>Select</FormLabel>
@@ -83,6 +88,7 @@ stories.add('Default', () => (
             isMulti
             onChange={action('Multiple Select change')}
             options={selectOptions}
+            size={select('Select Size', sizes)}
           />
         </FormGroup>
         <FormGroup>
