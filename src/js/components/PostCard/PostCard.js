@@ -161,7 +161,7 @@ const PostCard = ({
         <Dotdotdot clamp={config.contentLines}>
           <div
             dangerouslySetInnerHTML={{
-              __html: post.content,
+              __html: post.content.replace(/\n/g, '<br />'),
             }}
           />
         </Dotdotdot>
