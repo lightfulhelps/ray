@@ -12,6 +12,7 @@ import {
   FormSelect,
   FormTextarea,
 } from '../';
+import sizes from './utils/sizes';
 
 import '../../scss/ray.scss';
 
@@ -39,12 +40,6 @@ const selectOptions = [
     icon: 'tag',
   },
 ];
-
-const sizes = {
-  md: 'Default',
-  sm: 'Small',
-  lg: 'Large',
-};
 
 stories.addDecorator(withKnobs);
 

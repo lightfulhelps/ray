@@ -1,0 +1,37 @@
+.table {
+  th {
+    color: $table-head-color;
+    font-weight: $font-weight-bold;
+  }
+
+  thead th {
+    border-bottom: $table-border-width solid $table-border-color;
+  }
+}
+
+.table-dark th {
+  color: $table-dark-color;
+}
+
+// @each $color, $value in $theme-colors {
+//   @include table-row-variant($color, $value);
+
+//   .table-#{$color} {
+//     &,
+//     > th,
+//     > td {
+//       color: color-yiq($value);
+//     }
+//   }
+// }
+
+// @each $color, $value in $grays {
+//   .table-gray-#{$color} {
+//     &,
+//     > th,
+//     > td {
+//       background-color: $value;
+//       color: color-yiq($value);
+//     }
+//   }
+// }
