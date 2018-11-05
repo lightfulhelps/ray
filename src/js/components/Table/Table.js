@@ -10,7 +10,6 @@ type Props = {
   isResponsive?: boolean,
   isStriped?: boolean,
   size?: 'lg' | 'sm',
-  theme?: string,
 };
 
 const Table = ({
@@ -21,14 +20,12 @@ const Table = ({
   isResponsive,
   isStriped,
   size,
-  theme,
   ...other
 }: Props) => {
   const classes = classNames(
     className,
     'table',
     size ? `table-${size}` : false,
-    theme ? `table-${theme}` : false,
     { 'table-bordered': isBordered && !isBorderless },
     { 'table-borderless': isBorderless && !isBordered },
     { 'table-striped': isStriped },

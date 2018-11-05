@@ -1,37 +1,128 @@
+//
+// Tables - initially copied from Bootstrap but we are not importing the entire _tables.scss file because we do not want all table variations
+//
+
 .table {
+  width: 100%;
+  background-color: $table-bg;
+  color: $table-color;
+  font-size: $font-size-sm;
+
   th {
     color: $table-head-color;
     font-weight: $font-weight-bold;
   }
 
+  th,
+  td {
+    padding: $table-cell-padding;
+    vertical-align: top;
+    border-top: $table-border-width solid $table-border-color;
+  }
+
   thead th {
+    font-size: $font-size-base;
+    vertical-align: bottom;
     border-bottom: $table-border-width solid $table-border-color;
+  }
+
+  tbody + tbody {
+    border-top: $table-border-width solid $table-border-color;
+  }
+
+  .table {
+    background-color: $body-bg;
   }
 }
 
-.table-dark th {
-  color: $table-dark-color;
+.table-sm {
+  th,
+  td {
+    padding: $table-cell-padding-sm;
+  }
 }
 
-// @each $color, $value in $theme-colors {
-//   @include table-row-variant($color, $value);
+.table-lg {
+  th,
+  td {
+    padding: $table-cell-padding-lg;
+  }
+}
 
-//   .table-#{$color} {
-//     &,
-//     > th,
-//     > td {
-//       color: color-yiq($value);
-//     }
-//   }
-// }
+// Border versions
+//
+// Add or remove borders all around the table and between all the columns.
 
-// @each $color, $value in $grays {
-//   .table-gray-#{$color} {
-//     &,
-//     > th,
-//     > td {
-//       background-color: $value;
-//       color: color-yiq($value);
-//     }
-//   }
-// }
+.table-bordered {
+  border: $table-border-width solid $table-border-color;
+
+  th,
+  td {
+    border: $table-border-width solid $table-border-color;
+  }
+
+  thead {
+    th,
+    td {
+      border-bottom-width: $table-border-width;
+    }
+  }
+}
+
+.table-borderless {
+  th,
+  td,
+  thead th,
+  tbody + tbody {
+    border: 0;
+  }
+}
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+  tbody tr:nth-of-type(#{$table-striped-order}) {
+    background-color: $table-accent-bg;
+  }
+}
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover {
+  tbody tr {
+    @include hover {
+      background-color: $table-hover-bg;
+    }
+  }
+}
+
+// Responsive tables
+//
+// Generate series of `.table-responsive-*` classes for configuring the screen
+// size of where your table will overflow.
+
+.table-responsive {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+      @include media-breakpoint-down($breakpoint) {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar; // See https://github.com/twbs/bootstrap/pull/10057
+
+        // Prevent double border on horizontal scroll due to use of `display: block;`
+        > .table-bordered {
+          border: 0;
+        }
+      }
+    }
+  }
+}

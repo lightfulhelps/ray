@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import { Container, Row, Col, Table } from '../';
 import sizes from './utils/sizes';
-import themes from './utils/themes';
 
 import '../../scss/ray.scss';
 
@@ -23,7 +22,6 @@ stories.add('Default', () => (
           isHoverable={boolean('Hoverable', false)}
           isResponsive={boolean('Responsive', false)}
           size={select('Size', sizes, 'md')}
-          theme={select('Theme', themes, 'light')}
         >
           <thead>
             <tr>

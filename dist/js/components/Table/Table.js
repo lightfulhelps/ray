@@ -28,10 +28,9 @@ var Table = function Table(_ref) {
       isResponsive = _ref.isResponsive,
       isStriped = _ref.isStriped,
       size = _ref.size,
-      theme = _ref.theme,
-      other = _objectWithoutProperties(_ref, ['className', 'isBordered', 'isBorderless', 'isHoverable', 'isResponsive', 'isStriped', 'size', 'theme']);
+      other = _objectWithoutProperties(_ref, ['className', 'isBordered', 'isBorderless', 'isHoverable', 'isResponsive', 'isStriped', 'size']);
 
-  var classes = (0, _classnames2.default)(className, 'table', size ? 'table-' + size : false, theme ? 'table-' + theme : false, { 'table-bordered': isBordered && !isBorderless }, { 'table-borderless': isBorderless && !isBordered }, { 'table-striped': isStriped }, { 'table-hover': isHoverable }, { 'table-responsive': isResponsive });
+  var classes = (0, _classnames2.default)(className, 'table', size ? 'table-' + size : false, { 'table-bordered': isBordered && !isBorderless }, { 'table-borderless': isBorderless && !isBordered }, { 'table-striped': isStriped }, { 'table-hover': isHoverable }, { 'table-responsive': isResponsive });
 
   return React.createElement('table', _extends({}, other, { className: classes }));
 };
