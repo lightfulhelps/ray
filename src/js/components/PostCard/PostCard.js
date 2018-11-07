@@ -173,58 +173,53 @@ const PostCard = ({
         )}
         {showMediaEmpty && <div className="post-media--empty">No media</div>}
       </div>
-      {post.tags &&
-        post.tags.length > 0 && (
-          <div className={`${blockClass}__tags d-flex align-items-center bg-gray-200 px-2 py-1`}>
-            <div className="d-flex align-items-center text-gray-900 font-weight-bold mr-1">
-              {post.tags.length}{' '}
-              <Icon name="tag" theme="gray-500" isActive style={{ marginLeft: '2px' }} />
-            </div>
-            <div className="d-flex flex-fill" style={{ minWidth: 0 }}>
-              {post.tags.slice(0, config.tagLimit).map((tag, i) => (
-                <Tag
-                  className={`text-xs ${i < config.tagLimit - 1 ? 'mr-1' : ''}`}
-                  key={i}
-                  theme="light"
-                >
-                  {tag}
-                </Tag>
-              ))}
-            </div>
-            {post.tags.length > config.tagLimit && (
-              <div className={`${blockClass}__tags-more`}>
-                +{post.tags.length - config.tagLimit}
-              </div>
-            )}
+      {post.tags && post.tags.length > 0 && (
+        <div className={`${blockClass}__tags d-flex align-items-center bg-gray-200 px-2 py-1`}>
+          <div className="d-flex align-items-center text-gray-900 font-weight-bold mr-1">
+            {post.tags.length}{' '}
+            <Icon name="tag" theme="gray-500" isActive style={{ marginLeft: '2px' }} />
           </div>
-        )}
-      {post.metrics &&
-        Object.keys(post.metrics).length > 0 && (
-          <div className={`${blockClass}__metrics`}>
-            {Object.keys(post.metrics).map(key => (
-              <div key={key} className={`${blockClass}__metric`}>
-                <span>{post.metrics && post.metrics[key]}</span> {key}
-              </div>
-            ))}
-          </div>
-        )}
-      {inspirationActions &&
-        inspirationActions.length > 0 && (
-          <div className={`${blockClass}__inspiration-actions`}>
-            {inspirationActions.map((action, i) => (
-              <Icon
+          <div className="d-flex flex-fill" style={{ minWidth: 0 }}>
+            {post.tags.slice(0, config.tagLimit).map((tag, i) => (
+              <Tag
+                className={`text-xs ${i < config.tagLimit - 1 ? 'mr-1' : ''}`}
                 key={i}
-                isActive={action.isActive}
-                name={action.icon}
-                title={action.icon}
-                theme={action.theme}
-                onClick={() => {
-                  if (!action.isActive) action.onClick();
-                }}
-              />
+                theme="light"
+              >
+                {tag}
+              </Tag>
             ))}
           </div>
-        )}
+          {post.tags.length > config.tagLimit && (
+            <div className={`${blockClass}__tags-more`}>+{post.tags.length - config.tagLimit}</div>
+          )}
+        </div>
+      )}
+      {post.metrics && Object.keys(post.metrics).length > 0 && (
+        <div className={`${blockClass}__metrics`}>
+          {Object.keys(post.metrics).map(key => (
+            <div key={key} className={`${blockClass}__metric`}>
+              <span>{post.metrics && post.metrics[key]}</span> {key}
+            </div>
+          ))}
+        </div>
+      )}
+      {inspirationActions && inspirationActions.length > 0 && (
+        <div className={`${blockClass}__inspiration-actions`}>
+          {inspirationActions.map((action, i) => (
+            <Icon
+              key={i}
+              isActive={action.isActive}
+              name={action.icon}
+              title={action.icon}
+              theme={action.theme}
+              onClick={() => {
+                if (!action.isActive) action.onClick();
+              }}
+            />
+          ))}
+        </div>
+      )}
       {footerButton && <div className={`${blockClass}__footer`}>{footerButton}</div>}
     </Card>
   );
