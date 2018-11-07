@@ -72,16 +72,15 @@ const SearchSuggest = ({
           isHeader
         >
           {title}{' '}
-          {!isLoading &&
-            onClear && (
-              <div
-                className="ml-1 text-danger cursor-pointer text-capitalize"
-                data-test-id="search-suggest-clear"
-                onClick={onClear}
-              >
-                Clear All
-              </div>
-            )}
+          {!isLoading && onClear && (
+            <div
+              className="ml-1 text-danger cursor-pointer text-capitalize"
+              data-test-id="search-suggest-clear"
+              onClick={onClear}
+            >
+              Clear All
+            </div>
+          )}
         </DropdownItem>
       )}
       {isLoading && (
