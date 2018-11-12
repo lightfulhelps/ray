@@ -5,16 +5,11 @@ import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col, Button } from '../';
 import allIcons from '../components/Icon/icons';
 import themes from './utils/themes';
+import sizes from './utils/sizes';
 
 import '../../scss/ray.scss';
 
 const stories = storiesOf('Button', module);
-
-const sizes = {
-  lg: 'Large',
-  md: 'Medium',
-  sm: 'Small',
-};
 
 const icons = {};
 
