@@ -247,6 +247,15 @@ Object.defineProperty(exports, 'SearchSuggest', {
   }
 });
 
+var _Table = require('./components/Table/Table');
+
+Object.defineProperty(exports, 'Table', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Table).default;
+  }
+});
+
 var _Tag = require('./components/Tag/Tag');
 
 Object.defineProperty(exports, 'Tag', {

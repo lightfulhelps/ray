@@ -76,6 +76,8 @@ $border-radius: $spacer;
 $border-radius-lg: $spacer * 2;
 $border-radius-sm: $spacer / 2;
 
+$border-width: 1px;
+
 $radiuses: (
   1: $border-radius,
   2: $border-radius * 2,
@@ -111,6 +113,29 @@ $line-height-sm: 1.5;
 $headings-color: $gray-900;
 
 $text-muted: $gray-600;
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+
+$table-cell-padding: $spacer * 1.5;
+$table-cell-padding-sm: $spacer;
+$table-cell-padding-lg: $spacer * 2; // Ray
+
+$table-bg: $white;
+$table-accent-bg: $gray-100;
+$table-hover-bg: $gray-200;
+$table-active-bg: $table-hover-bg;
+
+$table-border-width: $border-width;
+$table-border-color: $gray-300;
+
+$table-head-bg: $gray-100;
+$table-head-color: $gray-900;
+
+$table-color: $gray-900; // Ray
+
+$table-striped-order: odd;
 
 // Buttons + Forms
 //
