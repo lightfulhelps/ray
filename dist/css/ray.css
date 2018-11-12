@@ -4461,7 +4461,7 @@ a.text-gray-900:hover, a.text-gray-900:focus {
     font-weight: 500; }
   .table th,
   .table td {
-    padding: 0.9375rem;
+    padding: 0.9375rem 1.875rem;
     vertical-align: top;
     border-top: 1px solid #dee2e6; }
   .table thead th {
@@ -4475,11 +4475,11 @@ a.text-gray-900:hover, a.text-gray-900:focus {
 
 .table-sm th,
 .table-sm td {
-  padding: 0.625rem; }
+  padding: 0.625rem 1.25rem; }
 
 .table-lg th,
 .table-lg td {
-  padding: 1.25rem; }
+  padding: 1.25rem 2.5rem; }
 
 .table-bordered {
   border: 1px solid #dee2e6; }

@@ -15,7 +15,7 @@
 
   th,
   td {
-    padding: $table-cell-padding;
+    padding: $table-cell-padding $table-cell-padding * 2;
     vertical-align: top;
     border-top: $table-border-width solid $table-border-color;
   }
@@ -38,14 +38,14 @@
 .table-sm {
   th,
   td {
-    padding: $table-cell-padding-sm;
+    padding: $table-cell-padding-sm $table-cell-padding-sm * 2;
   }
 }
 
 .table-lg {
   th,
   td {
-    padding: $table-cell-padding-lg;
+    padding: $table-cell-padding-lg $table-cell-padding-lg * 2;
   }
 }
 
