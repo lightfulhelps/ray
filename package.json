@@ -45,7 +45,7 @@
     "classnames": "^2.2.6",
     "date-fns": "^1.29.0",
     "react": "16.6.2",
-    "react-dom": "16.4.2",
+    "react-dom": "16.6.2",
     "react-dotdotdot": "^1.2.3",
     "react-select": "^2.1.0"
   },
