@@ -31,6 +31,10 @@ var _ = require('../../');
 
 var _icons = require('../Icon/icons');
 
+var _DropdownToggle = require('../DropdownToggle/DropdownToggle');
+
+var _DropdownToggle2 = _interopRequireDefault(_DropdownToggle);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
@@ -50,6 +54,7 @@ var PostCard = function PostCard(_ref) {
       className = _ref.className,
       _ref$dateFormat = _ref.dateFormat,
       dateFormat = _ref$dateFormat === undefined ? 'D MMM [-] HH:mm' : _ref$dateFormat,
+      errors = _ref.errors,
       footerButton = _ref.footerButton,
       inspirationActions = _ref.inspirationActions,
       isDraft = _ref.isDraft,
@@ -57,17 +62,64 @@ var PostCard = function PostCard(_ref) {
       metaPreview = _ref.metaPreview,
       onApprove = _ref.onApprove,
       post = _ref.post,
-      other = _objectWithoutProperties(_ref, ['actions', 'className', 'dateFormat', 'footerButton', 'inspirationActions', 'isDraft', 'isInvalid', 'metaPreview', 'onApprove', 'post']);
+      other = _objectWithoutProperties(_ref, ['actions', 'className', 'dateFormat', 'errors', 'footerButton', 'inspirationActions', 'isDraft', 'isInvalid', 'metaPreview', 'onApprove', 'post']);
 
   var blockClass = 'post-card';
   var classes = (0, _classnames2.default)(className, blockClass, _defineProperty({}, blockClass + '--draft', isDraft), _defineProperty({}, blockClass + '--invalid', isInvalid));
   var showPostMedia = post.media && post.media.length > 0;
   var showMetaPreview = (!post.media || post.media && post.media.length === 0) && metaPreview && metaPreview.url;
   var showMediaEmpty = post.media && post.media.length === 0 && (!metaPreview || metaPreview && !metaPreview.url);
+  var showPostError = errors.length > 0;
 
   return React.createElement(
     _.Card,
     _extends({}, other, { className: classes }),
+    showPostError && React.createElement(_.Dropdown, {
+      className: 'post-card__error',
+      render: function render(isOpen, onToggle) {
+        return React.createElement(
+          React.Fragment,
+          null,
+          React.createElement(
+            _DropdownToggle2.default,
+            {
+              className: 'post-card_error-banner m-0 d-flex justify-content-between',
+              isBlock: true,
+              theme: 'danger',
+              isOpen: isOpen,
+              onClick: onToggle,
+              size: 'sm',
+              isOutline: false
+            },
+            React.createElement(
+              'div',
+              { className: 'd-flex align-items-center' },
+              React.createElement(_.Icon, { className: 'mr-1', size: 16, name: 'alert' }),
+              'Error'
+            )
+          ),
+          React.createElement(
+            _.DropdownMenu,
+            { className: 'post-card_error-dropdown', isOpen: isOpen },
+            React.createElement(
+              'div',
+              null,
+              React.createElement(
+                'ul',
+                { className: 'm-2' },
+                errors.map(function (error) {
+                  return React.createElement(
+                    'li',
+                    { className: '' },
+                    error
+                  );
+                })
+              )
+            )
+          )
+        );
+      }
+    }),
     React.createElement(
       'div',
       { className: blockClass + '__header' },
