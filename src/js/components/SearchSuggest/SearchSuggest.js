@@ -102,7 +102,7 @@ const SearchSuggest = ({
                 className="ml-1"
                 data-test-id="search-suggest-remove"
                 name="close"
-                onClick={e => {
+                onClick={(e: SyntheticMouseEvent<>) => {
                   e.stopPropagation();
                   onRemove(i);
                 }}

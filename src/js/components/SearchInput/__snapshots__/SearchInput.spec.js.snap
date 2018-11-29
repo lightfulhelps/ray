@@ -9,6 +9,7 @@ exports[`<SearchInput /> should render 1`] = `
     onChange={[MockFunction]}
     onKeyPress={[Function]}
     placeholder="Search..."
+    type="text"
   />
   <div
     className="input-group-append"

@@ -22,7 +22,7 @@ import { type IconNameType } from '../Icon/icons';
 type InspirationActionType = {
   activeColor?: string,
   color?: string,
-  icon: string,
+  icon: IconNameType,
   isActive?: boolean,
   onClick: () => void,
   theme?: string,
@@ -94,7 +94,6 @@ const PostCard = ({
   isDraft,
   isInvalid,
   metaPreview,
-  onApprove,
   post,
   ...other
 }: Props) => {
@@ -105,7 +104,6 @@ const PostCard = ({
     { [`${blockClass}--draft`]: isDraft },
     { [`${blockClass}--invalid`]: isInvalid }
   );
-  const showPostMedia = post.media && post.media.length > 0;
   const showMetaPreview =
     (!post.media || (post.media && post.media.length === 0)) && metaPreview && metaPreview.url;
   const showMediaEmpty =
@@ -139,7 +137,7 @@ const PostCard = ({
               <React.Fragment>
                 <Button icon="menu" onClick={onToggle} size="sm" theme="light" />
                 <DropdownMenu
-                  footer={post.creator ? `Creator: ${post.creator}` : null}
+                  footer={post.creator && `Creator: ${post.creator}`}
                   isOpen={isOpen}
                   onClick={onToggle}
                   position="right"
@@ -167,7 +165,7 @@ const PostCard = ({
         </Dotdotdot>
       </div>
       <div className={`${blockClass}__media`}>
-        {showPostMedia && <PostMedia media={post.media} />}
+        {post.media && post.media.length > 0 && <PostMedia media={post.media} />}
         {showMetaPreview && (
           <URLMetaPreview {...metaPreview} className="border-top border-bottom" />
         )}
