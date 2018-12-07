@@ -60,13 +60,11 @@ var PostCard = function PostCard(_ref) {
       isDraft = _ref.isDraft,
       isInvalid = _ref.isInvalid,
       metaPreview = _ref.metaPreview,
-      onApprove = _ref.onApprove,
       post = _ref.post,
-      other = _objectWithoutProperties(_ref, ['actions', 'className', 'dateFormat', 'errors', 'footerButton', 'inspirationActions', 'isDraft', 'isInvalid', 'metaPreview', 'onApprove', 'post']);
+      other = _objectWithoutProperties(_ref, ['actions', 'className', 'dateFormat', 'errors', 'footerButton', 'inspirationActions', 'isDraft', 'isInvalid', 'metaPreview', 'post']);
 
   var blockClass = 'post-card';
   var classes = (0, _classnames2.default)(className, blockClass, _defineProperty({}, blockClass + '--draft', isDraft), _defineProperty({}, blockClass + '--invalid', isInvalid));
-  var showPostMedia = post.media && post.media.length > 0;
   var showMetaPreview = (!post.media || post.media && post.media.length === 0) && metaPreview && metaPreview.url;
   var showMediaEmpty = post.media && post.media.length === 0 && (!metaPreview || metaPreview && !metaPreview.url);
   var showPostError = errors.length > 0;
@@ -157,7 +155,7 @@ var PostCard = function PostCard(_ref) {
             React.createElement(
               _.DropdownMenu,
               {
-                footer: post.creator ? 'Creator: ' + post.creator : null,
+                footer: post.creator && 'Creator: ' + post.creator,
                 isOpen: isOpen,
                 onClick: onToggle,
                 position: 'right',
@@ -192,7 +190,7 @@ var PostCard = function PostCard(_ref) {
     React.createElement(
       'div',
       { className: blockClass + '__media' },
-      showPostMedia && React.createElement(_.PostMedia, { media: post.media }),
+      post.media && post.media.length > 0 && React.createElement(_.PostMedia, { media: post.media }),
       showMetaPreview && React.createElement(_.URLMetaPreview, _extends({}, metaPreview, { className: 'border-top border-bottom' })),
       showMediaEmpty && React.createElement(
         'div',

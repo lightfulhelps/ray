@@ -102,7 +102,7 @@ describe('<DropdownItem />', () => {
 
       expect(() => {
         wrapper.simulate('click');
-      }).not.toThrowError();
+      }).not.toThrow();
     });
   });
 });

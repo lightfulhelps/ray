@@ -6,9 +6,7 @@ import { FormInput, Button } from '../../';
 type Props = {
   className?: string,
   onChange: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
-  onSearch: (
-    SyntheticKeyboardEvent<HTMLInputElement> | SyntheticMouseEvent<HTMLButtonElement>
-  ) => void,
+  onSearch: (SyntheticKeyboardEvent<HTMLInputElement> | SyntheticMouseEvent<>) => void,
   placeholder?: string,
   value: string,
 };
@@ -35,6 +33,7 @@ const SearchInput = ({
         onChange={onChange}
         onKeyPress={handleKeyPress}
         placeholder={placeholder}
+        type="text"
         value={value}
       />
       <div className="input-group-append">

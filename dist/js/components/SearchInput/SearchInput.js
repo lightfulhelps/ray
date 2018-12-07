@@ -46,6 +46,7 @@ var SearchInput = function SearchInput(_ref) {
       onChange: onChange,
       onKeyPress: handleKeyPress,
       placeholder: placeholder,
+      type: 'text',
       value: value
     }),
     React.createElement(

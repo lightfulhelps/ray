@@ -85,7 +85,7 @@ describe('<DropdownMenu />', () => {
 
     expect(() => {
       wrapper.simulate('click');
-    }).not.toThrowError();
+    }).not.toThrow();
   });
 
   it('should handle the position prop', () => {

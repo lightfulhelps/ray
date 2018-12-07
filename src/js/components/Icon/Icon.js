@@ -11,7 +11,7 @@ type Props = {
   isActive?: boolean,
   isDisabled?: boolean,
   name: IconNameType,
-  onClick?: () => void,
+  onClick?: (SyntheticMouseEvent<>) => void,
   size?: number,
   style?: { [key: string]: any },
   theme?: string,
