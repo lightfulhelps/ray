@@ -67,13 +67,13 @@ var PostCard = function PostCard(_ref) {
   var classes = (0, _classnames2.default)(className, blockClass, _defineProperty({}, blockClass + '--draft', isDraft), _defineProperty({}, blockClass + '--invalid', isInvalid));
   var showMetaPreview = (!post.media || post.media && post.media.length === 0) && metaPreview && metaPreview.url;
   var showMediaEmpty = post.media && post.media.length === 0 && (!metaPreview || metaPreview && !metaPreview.url);
-  var showPostError = errors.length > 0;
+  var showPostErrors = errors && errors.length > 0;
 
   return React.createElement(
     _.Card,
     _extends({}, other, { className: classes }),
-    showPostError && React.createElement(_.Dropdown, {
-      className: 'post-card__error',
+    showPostErrors && React.createElement(_.Dropdown, {
+      'data-test-id': 'post-card-errors-dropdown',
       render: function render(isOpen, onToggle) {
         return React.createElement(
           React.Fragment,
@@ -81,7 +81,7 @@ var PostCard = function PostCard(_ref) {
           React.createElement(
             _DropdownToggle2.default,
             {
-              className: 'post-card_error-banner m-0 d-flex justify-content-between',
+              className: 'text-sm text-left m-0 d-flex justify-content-between rounded-bottom-0',
               isBlock: true,
               theme: 'danger',
               isOpen: isOpen,
@@ -98,21 +98,17 @@ var PostCard = function PostCard(_ref) {
           ),
           React.createElement(
             _.DropdownMenu,
-            { className: 'post-card_error-dropdown', isOpen: isOpen },
+            { className: 'shadow-lg border-0 p-2 rounded-top-0', isOpen: isOpen },
             React.createElement(
-              'div',
-              null,
-              React.createElement(
-                'ul',
-                { className: 'm-2' },
-                errors.map(function (error) {
-                  return React.createElement(
-                    'li',
-                    { className: '' },
-                    error
-                  );
-                })
-              )
+              'ul',
+              { className: 'small mb-0 pl-2' },
+              errors && errors.map(function (error, i) {
+                return React.createElement(
+                  'li',
+                  { key: i },
+                  error
+                );
+              })
             )
           )
         );

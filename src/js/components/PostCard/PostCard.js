@@ -111,17 +111,17 @@ const PostCard = ({
     (!post.media || (post.media && post.media.length === 0)) && metaPreview && metaPreview.url;
   const showMediaEmpty =
     post.media && post.media.length === 0 && (!metaPreview || (metaPreview && !metaPreview.url));
-  const showPostError = errors.length > 0;
+  const showPostErrors = errors && errors.length > 0;
 
   return (
     <Card {...other} className={classes}>
-      {showPostError && (
+      {showPostErrors && (
         <Dropdown
-          className="post-card__error"
+          data-test-id="post-card-errors-dropdown"
           render={(isOpen, onToggle) => (
             <React.Fragment>
               <DropdownToggle
-                className="post-card_error-banner m-0 d-flex justify-content-between"
+                className="text-sm text-left m-0 d-flex justify-content-between rounded-bottom-0"
                 isBlock
                 theme="danger"
                 isOpen={isOpen}
@@ -134,14 +134,10 @@ const PostCard = ({
                   Error
                 </div>
               </DropdownToggle>
-              <DropdownMenu className="post-card_error-dropdown" isOpen={isOpen}>
-                <div>
-                  <ul className="m-2">
-                    {errors.map((error, i) => (
-                      <li key={i}>{error}</li>
-                    ))}
-                  </ul>
-                </div>
+              <DropdownMenu className="shadow-lg border-0 p-2 rounded-top-0" isOpen={isOpen}>
+                <ul className="small mb-0 pl-2">
+                  {errors && errors.map((error, i) => <li key={i}>{error}</li>)}
+                </ul>
               </DropdownMenu>
             </React.Fragment>
           )}

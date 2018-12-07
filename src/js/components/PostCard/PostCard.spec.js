@@ -296,6 +296,16 @@ describe('<PostCard />', () => {
     expect(wrapper.find('.post-card__footer').exists()).toBe(true);
   });
 
+  it('should optionally display errors', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.find('[data-test-id="post-card-errors-dropdown"]')).toHaveLength(0);
+
+    wrapper.setProps({ errors: ['Something', 'went', 'wrong'] });
+
+    expect(wrapper.find('[data-test-id="post-card-errors-dropdown"]')).toHaveLength(1);
+  });
+
   it('should pass through other props', () => {
     const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 

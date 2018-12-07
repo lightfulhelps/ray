@@ -139,19 +139,3 @@
     border-radius: 0 0 $border-radius-sm $border-radius-sm;
   }
 }
-
-.post-card_error {
-}
-.post-card_error-banner {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  text-align: left;
-  font-size: $font-size-sm;
-}
-
-.post-card_error-dropdown {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  margin-top: 0;
-  box-shadow: $dropdown-box-shadow;
-}

@@ -5183,6 +5183,25 @@ button.bg-gray-900:focus {
 .bg-center {
   background-position: center; }
 
+.rounded-0 {
+  border-radius: 0; }
+
+.rounded-top-0 {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
+.rounded-right-0 {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.rounded-bottom-0 {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.rounded-left-0 {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
+
 .rounded-sm {
   border-radius: 0.3125rem; }
 
@@ -5665,18 +5684,6 @@ button.bg-gray-900:focus {
 .post-card__footer .btn {
   width: 100%;
   border-radius: 0 0 0.3125rem 0.3125rem; }
-
-.post-card_error-banner {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  text-align: left;
-  font-size: 0.875rem; }
-
-.post-card_error-dropdown {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  margin-top: 0;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); }
 
 .post-media {
   display: grid;
