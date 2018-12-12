@@ -84,7 +84,12 @@ const scheduledPost = {
     ),
     url: text('Meta URL', 'https://www.bbc.co.uk/news/business-45242008'),
   },
-  errors: ['Error string', 'Error string two with a much longer string thatn the other one'],
+  errors: [
+    'Error string',
+    'Error string two with a much longer string than the other one',
+    'Error string two with a much longer string than the other one kinda long',
+    'Error string two with a much longer string than the other one much much longer its long',
+  ],
 };
 
 const approvalQueuePost = {
