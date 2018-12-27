@@ -84,6 +84,12 @@ const scheduledPost = {
     ),
     url: text('Meta URL', 'https://www.bbc.co.uk/news/business-45242008'),
   },
+  errors: [
+    'Error string',
+    'Error string two with a much longer string than the other one',
+    'Error string two with a much longer string than the other one kinda long',
+    'Error string two with a much longer string than the other one much much longer its long',
+  ],
 };
 
 const approvalQueuePost = {
@@ -172,13 +178,13 @@ stories.add('Default', () => (
     <h1 className="my-4">PostCard.</h1>
     <Row>
       <Col className="mb-2" md={6} lg={4}>
-        <PostCard {...scheduledPost} />
+        <PostCard {...scheduledPost} errors={[]} />
       </Col>
       <Col className="mb-2" md={6} lg={4}>
         <PostCard {...scheduledPost} />
       </Col>
       <Col className="mb-2" md={6} lg={4}>
-        <PostCard {...scheduledPost} />
+        <PostCard {...scheduledPost} errors={[]} />
       </Col>
     </Row>
   </Container>

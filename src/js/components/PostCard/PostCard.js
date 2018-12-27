@@ -18,6 +18,7 @@ import {
   Tag,
 } from '../../';
 import { type IconNameType } from '../Icon/icons';
+import DropdownToggle from '../DropdownToggle/DropdownToggle';
 
 type InspirationActionType = {
   activeColor?: string,
@@ -67,6 +68,7 @@ type Props = {
   actions?: PostActionType[],
   className?: string,
   dateFormat?: string,
+  errors?: string[],
   footerButton?: React.Element<any>,
   inspirationActions?: InspirationActionType[],
   isDraft?: boolean,
@@ -89,6 +91,7 @@ const PostCard = ({
   actions = [],
   className,
   dateFormat = 'D MMM [-] HH:mm',
+  errors,
   footerButton,
   inspirationActions,
   isDraft,
@@ -108,9 +111,38 @@ const PostCard = ({
     (!post.media || (post.media && post.media.length === 0)) && metaPreview && metaPreview.url;
   const showMediaEmpty =
     post.media && post.media.length === 0 && (!metaPreview || (metaPreview && !metaPreview.url));
+  const showPostErrors = errors && errors.length > 0;
 
   return (
     <Card {...other} className={classes}>
+      {showPostErrors && (
+        <Dropdown
+          data-test-id="post-card-errors-dropdown"
+          render={(isOpen, onToggle) => (
+            <React.Fragment>
+              <DropdownToggle
+                className="text-sm text-left m-0 d-flex justify-content-between rounded-bottom-0"
+                isBlock
+                theme="danger"
+                isOpen={isOpen}
+                onClick={onToggle}
+                size="sm"
+                isOutline={false}
+              >
+                <div className="d-flex align-items-center">
+                  <Icon className="mr-1" size={16} name="alert" />
+                  Error
+                </div>
+              </DropdownToggle>
+              <DropdownMenu className="shadow-lg border-0 p-2 rounded-top-0" isOpen={isOpen}>
+                <ul className="small mb-0 pl-2">
+                  {errors && errors.map((error, i) => <li key={i}>{error}</li>)}
+                </ul>
+              </DropdownMenu>
+            </React.Fragment>
+          )}
+        />
+      )}
       <div className={`${blockClass}__header`}>
         {post.socialIdentity && (
           <div style={{ width: '35px', height: '35px', minWidth: '35px', minHeight: '35px' }}>
