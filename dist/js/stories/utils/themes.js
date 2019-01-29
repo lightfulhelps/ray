@@ -20,5 +20,8 @@ exports.default = {
   'gray-600': 'Gray 600',
   'gray-700': 'Gray 700',
   'gray-800': 'Gray 800',
-  'gray-900': 'Gray 900'
+  'gray-900': 'Gray 900',
+  facebook: 'Facebook',
+  twitter: 'Twitter',
+  linkedin: 'LinkedIn'
 };

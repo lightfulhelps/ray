@@ -27,10 +27,11 @@ $warning: #f0b954;
 $danger: #f25270;
 
 // Social media network colors
-
-$facebook: #5586ed;
-$twitter: #1dcaff;
-$linkedin: #1c87bf;
+$sm-colors: (
+  facebook: #5586ed,
+  twitter: #1dcaff,
+  linkedin: #1c87bf,
+);
 
 // Options
 //

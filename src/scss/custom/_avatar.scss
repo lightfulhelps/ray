@@ -31,20 +31,14 @@
   width: 50%;
   height: 50%;
 
-  &-facebook {
-    background-color: $facebook;
-  }
-
-  &-twitter {
-    background-color: $twitter;
-  }
-
-  &-linkedin {
-    background-color: $linkedin;
-  }
-
   .icon {
     width: 80%;
     height: 80%;
+  }
+}
+
+@each $sm, $value in $sm-colors {
+  .avatar-provider-#{$sm} {
+    background-color: $value;
   }
 }
