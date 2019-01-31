@@ -26,14 +26,8 @@
   @include icon-variant($black);
 }
 
-.icon-facebook {
-  @include icon-variant($facebook);
-}
-
-.icon-twitter {
-  @include icon-variant($twitter);
-}
-
-.icon-linkedin {
-  @include icon-variant($linkedin);
+@each $sm, $value in $sm-colors {
+  .icon-#{$sm} {
+    @include icon-variant($value);
+  }
 }

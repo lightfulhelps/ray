@@ -1,6 +1,9 @@
-// Background classes for grays
 @each $color, $value in $grays {
   @include bg-variant('.bg-gray-#{$color}', $value);
+}
+
+@each $sm, $value in $sm-colors {
+  @include bg-variant('.bg-#{$sm}', $value);
 }
 
 .bg-contain {

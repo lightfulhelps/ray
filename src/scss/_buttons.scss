@@ -3,6 +3,10 @@
   .btn-gray-#{$color} {
     @include button-variant($value, $value);
   }
+
+  .btn-outline-gray-#{$color} {
+    @include button-outline-variant($value);
+  }
 }
 
 .btn-white {
@@ -15,10 +19,18 @@
   }
 }
 
-@each $color, $value in $grays {
-  .btn-outline-gray-#{$color} {
-    @include button-outline-variant($value);
+@each $sm, $value in $sm-colors {
+  .btn-#{$sm} {
+    @include button-variant($value, $value);
   }
+
+  .btn-outline-#{$sm} {
+    @include button-variant($value, $value);
+  }
+}
+
+.btn-twitter {
+  color: $white;
 }
 
 // .btn,
