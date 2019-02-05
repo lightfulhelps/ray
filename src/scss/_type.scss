@@ -22,3 +22,7 @@ small,
 @each $color, $value in $grays {
   @include text-emphasis-variant('.text-gray-#{$color}', $value);
 }
+
+.text-underline {
+  text-decoration: underline;
+}

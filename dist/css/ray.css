@@ -4451,6 +4451,9 @@ a.text-gray-800:hover, a.text-gray-800:focus {
 a.text-gray-900:hover, a.text-gray-900:focus {
   color: #0a0c0d !important; }
 
+.text-underline {
+  text-decoration: underline; }
+
 .table {
   width: 100%;
   background-color: #fff;
@@ -5461,10 +5464,7 @@ button.bg-linkedin:focus {
 .character-counter {
   display: flex;
   align-items: center;
-  font-size: 0.875rem;
-  line-height: 1;
-  color: #212529;
-  font-weight: 500; }
+  line-height: 1; }
   .character-counter .icon {
     margin-right: 0.625rem; }
 

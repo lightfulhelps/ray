@@ -1,10 +1,7 @@
 .character-counter {
   display: flex;
   align-items: center;
-  font-size: $font-size-sm;
   line-height: 1;
-  color: $gray-900;
-  font-weight: $font-weight-bold;
 
   .icon {
     margin-right: $spacer;
