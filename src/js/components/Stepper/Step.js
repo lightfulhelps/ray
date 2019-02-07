@@ -10,22 +10,22 @@ const Step = props => {
 
   const classes = classNames(
     'd-flex align-items-center',
-    { active: activeStep === thisStep },
-    { todo: thisStep > activeStep },
-    { done: thisStep < activeStep }
+    { 'step-active': activeStep === thisStep },
+    { 'step-todo': thisStep > activeStep },
+    { 'step-done': thisStep < activeStep }
   );
 
   const getValue = () => {
     if (thisStep < activeStep) {
-      return <Icon name={'tick'} />
+      return <Icon name="tick" />;
     }
-    return value
-  }
-  
+    return value;
+  };
+
   return (
     <Col>
       <div className={classes}>
-        <div className="step-value border border-black rounded-circle d-flex align-items-center justify-content-center mr-1">
+        <div className="step-value border rounded-circle d-flex align-items-center justify-content-center mr-1">
           {getValue()}
         </div>
         <span className="mr-1">{label}</span>
