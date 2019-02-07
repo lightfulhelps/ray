@@ -17,7 +17,13 @@ const Stepper = props => {
   return (
     <Row>
       {steps.map((step, i) => (
-        <Step key={i} label={step.label} value={step.value} />
+        <Step
+          key={i}
+          label={step.label}
+          value={step.value}
+          progress={step.progress}
+          isLast={i === steps.length - 1}
+        />
       ))}
     </Row>
   );

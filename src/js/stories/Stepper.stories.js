@@ -10,9 +10,9 @@ const stories = storiesOf('Stepper', module);
 stories.addDecorator(withKnobs);
 
 const steps = [
-  { label: 'step one', value: 1 },
-  { label: 'step two', value: 2 },
-  { label: 'step three', value: 3 },
+  { label: 'step one', value: 1, progress: null },
+  { label: 'step two', value: 2, progress: null },
+  { label: 'step three', value: 3, progress: null },
 ];
 
 stories.add('Default', () => (
