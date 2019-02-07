@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
 import { State, Store } from '@sambego/storybook-state';
 import { Container, Stepper } from '../';
 import Button from '../components/Button/Button';
@@ -8,8 +7,6 @@ import Button from '../components/Button/Button';
 import '../../scss/ray.scss';
 
 const stories = storiesOf('Stepper', module);
-
-stories.addDecorator(withKnobs);
 
 const store = new Store({
   step: 1,

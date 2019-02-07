@@ -3,11 +3,16 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Col from '../Col/Col';
 import Icon from '../Icon/Icon';
-// import stepper from '../../../scss/custom/stepper';
 
-const Step = props => {
-  const { label, value, isLast, activeStep, thisStep } = props;
+type Props = {
+  activeStep: number,
+  isLast: boolean,
+  label: string,
+  thisStep: number,
+  value: number | string,
+};
 
+const Step = ({ label, value, isLast, activeStep, thisStep }: Props) => {
   const classes = classNames(
     'd-flex align-items-center',
     { active: activeStep === thisStep },
@@ -17,7 +22,7 @@ const Step = props => {
 
   const getValue = () => {
     if (thisStep < activeStep) {
-      return <Icon name={'tick'} />;
+      return <Icon name="tick" />;
     }
     return value;
   };
