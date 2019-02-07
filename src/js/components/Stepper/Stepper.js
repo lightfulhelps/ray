@@ -12,21 +12,28 @@ import Row from '../Row/Row';
 - vertical mode (mobile)
 */
 
-const Stepper = props => {
-  const { steps } = props;
-  return (
-    <Row>
-      {steps.map((step, i) => (
-        <Step
-          key={i}
-          label={step.label}
-          value={step.value}
-          progress={step.progress}
-          isLast={i === steps.length - 1}
-        />
-      ))}
-    </Row>
-  );
-};
+class Stepper extends React.Component {
+  state = {
+    progress: 'todo'
+  }
+  
+  render() {
+    const { steps, activeStep } = this.props;
+    return (
+      <Row>
+        {steps.map((step, i) => (
+          <Step
+            key={i}
+            label={step.label}
+            value={step.value}
+            isLast={i === steps.length - 1}
+            activeStep={activeStep}
+            thisStep={i + 1}
+          />
+        ))}
+      </Row>
+    );
+  }
+}
 
 export default Stepper;
