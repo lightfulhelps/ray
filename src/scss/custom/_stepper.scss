@@ -5,9 +5,38 @@
 }
 
 .line {
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: 2px solid rgba(0, 0, 0, 0.12);
   -ms-flex: auto;
   flex: auto;
   height: 0;
   min-width: 32px;
+}
+
+.step-active {
+  color: $primary;
+  font-weight: 500;
+  .step-value {
+    color: $white;
+    background-color: $primary;
+    border-color: $primary !important;
+    border: 2px;
+  }
+}
+
+.step-todo {
+  color: $gray-400;
+  font-weight: 500;
+  .step-value {
+    background-color: $gray-400;
+    color: $white;
+  }
+}
+
+.step-done {
+  color: $primary;
+  font-weight: 500;
+  .step-value {
+    color: $primary;
+    border-color: $primary !important;
+  }
 }

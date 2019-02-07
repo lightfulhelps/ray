@@ -5899,11 +5899,34 @@ button.bg-linkedin:focus {
   position: relative; }
 
 .line {
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: 2px solid rgba(0, 0, 0, 0.12);
   -ms-flex: auto;
   flex: auto;
   height: 0;
   min-width: 32px; }
+
+.step-active {
+  color: #27b0cc;
+  font-weight: 500; }
+  .step-active .step-value {
+    color: #fff;
+    background-color: #27b0cc;
+    border-color: #27b0cc !important;
+    border: 2px; }
+
+.step-todo {
+  color: #ced4da;
+  font-weight: 500; }
+  .step-todo .step-value {
+    background-color: #ced4da;
+    color: #fff; }
+
+.step-done {
+  color: #27b0cc;
+  font-weight: 500; }
+  .step-done .step-value {
+    color: #27b0cc;
+    border-color: #27b0cc !important; }
 
 .tag {
   font-size: 100%; }

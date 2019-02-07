@@ -35,7 +35,7 @@ var Step = function Step(_ref) {
       activeStep = _ref.activeStep,
       thisStep = _ref.thisStep;
 
-  var classes = (0, _classnames2.default)('d-flex align-items-center', { active: activeStep === thisStep }, { todo: thisStep > activeStep }, { done: thisStep < activeStep });
+  var classes = (0, _classnames2.default)('d-flex align-items-center', { 'step-active': activeStep === thisStep }, { 'step-todo': thisStep > activeStep }, { 'step-done': thisStep < activeStep });
 
   var getValue = function getValue() {
     if (thisStep < activeStep) {
@@ -52,7 +52,7 @@ var Step = function Step(_ref) {
       { className: classes },
       React.createElement(
         'div',
-        { className: 'step-value border border-black rounded-circle d-flex align-items-center justify-content-center mr-1' },
+        { className: 'step-value border rounded-circle d-flex align-items-center justify-content-center mr-1' },
         getValue()
       ),
       React.createElement(
