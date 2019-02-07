@@ -2,6 +2,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Col from '../Col/Col';
+import Icon from '../Icon/Icon';
 // import stepper from '../../../scss/custom/stepper';
 
 const Step = props => {
@@ -14,12 +15,18 @@ const Step = props => {
     { done: thisStep < activeStep }
   );
 
+  const getValue = () => {
+    if (thisStep < activeStep) {
+      return <Icon name={'tick'} />
+    }
+    return value
+  }
+  
   return (
     <Col>
       <div className={classes}>
         <div className="step-value border border-black rounded-circle d-flex align-items-center justify-content-center mr-1">
-          {' '}
-          {value}{' '}
+          {getValue()}
         </div>
         <span className="mr-1">{label}</span>
         {!isLast && <div className="line" />}
