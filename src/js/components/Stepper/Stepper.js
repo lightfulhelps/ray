@@ -14,9 +14,9 @@ import Row from '../Row/Row';
 
 class Stepper extends React.Component {
   state = {
-    progress: 'todo'
-  }
-  
+    progress: 'todo',
+  };
+
   render() {
     const { steps, activeStep } = this.props;
     return (

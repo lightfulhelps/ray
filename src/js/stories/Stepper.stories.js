@@ -23,11 +23,11 @@ const steps = [
 stories.add('Default', () => (
   <Container>
     <h1 className="my-4">Stepper.</h1>
-    <State store={store}>
-      <Stepper steps={steps} activeStep={store.get('step')} />
-    </State>
+
+    <State store={store}>{state => <Stepper steps={steps} activeStep={state.step} />}</State>
     {/* <button onClick={() => changeStep('back')}>back</button> */}
-    <button onClick={() => store.set({ step: store.get("step") + 1 })}>next</button>
+    <button onClick={() => store.set({ step: store.get('step') - 1 })}>back</button>
+    <button onClick={() => store.set({ step: store.get('step') + 1 })}>next</button>
   </Container>
 ));
 
