@@ -10,22 +10,25 @@ type StepType = {
 
 type Props = {
   activeStep: number,
+  className: string,
   steps: Array<StepType>,
 };
 
-const Stepper = ({ steps, activeStep }: Props) => (
-  <Row>
-    {steps.map((step, i) => (
-      <Step
-        key={i}
-        label={step.label}
-        value={step.value}
-        isLast={i === steps.length - 1}
-        activeStep={activeStep}
-        thisStep={i + 1}
-      />
-    ))}
-  </Row>
+const Stepper = ({ steps, activeStep, className }: Props) => (
+  <div className={className}>
+    <Row>
+      {steps.map((step, i) => (
+        <Step
+          key={i}
+          label={step.label}
+          value={step.value}
+          isLast={i === steps.length - 1}
+          activeStep={activeStep}
+          thisStep={i + 1}
+        />
+      ))}
+    </Row>
+  </div>
 );
 
 export default Stepper;
