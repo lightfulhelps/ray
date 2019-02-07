@@ -1,0 +1,13 @@
+.step-value {
+  height: 30px;
+  width: 30px;
+  position: relative;
+}
+
+.line {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  -ms-flex: auto;
+  flex: auto;
+  height: 0;
+  min-width: 32px;
+}
