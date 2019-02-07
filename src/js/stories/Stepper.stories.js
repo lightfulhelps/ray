@@ -1,14 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
 import { State, Store } from '@sambego/storybook-state';
 import { Container, Stepper } from '../';
+import Button from '../components/Button/Button';
 
 import '../../scss/ray.scss';
 
 const stories = storiesOf('Stepper', module);
-
-stories.addDecorator(withKnobs);
 
 const store = new Store({
   step: 1,
@@ -25,10 +23,16 @@ stories.add('Default', () => (
     <h1 className="my-4">Stepper.</h1>
 
     <State store={store}>{state => <Stepper steps={steps} activeStep={state.step} />}</State>
-    {/* <button onClick={() => changeStep('back')}>back</button> */}
-    <button onClick={() => store.set({ step: store.get('step') - 1 })}>back</button>
-    <button onClick={() => store.set({ step: store.get('step') + 1 })}>next</button>
+
+    <Button className="mr-1 mt-2" onClick={() => store.set({ step: store.get('step') - 1 })}>
+      Back
+    </Button>
+    <Button
+      className="mt-2"
+      theme="dark"
+      onClick={() => store.set({ step: store.get('step') + 1 })}
+    >
+      Next
+    </Button>
   </Container>
 ));
-
-// activeStep={store.get("step")}
