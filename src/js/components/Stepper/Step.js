@@ -17,11 +17,11 @@ const Step = props => {
 
   const getValue = () => {
     if (thisStep < activeStep) {
-      return <Icon name={'tick'} />
+      return <Icon name={'tick'} />;
     }
-    return value
-  }
-  
+    return value;
+  };
+
   return (
     <Col>
       <div className={classes}>
