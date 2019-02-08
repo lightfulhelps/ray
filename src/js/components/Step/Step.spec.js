@@ -26,6 +26,15 @@ describe('<Step />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should render line element on all but the last child', () => {
+    const { wrapper } = setup({ isLast: false });
+    expect(wrapper.find('.line')).toHaveLength(1);
+  });
+  it('should not render line element on the last child', () => {
+    const { wrapper } = setup({ isLast: true });
+    expect(wrapper.find('.line')).toHaveLength(0);
+  });
+
   describe('active state', () => {
     it('should add `active` class if the `activeStep` prop is equal to the `thisStep` prop', () => {
       const { wrapper } = setup();

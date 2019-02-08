@@ -28,6 +28,10 @@ var Stepper = function Stepper(_ref) {
   var steps = _ref.steps,
       activeStep = _ref.activeStep,
       className = _ref.className;
+
+  if (!Array.isArray(steps) || !activeStep) {
+    return null;
+  }
   return React.createElement(
     'div',
     { className: className },
