@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import Step from './Step';
+import Step from '../Step/Step';
 import Row from '../Row/Row';
 
 type StepType = {

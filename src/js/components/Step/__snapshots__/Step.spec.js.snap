@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Step /> should render 1`] = `
+<Col>
+  <div
+    className="d-flex align-items-center step-active"
+  >
+    <div
+      className="step-value border rounded-circle d-flex align-items-center justify-content-center mr-1"
+    >
+      1
+    </div>
+    <span
+      className="mr-1"
+    >
+      step one
+    </span>
+    <div
+      className="line"
+    />
+  </div>
+</Col>
+`;
