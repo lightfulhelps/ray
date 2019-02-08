@@ -65,7 +65,7 @@ stories.add('Default', () => (
         </FormGroup>
         <FormGroup>
           <FormLabel>Password</FormLabel>
-          <FormPasswordInput name="password" type="password" size={select('Select Size', sizes)} />
+          <FormPasswordInput size={select('Select Size', sizes)} />
         </FormGroup>
         <FormGroup>
           <FormLabel>Select</FormLabel>
