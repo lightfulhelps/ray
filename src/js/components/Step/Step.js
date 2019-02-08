@@ -14,10 +14,9 @@ type Props = {
 
 const Step = ({ label, value, isLast, activeStep, thisStep }: Props) => {
   const classes = classNames(
-    'd-flex align-items-center',
-    { 'step-active': activeStep === thisStep },
-    { 'step-todo': thisStep > activeStep },
-    { 'step-done': thisStep < activeStep }
+    'd-flex align-items-center stepper__step',
+    { 'stepper__step--active': activeStep === thisStep },
+    { 'stepper__step--todo': thisStep > activeStep }
   );
 
   const getValue = () => {
@@ -30,7 +29,7 @@ const Step = ({ label, value, isLast, activeStep, thisStep }: Props) => {
   return (
     <Col>
       <div className={classes}>
-        <div className="step-value border rounded-circle d-flex align-items-center justify-content-center mr-1">
+        <div className="stepper__step__value border rounded-circle d-flex align-items-center justify-content-center mr-1">
           {getValue()}
         </div>
         <span className="mr-1">{label}</span>

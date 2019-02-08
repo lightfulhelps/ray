@@ -8,7 +8,7 @@ var _react = require('react');
 
 var React = _interopRequireWildcard(_react);
 
-var _Step = require('./Step');
+var _Step = require('../Step/Step');
 
 var _Step2 = _interopRequireDefault(_Step);
 

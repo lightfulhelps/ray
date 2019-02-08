@@ -3,12 +3,12 @@
 exports[`<Step /> should render 1`] = `
 <Col>
   <div
-    className="d-flex align-items-center step-active"
+    className="d-flex align-items-center stepper__step stepper__step--active"
   >
     <div
-      className="step-value border rounded-circle d-flex align-items-center justify-content-center mr-1"
+      className="stepper__step__value border rounded-circle d-flex align-items-center justify-content-center mr-1"
     >
-      1
+      2
     </div>
     <span
       className="mr-1"

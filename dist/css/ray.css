@@ -5893,40 +5893,32 @@ button.bg-linkedin:focus {
     grid-column: 2;
     grid-row: 2 / 3; }
 
-.step-value {
-  height: 30px;
-  width: 30px;
-  position: relative; }
+.stepper__step {
+  color: #27b0cc;
+  font-weight: 500; }
+  .stepper__step__value {
+    color: #27b0cc;
+    border-color: #27b0cc !important;
+    height: 1.875rem;
+    width: 1.875rem;
+    position: relative; }
+  .stepper__step--active .stepper__step__value {
+    color: #fff;
+    background-color: #27b0cc;
+    border: 2px; }
+  .stepper__step--todo {
+    color: #ced4da; }
+    .stepper__step--todo .stepper__step__value {
+      border-color: #ced4da !important;
+      background-color: #ced4da;
+      color: #fff; }
 
 .line {
-  border-top: 2px solid rgba(0, 0, 0, 0.12);
+  border-top: 2px solid #ced4da;
   -ms-flex: auto;
   flex: auto;
   height: 0;
   min-width: 32px; }
-
-.step-active {
-  color: #27b0cc;
-  font-weight: 500; }
-  .step-active .step-value {
-    color: #fff;
-    background-color: #27b0cc;
-    border-color: #27b0cc !important;
-    border: 2px; }
-
-.step-todo {
-  color: #ced4da;
-  font-weight: 500; }
-  .step-todo .step-value {
-    background-color: #ced4da;
-    color: #fff; }
-
-.step-done {
-  color: #27b0cc;
-  font-weight: 500; }
-  .step-done .step-value {
-    color: #27b0cc;
-    border-color: #27b0cc !important; }
 
 .tag {
   font-size: 100%; }
