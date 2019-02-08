@@ -83,8 +83,8 @@ var FormPasswordInput = (_temp2 = _class = function (_React$Component) {
 
       return React.createElement(
         'div',
-        _extends({}, other, { className: classes }),
-        React.createElement('input', { type: inputType, className: 'form-control' }),
+        { className: classes },
+        React.createElement('input', _extends({ type: inputType, className: 'form-control' }, other)),
         React.createElement(
           'div',
           { className: 'input-group-append' },

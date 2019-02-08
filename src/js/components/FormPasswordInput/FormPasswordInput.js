@@ -32,8 +32,8 @@ class FormPasswordInput extends React.Component<Props, State> {
     const icon = hidePassword ? 'preview' : 'previewHide';
 
     return (
-      <div {...other} className={classes}>
-        <input type={inputType} className="form-control" />
+      <div className={classes}>
+        <input type={inputType} className="form-control" {...other} />
         <div className="input-group-append">
           <Button onClick={() => this.togglePassword()} icon={icon} isOutline theme="gray-600">
             <span className="form-password-input__toggle-password-text">{buttonText}</span>

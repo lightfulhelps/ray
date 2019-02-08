@@ -30,8 +30,10 @@ describe('<FormPasswordInput />', () => {
   it('should pass through other props', () => {
     const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const input = wrapper.find('input');
+
+    expect(input.prop('tabIndex')).toEqual(1);
+    expect(input.prop('id')).toEqual('test');
   });
 
   describe('show password toggle', () => {
