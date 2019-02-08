@@ -157,6 +157,15 @@ Object.defineProperty(exports, 'FormTextarea', {
   }
 });
 
+var _FormPasswordInput = require('./components/FormPasswordInput/FormPasswordInput');
+
+Object.defineProperty(exports, 'FormPasswordInput', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_FormPasswordInput).default;
+  }
+});
+
 var _Icon = require('./components/Icon/Icon');
 
 Object.defineProperty(exports, 'Icon', {

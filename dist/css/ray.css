@@ -5405,6 +5405,9 @@ button.bg-linkedin:focus {
 .border-gray-900 {
   border-color: #212529; }
 
+.bl-0 {
+  border-left: 0 !important; }
+
 .cursor-default {
   cursor: default !important; }
 
@@ -5946,3 +5949,6 @@ button.bg-linkedin:focus {
 
 .ghost-lg {
   min-height: 0.7875rem; }
+
+.form-password-input__toggle-password-text {
+  min-width: 40px; }
