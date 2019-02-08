@@ -35,4 +35,22 @@ describe('<Stepper />', () => {
     const { wrapper } = setup({ activeStep: null });
     expect(wrapper.type()).toBeNull();
   });
+  it('`isLast` prop should eveluate to false for all but the last step', () => {
+    const { wrapper } = setup();
+    const firstStep = wrapper
+      .find('Step')
+      .at(0)
+      .props();
+    const secondStep = wrapper
+      .find('Step')
+      .at(1)
+      .props();
+    const lastStep = wrapper
+      .find('Step')
+      .at(2)
+      .props();
+    expect(firstStep.isLast).toBe(false);
+    expect(secondStep.isLast).toBe(false);
+    expect(lastStep.isLast).toBe(true);
+  });
 });

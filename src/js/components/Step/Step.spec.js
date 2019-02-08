@@ -26,11 +26,11 @@ describe('<Step />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should render line element on all but the last child', () => {
+  it('should render line element on all but the last step', () => {
     const { wrapper } = setup({ isLast: false });
     expect(wrapper.find('.line')).toHaveLength(1);
   });
-  it('should not render line element on the last child', () => {
+  it('should not render line element on the last step', () => {
     const { wrapper } = setup({ isLast: true });
     expect(wrapper.find('.line')).toHaveLength(0);
   });
