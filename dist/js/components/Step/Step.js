@@ -35,7 +35,7 @@ var Step = function Step(_ref) {
       activeStep = _ref.activeStep,
       thisStep = _ref.thisStep;
 
-  var classes = (0, _classnames2.default)('d-flex align-items-center stepper__step', { 'stepper__step--active': activeStep === thisStep }, { 'stepper__step--todo': thisStep > activeStep });
+  var classes = (0, _classnames2.default)('d-flex align-items-center stepper__step mb-1', { 'stepper__step--active': activeStep === thisStep }, { 'stepper__step--todo': thisStep > activeStep });
 
   var getValue = function getValue() {
     if (thisStep < activeStep) {
@@ -46,7 +46,7 @@ var Step = function Step(_ref) {
 
   return React.createElement(
     _Col2.default,
-    null,
+    { xs: 12, sm: 4, md: 4 },
     React.createElement(
       'div',
       { className: classes },
@@ -60,7 +60,7 @@ var Step = function Step(_ref) {
         { className: 'mr-1' },
         label
       ),
-      !isLast && React.createElement('div', { className: 'line' })
+      !isLast && React.createElement('div', { className: 'line d-none d-sm-block' })
     )
   );
 };
