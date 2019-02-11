@@ -64,6 +64,14 @@ describe('<FormPasswordInput />', () => {
         expect(button).toHaveLength(1);
       });
 
+      it('has a button that changes state when clicked', () => {
+        const { wrapper } = setup();
+
+        wrapper.find(Button).simulate('click');
+
+        expect(wrapper.state('hidePassword')).toEqual(false);
+      });
+
       it('has a button that says Show when password is hidden', () => {
         const { wrapper } = setup();
 
