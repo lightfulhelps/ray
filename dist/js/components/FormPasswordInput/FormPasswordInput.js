@@ -54,21 +54,18 @@ var FormPasswordInput = (_temp2 = _class = function (_React$Component) {
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = FormPasswordInput.__proto__ || Object.getPrototypeOf(FormPasswordInput)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       hidePassword: true
+    }, _this.togglePassword = function () {
+      _this.setState(function (prevState) {
+        return {
+          hidePassword: !prevState.hidePassword
+        };
+      });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(FormPasswordInput, [{
-    key: 'togglePassword',
-    value: function togglePassword() {
-      this.setState({
-        hidePassword: !this.state.hidePassword
-      });
-    }
-  }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       var _props = this.props,
           className = _props.className,
           other = _objectWithoutProperties(_props, ['className']);
@@ -90,9 +87,7 @@ var FormPasswordInput = (_temp2 = _class = function (_React$Component) {
           { className: 'input-group-append' },
           React.createElement(
             _Button2.default,
-            { onClick: function onClick() {
-                return _this2.togglePassword();
-              }, icon: icon, isOutline: true, theme: 'gray-600' },
+            { onClick: this.togglePassword, icon: icon, isOutline: true, theme: 'gray-600' },
             React.createElement(
               'span',
               { className: 'form-password-input__toggle-password-text' },
