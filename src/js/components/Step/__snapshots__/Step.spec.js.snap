@@ -1,27 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Step /> should render 1`] = `
-<Col
-  md={4}
-  sm={4}
-  xs={12}
->
+<div>
   <div
-    className="d-flex align-items-center stepper__step mb-1 stepper__step--active"
+    className="d-flex align-items-center stepper__step mb-1"
   >
     <div
-      className="stepper__step__value border rounded-circle d-flex align-items-center justify-content-center mr-1"
+      className="stepper__step__value border rounded-circle d-flex align-items-center justify-content-center mr-1 bg-primary text-white border-primary"
     >
-      2
+      <b>
+        2
+      </b>
     </div>
     <span
-      className="mr-1"
+      className="mr-1 text-gray-500"
     >
-      step one
+      <b>
+        step one
+      </b>
     </span>
     <div
-      className="line d-none d-sm-block"
+      className="line d-none d-sm-block mr-1"
     />
   </div>
-</Col>
+</div>
 `;

@@ -26,7 +26,7 @@ const Step = ({ label, value, isLast, activeStep, thisStep }: Props) => {
     if (thisStep < activeStep) {
       return <Icon name="tick" color="#27b0cc" />;
     }
-    return value;
+    return <b>{value}</b>;
   };
 
   return (

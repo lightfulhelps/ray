@@ -43,7 +43,11 @@ var Step = function Step(_ref) {
     if (thisStep < activeStep) {
       return React.createElement(_Icon2.default, { name: 'tick', color: '#27b0cc' });
     }
-    return value;
+    return React.createElement(
+      'b',
+      null,
+      value
+    );
   };
 
   return React.createElement(
