@@ -16,7 +16,8 @@ const Step = ({ label, value, isLast, activeStep, thisStep }: Props) => {
   const classes = classNames(
     'd-flex align-items-center stepper__step mb-1',
     { 'stepper__step--active': activeStep === thisStep },
-    { 'stepper__step--todo': thisStep > activeStep }
+    // { 'stepper__step--todo': thisStep > activeStep }
+    { 'stepper__step--done': thisStep < activeStep }
   );
 
   const getValue = () => {

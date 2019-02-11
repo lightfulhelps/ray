@@ -1,9 +1,10 @@
 .stepper__step {
-  color: $primary;
+  color: $gray-400;
   font-weight: 500;
   &__value {
-    color: $primary;
-    border-color: $primary !important;
+    border-color: $gray-400 !important;
+    background-color: $gray-400;
+    color: $white;
     height: $spacer * 3;
     width: $spacer * 3;
     position: relative;
@@ -13,16 +14,17 @@
     .stepper__step__value {
       color: $white;
       background-color: $primary;
+      border-color: $primary !important;
       border: 2px;
     }
   }
 
-  &--todo {
-    color: $gray-400;
+  &--done {
+    color: $primary;
     .stepper__step__value {
-      border-color: $gray-400 !important;
-      background-color: $gray-400;
-      color: $white;
+      color: $primary;
+      border-color: $primary !important;
+      background-color: $white;
     }
   }
 }
@@ -31,6 +33,4 @@
   border-top: 2px solid #{$gray-400};
   -ms-flex: auto;
   flex: auto;
-  height: 0;
-  min-width: 32px;
 }

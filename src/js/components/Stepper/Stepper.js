@@ -10,7 +10,7 @@ type StepType = {
 
 type Props = {
   activeStep: number,
-  className: string,
+  className?: string,
   steps: Array<StepType>,
 };
 

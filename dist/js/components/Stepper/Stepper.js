@@ -53,7 +53,7 @@ var Stepper = function Stepper(_ref) {
 };
 Stepper.propTypes = {
   activeStep: _propTypes2.default.number.isRequired,
-  className: _propTypes2.default.string.isRequired,
+  className: _propTypes2.default.string,
   steps: _propTypes2.default.arrayOf(_propTypes2.default.shape({
     label: _propTypes2.default.string.isRequired,
     value: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired

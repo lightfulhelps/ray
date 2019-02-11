@@ -35,7 +35,9 @@ var Step = function Step(_ref) {
       activeStep = _ref.activeStep,
       thisStep = _ref.thisStep;
 
-  var classes = (0, _classnames2.default)('d-flex align-items-center stepper__step mb-1', { 'stepper__step--active': activeStep === thisStep }, { 'stepper__step--todo': thisStep > activeStep });
+  var classes = (0, _classnames2.default)('d-flex align-items-center stepper__step mb-1', { 'stepper__step--active': activeStep === thisStep },
+  // { 'stepper__step--todo': thisStep > activeStep }
+  { 'stepper__step--done': thisStep < activeStep });
 
   var getValue = function getValue() {
     if (thisStep < activeStep) {
