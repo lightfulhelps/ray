@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
 import Step from '../Step/Step';
-import Row from '../Row/Row';
 
 type StepType = {
   label: string,
@@ -20,7 +19,7 @@ const Stepper = ({ steps, activeStep, className }: Props) => {
   }
   return (
     <div className={className}>
-      <Row>
+      <div className="d-flex flex-column flex-sm-row">
         {steps.map((step, i) => (
           <Step
             key={i}
@@ -31,7 +30,7 @@ const Stepper = ({ steps, activeStep, className }: Props) => {
             thisStep={i + 1}
           />
         ))}
-      </Row>
+      </div>
     </div>
   );
 };

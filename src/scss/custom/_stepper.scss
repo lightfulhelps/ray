@@ -31,6 +31,6 @@
 
 .line {
   border-top: 2px solid #{$gray-400};
-  -ms-flex: auto;
   flex: auto;
+  width: $spacer * 4;
 }

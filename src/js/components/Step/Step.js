@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import Col from '../Col/Col';
 import Icon from '../Icon/Icon';
 
 type Props = {
@@ -28,15 +27,15 @@ const Step = ({ label, value, isLast, activeStep, thisStep }: Props) => {
   };
 
   return (
-    <Col xs={12} sm={4} md={4}>
+    <div>
       <div className={classes}>
         <div className="stepper__step__value border rounded-circle d-flex align-items-center justify-content-center mr-1">
           {getValue()}
         </div>
         <span className="mr-1">{label}</span>
-        {!isLast && <div className="line d-none d-sm-block" />}
+        {!isLast && <div className="line d-none d-sm-block mr-1" />}
       </div>
-    </Col>
+    </div>
   );
 };
 

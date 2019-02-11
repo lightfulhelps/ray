@@ -12,10 +12,6 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Col = require('../Col/Col');
-
-var _Col2 = _interopRequireDefault(_Col);
-
 var _Icon = require('../Icon/Icon');
 
 var _Icon2 = _interopRequireDefault(_Icon);
@@ -47,8 +43,8 @@ var Step = function Step(_ref) {
   };
 
   return React.createElement(
-    _Col2.default,
-    { xs: 12, sm: 4, md: 4 },
+    'div',
+    null,
     React.createElement(
       'div',
       { className: classes },
@@ -62,11 +58,10 @@ var Step = function Step(_ref) {
         { className: 'mr-1' },
         label
       ),
-      !isLast && React.createElement('div', { className: 'line d-none d-sm-block' })
+      !isLast && React.createElement('div', { className: 'line d-none d-sm-block mr-1' })
     )
   );
 };
-
 Step.propTypes = {
   activeStep: _propTypes2.default.number.isRequired,
   isLast: _propTypes2.default.bool.isRequired,

@@ -12,10 +12,6 @@ var _Step = require('../Step/Step');
 
 var _Step2 = _interopRequireDefault(_Step);
 
-var _Row = require('../Row/Row');
-
-var _Row2 = _interopRequireDefault(_Row);
-
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -36,8 +32,8 @@ var Stepper = function Stepper(_ref) {
     'div',
     { className: className },
     React.createElement(
-      _Row2.default,
-      null,
+      'div',
+      { className: 'd-flex flex-column flex-sm-row' },
       steps.map(function (step, i) {
         return React.createElement(_Step2.default, {
           key: i,
@@ -51,6 +47,7 @@ var Stepper = function Stepper(_ref) {
     )
   );
 };
+
 Stepper.propTypes = {
   activeStep: _propTypes2.default.number.isRequired,
   className: _propTypes2.default.string,

@@ -5917,8 +5917,8 @@ button.bg-linkedin:focus {
 
 .line {
   border-top: 2px solid #ced4da;
-  -ms-flex: auto;
-  flex: auto; }
+  flex: auto;
+  width: 2.5rem; }
 
 .tag {
   font-size: 100%; }
