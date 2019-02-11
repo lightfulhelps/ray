@@ -27,14 +27,28 @@ describe('<Stepper />', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
   it('should return null if the steps prop is not an array', () => {
     const { wrapper } = setup({ steps: 'Suuurrreee, I am an array. DW' });
+
     expect(wrapper.type()).toBeNull();
   });
+
   it('should return null if there is no activeStep prop', () => {
     const { wrapper } = setup({ activeStep: null });
+
     expect(wrapper.type()).toBeNull();
   });
+
+  it('should handle className', () => {
+    const { wrapper } = setup();
+
+    wrapper.setProps({ className: 'custom' });
+
+    expect(wrapper.hasClass('stepper')).toBe(true);
+    expect(wrapper.hasClass('custom')).toBe(true);
+  });
+
   it('`isLast` prop should eveluate to false for all but the last step', () => {
     const { wrapper } = setup();
     const firstStep = wrapper
@@ -52,5 +66,12 @@ describe('<Stepper />', () => {
     expect(firstStep.isLast).toBe(false);
     expect(secondStep.isLast).toBe(false);
     expect(lastStep.isLast).toBe(true);
+  });
+
+  it('should pass through other props', () => {
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+
+    expect(wrapper.prop('tabIndex')).toEqual(1);
+    expect(wrapper.prop('id')).toEqual('test');
   });
 });

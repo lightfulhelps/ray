@@ -31,13 +31,17 @@ var Step = function Step(_ref) {
       activeStep = _ref.activeStep,
       thisStep = _ref.thisStep;
 
-  var classes = (0, _classnames2.default)('d-flex align-items-center stepper__step mb-1', { 'stepper__step--active': activeStep === thisStep },
-  // { 'stepper__step--todo': thisStep > activeStep }
-  { 'stepper__step--done': thisStep < activeStep });
+  var classes = (0, _classnames2.default)('stepper__step__value border rounded-circle d-flex align-items-center justify-content-center mr-1',
+  // active
+  { 'bg-primary text-white border-primary': activeStep === thisStep },
+  // completed
+  { 'bg-white border-primary': thisStep < activeStep },
+  // todo
+  { 'bg-gray-400 text-white': thisStep > activeStep });
 
   var getValue = function getValue() {
     if (thisStep < activeStep) {
-      return React.createElement(_Icon2.default, { name: 'tick' });
+      return React.createElement(_Icon2.default, { name: 'tick', color: '#27b0cc' });
     }
     return value;
   };
@@ -47,16 +51,20 @@ var Step = function Step(_ref) {
     null,
     React.createElement(
       'div',
-      { className: classes },
+      { className: 'd-flex align-items-center stepper__step mb-1' },
       React.createElement(
         'div',
-        { className: 'stepper__step__value border rounded-circle d-flex align-items-center justify-content-center mr-1' },
+        { className: classes },
         getValue()
       ),
       React.createElement(
         'span',
-        { className: 'mr-1' },
-        label
+        { className: 'mr-1 text-gray-500' },
+        React.createElement(
+          'b',
+          null,
+          label
+        )
       ),
       !isLast && React.createElement('div', { className: 'line d-none d-sm-block mr-1' })
     )

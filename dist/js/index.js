@@ -31,15 +31,6 @@ Object.defineProperty(exports, 'Button', {
   }
 });
 
-var _Stepper = require('./components/Stepper/Stepper');
-
-Object.defineProperty(exports, 'Stepper', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Stepper).default;
-  }
-});
-
 var _Card = require('./components/Card/Card');
 
 Object.defineProperty(exports, 'Card', {
@@ -253,6 +244,15 @@ Object.defineProperty(exports, 'SearchSuggest', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_SearchSuggest).default;
+  }
+});
+
+var _Stepper = require('./components/Stepper/Stepper');
+
+Object.defineProperty(exports, 'Stepper', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Stepper).default;
   }
 });
 

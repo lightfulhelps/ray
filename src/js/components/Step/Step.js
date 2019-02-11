@@ -13,26 +13,29 @@ type Props = {
 
 const Step = ({ label, value, isLast, activeStep, thisStep }: Props) => {
   const classes = classNames(
-    'd-flex align-items-center stepper__step mb-1',
-    { 'stepper__step--active': activeStep === thisStep },
-    // { 'stepper__step--todo': thisStep > activeStep }
-    { 'stepper__step--done': thisStep < activeStep }
+    'stepper__step__value border rounded-circle d-flex align-items-center justify-content-center mr-1',
+    // active
+    { 'bg-primary text-white border-primary': activeStep === thisStep },
+    // completed
+    { 'bg-white border-primary': thisStep < activeStep },
+    // todo
+    { 'bg-gray-400 text-white': thisStep > activeStep }
   );
 
   const getValue = () => {
     if (thisStep < activeStep) {
-      return <Icon name="tick" />;
+      return <Icon name="tick" color="#27b0cc" />;
     }
     return value;
   };
 
   return (
     <div>
-      <div className={classes}>
-        <div className="stepper__step__value border rounded-circle d-flex align-items-center justify-content-center mr-1">
-          {getValue()}
-        </div>
-        <span className="mr-1">{label}</span>
+      <div className="d-flex align-items-center stepper__step mb-1">
+        <div className={classes}>{getValue()}</div>
+        <span className="mr-1 text-gray-500">
+          <b>{label}</b>
+        </span>
         {!isLast && <div className="line d-none d-sm-block mr-1" />}
       </div>
     </div>

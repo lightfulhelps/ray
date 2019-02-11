@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import classNames from 'classnames';
 import Step from '../Step/Step';
 
 type StepType = {
@@ -13,12 +14,15 @@ type Props = {
   steps: Array<StepType>,
 };
 
-const Stepper = ({ steps, activeStep, className }: Props) => {
+const Stepper = ({ className, steps, activeStep, ...other }: Props) => {
+  const classes = classNames(className, 'stepper');
+
   if (!Array.isArray(steps) || !activeStep) {
     return null;
   }
+
   return (
-    <div className={className}>
+    <div {...other} className={classes}>
       <div className="d-flex flex-column flex-sm-row">
         {steps.map((step, i) => (
           <Step

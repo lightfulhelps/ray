@@ -2,7 +2,6 @@
 export { default as Avatar } from './components/Avatar/Avatar';
 export { default as Badge } from './components/Badge/Badge';
 export { default as Button } from './components/Button/Button';
-export { default as Stepper } from './components/Stepper/Stepper';
 export { default as Card } from './components/Card/Card';
 export { default as CharacterCounter } from './components/CharacterCounter/CharacterCounter';
 export { default as Col } from './components/Col/Col';
@@ -27,6 +26,7 @@ export { default as PostMedia } from './components/PostMedia/PostMedia';
 export { default as Row } from './components/Row/Row';
 export { default as SearchInput } from './components/SearchInput/SearchInput';
 export { default as SearchSuggest } from './components/SearchSuggest/SearchSuggest';
+export { default as Stepper } from './components/Stepper/Stepper';
 export { default as Table } from './components/Table/Table';
 export { default as Tag } from './components/Tag/Tag';
 export { default as URLMetaPreview } from './components/URLMetaPreview/URLMetaPreview';
