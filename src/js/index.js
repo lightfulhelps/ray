@@ -16,6 +16,7 @@ export { default as FormInput } from './components/FormInput/FormInput';
 export { default as FormLabel } from './components/FormLabel/FormLabel';
 export { default as FormSelect } from './components/FormSelect/FormSelect';
 export { default as FormTextarea } from './components/FormTextarea/FormTextarea';
+export { default as FormPasswordInput } from './components/FormPasswordInput/FormPasswordInput';
 export { default as Icon } from './components/Icon/Icon';
 export { default as Nav } from './components/Nav/Nav';
 export { default as NavItem } from './components/NavItem/NavItem';

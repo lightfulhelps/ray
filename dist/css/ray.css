@@ -5950,3 +5950,6 @@ button.bg-linkedin:focus {
 
 .ghost-lg {
   min-height: 0.7875rem; }
+
+.form-password-input__toggle-password-text {
+  min-width: 2.5rem; }

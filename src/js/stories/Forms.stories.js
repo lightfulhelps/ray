@@ -15,6 +15,7 @@ import {
 import sizes from './utils/sizes';
 
 import '../../scss/ray.scss';
+import FormPasswordInput from '../components/FormPasswordInput/FormPasswordInput';
 
 const stories = storiesOf('Forms', module);
 
@@ -64,7 +65,7 @@ stories.add('Default', () => (
         </FormGroup>
         <FormGroup>
           <FormLabel>Password</FormLabel>
-          <FormInput name="password" type="password" size={select('Select Size', sizes)} />
+          <FormPasswordInput size={select('Select Size', sizes)} />
         </FormGroup>
         <FormGroup>
           <FormLabel>Select</FormLabel>
