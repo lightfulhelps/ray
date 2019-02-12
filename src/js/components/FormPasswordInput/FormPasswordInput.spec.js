@@ -41,6 +41,12 @@ describe('<FormPasswordInput />', () => {
     expect(wrapper.prop('id')).toEqual('test');
   });
 
+  it('defaults name parameter to password', () => {
+    const { input } = setup();
+
+    expect(input.prop('name')).toEqual('password');
+  });
+
   describe('input pass throughs', () => {
     it('passes through placeholder', () => {
       const placeholder = 'Some placeholder';
@@ -78,6 +84,13 @@ describe('<FormPasswordInput />', () => {
       input.simulate('blur');
 
       expect(onBlur).toHaveBeenCalledTimes(1);
+    });
+
+    it('passes through name', () => {
+      const name = 'secretPassword';
+      const { input } = setup({ name });
+
+      expect(input.prop('name')).toEqual(name);
     });
   });
 

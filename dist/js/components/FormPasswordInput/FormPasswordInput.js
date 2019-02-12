@@ -71,8 +71,9 @@ var FormPasswordInput = (_temp2 = _class = function (_React$Component) {
           onChange = _props.onChange,
           onBlur = _props.onBlur,
           value = _props.value,
+          name = _props.name,
           placeholder = _props.placeholder,
-          other = _objectWithoutProperties(_props, ['className', 'onChange', 'onBlur', 'value', 'placeholder']);
+          other = _objectWithoutProperties(_props, ['className', 'onChange', 'onBlur', 'value', 'name', 'placeholder']);
 
       var hidePassword = this.state.hidePassword;
 
@@ -84,8 +85,9 @@ var FormPasswordInput = (_temp2 = _class = function (_React$Component) {
         React.createElement('input', {
           className: 'form-control',
           'data-test-id': 'password-input',
-          onChange: onChange,
+          name: name,
           onBlur: onBlur,
+          onChange: onChange,
           placeholder: placeholder,
           type: hidePassword ? 'password' : 'text',
           value: value
@@ -116,9 +118,13 @@ var FormPasswordInput = (_temp2 = _class = function (_React$Component) {
   return FormPasswordInput;
 }(React.Component), _class.propTypes = {
   className: _propTypes2.default.string,
+  name: _propTypes2.default.string,
   onBlur: _propTypes2.default.func.isRequired,
   onChange: _propTypes2.default.func.isRequired,
   placeholder: _propTypes2.default.string,
   value: _propTypes2.default.string.isRequired
 }, _temp2);
+FormPasswordInput.defaultProps = {
+  name: 'password'
+};
 exports.default = FormPasswordInput;

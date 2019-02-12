@@ -5,6 +5,7 @@ import Button from '../Button/Button';
 
 type Props = {
   className?: string,
+  name?: string,
   onBlur: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
   onChange: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
   placeholder?: string,
@@ -20,6 +21,10 @@ class FormPasswordInput extends React.Component<Props, State> {
     hidePassword: true,
   };
 
+  static defaultProps = {
+    name: 'password',
+  };
+
   togglePassword = () => {
     this.setState(prevState => ({
       hidePassword: !prevState.hidePassword,
@@ -27,7 +32,7 @@ class FormPasswordInput extends React.Component<Props, State> {
   };
 
   render() {
-    const { className, onChange, onBlur, value, placeholder, ...other } = this.props;
+    const { className, onChange, onBlur, value, name, placeholder, ...other } = this.props;
     const { hidePassword } = this.state;
     const classes = classNames(className, 'form-password-input', 'input-group');
 
@@ -36,8 +41,9 @@ class FormPasswordInput extends React.Component<Props, State> {
         <input
           className="form-control"
           data-test-id="password-input"
-          onChange={onChange}
+          name={name}
           onBlur={onBlur}
+          onChange={onChange}
           placeholder={placeholder}
           type={hidePassword ? 'password' : 'text'}
           value={value}
