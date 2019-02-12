@@ -12,28 +12,40 @@ type Props = {
 };
 
 const Step = ({ activeStep, isLast, label, thisStep, value }: Props) => {
+  const isTodo = thisStep > activeStep;
+  const isActive = activeStep === thisStep;
+  const isCompleted = thisStep < activeStep;
+
   const classes = classNames(
-    'stepper__step__value border rounded-circle d-flex align-items-center justify-content-center mr-1',
+    'stepper__value border rounded-circle d-flex align-items-center justify-content-center mr-1 text-xs',
     // active
-    { 'bg-primary text-white border-primary': activeStep === thisStep },
+    { 'bg-primary text-white border-primary': isActive },
     // completed
-    { 'bg-white border-primary': thisStep < activeStep },
+    { 'bg-white border-primary': isCompleted },
     // todo
-    { 'bg-gray-400 text-white': thisStep > activeStep }
+    { 'bg-gray-400 border-gray-400 text-white': isTodo }
+  );
+
+  const labelClasses = classNames(
+    'mr-1',
+    { 'text-gray-400 font-weight-light': isTodo },
+    {
+      'font-weight-bold text-primary': isActive || isCompleted,
+    }
   );
 
   const getValue = () => {
-    if (thisStep < activeStep) {
+    if (isCompleted) {
       return <Icon name="tick" theme="primary" />;
     }
     return <b>{value}</b>;
   };
 
   return (
-    <div className="d-flex align-items-center stepper__step mb-2 mb-sm-0">
+    <div className={`d-flex align-items-center mb-2 mb-sm-0 ${isLast ? '' : 'flex-fill'}`}>
       <div className={classes}>{getValue()}</div>
-      <span className="mr-1 text-gray-500 font-weight-bold">{label}</span>
-      {!isLast && <div className="line d-none d-sm-block mr-1" />}
+      <div className={labelClasses}>{label}</div>
+      {!isLast && <div className="d-none d-sm-block mr-1 flex-fill border-top border-gray-400" />}
     </div>
   );
 };

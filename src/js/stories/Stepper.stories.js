@@ -13,17 +13,17 @@ const store = new Store({
 });
 
 const steps = [
-  { label: 'step one', value: 1 },
-  { label: 'step two', value: 2 },
-  { label: 'step three', value: 3 },
+  { label: 'Step one', value: 1 },
+  { label: 'Step two', value: 2 },
+  { label: 'Step three', value: 3 },
 ];
 
 stories.add('Default', () => (
   <Container>
     <h1 className="my-4">Stepper.</h1>
-
-    <State store={store}>{state => <Stepper steps={steps} activeStep={state.step} />}</State>
-
+    <div className="mb-4">
+      <State store={store}>{state => <Stepper steps={steps} activeStep={state.step} />}</State>
+    </div>
     <Button className="mr-1 mt-2" onClick={() => store.set({ step: store.get('step') - 1 })}>
       Back
     </Button>

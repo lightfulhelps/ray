@@ -31,16 +31,24 @@ var Step = function Step(_ref) {
       thisStep = _ref.thisStep,
       value = _ref.value;
 
-  var classes = (0, _classnames2.default)('stepper__step__value border rounded-circle d-flex align-items-center justify-content-center mr-1',
+  var isTodo = thisStep > activeStep;
+  var isActive = activeStep === thisStep;
+  var isCompleted = thisStep < activeStep;
+
+  var classes = (0, _classnames2.default)('stepper__value border rounded-circle d-flex align-items-center justify-content-center mr-1 text-xs',
   // active
-  { 'bg-primary text-white border-primary': activeStep === thisStep },
+  { 'bg-primary text-white border-primary': isActive },
   // completed
-  { 'bg-white border-primary': thisStep < activeStep },
+  { 'bg-white border-primary': isCompleted },
   // todo
-  { 'bg-gray-400 text-white': thisStep > activeStep });
+  { 'bg-gray-400 border-gray-400 text-white': isTodo });
+
+  var labelClasses = (0, _classnames2.default)('mr-1', { 'text-gray-400 font-weight-light': isTodo }, {
+    'font-weight-bold text-primary': isActive || isCompleted
+  });
 
   var getValue = function getValue() {
-    if (thisStep < activeStep) {
+    if (isCompleted) {
       return React.createElement(_Icon2.default, { name: 'tick', theme: 'primary' });
     }
     return React.createElement(
@@ -52,18 +60,18 @@ var Step = function Step(_ref) {
 
   return React.createElement(
     'div',
-    { className: 'd-flex align-items-center stepper__step mb-2 mb-sm-0' },
+    { className: 'd-flex align-items-center mb-2 mb-sm-0 ' + (isLast ? '' : 'flex-fill') },
     React.createElement(
       'div',
       { className: classes },
       getValue()
     ),
     React.createElement(
-      'span',
-      { className: 'mr-1 text-gray-500 font-weight-bold' },
+      'div',
+      { className: labelClasses },
       label
     ),
-    !isLast && React.createElement('div', { className: 'line d-none d-sm-block mr-1' })
+    !isLast && React.createElement('div', { className: 'd-none d-sm-block mr-1 flex-fill border-top border-gray-400' })
   );
 };
 Step.propTypes = {

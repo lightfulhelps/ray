@@ -5,6 +5,6 @@
 // Border classes for grays
 @each $color, $value in $grays {
   .border-gray-#{$color} {
-    border-color: $value;
+    border-color: $value !important;
   }
 }

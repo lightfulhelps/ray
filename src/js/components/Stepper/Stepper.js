@@ -15,7 +15,11 @@ type Props = {
 };
 
 const Stepper = ({ activeStep, className, steps, ...other }: Props) => {
-  const classes = classNames(className, 'stepper', 'd-flex flex-column flex-sm-row');
+  const classes = classNames(
+    className,
+    'stepper',
+    'd-flex flex-column flex-sm-row justify-content-between'
+  );
 
   if (!Array.isArray(steps) || !activeStep) {
     return null;

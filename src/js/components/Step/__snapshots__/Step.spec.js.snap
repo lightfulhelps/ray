@@ -2,22 +2,22 @@
 
 exports[`<Step /> should render 1`] = `
 <div
-  className="d-flex align-items-center stepper__step mb-2 mb-sm-0"
+  className="d-flex align-items-center mb-2 mb-sm-0 flex-fill"
 >
   <div
-    className="stepper__step__value border rounded-circle d-flex align-items-center justify-content-center mr-1 bg-primary text-white border-primary"
+    className="stepper__value border rounded-circle d-flex align-items-center justify-content-center mr-1 text-xs bg-primary text-white border-primary"
   >
     <b>
       2
     </b>
   </div>
-  <span
-    className="mr-1 text-gray-500 font-weight-bold"
+  <div
+    className="mr-1 font-weight-bold text-primary"
   >
     step one
-  </span>
+  </div>
   <div
-    className="line d-none d-sm-block mr-1"
+    className="d-none d-sm-block mr-1 flex-fill border-top border-gray-400"
   />
 </div>
 `;

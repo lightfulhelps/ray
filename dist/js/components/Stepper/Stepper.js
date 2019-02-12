@@ -30,7 +30,7 @@ var Stepper = function Stepper(_ref) {
       steps = _ref.steps,
       other = _objectWithoutProperties(_ref, ['activeStep', 'className', 'steps']);
 
-  var classes = (0, _classnames2.default)(className, 'stepper', 'd-flex flex-column flex-sm-row');
+  var classes = (0, _classnames2.default)(className, 'stepper', 'd-flex flex-column flex-sm-row justify-content-between');
 
   if (!Array.isArray(steps) || !activeStep) {
     return null;

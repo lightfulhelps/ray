@@ -1,11 +1,6 @@
-.stepper__step {
+.stepper {
   &__value {
-    height: $spacer * 3;
-    width: $spacer * 3;
+    height: $spacer * 2;
+    width: $spacer * 2;
   }
-}
-
-.line {
-  border-top: 2px solid #{$gray-400};
-  width: $spacer * 4;
 }
