@@ -42,7 +42,7 @@ const Step = ({ activeStep, isLast, label, thisStep, value }: Props) => {
   };
 
   return (
-    <div className={`d-flex align-items-center mb-2 mb-sm-0 ${isLast ? '' : 'flex-fill'}`}>
+    <div className={`d-flex align-items-center ${isLast ? '' : 'mb-2 mb-sm-0 flex-fill'}`}>
       <div className={classes}>{getValue()}</div>
       <div className={labelClasses}>{label}</div>
       {!isLast && <div className="d-none d-sm-block mr-1 flex-fill border-top border-gray-400" />}

@@ -60,7 +60,7 @@ var Step = function Step(_ref) {
 
   return React.createElement(
     'div',
-    { className: 'd-flex align-items-center mb-2 mb-sm-0 ' + (isLast ? '' : 'flex-fill') },
+    { className: 'd-flex align-items-center ' + (isLast ? '' : 'mb-2 mb-sm-0 flex-fill') },
     React.createElement(
       'div',
       { className: classes },
