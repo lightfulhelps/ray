@@ -5,10 +5,17 @@ import FormPasswordInput from './FormPasswordInput';
 import Button from '../Button/Button';
 
 const setup = (overrides = {}) => {
-  const props = merge({}, overrides);
+  const props = merge(
+    {
+      onBlur: jest.fn(),
+      onChange: jest.fn(),
+      value: 'Some value',
+    },
+    overrides
+  );
   const wrapper = shallow(<FormPasswordInput {...props} />);
 
-  return { wrapper, props };
+  return { wrapper, props, button: wrapper.find(Button), input: wrapper.find('input') };
 };
 
 describe('<FormPasswordInput />', () => {
@@ -28,19 +35,69 @@ describe('<FormPasswordInput />', () => {
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test', className: 'custom' });
 
-    const input = wrapper.find('input');
+    expect(wrapper.prop('tabIndex')).toEqual(1);
+    expect(wrapper.prop('id')).toEqual('test');
+  });
 
-    expect(input.prop('tabIndex')).toEqual(1);
-    expect(input.prop('id')).toEqual('test');
+  describe('input pass throughs', () => {
+    it('passes through placeholder', () => {
+      const placeholder = 'Some placeholder';
+
+      const { input } = setup({ placeholder });
+
+      expect(input.prop('placeholder')).toEqual(placeholder);
+    });
+
+    it('passes through value', () => {
+      const value = 'Some value';
+
+      const { input } = setup({ value });
+
+      expect(input.prop('value')).toEqual(value);
+    });
+
+    it('passes through onChange', () => {
+      const {
+        input,
+        props: { onChange },
+      } = setup();
+
+      input.simulate('change');
+
+      expect(onChange).toHaveBeenCalledTimes(1);
+    });
+
+    it('passes through onBlur', () => {
+      const {
+        input,
+        props: { onBlur },
+      } = setup();
+
+      input.simulate('blur');
+
+      expect(onBlur).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('end to end test helpers', () => {
+    it('has a data-test-id for the input', () => {
+      const { input } = setup();
+
+      expect(input.prop('data-test-id')).toEqual('password-input');
+    });
+
+    it('has a data-test-id for the button', () => {
+      const { button } = setup();
+
+      expect(button.prop('data-test-id')).toEqual('password-input-button');
+    });
   });
 
   describe('show password toggle', () => {
     it('hides password by default', () => {
-      const { wrapper } = setup();
-
-      const input = wrapper.find('input');
+      const { input } = setup();
 
       expect(input.prop('type')).toEqual('password');
     });
@@ -57,17 +114,15 @@ describe('<FormPasswordInput />', () => {
 
     describe('icon toggle', () => {
       it('has button for toggle', () => {
-        const { wrapper } = setup();
-
-        const button = wrapper.find('.input-group-append');
+        const { button } = setup();
 
         expect(button).toHaveLength(1);
       });
 
       it('has a button that changes state when clicked', () => {
-        const { wrapper } = setup();
+        const { button, wrapper } = setup();
 
-        wrapper.find(Button).simulate('click');
+        button.simulate('click');
 
         expect(wrapper.state('hidePassword')).toEqual(false);
       });
@@ -91,9 +146,9 @@ describe('<FormPasswordInput />', () => {
       });
 
       it('has a preview icon when password is hidden', () => {
-        const { wrapper } = setup();
+        const { button, wrapper } = setup();
 
-        const button = wrapper.find(Button);
+        expect(wrapper.state('hidePassword')).toEqual(true);
 
         expect(button.prop('icon')).toEqual('preview');
       });
@@ -103,9 +158,7 @@ describe('<FormPasswordInput />', () => {
 
         wrapper.setState({ hidePassword: false });
 
-        const button = wrapper.find(Button);
-
-        expect(button.prop('icon')).toEqual('previewHide');
+        expect(wrapper.find(Button).prop('icon')).toEqual('previewHide');
       });
     });
   });

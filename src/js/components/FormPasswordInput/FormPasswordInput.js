@@ -5,6 +5,10 @@ import Button from '../Button/Button';
 
 type Props = {
   className?: string,
+  onBlur: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
+  onChange: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
+  placeholder?: string,
+  value: string,
 };
 
 type State = {
@@ -23,20 +27,32 @@ class FormPasswordInput extends React.Component<Props, State> {
   };
 
   render() {
-    const { className, ...other } = this.props;
+    const { className, onChange, onBlur, value, placeholder, ...other } = this.props;
     const { hidePassword } = this.state;
     const classes = classNames(className, 'form-password-input', 'input-group');
 
-    const inputType = hidePassword ? 'password' : 'text';
-    const buttonText = hidePassword ? 'Show' : 'Hide';
-    const icon = hidePassword ? 'preview' : 'previewHide';
-
     return (
-      <div className={classes}>
-        <input type={inputType} className="form-control" {...other} />
+      <div {...other} className={classes}>
+        <input
+          className="form-control"
+          data-test-id="password-input"
+          onChange={onChange}
+          onBlur={onBlur}
+          placeholder={placeholder}
+          type={hidePassword ? 'password' : 'text'}
+          value={value}
+        />
         <div className="input-group-append">
-          <Button onClick={this.togglePassword} icon={icon} isOutline theme="gray-600">
-            <span className="form-password-input__toggle-password-text">{buttonText}</span>
+          <Button
+            data-test-id="password-input-button"
+            icon={hidePassword ? 'preview' : 'previewHide'}
+            isOutline
+            onClick={this.togglePassword}
+            theme="gray-600"
+          >
+            <span className="form-password-input__toggle-password-text">
+              {hidePassword ? 'Show' : 'Hide'}
+            </span>
           </Button>
         </div>
       </div>
