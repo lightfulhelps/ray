@@ -14,8 +14,8 @@ type Props = {
   steps: Array<StepType>,
 };
 
-const Stepper = ({ className, steps, activeStep, ...other }: Props) => {
-  const classes = classNames(className, 'stepper');
+const Stepper = ({ activeStep, className, steps, ...other }: Props) => {
+  const classes = classNames(className, 'stepper', 'd-flex flex-column flex-sm-row');
 
   if (!Array.isArray(steps) || !activeStep) {
     return null;
@@ -23,18 +23,16 @@ const Stepper = ({ className, steps, activeStep, ...other }: Props) => {
 
   return (
     <div {...other} className={classes}>
-      <div className="d-flex flex-column flex-sm-row">
-        {steps.map((step, i) => (
-          <Step
-            key={i}
-            label={step.label}
-            value={step.value}
-            isLast={i === steps.length - 1}
-            activeStep={activeStep}
-            thisStep={i + 1}
-          />
-        ))}
-      </div>
+      {steps.map((step, i) => (
+        <Step
+          key={i}
+          label={step.label}
+          value={step.value}
+          isLast={i === steps.length - 1}
+          activeStep={activeStep}
+          thisStep={i + 1}
+        />
+      ))}
     </div>
   );
 };

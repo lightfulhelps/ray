@@ -25,11 +25,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var Step = function Step(_ref) {
-  var label = _ref.label,
-      value = _ref.value,
+  var activeStep = _ref.activeStep,
       isLast = _ref.isLast,
-      activeStep = _ref.activeStep,
-      thisStep = _ref.thisStep;
+      label = _ref.label,
+      thisStep = _ref.thisStep,
+      value = _ref.value;
 
   var classes = (0, _classnames2.default)('stepper__step__value border rounded-circle d-flex align-items-center justify-content-center mr-1',
   // active
@@ -41,7 +41,7 @@ var Step = function Step(_ref) {
 
   var getValue = function getValue() {
     if (thisStep < activeStep) {
-      return React.createElement(_Icon2.default, { name: 'tick', color: '#27b0cc' });
+      return React.createElement(_Icon2.default, { name: 'tick', theme: 'primary' });
     }
     return React.createElement(
       'b',
@@ -52,26 +52,18 @@ var Step = function Step(_ref) {
 
   return React.createElement(
     'div',
-    null,
+    { className: 'd-flex align-items-center stepper__step mb-2 mb-sm-0' },
     React.createElement(
       'div',
-      { className: 'd-flex align-items-center stepper__step mb-1' },
-      React.createElement(
-        'div',
-        { className: classes },
-        getValue()
-      ),
-      React.createElement(
-        'span',
-        { className: 'mr-1 text-gray-500' },
-        React.createElement(
-          'b',
-          null,
-          label
-        )
-      ),
-      !isLast && React.createElement('div', { className: 'line d-none d-sm-block mr-1' })
-    )
+      { className: classes },
+      getValue()
+    ),
+    React.createElement(
+      'span',
+      { className: 'mr-1 text-gray-500 font-weight-bold' },
+      label
+    ),
+    !isLast && React.createElement('div', { className: 'line d-none d-sm-block mr-1' })
   );
 };
 Step.propTypes = {

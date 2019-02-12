@@ -2,35 +2,31 @@
 
 exports[`<Stepper /> should render 1`] = `
 <div
-  className="stepper"
+  className="stepper d-flex flex-column flex-sm-row"
 >
-  <div
-    className="d-flex flex-column flex-sm-row"
-  >
-    <Step
-      activeStep={1}
-      isLast={false}
-      key="0"
-      label="step one"
-      thisStep={1}
-      value={1}
-    />
-    <Step
-      activeStep={1}
-      isLast={false}
-      key="1"
-      label="step two"
-      thisStep={2}
-      value={2}
-    />
-    <Step
-      activeStep={1}
-      isLast={true}
-      key="2"
-      label="step three"
-      thisStep={3}
-      value={3}
-    />
-  </div>
+  <Step
+    activeStep={1}
+    isLast={false}
+    key="0"
+    label="step one"
+    thisStep={1}
+    value={1}
+  />
+  <Step
+    activeStep={1}
+    isLast={false}
+    key="1"
+    label="step two"
+    thisStep={2}
+    value={2}
+  />
+  <Step
+    activeStep={1}
+    isLast={true}
+    key="2"
+    label="step three"
+    thisStep={3}
+    value={3}
+  />
 </div>
 `;

@@ -25,12 +25,12 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 var Stepper = function Stepper(_ref) {
-  var className = _ref.className,
+  var activeStep = _ref.activeStep,
+      className = _ref.className,
       steps = _ref.steps,
-      activeStep = _ref.activeStep,
-      other = _objectWithoutProperties(_ref, ['className', 'steps', 'activeStep']);
+      other = _objectWithoutProperties(_ref, ['activeStep', 'className', 'steps']);
 
-  var classes = (0, _classnames2.default)(className, 'stepper');
+  var classes = (0, _classnames2.default)(className, 'stepper', 'd-flex flex-column flex-sm-row');
 
   if (!Array.isArray(steps) || !activeStep) {
     return null;
@@ -39,20 +39,16 @@ var Stepper = function Stepper(_ref) {
   return React.createElement(
     'div',
     _extends({}, other, { className: classes }),
-    React.createElement(
-      'div',
-      { className: 'd-flex flex-column flex-sm-row' },
-      steps.map(function (step, i) {
-        return React.createElement(_Step2.default, {
-          key: i,
-          label: step.label,
-          value: step.value,
-          isLast: i === steps.length - 1,
-          activeStep: activeStep,
-          thisStep: i + 1
-        });
-      })
-    )
+    steps.map(function (step, i) {
+      return React.createElement(_Step2.default, {
+        key: i,
+        label: step.label,
+        value: step.value,
+        isLast: i === steps.length - 1,
+        activeStep: activeStep,
+        thisStep: i + 1
+      });
+    })
   );
 };
 
