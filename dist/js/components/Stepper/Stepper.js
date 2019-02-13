@@ -38,15 +38,16 @@ var Stepper = function Stepper(_ref) {
 
   return React.createElement(
     'div',
-    _extends({}, other, { className: classes }),
+    _extends({}, other, { className: classes, 'data-test-id': 'stepper' }),
     steps.map(function (step, i) {
       return React.createElement(_Step2.default, {
-        key: i,
-        label: step.label,
-        value: step.value,
-        isLast: i === steps.length - 1,
         activeStep: activeStep,
-        thisStep: i + 1
+        isLast: i === steps.length - 1,
+        key: i,
+        onClick: step.onClick,
+        label: step.label,
+        thisStep: i + 1,
+        value: step.value
       });
     })
   );

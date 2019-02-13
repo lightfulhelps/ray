@@ -4,15 +4,17 @@ import merge from 'lodash/merge';
 import Stepper from './Stepper';
 
 const setup = (overrides = {}) => {
-  const props = merge({
-    steps: [
-      { label: 'step one', value: 1 },
-      { label: 'step two', value: 2 },
-      { label: 'step three', value: 3 },
-    ],
-    activeStep: 1,
-    ...overrides,
-  });
+  const props = merge(
+    {
+      steps: [
+        { label: 'step one', value: 1, onClick: jest.fn() },
+        { label: 'step two', value: 2, onClick: jest.fn() },
+        { label: 'step three', value: 3 },
+      ],
+      activeStep: 1,
+    },
+    overrides
+  );
   const wrapper = shallow(<Stepper {...props} />);
 
   return {
@@ -51,21 +53,24 @@ describe('<Stepper />', () => {
 
   it('`isLast` prop should eveluate to false for all but the last step', () => {
     const { wrapper } = setup();
-    const firstStep = wrapper
-      .find('Step')
-      .at(0)
-      .props();
-    const secondStep = wrapper
-      .find('Step')
-      .at(1)
-      .props();
-    const lastStep = wrapper
-      .find('Step')
-      .at(2)
-      .props();
-    expect(firstStep.isLast).toBe(false);
-    expect(secondStep.isLast).toBe(false);
-    expect(lastStep.isLast).toBe(true);
+    const firstStep = wrapper.find('Step').at(0);
+    const secondStep = wrapper.find('Step').at(1);
+    const lastStep = wrapper.find('Step').at(2);
+
+    expect(firstStep.prop('isLast')).toBe(false);
+    expect(secondStep.prop('isLast')).toBe(false);
+    expect(lastStep.prop('isLast')).toBe(true);
+  });
+
+  it('should pass steps object values to Step component via props', () => {
+    const { wrapper, props } = setup();
+    const renderedSteps = wrapper.find('Step');
+
+    props.steps.forEach((step, index) => {
+      expect(renderedSteps.at(index).prop('label')).toEqual(step.label);
+      expect(renderedSteps.at(index).prop('value')).toEqual(step.value);
+      expect(renderedSteps.at(index).prop('onClick')).toEqual(step.onClick);
+    });
   });
 
   it('should pass through other props', () => {

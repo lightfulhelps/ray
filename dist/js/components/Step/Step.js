@@ -28,6 +28,7 @@ var Step = function Step(_ref) {
   var activeStep = _ref.activeStep,
       isLast = _ref.isLast,
       label = _ref.label,
+      onClick = _ref.onClick,
       thisStep = _ref.thisStep,
       value = _ref.value;
 
@@ -35,41 +36,34 @@ var Step = function Step(_ref) {
   var isActive = activeStep === thisStep;
   var isCompleted = thisStep < activeStep;
 
-  var classes = (0, _classnames2.default)('stepper__value border rounded-circle d-flex align-items-center justify-content-center mr-1 text-xs',
-  // active
-  { 'bg-primary text-white border-primary': isActive },
-  // completed
-  { 'bg-white border-primary': isCompleted },
-  // todo
-  { 'bg-gray-400 border-gray-400 text-white': isTodo });
-
-  var labelClasses = (0, _classnames2.default)('mr-1', { 'text-gray-400 font-weight-light': isTodo }, {
-    'font-weight-bold text-primary': isActive || isCompleted
+  var stepClasses = (0, _classnames2.default)('d-flex align-items-center', {
+    'mb-1 mb-sm-0 flex-fill': !isLast
   });
 
-  var getValue = function getValue() {
-    if (isCompleted) {
-      return React.createElement(_Icon2.default, { name: 'tick', theme: 'primary' });
-    }
-    return React.createElement(
-      'b',
-      null,
-      value
-    );
-  };
+  var valueClasses = (0, _classnames2.default)('stepper__value border rounded-circle d-flex align-items-center justify-content-center mr-1 text-xs font-weight-bold', { 'bg-gray-400 border-gray-400 text-white': isTodo }, { 'bg-primary text-white border-primary': isActive }, { 'bg-white border-primary': isCompleted });
+
+  var labelClasses = (0, _classnames2.default)('mr-1', { 'text-gray-400 font-weight-light': isTodo }, { 'font-weight-bold text-primary': isActive || isCompleted });
 
   return React.createElement(
     'div',
-    { className: 'd-flex align-items-center ' + (isLast ? '' : 'mb-2 mb-sm-0 flex-fill') },
+    { className: stepClasses },
     React.createElement(
       'div',
-      { className: classes },
-      getValue()
-    ),
-    React.createElement(
-      'div',
-      { className: labelClasses },
-      label
+      {
+        className: 'd-flex align-items-center ' + (onClick ? 'cursor-pointer' : ''),
+        'data-test-id': 'stepper-step',
+        onClick: onClick
+      },
+      React.createElement(
+        'div',
+        { className: valueClasses },
+        isCompleted ? React.createElement(_Icon2.default, { name: 'tick', theme: 'primary' }) : value
+      ),
+      React.createElement(
+        'div',
+        { className: labelClasses },
+        label
+      )
     ),
     !isLast && React.createElement('div', { className: 'd-none d-sm-block mr-1 flex-fill border-top border-gray-400' })
   );
@@ -78,6 +72,7 @@ Step.propTypes = {
   activeStep: _propTypes2.default.number.isRequired,
   isLast: _propTypes2.default.bool.isRequired,
   label: _propTypes2.default.string.isRequired,
+  onClick: _propTypes2.default.func,
   thisStep: _propTypes2.default.number.isRequired,
   value: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired
 };

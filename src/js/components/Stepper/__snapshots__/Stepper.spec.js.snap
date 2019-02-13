@@ -3,12 +3,14 @@
 exports[`<Stepper /> should render 1`] = `
 <div
   className="stepper d-flex flex-column flex-sm-row justify-content-between"
+  data-test-id="stepper"
 >
   <Step
     activeStep={1}
     isLast={false}
     key="0"
     label="step one"
+    onClick={[MockFunction]}
     thisStep={1}
     value={1}
   />
@@ -17,6 +19,7 @@ exports[`<Stepper /> should render 1`] = `
     isLast={false}
     key="1"
     label="step two"
+    onClick={[MockFunction]}
     thisStep={2}
     value={2}
   />
