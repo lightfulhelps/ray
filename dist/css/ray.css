@@ -5379,31 +5379,31 @@ button.bg-linkedin:focus {
   border-bottom-left-radius: 1.25rem; }
 
 .border-gray-100 {
-  border-color: #f8f9fa; }
+  border-color: #f8f9fa !important; }
 
 .border-gray-200 {
-  border-color: #e9ecef; }
+  border-color: #e9ecef !important; }
 
 .border-gray-300 {
-  border-color: #dee2e6; }
+  border-color: #dee2e6 !important; }
 
 .border-gray-400 {
-  border-color: #ced4da; }
+  border-color: #ced4da !important; }
 
 .border-gray-500 {
-  border-color: #adb5bd; }
+  border-color: #adb5bd !important; }
 
 .border-gray-600 {
-  border-color: #6c757c; }
+  border-color: #6c757c !important; }
 
 .border-gray-700 {
-  border-color: #495057; }
+  border-color: #495057 !important; }
 
 .border-gray-800 {
-  border-color: #343a40; }
+  border-color: #343a40 !important; }
 
 .border-gray-900 {
-  border-color: #212529; }
+  border-color: #212529 !important; }
 
 .cursor-default {
   cursor: default !important; }
@@ -5892,6 +5892,10 @@ button.bg-linkedin:focus {
   .post-media--4 .post-media__image:nth-child(4) {
     grid-column: 2;
     grid-row: 2 / 3; }
+
+.stepper__value {
+  height: 1.25rem;
+  width: 1.25rem; }
 
 .tag {
   font-size: 100%; }

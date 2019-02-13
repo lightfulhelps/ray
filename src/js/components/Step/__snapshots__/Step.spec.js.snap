@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Step /> should render 1`] = `
+<div
+  className="d-flex align-items-center mb-1 mb-sm-0 flex-fill"
+>
+  <div
+    className="d-flex align-items-center cursor-pointer"
+    data-test-id="stepper-step"
+    onClick={[MockFunction]}
+  >
+    <div
+      className="stepper__value border rounded-circle d-flex align-items-center justify-content-center mr-1 text-xs font-weight-bold bg-primary text-white border-primary"
+    >
+      2
+    </div>
+    <div
+      className="mr-1 font-weight-bold text-primary"
+    >
+      step one
+    </div>
+  </div>
+  <div
+    className="d-none d-sm-block mr-1 flex-fill border-top border-gray-400"
+  />
+</div>
+`;
