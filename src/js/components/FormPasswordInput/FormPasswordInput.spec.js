@@ -35,10 +35,10 @@ describe('<FormPasswordInput />', () => {
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test', className: 'custom' });
+    const { wrapper } = setup({ tabIndex: 1, 'data-test': 'test', className: 'custom' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    expect(wrapper.prop('data-test')).toEqual('test');
   });
 
   it('defaults name parameter to password', () => {
@@ -91,6 +91,13 @@ describe('<FormPasswordInput />', () => {
       const { input } = setup({ name });
 
       expect(input.prop('name')).toEqual(name);
+    });
+
+    it('passes through id', () => {
+      const id = 'secretPassword';
+      const { input } = setup({ id });
+
+      expect(input.prop('id')).toEqual(id);
     });
   });
 

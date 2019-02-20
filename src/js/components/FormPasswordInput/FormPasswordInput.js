@@ -5,6 +5,7 @@ import Button from '../Button/Button';
 
 type Props = {
   className?: string,
+  id?: string,
   name?: string,
   onBlur: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
   onChange: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
@@ -32,7 +33,7 @@ class FormPasswordInput extends React.Component<Props, State> {
   };
 
   render() {
-    const { className, onChange, onBlur, value, name, placeholder, ...other } = this.props;
+    const { className, onChange, onBlur, value, id, name, placeholder, ...other } = this.props;
     const { hidePassword } = this.state;
     const classes = classNames(className, 'form-password-input', 'input-group');
 
@@ -42,6 +43,7 @@ class FormPasswordInput extends React.Component<Props, State> {
           className="form-control"
           data-test-id="password-input"
           name={name}
+          id={id}
           onBlur={onBlur}
           onChange={onChange}
           placeholder={placeholder}

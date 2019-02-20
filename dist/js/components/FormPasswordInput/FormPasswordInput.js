@@ -71,9 +71,10 @@ var FormPasswordInput = (_temp2 = _class = function (_React$Component) {
           onChange = _props.onChange,
           onBlur = _props.onBlur,
           value = _props.value,
+          id = _props.id,
           name = _props.name,
           placeholder = _props.placeholder,
-          other = _objectWithoutProperties(_props, ['className', 'onChange', 'onBlur', 'value', 'name', 'placeholder']);
+          other = _objectWithoutProperties(_props, ['className', 'onChange', 'onBlur', 'value', 'id', 'name', 'placeholder']);
 
       var hidePassword = this.state.hidePassword;
 
@@ -86,6 +87,7 @@ var FormPasswordInput = (_temp2 = _class = function (_React$Component) {
           className: 'form-control',
           'data-test-id': 'password-input',
           name: name,
+          id: id,
           onBlur: onBlur,
           onChange: onChange,
           placeholder: placeholder,
@@ -118,6 +120,7 @@ var FormPasswordInput = (_temp2 = _class = function (_React$Component) {
   return FormPasswordInput;
 }(React.Component), _class.propTypes = {
   className: _propTypes2.default.string,
+  id: _propTypes2.default.string,
   name: _propTypes2.default.string,
   onBlur: _propTypes2.default.func.isRequired,
   onChange: _propTypes2.default.func.isRequired,
