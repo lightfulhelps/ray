@@ -1,15 +1,18 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import Button from '../Button/Button';
+import { FormInput, Button } from '../../';
 
 type Props = {
   className?: string,
   id?: string,
+  isInvalid?: boolean,
+  isValid?: boolean,
   name?: string,
   onBlur: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
   onChange: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
   placeholder?: string,
+  size?: 'sm' | 'md' | 'lg',
   value: string,
 };
 
@@ -33,20 +36,36 @@ class FormPasswordInput extends React.Component<Props, State> {
   };
 
   render() {
-    const { className, onChange, onBlur, value, id, name, placeholder, ...other } = this.props;
+    const {
+      className,
+      onChange,
+      onBlur,
+      value,
+      id,
+      isInvalid,
+      isValid,
+      name,
+      placeholder,
+      size,
+      ...other
+    } = this.props;
     const { hidePassword } = this.state;
     const classes = classNames(className, 'form-control');
 
     return (
-      <div {...other} className="form-password-input input-group">
-        <input
+      <div className="form-password-input input-group">
+        <FormInput
+          {...other}
           className={classes}
           data-test-id="password-input"
+          isInvalid={isInvalid}
+          isValid={isValid}
           name={name}
           id={id}
           onBlur={onBlur}
           onChange={onChange}
           placeholder={placeholder}
+          size={size}
           type={hidePassword ? 'password' : 'text'}
           value={value}
         />
@@ -56,6 +75,7 @@ class FormPasswordInput extends React.Component<Props, State> {
             icon={hidePassword ? 'preview' : 'previewHide'}
             isOutline
             onClick={this.togglePassword}
+            size={size}
             theme="gray-600"
           >
             <span className="form-password-input__toggle-password-text">

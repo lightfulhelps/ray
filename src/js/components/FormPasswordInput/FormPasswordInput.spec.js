@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
 import FormPasswordInput from './FormPasswordInput';
 import Button from '../Button/Button';
+import FormInput from '../FormInput/FormInput';
 
 const setup = (overrides = {}) => {
   const props = merge(
@@ -15,7 +16,7 @@ const setup = (overrides = {}) => {
   );
   const wrapper = shallow(<FormPasswordInput {...props} />);
 
-  return { wrapper, props, button: wrapper.find(Button), input: wrapper.find('input') };
+  return { wrapper, props, button: wrapper.find(Button), input: wrapper.find(FormInput) };
 };
 
 describe('<FormPasswordInput />', () => {
@@ -30,15 +31,17 @@ describe('<FormPasswordInput />', () => {
 
     wrapper.setProps({ className: 'custom' });
 
-    expect(wrapper.find('input').hasClass('form-control')).toBe(true);
-    expect(wrapper.find('input').hasClass('custom')).toBe(true);
+    const input = wrapper.find(FormInput);
+
+    expect(input.hasClass('form-control')).toBe(true);
+    expect(input.hasClass('custom')).toBe(true);
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, 'data-test': 'test', className: 'custom' });
+    const { input } = setup({ tabIndex: 1, 'data-test': 'test', className: 'custom' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('data-test')).toEqual('test');
+    expect(input.prop('tabIndex')).toEqual(1);
+    expect(input.prop('data-test')).toEqual('test');
   });
 
   it('defaults name parameter to password', () => {
@@ -127,7 +130,7 @@ describe('<FormPasswordInput />', () => {
 
       wrapper.setState({ hidePassword: false });
 
-      const input = wrapper.find('input');
+      const input = wrapper.find(FormInput);
 
       expect(input.prop('type')).toEqual('text');
     });
