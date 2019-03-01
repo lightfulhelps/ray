@@ -18,9 +18,7 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Button = require('../Button/Button');
-
-var _Button2 = _interopRequireDefault(_Button);
+var _ = require('../../');
 
 var _propTypes = require('prop-types');
 
@@ -72,38 +70,45 @@ var FormPasswordInput = (_temp2 = _class = function (_React$Component) {
           onBlur = _props.onBlur,
           value = _props.value,
           id = _props.id,
+          isInvalid = _props.isInvalid,
+          isValid = _props.isValid,
           name = _props.name,
           placeholder = _props.placeholder,
-          other = _objectWithoutProperties(_props, ['className', 'onChange', 'onBlur', 'value', 'id', 'name', 'placeholder']);
+          size = _props.size,
+          other = _objectWithoutProperties(_props, ['className', 'onChange', 'onBlur', 'value', 'id', 'isInvalid', 'isValid', 'name', 'placeholder', 'size']);
 
       var hidePassword = this.state.hidePassword;
 
-      var classes = (0, _classnames2.default)(className, 'form-password-input', 'input-group');
+      var classes = (0, _classnames2.default)(className, 'form-control');
 
       return React.createElement(
         'div',
-        _extends({}, other, { className: classes }),
-        React.createElement('input', {
-          className: 'form-control',
+        { className: 'form-password-input input-group' },
+        React.createElement(_.FormInput, _extends({}, other, {
+          className: classes,
           'data-test-id': 'password-input',
+          isInvalid: isInvalid,
+          isValid: isValid,
           name: name,
           id: id,
           onBlur: onBlur,
           onChange: onChange,
           placeholder: placeholder,
+          size: size,
           type: hidePassword ? 'password' : 'text',
           value: value
-        }),
+        })),
         React.createElement(
           'div',
           { className: 'input-group-append' },
           React.createElement(
-            _Button2.default,
+            _.Button,
             {
               'data-test-id': 'password-input-button',
               icon: hidePassword ? 'preview' : 'previewHide',
               isOutline: true,
               onClick: this.togglePassword,
+              size: size,
               theme: 'gray-600'
             },
             React.createElement(
@@ -121,10 +126,13 @@ var FormPasswordInput = (_temp2 = _class = function (_React$Component) {
 }(React.Component), _class.propTypes = {
   className: _propTypes2.default.string,
   id: _propTypes2.default.string,
+  isInvalid: _propTypes2.default.bool,
+  isValid: _propTypes2.default.bool,
   name: _propTypes2.default.string,
   onBlur: _propTypes2.default.func.isRequired,
   onChange: _propTypes2.default.func.isRequired,
   placeholder: _propTypes2.default.string,
+  size: _propTypes2.default.oneOf(['sm', 'md', 'lg']),
   value: _propTypes2.default.string.isRequired
 }, _temp2);
 FormPasswordInput.defaultProps = {
