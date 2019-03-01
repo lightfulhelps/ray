@@ -35,12 +35,12 @@ class FormPasswordInput extends React.Component<Props, State> {
   render() {
     const { className, onChange, onBlur, value, id, name, placeholder, ...other } = this.props;
     const { hidePassword } = this.state;
-    const classes = classNames(className, 'form-password-input', 'input-group');
+    const classes = classNames(className, 'form-control');
 
     return (
-      <div {...other} className={classes}>
+      <div {...other} className="form-password-input input-group">
         <input
-          className="form-control"
+          className={classes}
           data-test-id="password-input"
           name={name}
           id={id}

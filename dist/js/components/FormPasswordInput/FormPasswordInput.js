@@ -78,13 +78,13 @@ var FormPasswordInput = (_temp2 = _class = function (_React$Component) {
 
       var hidePassword = this.state.hidePassword;
 
-      var classes = (0, _classnames2.default)(className, 'form-password-input', 'input-group');
+      var classes = (0, _classnames2.default)(className, 'form-control');
 
       return React.createElement(
         'div',
-        _extends({}, other, { className: classes }),
+        _extends({}, other, { className: 'form-password-input input-group' }),
         React.createElement('input', {
-          className: 'form-control',
+          className: classes,
           'data-test-id': 'password-input',
           name: name,
           id: id,

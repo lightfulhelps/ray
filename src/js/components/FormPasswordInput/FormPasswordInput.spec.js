@@ -30,8 +30,8 @@ describe('<FormPasswordInput />', () => {
 
     wrapper.setProps({ className: 'custom' });
 
-    expect(wrapper.hasClass('form-password-input')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    expect(wrapper.find('input').hasClass('form-control')).toBe(true);
+    expect(wrapper.find('input').hasClass('custom')).toBe(true);
   });
 
   it('should pass through other props', () => {
