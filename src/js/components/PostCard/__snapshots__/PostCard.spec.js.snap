@@ -39,7 +39,7 @@ exports[`<PostCard /> should render 1`] = `
       <div
         className="post-card__date"
       >
-        22 Aug - 14:34
+        22 Aug 18 - 14:34
       </div>
       <Badge
         className="post-card__campaign"

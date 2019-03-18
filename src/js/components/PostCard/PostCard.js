@@ -90,7 +90,7 @@ export const config = {
 const PostCard = ({
   actions = [],
   className,
-  dateFormat = 'D MMM [-] HH:mm',
+  dateFormat = 'D MMM YY [-] HH:mm',
   errors,
   footerButton,
   inspirationActions,

@@ -91,7 +91,7 @@ describe('<PostCard />', () => {
   it('should optionally display post date', () => {
     const { wrapper, props } = setup();
 
-    expect(wrapper.find('.post-card__date').text()).toBe('22 Aug - 14:34');
+    expect(wrapper.find('.post-card__date').text()).toBe('22 Aug 18 - 14:34');
 
     wrapper.setProps({ post: { ...props.post, date: null } });
 
@@ -130,7 +130,7 @@ describe('<PostCard />', () => {
   it('should handle the dateFormat prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.post-card__date').text()).toEqual('22 Aug - 14:34');
+    expect(wrapper.find('.post-card__date').text()).toEqual('22 Aug 18 - 14:34');
 
     wrapper.setProps({ dateFormat: 'HH:MM [on] DD-MM-YYYY' });
 
