@@ -53,7 +53,7 @@ var PostCard = function PostCard(_ref) {
       actions = _ref$actions === undefined ? [] : _ref$actions,
       className = _ref.className,
       _ref$dateFormat = _ref.dateFormat,
-      dateFormat = _ref$dateFormat === undefined ? 'D MMM [-] HH:mm' : _ref$dateFormat,
+      dateFormat = _ref$dateFormat === undefined ? 'D MMM YY [-] HH:mm' : _ref$dateFormat,
       errors = _ref.errors,
       footerButton = _ref.footerButton,
       inspirationActions = _ref.inspirationActions,
