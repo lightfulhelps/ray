@@ -1,0 +1,35 @@
+.pagination {
+  border-radius: $border-radius-sm;
+}
+
+.page-item {
+  &:first-child {
+    .page-link {
+      margin-left: 0;
+      @include border-left-radius($border-radius-sm);
+    }
+  }
+  &:last-child {
+    .page-link {
+      @include border-right-radius($border-radius-sm);
+    }
+  }
+
+  .page-link {
+    color: $gray-900;
+  }
+
+  &.active .page-link {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.pagination-lg {
+  @include pagination-size(
+    $pagination-padding-y-lg,
+    $pagination-padding-x-lg,
+    $font-size-lg,
+    $line-height-lg,
+    $border-radius
+  );
+}
