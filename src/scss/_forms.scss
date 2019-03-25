@@ -21,3 +21,88 @@ label {
   font-weight: $font-weight-light;
   font-size: $font-size-sm;
 }
+
+// Checkbox and radio inputs
+
+// Shared
+
+.form-check {
+  padding-left: 0;
+}
+
+.form-check-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: $gray-600;
+  font-weight: $font-weight-light;
+
+  &::before,
+  &::after {
+    display: block;
+    height: $spacer * 2;
+    width: $spacer * 2;
+  }
+
+  &::before {
+    content: '';
+    margin-right: $spacer;
+    border-color: $gray-400;
+    border-radius: $border-radius-sm;
+    border-style: solid;
+    border-width: 1px;
+  }
+}
+
+.form-check-input {
+  opacity: 0;
+
+  &:checked ~ .form-check-label {
+    color: $gray-900;
+
+    &::before {
+      background-color: $primary;
+    }
+  }
+
+  &:disabled ~ .form-check-label {
+    color: $gray-600;
+
+    &::before {
+      background-color: $gray-100;
+    }
+  }
+}
+
+// Checkboxes
+.form-check-input[type='checkbox'] {
+  &:checked ~ .form-check-label {
+    &::before {
+      border-color: $primary;
+    }
+
+    &::after {
+      content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='white'><path fill-rule='evenodd' d='M10.5118 18.5821a1.4435 1.4435 0 0 1-2.0315 0L3.4252 13.475c-.567-.5571-.567-1.4857 0-2.0429a1.4435 1.4435 0 0 1 2.0315 0l4.0157 4.0858 9.071-9.1a1.4435 1.4435 0 0 1 2.0314 0c.567.5571.567 1.4857 0 2.0428l-10.063 10.1214z' /></svg>");
+      display: block;
+      position: absolute;
+      top: 2px;
+      left: 0;
+      text-align: center;
+    }
+  }
+}
+
+// Radios
+.form-check-input[type='radio'] {
+  & ~ .form-check-label {
+    &::before {
+      border-radius: 50%;
+    }
+  }
+
+  &:checked ~ .form-check-label {
+    &::before {
+      box-shadow: inset 0 0 0 3px $white;
+    }
+  }
+}
