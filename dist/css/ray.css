@@ -4656,18 +4656,20 @@ label {
   display: flex;
   align-items: center;
   color: #6c757c;
-  font-weight: 300; }
+  font-weight: 300;
+  line-height: 1; }
   .form-check-label::before, .form-check-label::after {
     display: block;
     height: 1.25rem;
     width: 1.25rem; }
   .form-check-label::before {
     content: '';
-    margin-right: 0.625rem;
     border-color: #ced4da;
     border-radius: 0.3125rem;
     border-style: solid;
     border-width: 1px; }
+  .form-check-label:not(:empty)::before {
+    margin-right: 0.625rem; }
 
 .form-check-input {
   opacity: 0; }
