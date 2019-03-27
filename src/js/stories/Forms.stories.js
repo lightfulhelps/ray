@@ -95,27 +95,37 @@ stories.add('Default', () => (
           <FormLabel>File</FormLabel>
           <FormInput type="file" name="file" />
         </FormGroup>
-        <FormGroup>
-          <FormGroup isCheck>
-            <FormLabel isCheck>
-              <FormInput name="radios" type="radio" /> Radio 1
+        <FormGroup className="bg-white p-2 rounded-sm border">
+          <FormGroup className="mb-1" isCheck>
+            <FormInput name="radios" type="radio" id="radio1" />
+            <FormLabel isCheck htmlFor="radio1">
+              Radio 1
+            </FormLabel>
+          </FormGroup>
+          <FormGroup className="mb-1" isCheck>
+            <FormInput name="radios" type="radio" id="radio2" />
+            <FormLabel isCheck htmlFor="radio2">
+              Radio 2
             </FormLabel>
           </FormGroup>
           <FormGroup isCheck>
-            <FormLabel isCheck>
-              <FormInput name="radios" type="radio" /> Radio 2
-            </FormLabel>
-          </FormGroup>
-          <FormGroup isCheck>
-            <FormLabel isCheck>
-              <FormInput name="radios" type="radio" disabled /> Radio 3 (disabled)
+            <FormInput name="radios" type="radio" id="radio3" disabled />
+            <FormLabel isCheck htmlFor="radio3">
+              Radio 3 (disabled)
             </FormLabel>
           </FormGroup>
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="bg-white p-2 rounded-sm border">
+          <FormGroup className="mb-1" isCheck>
+            <FormInput type="checkbox" id="checkbox1" />
+            <FormLabel isCheck htmlFor="checkbox1">
+              Checkbox 1
+            </FormLabel>
+          </FormGroup>
           <FormGroup isCheck>
-            <FormLabel isCheck>
-              <FormInput type="checkbox" /> I confirm this is a checkbox
+            <FormInput type="checkbox" id="checkbox2" disabled />
+            <FormLabel isCheck htmlFor="checkbox2">
+              Checkbox 2 (disabled)
             </FormLabel>
           </FormGroup>
         </FormGroup>
