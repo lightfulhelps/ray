@@ -122,10 +122,16 @@ stories.add('Default', () => (
               Checkbox 1
             </FormLabel>
           </FormGroup>
-          <FormGroup isCheck>
+          <FormGroup className="mb-1" isCheck>
             <FormInput type="checkbox" id="checkbox2" disabled />
             <FormLabel isCheck htmlFor="checkbox2">
               Checkbox 2 (disabled)
+            </FormLabel>
+          </FormGroup>
+          <FormGroup isCheck>
+            <FormInput type="checkbox" id="checkbox3" />
+            <FormLabel isCheck htmlFor="checkbox3">
+              Checkbox 3
             </FormLabel>
           </FormGroup>
         </FormGroup>

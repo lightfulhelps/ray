@@ -520,7 +520,7 @@
             <div class="col-md-6">
               <h3 class="h6">Text Inputs</h3>
               <p>Input fields comes in 3 sizes: large, regular, small.</p>
-              <div class="bg-white rounded-lg p-3">
+              <div class="bg-white rounded p-3">
                 <div class="form-group">
                   <label>Large</label>
                   <input
@@ -552,7 +552,7 @@
           <div class="row mb-4">
             <div class="col-md-6">
               <h3 class="h6">Invalid Inputs</h3>
-              <div class="bg-white rounded-lg p-3">
+              <div class="bg-white rounded p-3">
                 <div class="form-group">
                   <label>Large</label>
                   <input
@@ -596,7 +596,7 @@
             <div class="col-md-6">
               <h3 class="h6">Text Area</h3>
               <p>It has the same hover, active, writing and written state as an input field.</p>
-              <div class="bg-white rounded-lg p-3">
+              <div class="bg-white rounded p-3">
                 <div class="form-group">
                   <label>Label</label>
                   <textarea
@@ -609,7 +609,141 @@
           </div>
           <div class="row mb-4">
             <div class="col-md-6">
-              <h2 class="mb-4">Pagination</h2>
+              <h3 class="h6">Checkboxes</h3>
+              <div class="bg-white rounded p-3">
+                <div class="mb-4">
+                  <div class="form-check mb-1">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                    <label class="form-check-label" for="defaultCheck1"> Default checkbox </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="defaultCheck2"
+                      disabled
+                    />
+                    <label class="form-check-label" for="defaultCheck2"> Disabled checkbox </label>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="h6 mb-1">Inline</h4>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="inlineCheckbox1"
+                      value="option1"
+                    />
+                    <label class="form-check-label" for="inlineCheckbox1">1</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="inlineCheckbox2"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="inlineCheckbox2">2</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="inlineCheckbox3"
+                      value="option3"
+                      disabled
+                    />
+                    <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <h3 class="h6">Radios</h3>
+              <div class="bg-white rounded p-3">
+                <div class="mb-4">
+                  <div class="form-check mb-1">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios1"
+                      value="option1"
+                      checked
+                    />
+                    <label class="form-check-label" for="exampleRadios1"> Default radio </label>
+                  </div>
+                  <div class="form-check mb-1">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios2"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="exampleRadios2">
+                      Second default radio
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios3"
+                      value="option3"
+                      disabled
+                    />
+                    <label class="form-check-label" for="exampleRadios3"> Disabled radio </label>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="h6 mb-1">Inline</h4>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="inlineRadio1"
+                      value="option1"
+                    />
+                    <label class="form-check-label" for="inlineRadio1">1</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="inlineRadio2"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="inlineRadio2">2</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="inlineRadio3"
+                      value="option3"
+                      disabled
+                    />
+                    <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <h2 class="mb-4">Pagination</h2>
+          <div class="row">
+            <div class="col-md-6">
+              <h3 class="h6">Regular</h3>
               <nav class="mb-2">
                 <ul class="pagination">
                   <li class="page-item disabled">
@@ -623,6 +757,7 @@
                   <li class="page-item"><a class="page-link" href="#">Next</a></li>
                 </ul>
               </nav>
+              <h3 class="h6">Large</h3>
               <nav>
                 <ul class="pagination pagination-lg">
                   <li class="page-item disabled">

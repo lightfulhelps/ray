@@ -30,6 +30,10 @@ label {
   padding-left: 0;
 }
 
+.form-check-inline .form-check-input {
+  position: absolute;
+}
+
 .form-check-label {
   position: relative;
   display: flex;
