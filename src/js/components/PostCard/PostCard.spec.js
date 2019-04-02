@@ -180,9 +180,13 @@ describe('<PostCard />', () => {
     const content = 'Hi <a href="">@Buttle</a>';
     const { wrapper } = setup({ post: { content } });
 
-    expect(wrapper.find('.post-card__content div').prop('dangerouslySetInnerHTML')).toEqual({
-      __html: content,
-    });
+    expect(
+      wrapper
+        .find('.post-card__content')
+        .children()
+        .at(0)
+        .prop('unsafeHTML')
+    ).toEqual(content);
   });
 
   it('should show PostMedia if has media', () => {

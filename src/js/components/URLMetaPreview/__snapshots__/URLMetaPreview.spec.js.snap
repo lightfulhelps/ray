@@ -25,30 +25,28 @@ exports[`<URLMetaPreview /> should render 1`] = `
       <div
         className="url-meta-preview__main"
       >
-        <Dotdotdot
-          clamp={2}
-          tagName="div"
-          truncationChar="…"
-          useNativeClamp={true}
+        <a
+          className="url-meta-preview__title"
+          href="https://www.bbc.co.uk/news/business-45242008"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          <a
-            className="url-meta-preview__title"
-            href="https://www.bbc.co.uk/news/business-45242008"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            National Living Wage 'fails to cover families' basic needs
-          </a>
-        </Dotdotdot>
-        <Dotdotdot
-          clamp={3}
+          <Responsive(LinesEllipsis)
+            basedOn="words"
+            ellipsis="..."
+            innerRef={[Function]}
+            maxLine={2}
+            text="National Living Wage 'fails to cover families' basic needs"
+          />
+        </a>
+        <Responsive(LinesEllipsis)
+          basedOn="words"
           className="url-meta-preview__description"
-          tagName="div"
-          truncationChar="…"
-          useNativeClamp={true}
-        >
-          Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says.
-        </Dotdotdot>
+          ellipsis="..."
+          innerRef={[Function]}
+          maxLine={3}
+          text="Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says."
+        />
         <a
           className="url-meta-preview__url"
           href="https://www.bbc.co.uk/news/business-45242008"
@@ -93,30 +91,28 @@ exports[`<URLMetaPreview /> should render in vertical mode 1`] = `
       <div
         className="url-meta-preview__main"
       >
-        <Dotdotdot
-          clamp={2}
-          tagName="div"
-          truncationChar="…"
-          useNativeClamp={true}
+        <a
+          className="url-meta-preview__title"
+          href="https://www.bbc.co.uk/news/business-45242008"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          <a
-            className="url-meta-preview__title"
-            href="https://www.bbc.co.uk/news/business-45242008"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            National Living Wage 'fails to cover families' basic needs
-          </a>
-        </Dotdotdot>
-        <Dotdotdot
-          clamp={3}
+          <Responsive(LinesEllipsis)
+            basedOn="words"
+            ellipsis="..."
+            innerRef={[Function]}
+            maxLine={2}
+            text="National Living Wage 'fails to cover families' basic needs"
+          />
+        </a>
+        <Responsive(LinesEllipsis)
+          basedOn="words"
           className="url-meta-preview__description"
-          tagName="div"
-          truncationChar="…"
-          useNativeClamp={true}
-        >
-          Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says.
-        </Dotdotdot>
+          ellipsis="..."
+          innerRef={[Function]}
+          maxLine={3}
+          text="Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says."
+        />
         <a
           className="url-meta-preview__url"
           href="https://www.bbc.co.uk/news/business-45242008"

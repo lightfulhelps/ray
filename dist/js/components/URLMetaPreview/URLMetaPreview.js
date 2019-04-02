@@ -14,9 +14,13 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _reactDotdotdot = require('react-dotdotdot');
+var _reactLinesEllipsis = require('react-lines-ellipsis');
 
-var _reactDotdotdot2 = _interopRequireDefault(_reactDotdotdot);
+var _reactLinesEllipsis2 = _interopRequireDefault(_reactLinesEllipsis);
+
+var _responsiveHOC = require('react-lines-ellipsis/lib/responsiveHOC');
+
+var _responsiveHOC2 = _interopRequireDefault(_responsiveHOC);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25,6 +29,8 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 var cleanURL = function cleanURL(url) {
   return url.replace(/https?:\/\/(www.)?/, '');
 };
+
+var ResponsiveEllipsis = (0, _responsiveHOC2.default)()(_reactLinesEllipsis2.default);
 
 var URLMetaPreview = function URLMetaPreview(_ref) {
   var className = _ref.className,
@@ -65,24 +71,22 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
           'div',
           { className: blockClass + '__main' },
           _react2.default.createElement(
-            _reactDotdotdot2.default,
-            { clamp: 2 },
-            _react2.default.createElement(
-              'a',
-              {
-                className: blockClass + '__title',
-                href: url,
-                target: '_blank',
-                rel: 'noopener noreferrer'
-              },
-              title
-            )
+            'a',
+            {
+              className: blockClass + '__title',
+              href: url,
+              target: '_blank',
+              rel: 'noopener noreferrer'
+            },
+            _react2.default.createElement(ResponsiveEllipsis, { text: title, maxLine: 2, ellipsis: '...', basedOn: 'words' })
           ),
-          description && _react2.default.createElement(
-            _reactDotdotdot2.default,
-            { className: blockClass + '__description', clamp: 3 },
-            description
-          ),
+          description && _react2.default.createElement(ResponsiveEllipsis, {
+            className: blockClass + '__description',
+            text: description,
+            maxLine: 3,
+            ellipsis: '...',
+            basedOn: 'words'
+          }),
           _react2.default.createElement(
             'a',
             {

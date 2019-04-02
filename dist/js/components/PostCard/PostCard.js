@@ -15,9 +15,13 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _reactDotdotdot = require('react-dotdotdot');
+var _html = require('react-lines-ellipsis/lib/html');
 
-var _reactDotdotdot2 = _interopRequireDefault(_reactDotdotdot);
+var _html2 = _interopRequireDefault(_html);
+
+var _responsiveHOC = require('react-lines-ellipsis/lib/responsiveHOC');
+
+var _responsiveHOC2 = _interopRequireDefault(_responsiveHOC);
 
 var _format = require('date-fns/format');
 
@@ -47,6 +51,8 @@ var config = exports.config = {
   contentLines: 5,
   tagLimit: 3
 };
+
+var ResponsiveHTMLEllipsis = (0, _responsiveHOC2.default)()(_html2.default);
 
 var PostCard = function PostCard(_ref) {
   var _ref$actions = _ref.actions,
@@ -173,15 +179,12 @@ var PostCard = function PostCard(_ref) {
     React.createElement(
       'div',
       { className: blockClass + '__content' },
-      React.createElement(
-        _reactDotdotdot2.default,
-        { clamp: config.contentLines },
-        React.createElement('div', {
-          dangerouslySetInnerHTML: {
-            __html: post.content.replace(/\n/g, '<br />')
-          }
-        })
-      )
+      React.createElement(ResponsiveHTMLEllipsis, {
+        unsafeHTML: post.content.replace(/\n/g, '<br />'),
+        maxLine: config.contentLines,
+        ellipsis: '...',
+        basedOn: 'words'
+      })
     ),
     React.createElement(
       'div',

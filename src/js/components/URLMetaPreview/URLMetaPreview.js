@@ -1,7 +1,8 @@
 // @flow
 import React from 'react';
 import classNames from 'classnames';
-import Dotdotdot from 'react-dotdotdot';
+import LinesEllipsis from 'react-lines-ellipsis';
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 
 type Props = {
   className?: string,
@@ -13,6 +14,8 @@ type Props = {
 };
 
 const cleanURL = (url: string): string => url.replace(/https?:\/\/(www.)?/, '');
+
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
 const URLMetaPreview = ({
   className,
@@ -42,20 +45,22 @@ const URLMetaPreview = ({
         )}
         <div className={isVertical ? '' : image ? 'col-8 pl-0' : 'col-12'}>
           <div className={`${blockClass}__main`}>
-            <Dotdotdot clamp={2}>
-              <a
-                className={`${blockClass}__title`}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {title}
-              </a>
-            </Dotdotdot>
+            <a
+              className={`${blockClass}__title`}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ResponsiveEllipsis text={title} maxLine={2} ellipsis="..." basedOn="words" />
+            </a>
             {description && (
-              <Dotdotdot className={`${blockClass}__description`} clamp={3}>
-                {description}
-              </Dotdotdot>
+              <ResponsiveEllipsis
+                className={`${blockClass}__description`}
+                text={description}
+                maxLine={3}
+                ellipsis="..."
+                basedOn="words"
+              />
             )}
             <a
               className={`${blockClass}__url`}
