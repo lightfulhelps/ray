@@ -1,7 +1,8 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import Dotdotdot from 'react-dotdotdot';
+import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import formatDate from 'date-fns/format';
 import isFuture from 'date-fns/is_future';
 import {
@@ -86,6 +87,8 @@ export const config = {
   contentLines: 5,
   tagLimit: 3,
 };
+
+const ResponsiveHTMLEllipsis = responsiveHOC()(HTMLEllipsis);
 
 const PostCard = ({
   actions = [],
@@ -188,13 +191,12 @@ const PostCard = ({
         )}
       </div>
       <div className={`${blockClass}__content`}>
-        <Dotdotdot clamp={config.contentLines}>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: post.content.replace(/\n/g, '<br />'),
-            }}
-          />
-        </Dotdotdot>
+        <ResponsiveHTMLEllipsis
+          unsafeHTML={post.content.replace(/\n/g, '<br />')}
+          maxLine={config.contentLines}
+          ellipsis="..."
+          basedOn="words"
+        />
       </div>
       <div className={`${blockClass}__media`}>
         {post.media && post.media.length > 0 && <PostMedia media={post.media} />}
