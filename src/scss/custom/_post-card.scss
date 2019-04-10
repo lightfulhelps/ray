@@ -35,7 +35,7 @@
 
 .post-card__header {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   margin-top: map-get($spacers, 2);
   margin-right: map-get($spacers, 2);
   margin-bottom: 0;
