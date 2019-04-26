@@ -2438,6 +2438,100 @@ input[type="button"].btn-block {
     text-decoration: none;
     background-color: #1d2124; }
 
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.625rem; }
+
+.alert-heading {
+  color: inherit; }
+
+.alert-link {
+  font-weight: 500; }
+
+.alert-dismissible {
+  padding-right: 4rem; }
+  .alert-dismissible .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.75rem 1.25rem;
+    color: inherit; }
+
+.alert-primary {
+  color: #145c6a;
+  background-color: #d4eff5;
+  border-color: #c3e9f1; }
+  .alert-primary hr {
+    border-top-color: #aee1ec; }
+  .alert-primary .alert-link {
+    color: #0c373f; }
+
+.alert-secondary {
+  color: #3f2285;
+  background-color: #e4d9ff;
+  border-color: #d9caff; }
+  .alert-secondary hr {
+    border-top-color: #c7b1ff; }
+  .alert-secondary .alert-link {
+    color: #2c185c; }
+
+.alert-success {
+  color: #146a4f;
+  background-color: #d4f5ea;
+  border-color: #c3f1e2; }
+  .alert-success hr {
+    border-top-color: #aeecd8; }
+  .alert-success .alert-link {
+    color: #0c3f2f; }
+
+.alert-info {
+  color: #004d7d;
+  background-color: #cceafc;
+  border-color: #b8e1fb; }
+  .alert-info hr {
+    border-top-color: #a0d7fa; }
+  .alert-info .alert-link {
+    color: #002e4a; }
+
+.alert-warning {
+  color: #7d602c;
+  background-color: #fcf1dd;
+  border-color: #fbebcf; }
+  .alert-warning hr {
+    border-top-color: #f9e1b7; }
+  .alert-warning .alert-link {
+    color: #57431f; }
+
+.alert-danger {
+  color: #7e2b3a;
+  background-color: #fcdce2;
+  border-color: #fbcfd7; }
+  .alert-danger hr {
+    border-top-color: #f9b7c3; }
+  .alert-danger .alert-link {
+    color: #581e28; }
+
+.alert-light {
+  color: #818182;
+  background-color: #fefefe;
+  border-color: #fdfdfe; }
+  .alert-light hr {
+    border-top-color: #ececf6; }
+  .alert-light .alert-link {
+    color: #686868; }
+
+.alert-dark {
+  color: #1b1e21;
+  background-color: #d6d8d9;
+  border-color: #c6c8ca; }
+  .alert-dark hr {
+    border-top-color: #b9bbbe; }
+  .alert-dark .alert-link {
+    color: #040505; }
+
 .close {
   float: right;
   font-size: 1.5rem;
