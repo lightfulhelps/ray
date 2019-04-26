@@ -4,6 +4,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _Alert = require('./components/Alert/Alert');
+
+Object.defineProperty(exports, 'Alert', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Alert).default;
+  }
+});
+
 var _Avatar = require('./components/Avatar/Avatar');
 
 Object.defineProperty(exports, 'Avatar', {
