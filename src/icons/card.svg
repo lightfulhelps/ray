@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>icon/grey/card</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon/grey/card" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M21,9 L3,9 L3,7.81058824 C3,6.81062796 3.81062796,6 4.81058824,6 L19.1894118,6 C20.189372,6 21,6.81062796 21,7.81058824 L21,9 Z M21,10.5 L21,17.1894118 C21,18.189372 20.189372,19 19.1894118,19 L4.81058824,19 C3.81062796,19 3,18.189372 3,17.1894118 L3,10.5 L21,10.5 Z" id="card-details" fill="#ADB5BD"></path>
+    </g>
+</svg>
