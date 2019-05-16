@@ -16,7 +16,7 @@
   --gray: #6c757c;
   --gray-dark: #343a40;
   --primary: #27b0cc;
-  --secondary: #7941ff;
+  --secondary: #4513bb;
   --success: #27cc98;
   --info: #0095f1;
   --warning: #f0b954;
@@ -1371,22 +1371,22 @@ fieldset:disabled a.btn {
     border-color: #1d8296; }
 
 .btn-secondary {
-  background-color: #7941ff;
+  background-color: #4513bb;
   color: #fff;
-  border-color: #7941ff; }
+  border-color: #4513bb; }
   .btn-secondary:hover {
-    background-color: #5e1bff;
+    background-color: #380f98;
     color: #fff;
-    border-color: #550eff; }
+    border-color: #340e8d; }
   .btn-secondary.disabled, .btn-secondary:disabled {
     color: #fff;
-    background-color: #7941ff;
-    border-color: #7941ff; }
+    background-color: #4513bb;
+    border-color: #4513bb; }
   .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,
   .show > .btn-secondary.dropdown-toggle {
     color: #fff;
-    background-color: #550eff;
-    border-color: #4c01ff; }
+    background-color: #340e8d;
+    border-color: #300d81; }
 
 .btn-success {
   background-color: #27cc98;
@@ -1516,23 +1516,23 @@ fieldset:disabled a.btn {
     border-color: #27b0cc; }
 
 .btn-outline-secondary {
-  color: #7941ff;
+  color: #4513bb;
   background-color: #fff;
   background-image: none;
-  border-color: #d7c6ff; }
+  border-color: #c2acf7; }
   .btn-outline-secondary:hover {
-    color: #7941ff;
+    color: #4513bb;
     background-color: #fff;
-    border-color: #7941ff; }
+    border-color: #4513bb; }
   .btn-outline-secondary.disabled, .btn-outline-secondary:disabled, .btn-outline-secondary.disabled:hover {
-    color: #7941ff;
+    color: #4513bb;
     background-color: transparent;
-    border-color: #d7c6ff; }
+    border-color: #c2acf7; }
   .btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active,
   .show > .btn-outline-secondary.dropdown-toggle {
     color: #212529;
     background-color: #fff;
-    border-color: #7941ff; }
+    border-color: #4513bb; }
 
 .btn-outline-success {
   color: #27cc98;
@@ -2384,11 +2384,11 @@ input[type="button"].btn-block {
 
 .badge-secondary {
   color: #fff;
-  background-color: #7941ff; }
+  background-color: #4513bb; }
   .badge-secondary[href]:hover, .badge-secondary[href]:focus {
     color: #fff;
     text-decoration: none;
-    background-color: #550eff; }
+    background-color: #340e8d; }
 
 .badge-success {
   color: #fff;
@@ -2470,13 +2470,13 @@ input[type="button"].btn-block {
     color: #0c373f; }
 
 .alert-secondary {
-  color: #3f2285;
-  background-color: #e4d9ff;
-  border-color: #d9caff; }
+  color: #240a61;
+  background-color: #dad0f1;
+  border-color: #cbbdec; }
   .alert-secondary hr {
-    border-top-color: #c7b1ff; }
+    border-top-color: #bba9e6; }
   .alert-secondary .alert-link {
-    color: #2c185c; }
+    color: #130533; }
 
 .alert-success {
   color: #146a4f;
@@ -2580,12 +2580,12 @@ button.bg-primary:focus {
   background-color: #1f8ba1 !important; }
 
 .bg-secondary {
-  background-color: #7941ff !important; }
+  background-color: #4513bb !important; }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
 button.bg-secondary:hover,
 button.bg-secondary:focus {
-  background-color: #550eff !important; }
+  background-color: #340e8d !important; }
 
 .bg-success {
   background-color: #27cc98 !important; }
@@ -2675,7 +2675,7 @@ button.bg-dark:focus {
   border-color: #27b0cc !important; }
 
 .border-secondary {
-  border-color: #7941ff !important; }
+  border-color: #4513bb !important; }
 
 .border-success {
   border-color: #27cc98 !important; }
@@ -4482,10 +4482,10 @@ a.text-primary:hover, a.text-primary:focus {
   color: #1f8ba1 !important; }
 
 .text-secondary {
-  color: #7941ff !important; }
+  color: #4513bb !important; }
 
 a.text-secondary:hover, a.text-secondary:focus {
-  color: #550eff !important; }
+  color: #340e8d !important; }
 
 .text-success {
   color: #27cc98 !important; }
@@ -5877,9 +5877,9 @@ button.bg-linkedin:focus {
     fill: #124f5c; }
 
 .icon-secondary {
-  fill: #7941ff; }
+  fill: #4513bb; }
   .icon-secondary:not(.disabled):not(.active):hover {
-    fill: #2a0090; }
+    fill: #1f0954; }
 
 .icon-success {
   fill: #27cc98; }
