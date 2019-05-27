@@ -48,7 +48,7 @@
     "react": "16.7.0",
     "react-dom": "16.7.0",
     "react-lines-ellipsis": "^0.14.1",
-    "react-select": "^2.1.0"
+    "react-select": "^3.0.3"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.11",
