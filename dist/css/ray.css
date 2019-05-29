@@ -3527,6 +3527,25 @@ button.bg-dark:focus {
 .mx-5 {
   margin-left: 3.125rem !important; }
 
+.m-half {
+  margin: 0.3125rem !important; }
+
+.mt-half,
+.my-half {
+  margin-top: 0.3125rem !important; }
+
+.mr-half,
+.mx-half {
+  margin-right: 0.3125rem !important; }
+
+.mb-half,
+.my-half {
+  margin-bottom: 0.3125rem !important; }
+
+.ml-half,
+.mx-half {
+  margin-left: 0.3125rem !important; }
+
 .p-0 {
   padding: 0 !important; }
 
@@ -3641,6 +3660,25 @@ button.bg-dark:focus {
 .px-5 {
   padding-left: 3.125rem !important; }
 
+.p-half {
+  padding: 0.3125rem !important; }
+
+.pt-half,
+.py-half {
+  padding-top: 0.3125rem !important; }
+
+.pr-half,
+.px-half {
+  padding-right: 0.3125rem !important; }
+
+.pb-half,
+.py-half {
+  padding-bottom: 0.3125rem !important; }
+
+.pl-half,
+.px-half {
+  padding-left: 0.3125rem !important; }
+
 .m-auto {
   margin: auto !important; }
 
@@ -3745,6 +3783,20 @@ button.bg-dark:focus {
   .ml-sm-5,
   .mx-sm-5 {
     margin-left: 3.125rem !important; }
+  .m-sm-half {
+    margin: 0.3125rem !important; }
+  .mt-sm-half,
+  .my-sm-half {
+    margin-top: 0.3125rem !important; }
+  .mr-sm-half,
+  .mx-sm-half {
+    margin-right: 0.3125rem !important; }
+  .mb-sm-half,
+  .my-sm-half {
+    margin-bottom: 0.3125rem !important; }
+  .ml-sm-half,
+  .mx-sm-half {
+    margin-left: 0.3125rem !important; }
   .p-sm-0 {
     padding: 0 !important; }
   .pt-sm-0,
@@ -3829,6 +3881,20 @@ button.bg-dark:focus {
   .pl-sm-5,
   .px-sm-5 {
     padding-left: 3.125rem !important; }
+  .p-sm-half {
+    padding: 0.3125rem !important; }
+  .pt-sm-half,
+  .py-sm-half {
+    padding-top: 0.3125rem !important; }
+  .pr-sm-half,
+  .px-sm-half {
+    padding-right: 0.3125rem !important; }
+  .pb-sm-half,
+  .py-sm-half {
+    padding-bottom: 0.3125rem !important; }
+  .pl-sm-half,
+  .px-sm-half {
+    padding-left: 0.3125rem !important; }
   .m-sm-auto {
     margin: auto !important; }
   .mt-sm-auto,
@@ -3929,6 +3995,20 @@ button.bg-dark:focus {
   .ml-md-5,
   .mx-md-5 {
     margin-left: 3.125rem !important; }
+  .m-md-half {
+    margin: 0.3125rem !important; }
+  .mt-md-half,
+  .my-md-half {
+    margin-top: 0.3125rem !important; }
+  .mr-md-half,
+  .mx-md-half {
+    margin-right: 0.3125rem !important; }
+  .mb-md-half,
+  .my-md-half {
+    margin-bottom: 0.3125rem !important; }
+  .ml-md-half,
+  .mx-md-half {
+    margin-left: 0.3125rem !important; }
   .p-md-0 {
     padding: 0 !important; }
   .pt-md-0,
@@ -4013,6 +4093,20 @@ button.bg-dark:focus {
   .pl-md-5,
   .px-md-5 {
     padding-left: 3.125rem !important; }
+  .p-md-half {
+    padding: 0.3125rem !important; }
+  .pt-md-half,
+  .py-md-half {
+    padding-top: 0.3125rem !important; }
+  .pr-md-half,
+  .px-md-half {
+    padding-right: 0.3125rem !important; }
+  .pb-md-half,
+  .py-md-half {
+    padding-bottom: 0.3125rem !important; }
+  .pl-md-half,
+  .px-md-half {
+    padding-left: 0.3125rem !important; }
   .m-md-auto {
     margin: auto !important; }
   .mt-md-auto,
@@ -4113,6 +4207,20 @@ button.bg-dark:focus {
   .ml-lg-5,
   .mx-lg-5 {
     margin-left: 3.125rem !important; }
+  .m-lg-half {
+    margin: 0.3125rem !important; }
+  .mt-lg-half,
+  .my-lg-half {
+    margin-top: 0.3125rem !important; }
+  .mr-lg-half,
+  .mx-lg-half {
+    margin-right: 0.3125rem !important; }
+  .mb-lg-half,
+  .my-lg-half {
+    margin-bottom: 0.3125rem !important; }
+  .ml-lg-half,
+  .mx-lg-half {
+    margin-left: 0.3125rem !important; }
   .p-lg-0 {
     padding: 0 !important; }
   .pt-lg-0,
@@ -4197,6 +4305,20 @@ button.bg-dark:focus {
   .pl-lg-5,
   .px-lg-5 {
     padding-left: 3.125rem !important; }
+  .p-lg-half {
+    padding: 0.3125rem !important; }
+  .pt-lg-half,
+  .py-lg-half {
+    padding-top: 0.3125rem !important; }
+  .pr-lg-half,
+  .px-lg-half {
+    padding-right: 0.3125rem !important; }
+  .pb-lg-half,
+  .py-lg-half {
+    padding-bottom: 0.3125rem !important; }
+  .pl-lg-half,
+  .px-lg-half {
+    padding-left: 0.3125rem !important; }
   .m-lg-auto {
     margin: auto !important; }
   .mt-lg-auto,
@@ -4297,6 +4419,20 @@ button.bg-dark:focus {
   .ml-xl-5,
   .mx-xl-5 {
     margin-left: 3.125rem !important; }
+  .m-xl-half {
+    margin: 0.3125rem !important; }
+  .mt-xl-half,
+  .my-xl-half {
+    margin-top: 0.3125rem !important; }
+  .mr-xl-half,
+  .mx-xl-half {
+    margin-right: 0.3125rem !important; }
+  .mb-xl-half,
+  .my-xl-half {
+    margin-bottom: 0.3125rem !important; }
+  .ml-xl-half,
+  .mx-xl-half {
+    margin-left: 0.3125rem !important; }
   .p-xl-0 {
     padding: 0 !important; }
   .pt-xl-0,
@@ -4381,6 +4517,20 @@ button.bg-dark:focus {
   .pl-xl-5,
   .px-xl-5 {
     padding-left: 3.125rem !important; }
+  .p-xl-half {
+    padding: 0.3125rem !important; }
+  .pt-xl-half,
+  .py-xl-half {
+    padding-top: 0.3125rem !important; }
+  .pr-xl-half,
+  .px-xl-half {
+    padding-right: 0.3125rem !important; }
+  .pb-xl-half,
+  .py-xl-half {
+    padding-bottom: 0.3125rem !important; }
+  .pl-xl-half,
+  .px-xl-half {
+    padding-left: 0.3125rem !important; }
   .m-xl-auto {
     margin: auto !important; }
   .mt-xl-auto,
@@ -5282,9 +5432,6 @@ label {
       margin-right: 0.625rem; }
   .btn-icon-right .icon {
     margin-left: 0.625rem; }
-
-.btn-sm, .btn-group-sm > .btn {
-  font-size: 1rem; }
 
 .input-group-prepend .btn,
 .input-group-append .btn {
