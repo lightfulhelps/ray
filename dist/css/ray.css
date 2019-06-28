@@ -4936,9 +4936,10 @@ label {
   content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='white'><path fill-rule='evenodd' d='M10.5118 18.5821a1.4435 1.4435 0 0 1-2.0315 0L3.4252 13.475c-.567-.5571-.567-1.4857 0-2.0429a1.4435 1.4435 0 0 1 2.0315 0l4.0157 4.0858 9.071-9.1a1.4435 1.4435 0 0 1 2.0314 0c.567.5571.567 1.4857 0 2.0428l-10.063 10.1214z' /></svg>");
   display: block;
   position: absolute;
-  top: 2px;
+  top: 50%;
   left: 0;
-  text-align: center; }
+  text-align: center;
+  transform: translate3d(0, -42%, 0); }
 
 .form-check-input[type='radio'] ~ .form-check-label::before {
   border-radius: 50%; }

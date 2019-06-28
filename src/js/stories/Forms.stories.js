@@ -11,6 +11,7 @@ import {
   FormFeedback,
   FormSelect,
   FormTextarea,
+  Avatar,
 } from '../';
 import sizes from './utils/sizes';
 
@@ -128,10 +129,24 @@ stories.add('Default', () => (
               Checkbox 2 (disabled)
             </FormLabel>
           </FormGroup>
-          <FormGroup isCheck>
+          <FormGroup className="mb-2" isCheck>
             <FormInput type="checkbox" id="checkbox3" />
             <FormLabel isCheck htmlFor="checkbox3">
               Checkbox 3
+            </FormLabel>
+          </FormGroup>
+          <FormGroup isCheck>
+            <FormInput type="checkbox" id="checkbox4" />
+            <FormLabel isCheck htmlFor="checkbox4">
+              <div className="d-flex align-items-center">
+                <div style={{ width: '50px', height: '50px' }}>
+                  <Avatar
+                    url="https://randomuser.me/api/portraits/women/30.jpg"
+                    provider="facebook"
+                  />
+                </div>
+                <div className="ml-1">Checkbox with markup</div>
+              </div>
             </FormLabel>
           </FormGroup>
         </FormGroup>
