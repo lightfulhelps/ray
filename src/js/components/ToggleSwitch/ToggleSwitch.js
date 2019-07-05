@@ -20,33 +20,38 @@ type Props = {
   type?: 'toggleSwitch' | 'submit' | 'reset',
 };
 
-const ToggleSwitch = ({ ...other }: Props) => {
+const ToggleSwitch = ({ onClick, isDisabled, labelRight, labelLeft, ...other }: Props) => {
   // const classes = classNames();
   // className,
 
-  // function handleClick(e: SyntheticMouseEvent<>) {
-  //   if (isDisabled) {
-  //     e.preventDefault();
-  //     return;
-  //   }
+  function handleClick(e: SyntheticMouseEvent<>) {
+    if (isDisabled) {
+      e.preventDefault();
+      return;
+    }
 
-  //   if (typeof onClick === 'function') onClick(e);
-  // }
+    if (typeof onClick === 'function') onClick(e);
+  }
 
   return (
-    <div>
-      <div className="custom-control custom-switch">
-        <input type="checkbox" className="custom-control-input" id="customSwitch1" />
-        <label className="custom-control-label" htmlFor="customSwitch1">
-          Toggle this switch element
-        </label>
+    <div {...other} className="toggle-switch-container">
+      {labelLeft && <span className="toggle-switch__label--left">{labelLeft}</span>}
+      <div>
+        <div className="custom-control custom-switch">
+          <input
+            disabled={isDisabled}
+            type="checkbox"
+            className="custom-control-input"
+            id="customSwitch1"
+          />
+          <label
+            className="custom-control-label"
+            htmlFor="customSwitch1"
+            onClick={() => handleClick()}
+          />
+        </div>
       </div>
-      <div className="custom-control custom-switch">
-        <input type="checkbox" className="custom-control-input" disabled id="customSwitch2" />
-        <label className="custom-control-label" htmlFor="customSwitch2">
-          Disabled switch element
-        </label>
-      </div>
+      {labelRight && <span className="toggle-switch__label--left">{labelRight}</span>}
     </div>
   );
 };
