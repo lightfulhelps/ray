@@ -19,8 +19,8 @@ stories.add('Default', () => (
       theme={select('Theme', themes, 'primary')}
       isDisabled={boolean('Disabled', false)}
       onClick={action('clicked')}
-      labelRight={text('Text', 'Label on the right')}
-      labelLeft={text('Text', null)}
+      labelRight={text('Label Right', 'Label on the right')}
+      labelLeft={text('Label Left', '')}
     />
   </Container>
 ));

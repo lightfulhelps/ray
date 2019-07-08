@@ -1,0 +1,28 @@
+// custom swtich/toggle
+.toggle-switch-container {
+  display: inline-flex;
+}
+
+.toggle-switch__label--left {
+  margin-right: 0.5rem;
+}
+
+// custom swtich - inactive background
+.custom-switch .custom-control-label::before {
+  background-color: $danger;
+  border: $danger;
+}
+// custom swtich - inactive switch
+.custom-switch .custom-control-label::after {
+  background-color: $white;
+}
+// custom swtich - active background
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: $success;
+  background-color: $success;
+}
+
+// custom swtich - active switch
+.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: $white;
+}
