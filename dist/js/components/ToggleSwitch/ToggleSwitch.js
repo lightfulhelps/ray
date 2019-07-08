@@ -10,22 +10,26 @@ var _react = require('react');
 
 var React = _interopRequireWildcard(_react);
 
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; } /* eslint-disable jsx-a11y/label-has-associated-control */
 
-
-// import classNames from 'classnames';
 
 var ToggleSwitch = function ToggleSwitch(_ref) {
   var onClick = _ref.onClick,
       isDisabled = _ref.isDisabled,
       labelRight = _ref.labelRight,
       labelLeft = _ref.labelLeft,
-      other = _objectWithoutProperties(_ref, ['onClick', 'isDisabled', 'labelRight', 'labelLeft']);
+      className = _ref.className,
+      other = _objectWithoutProperties(_ref, ['onClick', 'isDisabled', 'labelRight', 'labelLeft', 'className']);
 
-  // const classes = classNames();
-  // className,
+  var classes = (0, _classnames2.default)(className, 'toggle-switch-container');
 
   function handleClick(e) {
     if (isDisabled) {
@@ -38,10 +42,10 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
 
   return React.createElement(
     'div',
-    _extends({}, other, { className: 'toggle-switch-container' }),
+    _extends({}, other, { className: classes }),
     labelLeft && React.createElement(
       'span',
-      { className: 'toggle-switch__label--left' },
+      { className: 'toggle-switch__label--left font-weight-bold' },
       labelLeft
     ),
     React.createElement(
@@ -67,7 +71,7 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
     ),
     labelRight && React.createElement(
       'span',
-      { className: 'toggle-switch__label--left' },
+      { className: 'toggle-switch__label--left font-weight-bold' },
       labelRight
     )
   );

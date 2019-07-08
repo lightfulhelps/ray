@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // @flow
 import * as React from 'react';
-// import classNames from 'classnames';
+import classNames from 'classnames';
 
 type Props = {
   className?: string,
@@ -12,9 +12,15 @@ type Props = {
   theme?: string,
 };
 
-const ToggleSwitch = ({ onClick, isDisabled, labelRight, labelLeft, ...other }: Props) => {
-  // const classes = classNames();
-  // className,
+const ToggleSwitch = ({
+  onClick,
+  isDisabled,
+  labelRight,
+  labelLeft,
+  className,
+  ...other
+}: Props) => {
+  const classes = classNames(className, 'toggle-switch-container');
 
   function handleClick(e: SyntheticMouseEvent<>) {
     if (isDisabled) {
@@ -26,8 +32,10 @@ const ToggleSwitch = ({ onClick, isDisabled, labelRight, labelLeft, ...other }: 
   }
 
   return (
-    <div {...other} className="toggle-switch-container">
-      {labelLeft && <span className="toggle-switch__label--left">{labelLeft}</span>}
+    <div {...other} className={classes}>
+      {labelLeft && (
+        <span className="toggle-switch__label--left font-weight-bold">{labelLeft}</span>
+      )}
       <div>
         <div className="custom-control custom-switch">
           <input
@@ -43,7 +51,9 @@ const ToggleSwitch = ({ onClick, isDisabled, labelRight, labelLeft, ...other }: 
           />
         </div>
       </div>
-      {labelRight && <span className="toggle-switch__label--left">{labelRight}</span>}
+      {labelRight && (
+        <span className="toggle-switch__label--left font-weight-bold">{labelRight}</span>
+      )}
     </div>
   );
 };
