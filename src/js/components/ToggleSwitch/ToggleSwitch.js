@@ -2,22 +2,14 @@
 // @flow
 import * as React from 'react';
 // import classNames from 'classnames';
-// import Icon from '../Icon/Icon';
-import type { IconNameType } from '../Icon/icons';
 
 type Props = {
-  children?: React.Node,
   className?: string,
-  icon?: IconNameType,
-  iconPosition?: 'left' | 'right',
-  isBlock?: boolean,
   isDisabled?: boolean,
-  isOutline?: boolean,
+  labelLeft?: string,
+  labelRight?: string,
   onClick?: (SyntheticMouseEvent<>) => void,
-  size?: 'lg' | 'md' | 'sm',
-  tag?: string,
   theme?: string,
-  type?: 'toggleSwitch' | 'submit' | 'reset',
 };
 
 const ToggleSwitch = ({ onClick, isDisabled, labelRight, labelLeft, ...other }: Props) => {
@@ -47,7 +39,7 @@ const ToggleSwitch = ({ onClick, isDisabled, labelRight, labelLeft, ...other }: 
           <label
             className="custom-control-label"
             htmlFor="customSwitch1"
-            onClick={() => handleClick()}
+            onClick={e => handleClick(e)}
           />
         </div>
       </div>
