@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ToggleSwitch /> should render 1`] = `
+<div
+  className="toggle-switch-container"
+>
+  <div>
+    <div
+      className="custom-control custom-switch"
+    >
+      <input
+        className="custom-control-input"
+        id="customSwitch1"
+        type="checkbox"
+      />
+      <label
+        className="custom-control-label"
+        htmlFor="customSwitch1"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;
