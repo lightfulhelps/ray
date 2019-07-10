@@ -4,6 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 type Props = {
+  checked: Boolean,
   className?: string,
   isDisabled?: boolean,
   labelLeft?: string,
@@ -13,6 +14,7 @@ type Props = {
 };
 
 const ToggleSwitch = ({
+  checked,
   onClick,
   isDisabled,
   labelRight,
@@ -43,6 +45,8 @@ const ToggleSwitch = ({
             type="checkbox"
             className="custom-control-input"
             id="customSwitch1"
+            checked={checked}
+            onChange={() => null}
           />
           <label
             className="custom-control-label"

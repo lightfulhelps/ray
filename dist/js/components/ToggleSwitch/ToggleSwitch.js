@@ -22,12 +22,13 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 
 var ToggleSwitch = function ToggleSwitch(_ref) {
-  var onClick = _ref.onClick,
+  var checked = _ref.checked,
+      onClick = _ref.onClick,
       isDisabled = _ref.isDisabled,
       labelRight = _ref.labelRight,
       labelLeft = _ref.labelLeft,
       className = _ref.className,
-      other = _objectWithoutProperties(_ref, ['onClick', 'isDisabled', 'labelRight', 'labelLeft', 'className']);
+      other = _objectWithoutProperties(_ref, ['checked', 'onClick', 'isDisabled', 'labelRight', 'labelLeft', 'className']);
 
   var classes = (0, _classnames2.default)(className, 'toggle-switch-container');
 
@@ -58,7 +59,11 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
           disabled: isDisabled,
           type: 'checkbox',
           className: 'custom-control-input',
-          id: 'customSwitch1'
+          id: 'customSwitch1',
+          checked: checked,
+          onChange: function onChange() {
+            return null;
+          }
         }),
         React.createElement('label', {
           className: 'custom-control-label',
