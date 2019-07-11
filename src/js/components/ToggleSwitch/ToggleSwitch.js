@@ -7,8 +7,8 @@ type Props = {
   checked: Boolean,
   className?: string,
   isDisabled?: boolean,
-  labelLeft?: string,
-  labelRight?: string,
+  label?: string,
+  labelAlign?: string,
   onClick?: (SyntheticMouseEvent<>) => void,
   theme?: string,
 };
@@ -17,12 +17,12 @@ const ToggleSwitch = ({
   checked,
   onClick,
   isDisabled,
-  labelRight,
-  labelLeft,
+  label,
+  labelAlign,
   className,
   ...other
 }: Props) => {
-  const classes = classNames(className, 'toggle-switch-container');
+  const classes = classNames(className, labelAlign === 'left' ? 'align-label-left' : null);
 
   function handleClick(e: SyntheticMouseEvent<>) {
     if (isDisabled) {
@@ -35,29 +35,23 @@ const ToggleSwitch = ({
 
   return (
     <div {...other} className={classes}>
-      {labelLeft && (
-        <span className="toggle-switch__label--left font-weight-bold">{labelLeft}</span>
-      )}
-      <div>
-        <div className="custom-control custom-switch">
-          <input
-            disabled={isDisabled}
-            type="checkbox"
-            className="custom-control-input"
-            id="customSwitch1"
-            checked={checked}
-            onChange={() => null}
-          />
-          <label
-            className="custom-control-label"
-            htmlFor="customSwitch1"
-            onClick={e => handleClick(e)}
-          />
-        </div>
+      <div className="custom-control custom-switch">
+        <input
+          type="checkbox"
+          className="custom-control-input"
+          id="customSwitch1"
+          disabled={isDisabled}
+          checked={checked}
+          onChange={() => null}
+        />
+        <label
+          className="custom-control-label"
+          htmlFor="customSwitch1"
+          onClick={e => handleClick(e)}
+        >
+          {label}
+        </label>
       </div>
-      {labelRight && (
-        <span className="toggle-switch__label--left font-weight-bold">{labelRight}</span>
-      )}
     </div>
   );
 };

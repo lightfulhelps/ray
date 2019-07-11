@@ -6821,6 +6821,31 @@ button.bg-linkedin:focus {
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
   background-color: #fff; }
 
+/* *******Label align********* */
+.align-label-left .custom-switch {
+  padding-right: 2.25rem;
+  padding-left: unset; }
+
+.align-label-left .custom-control {
+  padding-right: 1.5rem;
+  padding-left: unset; }
+
+.align-label-left .custom-switch .custom-control-label::before {
+  left: unset;
+  right: -2.25rem; }
+
+.align-label-left .custom-control-label::before {
+  left: unset;
+  right: -1.5rem; }
+
+.align-label-left .custom-switch .custom-control-label::after {
+  left: unset;
+  right: calc(-2.25rem + 14px); }
+
+.align-label-left .custom-control-label::after {
+  right: -1.5rem;
+  left: unset; }
+
 .avatar,
 .avatar-image-wrap,
 .avatar-image {

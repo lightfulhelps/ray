@@ -26,3 +26,36 @@
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
   background-color: $white;
 }
+
+/* *******Label align********* */
+.align-label-left {
+  .custom-switch {
+    padding-right: 2.25rem;
+    padding-left: unset;
+  }
+
+  .custom-control {
+    padding-right: 1.5rem;
+    padding-left: unset;
+  }
+
+  .custom-switch .custom-control-label::before {
+    left: unset;
+    right: -2.25rem;
+  }
+
+  .custom-control-label::before {
+    left: unset;
+    right: -1.5rem;
+  }
+
+  .custom-switch .custom-control-label::after {
+    left: unset;
+    right: calc(-2.25rem + 14px);
+  }
+
+  .custom-control-label::after {
+    right: -1.5rem;
+    left: unset;
+  }
+}

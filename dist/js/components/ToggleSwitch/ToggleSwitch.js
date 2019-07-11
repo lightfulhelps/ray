@@ -25,12 +25,12 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
   var checked = _ref.checked,
       onClick = _ref.onClick,
       isDisabled = _ref.isDisabled,
-      labelRight = _ref.labelRight,
-      labelLeft = _ref.labelLeft,
+      label = _ref.label,
+      labelAlign = _ref.labelAlign,
       className = _ref.className,
-      other = _objectWithoutProperties(_ref, ['checked', 'onClick', 'isDisabled', 'labelRight', 'labelLeft', 'className']);
+      other = _objectWithoutProperties(_ref, ['checked', 'onClick', 'isDisabled', 'label', 'labelAlign', 'className']);
 
-  var classes = (0, _classnames2.default)(className, 'toggle-switch-container');
+  var classes = (0, _classnames2.default)(className, labelAlign === 'left' ? 'align-label-left' : null);
 
   function handleClick(e) {
     if (isDisabled) {
@@ -44,40 +44,30 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
   return React.createElement(
     'div',
     _extends({}, other, { className: classes }),
-    labelLeft && React.createElement(
-      'span',
-      { className: 'toggle-switch__label--left font-weight-bold' },
-      labelLeft
-    ),
     React.createElement(
       'div',
-      null,
+      { className: 'custom-control custom-switch' },
+      React.createElement('input', {
+        type: 'checkbox',
+        className: 'custom-control-input',
+        id: 'customSwitch1',
+        disabled: isDisabled,
+        checked: checked,
+        onChange: function onChange() {
+          return null;
+        }
+      }),
       React.createElement(
-        'div',
-        { className: 'custom-control custom-switch' },
-        React.createElement('input', {
-          disabled: isDisabled,
-          type: 'checkbox',
-          className: 'custom-control-input',
-          id: 'customSwitch1',
-          checked: checked,
-          onChange: function onChange() {
-            return null;
-          }
-        }),
-        React.createElement('label', {
+        'label',
+        {
           className: 'custom-control-label',
           htmlFor: 'customSwitch1',
           onClick: function onClick(e) {
             return handleClick(e);
           }
-        })
+        },
+        label
       )
-    ),
-    labelRight && React.createElement(
-      'span',
-      { className: 'toggle-switch__label--left font-weight-bold' },
-      labelRight
     )
   );
 };
