@@ -7,10 +7,17 @@
 .custom-switch .custom-control-label::before {
   background-color: $danger;
   border: $danger;
+  width: 2.85rem;
+  height: 1.5rem;
+  border-radius: 1.2rem;
 }
 // custom swtich - inactive switch
 .custom-switch .custom-control-label::after {
   background-color: $white;
+  width: calc(1.5rem - 4px);
+  height: calc(1.5rem - 4px);
+  left: calc(-2.25rem + 2px);
+  border-radius: 0.7rem;
 }
 // custom swtich - active background
 .custom-control-input:checked ~ .custom-control-label::before {
@@ -21,6 +28,7 @@
 // custom swtich - active switch
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
   background-color: $white;
+  transform: translateX(1.35rem);
 }
 
 /* *******Label align********* */
@@ -47,7 +55,7 @@
 
   .custom-switch .custom-control-label::after {
     left: unset;
-    right: calc(-2.25rem + 14px);
+    right: calc(-1.65rem + 14px);
   }
 
   .custom-control-label::after {

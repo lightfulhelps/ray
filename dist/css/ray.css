@@ -6806,17 +6806,25 @@ button.bg-linkedin:focus {
 
 .custom-switch .custom-control-label::before {
   background-color: #f25270;
-  border: #f25270; }
+  border: #f25270;
+  width: 2.85rem;
+  height: 1.5rem;
+  border-radius: 1.2rem; }
 
 .custom-switch .custom-control-label::after {
-  background-color: #fff; }
+  background-color: #fff;
+  width: calc(1.5rem - 4px);
+  height: calc(1.5rem - 4px);
+  left: calc(-2.25rem + 2px);
+  border-radius: 0.7rem; }
 
 .custom-control-input:checked ~ .custom-control-label::before {
   border-color: #27cc98;
   background-color: #27cc98; }
 
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
-  background-color: #fff; }
+  background-color: #fff;
+  transform: translateX(1.35rem); }
 
 /* *******Label align********* */
 .align-label-left .custom-switch {
@@ -6837,7 +6845,7 @@ button.bg-linkedin:focus {
 
 .align-label-left .custom-switch .custom-control-label::after {
   left: unset;
-  right: calc(-2.25rem + 14px); }
+  right: calc(-1.65rem + 14px); }
 
 .align-label-left .custom-control-label::after {
   right: -1.5rem;
