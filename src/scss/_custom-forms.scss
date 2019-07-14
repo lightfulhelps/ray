@@ -32,7 +32,6 @@
 
 // custom swtich - active switch
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
-  // background-color: $white;
   transform: translateX(1.35rem);
 }
 
