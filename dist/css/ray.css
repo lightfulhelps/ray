@@ -6804,19 +6804,28 @@ button.bg-linkedin:focus {
 .toggle-switch-container {
   display: inline-flex; }
 
+.custom-switch {
+  padding-left: 3.25rem; }
+
+.custom-control {
+  min-height: 2rem; }
+
 .custom-switch .custom-control-label::before {
   background-color: #f25270;
   border: #f25270;
   width: 2.85rem;
   height: 1.5rem;
-  border-radius: 1.2rem; }
+  border-radius: 1.2rem;
+  left: -3.25rem;
+  top: unset; }
 
 .custom-switch .custom-control-label::after {
   background-color: #fff;
   width: calc(1.5rem - 4px);
   height: calc(1.5rem - 4px);
-  left: calc(-2.25rem + 2px);
-  border-radius: 0.7rem; }
+  left: calc(-3.25rem + 2px);
+  border-radius: 0.7rem;
+  top: 2px; }
 
 .custom-control-input:checked ~ .custom-control-label::before {
   border-color: #27cc98;
@@ -6828,7 +6837,7 @@ button.bg-linkedin:focus {
 
 /* *******Label align********* */
 .align-label-left .custom-switch {
-  padding-right: 2.25rem;
+  padding-right: 3.25rem;
   padding-left: unset; }
 
 .align-label-left .custom-control {
@@ -6837,7 +6846,7 @@ button.bg-linkedin:focus {
 
 .align-label-left .custom-switch .custom-control-label::before {
   left: unset;
-  right: -2.25rem; }
+  right: -3.25rem; }
 
 .align-label-left .custom-control-label::before {
   left: unset;
@@ -6845,7 +6854,7 @@ button.bg-linkedin:focus {
 
 .align-label-left .custom-switch .custom-control-label::after {
   left: unset;
-  right: calc(-1.65rem + 14px); }
+  right: calc(-2.65rem + 14px); }
 
 .align-label-left .custom-control-label::after {
   right: -1.5rem;

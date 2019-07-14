@@ -3,6 +3,14 @@
   display: inline-flex;
 }
 
+.custom-switch {
+  padding-left: 3.25rem;
+}
+
+.custom-control {
+  min-height: 2rem;
+}
+
 // // custom swtich - inactive background
 .custom-switch .custom-control-label::before {
   background-color: $danger;
@@ -10,14 +18,17 @@
   width: 2.85rem;
   height: 1.5rem;
   border-radius: 1.2rem;
+  left: -3.25rem;
+  top: unset;
 }
 // custom swtich - inactive switch
 .custom-switch .custom-control-label::after {
   background-color: $white;
   width: calc(1.5rem - 4px);
   height: calc(1.5rem - 4px);
-  left: calc(-2.25rem + 2px);
+  left: calc(-3.25rem + 2px);
   border-radius: 0.7rem;
+  top: 2px;
 }
 // custom swtich - active background
 .custom-control-input:checked ~ .custom-control-label::before {
@@ -34,7 +45,7 @@
 /* *******Label align********* */
 .align-label-left {
   .custom-switch {
-    padding-right: 2.25rem;
+    padding-right: 3.25rem;
     padding-left: unset;
   }
 
@@ -45,7 +56,7 @@
 
   .custom-switch .custom-control-label::before {
     left: unset;
-    right: -2.25rem;
+    right: -3.25rem;
   }
 
   .custom-control-label::before {
@@ -55,7 +66,7 @@
 
   .custom-switch .custom-control-label::after {
     left: unset;
-    right: calc(-1.65rem + 14px);
+    right: calc(-2.65rem + 14px);
   }
 
   .custom-control-label::after {
