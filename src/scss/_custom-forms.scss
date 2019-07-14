@@ -23,22 +23,16 @@
 }
 // custom swtich - inactive switch
 .custom-switch .custom-control-label::after {
-  background-color: $white;
   width: calc(1.5rem - 4px);
   height: calc(1.5rem - 4px);
   left: calc(-3.25rem + 2px);
   border-radius: 0.7rem;
   top: 2px;
 }
-// custom swtich - active background
-.custom-control-input:checked ~ .custom-control-label::before {
-  border-color: $success;
-  background-color: $success;
-}
 
 // custom swtich - active switch
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
-  background-color: $white;
+  // background-color: $white;
   transform: translateX(1.35rem);
 }
 

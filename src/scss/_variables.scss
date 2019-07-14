@@ -250,3 +250,14 @@ $tag-font-size: 100%; // Ray
 // Ghosts
 
 $ghost-base-height: $spacer * 0.9;
+
+// Custom forms
+
+$custom-control-indicator-checked-color: $success;
+$custom-control-indicator-checked-border-color: $success;
+$custom-control-indicator-checked-bg: $success;
+$custom-control-indicator-focus-border-color: $danger;
+$custom-control-indicator-bg: $danger;
+$custom-checkbox-indicator-indeterminate-border-color: $danger;
+$custom-control-indicator-border-color: $white;
+$custom-control-indicator-bg: $white;
