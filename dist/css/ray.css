@@ -6808,7 +6808,7 @@ button.bg-linkedin:focus {
   padding-left: 3.25rem; }
 
 .custom-control {
-  min-height: 2rem; }
+  min-height: 1.7rem; }
 
 .custom-switch .custom-control-label::before {
   background-color: #f25270;
