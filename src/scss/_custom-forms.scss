@@ -43,7 +43,7 @@
   }
 
   .custom-control {
-    padding-right: 1.5rem;
+    padding-right: 3.25rem;
     padding-left: unset;
   }
 
@@ -54,7 +54,7 @@
 
   .custom-control-label::before {
     left: unset;
-    right: -1.5rem;
+    right: -3.25rem;
   }
 
   .custom-switch .custom-control-label::after {
@@ -63,7 +63,7 @@
   }
 
   .custom-control-label::after {
-    right: -1.5rem;
+    right: -3.25rem;
     left: unset;
   }
 }

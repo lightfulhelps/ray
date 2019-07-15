@@ -6835,7 +6835,7 @@ button.bg-linkedin:focus {
   padding-left: unset; }
 
 .align-label-left .custom-control {
-  padding-right: 1.5rem;
+  padding-right: 3.25rem;
   padding-left: unset; }
 
 .align-label-left .custom-switch .custom-control-label::before {
@@ -6844,14 +6844,14 @@ button.bg-linkedin:focus {
 
 .align-label-left .custom-control-label::before {
   left: unset;
-  right: -1.5rem; }
+  right: -3.25rem; }
 
 .align-label-left .custom-switch .custom-control-label::after {
   left: unset;
   right: calc(-2.65rem + 14px); }
 
 .align-label-left .custom-control-label::after {
-  right: -1.5rem;
+  right: -3.25rem;
   left: unset; }
 
 .avatar,
