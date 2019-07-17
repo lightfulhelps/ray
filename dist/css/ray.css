@@ -1161,12 +1161,7 @@ textarea.form-control {
   border-radius: 0.625rem; }
 
 .was-validated .form-control:valid, .form-control.is-valid {
-  border-color: #27cc98;
-  padding-right: calc(1em + 1.875rem);
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2327cc98' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: center right calc(0.25em + 0.46875rem);
-  background-size: calc(0.5em + 0.9375rem) calc(0.5em + 0.9375rem); }
+  border-color: #27cc98; }
   .was-validated .form-control:valid:focus, .form-control.is-valid:focus {
     border-color: #27cc98;
     box-shadow: 0 0 0 0.2rem rgba(39, 204, 152, 0.25); }
@@ -1175,14 +1170,8 @@ textarea.form-control {
   .form-control.is-valid ~ .valid-tooltip {
     display: block; }
 
-.was-validated textarea.form-control:valid, textarea.form-control.is-valid {
-  padding-right: calc(1em + 1.875rem);
-  background-position: top calc(0.25em + 0.46875rem) right calc(0.25em + 0.46875rem); }
-
 .was-validated .custom-select:valid, .custom-select.is-valid {
-  border-color: #27cc98;
-  padding-right: calc((1em + 1.875rem) * 3 / 4 + 2.25rem);
-  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 1.25rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2327cc98' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") #fff no-repeat center right 2.25rem/calc(0.5em + 0.9375rem) calc(0.5em + 0.9375rem); }
+  border-color: #27cc98; }
   .was-validated .custom-select:valid:focus, .custom-select.is-valid:focus {
     border-color: #27cc98;
     box-shadow: 0 0 0 0.2rem rgba(39, 204, 152, 0.25); }
@@ -1258,12 +1247,7 @@ textarea.form-control {
   border-radius: 0.625rem; }
 
 .was-validated .form-control:invalid, .form-control.is-invalid {
-  border-color: #f25270;
-  padding-right: calc(1em + 1.875rem);
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23f25270' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23f25270' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center right calc(0.25em + 0.46875rem);
-  background-size: calc(0.5em + 0.9375rem) calc(0.5em + 0.9375rem); }
+  border-color: #f25270; }
   .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
     border-color: #f25270;
     box-shadow: 0 0 0 0.2rem rgba(242, 82, 112, 0.25); }
@@ -1272,14 +1256,8 @@ textarea.form-control {
   .form-control.is-invalid ~ .invalid-tooltip {
     display: block; }
 
-.was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
-  padding-right: calc(1em + 1.875rem);
-  background-position: top calc(0.25em + 0.46875rem) right calc(0.25em + 0.46875rem); }
-
 .was-validated .custom-select:invalid, .custom-select.is-invalid {
-  border-color: #f25270;
-  padding-right: calc((1em + 1.875rem) * 3 / 4 + 2.25rem);
-  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 1.25rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23f25270' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23f25270' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E") #fff no-repeat center right 2.25rem/calc(0.5em + 0.9375rem) calc(0.5em + 0.9375rem); }
+  border-color: #f25270; }
   .was-validated .custom-select:invalid:focus, .custom-select.is-invalid:focus {
     border-color: #f25270;
     box-shadow: 0 0 0 0.2rem rgba(242, 82, 112, 0.25); }
