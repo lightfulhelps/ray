@@ -23,14 +23,17 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 var ToggleSwitch = function ToggleSwitch(_ref) {
   var checked = _ref.checked,
-      onClick = _ref.onClick,
+      className = _ref.className,
+      _ref$id = _ref.id,
+      id = _ref$id === undefined ? 'toggle-switch' : _ref$id,
       isDisabled = _ref.isDisabled,
       label = _ref.label,
       labelAlign = _ref.labelAlign,
-      className = _ref.className,
-      other = _objectWithoutProperties(_ref, ['checked', 'onClick', 'isDisabled', 'label', 'labelAlign', 'className']);
+      onChange = _ref.onChange,
+      onClick = _ref.onClick,
+      other = _objectWithoutProperties(_ref, ['checked', 'className', 'id', 'isDisabled', 'label', 'labelAlign', 'onChange', 'onClick']);
 
-  var classes = (0, _classnames2.default)(className, labelAlign === 'left' ? 'align-label-left' : null);
+  var classes = (0, _classnames2.default)(className, 'custom-control custom-switch', labelAlign === 'left' ? 'custom-switch-left' : null);
 
   function handleClick(e) {
     if (isDisabled) {
@@ -44,30 +47,18 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
   return React.createElement(
     'div',
     _extends({}, other, { className: classes }),
+    React.createElement('input', {
+      type: 'checkbox',
+      className: 'custom-control-input',
+      id: id,
+      disabled: isDisabled,
+      checked: checked,
+      onChange: onChange
+    }),
     React.createElement(
-      'div',
-      { className: 'custom-control custom-switch' },
-      React.createElement('input', {
-        type: 'checkbox',
-        className: 'custom-control-input',
-        id: 'customSwitch1',
-        disabled: isDisabled,
-        checked: checked,
-        onChange: function onChange() {
-          return null;
-        }
-      }),
-      React.createElement(
-        'label',
-        {
-          className: 'custom-control-label',
-          htmlFor: 'customSwitch1',
-          onClick: function onClick(e) {
-            return handleClick(e);
-          }
-        },
-        label
-      )
+      'label',
+      { className: 'custom-control-label', htmlFor: id, onClick: handleClick },
+      label
     )
   );
 };

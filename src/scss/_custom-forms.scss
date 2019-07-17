@@ -1,69 +1,38 @@
-// custom swtich/toggle
-.toggle-switch-container {
-  display: inline-flex;
-}
+// Switches
 
 .custom-switch {
-  padding-left: 3.25rem;
+  .custom-control-input:checked ~ .custom-control-label {
+    &::after {
+      background-color: $custom-control-indicator-border-color;
+    }
+  }
 }
 
-.custom-control {
-  min-height: 1.7rem;
-}
+// Left aligned label
 
-// // custom swtich - inactive background
-.custom-switch .custom-control-label::before {
-  background-color: $danger;
-  border: $danger;
-  width: 2.85rem;
-  height: 1.5rem;
-  border-radius: 1.2rem;
-  left: -3.25rem;
-  top: unset;
-}
-// custom swtich - inactive switch
-.custom-switch .custom-control-label::after {
-  width: calc(1.5rem - 4px);
-  height: calc(1.5rem - 4px);
-  left: calc(-3.25rem + 2px);
-  border-radius: 0.7rem;
-  top: 2px;
-}
+.custom-switch-left {
+  padding-right: $custom-switch-width + $custom-control-gutter;
+  padding-left: unset;
 
-// custom swtich - active switch
-.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
-  transform: translateX(1.35rem);
-}
+  .custom-control-label {
+    &::before {
+      left: unset;
+      right: -($custom-switch-width + $custom-control-gutter);
+    }
 
-/* *******Label align********* */
-.align-label-left {
-  .custom-switch {
-    padding-right: 3.25rem;
-    padding-left: unset;
+    &::after {
+      left: unset;
+      right: calc(
+        #{- ($custom-switch-width + $custom-control-gutter)} + #{$custom-control-indicator-border-width *
+          2}
+      );
+      transform: translateX(-$custom-switch-width + $custom-control-indicator-size);
+    }
   }
 
-  .custom-control {
-    padding-right: 3.25rem;
-    padding-left: unset;
-  }
-
-  .custom-switch .custom-control-label::before {
-    left: unset;
-    right: -3.25rem;
-  }
-
-  .custom-control-label::before {
-    left: unset;
-    right: -3.25rem;
-  }
-
-  .custom-switch .custom-control-label::after {
-    left: unset;
-    right: calc(-2.65rem + 14px);
-  }
-
-  .custom-control-label::after {
-    right: -3.25rem;
-    left: unset;
+  .custom-control-input:checked ~ .custom-control-label {
+    &::after {
+      transform: translateX(0);
+    }
   }
 }

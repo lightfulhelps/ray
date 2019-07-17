@@ -1,94 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ToggleSwitch /> should reder label on the left is labelAlign prop is set to left 1`] = `
-<div
-  className="align-label-left"
->
-  <div
-    className="custom-control custom-switch"
-  >
-    <input
-      className="custom-control-input"
-      id="customSwitch1"
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <label
-      className="custom-control-label"
-      htmlFor="customSwitch1"
-      onClick={[Function]}
-    >
-      this is a label
-    </label>
-  </div>
-</div>
-`;
-
 exports[`<ToggleSwitch /> should render 1`] = `
 <div
-  className=""
+  className="custom-control custom-switch"
 >
-  <div
-    className="custom-control custom-switch"
-  >
-    <input
-      className="custom-control-input"
-      id="customSwitch1"
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <label
-      className="custom-control-label"
-      htmlFor="customSwitch1"
-      onClick={[Function]}
-    />
-  </div>
+  <input
+    className="custom-control-input"
+    id="toggle-switch"
+    type="checkbox"
+  />
+  <label
+    className="custom-control-label"
+    htmlFor="toggle-switch"
+    onClick={[Function]}
+  />
 </div>
 `;
 
 exports[`<ToggleSwitch /> should render label 1`] = `
 <div
-  className=""
+  className="custom-control custom-switch"
 >
-  <div
-    className="custom-control custom-switch"
+  <input
+    className="custom-control-input"
+    id="toggle-switch"
+    type="checkbox"
+  />
+  <label
+    className="custom-control-label"
+    htmlFor="toggle-switch"
+    onClick={[Function]}
   >
-    <input
-      className="custom-control-input"
-      id="customSwitch1"
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <label
-      className="custom-control-label"
-      htmlFor="customSwitch1"
-      onClick={[Function]}
-    >
-      this is a label
-    </label>
-  </div>
-</div>
-`;
-
-exports[`<ToggleSwitch /> should set disabled attribute to true if isDisabled prop is specified 1`] = `
-<div
-  className=""
->
-  <div
-    className="custom-control custom-switch"
-  >
-    <input
-      className="custom-control-input"
-      disabled={true}
-      id="customSwitch1"
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <label
-      className="custom-control-label"
-      htmlFor="customSwitch1"
-      onClick={[Function]}
-    />
-  </div>
+    this is a label
+  </label>
 </div>
 `;

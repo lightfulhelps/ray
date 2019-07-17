@@ -6,23 +6,30 @@ import classNames from 'classnames';
 type Props = {
   checked: Boolean,
   className?: string,
+  id?: string,
   isDisabled?: boolean,
   label?: string,
   labelAlign?: string,
+  onChange?: () => void,
   onClick?: (SyntheticMouseEvent<>) => void,
-  theme?: string,
 };
 
 const ToggleSwitch = ({
   checked,
-  onClick,
+  className,
+  id = 'toggle-switch',
   isDisabled,
   label,
   labelAlign,
-  className,
+  onChange,
+  onClick,
   ...other
 }: Props) => {
-  const classes = classNames(className, labelAlign === 'left' ? 'align-label-left' : null);
+  const classes = classNames(
+    className,
+    'custom-control custom-switch',
+    labelAlign === 'left' ? 'custom-switch-left' : null
+  );
 
   function handleClick(e: SyntheticMouseEvent<>) {
     if (isDisabled) {
@@ -35,23 +42,17 @@ const ToggleSwitch = ({
 
   return (
     <div {...other} className={classes}>
-      <div className="custom-control custom-switch">
-        <input
-          type="checkbox"
-          className="custom-control-input"
-          id="customSwitch1"
-          disabled={isDisabled}
-          checked={checked}
-          onChange={() => null}
-        />
-        <label
-          className="custom-control-label"
-          htmlFor="customSwitch1"
-          onClick={e => handleClick(e)}
-        >
-          {label}
-        </label>
-      </div>
+      <input
+        type="checkbox"
+        className="custom-control-input"
+        id={id}
+        disabled={isDisabled}
+        checked={checked}
+        onChange={onChange}
+      />
+      <label className="custom-control-label" htmlFor={id} onClick={handleClick}>
+        {label}
+      </label>
     </div>
   );
 };

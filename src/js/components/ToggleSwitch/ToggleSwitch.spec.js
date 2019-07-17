@@ -16,7 +16,6 @@ const setup = (overrides = {}) => {
 describe('<ToggleSwitch />', () => {
   it('should render', () => {
     const { wrapper } = setup();
-
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -24,17 +23,34 @@ describe('<ToggleSwitch />', () => {
     const { wrapper } = setup({ label: 'this is a label' });
     expect(wrapper).toMatchSnapshot();
   });
-  it('should reder label on the left is labelAlign prop is set to left', () => {
+
+  it('should render label on the left is labelAlign prop is set to left', () => {
     const { wrapper } = setup({ label: 'this is a label', labelAlign: 'left' });
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.hasClass('custom-switch-left')).toBe(true);
   });
+
   it('should set disabled attribute to true if isDisabled prop is specified', () => {
     const { wrapper } = setup({ isDisabled: true });
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('input').prop('disabled')).toBe(true);
   });
+
   it('should handle onClick events', () => {
     const { wrapper, props } = setup({ onClick: jest.fn() });
     wrapper.find('label').simulate('click');
     expect(props.onClick).toHaveBeenCalled();
+  });
+
+  it('should not call onClick if isDisabled', () => {
+    const preventDefault = jest.fn();
+    const { wrapper, props } = setup({ onClick: jest.fn(), isDisabled: true });
+    wrapper.find('label').simulate('click', { preventDefault });
+    expect(preventDefault).toHaveBeenCalled();
+    expect(props.onClick).not.toHaveBeenCalled();
+  });
+
+  it('should handle onChange events', () => {
+    const { wrapper, props } = setup({ onChange: jest.fn() });
+    wrapper.find('input').simulate('change', { foo: 'bar' });
+    expect(props.onChange).toHaveBeenCalledWith({ foo: 'bar' });
   });
 });
