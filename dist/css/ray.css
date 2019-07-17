@@ -2169,7 +2169,7 @@ input[type="button"].btn-block {
     pointer-events: none;
     content: "";
     background-color: #f25270;
-    border: #fff solid 1px; }
+    border: #f25270 solid 1px; }
   .custom-control-label::after {
     position: absolute;
     top: 0.125rem;
@@ -2220,7 +2220,7 @@ input[type="button"].btn-block {
     left: calc(-3rem + 2px);
     width: calc(1.25rem - 4px);
     height: calc(1.25rem - 4px);
-    background-color: #fff;
+    background-color: #f25270;
     border-radius: 0.625rem;
     transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
     @media (prefers-reduced-motion: reduce) {
@@ -6778,6 +6778,9 @@ button.bg-linkedin:focus {
 .text-uppercase, .post-card__campaign, .post-card__metric {
   text-transform: uppercase !important;
   letter-spacing: 0.04em !important; }
+
+.custom-switch .custom-control-label::after {
+  background-color: #fff; }
 
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
   background-color: #fff; }

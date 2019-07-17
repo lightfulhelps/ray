@@ -1,9 +1,15 @@
 // Switches
 
 .custom-switch {
+  .custom-control-label {
+    &::after {
+      background-color: $custom-switch-indicator-bg;
+    }
+  }
+
   .custom-control-input:checked ~ .custom-control-label {
     &::after {
-      background-color: $custom-control-indicator-border-color;
+      background-color: $custom-switch-indicator-bg;
     }
   }
 }

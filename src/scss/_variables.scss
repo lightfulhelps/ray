@@ -255,9 +255,10 @@ $ghost-base-height: $spacer * 0.9;
 // Custom forms
 
 $custom-control-indicator-bg: $danger;
-$custom-control-indicator-border-color: $white;
+$custom-control-indicator-border-color: $danger;
 $custom-control-indicator-checked-bg: $success;
 $custom-control-indicator-focus-border-color: $danger;
 
 $custom-control-indicator-size: $spacer * 2;
 $custom-switch-width: $spacer * 4;
+$custom-switch-indicator-bg: $white;
