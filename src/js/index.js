@@ -32,3 +32,4 @@ export { default as Stepper } from './components/Stepper/Stepper';
 export { default as Table } from './components/Table/Table';
 export { default as Tag } from './components/Tag/Tag';
 export { default as URLMetaPreview } from './components/URLMetaPreview/URLMetaPreview';
+export { default as ToggleSwitch } from './components/ToggleSwitch/ToggleSwitch';

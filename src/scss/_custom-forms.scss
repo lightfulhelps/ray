@@ -1,0 +1,44 @@
+// Switches
+
+.custom-switch {
+  .custom-control-label {
+    &::after {
+      background-color: $custom-switch-indicator-bg;
+    }
+  }
+
+  .custom-control-input:checked ~ .custom-control-label {
+    &::after {
+      background-color: $custom-switch-indicator-bg;
+    }
+  }
+}
+
+// Left aligned label
+
+.custom-switch-left {
+  padding-right: $custom-switch-width + $custom-control-gutter;
+  padding-left: unset;
+
+  .custom-control-label {
+    &::before {
+      left: unset;
+      right: -($custom-switch-width + $custom-control-gutter);
+    }
+
+    &::after {
+      left: unset;
+      right: calc(
+        #{- ($custom-switch-width + $custom-control-gutter)} + #{$custom-control-indicator-border-width *
+          2}
+      );
+      transform: translateX(-$custom-switch-width + $custom-control-indicator-size);
+    }
+  }
+
+  .custom-control-input:checked ~ .custom-control-label {
+    &::after {
+      transform: translateX(0);
+    }
+  }
+}
