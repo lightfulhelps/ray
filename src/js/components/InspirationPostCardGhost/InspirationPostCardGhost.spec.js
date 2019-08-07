@@ -1,16 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
-import PostCardGhost from './PostCardGhost';
+import InspirationPostCardGhost from './InspirationPostCardGhost';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
-  const wrapper = shallow(<PostCardGhost {...props} />);
+  const wrapper = shallow(<InspirationPostCardGhost {...props} />);
 
   return { wrapper, props };
 };
 
-describe('<PostCardGhost />', () => {
+describe('<InspirationPostCardGhost />', () => {
   it('should render', () => {
     const { wrapper } = setup();
 

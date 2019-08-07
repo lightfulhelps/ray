@@ -211,21 +211,21 @@ Object.defineProperty(exports, 'NavLink', {
   }
 });
 
-var _PostCard = require('./components/PostCard/PostCard');
+var _InspirationPostCard = require('./components/InspirationPostCard/InspirationPostCard');
 
-Object.defineProperty(exports, 'PostCard', {
+Object.defineProperty(exports, 'InspirationPostCard', {
   enumerable: true,
   get: function get() {
-    return _interopRequireDefault(_PostCard).default;
+    return _interopRequireDefault(_InspirationPostCard).default;
   }
 });
 
-var _PostCardGhost = require('./components/PostCardGhost/PostCardGhost');
+var _InspirationPostCardGhost = require('./components/InspirationPostCardGhost/InspirationPostCardGhost');
 
-Object.defineProperty(exports, 'PostCardGhost', {
+Object.defineProperty(exports, 'InspirationPostCardGhost', {
   enumerable: true,
   get: function get() {
-    return _interopRequireDefault(_PostCardGhost).default;
+    return _interopRequireDefault(_InspirationPostCardGhost).default;
   }
 });
 

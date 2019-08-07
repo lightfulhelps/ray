@@ -1,14 +1,14 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import { Card } from '../../';
+import { Card } from '../..';
 
 type Props = {
   className?: string,
   isLoading?: boolean,
 };
 
-const PostCardGhost = ({ className, isLoading, ...other }: Props) => {
+const InspirationPostCardGhost = ({ className, isLoading, ...other }: Props) => {
   const classes = classNames(className, 'post-card-ghost', 'bg-gray-200 border-0 overflow-hidden', {
     loading: isLoading,
   });
@@ -36,4 +36,4 @@ const PostCardGhost = ({ className, isLoading, ...other }: Props) => {
   );
 };
 
-export default PostCardGhost;
+export default InspirationPostCardGhost;

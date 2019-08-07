@@ -2,11 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, text, date, color, select } from '@storybook/addon-knobs';
-import { Container, Row, Col, PostCard, PostCardGhost, Button } from '../';
+import { Container, Row, Col, InspirationPostCard, InspirationPostCardGhost, Button } from '..';
 
 import '../../scss/ray.scss';
 
-const stories = storiesOf('PostCard', module);
+const stories = storiesOf('InspirationPostCard', module);
 const defaultDate = new Date();
 
 const socialProviders = {
@@ -175,16 +175,16 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">PostCard.</h1>
+    <h1 className="my-4">InspirationPostCard.</h1>
     <Row>
       <Col className="mb-2" md={6} lg={4}>
-        <PostCard {...scheduledPost} errors={[]} />
+        <InspirationPostCard {...scheduledPost} errors={[]} />
       </Col>
       <Col className="mb-2" md={6} lg={4}>
-        <PostCard {...scheduledPost} />
+        <InspirationPostCard {...scheduledPost} />
       </Col>
       <Col className="mb-2" md={6} lg={4}>
-        <PostCard {...scheduledPost} errors={[]} />
+        <InspirationPostCard {...scheduledPost} errors={[]} />
       </Col>
     </Row>
   </Container>
@@ -192,16 +192,16 @@ stories.add('Default', () => (
 
 stories.add('With Approval Button', () => (
   <Container>
-    <h1 className="my-4">PostCard.</h1>
+    <h1 className="my-4">InspirationPostCard.</h1>
     <Row>
       <Col className="mb-2" md={6} lg={4}>
-        <PostCard {...approvalQueuePost} />
+        <InspirationPostCard {...approvalQueuePost} />
       </Col>
       <Col className="mb-2" md={6} lg={4}>
-        <PostCard {...approvalQueuePost} />
+        <InspirationPostCard {...approvalQueuePost} />
       </Col>
       <Col className="mb-2" md={6} lg={4}>
-        <PostCard {...approvalQueuePost} />
+        <InspirationPostCard {...approvalQueuePost} />
       </Col>
     </Row>
   </Container>
@@ -209,16 +209,16 @@ stories.add('With Approval Button', () => (
 
 stories.add('With Action Icons', () => (
   <Container>
-    <h1 className="my-4">PostCard.</h1>
+    <h1 className="my-4">InspirationPostCard.</h1>
     <Row>
       <Col className="mb-2" md={6} lg={4}>
-        <PostCard {...inspirationPost} />
+        <InspirationPostCard {...inspirationPost} />
       </Col>
       <Col className="mb-2" md={6} lg={4}>
-        <PostCard {...inspirationPost} />
+        <InspirationPostCard {...inspirationPost} />
       </Col>
       <Col className="mb-2" md={6} lg={4}>
-        <PostCard {...inspirationPost} />
+        <InspirationPostCard {...inspirationPost} />
       </Col>
     </Row>
   </Container>
@@ -226,16 +226,16 @@ stories.add('With Action Icons', () => (
 
 stories.add('Ghost', () => (
   <Container>
-    <h1 className="my-4">PostCardGhost.</h1>
+    <h1 className="my-4">InspirationPostCardGhost.</h1>
     <Row>
       <Col className="mb-2" md={6} lg={4}>
-        <PostCardGhost />
+        <InspirationPostCardGhost />
       </Col>
       <Col className="mb-2" md={6} lg={4}>
-        <PostCardGhost />
+        <InspirationPostCardGhost />
       </Col>
       <Col className="mb-2" md={6} lg={4}>
-        <PostCardGhost />
+        <InspirationPostCardGhost />
       </Col>
     </Row>
   </Container>

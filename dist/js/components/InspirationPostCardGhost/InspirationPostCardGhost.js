@@ -14,7 +14,7 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _ = require('../../');
+var _ = require('../..');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,7 +22,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-var PostCardGhost = function PostCardGhost(_ref) {
+var InspirationPostCardGhost = function InspirationPostCardGhost(_ref) {
   var className = _ref.className,
       isLoading = _ref.isLoading,
       other = _objectWithoutProperties(_ref, ['className', 'isLoading']);
@@ -60,4 +60,4 @@ var PostCardGhost = function PostCardGhost(_ref) {
   );
 };
 
-exports.default = PostCardGhost;
+exports.default = InspirationPostCardGhost;
