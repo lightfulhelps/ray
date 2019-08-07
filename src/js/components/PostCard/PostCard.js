@@ -9,7 +9,11 @@ type Props = {
 const PostCard = ({ className, ...other }: Props) => {
   const classes = classNames(className, 'post-card');
 
-  return <div {...other} className={classes} />;
+  return (
+    <div {...other} className={classes}>
+      Post card
+    </div>
+  );
 };
 
 export default PostCard;
