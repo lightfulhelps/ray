@@ -2,22 +2,18 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Avatar, Badge, Col, Row, Icon, Tag, Button } from '../..';
-
+import isFuture from 'date-fns/is_future';
+import formatDate from 'date-fns/format';
 type Props = {
   className?: string,
 };
 
-// const PostCard = ({ className, ...other }: Props) => {
-//   const classes = classNames(className, 'post-card');
-
-//   return (
-//     <div {...other} className={classes}>
-//       Post card
-//     </div>
-//   );
-// };
-
-const PostCard = ({ postContent, editButtonOnClick, postType }) => {
+const PostCard = ({
+  postContent,
+  editButtonOnClick,
+  postType,
+  dateFormat = 'D MMM YY [-] HH:mm',
+}) => {
   const { externalConnection, media, content, post } = postContent;
   console.log('TCL: PostCard -> postContent', postContent);
   const getPostType = () => {
@@ -44,31 +40,15 @@ const PostCard = ({ postContent, editButtonOnClick, postType }) => {
             style={{ width: '50px', height: '50px' }}
           />
         </Col>
-        <Col sm={2}>
-          <div
-            style={{
-              backgroundImage: `url(${media.nodes[0] && media.nodes[0].mediaByMediaId.url})`,
-              height: '100%',
-              width: '100%',
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
-            }}
-            className="rounded-sm"
-          />
-        </Col>
 
         <Col sm={9}>
           <div className="h-100 d-flex flex-column justify-content-between align-items-start">
             <div className="d-flex flex-direction-column justify-content-between w-100">
               <div className="d-flex align-items-center">
-                <Badge className="font-weight-bold mr-1" theme={getPostType().theme}>
-                  {getPostType().label}
-                </Badge>
-                <Icon name="user" />
-                <span className="small">Created by {post.user.displayName}</span>
+                <div>
+                  <h5>{post.date ? formatDate(post.date, dateFormat) : 'Unscheduled'}</h5>
+                </div>
               </div>
-              {postType === 'scheduled' && <Icon name="link" />}
             </div>
 
             <div className="d-flex flex-column align-items-start py-1">{content}</div>
@@ -81,6 +61,19 @@ const PostCard = ({ postContent, editButtonOnClick, postType }) => {
                 ))}
             </div>
           </div>
+        </Col>
+        <Col sm={2}>
+          <div
+            style={{
+              backgroundImage: `url(${media.nodes[0] && media.nodes[0].mediaByMediaId.url})`,
+              height: '100%',
+              width: '100%',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+            }}
+            className="rounded-sm"
+          />
         </Col>
       </Row>
       <div className="d-flex justify-content-between p-1 border-top align-items-center">
