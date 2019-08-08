@@ -5,13 +5,14 @@ exports[`<Collapse /> should render 1`] = `
   className=""
 >
   <div
-    className="h5 cursor-pointer"
+    className="h6 cursor-pointer"
     data-test-id="collapse-toggle"
     onClick={[Function]}
   >
     Click me
      
     <Icon
+      isActive={true}
       name="chevronDown"
       theme="gray-600"
     />
