@@ -22,7 +22,7 @@ stories.add('Default', () => {
 
   return (
     <Container>
-      <h1 className="my-4">Stepper.</h1>
+      <h1 className="my-4">Stepper</h1>
       <div className="mb-4">
         <State store={store}>{state => <Stepper steps={steps} activeStep={state.step} />}</State>
       </div>

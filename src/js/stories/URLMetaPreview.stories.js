@@ -11,7 +11,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">URLMetaPreview.</h1>
+    <h1 className="my-4">URLMetaPreview</h1>
     <Row>
       <Col xs={4}>
         <URLMetaPreview
