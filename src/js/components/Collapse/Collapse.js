@@ -6,6 +6,7 @@ import { Icon } from '../../';
 type Props = {
   children: React.Node,
   className?: string,
+  defaultOpen?: boolean,
   label: string,
 };
 
@@ -15,7 +16,7 @@ type State = {
 
 class Collapse extends React.Component<Props, State> {
   state = {
-    isOpen: false,
+    isOpen: !!this.props.defaultOpen,
   };
 
   handleToggle = () => {

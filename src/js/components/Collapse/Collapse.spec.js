@@ -79,4 +79,10 @@ describe('<Collapse />', () => {
         .prop('name')
     ).toEqual('chevronDown');
   });
+
+  it('should be open if defaultOpen is true', () => {
+    const { wrapper } = setup({ defaultOpen: true });
+
+    expect(wrapper.find('[data-test-id="collapse-children"]')).toHaveLength(1);
+  });
 });

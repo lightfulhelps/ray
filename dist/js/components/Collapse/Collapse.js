@@ -51,7 +51,7 @@ var Collapse = (_temp2 = _class = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Collapse.__proto__ || Object.getPrototypeOf(Collapse)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      isOpen: false
+      isOpen: !!_this.props.defaultOpen
     }, _this.handleToggle = function () {
       _this.setState(function (prevState) {
         return { isOpen: !prevState.isOpen };
@@ -76,13 +76,13 @@ var Collapse = (_temp2 = _class = function (_React$Component) {
         React.createElement(
           'div',
           {
-            className: 'h5 cursor-pointer',
+            className: 'h6 cursor-pointer',
             'data-test-id': 'collapse-toggle',
             onClick: this.handleToggle
           },
           label,
           ' ',
-          React.createElement(_.Icon, { theme: 'gray-600', name: this.state.isOpen ? 'chevronUp' : 'chevronDown' })
+          React.createElement(_.Icon, { isActive: true, theme: 'gray-600', name: this.state.isOpen ? 'chevronUp' : 'chevronDown' })
         ),
         this.state.isOpen && React.createElement(
           'div',
@@ -97,6 +97,7 @@ var Collapse = (_temp2 = _class = function (_React$Component) {
 }(React.Component), _class.propTypes = {
   children: _propTypes2.default.node.isRequired,
   className: _propTypes2.default.string,
+  defaultOpen: _propTypes2.default.bool,
   label: _propTypes2.default.string.isRequired
 }, _temp2);
 exports.default = Collapse;

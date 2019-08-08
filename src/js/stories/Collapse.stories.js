@@ -19,7 +19,7 @@ stories.add('Default', () => (
           to change it&rsuo;s appearance. Here they are also displayed inside a Card component.
         </p>
         <Card className="shadow p-2">
-          <Collapse className="pb-1 mb-1 border-bottom" label="Social profiles">
+          <Collapse className="pb-1 mb-1 border-bottom" defaultOpen label="Social profiles">
             <div>
               Commodo lectus a VHS urna vivamus mattis quisque VHS porttitor enim lectus rutrum
               organic eu sodales. Mauris nam +1 massa massa diam sapien San Francisco auctor mauris
