@@ -220,6 +220,15 @@ Object.defineProperty(exports, 'NavLink', {
   }
 });
 
+var _PostCard = require('./components/PostCard/PostCard');
+
+Object.defineProperty(exports, 'PostCard', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_PostCard).default;
+  }
+});
+
 var _InspirationPostCard = require('./components/InspirationPostCard/InspirationPostCard');
 
 Object.defineProperty(exports, 'InspirationPostCard', {

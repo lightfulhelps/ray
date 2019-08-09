@@ -69,7 +69,7 @@ var InspirationPostCard = function InspirationPostCard(_ref) {
       post = _ref.post,
       other = _objectWithoutProperties(_ref, ['actions', 'className', 'dateFormat', 'errors', 'footerButton', 'inspirationActions', 'isDraft', 'isInvalid', 'metaPreview', 'post']);
 
-  var blockClass = 'post-card';
+  var blockClass = 'inspiration-post-card';
   var classes = (0, _classnames2.default)(className, blockClass, _defineProperty({}, blockClass + '--draft', isDraft), _defineProperty({}, blockClass + '--invalid', isInvalid));
   var showMetaPreview = (!post.media || post.media && post.media.length === 0) && metaPreview && metaPreview.url;
   var showMediaEmpty = post.media && post.media.length === 0 && (!metaPreview || metaPreview && !metaPreview.url);

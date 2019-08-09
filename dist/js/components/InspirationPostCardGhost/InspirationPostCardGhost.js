@@ -27,7 +27,7 @@ var InspirationPostCardGhost = function InspirationPostCardGhost(_ref) {
       isLoading = _ref.isLoading,
       other = _objectWithoutProperties(_ref, ['className', 'isLoading']);
 
-  var classes = (0, _classnames2.default)(className, 'post-card-ghost', 'bg-gray-200 border-0 overflow-hidden', {
+  var classes = (0, _classnames2.default)(className, 'inspiration-post-card-ghost', 'bg-gray-200 border-0 overflow-hidden', {
     loading: isLoading
   });
 
