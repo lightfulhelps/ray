@@ -13,7 +13,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">Icons.</h1>
+    <h1 className="my-4">Icons</h1>
     <Row>
       <Col>
         <div className="bg-white py-4 shadow">

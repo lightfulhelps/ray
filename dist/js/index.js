@@ -67,6 +67,15 @@ Object.defineProperty(exports, 'Col', {
   }
 });
 
+var _Collapse = require('./components/Collapse/Collapse');
+
+Object.defineProperty(exports, 'Collapse', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Collapse).default;
+  }
+});
+
 var _Container = require('./components/Container/Container');
 
 Object.defineProperty(exports, 'Container', {

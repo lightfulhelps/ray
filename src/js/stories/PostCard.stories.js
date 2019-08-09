@@ -175,7 +175,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">PostCard.</h1>
+    <h1 className="my-4">PostCard</h1>
     <Row>
       <Col className="mb-2" md={6} lg={4}>
         <PostCard {...scheduledPost} errors={[]} />
@@ -192,7 +192,7 @@ stories.add('Default', () => (
 
 stories.add('With Approval Button', () => (
   <Container>
-    <h1 className="my-4">PostCard.</h1>
+    <h1 className="my-4">PostCard</h1>
     <Row>
       <Col className="mb-2" md={6} lg={4}>
         <PostCard {...approvalQueuePost} />
@@ -209,7 +209,7 @@ stories.add('With Approval Button', () => (
 
 stories.add('With Action Icons', () => (
   <Container>
-    <h1 className="my-4">PostCard.</h1>
+    <h1 className="my-4">PostCard</h1>
     <Row>
       <Col className="mb-2" md={6} lg={4}>
         <PostCard {...inspirationPost} />
@@ -226,7 +226,7 @@ stories.add('With Action Icons', () => (
 
 stories.add('Ghost', () => (
   <Container>
-    <h1 className="my-4">PostCardGhost.</h1>
+    <h1 className="my-4">PostCardGhost</h1>
     <Row>
       <Col className="mb-2" md={6} lg={4}>
         <PostCardGhost />

@@ -12,7 +12,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">Badge.</h1>
+    <h1 className="my-4">Badge</h1>
     <Row>
       <Col>
         <Badge theme={select('Theme', themes, 'primary')}>Hello</Badge>

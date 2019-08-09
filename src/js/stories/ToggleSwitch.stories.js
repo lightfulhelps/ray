@@ -17,7 +17,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">ToggleSwitch.</h1>
+    <h1 className="my-4">ToggleSwitch</h1>
     <State store={store}>
       {state => (
         <ToggleSwitch
