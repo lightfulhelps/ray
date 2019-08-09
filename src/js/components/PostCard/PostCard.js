@@ -1,113 +1,191 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import { Avatar, Badge, Col, Row, Icon, Tag, Button } from '../..';
-import isFuture from 'date-fns/is_future';
+import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import formatDate from 'date-fns/format';
-type Props = {
-  className?: string,
+import isFuture from 'date-fns/is_future';
+import {
+  Card,
+  Avatar,
+  Badge,
+  Icon,
+  PostMedia,
+  URLMetaPreview,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
+  Button,
+  Tag,
+} from '../..';
+import { type IconNameType } from '../Icon/icons';
+import DropdownToggle from '../DropdownToggle/DropdownToggle';
+
+type MediaType = {
+  type: string,
+  url: string,
 };
 
+type PostType = {
+  campaign?: {
+    color: string,
+    name: string,
+  },
+  content: string,
+  creator?: string,
+  date?: Date | number | string,
+  id: string,
+  media?: MediaType[],
+  metrics?: {
+    [key: string]: number,
+  },
+  socialIdentity?: {
+    avatar?: string,
+    displayName?: string,
+    id: string,
+    provider: 'facebook' | 'twitter' | 'linkedin',
+    username?: string,
+  },
+  tags: [string],
+  title: string,
+};
+
+type PostActionType = {
+  icon?: IconNameType,
+  label: string,
+  onClick: () => void,
+};
+
+type Props = {
+  actions?: PostActionType[],
+  className?: string,
+  dateFormat?: string,
+  errors?: string[],
+  isDraft?: boolean,
+  isInvalid?: boolean,
+  metaPreview?: {
+    description?: string,
+    image?: string,
+    title: string,
+    url: string,
+  },
+  post: PostType,
+};
+
+const ResponsiveHTMLEllipsis = responsiveHOC()(HTMLEllipsis);
+
 const PostCard = ({
-  postContent,
-  editButtonOnClick,
-  postType,
-  dateFormat = 'D MMM YY [-] HH:mm',
-}) => {
-  const { externalConnection, media, content, post } = postContent;
-  console.log('TCL: PostCard -> postContent', postContent);
-  const getPostType = () => {
-    switch (postType) {
-      case 'scheduled':
-        return { color: '#f0b954', theme: 'warning', label: 'Scheduled' };
-      case 'to-approve':
-        return { color: '#f25270', theme: 'danger', label: 'To approve' };
-      default:
-        return { color: '#0095f1', theme: 'info', label: 'Published' };
-    }
-  };
+  actions = [],
+  className,
+  dateFormat = 'HH:mm [on] dddd, D MMMM',
+  errors,
+  isDraft,
+  isInvalid,
+  metaPreview,
+  post,
+  ...other
+}: Props) => {
+  const classes = classNames(
+    className,
+    'post-card shadow',
+    { 'post-card--draft': isDraft },
+    { 'post-card--invalid': isInvalid }
+  );
+  const showMetaPreview =
+    (!post.media || (post.media && post.media.length === 0)) && metaPreview && metaPreview.url;
+  const showMediaEmpty =
+    post.media && post.media.length === 0 && (!metaPreview || (metaPreview && !metaPreview.url));
+  const showPostErrors = errors && errors.length > 0;
+  let borderColor;
+
+  switch (post.state) {
+    case 'scheduled':
+      borderColor = 'warning';
+      break;
+    case 'published':
+      borderColor = 'info';
+      break;
+    case 'review':
+      borderColor = 'danger';
+      break;
+  }
 
   return (
-    <div
-      className="bg-white rounded-sm shadow border-right border-bottom border-left"
-      style={{ borderTop: `4px solid ${getPostType().color}` }}
-    >
-      <Row sm={12} className="p-1">
-        <Col sm={1}>
-          <Avatar
-            url={externalConnection.avatar}
-            provider={externalConnection.provider.toLowerCase()}
-            style={{ width: '50px', height: '50px' }}
-          />
-        </Col>
-
-        <Col sm={9}>
-          <div className="h-100 d-flex flex-column justify-content-between align-items-start">
-            <div className="d-flex flex-direction-column justify-content-between w-100">
-              <div className="d-flex align-items-center">
-                <div>
-                  <h5>{post.date ? formatDate(post.date, dateFormat) : 'Unscheduled'}</h5>
-                </div>
+    <Card {...other} className={classes}>
+      <div className={`bg-${borderColor} rounded-top-sm`} style={{ height: '4px' }} />
+      <div className="d-flex px-2 py-1 border-bottom">
+        <div>
+          <div className="d-flex mb-half">
+            <Avatar
+              className="flex-shrink-0"
+              url={post.socialIdentity.avatar}
+              provider={post.socialIdentity.provider}
+              style={{ width: '40px', height: '40px' }}
+            />
+            <div className="ml-1">
+              <div className="h6 mb-0">
+                {post.date ? `Scheduled for ${formatDate(post.date, dateFormat)}` : 'Unscheduled'}
               </div>
-            </div>
-
-            <div className="d-flex flex-column align-items-start py-1">{content}</div>
-            <div className="d-flex">
-              {post.tags &&
-                post.tags.nodes.map((tag, i) => (
-                  <Tag key={i} className="text-xs mr-1 border" theme="light">
-                    {tag.userTag.name}
-                  </Tag>
-                ))}
+              <div className="text-sm">{post.socialIdentity.displayName}</div>
             </div>
           </div>
-        </Col>
-        <Col sm={2}>
-          <div
-            style={{
-              backgroundImage: `url(${media.nodes[0] && media.nodes[0].mediaByMediaId.url})`,
-              height: '100%',
-              width: '100%',
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
-            }}
-            className="rounded-sm"
-          />
-        </Col>
-      </Row>
-      <div className="d-flex justify-content-between p-1 border-top align-items-center">
-        <div className="d-flex flex-direction-column">
-          {postType === 'sent' &&
-            ['like', 'click', 'repost'].map((iconName, i) => (
-              <div key={i} className="mr-1 d-flex align-items-center">
-                <Icon key={i} name={iconName} />
-                <span className="small">{` 0 ${iconName}s`}</span>
-              </div>
-            ))}
+          <div className="text-sm mb-1">
+            <ResponsiveHTMLEllipsis
+              unsafeHTML={post.content.replace(/\n/g, '<br />')}
+              maxLine={3}
+              ellipsis="..."
+              basedOn="words"
+            />
+          </div>
+          {post.tags && post.tags.length > 0 && (
+            <div>
+              {post.tags.map((tag, i) => (
+                <Tag className={`text-xs ${i === 0 ? '' : 'ml-half  '}`} key={i}>
+                  {tag}
+                </Tag>
+              ))}
+            </div>
+          )}
         </div>
-        <div>
-          {postType !== 'sent' && [
-            <Button key={1} theme="dark" size="sm" isOutline className="ml-1">
-              Delete
-            </Button>,
-            <Button key={2} theme="dark" size="sm" isOutline className="ml-1">
-              Preview
-            </Button>,
-          ]}
-          {postType === 'sent' && (
-            <Button theme="dark" size="sm" isOutline className="ml-1">
-              Reschedule
-            </Button>
+        <div
+          className="ml-1 flex-shrink-0 rounded-sm overflow-hidden"
+          style={{ width: '130px', height: '130px' }}
+        >
+          {post.media && post.media.length > 0 && <PostMedia media={post.media} />}
+          {showMetaPreview && (
+            <URLMetaPreview {...metaPreview} className="border-top border-bottom" />
           )}
-          {editButtonOnClick && (
-            <Button theme="dark" size="sm" isOutline className="ml-1" onClick={editButtonOnClick}>
-              Edit
-            </Button>
-          )}
+          {showMediaEmpty && <div className="post-media--empty">No media</div>}
         </div>
       </div>
-    </div>
+      <div className="py-1 px-2 d-flex justify-content-between">
+        <div className="d-flex align-items-center">
+          {post.metrics && Object.keys(post.metrics).length > 0 && (
+            <React.Fragment>
+              {Object.keys(post.metrics).map(key => (
+                <div className="text-sm mr-1" key={key}>
+                  <span>{post.metrics && post.metrics[key]}</span> {key}
+                </div>
+              ))}
+            </React.Fragment>
+          )}
+        </div>
+        <div>
+          <Button theme="dark" size="sm" isOutline className="ml-1">
+            Delete
+          </Button>
+          <Button theme="dark" size="sm" isOutline className="ml-1">
+            Preview
+          </Button>
+          <Button theme="dark" size="sm" isOutline className="ml-1">
+            Reschedule
+          </Button>
+          <Button theme="dark" size="sm" isOutline className="ml-1">
+            Edit
+          </Button>
+        </div>
+      </div>
+    </Card>
   );
 };
 

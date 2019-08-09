@@ -1,4 +1,4 @@
-.post-card {
+.inspiration-post-card {
   @extend .card;
 
   width: 100%;
@@ -33,7 +33,7 @@
   }
 }
 
-.post-card__header {
+.inspiration-post-card__header {
   display: flex;
   align-items: flex-start;
   margin-top: map-get($spacers, 2);
@@ -46,13 +46,13 @@
   }
 }
 
-.post-card__title {
+.inspiration-post-card__title {
   @extend .h5, .text-truncate;
 
   margin-bottom: $spacer / 2;
 }
 
-.post-card__date {
+.inspiration-post-card__date {
   @extend .text-truncate;
 
   display: flex;
@@ -67,28 +67,28 @@
   }
 }
 
-.post-card__campaign {
+.inspiration-post-card__campaign {
   @extend .text-uppercase;
 
   font-size: $font-size-xs * 0.85;
 }
 
-.post-card__content {
+.inspiration-post-card__content {
   margin: map-get($spacers, 2);
   font-weight: $font-weight-light;
   font-size: $font-size-sm;
   height: $line-height-base * 5em;
 }
 
-.post-card__media {
+.inspiration-post-card__media {
   height: 164px;
 }
 
-.post-card__tags {
+.inspiration-post-card__tags {
   height: 45px;
 }
 
-.post-card__tags-more {
+.inspiration-post-card__tags-more {
   flex-shrink: 0;
   display: flex;
   justify-content: center;
@@ -103,7 +103,7 @@
   margin-left: $spacer;
 }
 
-.post-card__metrics {
+.inspiration-post-card__metrics {
   @extend .text-truncate;
 
   display: flex;
@@ -112,7 +112,7 @@
   padding: map-get($spacers, 1) map-get($spacers, 2);
 }
 
-.post-card__metric {
+.inspiration-post-card__metric {
   @extend .text-uppercase;
 
   margin-right: map-get($spacers, 1);
@@ -124,7 +124,7 @@
   }
 }
 
-.post-card__inspiration-actions {
+.inspiration-post-card__inspiration-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -133,7 +133,7 @@
   border-top: $border-width solid $border-color;
 }
 
-.post-card__footer {
+.inspiration-post-card__footer {
   .btn {
     width: 100%;
     border-radius: 0 0 $border-radius-sm $border-radius-sm;

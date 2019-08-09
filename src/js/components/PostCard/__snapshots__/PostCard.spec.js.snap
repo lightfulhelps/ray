@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PostCard /> should render 1`] = `
+<Card
+  className="post-card shadow"
+  inspirationActions={
+    Array [
+      Object {
+        "icon": "follow",
+        "isActive": false,
+        "onClick": [MockFunction],
+        "theme": "gray-500",
+      },
+      Object {
+        "icon": "like",
+        "isActive": true,
+        "onClick": [MockFunction],
+        "theme": "gray-500",
+      },
+    ]
+  }
+>
+  <div
+    className="bg-undefined rounded-top-sm"
+    style={
+      Object {
+        "height": "4px",
+      }
+    }
+  />
+  <div
+    className="d-flex px-2 py-1 border-bottom"
+  >
+    <div>
+      <div
+        className="d-flex mb-half"
+      >
+        <Avatar
+          className="flex-shrink-0"
+          style={
+            Object {
+              "height": "40px",
+              "width": "40px",
+            }
+          }
+          url="http://foo.com/avatar.jpg"
+        />
+        <div
+          className="ml-1"
+        >
+          <div
+            className="h6 mb-0"
+          >
+            Scheduled for 14:34 on Wednesday, 22 August
+          </div>
+          <div
+            className="text-sm"
+          />
+        </div>
+      </div>
+      <div
+        className="text-sm mb-1"
+      >
+        <Responsive(HTMLEllipsis)
+          basedOn="words"
+          ellipsis="..."
+          innerRef={[Function]}
+          maxLine={3}
+          unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."
+        />
+      </div>
+      <div>
+        <Tag
+          className="text-xs "
+          key="0"
+        >
+          charity
+        </Tag>
+        <Tag
+          className="text-xs ml-half  "
+          key="1"
+        >
+          social for good
+        </Tag>
+        <Tag
+          className="text-xs ml-half  "
+          key="2"
+        >
+          campaigns
+        </Tag>
+        <Tag
+          className="text-xs ml-half  "
+          key="3"
+        >
+          lightful
+        </Tag>
+      </div>
+    </div>
+    <div
+      className="ml-1 flex-shrink-0 rounded-sm overflow-hidden"
+      style={
+        Object {
+          "height": "130px",
+          "width": "130px",
+        }
+      }
+    />
+  </div>
+  <div
+    className="py-1 px-2 d-flex justify-content-between"
+  >
+    <div
+      className="d-flex align-items-center"
+    >
+      <div
+        className="text-sm mr-1"
+        key="likes"
+      >
+        <span>
+          10
+        </span>
+         
+        likes
+      </div>
+      <div
+        className="text-sm mr-1"
+        key="shares"
+      >
+        <span>
+          5
+        </span>
+         
+        shares
+      </div>
+    </div>
+    <div>
+      <Button
+        className="ml-1"
+        isOutline={true}
+        size="sm"
+        theme="dark"
+      >
+        Delete
+      </Button>
+      <Button
+        className="ml-1"
+        isOutline={true}
+        size="sm"
+        theme="dark"
+      >
+        Preview
+      </Button>
+      <Button
+        className="ml-1"
+        isOutline={true}
+        size="sm"
+        theme="dark"
+      >
+        Reschedule
+      </Button>
+      <Button
+        className="ml-1"
+        isOutline={true}
+        size="sm"
+        theme="dark"
+      >
+        Edit
+      </Button>
+    </div>
+  </div>
+</Card>
+`;

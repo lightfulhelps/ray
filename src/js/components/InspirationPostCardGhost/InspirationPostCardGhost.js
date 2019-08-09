@@ -9,9 +9,14 @@ type Props = {
 };
 
 const InspirationPostCardGhost = ({ className, isLoading, ...other }: Props) => {
-  const classes = classNames(className, 'post-card-ghost', 'bg-gray-200 border-0 overflow-hidden', {
-    loading: isLoading,
-  });
+  const classes = classNames(
+    className,
+    'inspiration-post-card-ghost',
+    'bg-gray-200 border-0 overflow-hidden',
+    {
+      loading: isLoading,
+    }
+  );
 
   return (
     <Card {...other} className={classes}>

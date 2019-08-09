@@ -103,7 +103,7 @@ const InspirationPostCard = ({
   post,
   ...other
 }: Props) => {
-  const blockClass = 'post-card';
+  const blockClass = 'inspiration-post-card';
   const classes = classNames(
     className,
     blockClass,
