@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Collapse /> should render 1`] = `
+<div
+  className=""
+>
+  <div
+    className="h6 cursor-pointer"
+    data-test-id="collapse-toggle"
+    onClick={[Function]}
+  >
+    Click me
+     
+    <Icon
+      isActive={true}
+      name="chevronDown"
+      theme="gray-600"
+    />
+  </div>
+</div>
+`;

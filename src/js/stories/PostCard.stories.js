@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, text, date, color, select } from '@storybook/addon-knobs';
-import { Container, Row, Col, PostCard, PostCardGhost, Button } from '..';
+import { Container, PostCard } from '..';
 
 import '../../scss/ray.scss';
 
@@ -99,7 +99,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">PostCard.</h1>
+    <h1 className="my-4">PostCard</h1>
     <PostCard className="mb-4" {...scheduledPost} />
     <PostCard className="mb-4" {...scheduledPost} />
     <PostCard className="mb-4" {...scheduledPost} />

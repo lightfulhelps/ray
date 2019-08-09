@@ -11,7 +11,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">CharacterCounter.</h1>
+    <h1 className="my-4">CharacterCounter</h1>
     <Row>
       <Col>
         <CharacterCounter text={text('Text', 'Type something here')} max={number('Max', 100)} />

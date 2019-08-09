@@ -26,7 +26,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">Button.</h1>
+    <h1 className="my-4">Button</h1>
     <Row>
       <Col xs={6}>
         <h2 className="h4 mb-2">Regular.</h2>

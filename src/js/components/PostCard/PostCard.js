@@ -116,12 +116,14 @@ const PostCard = ({
       <div className="d-flex px-2 py-1 border-bottom">
         <div>
           <div className="d-flex mb-half">
-            <Avatar
-              className="flex-shrink-0"
-              url={post.socialIdentity.avatar}
-              provider={post.socialIdentity.provider}
-              style={{ width: '40px', height: '40px' }}
-            />
+            {post.socialIdentity && (
+              <Avatar
+                className="flex-shrink-0"
+                url={post.socialIdentity.avatar}
+                provider={post.socialIdentity.provider}
+                style={{ width: '40px', height: '40px' }}
+              />
+            )}
             <div className="ml-1">
               <div className="h6 mb-0">
                 {post.date ? `Scheduled for ${formatDate(post.date, dateFormat)}` : 'Unscheduled'}

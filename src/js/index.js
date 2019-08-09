@@ -6,6 +6,7 @@ export { default as Button } from './components/Button/Button';
 export { default as Card } from './components/Card/Card';
 export { default as CharacterCounter } from './components/CharacterCounter/CharacterCounter';
 export { default as Col } from './components/Col/Col';
+export { default as Collapse } from './components/Collapse/Collapse';
 export { default as Container } from './components/Container/Container';
 export { default as Dropdown } from './components/Dropdown/Dropdown';
 export { default as DropdownItem } from './components/DropdownItem/DropdownItem';
