@@ -50,6 +50,18 @@ describe('<Badge />', () => {
     });
   });
 
+  it('should handle the isOutline prop', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.hasClass('badge-outline-primary')).toBe(false);
+    expect(wrapper.hasClass('badge-primary')).toBe(true);
+
+    wrapper.setProps({ isOutline: true });
+
+    expect(wrapper.hasClass('badge-outline-primary')).toBe(true);
+    expect(wrapper.hasClass('badge-primary')).toBe(false);
+  });
+
   it('should handle the isPill prop', () => {
     const { wrapper } = setup();
 

@@ -24,14 +24,15 @@ var Badge = function Badge(_ref) {
   var children = _ref.children,
       className = _ref.className,
       color = _ref.color,
+      isOutline = _ref.isOutline,
       isPill = _ref.isPill,
       _ref$tag = _ref.tag,
       Tag = _ref$tag === undefined ? 'div' : _ref$tag,
       _ref$theme = _ref.theme,
       theme = _ref$theme === undefined ? 'primary' : _ref$theme,
-      other = _objectWithoutProperties(_ref, ['children', 'className', 'color', 'isPill', 'tag', 'theme']);
+      other = _objectWithoutProperties(_ref, ['children', 'className', 'color', 'isOutline', 'isPill', 'tag', 'theme']);
 
-  var classes = (0, _classnames2.default)(className, 'badge', 'text-truncate', 'mw-100', theme ? 'badge-' + theme : null, {
+  var classes = (0, _classnames2.default)(className, 'badge', 'badge' + (isOutline ? '-outline' : '') + '-' + theme, 'text-truncate', 'mw-100', {
     'badge-pill': isPill
   });
 

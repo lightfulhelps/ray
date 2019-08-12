@@ -4,22 +4,8 @@ import classNames from 'classnames';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import formatDate from 'date-fns/format';
-import isFuture from 'date-fns/is_future';
-import {
-  Card,
-  Avatar,
-  Badge,
-  Icon,
-  PostMedia,
-  URLMetaPreview,
-  Dropdown,
-  DropdownMenu,
-  DropdownItem,
-  Button,
-  Tag,
-} from '../..';
+import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag } from '../..';
 import { type IconNameType } from '../Icon/icons';
-import DropdownToggle from '../DropdownToggle/DropdownToggle';
 
 type MediaType = {
   type: string,
@@ -46,6 +32,7 @@ type PostType = {
     provider: 'facebook' | 'twitter' | 'linkedin',
     username?: string,
   },
+  state: string,
   tags: [string],
   title: string,
 };
@@ -95,7 +82,8 @@ const PostCard = ({
     (!post.media || (post.media && post.media.length === 0)) && metaPreview && metaPreview.url;
   const showMediaEmpty =
     post.media && post.media.length === 0 && (!metaPreview || (metaPreview && !metaPreview.url));
-  const showPostErrors = errors && errors.length > 0;
+  // const showPostErrors = errors && errors.length > 0;
+
   let borderColor;
 
   switch (post.state) {
@@ -108,12 +96,15 @@ const PostCard = ({
     case 'review':
       borderColor = 'danger';
       break;
+    default:
+      borderColor = '';
+      break;
   }
 
   return (
     <Card {...other} className={classes}>
       <div className={`bg-${borderColor} rounded-top-sm`} style={{ height: '4px' }} />
-      <div className="d-flex px-2 py-1 border-bottom">
+      <div className="d-flex flex-column flex-md-row justify-content-between px-2 py-1 border-bottom">
         <div>
           <div className="d-flex mb-half">
             {post.socialIdentity && (
@@ -128,7 +119,9 @@ const PostCard = ({
               <div className="h6 mb-0">
                 {post.date ? `Scheduled for ${formatDate(post.date, dateFormat)}` : 'Unscheduled'}
               </div>
-              <div className="text-sm">{post.socialIdentity.displayName}</div>
+              {post.socialIdentity && (
+                <div className="text-sm">{post.socialIdentity.displayName}</div>
+              )}
             </div>
           </div>
           <div className="text-sm mb-1">
@@ -142,17 +135,19 @@ const PostCard = ({
           {post.tags && post.tags.length > 0 && (
             <div>
               {post.tags.map((tag, i) => (
-                <Tag className={`text-xs ${i === 0 ? '' : 'ml-half  '}`} key={i}>
+                <Tag
+                  className={`text-xs ${i === 0 ? '' : 'ml-half  '}`}
+                  isOutline
+                  key={i}
+                  theme="gray-600"
+                >
                   {tag}
                 </Tag>
               ))}
             </div>
           )}
         </div>
-        <div
-          className="ml-1 flex-shrink-0 rounded-sm overflow-hidden"
-          style={{ width: '130px', height: '130px' }}
-        >
+        <div className="post-card__media-wrap flex-shrink-0 rounded-sm overflow-hidden">
           {post.media && post.media.length > 0 && <PostMedia media={post.media} />}
           {showMetaPreview && (
             <URLMetaPreview {...metaPreview} className="border-top border-bottom" />
@@ -173,18 +168,19 @@ const PostCard = ({
           )}
         </div>
         <div>
-          <Button theme="dark" size="sm" isOutline className="ml-1">
-            Delete
-          </Button>
-          <Button theme="dark" size="sm" isOutline className="ml-1">
-            Preview
-          </Button>
-          <Button theme="dark" size="sm" isOutline className="ml-1">
-            Reschedule
-          </Button>
-          <Button theme="dark" size="sm" isOutline className="ml-1">
-            Edit
-          </Button>
+          {actions.length > 0 &&
+            actions.map((action, i) => (
+              <Button
+                key={i}
+                theme="dark"
+                size="sm"
+                isOutline
+                className="ml-1"
+                onClick={action.onClick}
+              >
+                {action.label}
+              </Button>
+            ))}
         </div>
       </div>
     </Card>

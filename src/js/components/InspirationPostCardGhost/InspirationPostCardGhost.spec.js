@@ -22,7 +22,7 @@ describe('<InspirationPostCardGhost />', () => {
 
     wrapper.setProps({ className: 'custom' });
 
-    expect(wrapper.hasClass('post-card-ghost')).toBe(true);
+    expect(wrapper.hasClass('inspiration-post-card-ghost')).toBe(true);
     expect(wrapper.hasClass('custom')).toBe(true);
   });
 

@@ -120,7 +120,7 @@ const InspirationPostCard = ({
     <Card {...other} className={classes}>
       {showPostErrors && (
         <Dropdown
-          data-test-id="post-card-errors-dropdown"
+          data-test-id="inspiration-post-card-errors-dropdown"
           render={(isOpen, onToggle) => (
             <React.Fragment>
               <DropdownToggle

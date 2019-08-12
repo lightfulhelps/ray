@@ -71,10 +71,12 @@ describe('<Button />', () => {
     const { wrapper } = setup();
 
     expect(wrapper.hasClass('btn-outline-primary')).toBe(false);
+    expect(wrapper.hasClass('btn-primary')).toBe(true);
 
     wrapper.setProps({ isOutline: true });
 
     expect(wrapper.hasClass('btn-outline-primary')).toBe(true);
+    expect(wrapper.hasClass('btn-primary')).toBe(false);
   });
 
   it('should handle the size prop', () => {

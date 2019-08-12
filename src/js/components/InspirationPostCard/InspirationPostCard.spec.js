@@ -72,38 +72,38 @@ describe('<InspirationPostCard />', () => {
 
     wrapper.setProps({ className: 'custom' });
 
-    expect(wrapper.hasClass('post-card')).toBe(true);
+    expect(wrapper.hasClass('inspiration-post-card')).toBe(true);
     expect(wrapper.hasClass('custom')).toBe(true);
   });
 
   it('should handle the draft prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.hasClass('post-card--draft')).toBe(false);
+    expect(wrapper.hasClass('inspiration-post-card--draft')).toBe(false);
 
     wrapper.setProps({ isDraft: true });
 
-    expect(wrapper.hasClass('post-card--draft')).toBe(true);
+    expect(wrapper.hasClass('inspiration-post-card--draft')).toBe(true);
   });
 
   it('should handle the invalid prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.hasClass('post-card--invalid')).toBe(false);
+    expect(wrapper.hasClass('inspiration-post-card--invalid')).toBe(false);
 
     wrapper.setProps({ isInvalid: true });
 
-    expect(wrapper.hasClass('post-card--invalid')).toBe(true);
+    expect(wrapper.hasClass('inspiration-post-card--invalid')).toBe(true);
   });
 
   it('should optionally display post date', () => {
     const { wrapper, props } = setup();
 
-    expect(wrapper.find('.post-card__date').text()).toBe('22 Aug 18 - 14:34');
+    expect(wrapper.find('.inspiration-post-card__date').text()).toBe('22 Aug 18 - 14:34');
 
     wrapper.setProps({ post: { ...props.post, date: null } });
 
-    expect(wrapper.find('.post-card__date').text()).toBe('<Icon />Unscheduled');
+    expect(wrapper.find('.inspiration-post-card__date').text()).toBe('<Icon />Unscheduled');
   });
 
   it('should include the schedule Icon if no date or date is in the future', () => {
@@ -111,7 +111,7 @@ describe('<InspirationPostCard />', () => {
 
     expect(
       wrapper
-        .find('.post-card__date')
+        .find('.inspiration-post-card__date')
         .find(Icon)
         .exists()
     ).toBe(true);
@@ -120,7 +120,7 @@ describe('<InspirationPostCard />', () => {
 
     expect(
       wrapper
-        .find('.post-card__date')
+        .find('.inspiration-post-card__date')
         .find(Icon)
         .exists()
     ).toBe(false);
@@ -129,7 +129,7 @@ describe('<InspirationPostCard />', () => {
 
     expect(
       wrapper
-        .find('.post-card__date')
+        .find('.inspiration-post-card__date')
         .find(Icon)
         .exists()
     ).toBe(true);
@@ -138,28 +138,32 @@ describe('<InspirationPostCard />', () => {
   it('should handle the dateFormat prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.post-card__date').text()).toEqual('22 Aug 18 - 14:34');
+    expect(wrapper.find('.inspiration-post-card__date').text()).toEqual('22 Aug 18 - 14:34');
 
     wrapper.setProps({ dateFormat: 'HH:MM [on] DD-MM-YYYY' });
 
-    expect(wrapper.find('.post-card__date').text()).toEqual('14:08 on 22-08-2018');
+    expect(wrapper.find('.inspiration-post-card__date').text()).toEqual('14:08 on 22-08-2018');
   });
 
   it('should handle the post campaign prop', () => {
     const { wrapper, props } = setup();
 
-    expect(wrapper.find('.post-card__campaign').prop('color')).toEqual(props.post.campaign.color);
-    expect(wrapper.find('.post-card__campaign').prop('children')).toEqual(props.post.campaign.name);
+    expect(wrapper.find('.inspiration-post-card__campaign').prop('color')).toEqual(
+      props.post.campaign.color
+    );
+    expect(wrapper.find('.inspiration-post-card__campaign').prop('children')).toEqual(
+      props.post.campaign.name
+    );
   });
 
   it('should optionally display the campaign tag', () => {
     const { wrapper, props } = setup();
 
-    expect(wrapper.find('.post-card__campaign').exists()).toBe(true);
+    expect(wrapper.find('.inspiration-post-card__campaign').exists()).toBe(true);
 
     wrapper.setProps({ post: merge(props.post, { campaign: null }) });
 
-    expect(wrapper.find('.post-card__campaign').exists()).toBe(false);
+    expect(wrapper.find('.inspiration-post-card__campaign').exists()).toBe(false);
   });
 
   it('should optionally display a Dropdown', () => {
@@ -190,7 +194,7 @@ describe('<InspirationPostCard />', () => {
 
     expect(
       wrapper
-        .find('.post-card__content')
+        .find('.inspiration-post-card__content')
         .children()
         .at(0)
         .prop('unsafeHTML')
@@ -241,15 +245,15 @@ describe('<InspirationPostCard />', () => {
   it('should optionally display inspirationActions', () => {
     const { wrapper } = setup({ inspirationActions: [{ icon: 'follow' }] });
 
-    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(true);
+    expect(wrapper.find('.inspiration-post-card__inspiration-actions').exists()).toBe(true);
 
     wrapper.setProps({ inspirationActions: [] });
 
-    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
+    expect(wrapper.find('.inspiration-post-card__inspiration-actions').exists()).toBe(false);
 
     wrapper.setProps({ inspirationActions: null });
 
-    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
+    expect(wrapper.find('.inspiration-post-card__inspiration-actions').exists()).toBe(false);
   });
 
   it('should handle the inspirationActions prop', () => {
@@ -272,7 +276,9 @@ describe('<InspirationPostCard />', () => {
       ],
     });
 
-    const inspirationActions = wrapper.find('.post-card__inspiration-actions').find(Icon);
+    const inspirationActions = wrapper
+      .find('.inspiration-post-card__inspiration-actions')
+      .find(Icon);
 
     expect(inspirationActions).toHaveLength(2);
 
@@ -291,31 +297,31 @@ describe('<InspirationPostCard />', () => {
   it('should optionally display post metrics', () => {
     const { wrapper, props } = setup({ post: { metrics: { likes: 3 } } });
 
-    expect(wrapper.find('.post-card__metrics').exists()).toBe(true);
+    expect(wrapper.find('.inspiration-post-card__metrics').exists()).toBe(true);
 
     wrapper.setProps({ post: { ...props.post, metrics: {} } });
 
-    expect(wrapper.find('.post-card__metrics').exists()).toBe(false);
+    expect(wrapper.find('.inspiration-post-card__metrics').exists()).toBe(false);
   });
 
   it('should optionally display a footer button', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.post-card__footer').exists()).toBe(false);
+    expect(wrapper.find('.inspiration-post-card__footer').exists()).toBe(false);
 
     wrapper.setProps({ footerButton: <Button>Click</Button> });
 
-    expect(wrapper.find('.post-card__footer').exists()).toBe(true);
+    expect(wrapper.find('.inspiration-post-card__footer').exists()).toBe(true);
   });
 
   it('should optionally display errors', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('[data-test-id="post-card-errors-dropdown"]')).toHaveLength(0);
+    expect(wrapper.find('[data-test-id="inspiration-post-card-errors-dropdown"]')).toHaveLength(0);
 
     wrapper.setProps({ errors: ['Something', 'went', 'wrong'] });
 
-    expect(wrapper.find('[data-test-id="post-card-errors-dropdown"]')).toHaveLength(1);
+    expect(wrapper.find('[data-test-id="inspiration-post-card-errors-dropdown"]')).toHaveLength(1);
   });
 
   it('should pass through other props', () => {

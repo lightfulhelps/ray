@@ -79,7 +79,7 @@ var InspirationPostCard = function InspirationPostCard(_ref) {
     _.Card,
     _extends({}, other, { className: classes }),
     showPostErrors && React.createElement(_.Dropdown, {
-      'data-test-id': 'post-card-errors-dropdown',
+      'data-test-id': 'inspiration-post-card-errors-dropdown',
       render: function render(isOpen, onToggle) {
         return React.createElement(
           React.Fragment,

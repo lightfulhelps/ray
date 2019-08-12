@@ -26,17 +26,9 @@ var _format = require('date-fns/format');
 
 var _format2 = _interopRequireDefault(_format);
 
-var _is_future = require('date-fns/is_future');
-
-var _is_future2 = _interopRequireDefault(_is_future);
-
 var _ = require('../..');
 
 var _icons = require('../Icon/icons');
-
-var _DropdownToggle = require('../DropdownToggle/DropdownToggle');
-
-var _DropdownToggle2 = _interopRequireDefault(_DropdownToggle);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -62,7 +54,8 @@ var PostCard = function PostCard(_ref) {
   var classes = (0, _classnames2.default)(className, 'post-card shadow', { 'post-card--draft': isDraft }, { 'post-card--invalid': isInvalid });
   var showMetaPreview = (!post.media || post.media && post.media.length === 0) && metaPreview && metaPreview.url;
   var showMediaEmpty = post.media && post.media.length === 0 && (!metaPreview || metaPreview && !metaPreview.url);
-  var showPostErrors = errors && errors.length > 0;
+  // const showPostErrors = errors && errors.length > 0;
+
   var borderColor = void 0;
 
   switch (post.state) {
@@ -75,6 +68,9 @@ var PostCard = function PostCard(_ref) {
     case 'review':
       borderColor = 'danger';
       break;
+    default:
+      borderColor = '';
+      break;
   }
 
   return React.createElement(
@@ -83,7 +79,7 @@ var PostCard = function PostCard(_ref) {
     React.createElement('div', { className: 'bg-' + borderColor + ' rounded-top-sm', style: { height: '4px' } }),
     React.createElement(
       'div',
-      { className: 'd-flex px-2 py-1 border-bottom' },
+      { className: 'd-flex flex-column flex-md-row justify-content-between px-2 py-1 border-bottom' },
       React.createElement(
         'div',
         null,
@@ -104,7 +100,7 @@ var PostCard = function PostCard(_ref) {
               { className: 'h6 mb-0' },
               post.date ? 'Scheduled for ' + (0, _format2.default)(post.date, dateFormat) : 'Unscheduled'
             ),
-            React.createElement(
+            post.socialIdentity && React.createElement(
               'div',
               { className: 'text-sm' },
               post.socialIdentity.displayName
@@ -127,7 +123,12 @@ var PostCard = function PostCard(_ref) {
           post.tags.map(function (tag, i) {
             return React.createElement(
               _.Tag,
-              { className: 'text-xs ' + (i === 0 ? '' : 'ml-half  '), key: i },
+              {
+                className: 'text-xs ' + (i === 0 ? '' : 'ml-half  '),
+                isOutline: true,
+                key: i,
+                theme: 'gray-600'
+              },
               tag
             );
           })
@@ -135,10 +136,7 @@ var PostCard = function PostCard(_ref) {
       ),
       React.createElement(
         'div',
-        {
-          className: 'ml-1 flex-shrink-0 rounded-sm overflow-hidden',
-          style: { width: '130px', height: '130px' }
-        },
+        { className: 'post-card__media-wrap flex-shrink-0 rounded-sm overflow-hidden' },
         post.media && post.media.length > 0 && React.createElement(_.PostMedia, { media: post.media }),
         showMetaPreview && React.createElement(_.URLMetaPreview, _extends({}, metaPreview, { className: 'border-top border-bottom' })),
         showMediaEmpty && React.createElement(
@@ -175,26 +173,20 @@ var PostCard = function PostCard(_ref) {
       React.createElement(
         'div',
         null,
-        React.createElement(
-          _.Button,
-          { theme: 'dark', size: 'sm', isOutline: true, className: 'ml-1' },
-          'Delete'
-        ),
-        React.createElement(
-          _.Button,
-          { theme: 'dark', size: 'sm', isOutline: true, className: 'ml-1' },
-          'Preview'
-        ),
-        React.createElement(
-          _.Button,
-          { theme: 'dark', size: 'sm', isOutline: true, className: 'ml-1' },
-          'Reschedule'
-        ),
-        React.createElement(
-          _.Button,
-          { theme: 'dark', size: 'sm', isOutline: true, className: 'ml-1' },
-          'Edit'
-        )
+        actions.length > 0 && actions.map(function (action, i) {
+          return React.createElement(
+            _.Button,
+            {
+              key: i,
+              theme: 'dark',
+              size: 'sm',
+              isOutline: true,
+              className: 'ml-1',
+              onClick: action.onClick
+            },
+            action.label
+          );
+        })
       )
     )
   );

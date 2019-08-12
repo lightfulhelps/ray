@@ -1,0 +1,6 @@
+@mixin badge-outline-variant($color) {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $color;
+  color: $color;
+}

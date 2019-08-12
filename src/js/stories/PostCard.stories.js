@@ -70,8 +70,10 @@ const scheduledPost = {
     tags,
   },
   actions: [
-    { icon: 'edit', label: 'Edit', onClick: action('Edit') },
-    { icon: 'delete', label: 'Delete', onClick: action('Delete') },
+    { label: 'Edit', onClick: action('Edit') },
+    { label: 'Delete', onClick: action('Delete') },
+    { label: 'Preview', onClick: action('Preview') },
+    { label: 'Reschedule', onClick: action('Reschedule') },
   ],
   isDraft: boolean('Draft', false),
   isInvalid: boolean('Invalid', false),

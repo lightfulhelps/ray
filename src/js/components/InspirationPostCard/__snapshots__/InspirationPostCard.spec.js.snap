@@ -2,10 +2,10 @@
 
 exports[`<InspirationPostCard /> should render 1`] = `
 <Card
-  className="post-card"
+  className="inspiration-post-card"
 >
   <div
-    className="post-card__header"
+    className="inspiration-post-card__header"
   >
     <div
       style={
@@ -32,17 +32,17 @@ exports[`<InspirationPostCard /> should render 1`] = `
       }
     >
       <h1
-        className="post-card__title"
+        className="inspiration-post-card__title"
       >
         Hope For Children
       </h1>
       <div
-        className="post-card__date"
+        className="inspiration-post-card__date"
       >
         22 Aug 18 - 14:34
       </div>
       <Badge
-        className="post-card__campaign"
+        className="inspiration-post-card__campaign"
         color="#ff0000"
       >
         Campaign
@@ -50,7 +50,7 @@ exports[`<InspirationPostCard /> should render 1`] = `
     </div>
   </div>
   <div
-    className="post-card__content"
+    className="inspiration-post-card__content"
   >
     <Responsive(HTMLEllipsis)
       basedOn="words"
@@ -61,10 +61,10 @@ exports[`<InspirationPostCard /> should render 1`] = `
     />
   </div>
   <div
-    className="post-card__media"
+    className="inspiration-post-card__media"
   />
   <div
-    className="post-card__tags d-flex align-items-center bg-gray-200 px-2 py-1"
+    className="inspiration-post-card__tags d-flex align-items-center bg-gray-200 px-2 py-1"
   >
     <div
       className="d-flex align-items-center text-gray-900 font-weight-bold mr-1"
@@ -113,17 +113,17 @@ exports[`<InspirationPostCard /> should render 1`] = `
       </Tag>
     </div>
     <div
-      className="post-card__tags-more"
+      className="inspiration-post-card__tags-more"
     >
       +
       1
     </div>
   </div>
   <div
-    className="post-card__metrics"
+    className="inspiration-post-card__metrics"
   >
     <div
-      className="post-card__metric"
+      className="inspiration-post-card__metric"
       key="likes"
     >
       <span>
@@ -133,7 +133,7 @@ exports[`<InspirationPostCard /> should render 1`] = `
       likes
     </div>
     <div
-      className="post-card__metric"
+      className="inspiration-post-card__metric"
       key="shares"
     >
       <span>
@@ -144,7 +144,7 @@ exports[`<InspirationPostCard /> should render 1`] = `
     </div>
   </div>
   <div
-    className="post-card__inspiration-actions"
+    className="inspiration-post-card__inspiration-actions"
   >
     <Icon
       isActive={false}

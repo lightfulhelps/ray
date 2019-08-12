@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
 import Tag from './Tag';
-import Icon from '../Icon/Icon';
 
 const setup = (overrides = {}) => {
   const props = merge(
@@ -32,7 +31,7 @@ describe('<Tag />', () => {
   it('should handle children', () => {
     const { wrapper } = setup({ children: 'Test' });
 
-    expect(wrapper.prop('children')[0]).toEqual('Test');
+    expect(wrapper.find('div').prop('children')).toContain('Test');
   });
 
   it('should handle className', () => {
@@ -48,7 +47,7 @@ describe('<Tag />', () => {
     const onRemove = jest.fn();
     const { wrapper } = setup({ onRemove });
 
-    wrapper.find(Icon).simulate('click');
+    wrapper.find('[data-test-id="tag-remove-icon"]').simulate('click');
 
     expect(onRemove).toHaveBeenCalledTimes(1);
   });

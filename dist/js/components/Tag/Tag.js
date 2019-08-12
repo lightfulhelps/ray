@@ -33,8 +33,18 @@ var Tag = function Tag(_ref) {
   return React.createElement(
     _.Badge,
     _extends({}, other, { className: classes, isPill: true }),
-    children,
-    onRemove && React.createElement(_.Icon, { className: 'cursor-pointer', name: 'close', onClick: onRemove })
+    React.createElement(
+      'div',
+      { className: 'd-flex align-items-center' },
+      React.createElement(_.Icon, { className: 'tag__tag-icon', name: 'tag' }),
+      children,
+      onRemove && React.createElement(_.Icon, {
+        className: 'tag__remove-icon cursor-pointer',
+        'data-test-id': 'tag-remove-icon',
+        name: 'close',
+        onClick: onRemove
+      })
+    )
   );
 };
 

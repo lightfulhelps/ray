@@ -5,7 +5,15 @@ exports[`<Tag /> should render 1`] = `
   className="tag"
   isPill={true}
 >
-  Social For Good
+  <div
+    className="d-flex align-items-center"
+  >
+    <Icon
+      className="tag__tag-icon"
+      name="tag"
+    />
+    Social For Good
+  </div>
 </Badge>
 `;
 
@@ -14,11 +22,20 @@ exports[`<Tag /> should render with a remove Icon 1`] = `
   className="tag"
   isPill={true}
 >
-  Social For Good
-  <Icon
-    className="cursor-pointer"
-    name="close"
-    onClick={[MockFunction]}
-  />
+  <div
+    className="d-flex align-items-center"
+  >
+    <Icon
+      className="tag__tag-icon"
+      name="tag"
+    />
+    Social For Good
+    <Icon
+      className="tag__remove-icon cursor-pointer"
+      data-test-id="tag-remove-icon"
+      name="close"
+      onClick={[MockFunction]}
+    />
+  </div>
 </Badge>
 `;
