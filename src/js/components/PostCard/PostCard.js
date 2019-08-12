@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import formatDate from 'date-fns/format';
-import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag } from '../..';
+import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon } from '../..';
 import { type IconNameType } from '../Icon/icons';
 
 type MediaType = {
@@ -13,18 +13,17 @@ type MediaType = {
 };
 
 type PostType = {
-  campaign?: {
-    color: string,
-    name: string,
-  },
   content: string,
-  creator?: string,
   date?: Date | number | string,
   id: string,
   media?: MediaType[],
-  metrics?: {
-    [key: string]: number,
-  },
+  metrics?: [
+    {
+      icon?: IconNameType,
+      key: string,
+      value: number,
+    },
+  ],
   socialIdentity?: {
     avatar?: string,
     displayName?: string,
@@ -34,7 +33,6 @@ type PostType = {
   },
   state: string,
   tags: [string],
-  title: string,
 };
 
 type PostActionType = {
@@ -116,7 +114,7 @@ const PostCard = ({
               />
             )}
             <div className="ml-1">
-              <div className="h6 mb-0">
+              <div className="h6 mb-0" data-test-id="post-card-date">
                 {post.date ? `Scheduled for ${formatDate(post.date, dateFormat)}` : 'Unscheduled'}
               </div>
               {post.socialIdentity && (
@@ -124,7 +122,7 @@ const PostCard = ({
               )}
             </div>
           </div>
-          <div className="text-sm mb-1">
+          <div className="text-sm mb-1" data-test-id="post-card-content">
             <ResponsiveHTMLEllipsis
               unsafeHTML={post.content.replace(/\n/g, '<br />')}
               maxLine={3}
@@ -157,15 +155,14 @@ const PostCard = ({
       </div>
       <div className="py-1 px-2 d-flex justify-content-between">
         <div className="d-flex align-items-center">
-          {post.metrics && Object.keys(post.metrics).length > 0 && (
-            <React.Fragment>
-              {Object.keys(post.metrics).map(key => (
-                <div className="text-sm mr-1" key={key}>
-                  <span>{post.metrics && post.metrics[key]}</span> {key}
-                </div>
-              ))}
-            </React.Fragment>
-          )}
+          {post.metrics &&
+            post.metrics.length > 0 &&
+            post.metrics.map(metric => (
+              <div className="d-flex align-items-center text-sm mr-1" key={metric.key}>
+                {metric.icon && <Icon className="mr-half" isActive name={metric.icon} size={20} />}{' '}
+                {metric.value} {metric.key}
+              </div>
+            ))}
         </div>
         <div>
           {actions.length > 0 &&

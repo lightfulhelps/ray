@@ -97,7 +97,7 @@ var PostCard = function PostCard(_ref) {
             { className: 'ml-1' },
             React.createElement(
               'div',
-              { className: 'h6 mb-0' },
+              { className: 'h6 mb-0', 'data-test-id': 'post-card-date' },
               post.date ? 'Scheduled for ' + (0, _format2.default)(post.date, dateFormat) : 'Unscheduled'
             ),
             post.socialIdentity && React.createElement(
@@ -109,7 +109,7 @@ var PostCard = function PostCard(_ref) {
         ),
         React.createElement(
           'div',
-          { className: 'text-sm mb-1' },
+          { className: 'text-sm mb-1', 'data-test-id': 'post-card-content' },
           React.createElement(ResponsiveHTMLEllipsis, {
             unsafeHTML: post.content.replace(/\n/g, '<br />'),
             maxLine: 3,
@@ -152,23 +152,17 @@ var PostCard = function PostCard(_ref) {
       React.createElement(
         'div',
         { className: 'd-flex align-items-center' },
-        post.metrics && Object.keys(post.metrics).length > 0 && React.createElement(
-          React.Fragment,
-          null,
-          Object.keys(post.metrics).map(function (key) {
-            return React.createElement(
-              'div',
-              { className: 'text-sm mr-1', key: key },
-              React.createElement(
-                'span',
-                null,
-                post.metrics && post.metrics[key]
-              ),
-              ' ',
-              key
-            );
-          })
-        )
+        post.metrics && post.metrics.length > 0 && post.metrics.map(function (metric) {
+          return React.createElement(
+            'div',
+            { className: 'd-flex align-items-center text-sm mr-1', key: metric.key },
+            metric.icon && React.createElement(_.Icon, { className: 'mr-half', isActive: true, name: metric.icon, size: 20 }),
+            ' ',
+            metric.value,
+            ' ',
+            metric.key
+          );
+        })
       ),
       React.createElement(
         'div',

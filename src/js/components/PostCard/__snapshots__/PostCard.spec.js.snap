@@ -3,25 +3,9 @@
 exports[`<PostCard /> should render 1`] = `
 <Card
   className="post-card shadow"
-  inspirationActions={
-    Array [
-      Object {
-        "icon": "follow",
-        "isActive": false,
-        "onClick": [MockFunction],
-        "theme": "gray-500",
-      },
-      Object {
-        "icon": "like",
-        "isActive": true,
-        "onClick": [MockFunction],
-        "theme": "gray-500",
-      },
-    ]
-  }
 >
   <div
-    className="bg- rounded-top-sm"
+    className="bg-warning rounded-top-sm"
     style={
       Object {
         "height": "4px",
@@ -50,16 +34,20 @@ exports[`<PostCard /> should render 1`] = `
         >
           <div
             className="h6 mb-0"
+            data-test-id="post-card-date"
           >
             Scheduled for 14:34 on Wednesday, 22 August
           </div>
           <div
             className="text-sm"
-          />
+          >
+            Myah Graham
+          </div>
         </div>
       </div>
       <div
         className="text-sm mb-1"
+        data-test-id="post-card-content"
       >
         <Responsive(HTMLEllipsis)
           basedOn="words"
@@ -115,22 +103,32 @@ exports[`<PostCard /> should render 1`] = `
       className="d-flex align-items-center"
     >
       <div
-        className="text-sm mr-1"
+        className="d-flex align-items-center text-sm mr-1"
         key="likes"
       >
-        <span>
-          10
-        </span>
+        <Icon
+          className="mr-half"
+          isActive={true}
+          name="like"
+          size={20}
+        />
+         
+        10
          
         likes
       </div>
       <div
-        className="text-sm mr-1"
+        className="d-flex align-items-center text-sm mr-1"
         key="shares"
       >
-        <span>
-          5
-        </span>
+        <Icon
+          className="mr-half"
+          isActive={true}
+          name="share"
+          size={20}
+        />
+         
+        5
          
         shares
       </div>

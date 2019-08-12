@@ -60,12 +60,28 @@ const scheduledPost = {
       'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".'
     ),
     media,
-    metrics: {
-      likes: 12,
-      comments: 30,
-      shares: 69,
-      clicks: 30,
-    },
+    metrics: [
+      {
+        icon: 'like',
+        key: 'likes',
+        value: 10,
+      },
+      {
+        icon: 'comment',
+        key: 'comments',
+        value: 2,
+      },
+      {
+        icon: 'share',
+        key: 'shares',
+        value: 5,
+      },
+      {
+        icon: 'click',
+        key: 'clicks',
+        value: 106,
+      },
+    ],
     state: 'scheduled',
     tags,
   },
