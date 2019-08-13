@@ -7302,6 +7302,9 @@ button.bg-linkedin:focus {
   width: 100%;
   border-radius: 0 0 0.3125rem 0.3125rem; }
 
+.post-card__error {
+  background-color: #f25270; }
+
 .post-card__media-wrap {
   width: 100%;
   height: 200px;
@@ -7310,7 +7313,7 @@ button.bg-linkedin:focus {
     .post-card__media-wrap {
       width: 130px;
       height: 130px;
-      margin: 0 0 0 0.625rem; } }
+      margin: 0 0 0 1.25rem; } }
 
 .post-media {
   display: grid;

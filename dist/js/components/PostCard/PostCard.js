@@ -104,13 +104,13 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
 
       switch (post.state) {
         case 'scheduled':
-          borderColor = 'warning';
-          break;
-        case 'published':
           borderColor = 'info';
           break;
+        case 'published':
+          borderColor = 'success';
+          break;
         case 'review':
-          borderColor = 'danger';
+          borderColor = 'warning';
           break;
         default:
           borderColor = '';
@@ -121,12 +121,26 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
         _.Card,
         _extends({}, other, { className: classes }),
         React.createElement('div', { className: 'bg-' + borderColor + ' rounded-top-sm', style: { height: '4px' } }),
+        errors && errors.length > 0 && React.createElement(
+          'div',
+          { className: 'mt-1' },
+          errors.map(function (error, i) {
+            return React.createElement(
+              'div',
+              {
+                key: i,
+                className: 'text-xs font-weight-bold mb-1 mx-2 bg-danger py-half px-1 rounded-sm text-white'
+              },
+              error
+            );
+          })
+        ),
         React.createElement(
           'div',
           { className: 'd-flex flex-column flex-md-row justify-content-between px-2 py-1 border-bottom' },
           React.createElement(
             'div',
-            null,
+            { className: 'flex-fill' },
             React.createElement(
               'div',
               { className: 'd-flex mb-half' },
@@ -165,14 +179,12 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
                 { className: 'd-flex justify-content-end', onClick: this.handleToggleTruncate },
                 this.state.isTruncated ? React.createElement(
                   'div',
-                  { className: 'cursor-pointer' },
-                  'See more',
-                  React.createElement(_.Icon, { className: 'ml-half', name: 'chevronDown' })
+                  { className: 'cursor-pointer text-underline' },
+                  'See more'
                 ) : React.createElement(
                   'div',
-                  { className: 'cursor-pointer' },
-                  'See less',
-                  React.createElement(_.Icon, { className: 'ml-half', name: 'chevronUp' })
+                  { className: 'cursor-pointer text-underline' },
+                  'See less'
                 )
               )
             ),
