@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import { format as formatDate, isFuture } from 'date-fns';
-import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon } from '../..';
+import { Card, Alert, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon } from '../..';
 import { type IconNameType } from '../Icon/icons';
 
 type MediaType = {
@@ -106,13 +106,13 @@ class PostCard extends React.Component<Props, State> {
 
     switch (post.state) {
       case 'scheduled':
-        borderColor = 'warning';
-        break;
-      case 'published':
         borderColor = 'info';
         break;
+      case 'published':
+        borderColor = 'success';
+        break;
       case 'review':
-        borderColor = 'danger';
+        borderColor = 'warning';
         break;
       default:
         borderColor = '';
@@ -122,8 +122,17 @@ class PostCard extends React.Component<Props, State> {
     return (
       <Card {...other} className={classes}>
         <div className={`bg-${borderColor} rounded-top-sm`} style={{ height: '4px' }} />
+        {errors && errors.length > 0 && (
+          <div className="mt-1">
+            {errors.map(error => (
+              <div className="text-xs font-weight-bold mb-1 mx-2 bg-danger py-half px-1 rounded-sm text-white">
+                {error}
+              </div>
+            ))}
+          </div>
+        )}
         <div className="d-flex flex-column flex-md-row justify-content-between px-2 py-1 border-bottom">
-          <div>
+          <div className="flex-fill">
             <div className="d-flex mb-half">
               {post.socialIdentity && (
                 <Avatar
@@ -156,15 +165,9 @@ class PostCard extends React.Component<Props, State> {
               />
               <div className="d-flex justify-content-end" onClick={this.handleToggleTruncate}>
                 {this.state.isTruncated ? (
-                  <div className="cursor-pointer">
-                    See more
-                    <Icon className="ml-half" name="chevronDown" />
-                  </div>
+                  <div className="cursor-pointer text-underline">See more</div>
                 ) : (
-                  <div className="cursor-pointer">
-                    See less
-                    <Icon className="ml-half" name="chevronUp" />
-                  </div>
+                  <div className="cursor-pointer text-underline">See less</div>
                 )}
               </div>
             </div>

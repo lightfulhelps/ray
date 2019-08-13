@@ -5,7 +5,7 @@ exports[`<PostCard /> should render 1`] = `
   className="post-card shadow"
 >
   <div
-    className="bg-warning rounded-top-sm"
+    className="bg-info rounded-top-sm"
     style={
       Object {
         "height": "4px",
@@ -15,7 +15,9 @@ exports[`<PostCard /> should render 1`] = `
   <div
     className="d-flex flex-column flex-md-row justify-content-between px-2 py-1 border-bottom"
   >
-    <div>
+    <div
+      className="flex-fill"
+    >
       <div
         className="d-flex mb-half"
       >
@@ -61,13 +63,9 @@ exports[`<PostCard /> should render 1`] = `
           onClick={[Function]}
         >
           <div
-            className="cursor-pointer"
+            className="cursor-pointer text-underline"
           >
             See more
-            <Icon
-              className="ml-half"
-              name="chevronDown"
-            />
           </div>
         </div>
       </div>
