@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
+import { addDays, subDays } from 'date-fns';
 import { PostCard, PostMedia, URLMetaPreview } from '../..';
 
 const setup = (overrides = {}) => {
@@ -89,7 +90,7 @@ describe('<PostCard />', () => {
     const { wrapper, props } = setup();
 
     expect(wrapper.find('[data-test-id="post-card-date"]').text()).toBe(
-      'Scheduled for 14:34 on Wednesday, 22 August'
+      'Published 14:34 on Wednesday, 22 August'
     );
 
     wrapper.setProps({ post: { ...props.post, date: null } });
@@ -97,17 +98,29 @@ describe('<PostCard />', () => {
     expect(wrapper.find('[data-test-id="post-card-date"]').text()).toBe('Unscheduled');
   });
 
+  it('should handle past and future dates', () => {
+    const { wrapper, props } = setup({ post: { date: addDays(new Date(), 1) } });
+
+    expect(wrapper.find('[data-test-id="post-card-date"]').text()).not.toContain('Published');
+    expect(wrapper.find('[data-test-id="post-card-date"]').text()).toContain('Scheduled');
+
+    wrapper.setProps({ post: { ...props.post, date: subDays(new Date(), 1) } });
+
+    expect(wrapper.find('[data-test-id="post-card-date"]').text()).toContain('Published');
+    expect(wrapper.find('[data-test-id="post-card-date"]').text()).not.toContain('Scheduled');
+  });
+
   it('should handle the dateFormat prop', () => {
     const { wrapper } = setup();
 
     expect(wrapper.find('[data-test-id="post-card-date"]').text()).toEqual(
-      'Scheduled for 14:34 on Wednesday, 22 August'
+      'Published 14:34 on Wednesday, 22 August'
     );
 
     wrapper.setProps({ dateFormat: 'HH:MM [on] DD-MM-YYYY' });
 
     expect(wrapper.find('[data-test-id="post-card-date"]').text()).toEqual(
-      'Scheduled for 14:08 on 22-08-2018'
+      'Published 14:08 on 22-08-2018'
     );
   });
 
@@ -119,6 +132,7 @@ describe('<PostCard />', () => {
       wrapper
         .find('[data-test-id="post-card-content"]')
         .children()
+        .at(0)
         .prop('unsafeHTML')
     ).toEqual(content);
   });

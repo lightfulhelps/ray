@@ -36,7 +36,7 @@ exports[`<PostCard /> should render 1`] = `
             className="h6 mb-0"
             data-test-id="post-card-date"
           >
-            Scheduled for 14:34 on Wednesday, 22 August
+            Published 14:34 on Wednesday, 22 August
           </div>
           <div
             className="text-sm"
@@ -56,6 +56,20 @@ exports[`<PostCard /> should render 1`] = `
           maxLine={3}
           unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."
         />
+        <div
+          className="d-flex justify-content-end"
+          onClick={[Function]}
+        >
+          <div
+            className="cursor-pointer"
+          >
+            See more
+            <Icon
+              className="ml-half"
+              name="chevronDown"
+            />
+          </div>
+        </div>
       </div>
       <div>
         <Tag
@@ -97,10 +111,10 @@ exports[`<PostCard /> should render 1`] = `
     />
   </div>
   <div
-    className="py-1 px-2 d-flex justify-content-between"
+    className="py-1 px-2 d-flex flex-column flex-md-row justify-content-between"
   >
     <div
-      className="d-flex align-items-center"
+      className="d-flex align-items-center mb-2 mb-md-0"
     >
       <div
         className="d-flex align-items-center text-sm mr-1"

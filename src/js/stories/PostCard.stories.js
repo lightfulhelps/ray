@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, boolean, text, date, color, select } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text, date, select } from '@storybook/addon-knobs';
 import { Container, PostCard } from '..';
 
 import '../../scss/ray.scss';
@@ -40,86 +40,79 @@ const media = [
 
 const tags = ['Social For Good', 'Charity', 'Lightful', 'Giving', 'Tech For Good'];
 
-const scheduledPost = {
-  post: {
-    title: text('Title', 'Hope For Children'),
-    date: date('Date', defaultDate),
-    campaign: {
-      name: text('Campaign Name', 'Campaign Tag'),
-      color: color('Campaign Color', '#27B0CC'),
-    },
-    creator: 'Bruno La Versa',
-    socialIdentity: {
-      id: '123',
-      avatar: text('Avatar URL', 'https://randomuser.me/api/portraits/women/47.jpg'),
-      provider: select('Social Provider', socialProviders, 'twitter'),
-      displayName: 'Save the rabbits',
-    },
-    content: text(
-      'Content',
-      'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".'
-    ),
-    media,
-    metrics: [
-      {
-        icon: 'like',
-        key: 'likes',
-        value: 10,
-      },
-      {
-        icon: 'comment',
-        key: 'comments',
-        value: 2,
-      },
-      {
-        icon: 'share',
-        key: 'shares',
-        value: 5,
-      },
-      {
-        icon: 'click',
-        key: 'clicks',
-        value: 106,
-      },
-    ],
-    state: 'scheduled',
-    tags,
-  },
-  actions: [
-    { label: 'Edit', onClick: action('Edit') },
-    { label: 'Delete', onClick: action('Delete') },
-    { label: 'Preview', onClick: action('Preview') },
-    { label: 'Reschedule', onClick: action('Reschedule') },
-  ],
-  isDraft: boolean('Draft', false),
-  isInvalid: boolean('Invalid', false),
-  // metaPreview: {
-  //   title: text('Meta Title', "National Living Wage 'fails to cover families' basic needs"),
-  //   description: text(
-  //     'Meta Description',
-  //     "Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says."
-  //   ),
-  //   image: text(
-  //     'Meta Image',
-  //     'https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg'
-  //   ),
-  //   url: text('Meta URL', 'https://www.bbc.co.uk/news/business-45242008'),
-  // },
-  errors: [
-    'Error string',
-    'Error string two with a much longer string than the other one',
-    'Error string two with a much longer string than the other one kinda long',
-    'Error string two with a much longer string than the other one much much longer its long',
-  ],
-};
+const states = ['scheduled', 'published', 'review'];
 
 stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
     <h1 className="my-4">PostCard</h1>
-    <PostCard className="mb-4" {...scheduledPost} />
-    <PostCard className="mb-4" {...scheduledPost} />
-    <PostCard className="mb-4" {...scheduledPost} />
+    <PostCard
+      className="mb-4"
+      post={{
+        date: date('Date', defaultDate),
+        socialIdentity: {
+          id: '123',
+          avatar: 'https://randomuser.me/api/portraits/women/47.jpg',
+          provider: select('Social Provider', socialProviders, 'twitter'),
+          displayName: 'Save the rabbits',
+        },
+        content: text(
+          'Content',
+          'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most". Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school.'
+        ),
+        media,
+        metrics: [
+          {
+            icon: 'like',
+            key: 'likes',
+            value: 10,
+          },
+          {
+            icon: 'comment',
+            key: 'comments',
+            value: 2,
+          },
+          {
+            icon: 'share',
+            key: 'shares',
+            value: 5,
+          },
+          {
+            icon: 'click',
+            key: 'clicks',
+            value: 106,
+          },
+        ],
+        state: select('Post State', states, 'scheduled'),
+        tags,
+      }}
+      actions={[
+        { label: 'Edit', onClick: action('Edit') },
+        { label: 'Delete', onClick: action('Delete') },
+        { label: 'Preview', onClick: action('Preview') },
+        { label: 'Reschedule', onClick: action('Reschedule') },
+      ]}
+      isDraft={boolean('Draft', false)}
+      isInvalid={boolean('Invalid', false)}
+      // metaPreview={{
+      //   title: text('Meta Title', "National Living Wage 'fails to cover families' basic needs"),
+      //   description: text(
+      //     'Meta Description',
+      //     "Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says."
+      //   ),
+      //   image: text(
+      //     'Meta Image',
+      //     'https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg'
+      //   ),
+      //   url: text('Meta URL', 'https://www.bbc.co.uk/news/business-45242008'),
+      // }}
+      errors={[
+        'Error string',
+        'Error string two with a much longer string than the other one',
+        'Error string two with a much longer string than the other one kinda long',
+        'Error string two with a much longer string than the other one much much longer its long',
+      ]}
+    />
   </Container>
 ));
