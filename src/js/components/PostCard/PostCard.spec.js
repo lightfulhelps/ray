@@ -50,6 +50,12 @@ describe('<PostCard />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should render with errors', () => {
+    const { wrapper } = setup({ errors: ['foo', 'bar'] });
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('should handle className', () => {
     const { wrapper } = setup();
 

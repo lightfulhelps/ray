@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import { format as formatDate, isFuture } from 'date-fns';
-import { Card, Alert, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon } from '../..';
+import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon } from '../..';
 import { type IconNameType } from '../Icon/icons';
 
 type MediaType = {
@@ -124,8 +124,11 @@ class PostCard extends React.Component<Props, State> {
         <div className={`bg-${borderColor} rounded-top-sm`} style={{ height: '4px' }} />
         {errors && errors.length > 0 && (
           <div className="mt-1">
-            {errors.map(error => (
-              <div className="text-xs font-weight-bold mb-1 mx-2 bg-danger py-half px-1 rounded-sm text-white">
+            {errors.map((error, i) => (
+              <div
+                key={i}
+                className="text-xs font-weight-bold mb-1 mx-2 bg-danger py-half px-1 rounded-sm text-white"
+              >
                 {error}
               </div>
             ))}

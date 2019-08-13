@@ -149,3 +149,169 @@ exports[`<PostCard /> should render 1`] = `
   </div>
 </Card>
 `;
+
+exports[`<PostCard /> should render with errors 1`] = `
+<Card
+  className="post-card shadow"
+>
+  <div
+    className="bg-info rounded-top-sm"
+    style={
+      Object {
+        "height": "4px",
+      }
+    }
+  />
+  <div
+    className="mt-1"
+  >
+    <div
+      className="text-xs font-weight-bold mb-1 mx-2 bg-danger py-half px-1 rounded-sm text-white"
+      key="0"
+    >
+      foo
+    </div>
+    <div
+      className="text-xs font-weight-bold mb-1 mx-2 bg-danger py-half px-1 rounded-sm text-white"
+      key="1"
+    >
+      bar
+    </div>
+  </div>
+  <div
+    className="d-flex flex-column flex-md-row justify-content-between px-2 py-1 border-bottom"
+  >
+    <div
+      className="flex-fill"
+    >
+      <div
+        className="d-flex mb-half"
+      >
+        <Avatar
+          className="flex-shrink-0"
+          style={
+            Object {
+              "height": "40px",
+              "width": "40px",
+            }
+          }
+          url="http://foo.com/avatar.jpg"
+        />
+        <div
+          className="ml-1"
+        >
+          <div
+            className="h6 mb-0"
+            data-test-id="post-card-date"
+          >
+            Published 14:34 on Wednesday, 22 August
+          </div>
+          <div
+            className="text-sm"
+          >
+            Myah Graham
+          </div>
+        </div>
+      </div>
+      <div
+        className="text-sm mb-1"
+        data-test-id="post-card-content"
+      >
+        <Responsive(HTMLEllipsis)
+          basedOn="words"
+          ellipsis="..."
+          innerRef={[Function]}
+          maxLine={3}
+          unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."
+        />
+        <div
+          className="d-flex justify-content-end"
+          onClick={[Function]}
+        >
+          <div
+            className="cursor-pointer text-underline"
+          >
+            See more
+          </div>
+        </div>
+      </div>
+      <div>
+        <Tag
+          className="text-xs "
+          isOutline={true}
+          key="0"
+          theme="gray-600"
+        >
+          charity
+        </Tag>
+        <Tag
+          className="text-xs ml-half  "
+          isOutline={true}
+          key="1"
+          theme="gray-600"
+        >
+          social for good
+        </Tag>
+        <Tag
+          className="text-xs ml-half  "
+          isOutline={true}
+          key="2"
+          theme="gray-600"
+        >
+          campaigns
+        </Tag>
+        <Tag
+          className="text-xs ml-half  "
+          isOutline={true}
+          key="3"
+          theme="gray-600"
+        >
+          lightful
+        </Tag>
+      </div>
+    </div>
+    <div
+      className="post-card__media-wrap flex-shrink-0 rounded-sm overflow-hidden"
+    />
+  </div>
+  <div
+    className="py-1 px-2 d-flex flex-column flex-md-row justify-content-between"
+  >
+    <div
+      className="d-flex align-items-center mb-2 mb-md-0"
+    >
+      <div
+        className="d-flex align-items-center text-sm mr-1"
+        key="likes"
+      >
+        <Icon
+          className="mr-half"
+          isActive={true}
+          name="like"
+          size={20}
+        />
+         
+        10
+         
+        likes
+      </div>
+      <div
+        className="d-flex align-items-center text-sm mr-1"
+        key="shares"
+      >
+        <Icon
+          className="mr-half"
+          isActive={true}
+          name="share"
+          size={20}
+        />
+         
+        5
+         
+        shares
+      </div>
+    </div>
+    <div />
+  </div>
+</Card>
+`;
