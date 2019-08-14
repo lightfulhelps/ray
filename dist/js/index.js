@@ -193,6 +193,15 @@ Object.defineProperty(exports, 'Icon', {
   }
 });
 
+var _InspirationPostCard = require('./components/InspirationPostCard/InspirationPostCard');
+
+Object.defineProperty(exports, 'InspirationPostCard', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_InspirationPostCard).default;
+  }
+});
+
 var _Nav = require('./components/Nav/Nav');
 
 Object.defineProperty(exports, 'Nav', {
@@ -229,21 +238,12 @@ Object.defineProperty(exports, 'PostCard', {
   }
 });
 
-var _InspirationPostCard = require('./components/InspirationPostCard/InspirationPostCard');
+var _PostCardGhost = require('./components/PostCardGhost/PostCardGhost');
 
-Object.defineProperty(exports, 'InspirationPostCard', {
+Object.defineProperty(exports, 'PostCardGhost', {
   enumerable: true,
   get: function get() {
-    return _interopRequireDefault(_InspirationPostCard).default;
-  }
-});
-
-var _InspirationPostCardGhost = require('./components/InspirationPostCardGhost/InspirationPostCardGhost');
-
-Object.defineProperty(exports, 'InspirationPostCardGhost', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_InspirationPostCardGhost).default;
+    return _interopRequireDefault(_PostCardGhost).default;
   }
 });
 

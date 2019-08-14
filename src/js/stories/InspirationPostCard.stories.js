@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, text, date, select } from '@storybook/addon-knobs';
-import { Container, Row, Col, InspirationPostCard, InspirationPostCardGhost } from '..';
+import { Container, Row, Col, InspirationPostCard, PostCardGhost } from '..';
 
 import '../../scss/ray.scss';
 
@@ -88,16 +88,16 @@ stories.add('Default', () => (
 
 stories.add('Ghost', () => (
   <Container>
-    <h1 className="my-4">InspirationPostCardGhost</h1>
+    <h1 className="my-4">PostCardGhost</h1>
     <Row>
       <Col className="mb-2" md={6} lg={4}>
-        <InspirationPostCardGhost />
+        <PostCardGhost />
       </Col>
       <Col className="mb-2" md={6} lg={4}>
-        <InspirationPostCardGhost />
+        <PostCardGhost />
       </Col>
       <Col className="mb-2" md={6} lg={4}>
-        <InspirationPostCardGhost />
+        <PostCardGhost />
       </Col>
     </Row>
   </Container>

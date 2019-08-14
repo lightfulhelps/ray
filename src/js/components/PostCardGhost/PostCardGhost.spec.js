@@ -1,16 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
-import InspirationPostCardGhost from './InspirationPostCardGhost';
+import PostCardGhost from './PostCardGhost';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
-  const wrapper = shallow(<InspirationPostCardGhost {...props} />);
+  const wrapper = shallow(<PostCardGhost {...props} />);
 
   return { wrapper, props };
 };
 
-describe('<InspirationPostCardGhost />', () => {
+describe('<PostCardGhost />', () => {
   it('should render', () => {
     const { wrapper } = setup();
 
@@ -22,7 +22,7 @@ describe('<InspirationPostCardGhost />', () => {
 
     wrapper.setProps({ className: 'custom' });
 
-    expect(wrapper.hasClass('inspiration-post-card-ghost')).toBe(true);
+    expect(wrapper.hasClass('post-card-ghost')).toBe(true);
     expect(wrapper.hasClass('custom')).toBe(true);
   });
 

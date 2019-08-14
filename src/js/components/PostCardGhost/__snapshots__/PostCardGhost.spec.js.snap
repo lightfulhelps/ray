@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<InspirationPostCardGhost /> should render 1`] = `
+exports[`<PostCardGhost /> should render 1`] = `
 <Card
-  className="inspiration-post-card-ghost bg-gray-200 border-0 overflow-hidden"
+  className="post-card-ghost bg-gray-200 border-0 overflow-hidden"
 >
   <div
     className="d-flex align-items-top px-2 pt-2 pb-0"

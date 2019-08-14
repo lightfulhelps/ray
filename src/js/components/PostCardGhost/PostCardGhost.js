@@ -8,15 +8,10 @@ type Props = {
   isLoading?: boolean,
 };
 
-const InspirationPostCardGhost = ({ className, isLoading, ...other }: Props) => {
-  const classes = classNames(
-    className,
-    'inspiration-post-card-ghost',
-    'bg-gray-200 border-0 overflow-hidden',
-    {
-      loading: isLoading,
-    }
-  );
+const PostCardGhost = ({ className, isLoading, ...other }: Props) => {
+  const classes = classNames(className, 'post-card-ghost', 'bg-gray-200 border-0 overflow-hidden', {
+    loading: isLoading,
+  });
 
   return (
     <Card {...other} className={classes}>
@@ -41,4 +36,4 @@ const InspirationPostCardGhost = ({ className, isLoading, ...other }: Props) => 
   );
 };
 
-export default InspirationPostCardGhost;
+export default PostCardGhost;

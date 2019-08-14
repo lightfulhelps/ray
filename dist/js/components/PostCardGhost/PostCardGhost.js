@@ -22,12 +22,12 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-var InspirationPostCardGhost = function InspirationPostCardGhost(_ref) {
+var PostCardGhost = function PostCardGhost(_ref) {
   var className = _ref.className,
       isLoading = _ref.isLoading,
       other = _objectWithoutProperties(_ref, ['className', 'isLoading']);
 
-  var classes = (0, _classnames2.default)(className, 'inspiration-post-card-ghost', 'bg-gray-200 border-0 overflow-hidden', {
+  var classes = (0, _classnames2.default)(className, 'post-card-ghost', 'bg-gray-200 border-0 overflow-hidden', {
     loading: isLoading
   });
 
@@ -60,4 +60,4 @@ var InspirationPostCardGhost = function InspirationPostCardGhost(_ref) {
   );
 };
 
-exports.default = InspirationPostCardGhost;
+exports.default = PostCardGhost;
