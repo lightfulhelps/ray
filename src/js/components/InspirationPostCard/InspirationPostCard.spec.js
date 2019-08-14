@@ -1,16 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import merge from 'lodash/merge';
-import addDays from 'date-fns/add_days';
-import {
-  InspirationPostCard,
-  PostMedia,
-  URLMetaPreview,
-  Icon,
-  Button,
-  Dropdown,
-  DropdownMenu,
-} from '../..';
+import { merge } from 'lodash';
+import { InspirationPostCard, PostMedia, URLMetaPreview, Icon } from '../..';
 
 const setup = (overrides = {}) => {
   const props = merge(
@@ -76,26 +67,6 @@ describe('<InspirationPostCard />', () => {
     expect(wrapper.hasClass('custom')).toBe(true);
   });
 
-  it('should handle the draft prop', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.hasClass('inspiration-post-card--draft')).toBe(false);
-
-    wrapper.setProps({ isDraft: true });
-
-    expect(wrapper.hasClass('inspiration-post-card--draft')).toBe(true);
-  });
-
-  it('should handle the invalid prop', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.hasClass('inspiration-post-card--invalid')).toBe(false);
-
-    wrapper.setProps({ isInvalid: true });
-
-    expect(wrapper.hasClass('inspiration-post-card--invalid')).toBe(true);
-  });
-
   it('should optionally display post date', () => {
     const { wrapper, props } = setup();
 
@@ -103,36 +74,7 @@ describe('<InspirationPostCard />', () => {
 
     wrapper.setProps({ post: { ...props.post, date: null } });
 
-    expect(wrapper.find('.inspiration-post-card__date').text()).toBe('<Icon />Unscheduled');
-  });
-
-  it('should include the schedule Icon if no date or date is in the future', () => {
-    const { wrapper, props } = setup({ post: { date: null } });
-
-    expect(
-      wrapper
-        .find('.inspiration-post-card__date')
-        .find(Icon)
-        .exists()
-    ).toBe(true);
-
-    wrapper.setProps({ post: { ...props.post, date: '2018-08-22 14:34' } });
-
-    expect(
-      wrapper
-        .find('.inspiration-post-card__date')
-        .find(Icon)
-        .exists()
-    ).toBe(false);
-
-    wrapper.setProps({ post: { ...props.post, date: addDays(new Date(), 1) } });
-
-    expect(
-      wrapper
-        .find('.inspiration-post-card__date')
-        .find(Icon)
-        .exists()
-    ).toBe(true);
+    expect(wrapper.find('.inspiration-post-card__date').text()).toBe('Unscheduled');
   });
 
   it('should handle the dateFormat prop', () => {
@@ -143,49 +85,6 @@ describe('<InspirationPostCard />', () => {
     wrapper.setProps({ dateFormat: 'HH:MM [on] DD-MM-YYYY' });
 
     expect(wrapper.find('.inspiration-post-card__date').text()).toEqual('14:08 on 22-08-2018');
-  });
-
-  it('should handle the post campaign prop', () => {
-    const { wrapper, props } = setup();
-
-    expect(wrapper.find('.inspiration-post-card__campaign').prop('color')).toEqual(
-      props.post.campaign.color
-    );
-    expect(wrapper.find('.inspiration-post-card__campaign').prop('children')).toEqual(
-      props.post.campaign.name
-    );
-  });
-
-  it('should optionally display the campaign tag', () => {
-    const { wrapper, props } = setup();
-
-    expect(wrapper.find('.inspiration-post-card__campaign').exists()).toBe(true);
-
-    wrapper.setProps({ post: merge(props.post, { campaign: null }) });
-
-    expect(wrapper.find('.inspiration-post-card__campaign').exists()).toBe(false);
-  });
-
-  it('should optionally display a Dropdown', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.find(Dropdown).exists()).toBe(false);
-
-    wrapper.setProps({ actions: [{ icon: 'edit', label: 'Edit' }] });
-
-    expect(wrapper.find(Dropdown).exists()).toBe(true);
-  });
-
-  it('should pass post creator to Dropdown', () => {
-    const { wrapper } = setup({ post: { creator: 'Bruno' }, actions: [{ label: 'Edit' }] });
-
-    expect(
-      wrapper
-        .find(Dropdown)
-        .dive()
-        .find(DropdownMenu)
-        .prop('footer')
-    ).toEqual('Creator: Bruno');
   });
 
   it('should set HTML in the post content', () => {
@@ -302,26 +201,6 @@ describe('<InspirationPostCard />', () => {
     wrapper.setProps({ post: { ...props.post, metrics: {} } });
 
     expect(wrapper.find('.inspiration-post-card__metrics').exists()).toBe(false);
-  });
-
-  it('should optionally display a footer button', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.find('.inspiration-post-card__footer').exists()).toBe(false);
-
-    wrapper.setProps({ footerButton: <Button>Click</Button> });
-
-    expect(wrapper.find('.inspiration-post-card__footer').exists()).toBe(true);
-  });
-
-  it('should optionally display errors', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.find('[data-test-id="inspiration-post-card-errors-dropdown"]')).toHaveLength(0);
-
-    wrapper.setProps({ errors: ['Something', 'went', 'wrong'] });
-
-    expect(wrapper.find('[data-test-id="inspiration-post-card-errors-dropdown"]')).toHaveLength(1);
   });
 
   it('should pass through other props', () => {

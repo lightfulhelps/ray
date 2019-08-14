@@ -215,7 +215,7 @@ class PostCard extends React.Component<Props, State> {
               actions.map((action, i) => (
                 <Button
                   key={i}
-                  theme="dark"
+                  theme="gray-600"
                   size="sm"
                   isOutline
                   className="ml-1"

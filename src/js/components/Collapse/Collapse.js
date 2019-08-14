@@ -30,7 +30,7 @@ class Collapse extends React.Component<Props, State> {
     return (
       <div {...other} className={classes}>
         <div
-          className="h6 cursor-pointer"
+          className="h6 cursor-pointer d-flex justify-content-between align-items-center"
           data-test-id="collapse-toggle"
           onClick={this.handleToggle}
         >

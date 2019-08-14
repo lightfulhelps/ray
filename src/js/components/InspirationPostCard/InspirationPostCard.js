@@ -4,22 +4,8 @@ import classNames from 'classnames';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import formatDate from 'date-fns/format';
-import isFuture from 'date-fns/is_future';
-import {
-  Card,
-  Avatar,
-  Badge,
-  Icon,
-  PostMedia,
-  URLMetaPreview,
-  Dropdown,
-  DropdownMenu,
-  DropdownItem,
-  Button,
-  Tag,
-} from '../..';
+import { Card, Avatar, Icon, PostMedia, URLMetaPreview, Tag } from '../..';
 import { type IconNameType } from '../Icon/icons';
-import DropdownToggle from '../DropdownToggle/DropdownToggle';
 
 type InspirationActionType = {
   activeColor?: string,
@@ -59,21 +45,10 @@ type PostType = {
   title: string,
 };
 
-type PostActionType = {
-  icon?: IconNameType,
-  label: string,
-  onClick: () => void,
-};
-
 type Props = {
-  actions?: PostActionType[],
   className?: string,
   dateFormat?: string,
-  errors?: string[],
-  footerButton?: React.Element<any>,
   inspirationActions?: InspirationActionType[],
-  isDraft?: boolean,
-  isInvalid?: boolean,
   metaPreview?: {
     description?: string,
     image?: string,
@@ -91,61 +66,22 @@ export const config = {
 const ResponsiveHTMLEllipsis = responsiveHOC()(HTMLEllipsis);
 
 const InspirationPostCard = ({
-  actions = [],
   className,
   dateFormat = 'D MMM YY [-] HH:mm',
-  errors,
-  footerButton,
   inspirationActions,
-  isDraft,
-  isInvalid,
   metaPreview,
   post,
   ...other
 }: Props) => {
   const blockClass = 'inspiration-post-card';
-  const classes = classNames(
-    className,
-    blockClass,
-    { [`${blockClass}--draft`]: isDraft },
-    { [`${blockClass}--invalid`]: isInvalid }
-  );
+  const classes = classNames(className, blockClass);
   const showMetaPreview =
     (!post.media || (post.media && post.media.length === 0)) && metaPreview && metaPreview.url;
   const showMediaEmpty =
     post.media && post.media.length === 0 && (!metaPreview || (metaPreview && !metaPreview.url));
-  const showPostErrors = errors && errors.length > 0;
 
   return (
     <Card {...other} className={classes}>
-      {showPostErrors && (
-        <Dropdown
-          data-test-id="inspiration-post-card-errors-dropdown"
-          render={(isOpen, onToggle) => (
-            <React.Fragment>
-              <DropdownToggle
-                className="text-sm text-left m-0 d-flex justify-content-between rounded-bottom-0"
-                isBlock
-                theme="danger"
-                isOpen={isOpen}
-                onClick={onToggle}
-                size="sm"
-                isOutline={false}
-              >
-                <div className="d-flex align-items-center">
-                  <Icon className="mr-1" size={16} name="alert" />
-                  Error
-                </div>
-              </DropdownToggle>
-              <DropdownMenu className="shadow-lg border-0 p-2 rounded-top-0" isOpen={isOpen}>
-                <ul className="small mb-0 pl-2">
-                  {errors && errors.map((error, i) => <li key={i}>{error}</li>)}
-                </ul>
-              </DropdownMenu>
-            </React.Fragment>
-          )}
-        />
-      )}
       <div className={`${blockClass}__header`}>
         {post.socialIdentity && (
           <div style={{ width: '35px', height: '35px', minWidth: '35px', minHeight: '35px' }}>
@@ -155,40 +91,9 @@ const InspirationPostCard = ({
         <div className="mx-1" style={{ height: '72px', minWidth: 0, flex: 1 }}>
           <h1 className={`${blockClass}__title`}>{post.title}</h1>
           <div className={`${blockClass}__date`}>
-            {(!post.date || isFuture(post.date)) && (
-              <Icon name="schedule" size={20} color="#adb5bd" />
-            )}
             {post.date ? formatDate(post.date, dateFormat) : 'Unscheduled'}
           </div>
-          {post.campaign && (
-            <Badge className={`${blockClass}__campaign`} color={post.campaign.color}>
-              {post.campaign.name}
-            </Badge>
-          )}
         </div>
-        {actions.length > 0 && (
-          <Dropdown
-            render={(isOpen, onToggle) => (
-              <React.Fragment>
-                <Button icon="menu" onClick={onToggle} size="sm" theme="light" />
-                <DropdownMenu
-                  footer={post.creator && `Creator: ${post.creator}`}
-                  isOpen={isOpen}
-                  onClick={onToggle}
-                  position="right"
-                  theme="dark"
-                >
-                  {actions.map((action, i) => (
-                    <DropdownItem key={i} onClick={action.onClick}>
-                      {action.icon && <Icon name={action.icon} className="mr-1" />}
-                      {action.label}
-                    </DropdownItem>
-                  ))}
-                </DropdownMenu>
-              </React.Fragment>
-            )}
-          />
-        )}
       </div>
       <div className={`${blockClass}__content`}>
         <ResponsiveHTMLEllipsis
@@ -252,7 +157,6 @@ const InspirationPostCard = ({
           ))}
         </div>
       )}
-      {footerButton && <div className={`${blockClass}__footer`}>{footerButton}</div>}
     </Card>
   );
 };

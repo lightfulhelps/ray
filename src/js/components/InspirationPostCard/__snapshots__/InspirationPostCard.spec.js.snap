@@ -41,12 +41,6 @@ exports[`<InspirationPostCard /> should render 1`] = `
       >
         22 Aug 18 - 14:34
       </div>
-      <Badge
-        className="inspiration-post-card__campaign"
-        color="#ff0000"
-      >
-        Campaign
-      </Badge>
     </div>
   </div>
   <div

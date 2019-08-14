@@ -16,7 +16,7 @@ stories.add('Default', () => (
       <Col sm={6}>
         <p className="mb-4">
           The collapse component does not have any styling but you can apply any Bootstrap classes
-          to change it&rsuo;s appearance. Here they are also displayed inside a Card component.
+          to change it's appearance. Here they are also displayed inside a Card component.
         </p>
         <Card className="shadow p-2">
           <Collapse className="pb-1 mb-1 border-bottom" defaultOpen label="Social profiles">
