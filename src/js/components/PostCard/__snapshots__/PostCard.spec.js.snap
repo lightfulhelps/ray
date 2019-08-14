@@ -51,24 +51,15 @@ exports[`<PostCard /> should render 1`] = `
       <div
         className="text-sm mb-1"
         data-test-id="post-card-content"
+        onClick={[Function]}
       >
         <Responsive(HTMLEllipsis)
           basedOn="words"
-          ellipsis="..."
+          ellipsisHTML="<span class=\\"text-underline cursor-pointer\\">See more</span>"
           innerRef={[Function]}
           maxLine={3}
           unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."
         />
-        <div
-          className="d-flex justify-content-end"
-          onClick={[Function]}
-        >
-          <div
-            className="cursor-pointer text-underline"
-          >
-            See more
-          </div>
-        </div>
       </div>
       <div
         className="d-flex flex-wrap"
@@ -256,24 +247,15 @@ exports[`<PostCard /> should render with errors 1`] = `
       <div
         className="text-sm mb-1"
         data-test-id="post-card-content"
+        onClick={[Function]}
       >
         <Responsive(HTMLEllipsis)
           basedOn="words"
-          ellipsis="..."
+          ellipsisHTML="<span class=\\"text-underline cursor-pointer\\">See more</span>"
           innerRef={[Function]}
           maxLine={3}
           unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."
         />
-        <div
-          className="d-flex justify-content-end"
-          onClick={[Function]}
-        >
-          <div
-            className="cursor-pointer text-underline"
-          >
-            See more
-          </div>
-        </div>
       </div>
       <div
         className="d-flex flex-wrap"

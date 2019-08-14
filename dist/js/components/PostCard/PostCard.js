@@ -171,26 +171,17 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
             ),
             React.createElement(
               'div',
-              { className: 'text-sm mb-1', 'data-test-id': 'post-card-content' },
+              {
+                className: 'text-sm mb-1',
+                'data-test-id': 'post-card-content',
+                onClick: this.handleToggleTruncate
+              },
               React.createElement(ResponsiveHTMLEllipsis, {
                 unsafeHTML: post.content.replace(/\n/g, '<br />'),
                 maxLine: this.state.isTruncated ? defaultLineClamp : allLinesClamp,
-                ellipsis: '...',
+                ellipsisHTML: '<span class="text-underline cursor-pointer">See more</span>',
                 basedOn: 'words'
-              }),
-              React.createElement(
-                'div',
-                { className: 'd-flex justify-content-end', onClick: this.handleToggleTruncate },
-                this.state.isTruncated ? React.createElement(
-                  'div',
-                  { className: 'cursor-pointer text-underline' },
-                  'See more'
-                ) : React.createElement(
-                  'div',
-                  { className: 'cursor-pointer text-underline' },
-                  'See less'
-                )
-              )
+              })
             ),
             post.tags && post.tags.length > 0 && React.createElement(
               'div',

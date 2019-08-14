@@ -159,20 +159,17 @@ class PostCard extends React.Component<Props, State> {
                 )}
               </div>
             </div>
-            <div className="text-sm mb-1" data-test-id="post-card-content">
+            <div
+              className="text-sm mb-1"
+              data-test-id="post-card-content"
+              onClick={this.handleToggleTruncate}
+            >
               <ResponsiveHTMLEllipsis
                 unsafeHTML={post.content.replace(/\n/g, '<br />')}
                 maxLine={this.state.isTruncated ? defaultLineClamp : allLinesClamp}
-                ellipsis="..."
+                ellipsisHTML='<span class="text-underline cursor-pointer">See more</span>'
                 basedOn="words"
               />
-              <div className="d-flex justify-content-end" onClick={this.handleToggleTruncate}>
-                {this.state.isTruncated ? (
-                  <div className="cursor-pointer text-underline">See more</div>
-                ) : (
-                  <div className="cursor-pointer text-underline">See less</div>
-                )}
-              </div>
             </div>
             {post.tags && post.tags.length > 0 && (
               <div className="d-flex flex-wrap">
