@@ -36,7 +36,7 @@ var Tag = function Tag(_ref) {
     React.createElement(
       'div',
       { className: 'd-flex align-items-center' },
-      React.createElement(_.Icon, { className: 'tag__tag-icon', name: 'tag' }),
+      React.createElement(_.Icon, { className: 'tag__tag-icon flex-shrink-0', name: 'tag' }),
       children,
       onRemove && React.createElement(_.Icon, {
         className: 'tag__remove-icon cursor-pointer',

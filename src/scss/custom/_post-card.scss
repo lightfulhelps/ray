@@ -6,7 +6,7 @@
   &__media-wrap {
     width: 100%;
     height: 200px;
-    margin: $spacer 0;
+    margin: $spacer 0 0;
 
     @include media-breakpoint-up('md') {
       width: 130px;

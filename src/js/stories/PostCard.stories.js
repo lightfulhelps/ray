@@ -88,10 +88,11 @@ stories.add('Default', () => (
         tags,
       }}
       actions={[
-        { label: 'Edit', onClick: action('Edit') },
-        { label: 'Delete', onClick: action('Delete') },
-        { label: 'Preview', onClick: action('Preview') },
-        { label: 'Reschedule', onClick: action('Reschedule') },
+        { children: 'Approve', onClick: action('Approve') },
+        { children: 'Preview', onClick: action('Preview') },
+        { children: 'Edit', onClick: action('Edit') },
+        { children: 'Delete', onClick: action('Delete') },
+        // { children: 'Reschedule', onClick: action('Reschedule') },
       ]}
       isDraft={boolean('Draft', false)}
       isInvalid={boolean('Invalid', false)}

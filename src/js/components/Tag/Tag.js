@@ -15,7 +15,7 @@ const Tag = ({ children, className, onRemove, ...other }: Props) => {
   return (
     <Badge {...other} className={classes} isPill>
       <div className="d-flex align-items-center">
-        <Icon className="tag__tag-icon" name="tag" />
+        <Icon className="tag__tag-icon flex-shrink-0" name="tag" />
         {children}
         {onRemove && (
           <Icon

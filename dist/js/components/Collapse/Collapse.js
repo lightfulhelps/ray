@@ -76,7 +76,7 @@ var Collapse = (_temp2 = _class = function (_React$Component) {
         React.createElement(
           'div',
           {
-            className: 'h6 cursor-pointer d-flex justify-content-between align-items-center',
+            className: 'h6 mb-0 cursor-pointer d-flex justify-content-between align-items-center',
             'data-test-id': 'collapse-toggle',
             onClick: this.handleToggle
           },

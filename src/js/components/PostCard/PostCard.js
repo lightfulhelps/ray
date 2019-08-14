@@ -6,6 +6,7 @@ import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import { format as formatDate } from 'date-fns';
 import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon } from '../..';
 import { type IconNameType } from '../Icon/icons';
+import { type Props as ButtonProps } from '../Button/Button';
 
 type MediaType = {
   type: string,
@@ -35,14 +36,8 @@ type PostType = {
   tags: [string],
 };
 
-type PostActionType = {
-  icon?: IconNameType,
-  label: string,
-  onClick: () => void,
-};
-
 type Props = {
-  actions?: PostActionType[],
+  actions?: ButtonProps[],
   className?: string,
   dateFormat?: string,
   errors?: string[],
@@ -121,7 +116,7 @@ class PostCard extends React.Component<Props, State> {
 
     return (
       <Card {...other} className={classes}>
-        <div className={`bg-${borderColor} rounded-top-sm`} style={{ height: '4px' }} />
+        <div className={`bg-${borderColor} rounded-top-sm`} style={{ height: '3px' }} />
         {errors && errors.length > 0 && (
           <div className="mt-1">
             {errors.map((error, i) => (
@@ -134,9 +129,9 @@ class PostCard extends React.Component<Props, State> {
             ))}
           </div>
         )}
-        <div className="d-flex flex-column flex-md-row justify-content-between px-2 py-1 border-bottom">
+        <div className="d-flex flex-column flex-md-row justify-content-between p-2 border-bottom">
           <div className="flex-fill">
-            <div className="d-flex mb-half">
+            <div className="d-flex mb-1">
               {post.socialIdentity && (
                 <Avatar
                   className="flex-shrink-0"
@@ -175,10 +170,10 @@ class PostCard extends React.Component<Props, State> {
               </div>
             </div>
             {post.tags && post.tags.length > 0 && (
-              <div>
+              <div className="d-flex flex-wrap">
                 {post.tags.map((tag, i) => (
                   <Tag
-                    className={`text-xs ${i === 0 ? '' : 'ml-half  '}`}
+                    className={`text-xs mr-half mb-1 ${i === 0 ? '' : ''}`}
                     isOutline
                     key={i}
                     theme="gray-600"
@@ -189,7 +184,7 @@ class PostCard extends React.Component<Props, State> {
               </div>
             )}
           </div>
-          <div className="post-card__media-wrap flex-shrink-0 rounded-sm overflow-hidden">
+          <div className="post-card__media-wrap flex-shrink-0 overflow-hidden">
             {post.media && post.media.length > 0 && <PostMedia media={post.media} />}
             {showMetaPreview && (
               <URLMetaPreview {...metaPreview} className="border-top border-bottom" />
@@ -197,8 +192,8 @@ class PostCard extends React.Component<Props, State> {
             {showMediaEmpty && <div className="post-media--empty">No media</div>}
           </div>
         </div>
-        <div className="py-1 px-2 d-flex flex-column flex-md-row justify-content-between">
-          <div className="d-flex align-items-center mb-2 mb-md-0">
+        <div className="py-1 px-2 d-flex flex-column flex-md-row justify-content-between align-items-center">
+          <div className="d-flex align-items-center flex-wrap mb-1 mb-md-0">
             {post.metrics &&
               post.metrics.length > 0 &&
               post.metrics.map(metric => (
@@ -210,19 +205,17 @@ class PostCard extends React.Component<Props, State> {
                 </div>
               ))}
           </div>
-          <div>
+          <div className="d-flex flex-wrap">
             {actions.length > 0 &&
               actions.map((action, i) => (
                 <Button
                   key={i}
                   theme="gray-600"
-                  size="sm"
                   isOutline
-                  className="ml-1"
-                  onClick={action.onClick}
-                >
-                  {action.label}
-                </Button>
+                  size="sm"
+                  className="mr-1 mb-1 mr-md-0 ml-md-1 mb-lg-0"
+                  {...action}
+                />
               ))}
           </div>
         </div>

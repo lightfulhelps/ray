@@ -9,7 +9,7 @@ exports[`<Tag /> should render 1`] = `
     className="d-flex align-items-center"
   >
     <Icon
-      className="tag__tag-icon"
+      className="tag__tag-icon flex-shrink-0"
       name="tag"
     />
     Social For Good
@@ -26,7 +26,7 @@ exports[`<Tag /> should render with a remove Icon 1`] = `
     className="d-flex align-items-center"
   >
     <Icon
-      className="tag__tag-icon"
+      className="tag__tag-icon flex-shrink-0"
       name="tag"
     />
     Social For Good

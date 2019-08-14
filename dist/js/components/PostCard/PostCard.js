@@ -32,6 +32,8 @@ var _ = require('../..');
 
 var _icons = require('../Icon/icons');
 
+var _Button = require('../Button/Button');
+
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -120,7 +122,7 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
       return React.createElement(
         _.Card,
         _extends({}, other, { className: classes }),
-        React.createElement('div', { className: 'bg-' + borderColor + ' rounded-top-sm', style: { height: '4px' } }),
+        React.createElement('div', { className: 'bg-' + borderColor + ' rounded-top-sm', style: { height: '3px' } }),
         errors && errors.length > 0 && React.createElement(
           'div',
           { className: 'mt-1' },
@@ -137,13 +139,13 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
         ),
         React.createElement(
           'div',
-          { className: 'd-flex flex-column flex-md-row justify-content-between px-2 py-1 border-bottom' },
+          { className: 'd-flex flex-column flex-md-row justify-content-between p-2 border-bottom' },
           React.createElement(
             'div',
             { className: 'flex-fill' },
             React.createElement(
               'div',
-              { className: 'd-flex mb-half' },
+              { className: 'd-flex mb-1' },
               post.socialIdentity && React.createElement(_.Avatar, {
                 className: 'flex-shrink-0',
                 url: post.socialIdentity.avatar,
@@ -190,12 +192,12 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
             ),
             post.tags && post.tags.length > 0 && React.createElement(
               'div',
-              null,
+              { className: 'd-flex flex-wrap' },
               post.tags.map(function (tag, i) {
                 return React.createElement(
                   _.Tag,
                   {
-                    className: 'text-xs ' + (i === 0 ? '' : 'ml-half  '),
+                    className: 'text-xs mr-half mb-1 ' + (i === 0 ? '' : ''),
                     isOutline: true,
                     key: i,
                     theme: 'gray-600'
@@ -207,7 +209,7 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
           ),
           React.createElement(
             'div',
-            { className: 'post-card__media-wrap flex-shrink-0 rounded-sm overflow-hidden' },
+            { className: 'post-card__media-wrap flex-shrink-0 overflow-hidden' },
             post.media && post.media.length > 0 && React.createElement(_.PostMedia, { media: post.media }),
             showMetaPreview && React.createElement(_.URLMetaPreview, _extends({}, metaPreview, { className: 'border-top border-bottom' })),
             showMediaEmpty && React.createElement(
@@ -219,10 +221,10 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
         ),
         React.createElement(
           'div',
-          { className: 'py-1 px-2 d-flex flex-column flex-md-row justify-content-between' },
+          { className: 'py-1 px-2 d-flex flex-column flex-md-row justify-content-between align-items-center' },
           React.createElement(
             'div',
-            { className: 'd-flex align-items-center mb-2 mb-md-0' },
+            { className: 'd-flex align-items-center flex-wrap mb-1 mb-md-0' },
             post.metrics && post.metrics.length > 0 && post.metrics.map(function (metric) {
               return React.createElement(
                 'div',
@@ -237,20 +239,15 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
           ),
           React.createElement(
             'div',
-            null,
+            { className: 'd-flex flex-wrap' },
             actions.length > 0 && actions.map(function (action, i) {
-              return React.createElement(
-                _.Button,
-                {
-                  key: i,
-                  theme: 'gray-600',
-                  size: 'sm',
-                  isOutline: true,
-                  className: 'ml-1',
-                  onClick: action.onClick
-                },
-                action.label
-              );
+              return React.createElement(_.Button, _extends({
+                key: i,
+                theme: 'gray-600',
+                isOutline: true,
+                size: 'sm',
+                className: 'mr-1 mb-1 mr-md-0 ml-md-1 mb-lg-0'
+              }, action));
             })
           )
         )
@@ -260,13 +257,9 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
 
   return PostCard;
 }(React.Component), _class.propTypes = {
-  actions: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    icon: function icon() {
-      return (typeof _icons.bpfrpt_proptype_IconNameType === 'function' ? _icons.bpfrpt_proptype_IconNameType : _propTypes2.default.shape(_icons.bpfrpt_proptype_IconNameType)).apply(this, arguments);
-    },
-    label: _propTypes2.default.string.isRequired,
-    onClick: _propTypes2.default.func.isRequired
-  }).isRequired),
+  actions: _propTypes2.default.arrayOf(function () {
+    return (typeof _Button.bpfrpt_proptype_Props === 'function' ? _Button.bpfrpt_proptype_Props.isRequired ? _Button.bpfrpt_proptype_Props.isRequired : _Button.bpfrpt_proptype_Props : _propTypes2.default.shape(_Button.bpfrpt_proptype_Props).isRequired).apply(this, arguments);
+  }),
   className: _propTypes2.default.string,
   dateFormat: _propTypes2.default.string,
   errors: _propTypes2.default.arrayOf(_propTypes2.default.string.isRequired),
