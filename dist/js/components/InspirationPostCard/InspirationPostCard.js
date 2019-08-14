@@ -27,23 +27,13 @@ var _format = require('date-fns/format');
 
 var _format2 = _interopRequireDefault(_format);
 
-var _is_future = require('date-fns/is_future');
-
-var _is_future2 = _interopRequireDefault(_is_future);
-
 var _ = require('../..');
 
 var _icons = require('../Icon/icons');
 
-var _DropdownToggle = require('../DropdownToggle/DropdownToggle');
-
-var _DropdownToggle2 = _interopRequireDefault(_DropdownToggle);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
@@ -55,71 +45,22 @@ var config = exports.config = {
 var ResponsiveHTMLEllipsis = (0, _responsiveHOC2.default)()(_html2.default);
 
 var InspirationPostCard = function InspirationPostCard(_ref) {
-  var _ref$actions = _ref.actions,
-      actions = _ref$actions === undefined ? [] : _ref$actions,
-      className = _ref.className,
+  var className = _ref.className,
       _ref$dateFormat = _ref.dateFormat,
       dateFormat = _ref$dateFormat === undefined ? 'D MMM YY [-] HH:mm' : _ref$dateFormat,
-      errors = _ref.errors,
-      footerButton = _ref.footerButton,
       inspirationActions = _ref.inspirationActions,
-      isDraft = _ref.isDraft,
-      isInvalid = _ref.isInvalid,
       metaPreview = _ref.metaPreview,
       post = _ref.post,
-      other = _objectWithoutProperties(_ref, ['actions', 'className', 'dateFormat', 'errors', 'footerButton', 'inspirationActions', 'isDraft', 'isInvalid', 'metaPreview', 'post']);
+      other = _objectWithoutProperties(_ref, ['className', 'dateFormat', 'inspirationActions', 'metaPreview', 'post']);
 
   var blockClass = 'inspiration-post-card';
-  var classes = (0, _classnames2.default)(className, blockClass, _defineProperty({}, blockClass + '--draft', isDraft), _defineProperty({}, blockClass + '--invalid', isInvalid));
+  var classes = (0, _classnames2.default)(className, blockClass);
   var showMetaPreview = (!post.media || post.media && post.media.length === 0) && metaPreview && metaPreview.url;
   var showMediaEmpty = post.media && post.media.length === 0 && (!metaPreview || metaPreview && !metaPreview.url);
-  var showPostErrors = errors && errors.length > 0;
 
   return React.createElement(
     _.Card,
     _extends({}, other, { className: classes }),
-    showPostErrors && React.createElement(_.Dropdown, {
-      'data-test-id': 'inspiration-post-card-errors-dropdown',
-      render: function render(isOpen, onToggle) {
-        return React.createElement(
-          React.Fragment,
-          null,
-          React.createElement(
-            _DropdownToggle2.default,
-            {
-              className: 'text-sm text-left m-0 d-flex justify-content-between rounded-bottom-0',
-              isBlock: true,
-              theme: 'danger',
-              isOpen: isOpen,
-              onClick: onToggle,
-              size: 'sm',
-              isOutline: false
-            },
-            React.createElement(
-              'div',
-              { className: 'd-flex align-items-center' },
-              React.createElement(_.Icon, { className: 'mr-1', size: 16, name: 'alert' }),
-              'Error'
-            )
-          ),
-          React.createElement(
-            _.DropdownMenu,
-            { className: 'shadow-lg border-0 p-2 rounded-top-0', isOpen: isOpen },
-            React.createElement(
-              'ul',
-              { className: 'small mb-0 pl-2' },
-              errors && errors.map(function (error, i) {
-                return React.createElement(
-                  'li',
-                  { key: i },
-                  error
-                );
-              })
-            )
-          )
-        );
-      }
-    }),
     React.createElement(
       'div',
       { className: blockClass + '__header' },
@@ -139,42 +80,9 @@ var InspirationPostCard = function InspirationPostCard(_ref) {
         React.createElement(
           'div',
           { className: blockClass + '__date' },
-          (!post.date || (0, _is_future2.default)(post.date)) && React.createElement(_.Icon, { name: 'schedule', size: 20, color: '#adb5bd' }),
           post.date ? (0, _format2.default)(post.date, dateFormat) : 'Unscheduled'
-        ),
-        post.campaign && React.createElement(
-          _.Badge,
-          { className: blockClass + '__campaign', color: post.campaign.color },
-          post.campaign.name
         )
-      ),
-      actions.length > 0 && React.createElement(_.Dropdown, {
-        render: function render(isOpen, onToggle) {
-          return React.createElement(
-            React.Fragment,
-            null,
-            React.createElement(_.Button, { icon: 'menu', onClick: onToggle, size: 'sm', theme: 'light' }),
-            React.createElement(
-              _.DropdownMenu,
-              {
-                footer: post.creator && 'Creator: ' + post.creator,
-                isOpen: isOpen,
-                onClick: onToggle,
-                position: 'right',
-                theme: 'dark'
-              },
-              actions.map(function (action, i) {
-                return React.createElement(
-                  _.DropdownItem,
-                  { key: i, onClick: action.onClick },
-                  action.icon && React.createElement(_.Icon, { name: action.icon, className: 'mr-1' }),
-                  action.label
-                );
-              })
-            )
-          );
-        }
-      })
+      )
     ),
     React.createElement(
       'div',
@@ -261,11 +169,6 @@ var InspirationPostCard = function InspirationPostCard(_ref) {
           }
         });
       })
-    ),
-    footerButton && React.createElement(
-      'div',
-      { className: blockClass + '__footer' },
-      footerButton
     )
   );
 };

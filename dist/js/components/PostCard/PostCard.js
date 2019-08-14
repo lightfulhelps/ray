@@ -243,7 +243,7 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
                 _.Button,
                 {
                   key: i,
-                  theme: 'dark',
+                  theme: 'gray-600',
                   size: 'sm',
                   isOutline: true,
                   className: 'ml-1',
