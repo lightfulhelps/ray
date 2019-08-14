@@ -23,6 +23,7 @@ exports[`<PostCard /> should render 1`] = `
       >
         <Avatar
           className="flex-shrink-0"
+          provider="facebook"
           style={
             Object {
               "height": "40px",
@@ -38,7 +39,7 @@ exports[`<PostCard /> should render 1`] = `
             className="h6 mb-0"
             data-test-id="post-card-date"
           >
-            Published 14:34 on Wednesday, 22 August
+            Scheduled for 14:34 on Wednesday, 22 August
           </div>
           <div
             className="text-sm"
@@ -106,7 +107,19 @@ exports[`<PostCard /> should render 1`] = `
     </div>
     <div
       className="post-card__media-wrap flex-shrink-0 rounded-sm overflow-hidden"
-    />
+    >
+      <PostMedia
+        media={
+          Array [
+            Object {
+              "id": "af712270-b03e-4b1c-98d2-f744f807df2f",
+              "type": "image",
+              "url": "http://lorempixel.com/640/480",
+            },
+          ]
+        }
+      />
+    </div>
   </div>
   <div
     className="py-1 px-2 d-flex flex-column flex-md-row justify-content-between"
@@ -189,6 +202,7 @@ exports[`<PostCard /> should render with errors 1`] = `
       >
         <Avatar
           className="flex-shrink-0"
+          provider="facebook"
           style={
             Object {
               "height": "40px",
@@ -204,7 +218,7 @@ exports[`<PostCard /> should render with errors 1`] = `
             className="h6 mb-0"
             data-test-id="post-card-date"
           >
-            Published 14:34 on Wednesday, 22 August
+            Scheduled for 14:34 on Wednesday, 22 August
           </div>
           <div
             className="text-sm"
@@ -272,7 +286,19 @@ exports[`<PostCard /> should render with errors 1`] = `
     </div>
     <div
       className="post-card__media-wrap flex-shrink-0 rounded-sm overflow-hidden"
-    />
+    >
+      <PostMedia
+        media={
+          Array [
+            Object {
+              "id": "af712270-b03e-4b1c-98d2-f744f807df2f",
+              "type": "image",
+              "url": "http://lorempixel.com/640/480",
+            },
+          ]
+        }
+      />
+    </div>
   </div>
   <div
     className="py-1 px-2 d-flex flex-column flex-md-row justify-content-between"

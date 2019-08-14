@@ -156,7 +156,7 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
                 React.createElement(
                   'div',
                   { className: 'h6 mb-0', 'data-test-id': 'post-card-date' },
-                  post.date ? ((0, _dateFns.isFuture)(post.date) ? 'Scheduled for' : 'Published') + ' ' + (0, _dateFns.format)(post.date, dateFormat) : 'Unscheduled'
+                  post.date ? (post.state === 'published' ? 'Published' : 'Scheduled for') + ' ' + (0, _dateFns.format)(post.date, dateFormat) : 'Unscheduled'
                 ),
                 post.socialIdentity && React.createElement(
                   'div',

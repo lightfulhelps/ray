@@ -3,7 +3,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
-import { format as formatDate, isFuture } from 'date-fns';
+import { format as formatDate } from 'date-fns';
 import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon } from '../..';
 import { type IconNameType } from '../Icon/icons';
 
@@ -148,7 +148,7 @@ class PostCard extends React.Component<Props, State> {
               <div className="ml-1">
                 <div className="h6 mb-0" data-test-id="post-card-date">
                   {post.date
-                    ? `${isFuture(post.date) ? 'Scheduled for' : 'Published'} ${formatDate(
+                    ? `${post.state === 'published' ? 'Published' : 'Scheduled for'} ${formatDate(
                         post.date,
                         dateFormat
                       )}`

@@ -13,9 +13,10 @@ const setup = (overrides = {}) => {
         content:
           'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".',
         socialIdentity: {
-          id: '1',
+          id: 'b54ab2fb-0430-4932-b0fa-101b67bf06c2',
           avatar: 'http://foo.com/avatar.jpg',
           displayName: 'Myah Graham',
+          provider: 'facebook',
         },
         metrics: [
           {
@@ -27,6 +28,13 @@ const setup = (overrides = {}) => {
             icon: 'share',
             key: 'shares',
             value: 5,
+          },
+        ],
+        media: [
+          {
+            id: 'af712270-b03e-4b1c-98d2-f744f807df2f',
+            type: 'image',
+            url: 'http://lorempixel.com/640/480',
           },
         ],
         state: 'scheduled',
@@ -96,7 +104,7 @@ describe('<PostCard />', () => {
     const { wrapper, props } = setup();
 
     expect(wrapper.find('[data-test-id="post-card-date"]').text()).toBe(
-      'Published 14:34 on Wednesday, 22 August'
+      'Scheduled for 14:34 on Wednesday, 22 August'
     );
 
     wrapper.setProps({ post: { ...props.post, date: null } });
@@ -104,13 +112,15 @@ describe('<PostCard />', () => {
     expect(wrapper.find('[data-test-id="post-card-date"]').text()).toBe('Unscheduled');
   });
 
-  it('should handle past and future dates', () => {
-    const { wrapper, props } = setup({ post: { date: addDays(new Date(), 1) } });
+  it('should handle post state in date message', () => {
+    const { wrapper, props } = setup({
+      post: { date: addDays(new Date(), 1), state: 'scheduled' },
+    });
 
     expect(wrapper.find('[data-test-id="post-card-date"]').text()).not.toContain('Published');
     expect(wrapper.find('[data-test-id="post-card-date"]').text()).toContain('Scheduled');
 
-    wrapper.setProps({ post: { ...props.post, date: subDays(new Date(), 1) } });
+    wrapper.setProps({ post: { ...props.post, date: subDays(new Date(), 1), state: 'published' } });
 
     expect(wrapper.find('[data-test-id="post-card-date"]').text()).toContain('Published');
     expect(wrapper.find('[data-test-id="post-card-date"]').text()).not.toContain('Scheduled');
@@ -120,13 +130,13 @@ describe('<PostCard />', () => {
     const { wrapper } = setup();
 
     expect(wrapper.find('[data-test-id="post-card-date"]').text()).toEqual(
-      'Published 14:34 on Wednesday, 22 August'
+      'Scheduled for 14:34 on Wednesday, 22 August'
     );
 
     wrapper.setProps({ dateFormat: 'HH:MM [on] DD-MM-YYYY' });
 
     expect(wrapper.find('[data-test-id="post-card-date"]').text()).toEqual(
-      'Published 14:08 on 22-08-2018'
+      'Scheduled for 14:08 on 22-08-2018'
     );
   });
 
@@ -146,11 +156,11 @@ describe('<PostCard />', () => {
   it('should show PostMedia if has media', () => {
     const { wrapper, props } = setup();
 
-    expect(wrapper.find(PostMedia).exists()).toBe(false);
-
-    wrapper.setProps({ post: { ...props.post, media: [{ id: 1 }] } });
-
     expect(wrapper.find(PostMedia).exists()).toBe(true);
+
+    wrapper.setProps({ post: { ...props.post, media: [] } });
+
+    expect(wrapper.find(PostMedia).exists()).toBe(false);
   });
 
   it('should show URLMetaPreview if no media and metaPreview.url value', () => {
@@ -160,7 +170,7 @@ describe('<PostCard />', () => {
 
     wrapper.setProps({
       post: { ...props.post, media: [] },
-      metaPreview: { url: 'http://foo.com' },
+      metaPreview: { url: 'http://foo.com', title: 'Foo' },
     });
 
     expect(wrapper.find(PostMedia).exists()).toBe(false);
@@ -174,7 +184,7 @@ describe('<PostCard />', () => {
 
     wrapper.setProps({
       post: { ...props.post, media: [] },
-      metaPreview: { url: 'http://foo.com' },
+      metaPreview: { url: 'http://foo.com', title: 'Foo' },
     });
 
     expect(wrapper.find('.post-media--empty').exists()).toBe(false);
