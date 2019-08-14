@@ -7328,8 +7328,9 @@ button.bg-linkedin:focus {
   justify-content: center;
   align-items: center;
   background-color: #f8f9fa;
-  color: #dee2e6;
-  font-size: 1.25rem; }
+  color: #adb5bd;
+  font-weight: 500;
+  font-size: 1rem; }
 
 .post-media__image {
   background-size: cover;
