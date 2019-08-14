@@ -122,8 +122,13 @@ class PostCard extends React.Component<Props, State> {
             {errors.map((error, i) => (
               <div
                 key={i}
-                className="text-xs font-weight-bold mb-1 mx-2 bg-danger py-half px-1 rounded-sm text-white"
+                className={classNames(
+                  'd-flex align-items-center text-sm font-weight-bold mx-2 alert-danger py-half px-1 rounded-sm',
+                  { 'mb-1': i < errors.length - 1 }
+                )}
+                style={{ lineHeight: 1 }}
               >
+                <Icon className="mr-half flex-shrink-0" name="alert" theme="danger" size={18} />
                 {error}
               </div>
             ))}

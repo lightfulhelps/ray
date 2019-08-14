@@ -131,8 +131,10 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
               'div',
               {
                 key: i,
-                className: 'text-xs font-weight-bold mb-1 mx-2 bg-danger py-half px-1 rounded-sm text-white'
+                className: (0, _classnames2.default)('d-flex align-items-center text-sm font-weight-bold mx-2 alert-danger py-half px-1 rounded-sm', { 'mb-1': i < errors.length - 1 }),
+                style: { lineHeight: 1 }
               },
+              React.createElement(_.Icon, { className: 'mr-half flex-shrink-0', name: 'alert', theme: 'danger', size: 18 }),
               error
             );
           })

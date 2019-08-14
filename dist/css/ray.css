@@ -2886,76 +2886,76 @@ input[type="button"].btn-block {
     color: inherit; }
 
 .alert-primary {
-  color: #145c6a;
+  color: #27b0cc;
   background-color: #d4eff5;
   border-color: #c3e9f1; }
   .alert-primary hr {
     border-top-color: #aee1ec; }
   .alert-primary .alert-link {
-    color: #0c373f; }
+    color: #1f8ba1; }
 
 .alert-secondary {
-  color: #240a61;
+  color: #4513bb;
   background-color: #dad0f1;
   border-color: #cbbdec; }
   .alert-secondary hr {
     border-top-color: #bba9e6; }
   .alert-secondary .alert-link {
-    color: #130533; }
+    color: #340e8d; }
 
 .alert-success {
-  color: #146a4f;
+  color: #27cc98;
   background-color: #d4f5ea;
   border-color: #c3f1e2; }
   .alert-success hr {
     border-top-color: #aeecd8; }
   .alert-success .alert-link {
-    color: #0c3f2f; }
+    color: #1fa178; }
 
 .alert-info {
-  color: #004d7d;
+  color: #0095f1;
   background-color: #cceafc;
   border-color: #b8e1fb; }
   .alert-info hr {
     border-top-color: #a0d7fa; }
   .alert-info .alert-link {
-    color: #002e4a; }
+    color: #0075be; }
 
 .alert-warning {
-  color: #7d602c;
+  color: #f0b954;
   background-color: #fcf1dd;
   border-color: #fbebcf; }
   .alert-warning hr {
     border-top-color: #f9e1b7; }
   .alert-warning .alert-link {
-    color: #57431f; }
+    color: #eca625; }
 
 .alert-danger {
-  color: #7e2b3a;
+  color: #f25270;
   background-color: #fcdce2;
   border-color: #fbcfd7; }
   .alert-danger hr {
     border-top-color: #f9b7c3; }
   .alert-danger .alert-link {
-    color: #581e28; }
+    color: #ee2349; }
 
 .alert-light {
-  color: #818182;
+  color: #f8f9fa;
   background-color: #fefefe;
   border-color: #fdfdfe; }
   .alert-light hr {
     border-top-color: #ececf6; }
   .alert-light .alert-link {
-    color: #686868; }
+    color: #dae0e5; }
 
 .alert-dark {
-  color: #1b1e21;
+  color: #343a40;
   background-color: #d6d8d9;
   border-color: #c6c8ca; }
   .alert-dark hr {
     border-top-color: #b9bbbe; }
   .alert-dark .alert-link {
-    color: #040505; }
+    color: #1d2124; }
 
 .close {
   float: right;

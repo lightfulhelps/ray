@@ -183,15 +183,37 @@ exports[`<PostCard /> should render with errors 1`] = `
     className="mt-1"
   >
     <div
-      className="text-xs font-weight-bold mb-1 mx-2 bg-danger py-half px-1 rounded-sm text-white"
+      className="d-flex align-items-center text-sm font-weight-bold mx-2 alert-danger py-half px-1 rounded-sm mb-1"
       key="0"
+      style={
+        Object {
+          "lineHeight": 1,
+        }
+      }
     >
+      <Icon
+        className="mr-half flex-shrink-0"
+        name="alert"
+        size={18}
+        theme="danger"
+      />
       foo
     </div>
     <div
-      className="text-xs font-weight-bold mb-1 mx-2 bg-danger py-half px-1 rounded-sm text-white"
+      className="d-flex align-items-center text-sm font-weight-bold mx-2 alert-danger py-half px-1 rounded-sm"
       key="1"
+      style={
+        Object {
+          "lineHeight": 1,
+        }
+      }
     >
+      <Icon
+        className="mr-half flex-shrink-0"
+        name="alert"
+        size={18}
+        theme="danger"
+      />
       bar
     </div>
   </div>
