@@ -88,8 +88,10 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
           isDraft = _props.isDraft,
           isInvalid = _props.isInvalid,
           metaPreview = _props.metaPreview,
+          notesAction = _props.notesAction,
+          notesCount = _props.notesCount,
           post = _props.post,
-          other = _objectWithoutProperties(_props, ['actions', 'className', 'dateFormat', 'errors', 'isDraft', 'isInvalid', 'metaPreview', 'post']);
+          other = _objectWithoutProperties(_props, ['actions', 'className', 'dateFormat', 'errors', 'isDraft', 'isInvalid', 'metaPreview', 'notesAction', 'notesCount', 'post']);
 
       var classes = (0, _classnames2.default)(className, 'post-card shadow', { 'post-card--draft': isDraft }, { 'post-card--invalid': isInvalid });
 
@@ -217,11 +219,30 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
           { className: 'py-1 px-2 d-flex flex-column flex-md-row justify-content-between align-items-center' },
           React.createElement(
             'div',
-            { className: 'd-flex align-items-center flex-wrap mb-1 mb-md-0' },
-            post.metrics && post.metrics.length > 0 && post.metrics.map(function (metric) {
+            { className: 'd-flex align-items-center flex-wrap mt-1 mt-md-0 mb-2 mb-md-0' },
+            notesAction ? React.createElement(
+              'div',
+              {
+                className: 'd-flex align-items-center cursor-pointer',
+                'data-test-id': 'post-card-notes',
+                onClick: notesAction
+              },
+              React.createElement(_.Icon, { className: 'mr-half', name: 'comment' }),
+              ' ',
+              React.createElement(
+                'span',
+                { className: 'text-underline text-sm font-weight-bold', style: { lineHeight: 1 } },
+                'View notes ',
+                notesCount && '(' + notesCount.toString() + ')'
+              )
+            ) : post.metrics && post.metrics.length > 0 && post.metrics.map(function (metric) {
               return React.createElement(
                 'div',
-                { className: 'd-flex align-items-center text-sm mr-1', key: metric.key },
+                {
+                  className: 'd-flex align-items-center text-sm mr-1',
+                  'data-test-id': 'post-card-metric',
+                  key: metric.key
+                },
                 metric.icon && React.createElement(_.Icon, { className: 'mr-half', isActive: true, name: metric.icon, size: 20 }),
                 ' ',
                 metric.value,
@@ -239,7 +260,8 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
                 theme: 'gray-600',
                 isOutline: true,
                 size: 'sm',
-                className: 'mr-1 mb-1 mr-md-0 ml-md-1 mb-lg-0'
+                className: 'mr-1 mb-1 mr-md-0 ml-md-1 mb-lg-0',
+                'data-test-id': 'post-card-action'
               }, action));
             })
           )
@@ -264,6 +286,8 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
     title: _propTypes2.default.string.isRequired,
     url: _propTypes2.default.string.isRequired
   }),
+  notesAction: _propTypes2.default.func,
+  notesCount: _propTypes2.default.number,
   post: _propTypes2.default.shape({
     content: _propTypes2.default.string.isRequired,
     date: _propTypes2.default.oneOfType([function () {

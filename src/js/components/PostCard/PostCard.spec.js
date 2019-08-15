@@ -193,4 +193,11 @@ describe('<PostCard />', () => {
 
     expect(wrapper.find('.post-media--empty').exists()).toBe(true);
   });
+
+  it('should display notes if notesAction', () => {
+    const { wrapper } = setup({ notesAction: jest.fn(), notesCount: 3 });
+
+    expect(wrapper.find('[data-test-id="post-card-notes"]')).toHaveLength(1);
+    expect(wrapper.find('[data-test-id="post-card-metric"]')).toHaveLength(0);
+  });
 });

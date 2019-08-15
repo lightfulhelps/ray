@@ -112,6 +112,8 @@ stories.add('Default', () => (
       //   ),
       //   url: text('Meta URL', 'https://www.bbc.co.uk/news/business-45242008'),
       // }}
+      notesAction={action('Notes')}
+      notesCount={3}
       errors={[
         'Error string',
         'Error string two with a much longer string than the other one',

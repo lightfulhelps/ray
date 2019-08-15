@@ -49,6 +49,8 @@ type Props = {
     title: string,
     url: string,
   },
+  notesAction?: () => null,
+  notesCount?: number,
   post: PostType,
 };
 
@@ -76,6 +78,8 @@ class PostCard extends React.Component<Props, State> {
       isDraft,
       isInvalid,
       metaPreview,
+      notesAction,
+      notesCount,
       post,
       ...other
     } = this.props;
@@ -195,17 +199,34 @@ class PostCard extends React.Component<Props, State> {
           </div>
         </div>
         <div className="py-1 px-2 d-flex flex-column flex-md-row justify-content-between align-items-center">
-          <div className="d-flex align-items-center flex-wrap mb-1 mb-md-0">
-            {post.metrics &&
+          <div className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-2 mb-md-0">
+            {notesAction ? (
+              <div
+                className="d-flex align-items-center cursor-pointer"
+                data-test-id="post-card-notes"
+                onClick={notesAction}
+              >
+                <Icon className="mr-half" name="comment" />{' '}
+                <span className="text-underline text-sm font-weight-bold" style={{ lineHeight: 1 }}>
+                  View notes {notesCount && `(${notesCount.toString()})`}
+                </span>
+              </div>
+            ) : (
+              post.metrics &&
               post.metrics.length > 0 &&
               post.metrics.map(metric => (
-                <div className="d-flex align-items-center text-sm mr-1" key={metric.key}>
+                <div
+                  className="d-flex align-items-center text-sm mr-1"
+                  data-test-id="post-card-metric"
+                  key={metric.key}
+                >
                   {metric.icon && (
                     <Icon className="mr-half" isActive name={metric.icon} size={20} />
                   )}{' '}
                   {metric.value} {metric.key}
                 </div>
-              ))}
+              ))
+            )}
           </div>
           <div className="d-flex flex-wrap">
             {actions.length > 0 &&
@@ -216,6 +237,7 @@ class PostCard extends React.Component<Props, State> {
                   isOutline
                   size="sm"
                   className="mr-1 mb-1 mr-md-0 ml-md-1 mb-lg-0"
+                  data-test-id="post-card-action"
                   {...action}
                 />
               ))}
