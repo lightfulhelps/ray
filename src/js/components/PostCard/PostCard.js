@@ -79,7 +79,7 @@ class PostCard extends React.Component<Props, State> {
       isInvalid,
       metaPreview,
       notesAction,
-      notesCount,
+      notesCount = 0,
       post,
       ...other
     } = this.props;
@@ -208,7 +208,7 @@ class PostCard extends React.Component<Props, State> {
               >
                 <Icon className="mr-half" name="comment" />{' '}
                 <span className="text-underline text-sm font-weight-bold" style={{ lineHeight: 1 }}>
-                  View notes {notesCount && `(${notesCount.toString()})`}
+                  View notes ({notesCount.toString()})
                 </span>
               </div>
             ) : (

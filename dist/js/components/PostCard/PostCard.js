@@ -89,7 +89,8 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
           isInvalid = _props.isInvalid,
           metaPreview = _props.metaPreview,
           notesAction = _props.notesAction,
-          notesCount = _props.notesCount,
+          _props$notesCount = _props.notesCount,
+          notesCount = _props$notesCount === undefined ? 0 : _props$notesCount,
           post = _props.post,
           other = _objectWithoutProperties(_props, ['actions', 'className', 'dateFormat', 'errors', 'isDraft', 'isInvalid', 'metaPreview', 'notesAction', 'notesCount', 'post']);
 
@@ -232,8 +233,9 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
               React.createElement(
                 'span',
                 { className: 'text-underline text-sm font-weight-bold', style: { lineHeight: 1 } },
-                'View notes ',
-                notesCount && '(' + notesCount.toString() + ')'
+                'View notes (',
+                notesCount.toString(),
+                ')'
               )
             ) : post.metrics && post.metrics.length > 0 && post.metrics.map(function (metric) {
               return React.createElement(
