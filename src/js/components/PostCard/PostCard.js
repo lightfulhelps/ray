@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import { format as formatDate } from 'date-fns';
-import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon } from '../..';
+import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon, Badge } from '../..';
 import { type IconNameType } from '../Icon/icons';
 import { type Props as ButtonProps } from '../Button/Button';
 
@@ -14,6 +14,10 @@ type MediaType = {
 };
 
 type PostType = {
+  campaign?: {
+    color: string,
+    name: string,
+  },
   content: string,
   date?: Date | number | string,
   id: string,
@@ -175,11 +179,21 @@ class PostCard extends React.Component<Props, State> {
                 basedOn="words"
               />
             </div>
-            {post.tags && post.tags.length > 0 && (
-              <div className="d-flex flex-wrap">
-                {post.tags.map((tag, i) => (
+            <div className="d-flex flex-wrap">
+              {post.campaign && (
+                <Badge
+                  className="d-flex align-items-center mb-1 mb-lg-0 mr-1 badge-pill"
+                  color={post.campaign.color}
+                >
+                  <Icon className="mr-half" name="storyBuilder" />
+                  Story: {post.campaign.name}
+                </Badge>
+              )}
+              {post.tags &&
+                post.tags.length > 0 &&
+                post.tags.map((tag, i) => (
                   <Tag
-                    className={`text-xs mr-half mb-1 ${i === 0 ? '' : ''}`}
+                    className={`text-xs mr-half mb-1 mb-lg-0 ${i === 0 ? '' : ''}`}
                     isOutline
                     key={i}
                     theme="gray-600"
@@ -187,8 +201,7 @@ class PostCard extends React.Component<Props, State> {
                     {tag}
                   </Tag>
                 ))}
-              </div>
-            )}
+            </div>
           </div>
           <div className="post-card__media-wrap flex-shrink-0 overflow-hidden">
             {post.media && post.media.length > 0 && <PostMedia media={post.media} />}

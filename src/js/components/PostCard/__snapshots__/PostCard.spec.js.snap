@@ -64,8 +64,19 @@ exports[`<PostCard /> should render 1`] = `
       <div
         className="d-flex flex-wrap"
       >
+        <Badge
+          className="d-flex align-items-center mb-1 mb-lg-0 mr-1 badge-pill"
+          color="#ff0000"
+        >
+          <Icon
+            className="mr-half"
+            name="storyBuilder"
+          />
+          Story: 
+          Campaign
+        </Badge>
         <Tag
-          className="text-xs mr-half mb-1 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="0"
           theme="gray-600"
@@ -73,7 +84,7 @@ exports[`<PostCard /> should render 1`] = `
           charity
         </Tag>
         <Tag
-          className="text-xs mr-half mb-1 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="1"
           theme="gray-600"
@@ -81,7 +92,7 @@ exports[`<PostCard /> should render 1`] = `
           social for good
         </Tag>
         <Tag
-          className="text-xs mr-half mb-1 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="2"
           theme="gray-600"
@@ -89,7 +100,7 @@ exports[`<PostCard /> should render 1`] = `
           campaigns
         </Tag>
         <Tag
-          className="text-xs mr-half mb-1 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="3"
           theme="gray-600"
@@ -262,8 +273,19 @@ exports[`<PostCard /> should render with errors 1`] = `
       <div
         className="d-flex flex-wrap"
       >
+        <Badge
+          className="d-flex align-items-center mb-1 mb-lg-0 mr-1 badge-pill"
+          color="#ff0000"
+        >
+          <Icon
+            className="mr-half"
+            name="storyBuilder"
+          />
+          Story: 
+          Campaign
+        </Badge>
         <Tag
-          className="text-xs mr-half mb-1 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="0"
           theme="gray-600"
@@ -271,7 +293,7 @@ exports[`<PostCard /> should render with errors 1`] = `
           charity
         </Tag>
         <Tag
-          className="text-xs mr-half mb-1 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="1"
           theme="gray-600"
@@ -279,7 +301,7 @@ exports[`<PostCard /> should render with errors 1`] = `
           social for good
         </Tag>
         <Tag
-          className="text-xs mr-half mb-1 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="2"
           theme="gray-600"
@@ -287,7 +309,7 @@ exports[`<PostCard /> should render with errors 1`] = `
           campaigns
         </Tag>
         <Tag
-          className="text-xs mr-half mb-1 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="3"
           theme="gray-600"

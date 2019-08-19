@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, boolean, text, date, select } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text, date, select, color } from '@storybook/addon-knobs';
 import { Container, PostCard } from '..';
 
 import '../../scss/ray.scss';
@@ -54,6 +54,10 @@ stories.add('Default', () => (
     <PostCard
       className="mb-4"
       post={{
+        campaign: {
+          name: text('Campaign Name', 'Wildlife'),
+          color: color('Campaign Color', '#D72E85'),
+        },
         date: date('Date', defaultDate),
         socialIdentity: {
           id: '123',

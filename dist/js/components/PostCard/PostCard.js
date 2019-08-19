@@ -186,14 +186,24 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
                 basedOn: 'words'
               })
             ),
-            post.tags && post.tags.length > 0 && React.createElement(
+            React.createElement(
               'div',
               { className: 'd-flex flex-wrap' },
-              post.tags.map(function (tag, i) {
+              post.campaign && React.createElement(
+                _.Badge,
+                {
+                  className: 'd-flex align-items-center mb-1 mb-lg-0 mr-1 badge-pill',
+                  color: post.campaign.color
+                },
+                React.createElement(_.Icon, { className: 'mr-half', name: 'storyBuilder' }),
+                'Story: ',
+                post.campaign.name
+              ),
+              post.tags && post.tags.length > 0 && post.tags.map(function (tag, i) {
                 return React.createElement(
                   _.Tag,
                   {
-                    className: 'text-xs mr-half mb-1 ' + (i === 0 ? '' : ''),
+                    className: 'text-xs mr-half mb-1 mb-lg-0 ' + (i === 0 ? '' : ''),
                     isOutline: true,
                     key: i,
                     theme: 'gray-600'
@@ -291,6 +301,10 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
   notesAction: _propTypes2.default.func,
   notesCount: _propTypes2.default.number,
   post: _propTypes2.default.shape({
+    campaign: _propTypes2.default.shape({
+      color: _propTypes2.default.string.isRequired,
+      name: _propTypes2.default.string.isRequired
+    }),
     content: _propTypes2.default.string.isRequired,
     date: _propTypes2.default.oneOfType([function () {
       return (typeof Date === 'function' ? _propTypes2.default.instanceOf(Date) : _propTypes2.default.any).apply(this, arguments);

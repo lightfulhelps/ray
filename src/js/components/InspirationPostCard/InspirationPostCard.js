@@ -21,11 +21,7 @@ type MediaType = {
   url: string,
 };
 
-type PostType = {
-  campaign?: {
-    color: string,
-    name: string,
-  },
+type InspirationPostType = {
   content: string,
   creator?: string,
   date?: Date | number | string,
@@ -55,7 +51,7 @@ type Props = {
     title: string,
     url: string,
   },
-  post: PostType,
+  post: InspirationPostType,
 };
 
 export const config = {
