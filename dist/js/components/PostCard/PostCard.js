@@ -100,7 +100,7 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
 
       var showMetaPreview = (!post.media || post.media && post.media.length === 0) && metaPreview && metaPreview.url;
       var showMediaEmpty = post.media && post.media.length === 0 && (!metaPreview || metaPreview && !metaPreview.url);
-      // const showPostErrors = errors && errors.length > 0;
+      var hasPostMetrics = post.metrics && post.metrics.length > 0;
 
       var defaultLineClamp = 3;
       var allLinesClamp = 9999;
@@ -134,8 +134,8 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
               'div',
               {
                 key: i,
-                className: (0, _classnames2.default)('d-flex align-items-center text-sm font-weight-bold mx-2 alert-danger py-half px-1 rounded-sm', { 'mb-1': i < errors.length - 1 }),
-                style: { lineHeight: 1 }
+                className: (0, _classnames2.default)('d-flex align-items-center text-sm font-weight-bold mx-2 alert-danger p-1 rounded-sm', { 'mb-1': i < errors.length - 1 }),
+                style: { lineHeight: 1.4 }
               },
               React.createElement(_.Icon, { className: 'mr-half flex-shrink-0', name: 'alert', theme: 'danger', size: 18 }),
               error
@@ -182,7 +182,7 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
               React.createElement(ResponsiveHTMLEllipsis, {
                 unsafeHTML: post.content.replace(/\n/g, '<br />'),
                 maxLine: this.state.isTruncated ? defaultLineClamp : allLinesClamp,
-                ellipsisHTML: '<span class="text-underline cursor-pointer">See more</span>',
+                ellipsisHTML: '<span class="text-underline cursor-pointer font-weight-bold">See more</span>',
                 basedOn: 'words'
               })
             ),
@@ -227,8 +227,10 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
         ),
         React.createElement(
           'div',
-          { className: 'py-1 px-2 d-flex flex-column flex-md-row justify-content-between align-items-center' },
-          React.createElement(
+          {
+            className: (0, _classnames2.default)('py-1 px-2 d-flex flex-column flex-md-row align-items-center', notesAction || hasPostMetrics ? 'justify-content-between' : 'justify-content-end')
+          },
+          (notesAction || hasPostMetrics) && React.createElement(
             'div',
             { className: 'd-flex align-items-center flex-wrap mt-1 mt-md-0 mb-2 mb-md-0' },
             notesAction ? React.createElement(
@@ -242,7 +244,10 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
               ' ',
               React.createElement(
                 'span',
-                { className: 'text-underline text-sm font-weight-bold', style: { lineHeight: 1 } },
+                {
+                  className: 'text-underline text-sm font-weight-bold',
+                  style: { lineHeight: 1 }
+                },
                 'View notes (',
                 notesCount.toString(),
                 ')'
