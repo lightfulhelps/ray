@@ -2,165 +2,379 @@
 
 exports[`<PostCard /> should render 1`] = `
 <Card
-  className="post-card"
+  className="post-card shadow"
 >
   <div
-    className="post-card__header"
-  >
-    <div
-      style={
-        Object {
-          "height": "35px",
-          "minHeight": "35px",
-          "minWidth": "35px",
-          "width": "35px",
-        }
+    className="bg-info rounded-top-sm"
+    style={
+      Object {
+        "height": "3px",
       }
-    >
-      <Avatar
-        url="http://foo.com/avatar.jpg"
-      />
-    </div>
-    <div
-      className="mx-1"
-      style={
-        Object {
-          "flex": 1,
-          "height": "72px",
-          "minWidth": 0,
-        }
-      }
-    >
-      <h1
-        className="post-card__title"
-      >
-        Hope For Children
-      </h1>
-      <div
-        className="post-card__date"
-      >
-        22 Aug 18 - 14:34
-      </div>
-      <Badge
-        className="post-card__campaign"
-        color="#ff0000"
-      >
-        Campaign
-      </Badge>
-    </div>
-  </div>
-  <div
-    className="post-card__content"
-  >
-    <Responsive(HTMLEllipsis)
-      basedOn="words"
-      ellipsis="..."
-      innerRef={[Function]}
-      maxLine={5}
-      unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."
-    />
-  </div>
-  <div
-    className="post-card__media"
+    }
   />
   <div
-    className="post-card__tags d-flex align-items-center bg-gray-200 px-2 py-1"
+    className="d-flex flex-column flex-md-row justify-content-between p-2 border-bottom"
   >
     <div
-      className="d-flex align-items-center text-gray-900 font-weight-bold mr-1"
+      className="flex-fill"
     >
-      4
-       
-      <Icon
-        isActive={true}
-        name="tag"
-        style={
-          Object {
-            "marginLeft": "2px",
+      <div
+        className="d-flex mb-1"
+      >
+        <Avatar
+          className="flex-shrink-0"
+          provider="facebook"
+          style={
+            Object {
+              "height": "40px",
+              "width": "40px",
+            }
           }
-        }
-        theme="gray-500"
-      />
+          url="http://foo.com/avatar.jpg"
+        />
+        <div
+          className="ml-1"
+        >
+          <div
+            className="h6 mb-0"
+            data-test-id="post-card-date"
+          >
+            Scheduled for 14:34 on Wednesday, 22 August
+          </div>
+          <div
+            className="text-sm"
+          >
+            Myah Graham
+          </div>
+        </div>
+      </div>
+      <div
+        className="text-sm mb-1"
+        data-test-id="post-card-content"
+        onClick={[Function]}
+      >
+        <Responsive(HTMLEllipsis)
+          basedOn="words"
+          ellipsisHTML="<span class=\\"text-underline cursor-pointer\\">See more</span>"
+          innerRef={[Function]}
+          maxLine={3}
+          unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."
+        />
+      </div>
+      <div
+        className="d-flex flex-wrap"
+      >
+        <Badge
+          className="d-flex align-items-center mb-1 mb-lg-0 mr-1 badge-pill"
+          color="#ff0000"
+        >
+          <Icon
+            className="mr-half"
+            name="storyBuilder"
+          />
+          Story: 
+          Campaign
+        </Badge>
+        <Tag
+          className="text-xs mr-half mb-1 mb-lg-0 "
+          isOutline={true}
+          key="0"
+          theme="gray-600"
+        >
+          charity
+        </Tag>
+        <Tag
+          className="text-xs mr-half mb-1 mb-lg-0 "
+          isOutline={true}
+          key="1"
+          theme="gray-600"
+        >
+          social for good
+        </Tag>
+        <Tag
+          className="text-xs mr-half mb-1 mb-lg-0 "
+          isOutline={true}
+          key="2"
+          theme="gray-600"
+        >
+          campaigns
+        </Tag>
+        <Tag
+          className="text-xs mr-half mb-1 mb-lg-0 "
+          isOutline={true}
+          key="3"
+          theme="gray-600"
+        >
+          lightful
+        </Tag>
+      </div>
     </div>
     <div
-      className="d-flex flex-fill"
+      className="post-card__media-wrap flex-shrink-0 overflow-hidden"
+    >
+      <PostMedia
+        media={
+          Array [
+            Object {
+              "id": "af712270-b03e-4b1c-98d2-f744f807df2f",
+              "type": "image",
+              "url": "http://lorempixel.com/640/480",
+            },
+          ]
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="py-1 px-2 d-flex flex-column flex-md-row justify-content-between align-items-center"
+  >
+    <div
+      className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-2 mb-md-0"
+    >
+      <div
+        className="d-flex align-items-center text-sm mr-1"
+        data-test-id="post-card-metric"
+        key="likes"
+      >
+        <Icon
+          className="mr-half"
+          isActive={true}
+          name="like"
+          size={20}
+        />
+         
+        10
+         
+        likes
+      </div>
+      <div
+        className="d-flex align-items-center text-sm mr-1"
+        data-test-id="post-card-metric"
+        key="shares"
+      >
+        <Icon
+          className="mr-half"
+          isActive={true}
+          name="share"
+          size={20}
+        />
+         
+        5
+         
+        shares
+      </div>
+    </div>
+    <div
+      className="d-flex flex-wrap"
+    />
+  </div>
+</Card>
+`;
+
+exports[`<PostCard /> should render with errors 1`] = `
+<Card
+  className="post-card shadow"
+>
+  <div
+    className="bg-info rounded-top-sm"
+    style={
+      Object {
+        "height": "3px",
+      }
+    }
+  />
+  <div
+    className="mt-1"
+  >
+    <div
+      className="d-flex align-items-center text-sm font-weight-bold mx-2 alert-danger py-half px-1 rounded-sm mb-1"
+      key="0"
       style={
         Object {
-          "minWidth": 0,
+          "lineHeight": 1,
         }
       }
     >
-      <Tag
-        className="text-xs mr-1"
-        key="0"
-        theme="light"
-      >
-        charity
-      </Tag>
-      <Tag
-        className="text-xs mr-1"
-        key="1"
-        theme="light"
-      >
-        social for good
-      </Tag>
-      <Tag
-        className="text-xs "
-        key="2"
-        theme="light"
-      >
-        campaigns
-      </Tag>
+      <Icon
+        className="mr-half flex-shrink-0"
+        name="alert"
+        size={18}
+        theme="danger"
+      />
+      foo
     </div>
     <div
-      className="post-card__tags-more"
-    >
-      +
-      1
-    </div>
-  </div>
-  <div
-    className="post-card__metrics"
-  >
-    <div
-      className="post-card__metric"
-      key="likes"
-    >
-      <span>
-        10
-      </span>
-       
-      likes
-    </div>
-    <div
-      className="post-card__metric"
-      key="shares"
-    >
-      <span>
-        5
-      </span>
-       
-      shares
-    </div>
-  </div>
-  <div
-    className="post-card__inspiration-actions"
-  >
-    <Icon
-      isActive={false}
-      key="0"
-      name="follow"
-      onClick={[Function]}
-      theme="gray-500"
-      title="follow"
-    />
-    <Icon
-      isActive={true}
+      className="d-flex align-items-center text-sm font-weight-bold mx-2 alert-danger py-half px-1 rounded-sm"
       key="1"
-      name="like"
-      onClick={[Function]}
-      theme="gray-500"
-      title="like"
+      style={
+        Object {
+          "lineHeight": 1,
+        }
+      }
+    >
+      <Icon
+        className="mr-half flex-shrink-0"
+        name="alert"
+        size={18}
+        theme="danger"
+      />
+      bar
+    </div>
+  </div>
+  <div
+    className="d-flex flex-column flex-md-row justify-content-between p-2 border-bottom"
+  >
+    <div
+      className="flex-fill"
+    >
+      <div
+        className="d-flex mb-1"
+      >
+        <Avatar
+          className="flex-shrink-0"
+          provider="facebook"
+          style={
+            Object {
+              "height": "40px",
+              "width": "40px",
+            }
+          }
+          url="http://foo.com/avatar.jpg"
+        />
+        <div
+          className="ml-1"
+        >
+          <div
+            className="h6 mb-0"
+            data-test-id="post-card-date"
+          >
+            Scheduled for 14:34 on Wednesday, 22 August
+          </div>
+          <div
+            className="text-sm"
+          >
+            Myah Graham
+          </div>
+        </div>
+      </div>
+      <div
+        className="text-sm mb-1"
+        data-test-id="post-card-content"
+        onClick={[Function]}
+      >
+        <Responsive(HTMLEllipsis)
+          basedOn="words"
+          ellipsisHTML="<span class=\\"text-underline cursor-pointer\\">See more</span>"
+          innerRef={[Function]}
+          maxLine={3}
+          unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."
+        />
+      </div>
+      <div
+        className="d-flex flex-wrap"
+      >
+        <Badge
+          className="d-flex align-items-center mb-1 mb-lg-0 mr-1 badge-pill"
+          color="#ff0000"
+        >
+          <Icon
+            className="mr-half"
+            name="storyBuilder"
+          />
+          Story: 
+          Campaign
+        </Badge>
+        <Tag
+          className="text-xs mr-half mb-1 mb-lg-0 "
+          isOutline={true}
+          key="0"
+          theme="gray-600"
+        >
+          charity
+        </Tag>
+        <Tag
+          className="text-xs mr-half mb-1 mb-lg-0 "
+          isOutline={true}
+          key="1"
+          theme="gray-600"
+        >
+          social for good
+        </Tag>
+        <Tag
+          className="text-xs mr-half mb-1 mb-lg-0 "
+          isOutline={true}
+          key="2"
+          theme="gray-600"
+        >
+          campaigns
+        </Tag>
+        <Tag
+          className="text-xs mr-half mb-1 mb-lg-0 "
+          isOutline={true}
+          key="3"
+          theme="gray-600"
+        >
+          lightful
+        </Tag>
+      </div>
+    </div>
+    <div
+      className="post-card__media-wrap flex-shrink-0 overflow-hidden"
+    >
+      <PostMedia
+        media={
+          Array [
+            Object {
+              "id": "af712270-b03e-4b1c-98d2-f744f807df2f",
+              "type": "image",
+              "url": "http://lorempixel.com/640/480",
+            },
+          ]
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="py-1 px-2 d-flex flex-column flex-md-row justify-content-between align-items-center"
+  >
+    <div
+      className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-2 mb-md-0"
+    >
+      <div
+        className="d-flex align-items-center text-sm mr-1"
+        data-test-id="post-card-metric"
+        key="likes"
+      >
+        <Icon
+          className="mr-half"
+          isActive={true}
+          name="like"
+          size={20}
+        />
+         
+        10
+         
+        likes
+      </div>
+      <div
+        className="d-flex align-items-center text-sm mr-1"
+        data-test-id="post-card-metric"
+        key="shares"
+      >
+        <Icon
+          className="mr-half"
+          isActive={true}
+          name="share"
+          size={20}
+        />
+         
+        5
+         
+        shares
+      </div>
+    </div>
+    <div
+      className="d-flex flex-wrap"
     />
   </div>
 </Card>

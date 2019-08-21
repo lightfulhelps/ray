@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Icon from '../Icon/Icon';
 import type { IconNameType } from '../Icon/icons';
 
-type Props = {
+export type Props = {
   children?: React.Node,
   className?: string,
   icon?: IconNameType,

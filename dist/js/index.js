@@ -193,6 +193,15 @@ Object.defineProperty(exports, 'Icon', {
   }
 });
 
+var _InspirationPostCard = require('./components/InspirationPostCard/InspirationPostCard');
+
+Object.defineProperty(exports, 'InspirationPostCard', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_InspirationPostCard).default;
+  }
+});
+
 var _Nav = require('./components/Nav/Nav');
 
 Object.defineProperty(exports, 'Nav', {

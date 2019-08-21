@@ -1,15 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
-import addDays from 'date-fns/add_days';
-import { PostCard, PostMedia, URLMetaPreview, Icon, Button, Dropdown, DropdownMenu } from '../../';
+import { addDays, subDays } from 'date-fns';
+import { PostCard, PostMedia, URLMetaPreview } from '../..';
 
 const setup = (overrides = {}) => {
   const props = merge(
     {
       post: {
         id: '08a2a5c0-a77b-11e8-a45a-3bfafb0c9405',
-        title: 'Hope For Children',
         date: '2018-08-22 14:34',
         content:
           'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".',
@@ -18,29 +17,33 @@ const setup = (overrides = {}) => {
           color: '#ff0000',
         },
         socialIdentity: {
-          id: '1',
+          id: 'b54ab2fb-0430-4932-b0fa-101b67bf06c2',
           avatar: 'http://foo.com/avatar.jpg',
+          displayName: 'Myah Graham',
+          provider: 'facebook',
         },
-        metrics: {
-          likes: 10,
-          shares: 5,
-        },
+        metrics: [
+          {
+            icon: 'like',
+            key: 'likes',
+            value: 10,
+          },
+          {
+            icon: 'share',
+            key: 'shares',
+            value: 5,
+          },
+        ],
+        media: [
+          {
+            id: 'af712270-b03e-4b1c-98d2-f744f807df2f',
+            type: 'image',
+            url: 'http://lorempixel.com/640/480',
+          },
+        ],
+        state: 'scheduled',
         tags: ['charity', 'social for good', 'campaigns', 'lightful'],
       },
-      inspirationActions: [
-        {
-          icon: 'follow',
-          isActive: false,
-          onClick: jest.fn(),
-          theme: 'gray-500',
-        },
-        {
-          icon: 'like',
-          isActive: true,
-          onClick: jest.fn(),
-          theme: 'gray-500',
-        },
-      ],
     },
     overrides
   );
@@ -59,13 +62,26 @@ describe('<PostCard />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should handle the className prop', () => {
+  it('should render with errors', () => {
+    const { wrapper } = setup({ errors: ['foo', 'bar'] });
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should handle className', () => {
     const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
     expect(wrapper.hasClass('post-card')).toBe(true);
     expect(wrapper.hasClass('custom')).toBe(true);
+  });
+
+  it('should pass through other props', () => {
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+
+    expect(wrapper.prop('tabIndex')).toEqual(1);
+    expect(wrapper.prop('id')).toEqual('test');
   });
 
   it('should handle the draft prop', () => {
@@ -91,89 +107,41 @@ describe('<PostCard />', () => {
   it('should optionally display post date', () => {
     const { wrapper, props } = setup();
 
-    expect(wrapper.find('.post-card__date').text()).toBe('22 Aug 18 - 14:34');
+    expect(wrapper.find('[data-test-id="post-card-date"]').text()).toBe(
+      'Scheduled for 14:34 on Wednesday, 22 August'
+    );
 
     wrapper.setProps({ post: { ...props.post, date: null } });
 
-    expect(wrapper.find('.post-card__date').text()).toBe('<Icon />Unscheduled');
+    expect(wrapper.find('[data-test-id="post-card-date"]').text()).toBe('Unscheduled');
   });
 
-  it('should include the schedule Icon if no date or date is in the future', () => {
-    const { wrapper, props } = setup({ post: { date: null } });
+  it('should handle post state in date message', () => {
+    const { wrapper, props } = setup({
+      post: { date: addDays(new Date(), 1), state: 'scheduled' },
+    });
 
-    expect(
-      wrapper
-        .find('.post-card__date')
-        .find(Icon)
-        .exists()
-    ).toBe(true);
+    expect(wrapper.find('[data-test-id="post-card-date"]').text()).not.toContain('Published');
+    expect(wrapper.find('[data-test-id="post-card-date"]').text()).toContain('Scheduled');
 
-    wrapper.setProps({ post: { ...props.post, date: '2018-08-22 14:34' } });
+    wrapper.setProps({ post: { ...props.post, date: subDays(new Date(), 1), state: 'published' } });
 
-    expect(
-      wrapper
-        .find('.post-card__date')
-        .find(Icon)
-        .exists()
-    ).toBe(false);
-
-    wrapper.setProps({ post: { ...props.post, date: addDays(new Date(), 1) } });
-
-    expect(
-      wrapper
-        .find('.post-card__date')
-        .find(Icon)
-        .exists()
-    ).toBe(true);
+    expect(wrapper.find('[data-test-id="post-card-date"]').text()).toContain('Published');
+    expect(wrapper.find('[data-test-id="post-card-date"]').text()).not.toContain('Scheduled');
   });
 
   it('should handle the dateFormat prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.post-card__date').text()).toEqual('22 Aug 18 - 14:34');
+    expect(wrapper.find('[data-test-id="post-card-date"]').text()).toEqual(
+      'Scheduled for 14:34 on Wednesday, 22 August'
+    );
 
     wrapper.setProps({ dateFormat: 'HH:MM [on] DD-MM-YYYY' });
 
-    expect(wrapper.find('.post-card__date').text()).toEqual('14:08 on 22-08-2018');
-  });
-
-  it('should handle the post campaign prop', () => {
-    const { wrapper, props } = setup();
-
-    expect(wrapper.find('.post-card__campaign').prop('color')).toEqual(props.post.campaign.color);
-    expect(wrapper.find('.post-card__campaign').prop('children')).toEqual(props.post.campaign.name);
-  });
-
-  it('should optionally display the campaign tag', () => {
-    const { wrapper, props } = setup();
-
-    expect(wrapper.find('.post-card__campaign').exists()).toBe(true);
-
-    wrapper.setProps({ post: merge(props.post, { campaign: null }) });
-
-    expect(wrapper.find('.post-card__campaign').exists()).toBe(false);
-  });
-
-  it('should optionally display a Dropdown', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.find(Dropdown).exists()).toBe(false);
-
-    wrapper.setProps({ actions: [{ icon: 'edit', label: 'Edit' }] });
-
-    expect(wrapper.find(Dropdown).exists()).toBe(true);
-  });
-
-  it('should pass post creator to Dropdown', () => {
-    const { wrapper } = setup({ post: { creator: 'Bruno' }, actions: [{ label: 'Edit' }] });
-
-    expect(
-      wrapper
-        .find(Dropdown)
-        .dive()
-        .find(DropdownMenu)
-        .prop('footer')
-    ).toEqual('Creator: Bruno');
+    expect(wrapper.find('[data-test-id="post-card-date"]').text()).toEqual(
+      'Scheduled for 14:08 on 22-08-2018'
+    );
   });
 
   it('should set HTML in the post content', () => {
@@ -182,7 +150,7 @@ describe('<PostCard />', () => {
 
     expect(
       wrapper
-        .find('.post-card__content')
+        .find('[data-test-id="post-card-content"]')
         .children()
         .at(0)
         .prop('unsafeHTML')
@@ -192,11 +160,11 @@ describe('<PostCard />', () => {
   it('should show PostMedia if has media', () => {
     const { wrapper, props } = setup();
 
-    expect(wrapper.find(PostMedia).exists()).toBe(false);
-
-    wrapper.setProps({ post: { ...props.post, media: [{ id: 1 }] } });
-
     expect(wrapper.find(PostMedia).exists()).toBe(true);
+
+    wrapper.setProps({ post: { ...props.post, media: [] } });
+
+    expect(wrapper.find(PostMedia).exists()).toBe(false);
   });
 
   it('should show URLMetaPreview if no media and metaPreview.url value', () => {
@@ -206,7 +174,7 @@ describe('<PostCard />', () => {
 
     wrapper.setProps({
       post: { ...props.post, media: [] },
-      metaPreview: { url: 'http://foo.com' },
+      metaPreview: { url: 'http://foo.com', title: 'Foo' },
     });
 
     expect(wrapper.find(PostMedia).exists()).toBe(false);
@@ -220,7 +188,7 @@ describe('<PostCard />', () => {
 
     wrapper.setProps({
       post: { ...props.post, media: [] },
-      metaPreview: { url: 'http://foo.com' },
+      metaPreview: { url: 'http://foo.com', title: 'Foo' },
     });
 
     expect(wrapper.find('.post-media--empty').exists()).toBe(false);
@@ -230,90 +198,10 @@ describe('<PostCard />', () => {
     expect(wrapper.find('.post-media--empty').exists()).toBe(true);
   });
 
-  it('should optionally display inspirationActions', () => {
-    const { wrapper } = setup({ inspirationActions: [{ icon: 'follow' }] });
+  it('should display notes if notesAction', () => {
+    const { wrapper } = setup({ notesAction: jest.fn(), notesCount: 3 });
 
-    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(true);
-
-    wrapper.setProps({ inspirationActions: [] });
-
-    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
-
-    wrapper.setProps({ inspirationActions: null });
-
-    expect(wrapper.find('.post-card__inspiration-actions').exists()).toBe(false);
-  });
-
-  it('should handle the inspirationActions prop', () => {
-    const follow = jest.fn();
-    const like = jest.fn();
-    const { wrapper } = setup({
-      inspirationActions: [
-        {
-          icon: 'follow',
-          isActive: false,
-          onClick: follow,
-          theme: 'gray-500',
-        },
-        {
-          icon: 'like',
-          isActive: true,
-          onClick: like,
-          theme: 'gray-500',
-        },
-      ],
-    });
-
-    const inspirationActions = wrapper.find('.post-card__inspiration-actions').find(Icon);
-
-    expect(inspirationActions).toHaveLength(2);
-
-    expect(inspirationActions.at(0).prop('name')).toEqual('follow');
-    expect(inspirationActions.at(0).prop('theme')).toEqual('gray-500');
-    expect(inspirationActions.at(1).prop('name')).toEqual('like');
-    expect(inspirationActions.at(1).prop('theme')).toEqual('gray-500');
-
-    inspirationActions.at(0).simulate('click');
-    inspirationActions.at(1).simulate('click');
-
-    expect(follow).toHaveBeenCalledTimes(1);
-    expect(like).toHaveBeenCalledTimes(0); // because like isActive
-  });
-
-  it('should optionally display post metrics', () => {
-    const { wrapper, props } = setup({ post: { metrics: { likes: 3 } } });
-
-    expect(wrapper.find('.post-card__metrics').exists()).toBe(true);
-
-    wrapper.setProps({ post: { ...props.post, metrics: {} } });
-
-    expect(wrapper.find('.post-card__metrics').exists()).toBe(false);
-  });
-
-  it('should optionally display a footer button', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.find('.post-card__footer').exists()).toBe(false);
-
-    wrapper.setProps({ footerButton: <Button>Click</Button> });
-
-    expect(wrapper.find('.post-card__footer').exists()).toBe(true);
-  });
-
-  it('should optionally display errors', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.find('[data-test-id="post-card-errors-dropdown"]')).toHaveLength(0);
-
-    wrapper.setProps({ errors: ['Something', 'went', 'wrong'] });
-
-    expect(wrapper.find('[data-test-id="post-card-errors-dropdown"]')).toHaveLength(1);
-  });
-
-  it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
-
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    expect(wrapper.find('[data-test-id="post-card-notes"]')).toHaveLength(1);
+    expect(wrapper.find('[data-test-id="post-card-metric"]')).toHaveLength(0);
   });
 });

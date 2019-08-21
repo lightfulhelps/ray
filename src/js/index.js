@@ -20,6 +20,9 @@ export { default as FormSelect } from './components/FormSelect/FormSelect';
 export { default as FormTextarea } from './components/FormTextarea/FormTextarea';
 export { default as FormPasswordInput } from './components/FormPasswordInput/FormPasswordInput';
 export { default as Icon } from './components/Icon/Icon';
+export {
+  default as InspirationPostCard,
+} from './components/InspirationPostCard/InspirationPostCard';
 export { default as Nav } from './components/Nav/Nav';
 export { default as NavItem } from './components/NavItem/NavItem';
 export { default as NavLink } from './components/NavLink/NavLink';

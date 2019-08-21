@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.bpfrpt_proptype_Props = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -20,6 +21,10 @@ var _Icon2 = _interopRequireDefault(_Icon);
 
 var _icons = require('../Icon/icons');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
@@ -27,6 +32,24 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var bpfrpt_proptype_Props = {
+  children: _propTypes2.default.node,
+  className: _propTypes2.default.string,
+  icon: function icon() {
+    return (typeof _icons.bpfrpt_proptype_IconNameType === 'function' ? _icons.bpfrpt_proptype_IconNameType : _propTypes2.default.shape(_icons.bpfrpt_proptype_IconNameType)).apply(this, arguments);
+  },
+  iconPosition: _propTypes2.default.oneOf(['left', 'right']),
+  isBlock: _propTypes2.default.bool,
+  isDisabled: _propTypes2.default.bool,
+  isOutline: _propTypes2.default.bool,
+  onClick: _propTypes2.default.func,
+  size: _propTypes2.default.oneOf(['lg', 'md', 'sm']),
+  tag: _propTypes2.default.string,
+  theme: _propTypes2.default.string,
+  type: _propTypes2.default.oneOf(['button', 'submit', 'reset'])
+};
+
 
 var Button = function Button(_ref) {
   var children = _ref.children,
@@ -71,3 +94,4 @@ var Button = function Button(_ref) {
 };
 
 exports.default = Button;
+exports.bpfrpt_proptype_Props = bpfrpt_proptype_Props;

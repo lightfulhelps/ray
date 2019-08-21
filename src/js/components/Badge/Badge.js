@@ -6,6 +6,7 @@ type Props = {
   children: React.Node,
   className?: string,
   color?: string,
+  isOutline?: boolean,
   isPill?: boolean,
   tag?: string,
   theme?: string,
@@ -15,6 +16,7 @@ const Badge = ({
   children,
   className,
   color,
+  isOutline,
   isPill,
   tag: Tag = 'div',
   theme = 'primary',
@@ -23,9 +25,9 @@ const Badge = ({
   const classes = classNames(
     className,
     'badge',
+    `badge${isOutline ? '-outline' : ''}-${theme}`,
     'text-truncate',
     'mw-100',
-    theme ? `badge-${theme}` : null,
     {
       'badge-pill': isPill,
     }

@@ -85,6 +85,7 @@ module.exports = {
     'react/no-access-state-in-setstate': 0,
     'react/no-array-index-key': 0,
     'react/no-multi-comp': 1,
+    'react/no-unescaped-entities': 0,
     'react/no-unused-prop-types': 1,
     'react/no-unused-state': 1,
     'react/prefer-stateless-function': 1,

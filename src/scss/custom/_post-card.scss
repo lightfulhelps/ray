@@ -1,141 +1,17 @@
 .post-card {
-  @extend .card;
-
-  width: 100%;
-  height: 100%;
-  box-shadow: $box-shadow;
-  transition: box-shadow 0.3s;
-
-  &:hover {
-    box-shadow: $box-shadow-lg;
+  &__error {
+    background-color: $danger;
   }
 
-  &--draft {
-    background-color: $gray-100;
-    box-shadow: 0 0 0 2px $gray-500, $box-shadow;
-
-    &:hover {
-      box-shadow: 0 0 0 2px $gray-500, $box-shadow-lg;
-    }
-  }
-
-  &--invalid {
-    box-shadow: 0 0 0 2px $danger, $box-shadow;
-
-    &:hover {
-      box-shadow: 0 0 0 2px $danger, $box-shadow-lg;
-    }
-  }
-
-  > div:last-child {
-    border-bottom-left-radius: $border-radius-sm;
-    border-bottom-right-radius: $border-radius-sm;
-  }
-}
-
-.post-card__header {
-  display: flex;
-  align-items: flex-start;
-  margin-top: map-get($spacers, 2);
-  margin-right: map-get($spacers, 2);
-  margin-bottom: 0;
-  margin-left: map-get($spacers, 2);
-
-  .dropdown-menu {
-    min-width: 190px;
-  }
-}
-
-.post-card__title {
-  @extend .h5, .text-truncate;
-
-  margin-bottom: $spacer / 2;
-}
-
-.post-card__date {
-  @extend .text-truncate;
-
-  display: flex;
-  align-items: center;
-  height: 20px;
-  font-size: $font-size-xs;
-  text-transform: uppercase;
-  margin-bottom: $spacer / 2;
-
-  svg {
-    margin-right: 3px;
-  }
-}
-
-.post-card__campaign {
-  @extend .text-uppercase;
-
-  font-size: $font-size-xs * 0.85;
-}
-
-.post-card__content {
-  margin: map-get($spacers, 2);
-  font-weight: $font-weight-light;
-  font-size: $font-size-sm;
-  height: $line-height-base * 5em;
-}
-
-.post-card__media {
-  height: 164px;
-}
-
-.post-card__tags {
-  height: 45px;
-}
-
-.post-card__tags-more {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background-color: $gray-800;
-  color: $white;
-  font-size: $font-size-xs;
-  font-weight: $font-weight-bold;
-  margin-left: $spacer;
-}
-
-.post-card__metrics {
-  @extend .text-truncate;
-
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: map-get($spacers, 1) map-get($spacers, 2);
-}
-
-.post-card__metric {
-  @extend .text-uppercase;
-
-  margin-right: map-get($spacers, 1);
-  font-weight: $font-weight-light;
-  font-size: $font-size-xs;
-
-  span {
-    font-weight: $font-weight-bold;
-  }
-}
-
-.post-card__inspiration-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: map-get($spacers, 1) map-get($spacers, 2);
-  font-size: $h4-font-size;
-  border-top: $border-width solid $border-color;
-}
-
-.post-card__footer {
-  .btn {
+  &__media-wrap {
     width: 100%;
-    border-radius: 0 0 $border-radius-sm $border-radius-sm;
+    height: 200px;
+    margin: $spacer 0 0;
+
+    @include media-breakpoint-up('md') {
+      width: 130px;
+      height: 130px;
+      margin: 0 0 0 $spacer * 2;
+    }
   }
 }

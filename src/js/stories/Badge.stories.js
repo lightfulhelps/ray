@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col, Badge } from '../';
 import themes from './utils/themes';
 
@@ -15,7 +15,9 @@ stories.add('Default', () => (
     <h1 className="my-4">Badge</h1>
     <Row>
       <Col>
-        <Badge theme={select('Theme', themes, 'primary')}>Hello</Badge>
+        <Badge isOutline={boolean('Outline', false)} theme={select('Theme', themes, 'primary')}>
+          Hello
+        </Badge>
       </Col>
     </Row>
   </Container>
