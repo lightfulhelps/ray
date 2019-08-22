@@ -14,4 +14,8 @@
       margin: 0 0 0 $spacer * 2;
     }
   }
+
+  &__content {
+    word-break: break-word;
+  }
 }

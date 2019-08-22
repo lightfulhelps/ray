@@ -168,7 +168,7 @@ class PostCard extends React.Component<Props, State> {
               </div>
             </div>
             <div
-              className="text-sm mb-1"
+              className="text-sm mb-1 post-card__content"
               data-test-id="post-card-content"
               onClick={this.handleToggleTruncate}
             >

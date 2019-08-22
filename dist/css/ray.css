@@ -7315,6 +7315,9 @@ button.bg-linkedin:focus {
       height: 130px;
       margin: 0 0 0 1.25rem; } }
 
+.post-card__content {
+  word-break: break-word; }
+
 .post-media {
   display: grid;
   grid-gap: 1px;
