@@ -1,6 +1,9 @@
 const path = require('path');
 
 module.exports = {
+  node: {
+    fs: 'empty',
+  },
   module: {
     rules: [
       {

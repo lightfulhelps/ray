@@ -45,6 +45,8 @@
     "bootstrap": "^4.3.0",
     "classnames": "^2.2.6",
     "date-fns": "^1.30.1",
+    "dotenv": "^8.1.0",
+    "filestack-react": "^3.1.0",
     "react": "16.7.0",
     "react-dom": "16.7.0",
     "react-lines-ellipsis": "^0.14.1",
