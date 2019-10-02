@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, color, number, text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col, Button } from '../';
 import allIcons from '../components/Icon/icons';
 import themes from './utils/themes';
@@ -38,6 +38,8 @@ stories.add('Default', () => (
           onClick={action('clicked')}
           size={select('Size', sizes, 'md')}
           icon={boolean('Show Icon', false) && select('Icon', icons, 'media')}
+          iconColor={boolean('Show Icon', false) && color('Icon Color', '#ffffff')}
+          iconSize={boolean('Show Icon', false) && number('Icon Size', 24)}
           iconPosition={
             boolean('Show Icon', false) && select('Icon Position', iconPositions, 'left')
           }
@@ -50,6 +52,8 @@ stories.add('Default', () => (
         <Button
           theme={select('Theme', themes, 'primary')}
           icon={select('Icon', icons, 'media')}
+          iconColor={boolean('Show Icon', false) && color('Icon Color', '#ffffff')}
+          iconSize={boolean('Show Icon', false) && number('Icon Size', 24)}
           isDisabled={boolean('Disabled', false)}
           isOutline={boolean('Outline', false)}
           size={select('Size', sizes, 'md')}
