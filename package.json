@@ -67,7 +67,7 @@
     "chokidar-cli": "^2.0.0",
     "enzyme": "3.8.0",
     "enzyme-adapter-react-16": "1.7.0",
-    "enzyme-to-json": "3.3.5",
+    "enzyme-to-json": "3.4.2",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.3.0",
