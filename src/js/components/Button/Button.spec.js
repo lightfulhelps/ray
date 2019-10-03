@@ -32,6 +32,18 @@ describe('<Button />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should handle the iconSize props', () => {
+    const { wrapper } = setup({ icon: 'create', iconSize: 24 });
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should handle the iconColor props', () => {
+    const { wrapper } = setup({ icon: 'create', iconColor: '#ffffff' });
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('should handle the children prop', () => {
     const { wrapper } = setup();
 
