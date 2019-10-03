@@ -26,9 +26,11 @@ var NavLink = function NavLink(_ref) {
       isDisabled = _ref.isDisabled,
       _ref$tag = _ref.tag,
       Tag = _ref$tag === undefined ? 'a' : _ref$tag,
-      other = _objectWithoutProperties(_ref, ['className', 'isActive', 'isDisabled', 'tag']);
+      _ref$theme = _ref.theme,
+      theme = _ref$theme === undefined ? 'primary' : _ref$theme,
+      other = _objectWithoutProperties(_ref, ['className', 'isActive', 'isDisabled', 'tag', 'theme']);
 
-  var classes = (0, _classnames2.default)(className, 'nav-link', { active: isActive }, { disabled: isDisabled });
+  var classes = (0, _classnames2.default)(className, 'nav-link', { active: isActive }, { disabled: isDisabled }, 'nav-link-' + theme);
 
   return React.createElement(Tag, _extends({}, other, { className: classes }));
 };

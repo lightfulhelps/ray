@@ -2,6 +2,6 @@
 
 exports[`<NavLink /> should render 1`] = `
 <a
-  className="nav-link"
+  className="nav-link nav-link-primary"
 />
 `;
