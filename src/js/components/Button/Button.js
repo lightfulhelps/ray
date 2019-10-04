@@ -8,9 +8,9 @@ export type Props = {
   children?: React.Node,
   className?: string,
   icon?: IconNameType,
+  iconColor?: string,
   iconPosition?: 'left' | 'right',
   iconSize?: number,
-  iconTheme?: string,
   isBlock?: boolean,
   isDisabled?: boolean,
   isOutline?: boolean,
@@ -25,9 +25,9 @@ const Button = ({
   children,
   className,
   icon,
+  iconColor,
   iconPosition = 'left',
   iconSize,
-  iconTheme,
   isBlock,
   isDisabled,
   isOutline,
@@ -66,7 +66,7 @@ const Button = ({
       type={Tag === 'button' ? type : undefined}
     >
       {children}
-      {icon && <Icon name={icon} size={iconSize} theme={iconTheme} />}
+      {icon && <Icon name={icon} size={iconSize} color={iconColor} />}
     </Tag>
   );
 };
