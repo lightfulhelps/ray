@@ -30,6 +30,12 @@
       color: $nav-tabs-link-active-color;
       border-top-color: $primary;
       font-weight: $font-weight-bold;
+
+      @each $color, $value in $theme-colors {
+        &.nav-link-#{$color} {
+          border-top-color: $value;
+        }
+      }
     }
 
     &.disabled {
@@ -44,6 +50,11 @@
 
     &.active {
       font-weight: $font-weight-bold;
+      @each $color, $value in $theme-colors {
+        &.nav-link-#{$color} {
+          background-color: $value;
+        }
+      }
     }
 
     &.disabled {

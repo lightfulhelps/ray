@@ -46,6 +46,18 @@ describe('<NavLink />', () => {
     expect(wrapper.hasClass('disabled')).toBe(true);
   });
 
+  it('should handle the theme prop', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.hasClass('nav-link-primary')).toBe(true);
+
+    wrapper.setProps({ theme: 'secondary' });
+
+    expect(wrapper.hasClass('nav-link-primary')).toBe(false);
+
+    expect(wrapper.hasClass('nav-link-secondary')).toBe(true);
+  });
+
   it('should handle the tag prop', () => {
     const { wrapper } = setup();
 
