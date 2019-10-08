@@ -82,10 +82,11 @@ var Icon = (_temp2 = _class = function (_Component) {
 
       var classes = (0, _classnames2.default)(className, 'icon', theme ? 'icon-' + theme : '', { disabled: isDisabled }, { active: isActive }, { 'cursor-pointer': typeof other.onClick === 'function' && !isDisabled });
 
+      var fill = void 0;
       if (theme) {
-        delete style.fill;
+        fill = undefined;
       } else {
-        style.fill = this.state.hover && hoverColor ? hoverColor : color;
+        fill = this.state.hover && hoverColor ? hoverColor : color;
       }
 
       return _react2.default.createElement(
@@ -94,8 +95,8 @@ var Icon = (_temp2 = _class = function (_Component) {
           className: classes,
           width: size,
           height: size,
+          style: _extends({}, style, { fill: fill }),
           viewBox: viewBox,
-          style: style,
           onMouseEnter: this.handleMouseEnter,
           onMouseLeave: this.handleMouseLeave
         }),

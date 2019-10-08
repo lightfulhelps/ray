@@ -60,10 +60,11 @@ class Icon extends Component<Props, State> {
       { 'cursor-pointer': typeof other.onClick === 'function' && !isDisabled }
     );
 
+    let fill;
     if (theme) {
-      delete style.fill;
+      fill = undefined;
     } else {
-      style.fill = this.state.hover && hoverColor ? hoverColor : color;
+      fill = this.state.hover && hoverColor ? hoverColor : color;
     }
 
     return (
@@ -72,8 +73,8 @@ class Icon extends Component<Props, State> {
         className={classes}
         width={size}
         height={size}
+        style={{ ...style, fill }}
         viewBox={viewBox}
-        style={style}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >
