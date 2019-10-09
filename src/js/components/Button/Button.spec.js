@@ -38,20 +38,6 @@ describe('<Button />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should add the right offset when rendering with an icon', () => {
-    const { wrapper } = setup({ icon: 'create', iconSize: 24 });
-
-    expect(wrapper.find('Icon').prop('style')).toMatchObject({ marginTop: -4, marginBottom: -4 });
-
-    wrapper.setProps({ iconSize: 16 });
-
-    expect(wrapper.find('Icon').prop('style')).toBe(undefined);
-
-    wrapper.setProps({ iconSize: undefined, size: 'lg' });
-
-    expect(wrapper.find('Icon').prop('style')).toBe(undefined);
-  });
-
   it('should handle the iconColor props', () => {
     const { wrapper } = setup({ icon: 'create', iconColor: '#ffffff' });
 

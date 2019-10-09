@@ -76,10 +76,6 @@ var Button = function Button(_ref) {
 
   var classes = (0, _classnames2.default)(className, 'btn', 'btn' + (isOutline ? '-outline' : '') + '-' + theme, size ? 'btn-' + size : false, { 'btn-block': isBlock }, { disabled: isDisabled }, { 'btn-icon': icon && !children }, _defineProperty({}, 'btn-icon-' + iconPosition, icon && children));
 
-  var sizesValues = { sm: 14, md: 16, lg: 20 };
-  var iconOffsetMargin = iconSize ? -(iconSize - sizesValues[size || 'md']) / 2 : 0;
-  var iconStyle = iconOffsetMargin && iconOffsetMargin !== 0 ? { marginTop: iconOffsetMargin, marginBottom: iconOffsetMargin } : undefined;
-
   function handleClick(e) {
     if (isDisabled) {
       e.preventDefault();
@@ -97,7 +93,7 @@ var Button = function Button(_ref) {
       type: Tag === 'button' ? type : undefined
     }),
     children,
-    icon && React.createElement(_Icon2.default, { name: icon, size: iconSize, color: iconColor, style: iconStyle })
+    icon && React.createElement(_Icon2.default, { name: icon, size: iconSize, color: iconColor })
   );
 };
 

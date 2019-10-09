@@ -39,7 +39,7 @@ stories.add('Default', () => (
           size={select('Size', sizes, 'md')}
           icon={boolean('Show Icon', false) && select('Icon', icons, 'media')}
           iconColor={boolean('Show Icon', false) && color('Icon Color', '#ffffff')}
-          iconSize={boolean('Show Icon', false) && number('Icon Size', 16)}
+          iconSize={boolean('Show Icon', false) && number('Icon Size', 24)}
           iconPosition={
             boolean('Show Icon', false) && select('Icon Position', iconPositions, 'left')
           }
@@ -53,7 +53,7 @@ stories.add('Default', () => (
           theme={select('Theme', themes, 'primary')}
           icon={select('Icon', icons, 'media')}
           iconColor={boolean('Show Icon', false) && color('Icon Color', '#ffffff')}
-          iconSize={boolean('Show Icon', false) && number('Icon Size', 16)}
+          iconSize={boolean('Show Icon', false) && number('Icon Size', 24)}
           isDisabled={boolean('Disabled', false)}
           isOutline={boolean('Outline', false)}
           size={select('Size', sizes, 'md')}

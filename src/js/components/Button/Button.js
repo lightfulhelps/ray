@@ -49,13 +49,6 @@ const Button = ({
     { [`btn-icon-${iconPosition}`]: icon && children }
   );
 
-  const sizesValues = { sm: 14, md: 16, lg: 20 };
-  const iconOffsetMargin = iconSize ? -(iconSize - sizesValues[size || 'md']) / 2 : 0;
-  const iconStyle =
-    iconOffsetMargin && iconOffsetMargin !== 0
-      ? { marginTop: iconOffsetMargin, marginBottom: iconOffsetMargin }
-      : undefined;
-
   function handleClick(e: SyntheticMouseEvent<>) {
     if (isDisabled) {
       e.preventDefault();
@@ -73,7 +66,7 @@ const Button = ({
       type={Tag === 'button' ? type : undefined}
     >
       {children}
-      {icon && <Icon name={icon} size={iconSize} color={iconColor} style={iconStyle} />}
+      {icon && <Icon name={icon} size={iconSize} color={iconColor} />}
     </Tag>
   );
 };

@@ -24,12 +24,6 @@ exports[`<Button /> should handle the iconSize props 1`] = `
   <Icon
     name="create"
     size={24}
-    style={
-      Object {
-        "marginBottom": -4,
-        "marginTop": -4,
-      }
-    }
   />
 </button>
 `;
