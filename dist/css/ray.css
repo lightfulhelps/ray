@@ -6349,6 +6349,9 @@ label {
 .btn-twitter {
   color: #fff; }
 
+.btn .icon {
+  pointer-events: none; }
+
 .btn-icon {
   padding: 0.9375rem;
   border-radius: 0.3125rem; }

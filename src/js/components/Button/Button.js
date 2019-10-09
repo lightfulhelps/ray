@@ -9,7 +9,6 @@ export type Props = {
   className?: string,
   icon?: IconNameType,
   iconPosition?: 'left' | 'right',
-  iconSize?: number,
   iconTheme?: string,
   isBlock?: boolean,
   isDisabled?: boolean,
@@ -26,7 +25,6 @@ const Button = ({
   className,
   icon,
   iconPosition = 'left',
-  iconSize,
   iconTheme,
   isBlock,
   isDisabled,
@@ -66,7 +64,7 @@ const Button = ({
       type={Tag === 'button' ? type : undefined}
     >
       {children}
-      {icon && <Icon name={icon} size={iconSize} theme={iconTheme} />}
+      {icon && <Icon name={icon} theme={iconTheme} />}
     </Tag>
   );
 };
