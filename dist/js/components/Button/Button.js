@@ -39,9 +39,9 @@ var bpfrpt_proptype_Props = {
   icon: function icon() {
     return (typeof _icons.bpfrpt_proptype_IconNameType === 'function' ? _icons.bpfrpt_proptype_IconNameType : _propTypes2.default.shape(_icons.bpfrpt_proptype_IconNameType)).apply(this, arguments);
   },
-  iconColor: _propTypes2.default.string,
   iconPosition: _propTypes2.default.oneOf(['left', 'right']),
   iconSize: _propTypes2.default.number,
+  iconTheme: _propTypes2.default.string,
   isBlock: _propTypes2.default.bool,
   isDisabled: _propTypes2.default.bool,
   isOutline: _propTypes2.default.bool,
@@ -57,10 +57,10 @@ var Button = function Button(_ref) {
   var children = _ref.children,
       className = _ref.className,
       icon = _ref.icon,
-      iconColor = _ref.iconColor,
       _ref$iconPosition = _ref.iconPosition,
       iconPosition = _ref$iconPosition === undefined ? 'left' : _ref$iconPosition,
       iconSize = _ref.iconSize,
+      iconTheme = _ref.iconTheme,
       isBlock = _ref.isBlock,
       isDisabled = _ref.isDisabled,
       isOutline = _ref.isOutline,
@@ -72,7 +72,7 @@ var Button = function Button(_ref) {
       theme = _ref$theme === undefined ? 'primary' : _ref$theme,
       _ref$type = _ref.type,
       type = _ref$type === undefined ? 'button' : _ref$type,
-      other = _objectWithoutProperties(_ref, ['children', 'className', 'icon', 'iconColor', 'iconPosition', 'iconSize', 'isBlock', 'isDisabled', 'isOutline', 'onClick', 'size', 'tag', 'theme', 'type']);
+      other = _objectWithoutProperties(_ref, ['children', 'className', 'icon', 'iconPosition', 'iconSize', 'iconTheme', 'isBlock', 'isDisabled', 'isOutline', 'onClick', 'size', 'tag', 'theme', 'type']);
 
   var classes = (0, _classnames2.default)(className, 'btn', 'btn' + (isOutline ? '-outline' : '') + '-' + theme, size ? 'btn-' + size : false, { 'btn-block': isBlock }, { disabled: isDisabled }, { 'btn-icon': icon && !children }, _defineProperty({}, 'btn-icon-' + iconPosition, icon && children));
 
@@ -93,7 +93,7 @@ var Button = function Button(_ref) {
       type: Tag === 'button' ? type : undefined
     }),
     children,
-    icon && React.createElement(_Icon2.default, { name: icon, size: iconSize, color: iconColor })
+    icon && React.createElement(_Icon2.default, { name: icon, size: iconSize, theme: iconTheme })
   );
 };
 
