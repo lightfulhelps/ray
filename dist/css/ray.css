@@ -6960,11 +6960,15 @@ button.bg-linkedin:focus {
   width: 60%;
   height: 60%; }
   .avatar-provider-lg {
-    width: 80%;
-    height: 80%; }
+    width: 75%;
+    height: 75%;
+    right: -30%;
+    bottom: -30%; }
   .avatar-provider-md {
     width: 60%;
-    height: 60%; }
+    height: 60%;
+    right: -10%;
+    bottom: -10%; }
   .avatar-provider-sm {
     width: 40%;
     height: 40%; }
