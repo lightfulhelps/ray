@@ -42,7 +42,7 @@ var Avatar = function Avatar(_ref) {
     provider && _react2.default.createElement(
       'div',
       {
-        className: '\n          avatar-provider \n          avatar-provider-' + provider + ' \n          ' + (providerSize ? 'avatar-provider-' + providerSize : '') + '\n          '
+        className: 'avatar-provider avatar-provider-' + provider + ' ' + (providerSize ? 'avatar-provider-' + providerSize : '')
       },
       _react2.default.createElement(_.Icon, { name: provider, color: '#ffffff' })
     )

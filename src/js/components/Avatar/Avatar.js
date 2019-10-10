@@ -28,11 +28,9 @@ const Avatar = ({
       </div>
       {provider && (
         <div
-          className={`
-          avatar-provider 
-          avatar-provider-${provider} 
-          ${providerSize ? `avatar-provider-${providerSize}` : ''}
-          `}
+          className={`avatar-provider avatar-provider-${provider} ${
+            providerSize ? `avatar-provider-${providerSize}` : ''
+          }`}
         >
           <Icon name={provider} color="#ffffff" />
         </div>

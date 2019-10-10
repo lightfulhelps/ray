@@ -14,11 +14,7 @@ exports[`<Avatar /> should render 1`] = `
     />
   </div>
   <div
-    className="
-          avatar-provider 
-          avatar-provider-twitter 
-          avatar-provider-md
-          "
+    className="avatar-provider avatar-provider-twitter avatar-provider-md"
   >
     <Icon
       color="#ffffff"
