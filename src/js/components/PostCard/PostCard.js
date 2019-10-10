@@ -150,6 +150,7 @@ class PostCard extends React.Component<Props, State> {
                   className="flex-shrink-0"
                   url={post.socialIdentity.avatar}
                   provider={post.socialIdentity.provider}
+                  providerSize="lg"
                   style={{ width: '40px', height: '40px' }}
                 />
               )}

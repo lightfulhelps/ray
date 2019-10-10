@@ -24,6 +24,7 @@ exports[`<PostCard /> should render 1`] = `
         <Avatar
           className="flex-shrink-0"
           provider="facebook"
+          providerSize="lg"
           style={
             Object {
               "height": "40px",
@@ -233,6 +234,7 @@ exports[`<PostCard /> should render with errors 1`] = `
         <Avatar
           className="flex-shrink-0"
           provider="facebook"
+          providerSize="lg"
           style={
             Object {
               "height": "40px",
