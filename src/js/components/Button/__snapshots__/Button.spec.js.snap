@@ -1,19 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button /> should handle the iconSize props 1`] = `
-<button
-  className="btn btn-primary btn-icon-left"
-  onClick={[Function]}
-  type="button"
->
-  Click Me
-  <Icon
-    name="create"
-    size={24}
-  />
-</button>
-`;
-
 exports[`<Button /> should handle the iconTheme props 1`] = `
 <button
   className="btn btn-primary btn-icon-left"

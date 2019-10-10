@@ -32,12 +32,6 @@ describe('<Button />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should handle the iconSize props', () => {
-    const { wrapper } = setup({ icon: 'create', iconSize: 24 });
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
   it('should handle the iconTheme props', () => {
     const { wrapper } = setup({ icon: 'create', iconTheme: 'primary' });
 
