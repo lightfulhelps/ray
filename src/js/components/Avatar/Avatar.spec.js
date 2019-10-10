@@ -63,6 +63,18 @@ describe('<Avatar />', () => {
     ).toEqual('facebook');
   });
 
+  it('should handle the providerSize prop', () => {
+    const { wrapper } = setup();
+
+    wrapper.setProps({ providerSize: 'lg' });
+
+    expect(wrapper.find('.avatar-provider-lg').exists()).toBe(true);
+
+    wrapper.setProps({ providerSize: 'sm' });
+
+    expect(wrapper.find('.avatar-provider-sm').exists()).toBe(true);
+  });
+
   it('should pass through other props', () => {
     const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 

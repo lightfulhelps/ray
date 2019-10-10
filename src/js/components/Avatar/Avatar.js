@@ -7,10 +7,18 @@ type Props = {
   className?: string,
   isDisconnected?: boolean,
   provider?: 'facebook' | 'twitter' | 'linkedin',
+  providerSize?: 'sm' | 'md' | 'lg',
   url?: string,
 };
 
-const Avatar = ({ className, isDisconnected, url, provider, ...other }: Props) => {
+const Avatar = ({
+  className,
+  isDisconnected,
+  url,
+  provider,
+  providerSize = 'md',
+  ...other
+}: Props) => {
   const classes = classNames(className, 'avatar', { 'avatar-disconnected': isDisconnected });
 
   return (
@@ -19,7 +27,13 @@ const Avatar = ({ className, isDisconnected, url, provider, ...other }: Props) =
         {url && <img className="avatar-image" src={url} alt="" />}
       </div>
       {provider && (
-        <div className={`avatar-provider avatar-provider-${provider}`}>
+        <div
+          className={`
+          avatar-provider 
+          avatar-provider-${provider} 
+          ${providerSize ? `avatar-provider-${providerSize}` : ''}
+          `}
+        >
           <Icon name={provider} color="#ffffff" />
         </div>
       )}

@@ -30,6 +30,18 @@
   border-radius: 50%;
   width: 60%;
   height: 60%;
+  &-lg {
+    width: 80%;
+    height: 80%;
+  }
+  &-md {
+    width: 60%;
+    height: 60%;
+  }
+  &-sm {
+    width: 40%;
+    height: 40%;
+  }
 
   .icon {
     width: 80%;

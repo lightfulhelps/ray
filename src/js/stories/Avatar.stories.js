@@ -38,6 +38,20 @@ stories.add('Default', () => (
           isDisconnected
         />
       </Col>
+      <Col xs={3} sm={2} md={1} className="mb-2">
+        <Avatar
+          url="https://randomuser.me/api/portraits/women/47.jpg"
+          providerSize="lg"
+          provider="linkedin"
+        />
+      </Col>
+      <Col xs={3} sm={2} md={1} className="mb-2">
+        <Avatar
+          url="https://randomuser.me/api/portraits/women/47.jpg"
+          providerSize="sm"
+          provider="linkedin"
+        />
+      </Col>
     </Row>
   </Container>
 ));

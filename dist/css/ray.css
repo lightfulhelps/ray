@@ -6959,6 +6959,15 @@ button.bg-linkedin:focus {
   border-radius: 50%;
   width: 60%;
   height: 60%; }
+  .avatar-provider-lg {
+    width: 80%;
+    height: 80%; }
+  .avatar-provider-md {
+    width: 60%;
+    height: 60%; }
+  .avatar-provider-sm {
+    width: 40%;
+    height: 40%; }
   .avatar-provider .icon {
     width: 80%;
     height: 80%; }
