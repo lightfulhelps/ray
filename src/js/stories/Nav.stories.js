@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import { Container, Row, Col, Nav, NavItem, NavLink } from '../';
+import themes from './utils/themes';
 
 import '../../scss/ray.scss';
 
@@ -20,7 +21,11 @@ stories.add('Default', () => (
           isTabs={boolean('Tabs', true)}
         >
           <NavItem>
-            <NavLink href="#" isActive={boolean('Active Link', true)}>
+            <NavLink
+              href="#"
+              theme={select('Theme', themes, 'primary')}
+              isActive={boolean('Active Link', true)}
+            >
               First
             </NavLink>
           </NavItem>
