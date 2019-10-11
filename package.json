@@ -65,7 +65,7 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "chokidar-cli": "^2.0.0",
-    "enzyme": "3.8.0",
+    "enzyme": "3.10.0",
     "enzyme-adapter-react-16": "1.7.0",
     "enzyme-to-json": "3.3.5",
     "eslint": "^5.9.0",
