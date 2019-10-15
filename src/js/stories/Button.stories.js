@@ -44,7 +44,7 @@ stories.add('Default', () => (
           iconTheme={
             boolean('Show Icon', false) &&
             boolean('Use theme?', false) &&
-            select('Icon Theme', themes, 'primary')
+            select('Icon Theme', themes, 'light')
           }
         >
           {text('Text', 'Click Me')}
@@ -61,7 +61,7 @@ stories.add('Default', () => (
           iconTheme={
             boolean('Show Icon', false) &&
             boolean('Use theme?', false) &&
-            select('Icon Theme', themes, 'primary')
+            select('Icon Theme', themes, 'light')
           }
         />
       </Col>
