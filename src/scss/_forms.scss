@@ -47,6 +47,7 @@ label {
     display: block;
     height: $spacer * 1.6;
     width: $spacer * 1.6;
+    flex-shrink: 0;
   }
 
   &::before {
