@@ -6,6 +6,10 @@
 }
 
 .avatar {
+  border-radius: 50%;
+  border: calculaterem(2px) solid $white;
+  height: 2rem;
+  width: 2rem;
   position: relative;
 
   &-disconnected {

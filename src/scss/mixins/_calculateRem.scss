@@ -1,0 +1,6 @@
+$browser-context: 16px; // Default
+@function calculaterem($size) {
+  $remSize: $size / $browser-context;
+
+  @return #{$remSize}rem;
+}

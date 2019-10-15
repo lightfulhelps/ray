@@ -6939,6 +6939,10 @@ button.bg-linkedin:focus {
   height: 100%; }
 
 .avatar {
+  border-radius: 50%;
+  border: 0.125rem solid #fff;
+  height: 2rem;
+  width: 2rem;
   position: relative; }
   .avatar-disconnected {
     opacity: 0.3; }
