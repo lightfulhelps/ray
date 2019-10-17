@@ -32,6 +32,12 @@ describe('<Button />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should handle the iconTheme props', () => {
+    const { wrapper } = setup({ icon: 'create', iconTheme: 'primary' });
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('should handle the children prop', () => {
     const { wrapper } = setup();
 
