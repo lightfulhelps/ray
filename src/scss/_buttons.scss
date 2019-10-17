@@ -33,6 +33,10 @@
   color: $white;
 }
 
+.btn .icon {
+  pointer-events: none;
+}
+
 .btn-icon {
   padding: $input-btn-padding-y;
   border-radius: $btn-border-radius;
@@ -72,4 +76,3 @@
     }
   }
 }
-

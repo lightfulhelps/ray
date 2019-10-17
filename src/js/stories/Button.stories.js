@@ -41,6 +41,11 @@ stories.add('Default', () => (
           iconPosition={
             boolean('Show Icon', false) && select('Icon Position', iconPositions, 'left')
           }
+          iconTheme={
+            boolean('Show Icon', false) &&
+            boolean('Use theme?', false) &&
+            select('Icon Theme', themes, 'light')
+          }
         >
           {text('Text', 'Click Me')}
         </Button>
@@ -49,10 +54,15 @@ stories.add('Default', () => (
         <h2 className="h4 mb-2">Icon Only.</h2>
         <Button
           theme={select('Theme', themes, 'primary')}
-          icon={select('Icon', icons, 'media')}
           isDisabled={boolean('Disabled', false)}
           isOutline={boolean('Outline', false)}
           size={select('Size', sizes, 'md')}
+          icon={select('Icon', icons, 'media')}
+          iconTheme={
+            boolean('Show Icon', false) &&
+            boolean('Use theme?', false) &&
+            select('Icon Theme', themes, 'light')
+          }
         />
       </Col>
     </Row>
