@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResourceCard /> should render 1`] = `
+<a
+  className="resource-card card p-1 rounded shadow h-100 d-flex flex-column justify-content-between bg-gray-900 text-decoration-none"
+  download={true}
+  href="http://foo.com/bar.pdf"
+  style={
+    Object {
+      "backgroundImage": "linear-gradient(90deg, #fafafa 0%, #000000 100%)",
+    }
+  }
+>
+  <div
+    className="d-flex align-items-center mb-2"
+  >
+    <div
+      className="rounded-circle d-flex align-items-center justify-content-center mr-1 flex-shrink-0"
+      style={
+        Object {
+          "background": "rgba(255, 255, 255, 0.2)",
+          "height": "24px",
+          "width": "24px",
+        }
+      }
+    >
+      <Icon
+        isActive={true}
+        name="download"
+        theme="white"
+      />
+    </div>
+    <div
+      className="text-xs text-white"
+      data-test-id="resource-card-campaign"
+    >
+      Fireside Storytelling
+    </div>
+  </div>
+  <div
+    className="text-sm font-weight-bold text-white"
+    data-test-id="resource-card-title"
+  >
+    Useful storytelling guide
+  </div>
+</a>
+`;
