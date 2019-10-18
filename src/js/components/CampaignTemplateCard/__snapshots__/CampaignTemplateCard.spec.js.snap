@@ -26,6 +26,7 @@ exports[`<CampaignTemplateCard /> should render 1`] = `
         Create your own
       </h5>
       <div
+        className="text-sm"
         data-test-id="campaign-template-card-description"
       >
         Don't use a template, do your own thing.
@@ -37,7 +38,7 @@ exports[`<CampaignTemplateCard /> should render 1`] = `
       isBlock={true}
       onClick={[Function]}
     >
-      Use your template
+      Use this template
     </Button>
   </div>
 </div>

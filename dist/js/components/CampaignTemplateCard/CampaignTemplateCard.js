@@ -24,11 +24,13 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 var CampaignTemplateCard = function CampaignTemplateCard(_ref) {
   var className = _ref.className,
+      _ref$ctaText = _ref.ctaText,
+      ctaText = _ref$ctaText === undefined ? 'Use this template' : _ref$ctaText,
       onClick = _ref.onClick,
       title = _ref.title,
       description = _ref.description,
       image = _ref.image,
-      other = _objectWithoutProperties(_ref, ['className', 'onClick', 'title', 'description', 'image']);
+      other = _objectWithoutProperties(_ref, ['className', 'ctaText', 'onClick', 'title', 'description', 'image']);
 
   var classes = (0, _classnames2.default)(className, 'card shadow-lg h-100 rounded-lg', 'campaign-template-card');
 
@@ -60,7 +62,7 @@ var CampaignTemplateCard = function CampaignTemplateCard(_ref) {
         ),
         React.createElement(
           'div',
-          { 'data-test-id': 'campaign-template-card-description' },
+          { className: 'text-sm', 'data-test-id': 'campaign-template-card-description' },
           description
         )
       ),
@@ -72,7 +74,7 @@ var CampaignTemplateCard = function CampaignTemplateCard(_ref) {
           onClick: onClick,
           isBlock: true
         },
-        'Use your template'
+        ctaText
       )
     )
   );

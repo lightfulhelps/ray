@@ -5,6 +5,7 @@ import { Button } from '../..';
 
 type Props = {
   className?: string,
+  ctaText: string,
   description: string,
   image: string,
   onClick: (SyntheticMouseEvent<>) => void,
@@ -13,6 +14,7 @@ type Props = {
 
 const CampaignTemplateCard = ({
   className,
+  ctaText = 'Use this template',
   onClick,
   title,
   description,
@@ -42,7 +44,9 @@ const CampaignTemplateCard = ({
       <div className="p-2 d-flex h-100 flex-column justify-content-between">
         <div>
           <h5 data-test-id="campaign-template-card-title">{title}</h5>
-          <div data-test-id="campaign-template-card-description">{description}</div>
+          <div className="text-sm" data-test-id="campaign-template-card-description">
+            {description}
+          </div>
         </div>
         <Button
           data-test-id="campaign-template-card-button"
@@ -50,7 +54,7 @@ const CampaignTemplateCard = ({
           onClick={onClick}
           isBlock
         >
-          Use your template
+          {ctaText}
         </Button>
       </div>
     </div>
