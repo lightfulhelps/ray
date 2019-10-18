@@ -256,6 +256,15 @@ Object.defineProperty(exports, 'PostMedia', {
   }
 });
 
+var _ResourceCard = require('./components/ResourceCard/ResourceCard');
+
+Object.defineProperty(exports, 'ResourceCard', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_ResourceCard).default;
+  }
+});
+
 var _Row = require('./components/Row/Row');
 
 Object.defineProperty(exports, 'Row', {
