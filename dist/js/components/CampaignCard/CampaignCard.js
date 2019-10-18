@@ -23,14 +23,15 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 var CampaignCard = function CampaignCard(_ref) {
   var className = _ref.className,
       cover = _ref.cover,
-      status = _ref.status,
+      _ref$state = _ref.state,
+      state = _ref$state === undefined ? '' : _ref$state,
       _ref$tag = _ref.tag,
       Tag = _ref$tag === undefined ? 'div' : _ref$tag,
       title = _ref.title,
-      other = _objectWithoutProperties(_ref, ['className', 'cover', 'status', 'tag', 'title']);
+      other = _objectWithoutProperties(_ref, ['className', 'cover', 'state', 'tag', 'title']);
 
   var classes = (0, _classnames2.default)(className, 'campaign-card', 'card rounded-lg shadow text-decoration-none h-100');
-  var statusClasses = (0, _classnames2.default)('text-xs font-weight-bold', { 'text-primary': status === 'Live' }, { 'text-warning': status === 'Draft' });
+  var stateClasses = (0, _classnames2.default)('text-xs font-weight-bold', { 'text-primary': state.toLowerCase() === 'live' }, { 'text-warning': state.toLowerCase() === 'draft' });
 
   return React.createElement(
     Tag,
@@ -52,8 +53,8 @@ var CampaignCard = function CampaignCard(_ref) {
       ),
       React.createElement(
         'div',
-        { className: statusClasses, 'data-test-id': 'campaign-card-status' },
-        status
+        { className: stateClasses, 'data-test-id': 'campaign-card-state' },
+        state
       )
     )
   );

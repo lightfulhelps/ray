@@ -5,21 +5,28 @@ import classNames from 'classnames';
 type Props = {
   className?: string,
   cover: string,
-  status: string,
+  state: string,
   tag?: string,
   title: string,
 };
 
-const CampaignCard = ({ className, cover, status, tag: Tag = 'div', title, ...other }: Props) => {
+const CampaignCard = ({
+  className,
+  cover,
+  state = '',
+  tag: Tag = 'div',
+  title,
+  ...other
+}: Props) => {
   const classes = classNames(
     className,
     'campaign-card',
     'card rounded-lg shadow text-decoration-none h-100'
   );
-  const statusClasses = classNames(
+  const stateClasses = classNames(
     'text-xs font-weight-bold',
-    { 'text-primary': status === 'Live' },
-    { 'text-warning': status === 'Draft' }
+    { 'text-primary': state.toLowerCase() === 'live' },
+    { 'text-warning': state.toLowerCase() === 'draft' }
   );
 
   return (
@@ -35,8 +42,8 @@ const CampaignCard = ({ className, cover, status, tag: Tag = 'div', title, ...ot
         <div className="h6" data-test-id="campaign-card-title">
           {title}
         </div>
-        <div className={statusClasses} data-test-id="campaign-card-status">
-          {status}
+        <div className={stateClasses} data-test-id="campaign-card-state">
+          {state}
         </div>
       </div>
     </Tag>

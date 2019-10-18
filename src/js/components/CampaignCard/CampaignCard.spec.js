@@ -8,7 +8,7 @@ const setup = (overrides = {}) => {
     {
       cover: 'http://lorempixel.com/640/480',
       title: 'THX distributed',
-      status: 'Live',
+      state: 'Live',
     },
     overrides
   );
@@ -51,30 +51,30 @@ describe('<CampaignCard />', () => {
     expect(wrapper.find('[data-test-id="campaign-card-title"]').text()).toEqual(title);
   });
 
-  it('should handle the Live status', () => {
-    const { wrapper } = setup({ status: 'Live' });
+  it('should handle the Live state', () => {
+    const { wrapper } = setup({ state: 'Live' });
 
-    expect(wrapper.find('[data-test-id="campaign-card-status"]').text()).toEqual('Live');
+    expect(wrapper.find('[data-test-id="campaign-card-state"]').text()).toEqual('Live');
 
-    expect(wrapper.find('[data-test-id="campaign-card-status"]').prop('className')).toContain(
+    expect(wrapper.find('[data-test-id="campaign-card-state"]').prop('className')).toContain(
       'text-primary'
     );
 
-    expect(wrapper.find('[data-test-id="campaign-card-status"]').prop('className')).not.toContain(
+    expect(wrapper.find('[data-test-id="campaign-card-state"]').prop('className')).not.toContain(
       'text-warning'
     );
   });
 
-  it('should handle the Draft status', () => {
-    const { wrapper } = setup({ status: 'Draft' });
+  it('should handle the Draft state', () => {
+    const { wrapper } = setup({ state: 'Draft' });
 
-    expect(wrapper.find('[data-test-id="campaign-card-status"]').text()).toEqual('Draft');
+    expect(wrapper.find('[data-test-id="campaign-card-state"]').text()).toEqual('Draft');
 
-    expect(wrapper.find('[data-test-id="campaign-card-status"]').prop('className')).not.toContain(
+    expect(wrapper.find('[data-test-id="campaign-card-state"]').prop('className')).not.toContain(
       'text-primary'
     );
 
-    expect(wrapper.find('[data-test-id="campaign-card-status"]').prop('className')).toContain(
+    expect(wrapper.find('[data-test-id="campaign-card-state"]').prop('className')).toContain(
       'text-warning'
     );
   });

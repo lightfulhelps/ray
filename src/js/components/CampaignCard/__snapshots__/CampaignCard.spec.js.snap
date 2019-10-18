@@ -25,7 +25,7 @@ exports[`<CampaignCard /> should render 1`] = `
     </div>
     <div
       className="text-xs font-weight-bold text-primary"
-      data-test-id="campaign-card-status"
+      data-test-id="campaign-card-state"
     >
       Live
     </div>
