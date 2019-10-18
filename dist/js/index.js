@@ -40,14 +40,21 @@ Object.defineProperty(exports, 'Button', {
   }
 });
 
+var _CampaignCard = require('./components/CampaignCard/CampaignCard');
+
+Object.defineProperty(exports, 'CampaignCard', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_CampaignCard).default;
+  }
+});
+
 var _CampaignTemplateCard = require('./components/CampaignTemplateCard/CampaignTemplateCard');
 
 Object.defineProperty(exports, 'CampaignTemplateCard', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_CampaignTemplateCard).default;
-  }
-});
 
 var _Card = require('./components/Card/Card');
 

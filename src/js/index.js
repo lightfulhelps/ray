@@ -3,6 +3,7 @@ export { default as Alert } from './components/Alert/Alert';
 export { default as Avatar } from './components/Avatar/Avatar';
 export { default as Badge } from './components/Badge/Badge';
 export { default as Button } from './components/Button/Button';
+export { default as CampaignCard } from './components/CampaignCard/CampaignCard';
 export {
   default as CampaignTemplateCard,
 } from './components/CampaignTemplateCard/CampaignTemplateCard';
