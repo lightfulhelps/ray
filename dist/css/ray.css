@@ -6976,6 +6976,13 @@ button.bg-linkedin:focus {
 .avatar-provider-linkedin {
   background-color: #1c87bf; }
 
+.campaign-card-cover {
+  height: 0;
+  padding-bottom: 40%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1.25rem 1.25rem 0 0; }
+
 .character-counter {
   display: flex;
   align-items: center;
