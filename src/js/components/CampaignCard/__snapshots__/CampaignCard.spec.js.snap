@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CampaignCard /> should render 1`] = `
+<div
+  className="campaign-card card rounded-lg shadow text-decoration-none h-100"
+  data-test-id="campaign-card"
+>
+  <div
+    className="campaign-card-cover"
+    data-test-id="campaign-card-cover"
+    style={
+      Object {
+        "backgroundImage": "url(http://lorempixel.com/640/480)",
+      }
+    }
+  />
+  <div
+    className="px-2 py-1 h-100 d-flex flex-column justify-content-between"
+  >
+    <div
+      className="h6"
+      data-test-id="campaign-card-title"
+    >
+      THX distributed
+    </div>
+    <div
+      className="text-xs font-weight-bold text-primary"
+      data-test-id="campaign-card-status"
+    >
+      Live
+    </div>
+  </div>
+</div>
+`;
