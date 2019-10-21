@@ -9,6 +9,7 @@ type Props = {
   gradientEnd?: string,
   gradientStart?: string,
   resource: string,
+  tag?: string,
   title: string,
 };
 
@@ -19,14 +20,14 @@ const ResourceCard = ({
   className,
   gradientEnd,
   gradientStart,
-  resource,
+  tag: Tag = 'a',
   title,
   ...other
 }: Props) => {
   const classes = classNames(
     className,
     'resource-card',
-    'card p-1 rounded shadow h-100 d-flex flex-column justify-content-between bg-gray-900 text-decoration-none'
+    'card p-1 rounded shadow h-100 bg-gray-900 text-decoration-none'
   );
   const style = {};
 
@@ -35,7 +36,7 @@ const ResourceCard = ({
   }
 
   return (
-    <a {...other} className={classes} href={resource} style={style} download>
+    <Tag {...other} className={classes} style={style}>
       <div className="d-flex align-items-center mb-2">
         <div
           className="rounded-circle d-flex align-items-center justify-content-center mr-1 flex-shrink-0"
@@ -50,7 +51,7 @@ const ResourceCard = ({
       <div className="text-sm font-weight-bold text-white" data-test-id="resource-card-title">
         {title}
       </div>
-    </a>
+    </Tag>
   );
 };
 
