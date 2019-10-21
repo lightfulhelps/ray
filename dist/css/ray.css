@@ -6939,10 +6939,6 @@ button.bg-linkedin:focus {
   height: 100%; }
 
 .avatar {
-  border-radius: 50%;
-  border: 0.125rem solid #fff;
-  height: 2rem;
-  width: 2rem;
   position: relative; }
   .avatar-disconnected {
     opacity: 0.3; }
@@ -6951,6 +6947,18 @@ button.bg-linkedin:focus {
   overflow: hidden;
   border-radius: 50%;
   background-color: #dee2e6; }
+
+.avatar-provider-lg .avatar-provider {
+  width: 75%;
+  height: 75%; }
+
+.avatar-provider-md .avatar-provider {
+  width: 60%;
+  height: 60%; }
+
+.avatar-provider-sm .avatar-provider {
+  width: 40%;
+  height: 40%; }
 
 .avatar-provider {
   display: flex;
@@ -6963,19 +6971,6 @@ button.bg-linkedin:focus {
   border-radius: 50%;
   width: 60%;
   height: 60%; }
-  .avatar-provider-lg {
-    width: 75%;
-    height: 75%;
-    right: -30%;
-    bottom: -30%; }
-  .avatar-provider-md {
-    width: 60%;
-    height: 60%;
-    right: -10%;
-    bottom: -10%; }
-  .avatar-provider-sm {
-    width: 40%;
-    height: 40%; }
   .avatar-provider .icon {
     width: 80%;
     height: 80%; }

@@ -19,7 +19,9 @@ const Avatar = ({
   providerSize = 'md',
   ...other
 }: Props) => {
-  const classes = classNames(className, 'avatar', { 'avatar-disconnected': isDisconnected });
+  const classes = classNames(className, 'avatar', `avatar-provider-${providerSize}`, {
+    'avatar-disconnected': isDisconnected,
+  });
 
   return (
     <div {...other} className={classes}>
@@ -27,11 +29,7 @@ const Avatar = ({
         {url && <img className="avatar-image" src={url} alt="" />}
       </div>
       {provider && (
-        <div
-          className={`avatar-provider avatar-provider-${provider} ${
-            providerSize ? `avatar-provider-${providerSize}` : ''
-          }`}
-        >
+        <div className={`avatar-provider avatar-provider-${provider}`}>
           <Icon name={provider} color="#ffffff" />
         </div>
       )}

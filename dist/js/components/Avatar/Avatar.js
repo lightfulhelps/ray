@@ -29,7 +29,9 @@ var Avatar = function Avatar(_ref) {
       providerSize = _ref$providerSize === undefined ? 'md' : _ref$providerSize,
       other = _objectWithoutProperties(_ref, ['className', 'isDisconnected', 'url', 'provider', 'providerSize']);
 
-  var classes = (0, _classnames2.default)(className, 'avatar', { 'avatar-disconnected': isDisconnected });
+  var classes = (0, _classnames2.default)(className, 'avatar', 'avatar-provider-' + providerSize, {
+    'avatar-disconnected': isDisconnected
+  });
 
   return _react2.default.createElement(
     'div',
@@ -41,9 +43,7 @@ var Avatar = function Avatar(_ref) {
     ),
     provider && _react2.default.createElement(
       'div',
-      {
-        className: 'avatar-provider avatar-provider-' + provider + ' ' + (providerSize ? 'avatar-provider-' + providerSize : '')
-      },
+      { className: 'avatar-provider avatar-provider-' + provider },
       _react2.default.createElement(_.Icon, { name: provider, color: '#ffffff' })
     )
   );
