@@ -36,6 +36,7 @@ exports[`<CampaignTemplateCard /> should render 1`] = `
       className="mt-2"
       data-test-id="campaign-template-card-button"
       isBlock={true}
+      isDisabled={false}
       onClick={[Function]}
       theme="primary"
     >
