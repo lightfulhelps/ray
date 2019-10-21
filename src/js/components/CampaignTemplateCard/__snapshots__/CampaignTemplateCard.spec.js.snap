@@ -2,7 +2,7 @@
 
 exports[`<CampaignTemplateCard /> should render 1`] = `
 <div
-  className="card shadow-lg h-100 rounded-lg campaign-template-card"
+  className="card h-100 rounded-lg campaign-template-card"
 >
   <div
     className="bg-cover bg-gray-900 w-100 rounded-top-lg"
@@ -37,8 +37,56 @@ exports[`<CampaignTemplateCard /> should render 1`] = `
       data-test-id="campaign-template-card-button"
       isBlock={true}
       onClick={[Function]}
+      theme="primary"
     >
       Use this template
+    </Button>
+  </div>
+</div>
+`;
+
+exports[`<CampaignTemplateCard /> should render when isSelected 1`] = `
+<div
+  className="card h-100 rounded-lg campaign-template-card--selected campaign-template-card"
+>
+  <div
+    className="bg-cover bg-gray-900 w-100 rounded-top-lg"
+    data-test-id="campaign-template-card-image"
+    style={
+      Object {
+        "backgroundImage": "url(http://foo.com/bar.jpg)",
+        "backgroundPosition": "center",
+        "height": 0,
+        "paddingBottom": "50%",
+      }
+    }
+  />
+  <div
+    className="p-2 d-flex h-100 flex-column justify-content-between"
+  >
+    <div>
+      <h5
+        data-test-id="campaign-template-card-title"
+      >
+        Create your own
+      </h5>
+      <div
+        className="text-sm"
+        data-test-id="campaign-template-card-description"
+      >
+        Don't use a template, do your own thing.
+      </div>
+    </div>
+    <Button
+      className="mt-2"
+      data-test-id="campaign-template-card-button"
+      icon="tick"
+      isBlock={true}
+      isDisabled={true}
+      onClick={[Function]}
+      theme="success"
+    >
+      Selected
     </Button>
   </div>
 </div>

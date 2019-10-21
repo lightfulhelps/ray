@@ -6983,6 +6983,11 @@ button.bg-linkedin:focus {
   background-position: center;
   border-radius: 1.25rem 1.25rem 0 0; }
 
+.campaign-template-card {
+  box-shadow: 0 0 30px 0 rgba(73, 80, 87, 0.12); }
+  .campaign-template-card--selected {
+    box-shadow: 0 0 0 2px #27cc98, 0 0 30px 0 rgba(73, 80, 87, 0.12); }
+
 .character-counter {
   display: flex;
   align-items: center;

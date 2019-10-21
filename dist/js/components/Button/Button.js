@@ -88,7 +88,8 @@ var Button = function Button(_ref) {
     _extends({}, other, {
       className: classes,
       onClick: handleClick,
-      type: Tag === 'button' ? type : undefined
+      type: Tag === 'button' ? type : undefined,
+      disabled: isDisabled
     }),
     children,
     icon && React.createElement(_Icon2.default, { name: icon, theme: iconTheme })

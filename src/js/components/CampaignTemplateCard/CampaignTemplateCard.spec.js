@@ -25,6 +25,12 @@ describe('<CampaignTemplateCard />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should render when isSelected', () => {
+    const { wrapper } = setup({ isSelected: true });
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('should handle className', () => {
     const { wrapper } = setup();
 
