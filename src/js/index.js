@@ -4,6 +4,9 @@ export { default as Avatar } from './components/Avatar/Avatar';
 export { default as Badge } from './components/Badge/Badge';
 export { default as Button } from './components/Button/Button';
 export { default as CampaignCard } from './components/CampaignCard/CampaignCard';
+export {
+  default as CampaignTemplateCard,
+} from './components/CampaignTemplateCard/CampaignTemplateCard';
 export { default as Card } from './components/Card/Card';
 export { default as CharacterCounter } from './components/CharacterCounter/CharacterCounter';
 export { default as Col } from './components/Col/Col';
