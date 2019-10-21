@@ -55,6 +55,8 @@ Object.defineProperty(exports, 'CampaignTemplateCard', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_CampaignTemplateCard).default;
+  }
+});
 
 var _Card = require('./components/Card/Card');
 
