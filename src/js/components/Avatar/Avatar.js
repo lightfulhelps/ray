@@ -14,7 +14,7 @@ type Props = {
 const Avatar = ({
   className,
   isDisconnected,
-  url,
+  url = '',
   provider,
   providerSize = 'md',
   ...other
@@ -25,14 +25,14 @@ const Avatar = ({
 
   return (
     <div {...other} className={classes}>
-      <div className="avatar-image-wrap">
-        {url && <img className="avatar-image" src={url} alt="" />}
+      <div className="avatar-inner">
+        <div className="avatar-image" style={{ backgroundImage: `url(${url})` }} />
+        {provider && (
+          <div className={`avatar-provider avatar-provider-${provider}`}>
+            <Icon name={provider} color="#ffffff" />
+          </div>
+        )}
       </div>
-      {provider && (
-        <div className={`avatar-provider avatar-provider-${provider}`}>
-          <Icon name={provider} color="#ffffff" />
-        </div>
-      )}
     </div>
   );
 };

@@ -6932,29 +6932,42 @@ button.bg-linkedin:focus {
   .custom-switch-left .custom-control-input:checked ~ .custom-control-label::after {
     transform: translateX(0); }
 
-.avatar,
-.avatar-image-wrap,
-.avatar-image {
-  width: 100%;
-  height: 100%; }
-
 .avatar {
+  width: 100%;
+  height: 100%;
   position: relative; }
   .avatar-disconnected {
     opacity: 0.3; }
 
-.avatar-image-wrap {
+.avatar-inner {
+  padding-right: 10%;
+  padding-bottom: 10%; }
+
+.avatar-image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
   overflow: hidden;
   border-radius: 50%;
-  background-color: #dee2e6; }
+  background-color: #dee2e6;
+  background-size: cover;
+  background-position: center; }
+
+.avatar-provider-lg .avatar-inner {
+  padding-right: 20%;
+  padding-bottom: 20%; }
 
 .avatar-provider-lg .avatar-provider {
-  width: 75%;
-  height: 75%; }
-
-.avatar-provider-md .avatar-provider {
   width: 60%;
   height: 60%; }
+
+.avatar-provider-md .avatar-provider {
+  width: 50%;
+  height: 50%; }
+
+.avatar-provider-sm .avatar-inner {
+  padding-right: 0%;
+  padding-bottom: 0%; }
 
 .avatar-provider-sm .avatar-provider {
   width: 40%;
@@ -6965,12 +6978,12 @@ button.bg-linkedin:focus {
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: -10%;
-  bottom: -10%;
+  right: 0;
+  bottom: 0;
   border: 2px solid #fff;
   border-radius: 50%;
-  width: 60%;
-  height: 60%; }
+  width: 50%;
+  height: 50%; }
   .avatar-provider .icon {
     width: 80%;
     height: 80%; }

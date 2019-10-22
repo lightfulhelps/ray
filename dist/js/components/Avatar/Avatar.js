@@ -23,7 +23,8 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 var Avatar = function Avatar(_ref) {
   var className = _ref.className,
       isDisconnected = _ref.isDisconnected,
-      url = _ref.url,
+      _ref$url = _ref.url,
+      url = _ref$url === undefined ? '' : _ref$url,
       provider = _ref.provider,
       _ref$providerSize = _ref.providerSize,
       providerSize = _ref$providerSize === undefined ? 'md' : _ref$providerSize,
@@ -38,13 +39,13 @@ var Avatar = function Avatar(_ref) {
     _extends({}, other, { className: classes }),
     _react2.default.createElement(
       'div',
-      { className: 'avatar-image-wrap' },
-      url && _react2.default.createElement('img', { className: 'avatar-image', src: url, alt: '' })
-    ),
-    provider && _react2.default.createElement(
-      'div',
-      { className: 'avatar-provider avatar-provider-' + provider },
-      _react2.default.createElement(_.Icon, { name: provider, color: '#ffffff' })
+      { className: 'avatar-inner' },
+      _react2.default.createElement('div', { className: 'avatar-image', style: { backgroundImage: 'url(' + url + ')' } }),
+      provider && _react2.default.createElement(
+        'div',
+        { className: 'avatar-provider avatar-provider-' + provider },
+        _react2.default.createElement(_.Icon, { name: provider, color: '#ffffff' })
+      )
     )
   );
 };
