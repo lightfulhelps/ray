@@ -156,11 +156,11 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
                 url: post.socialIdentity.avatar,
                 provider: post.socialIdentity.provider,
                 providerSize: 'lg',
-                style: { width: '40px', height: '40px' }
+                style: { width: '45px', height: '45px' }
               }),
               React.createElement(
                 'div',
-                { className: 'ml-1' },
+                { className: 'ml-half' },
                 React.createElement(
                   'div',
                   { className: 'h6 mb-0', 'data-test-id': 'post-card-date' },
