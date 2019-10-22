@@ -150,10 +150,11 @@ class PostCard extends React.Component<Props, State> {
                   className="flex-shrink-0"
                   url={post.socialIdentity.avatar}
                   provider={post.socialIdentity.provider}
-                  style={{ width: '40px', height: '40px' }}
+                  providerSize="lg"
+                  style={{ width: '45px', height: '45px' }}
                 />
               )}
-              <div className="ml-1">
+              <div className="ml-half">
                 <div className="h6 mb-0" data-test-id="post-card-date">
                   {post.date
                     ? `${post.state === 'published' ? 'Published' : 'Scheduled for'} ${formatDate(

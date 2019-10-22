@@ -35,14 +35,9 @@ describe('<Avatar />', () => {
   });
 
   it('should handle the url prop', () => {
-    const { wrapper } = setup({ url: null });
+    const { wrapper } = setup({ url: 'https://randomuser.me/api/portraits/women/47.jpg' });
 
-    expect(wrapper.find('.avatar-image').exists()).toBe(false);
-
-    wrapper.setProps({ url: 'https://randomuser.me/api/portraits/women/47.jpg' });
-
-    expect(wrapper.find('.avatar-image').exists()).toBe(true);
-    expect(wrapper.find('.avatar-image').prop('src')).toEqual(
+    expect(wrapper.find('.avatar-image').prop('style').backgroundImage).toContain(
       'https://randomuser.me/api/portraits/women/47.jpg'
     );
   });
@@ -61,6 +56,18 @@ describe('<Avatar />', () => {
         .find(Icon)
         .prop('name')
     ).toEqual('facebook');
+  });
+
+  it('should handle the providerSize prop', () => {
+    const { wrapper } = setup();
+
+    wrapper.setProps({ providerSize: 'lg' });
+
+    expect(wrapper.hasClass('avatar-provider-lg')).toBe(true);
+
+    wrapper.setProps({ providerSize: 'sm' });
+
+    expect(wrapper.hasClass('avatar-provider-sm')).toBe(true);
   });
 
   it('should pass through other props', () => {
