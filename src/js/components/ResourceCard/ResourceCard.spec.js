@@ -69,6 +69,16 @@ describe('<ResourceCard />', () => {
     );
   });
 
+  it('should handle the tag prop', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.type()).toBe('a');
+
+    wrapper.setProps({ tag: 'div' });
+
+    expect(wrapper.type()).toBe('div');
+  });
+
   it('should pass through other props', () => {
     const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 

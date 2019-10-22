@@ -41,13 +41,13 @@ stories.add('CampaignTemplateCard', () => (
         <CampaignTemplateCard {...props} />
       </Col>
       <Col lg={4} md={6} sm={8} className="mb-3">
+        <CampaignTemplateCard {...props3} isSelected />
+      </Col>
+      <Col lg={4} md={6} sm={8} className="mb-3">
+        <CampaignTemplateCard {...props2} />
+      </Col>
+      <Col lg={4} md={6} sm={8} className="mb-3">
         <CampaignTemplateCard {...props} />
-      </Col>
-      <Col lg={4} md={6} sm={8} className="mb-3">
-        <CampaignTemplateCard {...props2} />
-      </Col>
-      <Col lg={4} md={6} sm={8} className="mb-3">
-        <CampaignTemplateCard {...props2} />
       </Col>
       <Col lg={4} md={6} sm={8} className="mb-3">
         <CampaignTemplateCard {...props3} />

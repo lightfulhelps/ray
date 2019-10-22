@@ -2,9 +2,8 @@
 
 exports[`<ResourceCard /> should render 1`] = `
 <a
-  className="resource-card card p-1 rounded shadow h-100 d-flex flex-column justify-content-between bg-gray-900 text-decoration-none"
-  download={true}
-  href="http://foo.com/bar.pdf"
+  className="resource-card card p-1 rounded shadow h-100 bg-gray-900 text-decoration-none"
+  resource="http://foo.com/bar.pdf"
   style={
     Object {
       "backgroundImage": "linear-gradient(90deg, #fafafa 0%, #000000 100%)",

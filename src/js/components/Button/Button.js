@@ -62,6 +62,7 @@ const Button = ({
       className={classes}
       onClick={handleClick}
       type={Tag === 'button' ? type : undefined}
+      disabled={isDisabled}
     >
       {children}
       {icon && <Icon name={icon} theme={iconTheme} />}

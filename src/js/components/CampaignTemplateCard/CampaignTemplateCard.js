@@ -6,8 +6,10 @@ import { Button } from '../..';
 type Props = {
   className?: string,
   ctaText: string,
+  ctaTextSelected?: string,
   description: string,
   image: string,
+  isSelected?: boolean,
   onClick: (SyntheticMouseEvent<>) => void,
   title: string,
 };
@@ -15,15 +17,18 @@ type Props = {
 const CampaignTemplateCard = ({
   className,
   ctaText = 'Use this template',
+  ctaTextSelected = 'Selected',
   onClick,
   title,
   description,
   image,
+  isSelected,
   ...other
 }: Props) => {
   const classes = classNames(
     className,
-    'card shadow-lg h-100 rounded-lg',
+    'card h-100 rounded-lg',
+    { 'campaign-template-card--selected': isSelected },
     'campaign-template-card'
   );
 
@@ -33,6 +38,23 @@ const CampaignTemplateCard = ({
     paddingBottom: '50%',
     backgroundPosition: 'center',
   };
+
+  const btnProps: any = {
+    'data-test-id': 'campaign-template-card-button',
+    className: 'mt-2',
+    onClick,
+    isBlock: true,
+    isDisabled: false,
+    theme: 'primary',
+    children: ctaText,
+  };
+
+  if (isSelected) {
+    btnProps.isDisabled = true;
+    btnProps.theme = 'success';
+    btnProps.icon = 'tick';
+    btnProps.children = ctaTextSelected;
+  }
 
   return (
     <div {...other} className={classes}>
@@ -48,14 +70,7 @@ const CampaignTemplateCard = ({
             {description}
           </div>
         </div>
-        <Button
-          data-test-id="campaign-template-card-button"
-          className="mt-2"
-          onClick={onClick}
-          isBlock
-        >
-          {ctaText}
-        </Button>
+        <Button {...btnProps} />
       </div>
     </div>
   );
