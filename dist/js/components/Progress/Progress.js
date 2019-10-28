@@ -46,7 +46,7 @@ var Progress = function Progress(_ref) {
         'data-test-id': 'progress-bar',
         role: 'progressbar',
         style: { width: value + '%' },
-        'aria-valuenow': '25',
+        'aria-valuenow': value,
         'aria-valuemin': '0',
         'aria-valuemax': '100'
       },
