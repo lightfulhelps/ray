@@ -63,7 +63,7 @@ describe('<CampaignTemplateCard />', () => {
     const { wrapper } = setup({ onClick });
 
     wrapper.find('[data-test-id="campaign-template-card-button"]').simulate('click');
-    expect(onClick).toBeCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('should pass through other props', () => {

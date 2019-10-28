@@ -274,6 +274,15 @@ Object.defineProperty(exports, 'PostMedia', {
   }
 });
 
+var _Progress = require('./components/Progress/Progress');
+
+Object.defineProperty(exports, 'Progress', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Progress).default;
+  }
+});
+
 var _ResourceCard = require('./components/ResourceCard/ResourceCard');
 
 Object.defineProperty(exports, 'ResourceCard', {
