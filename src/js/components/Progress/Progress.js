@@ -23,7 +23,8 @@ const Progress = ({
   const classes = classNames(className, 'progress');
   const barClasses = classNames(
     'progress-bar',
-    { [`bg-${theme}`]: theme },
+    { [`bg-${theme}`]: theme && value <= 100 },
+    { 'bg-danger': value > 100 },
     { 'progress-bar-animated': isAnimated },
     { 'progress-bar-striped': isStriped }
   );

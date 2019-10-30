@@ -74,6 +74,16 @@ describe('<Progress />', () => {
     expect(wrapper.find('[data-test-id="progress-bar"]').prop('style').width).toBe('30%');
   });
 
+  it('should change to bg-danger when value is greater than 100', () => {
+    const { wrapper } = setup({ value: 25 });
+
+    expect(wrapper.find('[data-test-id="progress-bar"]').hasClass('bg-danger')).toBe(false);
+
+    wrapper.setProps({ value: 101 });
+
+    expect(wrapper.find('[data-test-id="progress-bar"]').hasClass('bg-danger')).toBe(true);
+  });
+
   it('should pass through other props', () => {
     const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 

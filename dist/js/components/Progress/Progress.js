@@ -34,7 +34,7 @@ var Progress = function Progress(_ref) {
       other = _objectWithoutProperties(_ref, ['children', 'className', 'isAnimated', 'isStriped', 'theme', 'value']);
 
   var classes = (0, _classnames2.default)(className, 'progress');
-  var barClasses = (0, _classnames2.default)('progress-bar', _defineProperty({}, 'bg-' + theme, theme), { 'progress-bar-animated': isAnimated }, { 'progress-bar-striped': isStriped });
+  var barClasses = (0, _classnames2.default)('progress-bar', _defineProperty({}, 'bg-' + theme, theme && value <= 100), { 'bg-danger': value > 100 }, { 'progress-bar-animated': isAnimated }, { 'progress-bar-striped': isStriped });
 
   return React.createElement(
     'div',
