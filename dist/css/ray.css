@@ -5709,7 +5709,7 @@ a.text-gray-900:hover, a.text-gray-900:focus {
   color: black !important; }
 
 .text-underline {
-  text-decoration: underline; }
+  text-decoration: underline !important; }
 
 .table {
   width: 100%;
