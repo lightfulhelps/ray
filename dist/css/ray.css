@@ -6936,6 +6936,38 @@ button.bg-linkedin:focus {
   .custom-switch-left .custom-control-input:checked ~ .custom-control-label::after {
     transform: translateX(0); }
 
+.custom-switch-top {
+  padding-bottom: 1.75rem;
+  padding-left: unset; }
+  .custom-switch-top .custom-control-label::before {
+    top: unset;
+    left: 50%;
+    bottom: -1.75rem;
+    transform: translateX(-50%); }
+  .custom-switch-top .custom-control-label::after {
+    top: unset;
+    left: 50%;
+    bottom: calc( -1.75rem + 2px);
+    transform: translateX(-1.05rem); }
+  .custom-switch-top .custom-control-input:checked ~ .custom-control-label::after {
+    transform: translateX(0); }
+
+.custom-switch-bottom {
+  padding-top: 1.75rem;
+  padding-left: unset; }
+  .custom-switch-bottom .custom-control-label::before {
+    bottom: unset;
+    left: 50%;
+    top: -1.75rem;
+    transform: translateX(-50%); }
+  .custom-switch-bottom .custom-control-label::after {
+    bottom: unset;
+    left: 50%;
+    top: calc( -1.75rem + 2px);
+    transform: translateX(-1.05rem); }
+  .custom-switch-bottom .custom-control-input:checked ~ .custom-control-label::after {
+    transform: translateX(0); }
+
 .avatar {
   width: 100%;
   height: 100%;

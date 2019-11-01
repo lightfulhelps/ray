@@ -28,7 +28,7 @@ const ToggleSwitch = ({
   const classes = classNames(
     className,
     'custom-control custom-switch',
-    labelAlign === 'left' ? 'custom-switch-left' : null
+    labelAlign && labelAlign !== 'right' && `custom-switch-${labelAlign}`
   );
 
   function handleClick(e: SyntheticMouseEvent<>) {
