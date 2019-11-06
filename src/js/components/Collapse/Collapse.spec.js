@@ -40,15 +40,15 @@ describe('<Collapse />', () => {
   it('should toggle display of children', () => {
     const { wrapper } = setup({ children: <div>My test content</div> });
 
-    expect(wrapper.find('[data-test-id="collapse-children"]')).toHaveLength(0);
+    expect(wrapper.find('[data-test-id="collapse_children_Click me"]')).toHaveLength(0);
 
-    wrapper.find('[data-test-id="collapse-toggle"]').simulate('click');
+    wrapper.find('[data-test-id="collapse_toggle_Click me"]').simulate('click');
 
-    expect(wrapper.find('[data-test-id="collapse-children"]')).toHaveLength(1);
+    expect(wrapper.find('[data-test-id="collapse_children_Click me"]')).toHaveLength(1);
 
-    wrapper.find('[data-test-id="collapse-toggle"]').simulate('click');
+    wrapper.find('[data-test-id="collapse_toggle_Click me"]').simulate('click');
 
-    expect(wrapper.find('[data-test-id="collapse-children"]')).toHaveLength(0);
+    expect(wrapper.find('[data-test-id="collapse_children_Click me"]')).toHaveLength(0);
   });
 
   it('should toggle icon', () => {
@@ -56,25 +56,25 @@ describe('<Collapse />', () => {
 
     expect(
       wrapper
-        .find('[data-test-id="collapse-toggle"]')
+        .find('[data-test-id="collapse_toggle_Click me"]')
         .find('Icon')
         .prop('name')
     ).toEqual('chevronDown');
 
-    wrapper.find('[data-test-id="collapse-toggle"]').simulate('click');
+    wrapper.find('[data-test-id="collapse_toggle_Click me"]').simulate('click');
 
     expect(
       wrapper
-        .find('[data-test-id="collapse-toggle"]')
+        .find('[data-test-id="collapse_toggle_Click me"]')
         .find('Icon')
         .prop('name')
     ).toEqual('chevronUp');
 
-    wrapper.find('[data-test-id="collapse-toggle"]').simulate('click');
+    wrapper.find('[data-test-id="collapse_toggle_Click me"]').simulate('click');
 
     expect(
       wrapper
-        .find('[data-test-id="collapse-toggle"]')
+        .find('[data-test-id="collapse_toggle_Click me"]')
         .find('Icon')
         .prop('name')
     ).toEqual('chevronDown');
@@ -83,6 +83,6 @@ describe('<Collapse />', () => {
   it('should be open if defaultOpen is true', () => {
     const { wrapper } = setup({ defaultOpen: true });
 
-    expect(wrapper.find('[data-test-id="collapse-children"]')).toHaveLength(1);
+    expect(wrapper.find('[data-test-id="collapse_children_Click me"]')).toHaveLength(1);
   });
 });
