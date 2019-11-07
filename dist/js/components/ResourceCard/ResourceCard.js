@@ -33,11 +33,12 @@ var ResourceCard = function ResourceCard(_ref) {
       className = _ref.className,
       gradientEnd = _ref.gradientEnd,
       gradientStart = _ref.gradientStart,
-      resource = _ref.resource,
+      _ref$tag = _ref.tag,
+      Tag = _ref$tag === undefined ? 'a' : _ref$tag,
       title = _ref.title,
-      other = _objectWithoutProperties(_ref, ['campaign', 'className', 'gradientEnd', 'gradientStart', 'resource', 'title']);
+      other = _objectWithoutProperties(_ref, ['campaign', 'className', 'gradientEnd', 'gradientStart', 'tag', 'title']);
 
-  var classes = (0, _classnames2.default)(className, 'resource-card', 'card p-1 rounded shadow h-100 d-flex flex-column justify-content-between bg-gray-900 text-decoration-none');
+  var classes = (0, _classnames2.default)(className, 'resource-card', 'card p-1 rounded shadow h-100 bg-gray-900 text-decoration-none');
   var style = {};
 
   if (gradientStart && isHex(gradientStart) && gradientEnd && isHex(gradientEnd)) {
@@ -45,8 +46,8 @@ var ResourceCard = function ResourceCard(_ref) {
   }
 
   return React.createElement(
-    'a',
-    _extends({}, other, { className: classes, href: resource, style: style, download: true }),
+    Tag,
+    _extends({}, other, { className: classes, style: style }),
     React.createElement(
       'div',
       { className: 'd-flex align-items-center mb-2' },

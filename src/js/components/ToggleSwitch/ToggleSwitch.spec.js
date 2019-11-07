@@ -24,9 +24,11 @@ describe('<ToggleSwitch />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should render label on the left is labelAlign prop is set to left', () => {
+  it('should render label on the right side if labelAlign prop is set', () => {
     const { wrapper } = setup({ label: 'this is a label', labelAlign: 'left' });
     expect(wrapper.hasClass('custom-switch-left')).toBe(true);
+    wrapper.setProps({ labelAlign: 'top' });
+    expect(wrapper.hasClass('custom-switch-top')).toBe(true);
   });
 
   it('should set disabled attribute to true if isDisabled prop is specified', () => {

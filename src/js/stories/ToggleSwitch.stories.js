@@ -25,7 +25,11 @@ stories.add('Default', () => (
           onClick={() => store.set({ checked: !store.get('checked') })}
           label={text('Label', 'Noice!')}
           checked={state.checked}
-          labelAlign={select('Align Label', { left: 'Left', right: 'Right' }, 'right')}
+          labelAlign={select(
+            'Align Label',
+            { left: 'Left', right: 'Right', bottom: 'Bottom', top: 'Top' },
+            'right'
+          )}
         />
       )}
     </State>

@@ -5746,7 +5746,7 @@ a.text-gray-900:hover, a.text-gray-900:focus {
   color: black !important; }
 
 .text-underline {
-  text-decoration: underline; }
+  text-decoration: underline !important; }
 
 .table {
   width: 100%;
@@ -6973,33 +6973,90 @@ button.bg-linkedin:focus {
   .custom-switch-left .custom-control-input:checked ~ .custom-control-label::after {
     transform: translateX(0); }
 
-.avatar,
-.avatar-image-wrap,
-.avatar-image {
-  width: 100%;
-  height: 100%; }
+.custom-switch-top {
+  padding-bottom: 1.75rem;
+  padding-left: unset; }
+  .custom-switch-top .custom-control-label::before {
+    top: unset;
+    left: 50%;
+    bottom: -1.75rem;
+    transform: translateX(-50%); }
+  .custom-switch-top .custom-control-label::after {
+    top: unset;
+    left: 50%;
+    bottom: calc( -1.75rem + 2px);
+    transform: translateX(-1.05rem); }
+  .custom-switch-top .custom-control-input:checked ~ .custom-control-label::after {
+    transform: translateX(0); }
+
+.custom-switch-bottom {
+  padding-top: 1.75rem;
+  padding-left: unset; }
+  .custom-switch-bottom .custom-control-label::before {
+    bottom: unset;
+    left: 50%;
+    top: -1.75rem;
+    transform: translateX(-50%); }
+  .custom-switch-bottom .custom-control-label::after {
+    bottom: unset;
+    left: 50%;
+    top: calc( -1.75rem + 2px);
+    transform: translateX(-1.05rem); }
+  .custom-switch-bottom .custom-control-input:checked ~ .custom-control-label::after {
+    transform: translateX(0); }
 
 .avatar {
+  width: 100%;
+  height: 100%;
   position: relative; }
   .avatar-disconnected {
     opacity: 0.3; }
 
-.avatar-image-wrap {
+.avatar-inner {
+  padding-right: 10%;
+  padding-bottom: 10%; }
+
+.avatar-image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
   overflow: hidden;
   border-radius: 50%;
-  background-color: #dee2e6; }
+  background-color: #dee2e6;
+  background-size: cover;
+  background-position: center; }
+
+.avatar-provider-lg .avatar-inner {
+  padding-right: 20%;
+  padding-bottom: 20%; }
+
+.avatar-provider-lg .avatar-provider {
+  width: 60%;
+  height: 60%; }
+
+.avatar-provider-md .avatar-provider {
+  width: 50%;
+  height: 50%; }
+
+.avatar-provider-sm .avatar-inner {
+  padding-right: 0%;
+  padding-bottom: 0%; }
+
+.avatar-provider-sm .avatar-provider {
+  width: 40%;
+  height: 40%; }
 
 .avatar-provider {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: -10%;
-  bottom: -10%;
+  right: 0;
+  bottom: 0;
   border: 2px solid #fff;
   border-radius: 50%;
-  width: 60%;
-  height: 60%; }
+  width: 50%;
+  height: 50%; }
   .avatar-provider .icon {
     width: 80%;
     height: 80%; }
@@ -7019,6 +7076,11 @@ button.bg-linkedin:focus {
   background-size: cover;
   background-position: center;
   border-radius: 1.25rem 1.25rem 0 0; }
+
+.campaign-template-card {
+  box-shadow: 0 0 30px 0 rgba(73, 80, 87, 0.12); }
+  .campaign-template-card--selected {
+    box-shadow: 0 0 0 2px #27cc98, 0 0 30px 0 rgba(73, 80, 87, 0.12); }
 
 .character-counter {
   display: flex;

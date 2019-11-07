@@ -26,13 +26,16 @@ var CampaignTemplateCard = function CampaignTemplateCard(_ref) {
   var className = _ref.className,
       _ref$ctaText = _ref.ctaText,
       ctaText = _ref$ctaText === undefined ? 'Use this template' : _ref$ctaText,
+      _ref$ctaTextSelected = _ref.ctaTextSelected,
+      ctaTextSelected = _ref$ctaTextSelected === undefined ? 'Selected' : _ref$ctaTextSelected,
       onClick = _ref.onClick,
       title = _ref.title,
       description = _ref.description,
       image = _ref.image,
-      other = _objectWithoutProperties(_ref, ['className', 'ctaText', 'onClick', 'title', 'description', 'image']);
+      isSelected = _ref.isSelected,
+      other = _objectWithoutProperties(_ref, ['className', 'ctaText', 'ctaTextSelected', 'onClick', 'title', 'description', 'image', 'isSelected']);
 
-  var classes = (0, _classnames2.default)(className, 'card shadow-lg h-100 rounded-lg', 'campaign-template-card');
+  var classes = (0, _classnames2.default)(className, 'card h-100 rounded-lg', { 'campaign-template-card--selected': isSelected }, 'campaign-template-card');
 
   var imgStyles = {
     backgroundImage: 'url(' + image + ')',
@@ -40,6 +43,23 @@ var CampaignTemplateCard = function CampaignTemplateCard(_ref) {
     paddingBottom: '50%',
     backgroundPosition: 'center'
   };
+
+  var btnProps = {
+    'data-test-id': 'campaign-template-card-button',
+    className: 'mt-2',
+    onClick: onClick,
+    isBlock: true,
+    isDisabled: false,
+    theme: 'primary',
+    children: ctaText
+  };
+
+  if (isSelected) {
+    btnProps.isDisabled = true;
+    btnProps.theme = 'success';
+    btnProps.icon = 'tick';
+    btnProps.children = ctaTextSelected;
+  }
 
   return React.createElement(
     'div',
@@ -66,16 +86,7 @@ var CampaignTemplateCard = function CampaignTemplateCard(_ref) {
           description
         )
       ),
-      React.createElement(
-        _.Button,
-        {
-          'data-test-id': 'campaign-template-card-button',
-          className: 'mt-2',
-          onClick: onClick,
-          isBlock: true
-        },
-        ctaText
-      )
+      React.createElement(_.Button, btnProps)
     )
   );
 };

@@ -42,3 +42,63 @@
     }
   }
 }
+
+.custom-switch-top {
+  padding-bottom: $custom-switch-height + $custom-control-gutter;
+  padding-left: unset;
+
+  .custom-control-label {
+    &::before {
+      top: unset;
+      left: 50%;
+      bottom: -($custom-switch-height + $custom-control-gutter);
+      transform: translateX(-50%);
+    }
+
+    &::after {
+      top: unset;
+      left: 50%;
+      bottom: calc(
+        #{- ($custom-switch-height + $custom-control-gutter)} + #{$custom-control-indicator-border-width *
+          2}
+      );
+      transform: translateX(-$custom-switch-width + $custom-control-indicator-size + 0.2rem);
+    }
+  }
+
+  .custom-control-input:checked ~ .custom-control-label {
+    &::after {
+      transform: translateX(0);
+    }
+  }
+}
+
+.custom-switch-bottom {
+  padding-top: $custom-switch-height + $custom-control-gutter;
+  padding-left: unset;
+
+  .custom-control-label {
+    &::before {
+      bottom: unset;
+      left: 50%;
+      top: -($custom-switch-height + $custom-control-gutter);
+      transform: translateX(-50%);
+    }
+
+    &::after {
+      bottom: unset;
+      left: 50%;
+      top: calc(
+        #{- ($custom-switch-height + $custom-control-gutter)} + #{$custom-control-indicator-border-width *
+          2}
+      );
+      transform: translateX(-$custom-switch-width + $custom-control-indicator-size + 0.2rem);
+    }
+  }
+
+  .custom-control-input:checked ~ .custom-control-label {
+    &::after {
+      transform: translateX(0);
+    }
+  }
+}

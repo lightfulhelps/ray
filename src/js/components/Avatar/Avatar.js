@@ -7,22 +7,32 @@ type Props = {
   className?: string,
   isDisconnected?: boolean,
   provider?: 'facebook' | 'twitter' | 'linkedin',
+  providerSize?: 'sm' | 'md' | 'lg',
   url?: string,
 };
 
-const Avatar = ({ className, isDisconnected, url, provider, ...other }: Props) => {
-  const classes = classNames(className, 'avatar', { 'avatar-disconnected': isDisconnected });
+const Avatar = ({
+  className,
+  isDisconnected,
+  url = '',
+  provider,
+  providerSize = 'md',
+  ...other
+}: Props) => {
+  const classes = classNames(className, 'avatar', `avatar-provider-${providerSize}`, {
+    'avatar-disconnected': isDisconnected,
+  });
 
   return (
     <div {...other} className={classes}>
-      <div className="avatar-image-wrap">
-        {url && <img className="avatar-image" src={url} alt="" />}
+      <div className="avatar-inner">
+        <div className="avatar-image" style={{ backgroundImage: `url(${url})` }} />
+        {provider && (
+          <div className={`avatar-provider avatar-provider-${provider}`}>
+            <Icon name={provider} color="#ffffff" />
+          </div>
+        )}
       </div>
-      {provider && (
-        <div className={`avatar-provider avatar-provider-${provider}`}>
-          <Icon name={provider} color="#ffffff" />
-        </div>
-      )}
     </div>
   );
 };

@@ -24,16 +24,17 @@ exports[`<PostCard /> should render 1`] = `
         <Avatar
           className="flex-shrink-0"
           provider="facebook"
+          providerSize="lg"
           style={
             Object {
-              "height": "40px",
-              "width": "40px",
+              "height": "45px",
+              "width": "45px",
             }
           }
           url="http://foo.com/avatar.jpg"
         />
         <div
-          className="ml-1"
+          className="ml-half"
         >
           <div
             className="h6 mb-0"
@@ -233,16 +234,17 @@ exports[`<PostCard /> should render with errors 1`] = `
         <Avatar
           className="flex-shrink-0"
           provider="facebook"
+          providerSize="lg"
           style={
             Object {
-              "height": "40px",
-              "width": "40px",
+              "height": "45px",
+              "width": "45px",
             }
           }
           url="http://foo.com/avatar.jpg"
         />
         <div
-          className="ml-1"
+          className="ml-half"
         >
           <div
             className="h6 mb-0"

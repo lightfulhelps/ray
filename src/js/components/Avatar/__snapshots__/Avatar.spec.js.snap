@@ -2,24 +2,27 @@
 
 exports[`<Avatar /> should render 1`] = `
 <div
-  className="avatar"
+  className="avatar avatar-provider-md"
 >
   <div
-    className="avatar-image-wrap"
+    className="avatar-inner"
   >
-    <img
-      alt=""
+    <div
       className="avatar-image"
-      src="https://randomuser.me/api/portraits/women/47.jpg"
+      style={
+        Object {
+          "backgroundImage": "url(https://randomuser.me/api/portraits/women/47.jpg)",
+        }
+      }
     />
-  </div>
-  <div
-    className="avatar-provider avatar-provider-twitter"
-  >
-    <Icon
-      color="#ffffff"
-      name="twitter"
-    />
+    <div
+      className="avatar-provider avatar-provider-twitter"
+    >
+      <Icon
+        color="#ffffff"
+        name="twitter"
+      />
+    </div>
   </div>
 </div>
 `;
