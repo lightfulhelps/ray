@@ -6948,9 +6948,9 @@ button.bg-linkedin:focus {
     top: unset;
     left: 50%;
     bottom: calc( -1.75rem + 2px);
-    transform: translateX(-1.05rem); }
+    transform: translateX(-1.15rem); }
   .custom-switch-top .custom-control-input:checked ~ .custom-control-label::after {
-    transform: translateX(0); }
+    transform: translateX(0.125rem); }
 
 .custom-switch-bottom {
   padding-top: 1.75rem;
@@ -6964,9 +6964,9 @@ button.bg-linkedin:focus {
     bottom: unset;
     left: 50%;
     top: calc( -1.75rem + 2px);
-    transform: translateX(-1.05rem); }
+    transform: translateX(-1.15rem); }
   .custom-switch-bottom .custom-control-input:checked ~ .custom-control-label::after {
-    transform: translateX(0); }
+    transform: translateX(0.125rem); }
 
 .avatar {
   width: 100%;

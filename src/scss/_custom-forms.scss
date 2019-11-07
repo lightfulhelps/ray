@@ -62,13 +62,13 @@
         #{- ($custom-switch-height + $custom-control-gutter)} + #{$custom-control-indicator-border-width *
           2}
       );
-      transform: translateX(-$custom-switch-width + $custom-control-indicator-size + 0.2rem);
+      transform: translateX(-$custom-switch-width + $custom-control-indicator-size + 0.1rem);
     }
   }
 
   .custom-control-input:checked ~ .custom-control-label {
     &::after {
-      transform: translateX(0);
+      transform: translateX(0.125rem);
     }
   }
 }
@@ -92,13 +92,13 @@
         #{- ($custom-switch-height + $custom-control-gutter)} + #{$custom-control-indicator-border-width *
           2}
       );
-      transform: translateX(-$custom-switch-width + $custom-control-indicator-size + 0.2rem);
+      transform: translateX(-$custom-switch-width + $custom-control-indicator-size + 0.1rem);
     }
   }
 
   .custom-control-input:checked ~ .custom-control-label {
     &::after {
-      transform: translateX(0);
+      transform: translateX(0.125rem);
     }
   }
 }
