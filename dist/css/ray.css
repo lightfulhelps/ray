@@ -7061,6 +7061,10 @@ button.bg-linkedin:focus {
     width: 80%;
     height: 80%; }
 
+.avatar-provider-tick {
+  background-color: #27cc98;
+  border: none; }
+
 .avatar-provider-facebook {
   background-color: #5586ed; }
 
