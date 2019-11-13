@@ -73,6 +73,11 @@
   }
 }
 
+.avatar-provider-tick {
+  background-color: $success;
+  border: none;
+}
+
 @each $sm, $value in $sm-colors {
   .avatar-provider-#{$sm} {
     background-color: $value;

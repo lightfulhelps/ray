@@ -33,7 +33,7 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
       onClick = _ref.onClick,
       other = _objectWithoutProperties(_ref, ['checked', 'className', 'id', 'isDisabled', 'label', 'labelAlign', 'onChange', 'onClick']);
 
-  var classes = (0, _classnames2.default)(className, 'custom-control custom-switch', labelAlign === 'left' ? 'custom-switch-left' : null);
+  var classes = (0, _classnames2.default)(className, 'custom-control custom-switch', labelAlign && labelAlign !== 'right' && 'custom-switch-' + labelAlign);
 
   function handleClick(e) {
     if (isDisabled) {

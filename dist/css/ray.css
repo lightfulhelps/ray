@@ -2886,76 +2886,113 @@ input[type="button"].btn-block {
     color: inherit; }
 
 .alert-primary {
-  color: #27b0cc;
+  color: #145c6a;
   background-color: #d4eff5;
   border-color: #c3e9f1; }
   .alert-primary hr {
     border-top-color: #aee1ec; }
   .alert-primary .alert-link {
-    color: #1f8ba1; }
+    color: #0c373f; }
 
 .alert-secondary {
-  color: #4513bb;
+  color: #240a61;
   background-color: #dad0f1;
   border-color: #cbbdec; }
   .alert-secondary hr {
     border-top-color: #bba9e6; }
   .alert-secondary .alert-link {
-    color: #340e8d; }
+    color: #130533; }
 
 .alert-success {
-  color: #27cc98;
+  color: #146a4f;
   background-color: #d4f5ea;
   border-color: #c3f1e2; }
   .alert-success hr {
     border-top-color: #aeecd8; }
   .alert-success .alert-link {
-    color: #1fa178; }
+    color: #0c3f2f; }
 
 .alert-info {
-  color: #0095f1;
+  color: #004d7d;
   background-color: #cceafc;
   border-color: #b8e1fb; }
   .alert-info hr {
     border-top-color: #a0d7fa; }
   .alert-info .alert-link {
-    color: #0075be; }
+    color: #002e4a; }
 
 .alert-warning {
-  color: #f0b954;
+  color: #7d602c;
   background-color: #fcf1dd;
   border-color: #fbebcf; }
   .alert-warning hr {
     border-top-color: #f9e1b7; }
   .alert-warning .alert-link {
-    color: #eca625; }
+    color: #57431f; }
 
 .alert-danger {
-  color: #f25270;
+  color: #7e2b3a;
   background-color: #fcdce2;
   border-color: #fbcfd7; }
   .alert-danger hr {
     border-top-color: #f9b7c3; }
   .alert-danger .alert-link {
-    color: #ee2349; }
+    color: #581e28; }
 
 .alert-light {
-  color: #f8f9fa;
+  color: #818182;
   background-color: #fefefe;
   border-color: #fdfdfe; }
   .alert-light hr {
     border-top-color: #ececf6; }
   .alert-light .alert-link {
-    color: #dae0e5; }
+    color: #686868; }
 
 .alert-dark {
-  color: #343a40;
+  color: #1b1e21;
   background-color: #d6d8d9;
   border-color: #c6c8ca; }
   .alert-dark hr {
     border-top-color: #b9bbbe; }
   .alert-dark .alert-link {
-    color: #1d2124; }
+    color: #040505; }
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 1rem 0; }
+  to {
+    background-position: 0 0; } }
+
+.progress {
+  display: flex;
+  height: 1rem;
+  overflow: hidden;
+  font-size: 0.75rem;
+  background-color: #e9ecef;
+  border-radius: 0.625rem; }
+
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #27b0cc;
+  transition: width 0.6s ease; }
+  @media (prefers-reduced-motion: reduce) {
+    .progress-bar {
+      transition: none; } }
+
+.progress-bar-striped {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: 1rem 1rem; }
+
+.progress-bar-animated {
+  animation: progress-bar-stripes 1s linear infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .progress-bar-animated {
+      animation: none; } }
 
 .close {
   float: right;
@@ -6936,6 +6973,38 @@ button.bg-linkedin:focus {
   .custom-switch-left .custom-control-input:checked ~ .custom-control-label::after {
     transform: translateX(0); }
 
+.custom-switch-top {
+  padding-bottom: 1.75rem;
+  padding-left: unset; }
+  .custom-switch-top .custom-control-label::before {
+    top: unset;
+    left: 50%;
+    bottom: -1.75rem;
+    transform: translateX(-50%); }
+  .custom-switch-top .custom-control-label::after {
+    top: unset;
+    left: 50%;
+    bottom: calc( -1.75rem + 2px);
+    transform: translateX(-1.15rem); }
+  .custom-switch-top .custom-control-input:checked ~ .custom-control-label::after {
+    transform: translateX(0.125rem); }
+
+.custom-switch-bottom {
+  padding-top: 1.75rem;
+  padding-left: unset; }
+  .custom-switch-bottom .custom-control-label::before {
+    bottom: unset;
+    left: 50%;
+    top: -1.75rem;
+    transform: translateX(-50%); }
+  .custom-switch-bottom .custom-control-label::after {
+    bottom: unset;
+    left: 50%;
+    top: calc( -1.75rem + 2px);
+    transform: translateX(-1.15rem); }
+  .custom-switch-bottom .custom-control-input:checked ~ .custom-control-label::after {
+    transform: translateX(0.125rem); }
+
 .avatar {
   width: 100%;
   height: 100%;
@@ -6991,6 +7060,10 @@ button.bg-linkedin:focus {
   .avatar-provider .icon {
     width: 80%;
     height: 80%; }
+
+.avatar-provider-tick {
+  background-color: #27cc98;
+  border: none; }
 
 .avatar-provider-facebook {
   background-color: #5586ed; }
