@@ -30,14 +30,13 @@ class Collapse extends React.Component<Props, State> {
     return (
       <div {...other} className={classes}>
         <div
-          className="h6 mb-0 cursor-pointer d-flex justify-content-between align-items-center"
-          data-test-id="collapse-toggle"
+          className="collapse-toggle h6 mb-0 cursor-pointer d-flex justify-content-between align-items-center"
           onClick={this.handleToggle}
         >
           {label}{' '}
           <Icon isActive theme="gray-600" name={this.state.isOpen ? 'chevronUp' : 'chevronDown'} />
         </div>
-        {this.state.isOpen && <div data-test-id="collapse-children">{children}</div>}
+        {this.state.isOpen && <div className="collapse-children">{children}</div>}
       </div>
     );
   }

@@ -76,8 +76,7 @@ var Collapse = (_temp2 = _class = function (_React$Component) {
         React.createElement(
           'div',
           {
-            className: 'h6 mb-0 cursor-pointer d-flex justify-content-between align-items-center',
-            'data-test-id': 'collapse-toggle',
+            className: 'collapse-toggle h6 mb-0 cursor-pointer d-flex justify-content-between align-items-center',
             onClick: this.handleToggle
           },
           label,
@@ -86,7 +85,7 @@ var Collapse = (_temp2 = _class = function (_React$Component) {
         ),
         this.state.isOpen && React.createElement(
           'div',
-          { 'data-test-id': 'collapse-children' },
+          { className: 'collapse-children' },
           children
         )
       );

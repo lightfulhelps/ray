@@ -5,8 +5,7 @@ exports[`<Collapse /> should render 1`] = `
   className=""
 >
   <div
-    className="h6 mb-0 cursor-pointer d-flex justify-content-between align-items-center"
-    data-test-id="collapse-toggle"
+    className="collapse-toggle"
     onClick={[Function]}
   >
     Click me
