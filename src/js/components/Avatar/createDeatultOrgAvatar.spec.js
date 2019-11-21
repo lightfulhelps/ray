@@ -75,4 +75,33 @@ describe('createDeatultOrgAvatar', () => {
       );
     });
   });
+  it('should return an avatar with the correct letter for all non alphabetic characters', () => {
+    [
+      "$hanice's organisation",
+      "&halia's organisation",
+      "@lysses's organisation",
+      "9aleria's organisation",
+      "£hitley's organisation",
+      "€iomara's organisation",
+      "*essenia's organisation",
+      ")achariah's organisation",
+    ].forEach(name => {
+      const result = createDeatultOrgAvatar(name);
+      expect(result).toEqual(
+        expect.objectContaining({
+          bgClass: 'bg-info',
+          letter: name[0],
+        })
+      );
+    });
+  });
+  it('should handle a missing org name', () => {
+    const result = createDeatultOrgAvatar(null);
+    expect(result).toEqual(
+      expect.objectContaining({
+        bgClass: 'bg-info',
+        letter: ' ',
+      })
+    );
+  });
 });
