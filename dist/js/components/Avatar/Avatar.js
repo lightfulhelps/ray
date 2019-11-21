@@ -14,6 +14,10 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _createDeatultOrgAvatar = require('./createDeatultOrgAvatar');
+
+var _createDeatultOrgAvatar2 = _interopRequireDefault(_createDeatultOrgAvatar);
+
 var _ = require('../../');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -25,7 +29,8 @@ var Avatar = function Avatar(_ref) {
       isDisconnected = _ref.isDisconnected,
       url = _ref.url,
       provider = _ref.provider,
-      other = _objectWithoutProperties(_ref, ['className', 'isDisconnected', 'url', 'provider']);
+      orgName = _ref.orgName,
+      other = _objectWithoutProperties(_ref, ['className', 'isDisconnected', 'url', 'provider', 'orgName']);
 
   var classes = (0, _classnames2.default)(className, 'avatar', { 'avatar-disconnected': isDisconnected });
 
@@ -35,7 +40,8 @@ var Avatar = function Avatar(_ref) {
     _react2.default.createElement(
       'div',
       { className: 'avatar-image-wrap' },
-      url && _react2.default.createElement('img', { className: 'avatar-image', src: url, alt: '' })
+      url && _react2.default.createElement('img', { className: 'avatar-image', src: url, alt: '' }),
+      orgName && !url && (0, _createDeatultOrgAvatar2.default)(orgName)
     ),
     provider && _react2.default.createElement(
       'div',

@@ -328,4 +328,13 @@ Object.defineProperty(exports, 'ToggleSwitch', {
   }
 });
 
+var _FileStack = require('./components/FileStack/FileStack');
+
+Object.defineProperty(exports, 'FileStack', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_FileStack).default;
+  }
+});
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

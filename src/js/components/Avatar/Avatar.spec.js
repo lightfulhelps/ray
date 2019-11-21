@@ -69,4 +69,10 @@ describe('<Avatar />', () => {
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');
   });
+  it("should return an avatar using the first letter of the organisation's name and the associated colour if no avatar URL is provided", () => {
+    const { wrapper } = setup({ url: null, provider: null, orgAvatar: 'Keep jungle massive' });
+    // expect(createDeatultOrgAvatar).toHaveBeenCalled();
+    expect(wrapper.find('.avatar-image').exists()).toBe(true);
+    expect(wrapper.find('.avatar-image').text()).toEqual('K');
+  });
 });

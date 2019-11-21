@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FileStack /> should render 1`] = `
+<div
+  id="filestackContainer"
+  style={
+    Object {
+      "height": "200px",
+      "width": "200px",
+    }
+  }
+/>
+`;
