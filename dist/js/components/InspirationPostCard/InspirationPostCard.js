@@ -71,7 +71,7 @@ var InspirationPostCard = function InspirationPostCard(_ref) {
       ),
       React.createElement(
         'div',
-        { className: 'mx-1', style: { height: '72px', minWidth: 0, flex: 1 } },
+        { className: 'mx-1', style: { minWidth: 0, flex: 1 } },
         React.createElement(
           'h1',
           { className: blockClass + '__title' },

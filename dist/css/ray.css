@@ -7389,8 +7389,7 @@ button.bg-linkedin:focus {
   align-items: center;
   height: 20px;
   font-size: 0.75rem;
-  text-transform: uppercase;
-  margin-bottom: 0.3125rem; }
+  text-transform: uppercase; }
   .inspiration-post-card__date svg {
     margin-right: 3px; }
 
