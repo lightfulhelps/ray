@@ -84,7 +84,7 @@ const InspirationPostCard = ({
             <Avatar url={post.socialIdentity.avatar} provider={post.socialIdentity.provider} />
           </div>
         )}
-        <div className="mx-1" style={{ height: '72px', minWidth: 0, flex: 1 }}>
+        <div className="mx-1" style={{ minWidth: 0, flex: 1 }}>
           <h1 className={`${blockClass}__title`}>{post.title}</h1>
           <div className={`${blockClass}__date`}>
             {post.date ? formatDate(post.date, dateFormat) : 'Unscheduled'}

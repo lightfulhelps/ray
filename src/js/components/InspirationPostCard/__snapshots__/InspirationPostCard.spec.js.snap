@@ -26,7 +26,6 @@ exports[`<InspirationPostCard /> should render 1`] = `
       style={
         Object {
           "flex": 1,
-          "height": "72px",
           "minWidth": 0,
         }
       }
