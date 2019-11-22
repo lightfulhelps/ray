@@ -13,13 +13,23 @@ type Props = {
 };
 
 const Avatar = ({ className, isDisconnected, url, provider, orgName, ...other }: Props) => {
+  const defaultAvatar = orgName && createDeatultOrgAvatar(orgName);
+
   const classes = classNames(className, 'avatar', { 'avatar-disconnected': isDisconnected });
 
   return (
     <div {...other} className={classes}>
       <div className="avatar-image-wrap">
         {url && <img className="avatar-image" src={url} alt="" />}
-        {orgName && !url && createDeatultOrgAvatar(orgName)}
+        {defaultAvatar && (
+          <div
+            className={`avatar d-flex align-items-center justify-content-center text-white bold ${
+              defaultAvatar.bgClass
+            }`}
+          >
+            <span className="avatar-default-org">{defaultAvatar.letter}</span>
+          </div>
+        )}
       </div>
       {provider && (
         <div className={`avatar-provider avatar-provider-${provider}`}>

@@ -38,6 +38,9 @@ stories.add('Default', () => (
           isDisconnected
         />
       </Col>
+      <Col xs={3} sm={2} md={1} className="mb-2">
+        <Avatar orgName="Now that what I call Org" />
+      </Col>
     </Row>
   </Container>
 ));

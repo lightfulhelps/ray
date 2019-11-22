@@ -6943,6 +6943,9 @@ button.bg-linkedin:focus {
   .avatar-disconnected {
     opacity: 0.3; }
 
+.avatar-default-org {
+  font-size: 3.5em; }
+
 .avatar-image-wrap {
   overflow: hidden;
   border-radius: 50%;

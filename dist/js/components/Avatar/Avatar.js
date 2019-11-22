@@ -32,6 +32,8 @@ var Avatar = function Avatar(_ref) {
       orgName = _ref.orgName,
       other = _objectWithoutProperties(_ref, ['className', 'isDisconnected', 'url', 'provider', 'orgName']);
 
+  var defaultAvatar = orgName && (0, _createDeatultOrgAvatar2.default)(orgName);
+
   var classes = (0, _classnames2.default)(className, 'avatar', { 'avatar-disconnected': isDisconnected });
 
   return _react2.default.createElement(
@@ -41,7 +43,17 @@ var Avatar = function Avatar(_ref) {
       'div',
       { className: 'avatar-image-wrap' },
       url && _react2.default.createElement('img', { className: 'avatar-image', src: url, alt: '' }),
-      orgName && !url && (0, _createDeatultOrgAvatar2.default)(orgName)
+      defaultAvatar && _react2.default.createElement(
+        'div',
+        {
+          className: 'avatar d-flex align-items-center justify-content-center text-white bold ' + defaultAvatar.bgClass
+        },
+        _react2.default.createElement(
+          'span',
+          { className: 'avatar-default-org' },
+          defaultAvatar.letter
+        )
+      )
     ),
     provider && _react2.default.createElement(
       'div',
