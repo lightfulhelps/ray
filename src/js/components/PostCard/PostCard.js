@@ -114,7 +114,7 @@ class PostCard extends React.Component<Props, State> {
         borderColor = 'info';
         break;
       case 'published':
-        borderColor = isNative ? 'info' : 'success';
+        borderColor = 'success';
         break;
       case 'review':
         borderColor = 'warning';
@@ -144,7 +144,7 @@ class PostCard extends React.Component<Props, State> {
             ))}
           </div>
         )}
-        {isNative && (
+        {!isNative && (
           <div className="post-card__imported px-1 py-half rounded-sm text-sm alert-info font-weight-normal">
             This post was imported from outside of Lightful. Link clicks are not tracked.
           </div>

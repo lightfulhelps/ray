@@ -13,6 +13,11 @@ exports[`<PostCard /> should render 1`] = `
     }
   />
   <div
+    className="post-card__imported px-1 py-half rounded-sm text-sm alert-info font-weight-normal"
+  >
+    This post was imported from outside of Lightful. Link clicks are not tracked.
+  </div>
+  <div
     className="d-flex flex-column flex-md-row justify-content-between px-2 pb-2 pt-1 border-bottom"
   >
     <div
@@ -221,6 +226,11 @@ exports[`<PostCard /> should render with errors 1`] = `
       />
       bar
     </div>
+  </div>
+  <div
+    className="post-card__imported px-1 py-half rounded-sm text-sm alert-info font-weight-normal"
+  >
+    This post was imported from outside of Lightful. Link clicks are not tracked.
   </div>
   <div
     className="d-flex flex-column flex-md-row justify-content-between px-2 pb-2 pt-1 border-bottom"

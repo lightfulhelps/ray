@@ -113,7 +113,7 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
           borderColor = 'info';
           break;
         case 'published':
-          borderColor = isNative ? 'info' : 'success';
+          borderColor = 'success';
           break;
         case 'review':
           borderColor = 'warning';
@@ -143,7 +143,7 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
             );
           })
         ),
-        isNative && React.createElement(
+        !isNative && React.createElement(
           'div',
           { className: 'post-card__imported px-1 py-half rounded-sm text-sm alert-info font-weight-normal' },
           'This post was imported from outside of Lightful. Link clicks are not tracked.'

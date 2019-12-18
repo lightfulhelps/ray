@@ -103,7 +103,7 @@ stories.add('Default', () => (
       ]}
       isDraft={boolean('Draft', false)}
       isInvalid={boolean('Invalid', false)}
-      isNative={boolean('isNative', true)}
+      isNative={boolean('isNative', false)}
     />
     <PostCard
       className="mb-4"
@@ -158,6 +158,7 @@ stories.add('Default', () => (
       ]}
       isDraft={boolean('Draft', false)}
       isInvalid={boolean('Invalid', false)}
+      isNative={boolean('Invalid', true)}
       // metaPreview={{
       //   title: text('Meta Title', "National Living Wage 'fails to cover families' basic needs"),
       //   description: text(
