@@ -47,6 +47,7 @@ type Props = {
   errors?: string[],
   isDraft?: boolean,
   isInvalid?: boolean,
+  isNative?: boolean,
   metaPreview?: {
     description?: string,
     image?: string,
@@ -81,6 +82,7 @@ class PostCard extends React.Component<Props, State> {
       errors,
       isDraft,
       isInvalid,
+      isNative,
       metaPreview,
       notesAction,
       notesCount = 0,
@@ -112,7 +114,7 @@ class PostCard extends React.Component<Props, State> {
         borderColor = 'info';
         break;
       case 'published':
-        borderColor = 'success';
+        borderColor = isNative ? 'info' : 'success';
         break;
       case 'review':
         borderColor = 'warning';
@@ -126,7 +128,7 @@ class PostCard extends React.Component<Props, State> {
       <Card {...other} className={classes}>
         <div className={`bg-${borderColor} rounded-top-sm`} style={{ height: '3px' }} />
         {errors && errors.length > 0 && (
-          <div className="mt-1">
+          <div className="my-1">
             {errors.map((error, i) => (
               <div
                 key={i}
@@ -142,7 +144,12 @@ class PostCard extends React.Component<Props, State> {
             ))}
           </div>
         )}
-        <div className="d-flex flex-column flex-md-row justify-content-between p-2 border-bottom">
+        {isNative && (
+          <div className="post-card__imported px-1 py-half rounded-sm text-sm alert-info font-weight-normal">
+            This post was imported from outside of Lightful. Link clicks are not tracked.
+          </div>
+        )}
+        <div className="d-flex flex-column flex-md-row justify-content-between px-2 pb-2 pt-1 border-bottom">
           <div className="flex-fill">
             <div className="d-flex mb-1">
               {post.socialIdentity && (

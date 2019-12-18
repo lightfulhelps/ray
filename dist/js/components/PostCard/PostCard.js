@@ -87,12 +87,13 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
           errors = _props.errors,
           isDraft = _props.isDraft,
           isInvalid = _props.isInvalid,
+          isNative = _props.isNative,
           metaPreview = _props.metaPreview,
           notesAction = _props.notesAction,
           _props$notesCount = _props.notesCount,
           notesCount = _props$notesCount === undefined ? 0 : _props$notesCount,
           post = _props.post,
-          other = _objectWithoutProperties(_props, ['actions', 'className', 'dateFormat', 'errors', 'isDraft', 'isInvalid', 'metaPreview', 'notesAction', 'notesCount', 'post']);
+          other = _objectWithoutProperties(_props, ['actions', 'className', 'dateFormat', 'errors', 'isDraft', 'isInvalid', 'isNative', 'metaPreview', 'notesAction', 'notesCount', 'post']);
 
       var classes = (0, _classnames2.default)(className, 'post-card shadow', { 'post-card--draft': isDraft }, { 'post-card--invalid': isInvalid });
 
@@ -112,7 +113,7 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
           borderColor = 'info';
           break;
         case 'published':
-          borderColor = 'success';
+          borderColor = isNative ? 'info' : 'success';
           break;
         case 'review':
           borderColor = 'warning';
@@ -128,7 +129,7 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
         React.createElement('div', { className: 'bg-' + borderColor + ' rounded-top-sm', style: { height: '3px' } }),
         errors && errors.length > 0 && React.createElement(
           'div',
-          { className: 'mt-1' },
+          { className: 'my-1' },
           errors.map(function (error, i) {
             return React.createElement(
               'div',
@@ -142,9 +143,14 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
             );
           })
         ),
+        isNative && React.createElement(
+          'div',
+          { className: 'post-card__imported px-1 py-half rounded-sm text-sm alert-info font-weight-normal' },
+          'This post was imported from outside of Lightful. Link clicks are not tracked.'
+        ),
         React.createElement(
           'div',
-          { className: 'd-flex flex-column flex-md-row justify-content-between p-2 border-bottom' },
+          { className: 'd-flex flex-column flex-md-row justify-content-between px-2 pb-2 pt-1 border-bottom' },
           React.createElement(
             'div',
             { className: 'flex-fill' },
@@ -298,6 +304,7 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
   errors: _propTypes2.default.arrayOf(_propTypes2.default.string.isRequired),
   isDraft: _propTypes2.default.bool,
   isInvalid: _propTypes2.default.bool,
+  isNative: _propTypes2.default.bool,
   metaPreview: _propTypes2.default.shape({
     description: _propTypes2.default.string,
     image: _propTypes2.default.string,

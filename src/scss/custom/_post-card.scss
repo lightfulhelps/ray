@@ -1,4 +1,9 @@
 .post-card {
+  &__imported {
+    width: fit-content !important;
+    margin: $spacer $spacer * 2 0;
+  }
+
   &__error {
     background-color: $danger;
   }

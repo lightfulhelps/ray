@@ -92,6 +92,60 @@ stories.add('Default', () => (
             value: 106,
           },
         ],
+        state: select('Post State', states, 'published'),
+        tags,
+      }}
+      actions={[
+        { children: 'Approve', onClick: action('Approve') },
+        { children: 'Preview', onClick: action('Preview') },
+        { children: 'Edit', onClick: action('Edit') },
+        { children: 'Delete', onClick: action('Delete') },
+      ]}
+      isDraft={boolean('Draft', false)}
+      isInvalid={boolean('Invalid', false)}
+      isNative={boolean('isNative', true)}
+    />
+    <PostCard
+      className="mb-4"
+      post={{
+        campaign: {
+          name: text('Campaign Name', 'Wildlife'),
+          color: color('Campaign Color', '#D72E85'),
+        },
+        date: date('Date', defaultDate),
+        socialIdentity: {
+          id: '123',
+          avatar: 'https://randomuser.me/api/portraits/women/47.jpg',
+          provider: select('Social Provider', socialProviders, 'twitter'),
+          displayName: 'Save the rabbits',
+        },
+        content: text(
+          'Content',
+          'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most". Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school.'
+        ),
+        media,
+        metrics: [
+          {
+            icon: 'like',
+            key: 'likes',
+            value: 10,
+          },
+          {
+            icon: 'comment',
+            key: 'comments',
+            value: 2,
+          },
+          {
+            icon: 'share',
+            key: 'shares',
+            value: 5,
+          },
+          {
+            icon: 'click',
+            key: 'clicks',
+            value: 0,
+          },
+        ],
         state: select('Post State', states, 'scheduled'),
         tags,
       }}
