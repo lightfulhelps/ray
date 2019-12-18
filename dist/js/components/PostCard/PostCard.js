@@ -126,10 +126,10 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
       return React.createElement(
         _.Card,
         _extends({}, other, { className: classes }),
-        React.createElement('div', { className: 'bg-' + borderColor + ' rounded-top-sm', style: { height: '3px' } }),
+        React.createElement('div', { className: 'bg-' + borderColor + ' rounded-top-sm mb-1', style: { height: '3px' } }),
         errors && errors.length > 0 && React.createElement(
           'div',
-          { className: 'my-1' },
+          { className: 'mb-1' },
           errors.map(function (error, i) {
             return React.createElement(
               'div',

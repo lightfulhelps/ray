@@ -5,7 +5,7 @@ exports[`<PostCard /> should render 1`] = `
   className="post-card shadow"
 >
   <div
-    className="bg-info rounded-top-sm"
+    className="bg-info rounded-top-sm mb-1"
     style={
       Object {
         "height": "3px",
@@ -182,7 +182,7 @@ exports[`<PostCard /> should render with errors 1`] = `
   className="post-card shadow"
 >
   <div
-    className="bg-info rounded-top-sm"
+    className="bg-info rounded-top-sm mb-1"
     style={
       Object {
         "height": "3px",
@@ -190,7 +190,7 @@ exports[`<PostCard /> should render with errors 1`] = `
     }
   />
   <div
-    className="my-1"
+    className="mb-1"
   >
     <div
       className="d-flex align-items-center text-sm font-weight-bold mx-2 alert-danger p-1 rounded-sm mb-1"

@@ -7449,7 +7449,7 @@ button.bg-linkedin:focus {
 
 .post-card__imported {
   width: fit-content !important;
-  margin: 0.625rem 1.25rem 0; }
+  margin: 0 1.25rem; }
 
 .post-card__error {
   background-color: #f25270; }

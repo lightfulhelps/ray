@@ -126,9 +126,9 @@ class PostCard extends React.Component<Props, State> {
 
     return (
       <Card {...other} className={classes}>
-        <div className={`bg-${borderColor} rounded-top-sm`} style={{ height: '3px' }} />
+        <div className={`bg-${borderColor} rounded-top-sm mb-1`} style={{ height: '3px' }} />
         {errors && errors.length > 0 && (
-          <div className="my-1">
+          <div className="mb-1">
             {errors.map((error, i) => (
               <div
                 key={i}
