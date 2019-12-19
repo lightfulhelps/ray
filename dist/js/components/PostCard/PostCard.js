@@ -86,14 +86,14 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
           dateFormat = _props$dateFormat === undefined ? 'HH:mm [on] dddd, D MMMM' : _props$dateFormat,
           errors = _props.errors,
           isDraft = _props.isDraft,
+          isImported = _props.isImported,
           isInvalid = _props.isInvalid,
-          isNative = _props.isNative,
           metaPreview = _props.metaPreview,
           notesAction = _props.notesAction,
           _props$notesCount = _props.notesCount,
           notesCount = _props$notesCount === undefined ? 0 : _props$notesCount,
           post = _props.post,
-          other = _objectWithoutProperties(_props, ['actions', 'className', 'dateFormat', 'errors', 'isDraft', 'isInvalid', 'isNative', 'metaPreview', 'notesAction', 'notesCount', 'post']);
+          other = _objectWithoutProperties(_props, ['actions', 'className', 'dateFormat', 'errors', 'isDraft', 'isImported', 'isInvalid', 'metaPreview', 'notesAction', 'notesCount', 'post']);
 
       var classes = (0, _classnames2.default)(className, 'post-card shadow', { 'post-card--draft': isDraft }, { 'post-card--invalid': isInvalid });
 
@@ -143,7 +143,7 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
             );
           })
         ),
-        !isNative && React.createElement(
+        isImported && React.createElement(
           'div',
           { className: 'post-card__imported px-1 py-half rounded-sm text-sm alert-info font-weight-normal' },
           'This post was imported from outside of Lightful. Link clicks are not tracked.'
@@ -303,8 +303,8 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
   dateFormat: _propTypes2.default.string,
   errors: _propTypes2.default.arrayOf(_propTypes2.default.string.isRequired),
   isDraft: _propTypes2.default.bool,
+  isImported: _propTypes2.default.bool,
   isInvalid: _propTypes2.default.bool,
-  isNative: _propTypes2.default.bool,
   metaPreview: _propTypes2.default.shape({
     description: _propTypes2.default.string,
     image: _propTypes2.default.string,

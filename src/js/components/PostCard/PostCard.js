@@ -46,8 +46,8 @@ type Props = {
   dateFormat?: string,
   errors?: string[],
   isDraft?: boolean,
+  isImported?: boolean,
   isInvalid?: boolean,
-  isNative?: boolean,
   metaPreview?: {
     description?: string,
     image?: string,
@@ -81,8 +81,8 @@ class PostCard extends React.Component<Props, State> {
       dateFormat = 'HH:mm [on] dddd, D MMMM',
       errors,
       isDraft,
+      isImported,
       isInvalid,
-      isNative,
       metaPreview,
       notesAction,
       notesCount = 0,
@@ -144,7 +144,7 @@ class PostCard extends React.Component<Props, State> {
             ))}
           </div>
         )}
-        {!isNative && (
+        {isImported && (
           <div className="post-card__imported px-1 py-half rounded-sm text-sm alert-info font-weight-normal">
             This post was imported from outside of Lightful. Link clicks are not tracked.
           </div>
