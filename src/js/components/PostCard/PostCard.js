@@ -46,6 +46,7 @@ type Props = {
   dateFormat?: string,
   errors?: string[],
   isDraft?: boolean,
+  isImported?: boolean,
   isInvalid?: boolean,
   metaPreview?: {
     description?: string,
@@ -80,6 +81,7 @@ class PostCard extends React.Component<Props, State> {
       dateFormat = 'HH:mm [on] dddd, D MMMM',
       errors,
       isDraft,
+      isImported,
       isInvalid,
       metaPreview,
       notesAction,
@@ -124,9 +126,9 @@ class PostCard extends React.Component<Props, State> {
 
     return (
       <Card {...other} className={classes}>
-        <div className={`bg-${borderColor} rounded-top-sm`} style={{ height: '3px' }} />
+        <div className={`bg-${borderColor} rounded-top-sm mb-1`} style={{ height: '3px' }} />
         {errors && errors.length > 0 && (
-          <div className="mt-1">
+          <div className="mb-1">
             {errors.map((error, i) => (
               <div
                 key={i}
@@ -142,7 +144,12 @@ class PostCard extends React.Component<Props, State> {
             ))}
           </div>
         )}
-        <div className="d-flex flex-column flex-md-row justify-content-between p-2 border-bottom">
+        {isImported && (
+          <div className="post-card__imported px-1 py-half rounded-sm text-sm alert-info font-weight-normal">
+            This post was imported from outside of Lightful. Link clicks are not tracked.
+          </div>
+        )}
+        <div className="d-flex flex-column flex-md-row justify-content-between px-2 pb-2 pt-1 border-bottom">
           <div className="flex-fill">
             <div className="d-flex mb-1">
               {post.socialIdentity && (

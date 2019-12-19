@@ -89,7 +89,7 @@ stories.add('Default', () => (
           {
             icon: 'click',
             key: 'clicks',
-            value: 106,
+            value: 0,
           },
         ],
         state: select('Post State', states, 'scheduled'),
@@ -104,6 +104,7 @@ stories.add('Default', () => (
       ]}
       isDraft={boolean('Draft', false)}
       isInvalid={boolean('Invalid', false)}
+      isImported={boolean('isImported', false)}
       // metaPreview={{
       //   title: text('Meta Title', "National Living Wage 'fails to cover families' basic needs"),
       //   description: text(

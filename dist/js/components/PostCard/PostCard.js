@@ -86,13 +86,14 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
           dateFormat = _props$dateFormat === undefined ? 'HH:mm [on] dddd, D MMMM' : _props$dateFormat,
           errors = _props.errors,
           isDraft = _props.isDraft,
+          isImported = _props.isImported,
           isInvalid = _props.isInvalid,
           metaPreview = _props.metaPreview,
           notesAction = _props.notesAction,
           _props$notesCount = _props.notesCount,
           notesCount = _props$notesCount === undefined ? 0 : _props$notesCount,
           post = _props.post,
-          other = _objectWithoutProperties(_props, ['actions', 'className', 'dateFormat', 'errors', 'isDraft', 'isInvalid', 'metaPreview', 'notesAction', 'notesCount', 'post']);
+          other = _objectWithoutProperties(_props, ['actions', 'className', 'dateFormat', 'errors', 'isDraft', 'isImported', 'isInvalid', 'metaPreview', 'notesAction', 'notesCount', 'post']);
 
       var classes = (0, _classnames2.default)(className, 'post-card shadow', { 'post-card--draft': isDraft }, { 'post-card--invalid': isInvalid });
 
@@ -125,10 +126,10 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
       return React.createElement(
         _.Card,
         _extends({}, other, { className: classes }),
-        React.createElement('div', { className: 'bg-' + borderColor + ' rounded-top-sm', style: { height: '3px' } }),
+        React.createElement('div', { className: 'bg-' + borderColor + ' rounded-top-sm mb-1', style: { height: '3px' } }),
         errors && errors.length > 0 && React.createElement(
           'div',
-          { className: 'mt-1' },
+          { className: 'mb-1' },
           errors.map(function (error, i) {
             return React.createElement(
               'div',
@@ -142,9 +143,14 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
             );
           })
         ),
+        isImported && React.createElement(
+          'div',
+          { className: 'post-card__imported px-1 py-half rounded-sm text-sm alert-info font-weight-normal' },
+          'This post was imported from outside of Lightful. Link clicks are not tracked.'
+        ),
         React.createElement(
           'div',
-          { className: 'd-flex flex-column flex-md-row justify-content-between p-2 border-bottom' },
+          { className: 'd-flex flex-column flex-md-row justify-content-between px-2 pb-2 pt-1 border-bottom' },
           React.createElement(
             'div',
             { className: 'flex-fill' },
@@ -297,6 +303,7 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
   dateFormat: _propTypes2.default.string,
   errors: _propTypes2.default.arrayOf(_propTypes2.default.string.isRequired),
   isDraft: _propTypes2.default.bool,
+  isImported: _propTypes2.default.bool,
   isInvalid: _propTypes2.default.bool,
   metaPreview: _propTypes2.default.shape({
     description: _propTypes2.default.string,

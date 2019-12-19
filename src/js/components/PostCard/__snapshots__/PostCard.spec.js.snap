@@ -5,7 +5,7 @@ exports[`<PostCard /> should render 1`] = `
   className="post-card shadow"
 >
   <div
-    className="bg-info rounded-top-sm"
+    className="bg-info rounded-top-sm mb-1"
     style={
       Object {
         "height": "3px",
@@ -13,7 +13,7 @@ exports[`<PostCard /> should render 1`] = `
     }
   />
   <div
-    className="d-flex flex-column flex-md-row justify-content-between p-2 border-bottom"
+    className="d-flex flex-column flex-md-row justify-content-between px-2 pb-2 pt-1 border-bottom"
   >
     <div
       className="flex-fill"
@@ -177,7 +177,7 @@ exports[`<PostCard /> should render with errors 1`] = `
   className="post-card shadow"
 >
   <div
-    className="bg-info rounded-top-sm"
+    className="bg-info rounded-top-sm mb-1"
     style={
       Object {
         "height": "3px",
@@ -185,7 +185,7 @@ exports[`<PostCard /> should render with errors 1`] = `
     }
   />
   <div
-    className="mt-1"
+    className="mb-1"
   >
     <div
       className="d-flex align-items-center text-sm font-weight-bold mx-2 alert-danger p-1 rounded-sm mb-1"
@@ -223,7 +223,7 @@ exports[`<PostCard /> should render with errors 1`] = `
     </div>
   </div>
   <div
-    className="d-flex flex-column flex-md-row justify-content-between p-2 border-bottom"
+    className="d-flex flex-column flex-md-row justify-content-between px-2 pb-2 pt-1 border-bottom"
   >
     <div
       className="flex-fill"
