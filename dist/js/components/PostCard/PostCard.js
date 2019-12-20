@@ -222,9 +222,13 @@ var PostCard = (_temp2 = _class = function (_React$Component) {
           ),
           React.createElement(
             'div',
-            { className: 'post-card__media-wrap flex-shrink-0 overflow-hidden' },
+            {
+              className: (0, _classnames2.default)('post-card__media-wrap flex-shrink-0 overflow-hidden', {
+                'h-100': showMetaPreview
+              })
+            },
             post.media && post.media.length > 0 && React.createElement(_.PostMedia, { media: post.media }),
-            showMetaPreview && React.createElement(_.URLMetaPreview, _extends({}, metaPreview, { className: 'border-top border-bottom' })),
+            showMetaPreview && React.createElement(_.URLMetaPreview, _extends({}, metaPreview, { className: 'border', isVertical: true })),
             showMediaEmpty && React.createElement(
               'div',
               { className: 'post-media--empty' },

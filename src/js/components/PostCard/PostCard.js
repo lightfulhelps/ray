@@ -211,11 +211,13 @@ class PostCard extends React.Component<Props, State> {
                 ))}
             </div>
           </div>
-          <div className="post-card__media-wrap flex-shrink-0 overflow-hidden">
+          <div
+            className={classNames('post-card__media-wrap flex-shrink-0 overflow-hidden', {
+              'h-100': showMetaPreview,
+            })}
+          >
             {post.media && post.media.length > 0 && <PostMedia media={post.media} />}
-            {showMetaPreview && (
-              <URLMetaPreview {...metaPreview} className="border-top border-bottom" />
-            )}
+            {showMetaPreview && <URLMetaPreview {...metaPreview} className="border" isVertical />}
             {showMediaEmpty && <div className="post-media--empty">No media</div>}
           </div>
         </div>

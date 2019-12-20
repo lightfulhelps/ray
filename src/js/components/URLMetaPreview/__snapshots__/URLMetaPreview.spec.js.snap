@@ -2,7 +2,7 @@
 
 exports[`<URLMetaPreview /> should render 1`] = `
 <div
-  className="url-meta-preview"
+  className="url-meta-preview bg-white h-100"
 >
   <div
     className="row h-100"
@@ -11,7 +11,8 @@ exports[`<URLMetaPreview /> should render 1`] = `
       className="col-4 pr-0"
     >
       <div
-        className="url-meta-preview__image"
+        className="w-100 h-100 bg-cover bg-center"
+        data-test-id="url-meta-preview-image"
         style={
           Object {
             "backgroundImage": "url(https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg)",
@@ -23,32 +24,25 @@ exports[`<URLMetaPreview /> should render 1`] = `
       className="col-8 pl-0"
     >
       <div
-        className="url-meta-preview__main"
+        className="d-flex flex-column justify-content-between h-100 p-1 text-xs"
       >
         <a
-          className="url-meta-preview__title"
+          className="font-weight-bold text-dark text-truncate"
           href="https://www.bbc.co.uk/news/business-45242008"
           rel="noopener noreferrer"
           target="_blank"
         >
-          <Responsive(LinesEllipsis)
-            basedOn="words"
-            ellipsis="..."
-            innerRef={[Function]}
-            maxLine={2}
-            text="National Living Wage 'fails to cover families' basic needs"
-          />
+          National Living Wage 'fails to cover families' basic needs
         </a>
-        <Responsive(LinesEllipsis)
-          basedOn="words"
-          className="url-meta-preview__description"
-          ellipsis="..."
-          innerRef={[Function]}
-          maxLine={3}
-          text="Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says."
-        />
+        <div
+          className="font-weight-light text-gray-500 text-truncate"
+          data-test-id="url-meta-preview-description"
+        >
+          Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says.
+        </div>
         <a
-          className="url-meta-preview__url"
+          className="d-block text-body text-truncate"
+          data-test-id="url-meta-preview-url"
           href="https://www.bbc.co.uk/news/business-45242008"
           rel="noopener noreferrer"
           target="_blank"
@@ -63,7 +57,7 @@ exports[`<URLMetaPreview /> should render 1`] = `
 
 exports[`<URLMetaPreview /> should render in vertical mode 1`] = `
 <div
-  className="url-meta-preview"
+  className="url-meta-preview bg-white h-100"
 >
   <div
     className=""
@@ -72,7 +66,8 @@ exports[`<URLMetaPreview /> should render in vertical mode 1`] = `
       className=""
     >
       <div
-        className="url-meta-preview__image"
+        className="w-100 h-100 bg-cover bg-center"
+        data-test-id="url-meta-preview-image"
         style={
           Object {
             "backgroundImage": "url(https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg)",
@@ -81,6 +76,7 @@ exports[`<URLMetaPreview /> should render in vertical mode 1`] = `
       >
         <img
           alt=""
+          className="w-100"
           src="https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg"
         />
       </div>
@@ -89,32 +85,25 @@ exports[`<URLMetaPreview /> should render in vertical mode 1`] = `
       className=""
     >
       <div
-        className="url-meta-preview__main"
+        className="d-flex flex-column justify-content-between h-100 p-1 text-xs"
       >
         <a
-          className="url-meta-preview__title"
+          className="font-weight-bold text-dark text-truncate"
           href="https://www.bbc.co.uk/news/business-45242008"
           rel="noopener noreferrer"
           target="_blank"
         >
-          <Responsive(LinesEllipsis)
-            basedOn="words"
-            ellipsis="..."
-            innerRef={[Function]}
-            maxLine={2}
-            text="National Living Wage 'fails to cover families' basic needs"
-          />
+          National Living Wage 'fails to cover families' basic needs
         </a>
-        <Responsive(LinesEllipsis)
-          basedOn="words"
-          className="url-meta-preview__description"
-          ellipsis="..."
-          innerRef={[Function]}
-          maxLine={3}
-          text="Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says."
-        />
+        <div
+          className="font-weight-light text-gray-500 text-truncate"
+          data-test-id="url-meta-preview-description"
+        >
+          Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says.
+        </div>
         <a
-          className="url-meta-preview__url"
+          className="d-block text-body text-truncate"
+          data-test-id="url-meta-preview-url"
           href="https://www.bbc.co.uk/news/business-45242008"
           rel="noopener noreferrer"
           target="_blank"

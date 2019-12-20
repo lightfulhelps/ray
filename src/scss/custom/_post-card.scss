@@ -14,8 +14,8 @@
     margin: $spacer 0 0;
 
     @include media-breakpoint-up('md') {
-      width: 130px;
-      height: 130px;
+      width: 150px;
+      height: 150px;
       margin: 0 0 0 $spacer * 2;
     }
   }

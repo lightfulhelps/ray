@@ -54,27 +54,29 @@ describe('<URLMetaPreview />', () => {
   it('should handle no image', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.url-meta-preview__image').exists()).toBe(true);
+    expect(wrapper.find('[data-test-id="url-meta-preview-image"]').exists()).toBe(true);
 
     wrapper.setProps({ image: null });
 
-    expect(wrapper.find('.url-meta-preview__image').exists()).toBe(false);
+    expect(wrapper.find('[data-test-id="url-meta-preview-image"]').exists()).toBe(false);
   });
 
   it('should handle no description', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.url-meta-preview__description').exists()).toBe(true);
+    expect(wrapper.find('[data-test-id="url-meta-preview-description"]').exists()).toBe(true);
 
     wrapper.setProps({ description: null });
 
-    expect(wrapper.find('.url-meta-preview__description').exists()).toBe(false);
+    expect(wrapper.find('[data-test-id="url-meta-preview-description"]').exists()).toBe(false);
   });
 
   it('should format the url', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.url-meta-preview__url').text()).toBe('bbc.co.uk/news/business-45242008');
+    expect(wrapper.find('[data-test-id="url-meta-preview-url"]').text()).toBe(
+      'bbc.co.uk/news/business-45242008'
+    );
   });
 
   it('should pass through other props', () => {
