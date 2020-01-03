@@ -14,14 +14,6 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _reactLinesEllipsis = require('react-lines-ellipsis');
-
-var _reactLinesEllipsis2 = _interopRequireDefault(_reactLinesEllipsis);
-
-var _responsiveHOC = require('react-lines-ellipsis/lib/responsiveHOC');
-
-var _responsiveHOC2 = _interopRequireDefault(_responsiveHOC);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -29,8 +21,6 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 var cleanURL = function cleanURL(url) {
   return url.replace(/https?:\/\/(www.)?/, '');
 };
-
-var ResponsiveEllipsis = (0, _responsiveHOC2.default)()(_reactLinesEllipsis2.default);
 
 var URLMetaPreview = function URLMetaPreview(_ref) {
   var className = _ref.className,
@@ -42,8 +32,7 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
       url = _ref.url,
       other = _objectWithoutProperties(_ref, ['className', 'description', 'image', 'isVertical', 'title', 'url']);
 
-  var blockClass = 'url-meta-preview';
-  var classes = (0, _classnames2.default)(className, blockClass);
+  var classes = (0, _classnames2.default)(className, 'url-meta-preview', 'bg-white h-100');
 
   if (!url) {
     return null;
@@ -60,8 +49,12 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
         { className: isVertical ? '' : 'col-4 pr-0' },
         _react2.default.createElement(
           'div',
-          { className: blockClass + '__image', style: { backgroundImage: 'url(' + image + ')' } },
-          isVertical && _react2.default.createElement('img', { src: image, alt: '' })
+          {
+            className: 'w-100 h-100 bg-cover bg-center',
+            'data-test-id': 'url-meta-preview-image',
+            style: { backgroundImage: 'url(' + image + ')' }
+          },
+          isVertical && _react2.default.createElement('img', { className: 'w-100', src: image, alt: '' })
         )
       ),
       _react2.default.createElement(
@@ -69,28 +62,38 @@ var URLMetaPreview = function URLMetaPreview(_ref) {
         { className: isVertical ? '' : image ? 'col-8 pl-0' : 'col-12' },
         _react2.default.createElement(
           'div',
-          { className: blockClass + '__main' },
+          { className: 'd-flex flex-column justify-content-between h-100 p-1 text-xs' },
           _react2.default.createElement(
             'a',
             {
-              className: blockClass + '__title',
+              className: 'font-weight-bold text-dark text-truncate',
               href: url,
               target: '_blank',
               rel: 'noopener noreferrer'
             },
-            _react2.default.createElement(ResponsiveEllipsis, { text: title, maxLine: 2, ellipsis: '...', basedOn: 'words' })
+            title
           ),
-          description && _react2.default.createElement(ResponsiveEllipsis, {
-            className: blockClass + '__description',
-            text: description,
-            maxLine: 3,
-            ellipsis: '...',
-            basedOn: 'words'
-          }),
+          description && _react2.default.createElement(
+            'div',
+            {
+              className: 'font-weight-light text-gray-500 text-truncate',
+              'data-test-id': 'url-meta-preview-description'
+            },
+            description
+          )
+          // <ResponsiveEllipsis
+          //   className="font-weight-light text-gray-500"
+          //   text={description}
+          //   maxLine={3}
+          //   ellipsis="..."
+          //   basedOn="words"
+          // />
+          ,
           _react2.default.createElement(
             'a',
             {
-              className: blockClass + '__url',
+              className: 'd-block text-body text-truncate',
+              'data-test-id': 'url-meta-preview-url',
               href: url,
               target: '_blank',
               rel: 'noopener noreferrer'

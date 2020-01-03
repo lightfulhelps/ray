@@ -5513,7 +5513,7 @@ button.bg-dark:focus {
 .text-nowrap {
   white-space: nowrap !important; }
 
-.text-truncate, .inspiration-post-card__title, .inspiration-post-card__date, .inspiration-post-card__metrics, .url-meta-preview__url {
+.text-truncate, .inspiration-post-card__title, .inspiration-post-card__date, .inspiration-post-card__metrics {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
@@ -7460,8 +7460,8 @@ button.bg-linkedin:focus {
   margin: 0.625rem 0 0; }
   @media (min-width: 768px) {
     .post-card__media-wrap {
-      width: 130px;
-      height: 130px;
+      width: 150px;
+      height: 150px;
       margin: 0 0 0 1.25rem; } }
 
 .post-card__content {
@@ -7552,39 +7552,6 @@ button.bg-linkedin:focus {
     width: 0.75em;
     height: 0.75em;
     margin-left: 0.5em; }
-
-.url-meta-preview {
-  background-color: #fff;
-  height: 100%; }
-
-.url-meta-preview__image {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center; }
-  .url-meta-preview__image img {
-    max-width: 100%; }
-
-.url-meta-preview__main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  padding: 1.25rem;
-  font-size: 0.75rem; }
-
-.url-meta-preview__title {
-  display: block;
-  font-weight: 500;
-  color: #6c757c; }
-
-.url-meta-preview__description {
-  font-weight: 300;
-  color: #adb5bd; }
-
-.url-meta-preview__url {
-  display: block;
-  color: #6c757c; }
 
 .ghost {
   background-color: #dee2e6;

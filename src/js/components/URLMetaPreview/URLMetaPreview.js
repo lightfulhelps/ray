@@ -1,8 +1,6 @@
 // @flow
 import React from 'react';
 import classNames from 'classnames';
-import LinesEllipsis from 'react-lines-ellipsis';
-import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 
 type Props = {
   className?: string,
@@ -15,8 +13,6 @@ type Props = {
 
 const cleanURL = (url: string): string => url.replace(/https?:\/\/(www.)?/, '');
 
-const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
-
 const URLMetaPreview = ({
   className,
   description,
@@ -26,8 +22,7 @@ const URLMetaPreview = ({
   url,
   ...other
 }: Props) => {
-  const blockClass = 'url-meta-preview';
-  const classes = classNames(className, blockClass);
+  const classes = classNames(className, 'url-meta-preview', 'bg-white h-100');
 
   if (!url) {
     return null;
@@ -38,32 +33,43 @@ const URLMetaPreview = ({
       <div className={isVertical ? '' : 'row h-100'}>
         {image && (
           <div className={isVertical ? '' : 'col-4 pr-0'}>
-            <div className={`${blockClass}__image`} style={{ backgroundImage: `url(${image})` }}>
-              {isVertical && <img src={image} alt="" />}
+            <div
+              className="w-100 h-100 bg-cover bg-center"
+              data-test-id="url-meta-preview-image"
+              style={{ backgroundImage: `url(${image})` }}
+            >
+              {isVertical && <img className="w-100" src={image} alt="" />}
             </div>
           </div>
         )}
         <div className={isVertical ? '' : image ? 'col-8 pl-0' : 'col-12'}>
-          <div className={`${blockClass}__main`}>
+          <div className="d-flex flex-column justify-content-between h-100 p-1 text-xs">
             <a
-              className={`${blockClass}__title`}
+              className="font-weight-bold text-dark text-truncate"
               href={url}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <ResponsiveEllipsis text={title} maxLine={2} ellipsis="..." basedOn="words" />
+              {title}
             </a>
             {description && (
-              <ResponsiveEllipsis
-                className={`${blockClass}__description`}
-                text={description}
-                maxLine={3}
-                ellipsis="..."
-                basedOn="words"
-              />
+              <div
+                className="font-weight-light text-gray-500 text-truncate"
+                data-test-id="url-meta-preview-description"
+              >
+                {description}
+              </div>
+              // <ResponsiveEllipsis
+              //   className="font-weight-light text-gray-500"
+              //   text={description}
+              //   maxLine={3}
+              //   ellipsis="..."
+              //   basedOn="words"
+              // />
             )}
             <a
-              className={`${blockClass}__url`}
+              className="d-block text-body text-truncate"
+              data-test-id="url-meta-preview-url"
               href={url}
               target="_blank"
               rel="noopener noreferrer"
