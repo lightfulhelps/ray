@@ -19,6 +19,13 @@
   }
 }
 
+.btn.disabled,
+.btn:hover.disabled {
+  background-color: $gray-200;
+  border-color: $gray-400;
+  color: $gray-600;
+}
+
 @each $sm, $value in $sm-colors {
   .btn-#{$sm} {
     @include button-variant($value, $value);
