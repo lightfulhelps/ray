@@ -6276,12 +6276,6 @@ label {
     background-color: #fff;
     border-color: #fff; }
 
-.btn.disabled,
-.btn:hover.disabled {
-  background-color: #e9ecef;
-  border-color: #ced4da;
-  color: #6c757c; }
-
 .btn-facebook {
   background-color: #1678f2;
   color: #fff;
@@ -6417,6 +6411,12 @@ label {
       margin-right: 0.625rem; }
   .btn-icon-right .icon {
     margin-left: 0.625rem; }
+
+.btn.disabled,
+.btn:hover.disabled {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+  color: #6c757c; }
 
 .input-group-prepend .btn,
 .input-group-append .btn {
