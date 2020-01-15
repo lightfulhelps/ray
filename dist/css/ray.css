@@ -1394,6 +1394,9 @@ fieldset:disabled a.btn {
     background-color: #2194ac;
     color: #fff;
     border-color: #1f8ba1; }
+  .btn-primary:focus, .btn-primary.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(39, 176, 204, 0.25); }
   .btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
     background-color: #27b0cc;
@@ -1412,6 +1415,9 @@ fieldset:disabled a.btn {
     background-color: #380f98;
     color: #fff;
     border-color: #340e8d; }
+  .btn-secondary:focus, .btn-secondary.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(69, 19, 187, 0.25); }
   .btn-secondary.disabled, .btn-secondary:disabled {
     color: #fff;
     background-color: #4513bb;
@@ -1430,6 +1436,9 @@ fieldset:disabled a.btn {
     background-color: #21ac80;
     color: #fff;
     border-color: #1fa178; }
+  .btn-success:focus, .btn-success.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(39, 204, 152, 0.25); }
   .btn-success.disabled, .btn-success:disabled {
     color: #fff;
     background-color: #27cc98;
@@ -1448,6 +1457,9 @@ fieldset:disabled a.btn {
     background-color: #007dcb;
     color: #fff;
     border-color: #0075be; }
+  .btn-info:focus, .btn-info.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 149, 241, 0.25); }
   .btn-info.disabled, .btn-info:disabled {
     color: #fff;
     background-color: #0095f1;
@@ -1466,6 +1478,9 @@ fieldset:disabled a.btn {
     background-color: #edab31;
     color: #212529;
     border-color: #eca625; }
+  .btn-warning:focus, .btn-warning.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(240, 185, 84, 0.25); }
   .btn-warning.disabled, .btn-warning:disabled {
     color: #212529;
     background-color: #f0b954;
@@ -1484,6 +1499,9 @@ fieldset:disabled a.btn {
     background-color: #ef2e53;
     color: #fff;
     border-color: #ee2349; }
+  .btn-danger:focus, .btn-danger.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(242, 82, 112, 0.25); }
   .btn-danger.disabled, .btn-danger:disabled {
     color: #fff;
     background-color: #f25270;
@@ -1502,6 +1520,9 @@ fieldset:disabled a.btn {
     background-color: #e2e6ea;
     color: #212529;
     border-color: #dae0e5; }
+  .btn-light:focus, .btn-light.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.25); }
   .btn-light.disabled, .btn-light:disabled {
     color: #212529;
     background-color: #f8f9fa;
@@ -1520,6 +1541,9 @@ fieldset:disabled a.btn {
     background-color: #23272b;
     color: #fff;
     border-color: #1d2124; }
+  .btn-dark:focus, .btn-dark.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.25); }
   .btn-dark.disabled, .btn-dark:disabled {
     color: #fff;
     background-color: #343a40;
@@ -5930,6 +5954,9 @@ label {
     background-color: #e2e6ea;
     color: #212529;
     border-color: #dae0e5; }
+  .btn-gray-100:focus, .btn-gray-100.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.25); }
   .btn-gray-100.disabled, .btn-gray-100:disabled {
     color: #212529;
     background-color: #f8f9fa;
@@ -5967,6 +5994,9 @@ label {
     background-color: #d3d9df;
     color: #212529;
     border-color: #cbd3da; }
+  .btn-gray-200:focus, .btn-gray-200.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(233, 236, 239, 0.25); }
   .btn-gray-200.disabled, .btn-gray-200:disabled {
     color: #212529;
     background-color: #e9ecef;
@@ -6004,6 +6034,9 @@ label {
     background-color: #c8cfd6;
     color: #212529;
     border-color: #c1c9d0; }
+  .btn-gray-300:focus, .btn-gray-300.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(222, 226, 230, 0.25); }
   .btn-gray-300.disabled, .btn-gray-300:disabled {
     color: #212529;
     background-color: #dee2e6;
@@ -6041,6 +6074,9 @@ label {
     background-color: #b8c1ca;
     color: #212529;
     border-color: #b1bbc4; }
+  .btn-gray-400:focus, .btn-gray-400.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(206, 212, 218, 0.25); }
   .btn-gray-400.disabled, .btn-gray-400:disabled {
     color: #212529;
     background-color: #ced4da;
@@ -6078,6 +6114,9 @@ label {
     background-color: #98a2ac;
     color: #212529;
     border-color: #919ca6; }
+  .btn-gray-500:focus, .btn-gray-500.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(173, 181, 189, 0.25); }
   .btn-gray-500.disabled, .btn-gray-500:disabled {
     color: #212529;
     background-color: #adb5bd;
@@ -6115,6 +6154,9 @@ label {
     background-color: #5a6268;
     color: #fff;
     border-color: #545b61; }
+  .btn-gray-600:focus, .btn-gray-600.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(108, 117, 124, 0.25); }
   .btn-gray-600.disabled, .btn-gray-600:disabled {
     color: #fff;
     background-color: #6c757c;
@@ -6152,6 +6194,9 @@ label {
     background-color: #383d42;
     color: #fff;
     border-color: #32373b; }
+  .btn-gray-700:focus, .btn-gray-700.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(73, 80, 87, 0.25); }
   .btn-gray-700.disabled, .btn-gray-700:disabled {
     color: #fff;
     background-color: #495057;
@@ -6189,6 +6234,9 @@ label {
     background-color: #23272b;
     color: #fff;
     border-color: #1d2124; }
+  .btn-gray-800:focus, .btn-gray-800.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.25); }
   .btn-gray-800.disabled, .btn-gray-800:disabled {
     color: #fff;
     background-color: #343a40;
@@ -6226,6 +6274,9 @@ label {
     background-color: #101214;
     color: #fff;
     border-color: #0a0c0d; }
+  .btn-gray-900:focus, .btn-gray-900.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(33, 37, 41, 0.25); }
   .btn-gray-900.disabled, .btn-gray-900:disabled {
     color: #fff;
     background-color: #212529;
@@ -6263,6 +6314,9 @@ label {
     background-color: #ececec;
     color: #212529;
     border-color: #e6e6e6; }
+  .btn-white:focus, .btn-white.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25); }
   .btn-white.disabled, .btn-white:disabled {
     color: #212529;
     background-color: #fff;
@@ -6284,6 +6338,9 @@ label {
     background-color: #0c66d6;
     color: #fff;
     border-color: #0b60ca; }
+  .btn-facebook:focus, .btn-facebook.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(22, 120, 242, 0.25); }
   .btn-facebook.disabled, .btn-facebook:disabled {
     color: #fff;
     background-color: #1678f2;
@@ -6302,6 +6359,9 @@ label {
     background-color: #0c66d6;
     color: #fff;
     border-color: #0b60ca; }
+  .btn-outline-facebook:focus, .btn-outline-facebook.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(22, 120, 242, 0.25); }
   .btn-outline-facebook.disabled, .btn-outline-facebook:disabled {
     color: #fff;
     background-color: #1678f2;
@@ -6320,6 +6380,9 @@ label {
     background-color: #0d8ddc;
     color: #fff;
     border-color: #0c85d0; }
+  .btn-twitter:focus, .btn-twitter.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(29, 161, 242, 0.25); }
   .btn-twitter.disabled, .btn-twitter:disabled {
     color: #fff;
     background-color: #1da1f2;
@@ -6338,6 +6401,9 @@ label {
     background-color: #0d8ddc;
     color: #fff;
     border-color: #0c85d0; }
+  .btn-outline-twitter:focus, .btn-outline-twitter.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(29, 161, 242, 0.25); }
   .btn-outline-twitter.disabled, .btn-outline-twitter:disabled {
     color: #fff;
     background-color: #1da1f2;
@@ -6356,6 +6422,9 @@ label {
     background-color: #205593;
     color: #fff;
     border-color: #1e4f88; }
+  .btn-linkedin:focus, .btn-linkedin.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(39, 103, 178, 0.25); }
   .btn-linkedin.disabled, .btn-linkedin:disabled {
     color: #fff;
     background-color: #2767b2;
@@ -6374,6 +6443,9 @@ label {
     background-color: #205593;
     color: #fff;
     border-color: #1e4f88; }
+  .btn-outline-linkedin:focus, .btn-outline-linkedin.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(39, 103, 178, 0.25); }
   .btn-outline-linkedin.disabled, .btn-outline-linkedin:disabled {
     color: #fff;
     background-color: #2767b2;

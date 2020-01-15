@@ -24,6 +24,12 @@
     border-color: $hover-border;
   }
 
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba($background, 0.25);
+  }
+
   // Disabled comes first so active can properly restyle
   &.disabled,
   &:disabled {
