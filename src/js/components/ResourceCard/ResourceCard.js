@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { Icon } from '../../';
 
 type Props = {
+  backgroundImage?: string,
   campaign: string,
   className?: string,
   gradientEnd?: string,
@@ -22,6 +23,7 @@ const ResourceCard = ({
   gradientStart,
   tag: Tag = 'a',
   title,
+  backgroundImage,
   ...other
 }: Props) => {
   const classes = classNames(
@@ -31,7 +33,9 @@ const ResourceCard = ({
   );
   const style = {};
 
-  if (gradientStart && isHex(gradientStart) && gradientEnd && isHex(gradientEnd)) {
+  if (backgroundImage) {
+    style.backgroundImage = `url('${backgroundImage}')`;
+  } else if (gradientStart && isHex(gradientStart) && gradientEnd && isHex(gradientEnd)) {
     style.backgroundImage = `linear-gradient(90deg, ${gradientStart} 0%, ${gradientEnd} 100%)`;
   }
 
