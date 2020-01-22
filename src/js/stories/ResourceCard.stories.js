@@ -25,7 +25,6 @@ stories.add('Default', () => (
           gradientEnd="#4513BB"
           href="https://www.lightful.com/app/uploads/2019/07/make-social-media-easier-compose.png"
           target="_blank"
-          backgroundImage="https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80"
         />
       </Col>
       <Col sm={6} md={4} lg={2} className="mb-2 mb-lg-0">
