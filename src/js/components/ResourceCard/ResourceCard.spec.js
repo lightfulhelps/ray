@@ -57,9 +57,9 @@ describe('<ResourceCard />', () => {
 
     expect(wrapper.prop('style')).toEqual(
       expect.objectContaining({
-        bacgroundPosition: 'center',
-        bacgroundSize: 'cover',
-        bacgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
         backgroundImage:
           "url('https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80')",
       })
@@ -74,9 +74,9 @@ describe('<ResourceCard />', () => {
     });
     expect(wrapper.prop('style')).toEqual(
       expect.objectContaining({
-        bacgroundPosition: 'center',
-        bacgroundSize: 'cover',
-        bacgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
         backgroundImage:
           "url('https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80')",
       })

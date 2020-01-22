@@ -44,9 +44,9 @@ var ResourceCard = function ResourceCard(_ref) {
 
   if (backgroundImage) {
     style.backgroundImage = 'url(\'' + backgroundImage + '\')';
-    style.bacgroundPosition = 'center';
-    style.bacgroundSize = 'cover';
-    style.bacgroundRepeat = 'no-repeat';
+    style.backgroundPosition = 'center';
+    style.backgroundSize = 'cover';
+    style.backgroundRepeat = 'no-repeat';
   } else if (gradientStart && isHex(gradientStart) && gradientEnd && isHex(gradientEnd)) {
     style.backgroundImage = 'linear-gradient(90deg, ' + gradientStart + ' 0%, ' + gradientEnd + ' 100%)';
   }
