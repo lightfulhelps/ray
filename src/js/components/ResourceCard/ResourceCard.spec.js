@@ -55,8 +55,14 @@ describe('<ResourceCard />', () => {
         'https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80',
     });
 
-    expect(wrapper.prop('style').backgroundImage).toEqual(
-      "url('https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80')"
+    expect(wrapper.prop('style')).toEqual(
+      expect.objectContaining({
+        bacgroundPosition: 'center',
+        bacgroundSize: 'cover',
+        bacgroundRepeat: 'no-repeat',
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80')",
+      })
     );
   });
   it('should display background image in perference of gradients if backgroundImage URL is passed', () => {
@@ -66,8 +72,14 @@ describe('<ResourceCard />', () => {
       backgroundImage:
         'https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80',
     });
-    expect(wrapper.prop('style').backgroundImage).toEqual(
-      "url('https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80')"
+    expect(wrapper.prop('style')).toEqual(
+      expect.objectContaining({
+        bacgroundPosition: 'center',
+        bacgroundSize: 'cover',
+        bacgroundRepeat: 'no-repeat',
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80')",
+      })
     );
   });
   it('should not have a gradient background if gradientStart is an invalid HEX code', () => {
