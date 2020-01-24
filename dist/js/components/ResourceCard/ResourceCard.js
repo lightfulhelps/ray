@@ -36,12 +36,18 @@ var ResourceCard = function ResourceCard(_ref) {
       _ref$tag = _ref.tag,
       Tag = _ref$tag === undefined ? 'a' : _ref$tag,
       title = _ref.title,
-      other = _objectWithoutProperties(_ref, ['campaign', 'className', 'gradientEnd', 'gradientStart', 'tag', 'title']);
+      backgroundImage = _ref.backgroundImage,
+      other = _objectWithoutProperties(_ref, ['campaign', 'className', 'gradientEnd', 'gradientStart', 'tag', 'title', 'backgroundImage']);
 
   var classes = (0, _classnames2.default)(className, 'resource-card', 'card p-1 rounded shadow h-100 bg-gray-900 text-decoration-none');
   var style = {};
 
-  if (gradientStart && isHex(gradientStart) && gradientEnd && isHex(gradientEnd)) {
+  if (backgroundImage) {
+    style.backgroundImage = 'url(\'' + backgroundImage + '\')';
+    style.backgroundPosition = 'center';
+    style.backgroundSize = 'cover';
+    style.backgroundRepeat = 'no-repeat';
+  } else if (gradientStart && isHex(gradientStart) && gradientEnd && isHex(gradientEnd)) {
     style.backgroundImage = 'linear-gradient(90deg, ' + gradientStart + ' 0%, ' + gradientEnd + ' 100%)';
   }
 
