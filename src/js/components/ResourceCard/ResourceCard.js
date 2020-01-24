@@ -4,11 +4,11 @@ import classNames from 'classnames';
 import { Icon } from '../../';
 
 type Props = {
-  backgroundImage?: string,
   campaign: string,
   className?: string,
   gradientEnd?: string,
   gradientStart?: string,
+  imageForBackground?: string,
   resource: string,
   tag?: string,
   title: string,
@@ -23,7 +23,7 @@ const ResourceCard = ({
   gradientStart,
   tag: Tag = 'a',
   title,
-  backgroundImage,
+  imageForBackground,
   ...other
 }: Props) => {
   const classes = classNames(
@@ -33,8 +33,8 @@ const ResourceCard = ({
   );
   const style = {};
 
-  if (backgroundImage) {
-    style.backgroundImage = `url('${backgroundImage}')`;
+  if (imageForBackground) {
+    style.backgroundImage = `url('${imageForBackground}')`;
     style.backgroundPosition = 'center';
     style.backgroundSize = 'cover';
     style.backgroundRepeat = 'no-repeat';
