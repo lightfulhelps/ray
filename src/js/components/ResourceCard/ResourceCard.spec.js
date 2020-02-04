@@ -51,7 +51,7 @@ describe('<ResourceCard />', () => {
 
   it('should display background image if valid backgroundImage URL is passed', () => {
     const { wrapper } = setup({
-      backgroundImage:
+      imageForBackground:
         'https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80',
     });
 
@@ -69,7 +69,7 @@ describe('<ResourceCard />', () => {
     const { wrapper } = setup({
       gradientStart: '#ff0000',
       gradientEnd: '#fafafa',
-      backgroundImage:
+      imageForBackground:
         'https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80',
     });
     expect(wrapper.prop('style')).toEqual(
