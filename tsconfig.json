@@ -5,10 +5,9 @@
     "allowSyntheticDefaultImports": true,
     "lib": ["DOM", "ESNext"],
     "strict": true,
-    "target": "ES5",
+    "target": "ES6",
     "module": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true
+    "moduleResolution": "node"
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

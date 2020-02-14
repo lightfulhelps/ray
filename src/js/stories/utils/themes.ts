@@ -19,4 +19,4 @@ export default {
   facebook: 'Facebook',
   twitter: 'Twitter',
   linkedin: 'LinkedIn',
-};
+} as { [key: string]: string };
