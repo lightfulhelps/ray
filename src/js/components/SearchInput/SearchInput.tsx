@@ -1,7 +1,6 @@
-
-import * as React from "react";
-import classNames from "classnames";
-import { FormInput, Button } from "../../";
+import * as React from 'react';
+import classNames from 'classnames';
+import { FormInput, Button } from '../..';
 
 type Props = {
   className?: string;
@@ -26,12 +25,27 @@ const SearchInput = ({
     }
   };
 
-  return <div {...other} className={classes}>
-      <FormInput data-test-id="search-input" onChange={onChange} onKeyPress={handleKeyPress} placeholder={placeholder} type="text" value={value} />
+  return (
+    <div {...other} className={classes}>
+      <FormInput
+        data-test-id="search-input"
+        onChange={onChange}
+        onKeyPress={handleKeyPress}
+        placeholder={placeholder}
+        type="text"
+        value={value}
+      />
       <div className="input-group-append">
-        <Button data-test-id="search-input-button" icon="search" isOutline onClick={onSearch} theme="gray-600" />
+        <Button
+          data-test-id="search-input-button"
+          icon="search"
+          isOutline
+          onClick={onSearch}
+          theme="gray-600"
+        />
       </div>
-    </div>;
+    </div>
+  );
 };
 
 export default SearchInput;

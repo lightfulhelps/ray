@@ -1,13 +1,16 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import { DropdownMenu } from "../../";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import { DropdownMenu } from '../..';
 
 const setup = (overrides = {}) => {
-  const props = merge({
-    children: 'Children',
-    footer: 'Footer'
-  }, overrides);
+  const props = merge(
+    {
+      children: 'Children',
+      footer: 'Footer',
+    },
+    overrides
+  );
   const wrapper = shallow(<DropdownMenu {...props} />);
 
   return { wrapper, props };
@@ -15,25 +18,24 @@ const setup = (overrides = {}) => {
 
 describe('<DropdownMenu />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle the children prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
-    expect(wrapper.children().at(0).text()).toEqual('Children');
+    expect(
+      wrapper
+        .children()
+        .at(0)
+        .text()
+    ).toEqual('Children');
   });
 
   it('should handle className', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -42,18 +44,14 @@ describe('<DropdownMenu />', () => {
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');
   });
 
   it('should optionally display the footer', () => {
-    const {
-      wrapper
-    } = setup({ footer: null });
+    const { wrapper } = setup({ footer: null });
 
     expect(wrapper.find('.dropdown-footer').exists()).toBe(false);
 
@@ -64,9 +62,7 @@ describe('<DropdownMenu />', () => {
   });
 
   it('should handle the isOpen prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('show')).toBe(false);
 
@@ -77,9 +73,7 @@ describe('<DropdownMenu />', () => {
 
   it('should handle the onClick prop', () => {
     const onClick = jest.fn();
-    const {
-      wrapper
-    } = setup({ onClick });
+    const { wrapper } = setup({ onClick });
 
     wrapper.simulate('click');
 
@@ -87,9 +81,7 @@ describe('<DropdownMenu />', () => {
   });
 
   it('should not error if onClick is not a function', () => {
-    const {
-      wrapper
-    } = setup({ onClick: 'foo' });
+    const { wrapper } = setup({ onClick: 'foo' });
 
     expect(() => {
       wrapper.simulate('click');
@@ -97,9 +89,7 @@ describe('<DropdownMenu />', () => {
   });
 
   it('should handle the position prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.find('.dropdown-menu').hasClass('dropdown-menu-left')).toBe(true);
 
@@ -109,9 +99,7 @@ describe('<DropdownMenu />', () => {
   });
 
   it('should handle the tag prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.type()).toBe('div');
 
@@ -121,9 +109,7 @@ describe('<DropdownMenu />', () => {
   });
 
   it('should handle the theme prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.find('.dropdown-menu').hasClass('dropdown-menu-light')).toBe(true);
 

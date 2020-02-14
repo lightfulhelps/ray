@@ -1,7 +1,6 @@
-
-import * as React from "react";
-import classNames from "classnames";
-import { Icon } from "../../";
+import * as React from 'react';
+import classNames from 'classnames';
+import { Icon } from '../..';
 
 type Props = {
   children: React.ReactNode;
@@ -15,9 +14,8 @@ type State = {
 };
 
 class Collapse extends React.Component<Props, State> {
-
   state = {
-    isOpen: !!this.props.defaultOpen
+    isOpen: !!this.props.defaultOpen,
   };
 
   handleToggle = () => {
@@ -25,23 +23,26 @@ class Collapse extends React.Component<Props, State> {
   };
 
   render() {
-    const {
-      children,
-      className,
-      label,
-      ...other
-    } = this.props;
+    const { children, className, label, ...other } = this.props;
     const classes = classNames(className);
 
-    return <div {...other} className={classes}>
-        <div className="collapse-toggle h6 mb-0 cursor-pointer d-flex justify-content-between align-items-center" data-test-id="collapse-toggle" onClick={this.handleToggle}>
+    return (
+      <div {...other} className={classes}>
+        <div
+          className="collapse-toggle h6 mb-0 cursor-pointer d-flex justify-content-between align-items-center"
+          data-test-id="collapse-toggle"
+          onClick={this.handleToggle}
+        >
           {label}{' '}
           <Icon isActive theme="gray-600" name={this.state.isOpen ? 'chevronUp' : 'chevronDown'} />
         </div>
-        {this.state.isOpen && <div className="collapse-children" data-test-id="collapse-children">
+        {this.state.isOpen && (
+          <div className="collapse-children" data-test-id="collapse-children">
             {children}
-          </div>}
-      </div>;
+          </div>
+        )}
+      </div>
+    );
   }
 }
 

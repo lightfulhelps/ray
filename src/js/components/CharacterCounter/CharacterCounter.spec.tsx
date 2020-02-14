@@ -1,7 +1,7 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import { CharacterCounter } from "../../";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import { CharacterCounter } from '../..';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
@@ -12,17 +12,13 @@ const setup = (overrides = {}) => {
 
 describe('<CharacterCounter />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup({ text: 'Text', max: 5 });
+    const { wrapper } = setup({ text: 'Text', max: 5 });
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -31,9 +27,7 @@ describe('<CharacterCounter />', () => {
   });
 
   it('should handle max', () => {
-    const {
-      wrapper
-    } = setup({ max: 10 });
+    const { wrapper } = setup({ max: 10 });
 
     expect(wrapper.text()).toEqual('<Icon />0/10');
 
@@ -43,17 +37,13 @@ describe('<CharacterCounter />', () => {
   });
 
   it('should handle count', () => {
-    const {
-      wrapper
-    } = setup({ count: 5 });
+    const { wrapper } = setup({ count: 5 });
 
     expect(wrapper.text()).toEqual('<Icon />5');
   });
 
   it('should handle text', () => {
-    const {
-      wrapper
-    } = setup({ text: 'This is my text' });
+    const { wrapper } = setup({ text: 'This is my text' });
 
     expect(wrapper.text()).toEqual('<Icon />15');
 
@@ -69,26 +59,20 @@ describe('<CharacterCounter />', () => {
   });
 
   it('should use count over text length', () => {
-    const {
-      wrapper
-    } = setup({ count: 5, text: 'This is my text' });
+    const { wrapper } = setup({ count: 5, text: 'This is my text' });
 
     expect(wrapper.text()).toEqual('<Icon />5');
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');
   });
 
   it('should add danger class if over max', () => {
-    const {
-      wrapper
-    } = setup({ text: 'Foo', max: '10' });
+    const { wrapper } = setup({ text: 'Foo', max: '10' });
 
     expect(wrapper.hasClass('text-danger')).toEqual(false);
 

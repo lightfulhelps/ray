@@ -1,7 +1,6 @@
-
-import * as React from "react";
-import classNames from "classnames";
-import { Icon } from "../../";
+import * as React from 'react';
+import classNames from 'classnames';
+import { Icon } from '../..';
 
 type Props = {
   className?: string;
@@ -10,23 +9,19 @@ type Props = {
   text: string;
 };
 
-const CharacterCounter = ({
-  className,
-  count,
-  max,
-  text = '',
-  ...other
-}: Props) => {
+const CharacterCounter = ({ className, count, max, text = '', ...other }: Props) => {
   const current = count || text.length;
   const classes = classNames(className, 'character-counter', {
-    'text-danger': max && current >= max
+    'text-danger': max && current >= max,
   });
 
-  return <div {...other} className={classes}>
+  return (
+    <div {...other} className={classes}>
       <Icon name="characterCount" />
       {current.toLocaleString()}
       {max && `/${max.toLocaleString()}`}
-    </div>;
+    </div>
+  );
 };
 
 export default CharacterCounter;

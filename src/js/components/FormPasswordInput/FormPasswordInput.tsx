@@ -1,7 +1,6 @@
-
-import * as React from "react";
-import classNames from "classnames";
-import { FormInput, Button } from "../../";
+import * as React from 'react';
+import classNames from 'classnames';
+import { FormInput, Button } from '../..';
 
 type Props = {
   className?: string;
@@ -12,7 +11,7 @@ type Props = {
   onBlur: (arg0: React.KeyboardEvent<HTMLInputElement>) => void;
   onChange: (arg0: React.KeyboardEvent<HTMLInputElement>) => void;
   placeholder?: string;
-  size?: "sm" | "md" | "lg";
+  size?: 'sm' | 'md' | 'lg';
   value: string;
 };
 
@@ -21,18 +20,17 @@ type State = {
 };
 
 class FormPasswordInput extends React.Component<Props, State> {
-
   state = {
-    hidePassword: true
+    hidePassword: true,
   };
 
   static defaultProps = {
-    name: 'password'
+    name: 'password',
   };
 
   togglePassword = () => {
     this.setState(prevState => ({
-      hidePassword: !prevState.hidePassword
+      hidePassword: !prevState.hidePassword,
     }));
   };
 
@@ -50,21 +48,42 @@ class FormPasswordInput extends React.Component<Props, State> {
       size,
       ...other
     } = this.props;
-    const {
-      hidePassword
-    } = this.state;
+    const { hidePassword } = this.state;
     const classes = classNames(className, 'form-control');
 
-    return <div className="form-password-input input-group">
-        <FormInput {...other} className={classes} data-test-id="password-input" isInvalid={isInvalid} isValid={isValid} name={name} id={id} onBlur={onBlur} onChange={onChange} placeholder={placeholder} size={size} type={hidePassword ? 'password' : 'text'} value={value} />
+    return (
+      <div className="form-password-input input-group">
+        <FormInput
+          {...other}
+          className={classes}
+          data-test-id="password-input"
+          isInvalid={isInvalid}
+          isValid={isValid}
+          name={name}
+          id={id}
+          onBlur={onBlur}
+          onChange={onChange}
+          placeholder={placeholder}
+          size={size}
+          type={hidePassword ? 'password' : 'text'}
+          value={value}
+        />
         <div className="input-group-append">
-          <Button data-test-id="password-input-button" icon={hidePassword ? 'preview' : 'previewHide'} isOutline onClick={this.togglePassword} size={size} theme="gray-600">
+          <Button
+            data-test-id="password-input-button"
+            icon={hidePassword ? 'preview' : 'previewHide'}
+            isOutline
+            onClick={this.togglePassword}
+            size={size}
+            theme="gray-600"
+          >
             <span className="form-password-input__toggle-password-text">
               {hidePassword ? 'Show' : 'Hide'}
             </span>
           </Button>
         </div>
-      </div>;
+      </div>
+    );
   }
 }
 

@@ -1,33 +1,32 @@
-import React from "react";
-import merge from "lodash/merge";
-import { shallow } from "enzyme";
-import { Dropdown } from "../../";
+import React from 'react';
+import merge from 'lodash/merge';
+import { shallow } from 'enzyme';
+import { Dropdown } from '../..';
 
 const setup = (overrides = {}) => {
-  const props = merge({
-    render: jest.fn()
-  }, overrides);
+  const props = merge(
+    {
+      render: jest.fn(),
+    },
+    overrides
+  );
   const wrapper = shallow(<Dropdown {...props} />);
 
   return {
     wrapper,
-    props
+    props,
   };
 };
 
 describe('<Dropdown />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle the className prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -36,9 +35,7 @@ describe('<Dropdown />', () => {
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');
@@ -46,9 +43,7 @@ describe('<Dropdown />', () => {
 
   describe('handleToggle', () => {
     it('should update isOpen in state', () => {
-      const {
-        wrapper
-      } = setup();
+      const { wrapper } = setup();
 
       expect(wrapper.state('isOpen')).toBe(false);
 
@@ -63,9 +58,7 @@ describe('<Dropdown />', () => {
   });
 
   it('should set isOpen false on document click', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.instance().handleToggle();
 

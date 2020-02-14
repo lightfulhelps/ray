@@ -1,7 +1,6 @@
-
-import * as React from "react";
-import classNames from "classnames";
-import { DropdownMenu, DropdownItem, Icon } from "../../";
+import * as React from 'react';
+import classNames from 'classnames';
+import { DropdownMenu, DropdownItem, Icon } from '../..';
 
 type ExcludeType = string | RegExp;
 
@@ -57,24 +56,61 @@ const SearchSuggest = ({
   if (!isLoading && !options.length) return null;
   if (search.length > 0 && !filteredOptions.length) return null;
 
-  return <DropdownMenu {...other} className={classes} data-test-id="search-suggest" isOpen={isOpen} onClick={onClick}>
-      {title && <DropdownItem className="d-flex justify-content-between align-items-center" data-test-id="search-suggest-header" isHeader>
+  return (
+    <DropdownMenu
+      {...other}
+      className={classes}
+      data-test-id="search-suggest"
+      isOpen={isOpen}
+      onClick={onClick}
+    >
+      {title && (
+        <DropdownItem
+          className="d-flex justify-content-between align-items-center"
+          data-test-id="search-suggest-header"
+          isHeader
+        >
           {title}{' '}
-          {!isLoading && onClear && <div className="ml-1 text-danger cursor-pointer text-capitalize" data-test-id="search-suggest-clear" onClick={onClear}>
+          {!isLoading && onClear && (
+            <div
+              className="ml-1 text-danger cursor-pointer text-capitalize"
+              data-test-id="search-suggest-clear"
+              onClick={onClear}
+            >
               Clear All
-            </div>}
-        </DropdownItem>}
-      {isLoading && <DropdownItem data-test-id="search-suggest-loading" isDisabled>
+            </div>
+          )}
+        </DropdownItem>
+      )}
+      {isLoading && (
+        <DropdownItem data-test-id="search-suggest-loading" isDisabled>
           Loading...
-        </DropdownItem>}
-      {!isLoading && filteredOptions.slice(0, count).map((option, i) => <DropdownItem className="d-flex justify-content-between align-items-center text-body" data-test-id="search-suggest-item" key={i} onClick={() => onSelect(option, i)}>
+        </DropdownItem>
+      )}
+      {!isLoading &&
+        filteredOptions.slice(0, count).map((option, i) => (
+          <DropdownItem
+            className="d-flex justify-content-between align-items-center text-body"
+            data-test-id="search-suggest-item"
+            key={i}
+            onClick={() => onSelect(option, i)}
+          >
             <div dangerouslySetInnerHTML={{ __html: highlightMatches(option, search, exclude) }} />
-            {onRemove && <Icon className="ml-1" data-test-id="search-suggest-remove" name="close" onClick={(e: React.MouseEvent<>) => {
-        e.stopPropagation();
-        onRemove(i);
-      }} />}
-          </DropdownItem>)}
-    </DropdownMenu>;
+            {onRemove && (
+              <Icon
+                className="ml-1"
+                data-test-id="search-suggest-remove"
+                name="close"
+                onClick={(e: React.MouseEvent<>) => {
+                  e.stopPropagation();
+                  onRemove(i);
+                }}
+              />
+            )}
+          </DropdownItem>
+        ))}
+    </DropdownMenu>
+  );
 };
 
 export default SearchSuggest;
