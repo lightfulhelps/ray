@@ -2,7 +2,6 @@ module.exports = {
   extends: [
     'airbnb',
     'plugin:react/recommended',
-    'plugin:flowtype/recommended',
     'plugin:jest/recommended',
     'plugin:prettier/recommended',
     'prettier/react',
@@ -10,13 +9,14 @@ module.exports = {
   env: {
     browser: true,
   },
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 6,
     ecmaFeatures: {
       jsx: true,
     },
   },
+  plugins: ['@typescript-eslint', 'prettier', 'react'],
   rules: {
     'array-callback-return': 0,
     'comma-dangle': [
@@ -30,12 +30,6 @@ module.exports = {
       },
     ],
     'consistent-return': 0,
-    'flowtype/delimiter-dangle': [2, 'always-multiline'],
-    'flowtype/object-type-delimiter': 2,
-    'flowtype/semi': 2,
-    'flowtype/sort-keys': 2,
-    'flowtype/space-after-type-colon': [2, 'always', { allowLineBreak: true }],
-    'flowtype/type-id-match': [2, '^(([A-Z][a-z0-9]*)+Type)$|^(Props|State|DefaultProps)$'],
     'import/no-cycle': 0,
     'import/no-extraneous-dependencies': [
       2,
@@ -115,10 +109,5 @@ module.exports = {
         asyncArrow: 'always',
       },
     ],
-  },
-  settings: {
-    flowtype: {
-      onlyFilesWithFlowAnnotation: true,
-    },
   },
 };
