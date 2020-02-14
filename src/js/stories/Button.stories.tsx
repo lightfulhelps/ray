@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
-import { Container, Row, Col, Button } from '../';
+import { Container, Row, Col, Button } from '..';
 import allIcons from '../components/Icon/icons';
 import themes from './utils/themes';
 import sizes from './utils/sizes';

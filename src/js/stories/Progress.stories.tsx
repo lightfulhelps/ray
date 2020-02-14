@@ -1,16 +1,15 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, number } from '@storybook/addon-knobs';
-import { Container, Progress } from '../';
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import { withKnobs, number } from "@storybook/addon-knobs";
+import { Container, Progress } from "../";
 
-import '../../scss/ray.scss';
+import "../../scss/ray.scss";
 
 const stories = storiesOf('Progress', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('Default', () => (
-  <Container>
+stories.add('Default', () => <Container>
     <h1 className="my-4">Progress</h1>
     <div className="mb-2">
       <h2 className="h6">Default</h2>
@@ -28,5 +27,4 @@ stories.add('Default', () => (
       <h2 className="h6">Themed, striped and animated</h2>
       <Progress value={75} theme="success" isStriped isAnimated />
     </div>
-  </Container>
-));
+  </Container>);

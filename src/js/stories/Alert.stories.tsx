@@ -1,17 +1,16 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select } from '@storybook/addon-knobs';
-import { Container, Row, Col, Alert } from '../';
-import themes from './utils/themes';
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import { withKnobs, select } from "@storybook/addon-knobs";
+import { Container, Row, Col, Alert } from "../";
+import themes from "./utils/themes";
 
-import '../../scss/ray.scss';
+import "../../scss/ray.scss";
 
 const stories = storiesOf('Alert', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('Default', () => (
-  <Container>
+stories.add('Default', () => <Container>
     <h1 className="my-4">Alert</h1>
     <Row>
       <Col>
@@ -23,5 +22,4 @@ stories.add('Default', () => (
         </Alert>
       </Col>
     </Row>
-  </Container>
-));
+  </Container>);

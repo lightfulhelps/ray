@@ -1,52 +1,35 @@
-import React from 'react';
-import { storiesOf, action } from '@storybook/react';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
-import {
-  Container,
-  Row,
-  Col,
-  FormGroup,
-  FormLabel,
-  FormInput,
-  FormFeedback,
-  FormSelect,
-  FormTextarea,
-  Avatar,
-} from '../';
-import sizes from './utils/sizes';
+import React from "react";
+import { storiesOf, action } from "@storybook/react";
+import { withKnobs, select, boolean } from "@storybook/addon-knobs";
+import { Container, Row, Col, FormGroup, FormLabel, FormInput, FormFeedback, FormSelect, FormTextarea, Avatar } from "../";
+import sizes from "./utils/sizes";
 
-import '../../scss/ray.scss';
-import FormPasswordInput from '../components/FormPasswordInput/FormPasswordInput';
+import "../../scss/ray.scss";
+import FormPasswordInput from "../components/FormPasswordInput/FormPasswordInput";
 
 const stories = storiesOf('Forms', module);
 
-const selectOptions = [
-  {
-    label: 're',
-    value: 're',
-    icon: 'tag',
-  },
-  {
-    label: 'act',
-    value: 'act',
-    icon: 'tag',
-  },
-  {
-    label: 'sel',
-    value: 'sel',
-    icon: 'tag',
-  },
-  {
-    label: 'ect',
-    value: 'ect',
-    icon: 'tag',
-  },
-];
+const selectOptions = [{
+  label: 're',
+  value: 're',
+  icon: 'tag'
+}, {
+  label: 'act',
+  value: 'act',
+  icon: 'tag'
+}, {
+  label: 'sel',
+  value: 'sel',
+  icon: 'tag'
+}, {
+  label: 'ect',
+  value: 'ect',
+  icon: 'tag'
+}];
 
 stories.addDecorator(withKnobs);
 
-stories.add('Default', () => (
-  <Container>
+stories.add('Default', () => <Container>
     <h1 className="my-4">Forms</h1>
     <Row className="mb-4">
       <Col>
@@ -57,12 +40,7 @@ stories.add('Default', () => (
         </FormGroup>
         <FormGroup>
           <FormLabel>Email</FormLabel>
-          <FormInput
-            name="email"
-            placeholder="e.g. foo@bar.com"
-            type="email"
-            size={select('Select Size', sizes)}
-          />
+          <FormInput name="email" placeholder="e.g. foo@bar.com" type="email" size={select('Select Size', sizes)} />
         </FormGroup>
         <FormGroup>
           <FormLabel>Password</FormLabel>
@@ -70,23 +48,11 @@ stories.add('Default', () => (
         </FormGroup>
         <FormGroup>
           <FormLabel>Select</FormLabel>
-          <FormSelect
-            isInvalid={boolean('Select Invalid', false)}
-            onChange={action('Select change')}
-            options={selectOptions}
-            placeholder="Some placeholder text..."
-            size={select('Select Size', sizes)}
-          />
+          <FormSelect isInvalid={boolean('Select Invalid', false)} onChange={action('Select change')} options={selectOptions} placeholder="Some placeholder text..." size={select('Select Size', sizes)} />
         </FormGroup>
         <FormGroup>
           <FormLabel>Multiple Select</FormLabel>
-          <FormSelect
-            isCreatable
-            isMulti
-            onChange={action('Multiple Select change')}
-            options={selectOptions}
-            size={select('Select Size', sizes)}
-          />
+          <FormSelect isCreatable isMulti onChange={action('Multiple Select change')} options={selectOptions} size={select('Select Size', sizes)} />
         </FormGroup>
         <FormGroup>
           <FormLabel>Textarea</FormLabel>
@@ -140,10 +106,7 @@ stories.add('Default', () => (
             <FormLabel isCheck htmlFor="checkbox4">
               <div className="d-flex align-items-center">
                 <div style={{ width: '50px', height: '50px' }}>
-                  <Avatar
-                    url="https://randomuser.me/api/portraits/women/30.jpg"
-                    provider="facebook"
-                  />
+                  <Avatar url="https://randomuser.me/api/portraits/women/30.jpg" provider="facebook" />
                 </div>
                 <div className="ml-1">Checkbox with markup</div>
               </div>
@@ -152,5 +115,4 @@ stories.add('Default', () => (
         </FormGroup>
       </Col>
     </Row>
-  </Container>
-));
+  </Container>);

@@ -1,28 +1,20 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs';
-import { Container, Row, Col, Table } from '../';
-import sizes from './utils/sizes';
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import { withKnobs, boolean, select } from "@storybook/addon-knobs";
+import { Container, Row, Col, Table } from "../";
+import sizes from "./utils/sizes";
 
-import '../../scss/ray.scss';
+import "../../scss/ray.scss";
 
 const stories = storiesOf('Table', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('Default', () => (
-  <Container>
+stories.add('Default', () => <Container>
     <h1 className="my-4">Table</h1>
     <Row>
       <Col>
-        <Table
-          isBordered={boolean('Bordered', false)}
-          isBorderless={boolean('Borderless', false)}
-          isStriped={boolean('Striped', false)}
-          isHoverable={boolean('Hoverable', false)}
-          isResponsive={boolean('Responsive', false)}
-          size={select('Size', sizes, 'md')}
-        >
+        <Table isBordered={boolean('Bordered', false)} isBorderless={boolean('Borderless', false)} isStriped={boolean('Striped', false)} isHoverable={boolean('Hoverable', false)} isResponsive={boolean('Responsive', false)} size={select('Size', sizes, 'md')}>
           <thead>
             <tr>
               <th>#</th>
@@ -54,5 +46,4 @@ stories.add('Default', () => (
         </Table>
       </Col>
     </Row>
-  </Container>
-));
+  </Container>);
