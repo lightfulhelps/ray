@@ -7,8 +7,8 @@ export type Props = {
   isActive?: boolean;
   isDisabled?: boolean;
   isHeader?: boolean;
-  onClick?: (arg0: React.MouseEvent<>) => void;
-  tag?: string;
+  onClick?: (arg0: React.MouseEvent) => void;
+  tag?: keyof JSX.IntrinsicElements;
 };
 
 const DropdownItem: React.FC<Props> = ({
@@ -30,7 +30,7 @@ const DropdownItem: React.FC<Props> = ({
     { 'cursor-pointer': onClick && !isDisabled }
   );
 
-  function handleClick(e: React.MouseEvent<>) {
+  function handleClick(e: React.MouseEvent) {
     if (isDisabled) {
       e.preventDefault();
       return;

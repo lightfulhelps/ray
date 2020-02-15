@@ -5,7 +5,7 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   isCheck?: boolean;
-  tag?: string;
+  tag?: keyof JSX.IntrinsicElements;
 };
 
 const FormGroup: React.FC<Props> = ({

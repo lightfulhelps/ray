@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 
 type Props = {
@@ -7,57 +7,43 @@ type Props = {
   render: (arg0: boolean, arg1: () => void) => React.ReactNode;
 };
 
-type State = {
-  isOpen: boolean;
-};
+const Dropdown: React.FC<Props> = ({ className, isBlock, render, ...other }) => {
+  const node = null;
 
-class Dropdown extends React.Component<Props, State> {
-  node = null;
+  const [isOpen, setIsOpen] = useState(false);
 
-  state = {
-    isOpen: false,
-  };
-
-  componentDidMount() {
-    document.addEventListener('click', this.handleDocumentClick, true);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('click', this.handleDocumentClick, true);
-  }
-
-  handleToggle = () => {
-    this.setState({ isOpen: !this.state.isOpen });
-  };
-
-  handleDocumentClick = (e: Event) => {
-    if (
-      !e ||
-      (e && !e.target) ||
-      (this.node && this.node.contains(e.target as any) && this.node !== e.target)
-    ) {
+  const handleDocumentClick = (e: Event) => {
+    if (!e || (e && !e.target) || (node && node.contains(e.target as any) && node !== e.target)) {
       return;
     }
 
-    this.setState({ isOpen: false });
+    setIsOpen(false);
+  };
+  useEffect(() => {
+    document.addEventListener('click', handleDocumentClick, true);
+
+    return (): void => {
+      document.removeEventListener('click', handleDocumentClick, true);
+    };
+  }, []);
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
   };
 
-  render() {
-    const { className, isBlock, render, ...other } = this.props;
-    const classes = classNames(className, 'dropdown', isBlock ? 'd-block' : 'd-inline-block');
+  const classes = classNames(className, 'dropdown', isBlock ? 'd-block' : 'd-inline-block');
 
-    return (
-      <div
-        {...other}
-        className={classes}
-        ref={node => {
-          this.node = node;
-        }}
-      >
-        {render(this.state.isOpen, this.handleToggle)}
-      </div>
-    );
-  }
-}
+  return (
+    <div
+      {...other}
+      className={classes}
+      ref={node => {
+        node = node;
+      }}
+    >
+      {render(isOpen, handleToggle)}
+    </div>
+  );
+};
 
 export default Dropdown;

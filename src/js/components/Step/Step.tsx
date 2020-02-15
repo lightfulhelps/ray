@@ -6,7 +6,7 @@ type Props = {
   activeStep: number;
   isLast: boolean;
   label: string;
-  onClick?: (arg0: React.MouseEvent<>) => void;
+  onClick?: (arg0: React.MouseEvent) => void;
   thisStep: number;
   value: number | string;
 };

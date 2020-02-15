@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Button } from '../..';
+import { Props as ButtonProps } from '../Button/Button';
 
 type Props = {
   className?: string;
@@ -9,11 +10,11 @@ type Props = {
   description: string;
   image: string;
   isSelected?: boolean;
-  onClick: (arg0: React.MouseEvent<>) => void;
+  onClick: (arg0: React.MouseEvent) => void;
   title: string;
 };
 
-const CampaignTemplateCard = ({
+const CampaignTemplateCard: React.FC<Props> = ({
   className,
   ctaText = 'Use this template',
   ctaTextSelected = 'Selected',
@@ -38,7 +39,7 @@ const CampaignTemplateCard = ({
     backgroundPosition: 'center',
   };
 
-  const btnProps: any = {
+  const btnProps: ButtonProps & { 'data-test-id': string } = {
     'data-test-id': 'campaign-template-card-button',
     className: 'mt-2',
     onClick,

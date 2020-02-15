@@ -6,9 +6,9 @@ type Props = {
   className?: string;
   footer?: string;
   isOpen: boolean;
-  onClick?: (arg0: React.MouseEvent<>) => void;
+  onClick?: (arg0: React.MouseEvent) => void;
   position?: 'left' | 'right';
-  tag?: string;
+  tag?: keyof JSX.IntrinsicElements;
   theme?: 'light' | 'dark';
 };
 
@@ -31,7 +31,7 @@ const DropdownMenu: React.FC<Props> = ({
     { show: isOpen }
   );
 
-  function handleClick(e: React.MouseEvent<>) {
+  function handleClick(e: React.MouseEvent) {
     if (typeof onClick === 'function') {
       onClick(e);
     }

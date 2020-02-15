@@ -12,9 +12,9 @@ export type Props = {
   isBlock?: boolean;
   isDisabled?: boolean;
   isOutline?: boolean;
-  onClick?: (arg0: React.MouseEvent<>) => void;
+  onClick?: (arg0: React.MouseEvent) => void;
   size?: 'lg' | 'md' | 'sm';
-  tag?: string;
+  tag?: keyof JSX.IntrinsicElements;
   theme?: string;
   type?: 'button' | 'submit' | 'reset';
 };
@@ -46,14 +46,14 @@ const Button: React.FC<Props> = ({
     { [`btn-icon-${iconPosition}`]: icon && children }
   );
 
-  function handleClick(e: React.MouseEvent<>) {
+  const handleClick = (e: React.MouseEvent): void => {
     if (isDisabled) {
       e.preventDefault();
       return;
     }
 
     if (typeof onClick === 'function') onClick(e);
-  }
+  };
 
   return (
     <Tag
@@ -62,6 +62,7 @@ const Button: React.FC<Props> = ({
       onClick={handleClick}
       type={Tag === 'button' ? type : undefined}
       disabled={isDisabled}
+      blabla="grgr"
     >
       {children}
       {icon && <Icon name={icon} theme={iconTheme} />}

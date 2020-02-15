@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-const colWidths = ['xs', 'sm', 'md', 'lg', 'xl'];
+// Importatn to be able to use it as an index for props (TODO : Look for a better solution)
+const colWidths: Array<'xs' | 'sm' | 'md' | 'lg' | 'xl'> = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 type ColSizeType = boolean | number | string;
 
@@ -18,13 +19,13 @@ type ColumnType =
 type Props = {
   children: React.ReactNode;
   className?: string;
+  tag?: keyof JSX.IntrinsicElements;
   // eslint-disable-next-line react/no-unused-prop-types
   lg?: ColumnType;
   // eslint-disable-next-line react/no-unused-prop-types
   md?: ColumnType;
   // eslint-disable-next-line react/no-unused-prop-types
   sm?: ColumnType;
-  tag?: string;
   // eslint-disable-next-line react/no-unused-prop-types
   xl?: ColumnType;
   // eslint-disable-next-line react/no-unused-prop-types

@@ -101,7 +101,7 @@ const SearchSuggest: React.FC<Props> = ({
                 className="ml-1"
                 data-test-id="search-suggest-remove"
                 name="close"
-                onClick={(e: React.MouseEvent<>) => {
+                onClick={(e: React.MouseEvent) => {
                   e.stopPropagation();
                   onRemove(i);
                 }}

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 type Props = {
   className?: string;
+  onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
   isInvalid?: boolean;
   isValid?: boolean;
   size?: 'sm' | 'md' | 'lg';

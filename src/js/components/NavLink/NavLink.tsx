@@ -5,7 +5,7 @@ type Props = {
   className?: string;
   isActive?: boolean;
   isDisabled?: boolean;
-  tag?: string;
+  tag?: keyof JSX.IntrinsicElements;
   theme?: string;
 };
 

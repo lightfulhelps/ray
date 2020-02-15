@@ -39,6 +39,7 @@ module.exports = {
         devDependencies: ['**/*.spec.js', '**/*.stories.js', 'src/js/setupTests.js'],
       },
     ],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/no-named-as-default': 0,
     'import/no-useless-path-segments': 0,
     'import/prefer-default-export': 0,

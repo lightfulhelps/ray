@@ -8,7 +8,7 @@ type Props = {
   gradientEnd?: string;
   gradientStart?: string;
   resource: string;
-  tag?: string;
+  tag?: keyof JSX.IntrinsicElements;
   title: string;
 };
 
@@ -28,7 +28,7 @@ const ResourceCard: React.FC<Props> = ({
     'resource-card',
     'card p-1 rounded shadow h-100 bg-gray-900 text-decoration-none'
   );
-  const style = {};
+  const style: { [key: string]: string | number } = {};
 
   if (gradientStart && isHex(gradientStart) && gradientEnd && isHex(gradientEnd)) {
     style.backgroundImage = `linear-gradient(90deg, ${gradientStart} 0%, ${gradientEnd} 100%)`;

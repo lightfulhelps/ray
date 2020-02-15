@@ -5,7 +5,7 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   noGutters?: boolean;
-  tag?: string;
+  tag?: keyof JSX.IntrinsicElements;
 };
 
 const Row: React.FC<Props> = ({
