@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from '../..';
 
-const ClearIndicator = ({ innerProps }) => (
+const ClearIndicator: React.FC = ({ innerProps }) => (
   <Icon {...innerProps} name="close" title="Clear" theme="gray-500" />
 );
 

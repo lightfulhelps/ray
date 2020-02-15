@@ -9,7 +9,13 @@ type Props = {
   text: string;
 };
 
-const CharacterCounter = ({ className, count, max, text = '', ...other }: Props) => {
+const CharacterCounter: React.FC<Props> = ({
+  className,
+  count,
+  max,
+  text = '',
+  ...other
+}: Props) => {
   const current = count || text.length;
   const classes = classNames(className, 'character-counter', {
     'text-danger': max && current >= max,

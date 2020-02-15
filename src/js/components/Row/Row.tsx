@@ -1,6 +1,5 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   children: React.ReactNode;
@@ -9,7 +8,7 @@ type Props = {
   tag?: string;
 };
 
-const Row = ({
+const Row: React.FC<Props> = ({
   children,
   className,
   noGutters,
@@ -18,9 +17,11 @@ const Row = ({
 }: Props) => {
   const classes = classNames(className, 'row', { 'no-gutters': noGutters });
 
-  return <Tag {...other} className={classes}>
+  return (
+    <Tag {...other} className={classes}>
       {children}
-    </Tag>;
+    </Tag>
+  );
 };
 
 export default Row;

@@ -1,17 +1,18 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
-import { withKnobs, select, text } from "@storybook/addon-knobs";
-import { Container, Row, Col, Tag } from "../";
-import themes from "./utils/themes";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { withKnobs, select, text } from '@storybook/addon-knobs';
+import { Container, Row, Col, Tag } from '../';
+import themes from './utils/themes';
 
-import "../../scss/ray.scss";
+import '../../scss/ray.scss';
 
 const stories = storiesOf('Tag', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('Default', () => <Container>
+stories.add('Default', () => (
+  <Container>
     <h1 className="my-4">Tag</h1>
     <Row>
       <Col>
@@ -31,4 +32,5 @@ stories.add('Default', () => <Container>
         </Tag>
       </Col>
     </Row>
-  </Container>);
+  </Container>
+));

@@ -34,7 +34,7 @@ export const highlightMatches = (option: string, search: string, exclude: Exclud
   return ret;
 };
 
-const SearchSuggest = ({
+const SearchSuggest: React.FC<Props> = ({
   className,
   exclude,
   isLoading,

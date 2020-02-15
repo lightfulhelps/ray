@@ -1,4 +1,4 @@
-import icons from "./icons";
+import icons from './icons';
 
 describe('icons', () => {
   it('should match the snapshot', () => {

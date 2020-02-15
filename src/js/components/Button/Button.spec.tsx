@@ -1,58 +1,51 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import Button from "./Button";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import Button from './Button';
 
 const setup = (overrides = {}) => {
-  const props = merge({
-    children: 'Click Me',
-    onClick: jest.fn()
-  }, overrides);
+  const props = merge(
+    {
+      children: 'Click Me',
+      onClick: jest.fn(),
+    },
+    overrides
+  );
   const wrapper = shallow(<Button {...props} />);
 
   return {
     wrapper,
-    props
+    props,
   };
 };
 
 describe('<Button />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should render with an icon', () => {
-    const {
-      wrapper
-    } = setup({ icon: 'create' });
+    const { wrapper } = setup({ icon: 'create' });
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle the iconTheme props', () => {
-    const {
-      wrapper
-    } = setup({ icon: 'create', iconTheme: 'primary' });
+    const { wrapper } = setup({ icon: 'create', iconTheme: 'primary' });
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle the children prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.children().text()).toEqual('Click Me');
   });
 
   it('should handle the className prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -61,9 +54,7 @@ describe('<Button />', () => {
   });
 
   it('should handle the isBlock prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('btn-block')).toBe(false);
 
@@ -73,9 +64,7 @@ describe('<Button />', () => {
   });
 
   it('should handle the isDisabled prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('disabled')).toBe(false);
 
@@ -85,9 +74,7 @@ describe('<Button />', () => {
   });
 
   it('should handle the isOutline prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('btn-outline-primary')).toBe(false);
     expect(wrapper.hasClass('btn-primary')).toBe(true);
@@ -99,9 +86,7 @@ describe('<Button />', () => {
   });
 
   it('should handle the size prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ size: 'lg' });
 
@@ -113,9 +98,7 @@ describe('<Button />', () => {
   });
 
   it('should handle the tag prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.type()).toBe('button');
 
@@ -129,9 +112,7 @@ describe('<Button />', () => {
   });
 
   it('should handle the theme prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('btn-primary')).toBe(true);
 
@@ -143,9 +124,7 @@ describe('<Button />', () => {
   });
 
   it('should default the type prop to button if Tag is button', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ tag: 'button' });
 
@@ -161,9 +140,7 @@ describe('<Button />', () => {
   });
 
   it('should handle the iconPosition prop', () => {
-    const {
-      wrapper
-    } = setup({ icon: 'create' });
+    const { wrapper } = setup({ icon: 'create' });
 
     expect(wrapper.hasClass('btn-icon-left')).toBe(true);
 
@@ -177,9 +154,7 @@ describe('<Button />', () => {
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');
@@ -187,10 +162,7 @@ describe('<Button />', () => {
 
   describe('onClick', () => {
     it('should call onClick with data provided', () => {
-      const {
-        wrapper,
-        props
-      } = setup();
+      const { wrapper, props } = setup();
 
       wrapper.simulate('click', { foo: 'bar' });
 
@@ -200,9 +172,7 @@ describe('<Button />', () => {
 
     it('should preventDefault if isDisabled', () => {
       const preventDefault = jest.fn();
-      const {
-        wrapper
-      } = setup();
+      const { wrapper } = setup();
 
       wrapper.simulate('click');
 
@@ -216,9 +186,7 @@ describe('<Button />', () => {
     });
 
     it('should not error if onClick is not a function', () => {
-      const {
-        wrapper
-      } = setup({ onClick: 'foo' });
+      const { wrapper } = setup({ onClick: 'foo' });
 
       expect(() => {
         wrapper.simulate('click');

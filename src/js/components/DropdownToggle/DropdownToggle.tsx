@@ -7,7 +7,7 @@ type Props = {
   isOpen?: boolean;
 };
 
-const DropdownToggle = ({ className, isOpen = false, ...other }: Props) => {
+const DropdownToggle: React.FC<Props> = ({ className, isOpen = false, ...other }: Props) => {
   const classes = classNames(className, 'dropdown-toggle');
 
   return (

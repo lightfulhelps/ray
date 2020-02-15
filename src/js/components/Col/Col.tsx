@@ -1,16 +1,19 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 const colWidths = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 type ColSizeType = boolean | number | string;
 
-type ColumnType = boolean | number | string | {
-  offset: number | string;
-  order: number | string;
-  size: ColSizeType;
-};
+type ColumnType =
+  | boolean
+  | number
+  | string
+  | {
+      offset: number | string;
+      order: number | string;
+      size: ColSizeType;
+    };
 
 type Props = {
   children: React.ReactNode;
@@ -42,13 +45,8 @@ const getColumnSizeClass = (isXs: boolean, colWidth: string, colSize: ColSizeTyp
   return isXs ? `col-${colSize}` : `col-${colWidth}-${colSize}`;
 };
 
-const Col = (props: Props) => {
-  const {
-    children,
-    className,
-    tag: Tag = 'div',
-    ...other
-  } = props;
+const Col: React.FC<Props> = props => {
+  const { children, className, tag: Tag = 'div', ...other } = props;
   const colClasses = [];
 
   colWidths.forEach((colWidth, i) => {
@@ -64,11 +62,15 @@ const Col = (props: Props) => {
       const colSizeInterfix = isXs ? '-' : `-${colWidth}-`;
       const colClass = getColumnSizeClass(isXs, colWidth, columnProp.size);
 
-      colClasses.push(classNames({
-        [colClass]: columnProp.size || columnProp.size === '',
-        [`order${colSizeInterfix}${columnProp.order}`]: columnProp.order || columnProp.order === 0,
-        [`offset${colSizeInterfix}${columnProp.offset}`]: columnProp.offset || columnProp.offset === 0
-      }));
+      colClasses.push(
+        classNames({
+          [colClass]: columnProp.size || columnProp.size === '',
+          [`order${colSizeInterfix}${columnProp.order}`]:
+            columnProp.order || columnProp.order === 0,
+          [`offset${colSizeInterfix}${columnProp.offset}`]:
+            columnProp.offset || columnProp.offset === 0,
+        })
+      );
     } else {
       const colClass = getColumnSizeClass(isXs, colWidth, columnProp);
       colClasses.push(colClass);
@@ -81,9 +83,11 @@ const Col = (props: Props) => {
 
   const classes = classNames(className, colClasses);
 
-  return <Tag {...other} className={classes}>
+  return (
+    <Tag {...other} className={classes}>
       {children}
-    </Tag>;
+    </Tag>
+  );
 };
 
 export default Col;

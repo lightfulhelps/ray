@@ -1,6 +1,5 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   children: React.ReactNode;
@@ -8,12 +7,7 @@ type Props = {
   isCheck?: boolean;
 };
 
-const FormLabel = ({
-  children,
-  className,
-  isCheck,
-  ...other
-}: Props) => {
+const FormLabel: React.FC<Props> = ({ children, className, isCheck, ...other }: Props) => {
   const classes = classNames(className, isCheck ? 'form-check-label' : 'form-label');
 
   return (
@@ -22,7 +16,6 @@ const FormLabel = ({
       {children}
     </label>
     /* eslint-enable jsx-a11y/label-has-associated-control */
-
   );
 };
 

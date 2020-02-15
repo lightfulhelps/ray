@@ -1,7 +1,7 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import FormTextarea from "./FormTextarea";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import FormTextarea from './FormTextarea';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
@@ -12,25 +12,19 @@ const setup = (overrides = {}) => {
 
 describe('<FormTextarea />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle children', () => {
-    const {
-      wrapper
-    } = setup({ children: 'Children' });
+    const { wrapper } = setup({ children: 'Children' });
 
     expect(wrapper.text()).toBe('Children');
   });
 
   it('should handle className', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -39,9 +33,7 @@ describe('<FormTextarea />', () => {
   });
 
   it('should handle isInvalid', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('is-invalid')).toBe(false);
 
@@ -51,9 +43,7 @@ describe('<FormTextarea />', () => {
   });
 
   it('should handle isValid', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('is-valid')).toBe(false);
 
@@ -63,9 +53,7 @@ describe('<FormTextarea />', () => {
   });
 
   it('should handle size', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ size: 'lg' });
 
@@ -77,9 +65,7 @@ describe('<FormTextarea />', () => {
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');

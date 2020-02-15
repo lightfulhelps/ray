@@ -1,6 +1,5 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   children: React.ReactNode;
@@ -9,7 +8,7 @@ type Props = {
   tag?: string;
 };
 
-const FormFeedback = ({
+const FormFeedback: React.FC<Props> = ({
   children,
   className,
   isValid,
@@ -18,9 +17,11 @@ const FormFeedback = ({
 }: Props) => {
   const classes = classNames(className, isValid ? 'valid-feedback' : 'invalid-feedback');
 
-  return <Tag {...other} className={classes}>
+  return (
+    <Tag {...other} className={classes}>
       {children}
-    </Tag>;
+    </Tag>
+  );
 };
 
 export default FormFeedback;

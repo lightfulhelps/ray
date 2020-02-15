@@ -1,6 +1,5 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   className?: string;
@@ -10,7 +9,7 @@ type Props = {
   theme?: string;
 };
 
-const NavLink = ({
+const NavLink: React.FC<Props> = ({
   className,
   isActive,
   isDisabled,
@@ -18,7 +17,13 @@ const NavLink = ({
   theme = 'primary',
   ...other
 }: Props) => {
-  const classes = classNames(className, 'nav-link', { active: isActive }, { disabled: isDisabled }, `nav-link-${theme}`);
+  const classes = classNames(
+    className,
+    'nav-link',
+    { active: isActive },
+    { disabled: isDisabled },
+    `nav-link-${theme}`
+  );
 
   return <Tag {...other} className={classes} />;
 };

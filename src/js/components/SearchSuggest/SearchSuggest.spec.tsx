@@ -1,20 +1,36 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import SearchSuggest, { findMatches, highlightMatches } from "./SearchSuggest";
-import DropdownMenu from "../DropdownMenu/DropdownMenu";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import SearchSuggest, { findMatches, highlightMatches } from './SearchSuggest';
+import DropdownMenu from '../DropdownMenu/DropdownMenu';
 
 const setup = (overrides = {}) => {
-  const props = merge({
-    isLoading: false,
-    onClear: jest.fn(),
-    onClick: jest.fn(),
-    onRemove: jest.fn(),
-    onSelect: jest.fn(),
-    options: ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'],
-    search: 't',
-    title: 'Recent Searches'
-  }, overrides);
+  const props = merge(
+    {
+      isLoading: false,
+      onClear: jest.fn(),
+      onClick: jest.fn(),
+      onRemove: jest.fn(),
+      onSelect: jest.fn(),
+      options: [
+        'One',
+        'Two',
+        'Three',
+        'Four',
+        'Five',
+        'Six',
+        'Seven',
+        'Eight',
+        'Nine',
+        'Ten',
+        'Eleven',
+        'Twelve',
+      ],
+      search: 't',
+      title: 'Recent Searches',
+    },
+    overrides
+  );
 
   const wrapper = shallow(<SearchSuggest {...props} />);
 
@@ -23,10 +39,7 @@ const setup = (overrides = {}) => {
 
 describe('<SearchSuggest />', () => {
   it('should return null if not loading and no options', () => {
-    const {
-      wrapper,
-      props
-    } = setup();
+    const { wrapper, props } = setup();
 
     wrapper.setProps({ ...props, isLoading: true, search: '', options: [] });
 
@@ -38,10 +51,7 @@ describe('<SearchSuggest />', () => {
   });
 
   it('should return null if search value and no matching options', () => {
-    const {
-      wrapper,
-      props
-    } = setup();
+    const { wrapper, props } = setup();
 
     wrapper.setProps({ ...props, search: 'a', options: ['a', 'b', 'c'] });
 
@@ -53,17 +63,13 @@ describe('<SearchSuggest />', () => {
   });
 
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -72,9 +78,7 @@ describe('<SearchSuggest />', () => {
   });
 
   it('should handle isLoading', () => {
-    const {
-      wrapper
-    } = setup({ isLoading: true });
+    const { wrapper } = setup({ isLoading: true });
 
     expect(wrapper.find('[data-test-id="search-suggest-loading"]')).toHaveLength(1);
 
@@ -84,9 +88,7 @@ describe('<SearchSuggest />', () => {
   });
 
   it('should handle isOpen', () => {
-    const {
-      wrapper
-    } = setup({ isOpen: true });
+    const { wrapper } = setup({ isOpen: true });
 
     expect(wrapper.prop('isOpen')).toBe(true);
 
@@ -97,9 +99,7 @@ describe('<SearchSuggest />', () => {
 
   it('should handle limit', () => {
     const options = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'];
-    const {
-      wrapper
-    } = setup({ options, search: '' });
+    const { wrapper } = setup({ options, search: '' });
 
     expect(wrapper.find('[data-test-id="search-suggest-item"]')).toHaveLength(10);
 
@@ -113,10 +113,7 @@ describe('<SearchSuggest />', () => {
   });
 
   it('should handle onClear', () => {
-    const {
-      wrapper,
-      props
-    } = setup();
+    const { wrapper, props } = setup();
 
     wrapper.find('[data-test-id="search-suggest-clear"]').simulate('click');
 
@@ -124,10 +121,7 @@ describe('<SearchSuggest />', () => {
   });
 
   it('should handle onClick', () => {
-    const {
-      wrapper,
-      props
-    } = setup();
+    const { wrapper, props } = setup();
 
     wrapper.simulate('click');
 
@@ -135,14 +129,19 @@ describe('<SearchSuggest />', () => {
   });
 
   it('should handle onRemove', () => {
-    const {
-      wrapper,
-      props
-    } = setup();
+    const { wrapper, props } = setup();
     const stopPropagation = jest.fn();
 
-    wrapper.find('[data-test-id="search-suggest-item"]').at(0).find('[data-test-id="search-suggest-remove"]').simulate('click', { stopPropagation });
-    wrapper.find('[data-test-id="search-suggest-item"]').at(1).find('[data-test-id="search-suggest-remove"]').simulate('click', { stopPropagation });
+    wrapper
+      .find('[data-test-id="search-suggest-item"]')
+      .at(0)
+      .find('[data-test-id="search-suggest-remove"]')
+      .simulate('click', { stopPropagation });
+    wrapper
+      .find('[data-test-id="search-suggest-item"]')
+      .at(1)
+      .find('[data-test-id="search-suggest-remove"]')
+      .simulate('click', { stopPropagation });
 
     expect(stopPropagation).toHaveBeenCalledTimes(2);
     expect(props.onRemove).toHaveBeenCalledTimes(2);
@@ -152,14 +151,17 @@ describe('<SearchSuggest />', () => {
 
   it('should handle onSelect', () => {
     const options = ['A', 'B', 'C'];
-    const {
-      wrapper,
-      props
-    } = setup({ options, search: '' });
+    const { wrapper, props } = setup({ options, search: '' });
 
-    wrapper.find('[data-test-id="search-suggest-item"]').at(0).simulate('click');
+    wrapper
+      .find('[data-test-id="search-suggest-item"]')
+      .at(0)
+      .simulate('click');
 
-    wrapper.find('[data-test-id="search-suggest-item"]').at(1).simulate('click');
+    wrapper
+      .find('[data-test-id="search-suggest-item"]')
+      .at(1)
+      .simulate('click');
 
     expect(props.onSelect).toHaveBeenCalledTimes(2);
     expect(props.onSelect).toHaveBeenNthCalledWith(1, options[0], 0);
@@ -168,9 +170,7 @@ describe('<SearchSuggest />', () => {
 
   it('should handle options', () => {
     const options = ['A', 'b', 'c'];
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ options, search: '' });
 
@@ -179,9 +179,7 @@ describe('<SearchSuggest />', () => {
 
   it('should handle search', () => {
     const options = ['A', 'a', 'B', 'C'];
-    const {
-      wrapper
-    } = setup({ options, search: 'a' });
+    const { wrapper } = setup({ options, search: 'a' });
 
     expect(wrapper.find('[data-test-id="search-suggest-item"]')).toHaveLength(2);
 
@@ -191,9 +189,7 @@ describe('<SearchSuggest />', () => {
   });
 
   it('should handle title', () => {
-    const {
-      wrapper
-    } = setup({ title: '' });
+    const { wrapper } = setup({ title: '' });
 
     expect(wrapper.find('[data-test-id="search-suggest-header"]')).toHaveLength(0);
 
@@ -203,9 +199,7 @@ describe('<SearchSuggest />', () => {
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');
@@ -251,17 +245,25 @@ describe('highlightMatches()', () => {
   });
 
   it('should wrap matching strings in <strong class="text-gray-900"> tags', () => {
-    expect(highlightMatches('Test', 'T')).toEqual('<strong class="text-gray-900">T</strong>es<strong class="text-gray-900">t</strong>');
-    expect(highlightMatches('Test', 't')).toEqual('<strong class="text-gray-900">T</strong>es<strong class="text-gray-900">t</strong>');
+    expect(highlightMatches('Test', 'T')).toEqual(
+      '<strong class="text-gray-900">T</strong>es<strong class="text-gray-900">t</strong>'
+    );
+    expect(highlightMatches('Test', 't')).toEqual(
+      '<strong class="text-gray-900">T</strong>es<strong class="text-gray-900">t</strong>'
+    );
     expect(highlightMatches('Test', 'te')).toEqual('<strong class="text-gray-900">Te</strong>st');
     expect(highlightMatches('Test', 'est')).toEqual('T<strong class="text-gray-900">est</strong>');
   });
 
   it('should exclude specified string from highlight', () => {
-    expect(highlightMatches('test', '@test', '@')).toEqual('<strong class="text-gray-900">test</strong>');
+    expect(highlightMatches('test', '@test', '@')).toEqual(
+      '<strong class="text-gray-900">test</strong>'
+    );
   });
 
   it('should exclude characters in specified regex from highlight', () => {
-    expect(highlightMatches('test', '@t£e$s%t', /[^a-z]/g)).toEqual('<strong class="text-gray-900">test</strong>');
+    expect(highlightMatches('test', '@t£e$s%t', /[^a-z]/g)).toEqual(
+      '<strong class="text-gray-900">test</strong>'
+    );
   });
 });

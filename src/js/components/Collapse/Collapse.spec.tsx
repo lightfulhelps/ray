@@ -1,12 +1,15 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import Collapse from "./Collapse";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import Collapse from './Collapse';
 
 const setup = (overrides = {}) => {
-  const props = merge({
-    label: 'Click me'
-  }, overrides);
+  const props = merge(
+    {
+      label: 'Click me',
+    },
+    overrides
+  );
   const wrapper = shallow(<Collapse {...props} />);
 
   return { wrapper, props };
@@ -14,17 +17,13 @@ const setup = (overrides = {}) => {
 
 describe('<Collapse />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -32,18 +31,14 @@ describe('<Collapse />', () => {
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');
   });
 
   it('should toggle display of children', () => {
-    const {
-      wrapper
-    } = setup({ children: <div>My test content</div> });
+    const { wrapper } = setup({ children: <div>My test content</div> });
 
     expect(wrapper.find('[data-test-id="collapse-children"]')).toHaveLength(0);
 
@@ -57,25 +52,36 @@ describe('<Collapse />', () => {
   });
 
   it('should toggle icon', () => {
-    const {
+    const { wrapper } = setup();
+
+    expect(
       wrapper
-    } = setup();
-
-    expect(wrapper.find('[data-test-id="collapse-toggle"]').find('Icon').prop('name')).toEqual('chevronDown');
-
-    wrapper.find('[data-test-id="collapse-toggle"]').simulate('click');
-
-    expect(wrapper.find('[data-test-id="collapse-toggle"]').find('Icon').prop('name')).toEqual('chevronUp');
+        .find('[data-test-id="collapse-toggle"]')
+        .find('Icon')
+        .prop('name')
+    ).toEqual('chevronDown');
 
     wrapper.find('[data-test-id="collapse-toggle"]').simulate('click');
 
-    expect(wrapper.find('[data-test-id="collapse-toggle"]').find('Icon').prop('name')).toEqual('chevronDown');
+    expect(
+      wrapper
+        .find('[data-test-id="collapse-toggle"]')
+        .find('Icon')
+        .prop('name')
+    ).toEqual('chevronUp');
+
+    wrapper.find('[data-test-id="collapse-toggle"]').simulate('click');
+
+    expect(
+      wrapper
+        .find('[data-test-id="collapse-toggle"]')
+        .find('Icon')
+        .prop('name')
+    ).toEqual('chevronDown');
   });
 
   it('should be open if defaultOpen is true', () => {
-    const {
-      wrapper
-    } = setup({ defaultOpen: true });
+    const { wrapper } = setup({ defaultOpen: true });
 
     expect(wrapper.find('[data-test-id="collapse-children"]')).toHaveLength(1);
   });

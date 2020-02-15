@@ -1,6 +1,5 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   className?: string;
@@ -13,11 +12,10 @@ type State = {
 };
 
 class Dropdown extends React.Component<Props, State> {
-
   node = null;
 
   state = {
-    isOpen: false
+    isOpen: false,
   };
 
   componentDidMount() {
@@ -33,7 +31,11 @@ class Dropdown extends React.Component<Props, State> {
   };
 
   handleDocumentClick = (e: Event) => {
-    if (!e || e && !e.target || this.node && this.node.contains((e.target as any)) && this.node !== e.target) {
+    if (
+      !e ||
+      (e && !e.target) ||
+      (this.node && this.node.contains(e.target as any) && this.node !== e.target)
+    ) {
       return;
     }
 
@@ -41,19 +43,20 @@ class Dropdown extends React.Component<Props, State> {
   };
 
   render() {
-    const {
-      className,
-      isBlock,
-      render,
-      ...other
-    } = this.props;
+    const { className, isBlock, render, ...other } = this.props;
     const classes = classNames(className, 'dropdown', isBlock ? 'd-block' : 'd-inline-block');
 
-    return <div {...other} className={classes} ref={node => {
-      this.node = node;
-    }}>
+    return (
+      <div
+        {...other}
+        className={classes}
+        ref={node => {
+          this.node = node;
+        }}
+      >
         {render(this.state.isOpen, this.handleToggle)}
-      </div>;
+      </div>
+    );
   }
 }
 

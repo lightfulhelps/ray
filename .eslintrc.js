@@ -5,6 +5,8 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:prettier/recommended',
     'prettier/react',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
   env: {
     browser: true,
@@ -62,7 +64,7 @@ module.exports = {
     'react/button-has-type': 1, // https://github.com/yannickcr/eslint-plugin-react/issues/1846
     'react/destructuring-assignment': 0,
     'react/forbid-prop-types': 0,
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
     'react/jsx-one-expression-per-line': 0,
     'react/jsx-wrap-multilines': [
       2,
@@ -109,5 +111,12 @@ module.exports = {
         asyncArrow: 'always',
       },
     ],
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
   },
 };

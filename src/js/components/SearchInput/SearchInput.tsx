@@ -10,7 +10,7 @@ type Props = {
   value: string;
 };
 
-const SearchInput = ({
+const SearchInput: React.FC<Props> = ({
   className,
   onChange,
   onSearch,

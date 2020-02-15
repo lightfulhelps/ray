@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 type Props = {
-  checked: Boolean;
+  checked: boolean;
   className?: string;
   id?: string;
   isDisabled?: boolean;
@@ -14,7 +14,7 @@ type Props = {
   onClick?: (arg0: React.MouseEvent<>) => void;
 };
 
-const ToggleSwitch = ({
+const ToggleSwitch: React.FC<Props> = ({
   checked,
   className,
   id = 'toggle-switch',
@@ -25,7 +25,11 @@ const ToggleSwitch = ({
   onClick,
   ...other
 }: Props) => {
-  const classes = classNames(className, 'custom-control custom-switch', labelAlign && labelAlign !== 'right' && `custom-switch-${labelAlign}`);
+  const classes = classNames(
+    className,
+    'custom-control custom-switch',
+    labelAlign && labelAlign !== 'right' && `custom-switch-${labelAlign}`
+  );
 
   function handleClick(e: React.MouseEvent<>) {
     if (isDisabled) {
@@ -36,12 +40,21 @@ const ToggleSwitch = ({
     if (typeof onClick === 'function') onClick(e);
   }
 
-  return <div {...other} className={classes}>
-      <input type="checkbox" className="custom-control-input" id={id} disabled={isDisabled} checked={checked} onChange={onChange} />
+  return (
+    <div {...other} className={classes}>
+      <input
+        type="checkbox"
+        className="custom-control-input"
+        id={id}
+        disabled={isDisabled}
+        checked={checked}
+        onChange={onChange}
+      />
       <label className="custom-control-label" htmlFor={id} onClick={handleClick}>
         {label}
       </label>
-    </div>;
+    </div>
+  );
 };
 
 export default ToggleSwitch;

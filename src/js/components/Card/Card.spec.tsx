@@ -1,41 +1,38 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import Card from "./Card";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import Card from './Card';
 
 const setup = (overrides = {}) => {
-  const props = merge({
-    children: <p>Children</p>
-  }, overrides);
+  const props = merge(
+    {
+      children: <p>Children</p>,
+    },
+    overrides
+  );
   const wrapper = shallow(<Card {...props} />);
 
   return {
     wrapper,
-    props
+    props,
   };
 };
 
 describe('<Card />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle the children prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.children().text()).toEqual('Children');
   });
 
   it('should handle the className prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -44,9 +41,7 @@ describe('<Card />', () => {
   });
 
   it('should handle the tag prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.type()).toBe('div');
 
@@ -56,9 +51,7 @@ describe('<Card />', () => {
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');

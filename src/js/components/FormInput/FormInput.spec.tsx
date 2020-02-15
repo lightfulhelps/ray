@@ -1,7 +1,7 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import FormInput from "./FormInput";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import FormInput from './FormInput';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
@@ -12,17 +12,13 @@ const setup = (overrides = {}) => {
 
 describe('<FormInput />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -31,9 +27,7 @@ describe('<FormInput />', () => {
   });
 
   it('should handle isInvalid', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('is-invalid')).toBe(false);
 
@@ -43,9 +37,7 @@ describe('<FormInput />', () => {
   });
 
   it('should handle isValid', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('is-valid')).toBe(false);
 
@@ -55,9 +47,7 @@ describe('<FormInput />', () => {
   });
 
   it('should handle size', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ size: 'lg' });
 
@@ -69,9 +59,7 @@ describe('<FormInput />', () => {
   });
 
   it('should handle type', () => {
-    const {
-      wrapper
-    } = setup({ type: 'text' });
+    const { wrapper } = setup({ type: 'text' });
 
     expect(wrapper.hasClass('form-control')).toBe(true);
 
@@ -89,9 +77,7 @@ describe('<FormInput />', () => {
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');

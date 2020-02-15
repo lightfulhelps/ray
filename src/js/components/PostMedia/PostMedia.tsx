@@ -1,6 +1,5 @@
-
-import React from "react";
-import classNames from "classnames";
+import React from 'react';
+import classNames from 'classnames';
 
 type MediaType = {
   type: string;
@@ -12,31 +11,39 @@ type Props = {
   media: MediaType[];
 };
 
-const PostMedia = ({
-  className,
-  media,
-  ...other
-}: Props) => {
+const PostMedia: React.FC<Props> = ({ className, media, ...other }: Props) => {
   const blockClass = 'post-media';
   const classes = classNames(className, blockClass, `${blockClass}--${media.length}`);
 
   if (!media.length) {
-    return <div {...other} className={`${classes} ${blockClass}--empty`}>
+    return (
+      <div {...other} className={`${classes} ${blockClass}--empty`}>
         No media
-      </div>;
+      </div>
+    );
   }
 
   const video = media.find(m => m.type === 'video');
 
   if (video) {
-    return <div {...other} className={classes}>
+    return (
+      <div {...other} className={classes}>
         <video className={`${blockClass}__video`} controls src={video.url} />
-      </div>;
+      </div>
+    );
   }
 
-  return <div {...other} className={classes}>
-      {media.map((m, i) => <div key={i} className={`${blockClass}__image`} style={{ backgroundImage: `url(${m.url})` }} />)}
-    </div>;
+  return (
+    <div {...other} className={classes}>
+      {media.map((m, i) => (
+        <div
+          key={i}
+          className={`${blockClass}__image`}
+          style={{ backgroundImage: `url(${m.url})` }}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default PostMedia;

@@ -10,7 +10,7 @@ type Props = {
   url?: string;
 };
 
-const Avatar = ({
+const Avatar: React.FC<Props> = ({
   className,
   isDisconnected,
   url = '',

@@ -1,6 +1,5 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   className?: string;
@@ -10,7 +9,7 @@ type Props = {
   tag?: string;
 };
 
-const Nav = ({
+const Nav: React.FC<Props> = ({
   className,
   isFill,
   isPills,
@@ -18,7 +17,13 @@ const Nav = ({
   tag: Tag = 'ul',
   ...other
 }: Props) => {
-  const classes = classNames(className, 'nav', { 'nav-fill': isFill }, { 'nav-pills': isPills && !isTabs }, { 'nav-tabs': !isPills && isTabs });
+  const classes = classNames(
+    className,
+    'nav',
+    { 'nav-fill': isFill },
+    { 'nav-pills': isPills && !isTabs },
+    { 'nav-tabs': !isPills && isTabs }
+  );
 
   return <Tag {...other} className={classes} />;
 };

@@ -1,7 +1,6 @@
-
-import * as React from "react";
-import classNames from "classnames";
-import { Button } from "../..";
+import * as React from 'react';
+import classNames from 'classnames';
+import { Button } from '../..';
 
 type Props = {
   className?: string;
@@ -25,13 +24,18 @@ const CampaignTemplateCard = ({
   isSelected,
   ...other
 }: Props) => {
-  const classes = classNames(className, 'card h-100 rounded-lg', { 'campaign-template-card--selected': isSelected }, 'campaign-template-card');
+  const classes = classNames(
+    className,
+    'card h-100 rounded-lg',
+    { 'campaign-template-card--selected': isSelected },
+    'campaign-template-card'
+  );
 
   const imgStyles = {
     backgroundImage: `url(${image})`,
     height: 0,
     paddingBottom: '50%',
-    backgroundPosition: 'center'
+    backgroundPosition: 'center',
   };
 
   const btnProps: any = {
@@ -41,7 +45,7 @@ const CampaignTemplateCard = ({
     isBlock: true,
     isDisabled: false,
     theme: 'primary',
-    children: ctaText
+    children: ctaText,
   };
 
   if (isSelected) {
@@ -51,8 +55,13 @@ const CampaignTemplateCard = ({
     btnProps.children = ctaTextSelected;
   }
 
-  return <div {...other} className={classes}>
-      <div style={imgStyles} className="bg-cover bg-gray-900 w-100 rounded-top-lg" data-test-id="campaign-template-card-image" />
+  return (
+    <div {...other} className={classes}>
+      <div
+        style={imgStyles}
+        className="bg-cover bg-gray-900 w-100 rounded-top-lg"
+        data-test-id="campaign-template-card-image"
+      />
       <div className="p-2 d-flex h-100 flex-column justify-content-between">
         <div>
           <h5 data-test-id="campaign-template-card-title">{title}</h5>
@@ -62,7 +71,8 @@ const CampaignTemplateCard = ({
         </div>
         <Button {...btnProps} />
       </div>
-    </div>;
+    </div>
+  );
 };
 
 export default CampaignTemplateCard;

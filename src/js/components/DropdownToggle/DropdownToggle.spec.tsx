@@ -1,7 +1,7 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import DropdownToggle from "./DropdownToggle";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import DropdownToggle from './DropdownToggle';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
@@ -12,17 +12,13 @@ const setup = (overrides = {}) => {
 
 describe('<DropdownToggle />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -31,9 +27,7 @@ describe('<DropdownToggle />', () => {
   });
 
   it('should handle isOpen', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.prop('icon')).toEqual('caretDown');
 
@@ -43,9 +37,7 @@ describe('<DropdownToggle />', () => {
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');

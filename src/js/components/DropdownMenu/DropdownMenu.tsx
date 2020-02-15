@@ -1,6 +1,5 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   children: React.ReactNode;
@@ -8,12 +7,12 @@ type Props = {
   footer?: string;
   isOpen: boolean;
   onClick?: (arg0: React.MouseEvent<>) => void;
-  position?: "left" | "right";
+  position?: 'left' | 'right';
   tag?: string;
-  theme?: "light" | "dark";
+  theme?: 'light' | 'dark';
 };
 
-const DropdownMenu = ({
+const DropdownMenu: React.FC<Props> = ({
   children,
   className,
   footer,
@@ -24,7 +23,13 @@ const DropdownMenu = ({
   theme = 'light',
   ...other
 }: Props) => {
-  const classes = classNames(className, 'dropdown-menu', `dropdown-menu-${theme}`, `dropdown-menu-${position}`, { show: isOpen });
+  const classes = classNames(
+    className,
+    'dropdown-menu',
+    `dropdown-menu-${theme}`,
+    `dropdown-menu-${position}`,
+    { show: isOpen }
+  );
 
   function handleClick(e: React.MouseEvent<>) {
     if (typeof onClick === 'function') {
@@ -32,10 +37,12 @@ const DropdownMenu = ({
     }
   }
 
-  return <Tag {...other} className={classes} onClick={handleClick}>
+  return (
+    <Tag {...other} className={classes} onClick={handleClick}>
       {children}
       {footer && <div className="dropdown-footer">{footer}</div>}
-    </Tag>;
+    </Tag>
+  );
 };
 
 export default DropdownMenu;

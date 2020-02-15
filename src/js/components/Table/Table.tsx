@@ -1,6 +1,5 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   className?: string;
@@ -9,10 +8,10 @@ type Props = {
   isHoverable?: boolean;
   isResponsive?: boolean;
   isStriped?: boolean;
-  size?: "lg" | "sm";
+  size?: 'lg' | 'sm';
 };
 
-const Table = ({
+const Table: React.FC<Props> = ({
   className,
   isBordered,
   isBorderless,
@@ -22,7 +21,16 @@ const Table = ({
   size,
   ...other
 }: Props) => {
-  const classes = classNames(className, 'table', size ? `table-${size}` : false, { 'table-bordered': isBordered && !isBorderless }, { 'table-borderless': isBorderless && !isBordered }, { 'table-striped': isStriped }, { 'table-hover': isHoverable }, { 'table-responsive': isResponsive });
+  const classes = classNames(
+    className,
+    'table',
+    size ? `table-${size}` : false,
+    { 'table-bordered': isBordered && !isBorderless },
+    { 'table-borderless': isBorderless && !isBordered },
+    { 'table-striped': isStriped },
+    { 'table-hover': isHoverable },
+    { 'table-responsive': isResponsive }
+  );
 
   return <table {...other} className={classes} />;
 };

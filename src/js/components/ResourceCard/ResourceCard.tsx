@@ -14,7 +14,7 @@ type Props = {
 
 export const isHex = (string: string): boolean => /^#([0-9A-F]{3}){1,2}$/i.test(string);
 
-const ResourceCard = ({
+const ResourceCard: React.FC<Props> = ({
   campaign,
   className,
   gradientEnd,

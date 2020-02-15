@@ -1,24 +1,20 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   children: React.ReactNode;
   className?: string;
-  tag?: string;
+  tag?: keyof JSX.IntrinsicElements;
 };
 
-const Card = ({
-  children,
-  className,
-  tag: Tag = 'div',
-  ...other
-}: Props) => {
+const Card: React.FC<Props> = ({ children, className, tag: Tag = 'div', ...other }: Props) => {
   const classes = classNames(className, 'card');
 
-  return <Tag {...other} className={classes}>
+  return (
+    <Tag {...other} className={classes}>
       {children}
-    </Tag>;
+    </Tag>
+  );
 };
 
 export default Card;

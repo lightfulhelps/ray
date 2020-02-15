@@ -1,16 +1,15 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   children: string;
   className?: string;
   isInvalid?: boolean;
   isValid?: boolean;
-  size?: "sm" | "md" | "lg";
+  size?: 'sm' | 'md' | 'lg';
 };
 
-const FormTextarea = ({
+const FormTextarea: React.FC<Props> = ({
   children,
   className,
   isInvalid,
@@ -18,13 +17,21 @@ const FormTextarea = ({
   size,
   ...other
 }: Props) => {
-  const classes = classNames(className, 'form-control', size ? `form-control-${size}` : false, {
-    'is-invalid': isInvalid
-  }, { 'is-valid': isValid });
+  const classes = classNames(
+    className,
+    'form-control',
+    size ? `form-control-${size}` : false,
+    {
+      'is-invalid': isInvalid,
+    },
+    { 'is-valid': isValid }
+  );
 
-  return <textarea {...other} className={classes}>
+  return (
+    <textarea {...other} className={classes}>
       {children}
-    </textarea>;
+    </textarea>
+  );
 };
 
 export default FormTextarea;

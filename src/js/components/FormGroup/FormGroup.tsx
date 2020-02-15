@@ -1,6 +1,5 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   children: React.ReactNode;
@@ -9,7 +8,7 @@ type Props = {
   tag?: string;
 };
 
-const FormGroup = ({
+const FormGroup: React.FC<Props> = ({
   children,
   className,
   isCheck,
@@ -18,9 +17,11 @@ const FormGroup = ({
 }: Props) => {
   const classes = classNames(className, isCheck ? 'form-check' : 'form-group');
 
-  return <Tag {...other} className={classes}>
+  return (
+    <Tag {...other} className={classes}>
       {children}
-    </Tag>;
+    </Tag>
+  );
 };
 
 export default FormGroup;

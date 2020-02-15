@@ -1,7 +1,7 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import Nav from "./Nav";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import Nav from './Nav';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
@@ -12,17 +12,13 @@ const setup = (overrides = {}) => {
 
 describe('<Nav />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -31,9 +27,7 @@ describe('<Nav />', () => {
   });
 
   it('should handle isFill', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('nav-fill')).toBe(false);
 
@@ -43,9 +37,7 @@ describe('<Nav />', () => {
   });
 
   it('should handle isPills', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('nav-pills')).toBe(false);
 
@@ -55,9 +47,7 @@ describe('<Nav />', () => {
   });
 
   it('should handle isTabs', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('nav-tabs')).toBe(false);
 
@@ -67,9 +57,7 @@ describe('<Nav />', () => {
   });
 
   it('should handle tag', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.type()).toBe('ul');
 
@@ -83,9 +71,7 @@ describe('<Nav />', () => {
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');

@@ -8,7 +8,7 @@ type Props = {
   onRemove?: () => void;
 };
 
-const Tag = ({ children, className, onRemove, ...other }: Props) => {
+const Tag: React.FC<Props> = ({ children, className, onRemove, ...other }: Props) => {
   const classes = classNames(className, 'tag');
 
   return (

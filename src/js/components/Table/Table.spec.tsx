@@ -1,7 +1,7 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import Table from "./Table";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import Table from './Table';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
@@ -12,17 +12,13 @@ const setup = (overrides = {}) => {
 
 describe('<Table />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -31,9 +27,7 @@ describe('<Table />', () => {
   });
 
   it('should handle isBordered', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('table-bordered')).toBe(false);
 
@@ -43,9 +37,7 @@ describe('<Table />', () => {
   });
 
   it('should handle isBorderless', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('table-borderless')).toBe(false);
 
@@ -55,9 +47,7 @@ describe('<Table />', () => {
   });
 
   it('should handle isHoverable', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('table-hover')).toBe(false);
 
@@ -67,9 +57,7 @@ describe('<Table />', () => {
   });
 
   it('should handle isResponsive', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('table-responsive')).toBe(false);
 
@@ -79,9 +67,7 @@ describe('<Table />', () => {
   });
 
   it('should handle isStriped', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('table-striped')).toBe(false);
 
@@ -91,9 +77,7 @@ describe('<Table />', () => {
   });
 
   it('should handle size', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('table')).toBe(true);
     expect(wrapper.hasClass('table-sm')).toBe(false);
@@ -113,9 +97,7 @@ describe('<Table />', () => {
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');

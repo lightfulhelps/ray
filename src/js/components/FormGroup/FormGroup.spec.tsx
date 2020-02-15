@@ -1,7 +1,7 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import FormGroup from "./FormGroup";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import FormGroup from './FormGroup';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
@@ -12,25 +12,19 @@ const setup = (overrides = {}) => {
 
 describe('<FormGroup />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle children', () => {
-    const {
-      wrapper
-    } = setup({ children: 'Children' });
+    const { wrapper } = setup({ children: 'Children' });
 
     expect(wrapper.text()).toBe('Children');
   });
 
   it('should handle className', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -39,9 +33,7 @@ describe('<FormGroup />', () => {
   });
 
   it('should handle isCheck', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('form-group')).toBe(true);
     expect(wrapper.hasClass('form-check')).toBe(false);
@@ -53,9 +45,7 @@ describe('<FormGroup />', () => {
   });
 
   it('should handle tag', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.type()).toBe('div');
 
@@ -65,9 +55,7 @@ describe('<FormGroup />', () => {
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');

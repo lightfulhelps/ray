@@ -1,41 +1,38 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import Badge from "./Badge";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import Badge from './Badge';
 
 const setup = (overrides = {}) => {
-  const props = merge({
-    children: 'Badge'
-  }, overrides);
+  const props = merge(
+    {
+      children: 'Badge',
+    },
+    overrides
+  );
   const wrapper = shallow(<Badge {...props} />);
 
   return {
     wrapper,
-    props
+    props,
   };
 };
 
 describe('<Badge />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle the children prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.children().text()).toEqual('Badge');
   });
 
   it('should handle the className prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -44,21 +41,17 @@ describe('<Badge />', () => {
   });
 
   it('should handle the color prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ color: '#ff0000' });
 
     expect(wrapper.prop('style')).toEqual({
-      backgroundColor: '#ff0000'
+      backgroundColor: '#ff0000',
     });
   });
 
   it('should handle the isOutline prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('badge-outline-primary')).toBe(false);
     expect(wrapper.hasClass('badge-primary')).toBe(true);
@@ -70,9 +63,7 @@ describe('<Badge />', () => {
   });
 
   it('should handle the isPill prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('badge-pill')).toBe(false);
 
@@ -82,9 +73,7 @@ describe('<Badge />', () => {
   });
 
   it('should handle the tag prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.type()).toBe('div');
 
@@ -98,9 +87,7 @@ describe('<Badge />', () => {
   });
 
   it('should handle the theme prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.hasClass('badge-primary')).toBe(true);
 
@@ -111,9 +98,7 @@ describe('<Badge />', () => {
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');

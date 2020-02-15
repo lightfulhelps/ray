@@ -1,15 +1,16 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import { withKnobs } from "@storybook/addon-knobs";
-import { Container, Row, Col, Collapse, Card } from "../";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
+import { Container, Row, Col, Collapse, Card } from '../';
 
-import "../../scss/ray.scss";
+import '../../scss/ray.scss';
 
 const stories = storiesOf('Collapse', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('Default', () => <Container>
+stories.add('Default', () => (
+  <Container>
     <h1 className="my-4">Collapse</h1>
     <Row>
       <Col sm={6}>
@@ -43,4 +44,5 @@ stories.add('Default', () => <Container>
         </Card>
       </Col>
     </Row>
-  </Container>);
+  </Container>
+));

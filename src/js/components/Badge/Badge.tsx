@@ -1,6 +1,5 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   children: React.ReactNode;
@@ -8,11 +7,11 @@ type Props = {
   color?: string;
   isOutline?: boolean;
   isPill?: boolean;
-  tag?: string;
+  tag?: keyof JSX.IntrinsicElements;
   theme?: string;
 };
 
-const Badge = ({
+const Badge: React.FC<Props> = ({
   children,
   className,
   color,
@@ -22,13 +21,22 @@ const Badge = ({
   theme = 'primary',
   ...other
 }: Props) => {
-  const classes = classNames(className, 'badge', `badge${isOutline ? '-outline' : ''}-${theme}`, 'text-truncate', 'mw-100', {
-    'badge-pill': isPill
-  });
+  const classes = classNames(
+    className,
+    'badge',
+    `badge${isOutline ? '-outline' : ''}-${theme}`,
+    'text-truncate',
+    'mw-100',
+    {
+      'badge-pill': isPill,
+    }
+  );
 
-  return <Tag {...other} className={classes} style={{ backgroundColor: color }}>
+  return (
+    <Tag {...other} className={classes} style={{ backgroundColor: color }}>
       {children}
-    </Tag>;
+    </Tag>
+  );
 };
 
 export default Badge;

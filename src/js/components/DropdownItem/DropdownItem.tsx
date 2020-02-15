@@ -1,6 +1,5 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 export type Props = {
   children: React.ReactNode;
@@ -12,7 +11,7 @@ export type Props = {
   tag?: string;
 };
 
-const DropdownItem = ({
+const DropdownItem: React.FC<Props> = ({
   children,
   className,
   isActive,
@@ -22,7 +21,14 @@ const DropdownItem = ({
   tag: Tag = 'div',
   ...other
 }: Props) => {
-  const classes = classNames(className, { 'dropdown-item': !isHeader }, { 'dropdown-header': isHeader }, { active: isActive }, { disabled: isDisabled }, { 'cursor-pointer': onClick && !isDisabled });
+  const classes = classNames(
+    className,
+    { 'dropdown-item': !isHeader },
+    { 'dropdown-header': isHeader },
+    { active: isActive },
+    { disabled: isDisabled },
+    { 'cursor-pointer': onClick && !isDisabled }
+  );
 
   function handleClick(e: React.MouseEvent<>) {
     if (isDisabled) {
@@ -33,9 +39,11 @@ const DropdownItem = ({
     if (typeof onClick === 'function') onClick(e);
   }
 
-  return <Tag {...other} className={classes} onClick={handleClick}>
+  return (
+    <Tag {...other} className={classes} onClick={handleClick}>
       {children}
-    </Tag>;
+    </Tag>
+  );
 };
 
 export default DropdownItem;

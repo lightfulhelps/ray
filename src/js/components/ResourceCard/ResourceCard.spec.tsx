@@ -1,16 +1,19 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import ResourceCard, { isHex } from "./ResourceCard";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import ResourceCard, { isHex } from './ResourceCard';
 
 const setup = (overrides = {}) => {
-  const props = merge({
-    campaign: 'Fireside Storytelling',
-    gradientStart: '#fafafa',
-    gradientEnd: '#000000',
-    resource: 'http://foo.com/bar.pdf',
-    title: 'Useful storytelling guide'
-  }, overrides);
+  const props = merge(
+    {
+      campaign: 'Fireside Storytelling',
+      gradientStart: '#fafafa',
+      gradientEnd: '#000000',
+      resource: 'http://foo.com/bar.pdf',
+      title: 'Useful storytelling guide',
+    },
+    overrides
+  );
   const wrapper = shallow(<ResourceCard {...props} />);
 
   return { wrapper, props };
@@ -18,17 +21,13 @@ const setup = (overrides = {}) => {
 
 describe('<ResourceCard />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -38,50 +37,40 @@ describe('<ResourceCard />', () => {
 
   it('should handle campaign', () => {
     const campaign = 'My campaign';
-    const {
-      wrapper
-    } = setup({ campaign });
+    const { wrapper } = setup({ campaign });
 
     expect(wrapper.find('[data-test-id="resource-card-campaign"]').text()).toEqual(campaign);
   });
 
   it('should handle title', () => {
     const title = 'My title';
-    const {
-      wrapper
-    } = setup({ title });
+    const { wrapper } = setup({ title });
 
     expect(wrapper.find('[data-test-id="resource-card-title"]').text()).toEqual(title);
   });
 
   it('should not have a gradient background if gradientStart is an invalid HEX code', () => {
-    const {
-      wrapper
-    } = setup({ gradientStart: 'foo', gradientEnd: '#ff0000' });
+    const { wrapper } = setup({ gradientStart: 'foo', gradientEnd: '#ff0000' });
 
     expect(wrapper.prop('style').backgroundImage).toBeUndefined();
   });
 
   it('should not have a gradient background if gradientEnd is an invalid HEX code', () => {
-    const {
-      wrapper
-    } = setup({ gradientStart: '#ff0000', gradientEnd: 'foo' });
+    const { wrapper } = setup({ gradientStart: '#ff0000', gradientEnd: 'foo' });
 
     expect(wrapper.prop('style').backgroundImage).toBeUndefined();
   });
 
   it('should have a gradient background if gradientStart and gradientEnd are valid HEX codes', () => {
-    const {
-      wrapper
-    } = setup({ gradientStart: '#ff0000', gradientEnd: '#fafafa' });
+    const { wrapper } = setup({ gradientStart: '#ff0000', gradientEnd: '#fafafa' });
 
-    expect(wrapper.prop('style').backgroundImage).toEqual('linear-gradient(90deg, #ff0000 0%, #fafafa 100%)');
+    expect(wrapper.prop('style').backgroundImage).toEqual(
+      'linear-gradient(90deg, #ff0000 0%, #fafafa 100%)'
+    );
   });
 
   it('should handle the tag prop', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.type()).toBe('a');
 
@@ -91,9 +80,7 @@ describe('<ResourceCard />', () => {
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');

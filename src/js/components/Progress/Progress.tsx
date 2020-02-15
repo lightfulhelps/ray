@@ -1,6 +1,5 @@
-
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   children?: React.ReactNode;
@@ -11,7 +10,7 @@ type Props = {
   value: number;
 };
 
-const Progress = ({
+const Progress: React.FC<Props> = ({
   children,
   className,
   isAnimated,
@@ -21,13 +20,29 @@ const Progress = ({
   ...other
 }: Props) => {
   const classes = classNames(className, 'progress');
-  const barClasses = classNames('progress-bar', { [`bg-${theme}`]: theme && value <= 100 }, { 'bg-danger': value > 100 }, { 'progress-bar-animated': isAnimated }, { 'progress-bar-striped': isStriped });
+  const barClasses = classNames(
+    'progress-bar',
+    { [`bg-${theme}`]: theme && value <= 100 },
+    { 'bg-danger': value > 100 },
+    { 'progress-bar-animated': isAnimated },
+    { 'progress-bar-striped': isStriped }
+  );
 
-  return <div {...other} className={classes} data-test-id="progress">
-      <div className={barClasses} data-test-id="progress-bar" role="progressbar" style={{ width: `${value}%` }} aria-valuenow={value} aria-valuemin="0" aria-valuemax="100">
+  return (
+    <div {...other} className={classes} data-test-id="progress">
+      <div
+        className={barClasses}
+        data-test-id="progress-bar"
+        role="progressbar"
+        style={{ width: `${value}%` }}
+        aria-valuenow={value}
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
         {children}
       </div>
-    </div>;
+    </div>
+  );
 };
 
 export default Progress;

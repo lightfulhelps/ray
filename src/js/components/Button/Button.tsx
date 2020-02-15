@@ -1,26 +1,25 @@
-
-import * as React from "react";
-import classNames from "classnames";
-import Icon from "../Icon/Icon";
-import { IconNameType } from "../Icon/icons";
+import * as React from 'react';
+import classNames from 'classnames';
+import Icon from '../Icon/Icon';
+import { IconNameType } from '../Icon/icons';
 
 export type Props = {
   children?: React.ReactNode;
   className?: string;
   icon?: IconNameType;
-  iconPosition?: "left" | "right";
+  iconPosition?: 'left' | 'right';
   iconTheme?: string;
   isBlock?: boolean;
   isDisabled?: boolean;
   isOutline?: boolean;
   onClick?: (arg0: React.MouseEvent<>) => void;
-  size?: "lg" | "md" | "sm";
+  size?: 'lg' | 'md' | 'sm';
   tag?: string;
   theme?: string;
-  type?: "button" | "submit" | "reset";
+  type?: 'button' | 'submit' | 'reset';
 };
 
-const Button = ({
+const Button: React.FC<Props> = ({
   children,
   className,
   icon,
@@ -36,7 +35,16 @@ const Button = ({
   type = 'button',
   ...other
 }: Props) => {
-  const classes = classNames(className, 'btn', `btn${isOutline ? '-outline' : ''}-${theme}`, size ? `btn-${size}` : false, { 'btn-block': isBlock }, { disabled: isDisabled }, { 'btn-icon': icon && !children }, { [`btn-icon-${iconPosition}`]: icon && children });
+  const classes = classNames(
+    className,
+    'btn',
+    `btn${isOutline ? '-outline' : ''}-${theme}`,
+    size ? `btn-${size}` : false,
+    { 'btn-block': isBlock },
+    { disabled: isDisabled },
+    { 'btn-icon': icon && !children },
+    { [`btn-icon-${iconPosition}`]: icon && children }
+  );
 
   function handleClick(e: React.MouseEvent<>) {
     if (isDisabled) {
@@ -47,10 +55,18 @@ const Button = ({
     if (typeof onClick === 'function') onClick(e);
   }
 
-  return <Tag {...other} className={classes} onClick={handleClick} type={Tag === 'button' ? type : undefined} disabled={isDisabled}>
+  return (
+    <Tag
+      {...other}
+      className={classes}
+      onClick={handleClick}
+      type={Tag === 'button' ? type : undefined}
+      disabled={isDisabled}
+    >
       {children}
       {icon && <Icon name={icon} theme={iconTheme} />}
-    </Tag>;
+    </Tag>
+  );
 };
 
 export default Button;

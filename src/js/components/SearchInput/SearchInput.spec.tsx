@@ -1,13 +1,16 @@
-import React from "react";
-import { shallow } from "enzyme";
-import merge from "lodash/merge";
-import SearchInput from "./SearchInput";
+import React from 'react';
+import { shallow } from 'enzyme';
+import merge from 'lodash/merge';
+import SearchInput from './SearchInput';
 
 const setup = (overrides = {}) => {
-  const props = merge({
-    onChange: jest.fn(),
-    onSearch: jest.fn()
-  }, overrides);
+  const props = merge(
+    {
+      onChange: jest.fn(),
+      onSearch: jest.fn(),
+    },
+    overrides
+  );
   const wrapper = shallow(<SearchInput {...props} />);
 
   return { wrapper, props };
@@ -15,17 +18,13 @@ const setup = (overrides = {}) => {
 
 describe('<SearchInput />', () => {
   it('should render', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     wrapper.setProps({ className: 'custom' });
 
@@ -34,10 +33,7 @@ describe('<SearchInput />', () => {
   });
 
   it('should handle onChange', () => {
-    const {
-      wrapper,
-      props
-    } = setup();
+    const { wrapper, props } = setup();
 
     wrapper.find('[data-test-id="search-input"]').simulate('change', { target: { value: 'Test' } });
 
@@ -46,10 +42,7 @@ describe('<SearchInput />', () => {
 
   describe('onSearch', () => {
     it('should call onSearch on button click', () => {
-      const {
-        wrapper,
-        props
-      } = setup();
+      const { wrapper, props } = setup();
 
       wrapper.find('[data-test-id="search-input-button"]').simulate('click');
 
@@ -57,10 +50,7 @@ describe('<SearchInput />', () => {
     });
 
     it('should call onSearch with event on Enter keypress', () => {
-      const {
-        wrapper,
-        props
-      } = setup();
+      const { wrapper, props } = setup();
 
       wrapper.find('[data-test-id="search-input"]').simulate('keyPress', { key: 'a' });
 
@@ -74,29 +64,25 @@ describe('<SearchInput />', () => {
   });
 
   it('should handle placeholder', () => {
-    const {
-      wrapper
-    } = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.find('[data-test-id="search-input"]').prop('placeholder')).toEqual('Search...');
 
     wrapper.setProps({ placeholder: 'Search here...' });
 
-    expect(wrapper.find('[data-test-id="search-input"]').prop('placeholder')).toEqual('Search here...');
+    expect(wrapper.find('[data-test-id="search-input"]').prop('placeholder')).toEqual(
+      'Search here...'
+    );
   });
 
   it('should handle value', () => {
-    const {
-      wrapper
-    } = setup({ value: 'Test' });
+    const { wrapper } = setup({ value: 'Test' });
 
     expect(wrapper.find('[data-test-id="search-input"]').prop('value')).toEqual('Test');
   });
 
   it('should pass through other props', () => {
-    const {
-      wrapper
-    } = setup({ tabIndex: 1, id: 'test' });
+    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
 
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');

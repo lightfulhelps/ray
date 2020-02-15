@@ -1,15 +1,16 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import { withKnobs } from "@storybook/addon-knobs";
-import { Container, Row, Col, Avatar } from "../";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
+import { Container, Row, Col, Avatar } from '../';
 
-import "../../scss/ray.scss";
+import '../../scss/ray.scss';
 
 const stories = storiesOf('Avatar', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('Default', () => <Container>
+stories.add('Default', () => (
+  <Container>
     <h1 className="my-4">Avatar</h1>
     <Row>
       <Col xs={3} sm={2} md={1} className="mb-2">
@@ -31,16 +32,33 @@ stories.add('Default', () => <Container>
         <Avatar url="https://randomuser.me/api/portraits/women/47.jpg" provider="linkedin" />
       </Col>
       <Col xs={3} sm={2} md={1} className="mb-2">
-        <Avatar url="https://randomuser.me/api/portraits/women/47.jpg" provider="tick" providerSize="sm" />
+        <Avatar
+          url="https://randomuser.me/api/portraits/women/47.jpg"
+          provider="tick"
+          providerSize="sm"
+        />
       </Col>
       <Col xs={3} sm={2} md={1} className="mb-2">
-        <Avatar url="https://randomuser.me/api/portraits/women/47.jpg" provider="linkedin" isDisconnected />
+        <Avatar
+          url="https://randomuser.me/api/portraits/women/47.jpg"
+          provider="linkedin"
+          isDisconnected
+        />
       </Col>
       <Col xs={3} sm={2} md={1} className="mb-2">
-        <Avatar url="https://randomuser.me/api/portraits/women/47.jpg" providerSize="lg" provider="linkedin" />
+        <Avatar
+          url="https://randomuser.me/api/portraits/women/47.jpg"
+          providerSize="lg"
+          provider="linkedin"
+        />
       </Col>
       <Col xs={3} sm={2} md={1} className="mb-2">
-        <Avatar url="https://randomuser.me/api/portraits/women/47.jpg" providerSize="sm" provider="linkedin" />
+        <Avatar
+          url="https://randomuser.me/api/portraits/women/47.jpg"
+          providerSize="sm"
+          provider="linkedin"
+        />
       </Col>
     </Row>
-  </Container>);
+  </Container>
+));
