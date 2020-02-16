@@ -49,6 +49,39 @@ describe('<ResourceCard />', () => {
     expect(wrapper.find('[data-test-id="resource-card-title"]').text()).toEqual(title);
   });
 
+  it('should display background image if valid backgroundImage URL is passed', () => {
+    const { wrapper } = setup({
+      imageForBackground:
+        'https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80',
+    });
+
+    expect(wrapper.prop('style')).toEqual(
+      expect.objectContaining({
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80')",
+      })
+    );
+  });
+  it('should display background image in perference of gradients if backgroundImage URL is passed', () => {
+    const { wrapper } = setup({
+      gradientStart: '#ff0000',
+      gradientEnd: '#fafafa',
+      imageForBackground:
+        'https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80',
+    });
+    expect(wrapper.prop('style')).toEqual(
+      expect.objectContaining({
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1566996533071-2c578080c06e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=716&q=80')",
+      })
+    );
+  });
   it('should not have a gradient background if gradientStart is an invalid HEX code', () => {
     const { wrapper } = setup({ gradientStart: 'foo', gradientEnd: '#ff0000' });
 

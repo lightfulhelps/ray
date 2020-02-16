@@ -7,6 +7,7 @@ type Props = {
   className?: string;
   gradientEnd?: string;
   gradientStart?: string;
+  imageForBackground?: string;
   resource: string;
   tag?: keyof JSX.IntrinsicElements;
   title: string;
@@ -21,6 +22,7 @@ const ResourceCard: React.FC<Props> = ({
   gradientStart,
   tag: Tag = 'a',
   title,
+  imageForBackground,
   ...other
 }: Props) => {
   const classes = classNames(
@@ -30,7 +32,12 @@ const ResourceCard: React.FC<Props> = ({
   );
   const style: { [key: string]: string | number } = {};
 
-  if (gradientStart && isHex(gradientStart) && gradientEnd && isHex(gradientEnd)) {
+  if (imageForBackground) {
+    style.backgroundImage = `url('${imageForBackground}')`;
+    style.backgroundPosition = 'center';
+    style.backgroundSize = 'cover';
+    style.backgroundRepeat = 'no-repeat';
+  } else if (gradientStart && isHex(gradientStart) && gradientEnd && isHex(gradientEnd)) {
     style.backgroundImage = `linear-gradient(90deg, ${gradientStart} 0%, ${gradientEnd} 100%)`;
   }
 
