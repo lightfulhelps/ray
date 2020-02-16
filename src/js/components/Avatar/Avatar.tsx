@@ -5,7 +5,7 @@ import { Icon } from '../..';
 type Props = {
   className?: string;
   isDisconnected?: boolean;
-  provider?: 'facebook' | 'twitter' | 'linkedin';
+  provider?: 'facebook' | 'twitter' | 'linkedin' | 'tick';
   providerSize?: 'sm' | 'md' | 'lg';
   url?: string;
 };

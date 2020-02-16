@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col, Button } from '..';
-import allIcons from '../components/Icon/icons';
+import allIcons, { IconNameType } from '../components/Icon/icons';
 import themes from './utils/themes';
 import sizes from './utils/sizes';
 
@@ -11,13 +11,13 @@ import '../../scss/ray.scss';
 
 const stories = storiesOf('Button', module);
 
-const icons = {};
+const icons: { [key: string]: IconNameType } = {};
 
 Object.keys(allIcons).forEach(key => {
-  icons[key] = key;
+  icons[key as IconNameType] = key as IconNameType;
 });
 
-const iconPositions = {
+const iconPositions: { [key: string]: 'left' | 'right' } = {
   left: 'left',
   right: 'right',
 };
@@ -37,14 +37,14 @@ stories.add('Default', () => (
           isOutline={boolean('Outline', false)}
           onClick={action('clicked')}
           size={select('Size', sizes, 'md')}
-          icon={boolean('Show Icon', false) && select('Icon', icons, 'media')}
+          icon={boolean('Show Icon', false) ? select('Icon', icons, 'media') : undefined}
           iconPosition={
-            boolean('Show Icon', false) && select('Icon Position', iconPositions, 'left')
+            boolean('Show Icon', false) ? select('Icon Position', iconPositions, 'left') : undefined
           }
           iconTheme={
-            boolean('Show Icon', false) &&
-            boolean('Use theme?', false) &&
-            select('Icon Theme', themes, 'light')
+            boolean('Show Icon', false) && boolean('Use theme?', false)
+              ? select('Icon Theme', themes, 'light')
+              : undefined
           }
         >
           {text('Text', 'Click Me')}
@@ -59,9 +59,9 @@ stories.add('Default', () => (
           size={select('Size', sizes, 'md')}
           icon={select('Icon', icons, 'media')}
           iconTheme={
-            boolean('Show Icon', false) &&
-            boolean('Use theme?', false) &&
-            select('Icon Theme', themes, 'light')
+            boolean('Show Icon', false) && boolean('Use theme?', false)
+              ? select('Icon Theme', themes, 'light')
+              : undefined
           }
         />
       </Col>

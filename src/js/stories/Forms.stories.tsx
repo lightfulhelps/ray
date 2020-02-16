@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
 import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import {
   Container,
@@ -52,7 +52,12 @@ stories.add('Default', () => (
       <Col>
         <FormGroup>
           <FormLabel>Name</FormLabel>
-          <FormInput isInvalid name="name" type="text" size={select('Select Size', sizes)} />
+          <FormInput
+            isInvalid
+            name="name"
+            type="text"
+            size={select('Select Size', sizes, sizes.md)}
+          />
           <FormFeedback>This field is invalid</FormFeedback>
         </FormGroup>
         <FormGroup>

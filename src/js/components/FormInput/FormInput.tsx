@@ -1,14 +1,15 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-type Props = {
+interface Props extends React.HTMLAttributes<HTMLInputElement> {
   className?: string;
   onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
   isInvalid?: boolean;
   isValid?: boolean;
   size?: 'sm' | 'md' | 'lg';
   type: string;
-};
+  name: string;
+}
 
 const FormInput: React.FC<Props> = ({
   className,
@@ -16,6 +17,7 @@ const FormInput: React.FC<Props> = ({
   isValid,
   size,
   type,
+  name,
   ...other
 }: Props) => {
   const checkInput = type === 'radio' || type === 'checkbox';
@@ -30,7 +32,7 @@ const FormInput: React.FC<Props> = ({
     { 'is-valid': isValid }
   );
 
-  return <input {...other} className={classes} type={type} />;
+  return <input {...other} name={name} className={classes} type={type} />;
 };
 
 export default FormInput;

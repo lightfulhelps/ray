@@ -1,5 +1,5 @@
 export default {
-  sm: 'Small',
-  md: 'Medium',
-  lg: 'Large',
-} as { [key: string]: string };
+  Small: 'sm',
+  Medium: 'md',
+  Large: 'lg',
+} as { [key: string]: 'sm' | 'md' | 'lg' };
