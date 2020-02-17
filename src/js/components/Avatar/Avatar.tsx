@@ -8,6 +8,7 @@ type Props = {
   provider?: 'facebook' | 'twitter' | 'linkedin' | 'tick';
   providerSize?: 'sm' | 'md' | 'lg';
   url?: string;
+  style?: { [key: string]: number | string };
 };
 
 const Avatar: React.FC<Props> = ({

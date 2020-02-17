@@ -6,6 +6,8 @@ type Props = {
   children: string;
   className?: string;
   onRemove?: () => void;
+  theme?: string;
+  isOutline?: boolean;
 };
 
 const Tag: React.FC<Props> = ({ children, className, onRemove, ...other }: Props) => {

@@ -20,7 +20,7 @@ type Props = {
 };
 
 export const findMatches = (option: string, search: string, exclude: ExcludeType): boolean => {
-  const normalize = str => str.replace(exclude, '').toLowerCase();
+  const normalize = (str: string) => str.replace(exclude, '').toLowerCase();
 
   return normalize(option).includes(normalize(search));
 };

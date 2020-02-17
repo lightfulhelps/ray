@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Select from 'react-select';
-import Creatable from 'react-select/lib/Creatable';
+import Creatable from 'react-select/creatable';
 import ClearIndicator from './ClearIndicator';
 import DropdownIndicator from './DropdownIndicator';
 import MultiValue from './MultiValue';
@@ -9,13 +9,13 @@ import Option from './Option';
 
 // Props introduced by Ray - everything else will be passed through
 // See - https://react-select.com/props - for more information
-type Props = {
+interface Props {
   className?: string;
   isCreatable?: boolean;
   isInvalid?: boolean;
   isValid?: boolean;
   size?: 'sm' | 'lg';
-};
+}
 
 const FormSelect: React.FC<Props> = ({
   className,
@@ -25,7 +25,7 @@ const FormSelect: React.FC<Props> = ({
   size,
   ...other
 }: Props) => {
-  const Component = isCreatable ? Creatable : Select;
+  const Component: React.ElementType = isCreatable ? Creatable : Select;
   const classNamePrefix = 'form-select';
   const classes = classNames(
     className,

@@ -56,14 +56,7 @@ const Button: React.FC<Props> = ({
   };
 
   return (
-    <Tag
-      {...other}
-      className={classes}
-      onClick={handleClick}
-      type={Tag === 'button' ? type : undefined}
-      disabled={isDisabled}
-      blabla="grgr"
-    >
+    <Tag {...other} className={classes} onClick={handleClick} disabled={isDisabled}>
       {children}
       {icon && <Icon name={icon} theme={iconTheme} />}
     </Tag>

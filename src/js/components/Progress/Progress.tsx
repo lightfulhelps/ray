@@ -36,8 +36,8 @@ const Progress: React.FC<Props> = ({
         role="progressbar"
         style={{ width: `${value}%` }}
         aria-valuenow={value}
-        aria-valuemin="0"
-        aria-valuemax="100"
+        aria-valuemin={0}
+        aria-valuemax={100}
       >
         {children}
       </div>

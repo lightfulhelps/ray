@@ -2,13 +2,12 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { FormInput, Button } from '../..';
 
-type Props = {
+interface Props extends React.HTMLAttributes<HTMLInputElement> {
   className?: string;
-  onChange: (arg0: React.KeyboardEvent<HTMLInputElement>) => void;
   onSearch: (arg0: React.KeyboardEvent<HTMLInputElement> | React.MouseEvent) => void;
   placeholder?: string;
   value: string;
-};
+}
 
 const SearchInput: React.FC<Props> = ({
   className,

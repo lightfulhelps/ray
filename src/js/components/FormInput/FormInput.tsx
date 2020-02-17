@@ -8,7 +8,8 @@ interface Props extends React.HTMLAttributes<HTMLInputElement> {
   isValid?: boolean;
   size?: 'sm' | 'md' | 'lg';
   type: string;
-  name: string;
+  name?: string;
+  value?: string;
 }
 
 const FormInput: React.FC<Props> = ({
