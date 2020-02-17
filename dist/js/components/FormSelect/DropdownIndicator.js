@@ -1,19 +1,23 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
 
-var _react = require('react');
+var _react = _interopRequireDefault(require("react"));
 
-var _react2 = _interopRequireDefault(_react);
+var _ = require("../../");
 
-var _ = require('../../');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var DropdownIndicator = function DropdownIndicator() {
-  return _react2.default.createElement(_.Icon, { name: 'caretDown', title: 'Open', theme: 'gray-500' });
+  return _react["default"].createElement(_.Icon, {
+    name: "caretDown",
+    title: "Open",
+    theme: "gray-500"
+  });
 };
 
-exports.default = DropdownIndicator;
+var _default = DropdownIndicator;
+exports["default"] = _default;

@@ -1,103 +1,73 @@
-'use strict';
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _react = _interopRequireWildcard(require("react"));
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classnames = _interopRequireDefault(require("classnames"));
 
-var _class, _temp2;
+var _ = require("../..");
 
-var _react = require('react');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var React = _interopRequireWildcard(_react);
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-var _classnames = require('classnames');
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-var _classnames2 = _interopRequireDefault(_classnames);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-var _ = require('../../');
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
-var _propTypes = require('prop-types');
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
 
-var _propTypes2 = _interopRequireDefault(_propTypes);
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var Collapse = function Collapse(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      label = _ref.label,
+      defaultOpen = _ref.defaultOpen,
+      other = _objectWithoutProperties(_ref, ["children", "className", "label", "defaultOpen"]);
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+  var _useState = (0, _react.useState)(!!defaultOpen),
+      _useState2 = _slicedToArray(_useState, 2),
+      isOpen = _useState2[0],
+      setIsOpen = _useState2[1];
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+  var classes = (0, _classnames["default"])(className);
 
-var Collapse = (_temp2 = _class = function (_React$Component) {
-  _inherits(Collapse, _React$Component);
+  var handleToggle = function handleToggle() {
+    setIsOpen(function (prevState) {
+      return !prevState;
+    });
+  };
 
-  function Collapse() {
-    var _ref;
+  return _react["default"].createElement("div", _extends({}, other, {
+    className: classes
+  }), _react["default"].createElement("div", {
+    className: "collapse-toggle h6 mb-0 cursor-pointer d-flex justify-content-between align-items-center",
+    "data-test-id": "collapse-toggle",
+    onClick: handleToggle
+  }, label, " ", _react["default"].createElement(_.Icon, {
+    isActive: true,
+    theme: "gray-600",
+    name: isOpen ? 'chevronUp' : 'chevronDown'
+  })), isOpen && _react["default"].createElement("div", {
+    className: "collapse-children",
+    "data-test-id": "collapse-children"
+  }, children));
+};
 
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, Collapse);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Collapse.__proto__ || Object.getPrototypeOf(Collapse)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      isOpen: !!_this.props.defaultOpen
-    }, _this.handleToggle = function () {
-      _this.setState(function (prevState) {
-        return { isOpen: !prevState.isOpen };
-      });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(Collapse, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          children = _props.children,
-          className = _props.className,
-          label = _props.label,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'label']);
-
-      var classes = (0, _classnames2.default)(className);
-
-      return React.createElement(
-        'div',
-        _extends({}, other, { className: classes }),
-        React.createElement(
-          'div',
-          {
-            className: 'collapse-toggle h6 mb-0 cursor-pointer d-flex justify-content-between align-items-center',
-            'data-test-id': 'collapse-toggle',
-            onClick: this.handleToggle
-          },
-          label,
-          ' ',
-          React.createElement(_.Icon, { isActive: true, theme: 'gray-600', name: this.state.isOpen ? 'chevronUp' : 'chevronDown' })
-        ),
-        this.state.isOpen && React.createElement(
-          'div',
-          { className: 'collapse-children', 'data-test-id': 'collapse-children' },
-          children
-        )
-      );
-    }
-  }]);
-
-  return Collapse;
-}(React.Component), _class.propTypes = {
-  children: _propTypes2.default.node.isRequired,
-  className: _propTypes2.default.string,
-  defaultOpen: _propTypes2.default.bool,
-  label: _propTypes2.default.string.isRequired
-}, _temp2);
-exports.default = Collapse;
+var _default = Collapse;
+exports["default"] = _default;

@@ -1,4 +1,3 @@
-// @flow
 import fs from 'fs';
 import path from 'path';
 import SVGO from 'svgo';
@@ -14,15 +13,15 @@ const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
 type ArgvType = {
-  svgDir: string,
-  outputFile: string,
-  glob?: string,
+  svgDir: string;
+  outputFile: string;
+  glob?: string;
 };
 
 type IconsType = {
   icons: {
-    [key: string]: string,
-  },
+    [key: string]: string;
+  };
 };
 
 const svgo = new SVGO({
