@@ -55,6 +55,6 @@ declare class PostCard extends React.Component<Props, State> {
         isTruncated: boolean;
     };
     handleToggleTruncate: () => void;
-    render(): JSX.Element | null;
+    render(): JSX.Element;
 }
 export default PostCard;
