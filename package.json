@@ -6,6 +6,7 @@
   "author": "Lightful",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
+  "type": "dist/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && run-p build:css build:js",
     "build:css": "node-sass src/scss/ray.scss dist/css/ray.css",
