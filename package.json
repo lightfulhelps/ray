@@ -11,7 +11,7 @@
     "build": "rm -rf dist && run-p build:css build:js",
     "build:css": "node-sass src/scss/ray.scss dist/css/ray.css",
     "build:icons": "babel-node scripts/buildIcons.tsx --svg-dir src/icons --output-file src/js/components/Icon/icons.tsx",
-    "build:js": "rollup -c",
+    "build:js": "tsc",
     "build:storybook": "build-storybook -c .storybook -o storybook",
     "create:component": "babel-node scripts/createComponent.js --dir src/js/components",
     "format": "run-p format:css format:js",
