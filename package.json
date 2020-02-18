@@ -60,7 +60,7 @@
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "react-lines-ellipsis": "^0.14.1",
-    "react-select": "^3.0.8",
+    "react-select": "^2.1.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.2",
