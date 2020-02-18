@@ -28,6 +28,8 @@ const setup = (overrides = {}) => {
       ],
       search: 't',
       title: 'Recent Searches',
+      isOpen: true,
+      exclude: '',
     },
     overrides
   );

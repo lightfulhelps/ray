@@ -19,13 +19,17 @@ type Props = {
   title?: string;
 };
 
-export const findMatches = (option: string, search: string, exclude: ExcludeType): boolean => {
+export const findMatches = (option: string, search: string, exclude: ExcludeType = ''): boolean => {
   const normalize = (str: string) => str.replace(exclude, '').toLowerCase();
 
   return normalize(option).includes(normalize(search));
 };
 
-export const highlightMatches = (option: string, search: string, exclude: ExcludeType): string => {
+export const highlightMatches = (
+  option: string,
+  search = '',
+  exclude: ExcludeType = ''
+): string => {
   if (!search) return option;
 
   const regex = new RegExp(`(${search.replace(exclude, '')})`, 'gi');

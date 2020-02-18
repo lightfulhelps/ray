@@ -12,5 +12,5 @@
     "esModuleInterop": true
   },
   "include": ["src/js/index.ts"],
-  "exclude": ["node_modules", "dist", "**/*.spec.tsx", "**/*.stories.tsx"]
+  "exclude": ["node_modules", "dist", "*.spec.tsx", "*.stories.tsx"]
 }
