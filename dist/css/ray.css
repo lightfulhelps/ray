@@ -5899,7 +5899,8 @@ label {
     display: block;
     height: 1rem;
     width: 1rem;
-    flex-shrink: 0; }
+    flex-shrink: 0;
+    cursor: pointer; }
   .form-check-label::before {
     content: '';
     border-color: #ced4da;
@@ -5918,7 +5919,8 @@ label {
   .form-check-input:disabled ~ .form-check-label {
     color: #6c757c; }
     .form-check-input:disabled ~ .form-check-label::before {
-      background-color: #f8f9fa; }
+      background-color: #f8f9fa;
+      cursor: default; }
 
 .form-check-input[type='checkbox']:checked ~ .form-check-label::before {
   border-color: #27b0cc; }
