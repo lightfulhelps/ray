@@ -7,6 +7,7 @@ const setup = (overrides = {}) => {
   const props = merge(
     {
       label: 'Click me',
+      children: '',
     },
     overrides
   );

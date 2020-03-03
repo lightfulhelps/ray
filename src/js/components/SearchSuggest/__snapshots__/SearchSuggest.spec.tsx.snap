@@ -4,6 +4,7 @@ exports[`<SearchSuggest /> should render 1`] = `
 <DropdownMenu
   className="search-suggest"
   data-test-id="search-suggest"
+  isOpen={true}
   onClick={[MockFunction]}
 >
   <DropdownItem

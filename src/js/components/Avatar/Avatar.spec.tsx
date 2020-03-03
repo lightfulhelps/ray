@@ -8,7 +8,7 @@ const setup = (overrides = {}) => {
   const props = merge(
     {
       url: 'https://randomuser.me/api/portraits/women/47.jpg',
-      provider: 'twitter',
+      provider: 'twitter' as const,
     },
     overrides
   );

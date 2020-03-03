@@ -4,23 +4,13 @@ describe('getNames', () => {
   it('should throw if no argument', () => {
     expect(() => {
       getNames();
-    }).toThrowError('Invalid name');
-  });
-
-  it('should throw if invalid type', () => {
-    expect(() => {
-      getNames(123);
-    }).toThrowError('Invalid name');
-
-    expect(() => {
-      getNames(true);
-    }).toThrowError('Invalid name');
+    }).toThrow('Invalid name');
   });
 
   it('should throw if empty string', () => {
     expect(() => {
       getNames('');
-    }).toThrowError('Invalid name');
+    }).toThrow('Invalid name');
   });
 
   it('should return an object containing componentName and className', () => {

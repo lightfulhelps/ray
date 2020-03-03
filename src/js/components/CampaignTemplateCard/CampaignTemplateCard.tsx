@@ -5,7 +5,7 @@ import { Props as ButtonProps } from '../Button/Button';
 
 type Props = {
   className?: string;
-  ctaText: string;
+  ctaText?: string;
   ctaTextSelected?: string;
   description: string;
   image: string;

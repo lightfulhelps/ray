@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Select from 'react-select';
-import { Creatable } from 'react-select/lib/Creatable';
+import Creatable from 'react-select/lib/Creatable';
 import ClearIndicator from './ClearIndicator';
 import DropdownIndicator from './DropdownIndicator';
 import MultiValue from './MultiValue';

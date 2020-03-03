@@ -13,7 +13,7 @@ const Collapse: React.FC<Props> = ({ children, className, label, defaultOpen, ..
   const [isOpen, setIsOpen] = useState(!!defaultOpen);
   const classes = classNames(className);
 
-  const handleToggle = (): void => {
+  const handleToggle = () => {
     setIsOpen(prevState => !prevState);
   };
 

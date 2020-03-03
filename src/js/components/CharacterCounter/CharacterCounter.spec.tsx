@@ -4,7 +4,12 @@ import merge from 'lodash/merge';
 import { CharacterCounter } from '../..';
 
 const setup = (overrides = {}) => {
-  const props = merge({}, overrides);
+  const props = merge(
+    {
+      text: '',
+    },
+    overrides
+  );
   const wrapper = shallow(<CharacterCounter {...props} />);
 
   return { wrapper, props };

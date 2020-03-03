@@ -3,5 +3,7 @@
 exports[`<FormGroup /> should render 1`] = `
 <div
   className="form-group"
-/>
+>
+  Default
+</div>
 `;

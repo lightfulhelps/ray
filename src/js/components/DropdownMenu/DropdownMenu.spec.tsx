@@ -8,6 +8,7 @@ const setup = (overrides = {}) => {
     {
       children: 'Children',
       footer: 'Footer',
+      isOpen: false,
     },
     overrides
   );

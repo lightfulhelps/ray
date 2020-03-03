@@ -36,7 +36,7 @@ module.exports = {
     'import/no-extraneous-dependencies': [
       2,
       {
-        devDependencies: ['**/*.spec.js', '**/*.stories.js', 'src/js/setupTests.js'],
+        devDependencies: ['**/*.spec.tsx', '**/*.stories.tsx', 'src/js/setupTests.ts'],
       },
     ],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
@@ -112,6 +112,7 @@ module.exports = {
         asyncArrow: 'always',
       },
     ],
+    '@typescript-eslint/explicit-function-return-type': 0,
   },
   settings: {
     'import/resolver': {

@@ -22,7 +22,7 @@ jest.mock('./icons', () => ({
 const setup = (overrides = {}) => {
   const props = merge(
     {
-      name: 'analytics',
+      name: 'analytics' as const,
       size: 30,
     },
     overrides
@@ -72,20 +72,6 @@ describe('<Icon />', () => {
     expect(wrapper.prop('viewBox')).toEqual('0 0 16 16');
   });
 
-  it('should update state on mouse enter and mouse leave', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.state('hover')).toBe(false);
-
-    wrapper.simulate('mouseEnter');
-
-    expect(wrapper.state('hover')).toBe(true);
-
-    wrapper.simulate('mouseLeave');
-
-    expect(wrapper.state('hover')).toBe(false);
-  });
-
   it('should handle the style prop', () => {
     const { wrapper } = setup({ style: { marginTop: '5px' } });
 
@@ -126,7 +112,7 @@ describe('<Icon />', () => {
   it('should not use hoverColor if theme is provided', () => {
     const { wrapper } = setup({ hoverColor: 'blue' });
 
-    wrapper.setState({ hover: true });
+    wrapper.simulate('mouseEnter');
 
     expect(wrapper.prop('style').fill).toBe('blue');
 

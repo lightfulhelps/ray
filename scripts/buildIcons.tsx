@@ -20,7 +20,7 @@ type ArgvType = {
 
 type IconsType = {
   icons: {
-    [key: string]: string;
+    [key: string]: JSX.Element;
   };
 };
 
@@ -127,10 +127,18 @@ const init = async ({ svgDir, outputFile, glob = '*.svg' }: ArgvType) => {
 if (require.main === module) {
   const argv = yargs
     .usage('Extract SVG paths for React Icon component.\nUsage: $0 [args]')
-    .demandOption('output-file')
-    .describe('output-file', 'Location of output file')
-    .demandOption('svg-dir')
-    .describe('svg-dir', 'SVG Icon directory')
+    .options({
+      outputFile: {
+        alias: 'output-file',
+        describe: 'Location of output file',
+        type: 'string',
+      },
+      svgDir: {
+        alias: 'svg-dir',
+        describe: 'SVG Icon directory',
+        type: 'string',
+      },
+    })
     .describe('glob', 'Glob to match inside of --svg-dir. Default *.svg').argv;
 
   init(argv);

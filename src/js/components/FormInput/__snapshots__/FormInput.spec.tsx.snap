@@ -3,5 +3,6 @@
 exports[`<FormInput /> should render 1`] = `
 <input
   className="form-control"
+  type="text"
 />
 `;

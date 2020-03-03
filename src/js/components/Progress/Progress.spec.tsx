@@ -4,7 +4,7 @@ import merge from 'lodash/merge';
 import Progress from './Progress';
 
 const setup = (overrides = {}) => {
-  const props = merge({}, overrides);
+  const props = merge({ value: 0 }, overrides);
   const wrapper = shallow(<Progress {...props} />);
 
   return { wrapper, props };

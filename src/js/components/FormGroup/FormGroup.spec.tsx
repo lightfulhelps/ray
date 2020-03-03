@@ -4,7 +4,7 @@ import merge from 'lodash/merge';
 import FormGroup from './FormGroup';
 
 const setup = (overrides = {}) => {
-  const props = merge({}, overrides);
+  const props = merge({ children: 'Default' }, overrides);
   const wrapper = shallow(<FormGroup {...props} />);
 
   return { wrapper, props };

@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 type Props = {
-  children: string;
+  children?: string;
   className?: string;
   isInvalid?: boolean;
   isValid?: boolean;

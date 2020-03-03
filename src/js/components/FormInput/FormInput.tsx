@@ -7,7 +7,7 @@ interface Props extends React.HTMLAttributes<HTMLInputElement> {
   isInvalid?: boolean;
   isValid?: boolean;
   size?: 'sm' | 'md' | 'lg';
-  type: string;
+  type?: string;
   name?: string;
   value?: string;
 }
@@ -17,7 +17,7 @@ const FormInput: React.FC<Props> = ({
   isInvalid,
   isValid,
   size,
-  type,
+  type = 'text',
   name,
   ...other
 }: Props) => {

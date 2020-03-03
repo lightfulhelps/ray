@@ -9,7 +9,8 @@
     "declaration": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "outDir": "dist/js"
+    "outDir": "dist/js",
+    "noImplicitReturns": false
   },
   "include": ["src/js/index.ts"],
   "exclude": ["node_modules", "dist", "*.spec.tsx", "*.stories.tsx"]

@@ -18,6 +18,7 @@ const setup = (overrides = {}) => {
         },
         socialIdentity: {
           id: '1',
+          provider: 'twitter' as const,
           avatar: 'http://foo.com/avatar.jpg',
         },
         metrics: {
@@ -28,13 +29,13 @@ const setup = (overrides = {}) => {
       },
       inspirationActions: [
         {
-          icon: 'follow',
+          icon: 'follow' as const,
           isActive: false,
           onClick: jest.fn(),
           theme: 'gray-500',
         },
         {
-          icon: 'like',
+          icon: 'like' as const,
           isActive: true,
           onClick: jest.fn(),
           theme: 'gray-500',

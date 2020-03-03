@@ -18,6 +18,7 @@ exports[`<InspirationPostCard /> should render 1`] = `
       }
     >
       <Avatar
+        provider="twitter"
         url="http://foo.com/avatar.jpg"
       />
     </div>

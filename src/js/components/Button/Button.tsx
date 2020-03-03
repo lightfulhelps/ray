@@ -55,8 +55,18 @@ const Button: React.FC<Props> = ({
     if (typeof onClick === 'function') onClick(e);
   };
 
+  // Workaround to optionnaly add type attribute since this one is only available on button Jsx element
+  const optionnalProps: { [key: string]: any } = {};
+  optionnalProps.type = Tag === 'button' ? type : undefined;
+
   return (
-    <Tag {...other} className={classes} onClick={handleClick} disabled={isDisabled}>
+    <Tag
+      {...other}
+      {...optionnalProps}
+      className={classes}
+      onClick={handleClick}
+      disabled={isDisabled}
+    >
       {children}
       {icon && <Icon name={icon} theme={iconTheme} />}
     </Tag>

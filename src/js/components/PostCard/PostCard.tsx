@@ -8,11 +8,12 @@ import { IconNameType } from '../Icon/icons';
 import { Props as ButtonProps } from '../Button/Button';
 
 type MediaType = {
+  id: string;
   type: string;
   url: string;
 };
 
-type PostType = {
+export type PostType = {
   campaign?: {
     color: string;
     name: string;
@@ -21,13 +22,11 @@ type PostType = {
   date?: Date | number | string;
   id: string;
   media?: MediaType[];
-  metrics?: [
-    {
-      icon?: IconNameType;
-      key: string;
-      value: number;
-    }
-  ];
+  metrics?: {
+    icon?: IconNameType;
+    key: string;
+    value: number;
+  }[];
   socialIdentity?: {
     avatar?: string;
     displayName?: string;
@@ -36,10 +35,10 @@ type PostType = {
     username?: string;
   };
   state: string;
-  tags: [string];
+  tags: string[];
 };
 
-type Props = {
+export type Props = {
   actions?: ButtonProps[];
   className?: string;
   dateFormat?: string;

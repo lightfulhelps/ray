@@ -12,16 +12,16 @@ const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
 type ArgvType = {
-  dir: string,
-  name: string,
+  dir: string;
+  name: string;
 };
 
 type NamesType = {
-  className: string,
-  componentName: string,
+  className: string;
+  componentName: string;
 };
 
-export const getNames = (name: string): NamesType => {
+export const getNames = (name?: string): NamesType => {
   if (!name || !name.length) {
     throw new Error('Invalid name');
   }
@@ -82,10 +82,16 @@ const init = async ({ dir, name }: ArgvType) => {
 if (require.main === module) {
   const argv = yargs
     .usage('Create starter component and associate test.\nUsage: $0 [args]')
-    .demandOption('name')
-    .describe('name', 'Name of component')
-    .demandOption('dir')
-    .describe('dir', 'Component directory').argv;
+    .options({
+      name: {
+        describe: 'Name of component',
+        type: 'string',
+      },
+      dir: {
+        describe: 'Component directory',
+        type: 'string',
+      },
+    }).argv;
 
   init(argv);
 }

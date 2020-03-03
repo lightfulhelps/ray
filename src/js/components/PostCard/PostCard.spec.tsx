@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
 import { addDays, subDays } from 'date-fns';
 import { PostCard, PostMedia, URLMetaPreview } from '../..';
+import { PostType } from './PostCard';
 
 const setup = (overrides = {}) => {
   const props = merge(
@@ -43,7 +44,7 @@ const setup = (overrides = {}) => {
         ],
         state: 'scheduled',
         tags: ['charity', 'social for good', 'campaigns', 'lightful'],
-      },
+      } as PostType,
     },
     overrides
   );
