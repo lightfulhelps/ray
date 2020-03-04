@@ -1,7 +1,7 @@
 import * as React from 'react';
 declare type Props = {
     className?: string;
-    ctaText: string;
+    ctaText?: string;
     ctaTextSelected?: string;
     description: string;
     image: string;

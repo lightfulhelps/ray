@@ -36,13 +36,14 @@ define(["require", "exports", "react", "classnames", "react-select", "react-sele
     React = __importStar(React);
     classnames_1 = __importDefault(classnames_1);
     react_select_1 = __importDefault(react_select_1);
+    Creatable_1 = __importDefault(Creatable_1);
     ClearIndicator_1 = __importDefault(ClearIndicator_1);
     DropdownIndicator_1 = __importDefault(DropdownIndicator_1);
     MultiValue_1 = __importDefault(MultiValue_1);
     Option_1 = __importDefault(Option_1);
     var FormSelect = function (_a) {
         var className = _a.className, isCreatable = _a.isCreatable, isInvalid = _a.isInvalid, isValid = _a.isValid, size = _a.size, other = __rest(_a, ["className", "isCreatable", "isInvalid", "isValid", "size"]);
-        var Component = isCreatable ? Creatable_1.Creatable : react_select_1.default;
+        var Component = isCreatable ? Creatable_1.default : react_select_1.default;
         var classNamePrefix = 'form-select';
         var classes = classnames_1.default(className, classNamePrefix, size ? classNamePrefix + "-" + size : '', { 'is-invalid': isInvalid }, { 'is-valid': isValid });
         return (React.createElement(Component, __assign({}, other, { className: classes, classNamePrefix: classNamePrefix, components: {

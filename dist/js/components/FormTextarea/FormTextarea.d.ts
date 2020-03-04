@@ -1,6 +1,6 @@
 import * as React from 'react';
 declare type Props = {
-    children: string;
+    children?: string;
     className?: string;
     isInvalid?: boolean;
     isValid?: boolean;

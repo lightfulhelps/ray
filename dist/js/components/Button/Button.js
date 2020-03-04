@@ -48,7 +48,10 @@ define(["require", "exports", "react", "classnames", "../Icon/Icon"], function (
             if (typeof onClick === 'function')
                 onClick(e);
         };
-        return (React.createElement(Tag, __assign({}, other, { className: classes, onClick: handleClick, disabled: isDisabled }),
+        // Workaround to optionnaly add type attribute since this one is only available on button Jsx element
+        var optionnalProps = {};
+        optionnalProps.type = Tag === 'button' ? type : undefined;
+        return (React.createElement(Tag, __assign({}, other, optionnalProps, { className: classes, onClick: handleClick, disabled: isDisabled }),
             children,
             icon && React.createElement(Icon_1.default, { name: icon, theme: iconTheme })));
     };

@@ -5,7 +5,7 @@ interface Props extends React.HTMLAttributes<HTMLInputElement> {
     isInvalid?: boolean;
     isValid?: boolean;
     size?: 'sm' | 'md' | 'lg';
-    type: string;
+    type?: string;
     name?: string;
     value?: string;
 }

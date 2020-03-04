@@ -2,10 +2,11 @@ import * as React from 'react';
 import { IconNameType } from '../Icon/icons';
 import { Props as ButtonProps } from '../Button/Button';
 declare type MediaType = {
+    id: string;
     type: string;
     url: string;
 };
-declare type PostType = {
+export declare type PostType = {
     campaign?: {
         color: string;
         name: string;
@@ -14,11 +15,11 @@ declare type PostType = {
     date?: Date | number | string;
     id: string;
     media?: MediaType[];
-    metrics?: [{
+    metrics?: {
         icon?: IconNameType;
         key: string;
         value: number;
-    }];
+    }[];
     socialIdentity?: {
         avatar?: string;
         displayName?: string;
@@ -27,9 +28,9 @@ declare type PostType = {
         username?: string;
     };
     state: string;
-    tags: [string];
+    tags: string[];
 };
-declare type Props = {
+export declare type Props = {
     actions?: ButtonProps[];
     className?: string;
     dateFormat?: string;

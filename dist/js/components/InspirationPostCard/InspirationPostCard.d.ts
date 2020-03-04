@@ -28,7 +28,7 @@ declare type InspirationPostType = {
         provider: 'facebook' | 'twitter' | 'linkedin';
         username?: string;
     };
-    tags: [string];
+    tags: string[];
     title: string;
 };
 declare type Props = {
