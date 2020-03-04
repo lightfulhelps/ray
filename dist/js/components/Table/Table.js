@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,16 +31,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames"], function (require, exports, React, classnames_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    React = __importStar(React);
-    classnames_1 = __importDefault(classnames_1);
-    var Table = function (_a) {
-        var className = _a.className, isBordered = _a.isBordered, isBorderless = _a.isBorderless, isHoverable = _a.isHoverable, isResponsive = _a.isResponsive, isStriped = _a.isStriped, size = _a.size, other = __rest(_a, ["className", "isBordered", "isBorderless", "isHoverable", "isResponsive", "isStriped", "size"]);
-        var classes = classnames_1.default(className, 'table', size ? "table-" + size : false, { 'table-bordered': isBordered && !isBorderless }, { 'table-borderless': isBorderless && !isBordered }, { 'table-striped': isStriped }, { 'table-hover': isHoverable }, { 'table-responsive': isResponsive });
-        return React.createElement("table", __assign({}, other, { className: classes }));
-    };
-    exports.default = Table;
-});
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var Table = function (_a) {
+    var className = _a.className, isBordered = _a.isBordered, isBorderless = _a.isBorderless, isHoverable = _a.isHoverable, isResponsive = _a.isResponsive, isStriped = _a.isStriped, size = _a.size, other = __rest(_a, ["className", "isBordered", "isBorderless", "isHoverable", "isResponsive", "isStriped", "size"]);
+    var classes = classnames_1.default(className, 'table', size ? "table-" + size : false, { 'table-bordered': isBordered && !isBorderless }, { 'table-borderless': isBorderless && !isBordered }, { 'table-striped': isStriped }, { 'table-hover': isHoverable }, { 'table-responsive': isResponsive });
+    return React.createElement("table", __assign({}, other, { className: classes }));
+};
+exports.default = Table;
 //# sourceMappingURL=Table.js.map

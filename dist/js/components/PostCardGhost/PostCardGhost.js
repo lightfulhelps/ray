@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,32 +31,30 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames", "../.."], function (require, exports, React, classnames_1, __1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    React = __importStar(React);
-    classnames_1 = __importDefault(classnames_1);
-    var PostCardGhost = function (_a) {
-        var className = _a.className, isLoading = _a.isLoading, other = __rest(_a, ["className", "isLoading"]);
-        var classes = classnames_1.default(className, 'post-card-ghost', 'bg-gray-200 border-0 overflow-hidden', {
-            loading: isLoading,
-        });
-        return (React.createElement(__1.Card, __assign({}, other, { className: classes }),
-            React.createElement("div", { className: "d-flex align-items-top px-2 pt-2 pb-0" },
-                React.createElement("div", { className: "ghost rounded-circle mr-2 mb-0", style: { width: '35px', height: '35px' } }),
-                React.createElement("div", { className: "flex-fill" },
-                    React.createElement("div", { className: "ghost ghost-lg w-75" }),
-                    React.createElement("div", { className: "ghost w-50" }),
-                    React.createElement("div", { className: "ghost w-50 mb-0" })),
-                React.createElement("div", { className: "ghost rounded-sm", style: { width: '26px', height: '26px' } })),
-            React.createElement("div", { className: "p-2" },
-                React.createElement("div", { className: "ghost ghost-sm" }),
-                React.createElement("div", { className: "ghost ghost-sm" }),
-                React.createElement("div", { className: "ghost ghost-sm" }),
-                React.createElement("div", { className: "ghost ghost-sm" }),
-                React.createElement("div", { className: "ghost ghost-sm mb-0 w-75" })),
-            React.createElement("div", { className: "ghost mb-0", style: { height: '164px' } })));
-    };
-    exports.default = PostCardGhost;
-});
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var __1 = require("../..");
+var PostCardGhost = function (_a) {
+    var className = _a.className, isLoading = _a.isLoading, other = __rest(_a, ["className", "isLoading"]);
+    var classes = classnames_1.default(className, 'post-card-ghost', 'bg-gray-200 border-0 overflow-hidden', {
+        loading: isLoading,
+    });
+    return (React.createElement(__1.Card, __assign({}, other, { className: classes }),
+        React.createElement("div", { className: "d-flex align-items-top px-2 pt-2 pb-0" },
+            React.createElement("div", { className: "ghost rounded-circle mr-2 mb-0", style: { width: '35px', height: '35px' } }),
+            React.createElement("div", { className: "flex-fill" },
+                React.createElement("div", { className: "ghost ghost-lg w-75" }),
+                React.createElement("div", { className: "ghost w-50" }),
+                React.createElement("div", { className: "ghost w-50 mb-0" })),
+            React.createElement("div", { className: "ghost rounded-sm", style: { width: '26px', height: '26px' } })),
+        React.createElement("div", { className: "p-2" },
+            React.createElement("div", { className: "ghost ghost-sm" }),
+            React.createElement("div", { className: "ghost ghost-sm" }),
+            React.createElement("div", { className: "ghost ghost-sm" }),
+            React.createElement("div", { className: "ghost ghost-sm" }),
+            React.createElement("div", { className: "ghost ghost-sm mb-0 w-75" })),
+        React.createElement("div", { className: "ghost mb-0", style: { height: '164px' } })));
+};
+exports.default = PostCardGhost;
 //# sourceMappingURL=PostCardGhost.js.map

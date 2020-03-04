@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,24 +31,22 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames", "../.."], function (require, exports, React, classnames_1, __1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    React = __importStar(React);
-    classnames_1 = __importDefault(classnames_1);
-    var SearchInput = function (_a) {
-        var className = _a.className, onChange = _a.onChange, onSearch = _a.onSearch, _b = _a.placeholder, placeholder = _b === void 0 ? 'Search...' : _b, value = _a.value, other = __rest(_a, ["className", "onChange", "onSearch", "placeholder", "value"]);
-        var classes = classnames_1.default(className, 'search-input input-group shadow');
-        var handleKeyPress = function (e) {
-            if (e.key === 'Enter') {
-                onSearch(e);
-            }
-        };
-        return (React.createElement("div", __assign({}, other, { className: classes }),
-            React.createElement(__1.FormInput, { "data-test-id": "search-input", onChange: onChange, onKeyPress: handleKeyPress, placeholder: placeholder, type: "text", value: value }),
-            React.createElement("div", { className: "input-group-append" },
-                React.createElement(__1.Button, { "data-test-id": "search-input-button", icon: "search", isOutline: true, onClick: onSearch, theme: "gray-600" }))));
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var __1 = require("../..");
+var SearchInput = function (_a) {
+    var className = _a.className, onChange = _a.onChange, onSearch = _a.onSearch, _b = _a.placeholder, placeholder = _b === void 0 ? 'Search...' : _b, value = _a.value, other = __rest(_a, ["className", "onChange", "onSearch", "placeholder", "value"]);
+    var classes = classnames_1.default(className, 'search-input input-group shadow');
+    var handleKeyPress = function (e) {
+        if (e.key === 'Enter') {
+            onSearch(e);
+        }
     };
-    exports.default = SearchInput;
-});
+    return (React.createElement("div", __assign({}, other, { className: classes }),
+        React.createElement(__1.FormInput, { "data-test-id": "search-input", onChange: onChange, onKeyPress: handleKeyPress, placeholder: placeholder, type: "text", value: value }),
+        React.createElement("div", { className: "input-group-append" },
+            React.createElement(__1.Button, { "data-test-id": "search-input-button", icon: "search", isOutline: true, onClick: onSearch, theme: "gray-600" }))));
+};
+exports.default = SearchInput;
 //# sourceMappingURL=SearchInput.js.map

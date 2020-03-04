@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,32 +31,30 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames", "../.."], function (require, exports, React, classnames_1, __1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    React = __importStar(React);
-    classnames_1 = __importDefault(classnames_1);
-    exports.isHex = function (string) { return /^#([0-9A-F]{3}){1,2}$/i.test(string); };
-    var ResourceCard = function (_a) {
-        var campaign = _a.campaign, className = _a.className, gradientEnd = _a.gradientEnd, gradientStart = _a.gradientStart, _b = _a.tag, Tag = _b === void 0 ? 'a' : _b, title = _a.title, imageForBackground = _a.imageForBackground, other = __rest(_a, ["campaign", "className", "gradientEnd", "gradientStart", "tag", "title", "imageForBackground"]);
-        var classes = classnames_1.default(className, 'resource-card', 'card p-1 rounded shadow h-100 bg-gray-900 text-decoration-none');
-        var style = {};
-        if (imageForBackground) {
-            style.backgroundImage = "url('" + imageForBackground + "')";
-            style.backgroundPosition = 'center';
-            style.backgroundSize = 'cover';
-            style.backgroundRepeat = 'no-repeat';
-        }
-        else if (gradientStart && exports.isHex(gradientStart) && gradientEnd && exports.isHex(gradientEnd)) {
-            style.backgroundImage = "linear-gradient(90deg, " + gradientStart + " 0%, " + gradientEnd + " 100%)";
-        }
-        return (React.createElement(Tag, __assign({}, other, { className: classes, style: style }),
-            React.createElement("div", { className: "d-flex align-items-center mb-2" },
-                React.createElement("div", { className: "rounded-circle d-flex align-items-center justify-content-center mr-1 flex-shrink-0", style: { width: '24px', height: '24px', background: 'rgba(255, 255, 255, 0.2)' } },
-                    React.createElement(__1.Icon, { isActive: true, name: "download", theme: "white" })),
-                React.createElement("div", { className: "text-xs text-white", "data-test-id": "resource-card-campaign" }, campaign)),
-            React.createElement("div", { className: "text-sm font-weight-bold text-white", "data-test-id": "resource-card-title" }, title)));
-    };
-    exports.default = ResourceCard;
-});
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var __1 = require("../..");
+exports.isHex = function (string) { return /^#([0-9A-F]{3}){1,2}$/i.test(string); };
+var ResourceCard = function (_a) {
+    var campaign = _a.campaign, className = _a.className, gradientEnd = _a.gradientEnd, gradientStart = _a.gradientStart, _b = _a.tag, Tag = _b === void 0 ? 'a' : _b, title = _a.title, imageForBackground = _a.imageForBackground, other = __rest(_a, ["campaign", "className", "gradientEnd", "gradientStart", "tag", "title", "imageForBackground"]);
+    var classes = classnames_1.default(className, 'resource-card', 'card p-1 rounded shadow h-100 bg-gray-900 text-decoration-none');
+    var style = {};
+    if (imageForBackground) {
+        style.backgroundImage = "url('" + imageForBackground + "')";
+        style.backgroundPosition = 'center';
+        style.backgroundSize = 'cover';
+        style.backgroundRepeat = 'no-repeat';
+    }
+    else if (gradientStart && exports.isHex(gradientStart) && gradientEnd && exports.isHex(gradientEnd)) {
+        style.backgroundImage = "linear-gradient(90deg, " + gradientStart + " 0%, " + gradientEnd + " 100%)";
+    }
+    return (React.createElement(Tag, __assign({}, other, { className: classes, style: style }),
+        React.createElement("div", { className: "d-flex align-items-center mb-2" },
+            React.createElement("div", { className: "rounded-circle d-flex align-items-center justify-content-center mr-1 flex-shrink-0", style: { width: '24px', height: '24px', background: 'rgba(255, 255, 255, 0.2)' } },
+                React.createElement(__1.Icon, { isActive: true, name: "download", theme: "white" })),
+            React.createElement("div", { className: "text-xs text-white", "data-test-id": "resource-card-campaign" }, campaign)),
+        React.createElement("div", { className: "text-sm font-weight-bold text-white", "data-test-id": "resource-card-title" }, title)));
+};
+exports.default = ResourceCard;
 //# sourceMappingURL=ResourceCard.js.map

@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,20 +31,17 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames", "../Step/Step"], function (require, exports, React, classnames_1, Step_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    React = __importStar(React);
-    classnames_1 = __importDefault(classnames_1);
-    Step_1 = __importDefault(Step_1);
-    var Stepper = function (_a) {
-        var activeStep = _a.activeStep, className = _a.className, steps = _a.steps, other = __rest(_a, ["activeStep", "className", "steps"]);
-        var classes = classnames_1.default(className, 'stepper', 'd-flex flex-column flex-sm-row justify-content-between');
-        if (!Array.isArray(steps) || !activeStep) {
-            return null;
-        }
-        return (React.createElement("div", __assign({}, other, { className: classes, "data-test-id": "stepper" }), steps.map(function (step, i) { return (React.createElement(Step_1.default, { activeStep: activeStep, isLast: i === steps.length - 1, key: i, onClick: step.onClick, label: step.label, thisStep: i + 1, value: step.value })); })));
-    };
-    exports.default = Stepper;
-});
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var Step_1 = __importDefault(require("../Step/Step"));
+var Stepper = function (_a) {
+    var activeStep = _a.activeStep, className = _a.className, steps = _a.steps, other = __rest(_a, ["activeStep", "className", "steps"]);
+    var classes = classnames_1.default(className, 'stepper', 'd-flex flex-column flex-sm-row justify-content-between');
+    if (!Array.isArray(steps) || !activeStep) {
+        return null;
+    }
+    return (React.createElement("div", __assign({}, other, { className: classes, "data-test-id": "stepper" }), steps.map(function (step, i) { return (React.createElement(Step_1.default, { activeStep: activeStep, isLast: i === steps.length - 1, key: i, onClick: step.onClick, label: step.label, thisStep: i + 1, value: step.value })); })));
+};
+exports.default = Stepper;
 //# sourceMappingURL=Stepper.js.map

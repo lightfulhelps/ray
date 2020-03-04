@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,31 +31,28 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames", "../Icon/Icon"], function (require, exports, React, classnames_1, Icon_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    React = __importStar(React);
-    classnames_1 = __importDefault(classnames_1);
-    Icon_1 = __importDefault(Icon_1);
-    var Button = function (_a) {
-        var _b;
-        var children = _a.children, className = _a.className, icon = _a.icon, _c = _a.iconPosition, iconPosition = _c === void 0 ? 'left' : _c, iconTheme = _a.iconTheme, isBlock = _a.isBlock, isDisabled = _a.isDisabled, isOutline = _a.isOutline, onClick = _a.onClick, size = _a.size, _d = _a.tag, Tag = _d === void 0 ? 'button' : _d, _e = _a.theme, theme = _e === void 0 ? 'primary' : _e, _f = _a.type, type = _f === void 0 ? 'button' : _f, other = __rest(_a, ["children", "className", "icon", "iconPosition", "iconTheme", "isBlock", "isDisabled", "isOutline", "onClick", "size", "tag", "theme", "type"]);
-        var classes = classnames_1.default(className, 'btn', "btn" + (isOutline ? '-outline' : '') + "-" + theme, size ? "btn-" + size : false, { 'btn-block': isBlock }, { disabled: isDisabled }, { 'btn-icon': icon && !children }, (_b = {}, _b["btn-icon-" + iconPosition] = icon && children, _b));
-        var handleClick = function (e) {
-            if (isDisabled) {
-                e.preventDefault();
-                return;
-            }
-            if (typeof onClick === 'function')
-                onClick(e);
-        };
-        // Workaround to optionnaly add type attribute since this one is only available on button Jsx element
-        var optionnalProps = {};
-        optionnalProps.type = Tag === 'button' ? type : undefined;
-        return (React.createElement(Tag, __assign({}, other, optionnalProps, { className: classes, onClick: handleClick, disabled: isDisabled }),
-            children,
-            icon && React.createElement(Icon_1.default, { name: icon, theme: iconTheme })));
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var Icon_1 = __importDefault(require("../Icon/Icon"));
+var Button = function (_a) {
+    var _b;
+    var children = _a.children, className = _a.className, icon = _a.icon, _c = _a.iconPosition, iconPosition = _c === void 0 ? 'left' : _c, iconTheme = _a.iconTheme, isBlock = _a.isBlock, isDisabled = _a.isDisabled, isOutline = _a.isOutline, onClick = _a.onClick, size = _a.size, _d = _a.tag, Tag = _d === void 0 ? 'button' : _d, _e = _a.theme, theme = _e === void 0 ? 'primary' : _e, _f = _a.type, type = _f === void 0 ? 'button' : _f, other = __rest(_a, ["children", "className", "icon", "iconPosition", "iconTheme", "isBlock", "isDisabled", "isOutline", "onClick", "size", "tag", "theme", "type"]);
+    var classes = classnames_1.default(className, 'btn', "btn" + (isOutline ? '-outline' : '') + "-" + theme, size ? "btn-" + size : false, { 'btn-block': isBlock }, { disabled: isDisabled }, { 'btn-icon': icon && !children }, (_b = {}, _b["btn-icon-" + iconPosition] = icon && children, _b));
+    var handleClick = function (e) {
+        if (isDisabled) {
+            e.preventDefault();
+            return;
+        }
+        if (typeof onClick === 'function')
+            onClick(e);
     };
-    exports.default = Button;
-});
+    // Workaround to optionnaly add type attribute since this one is only available on button Jsx element
+    var optionnalProps = {};
+    optionnalProps.type = Tag === 'button' ? type : undefined;
+    return (React.createElement(Tag, __assign({}, other, optionnalProps, { className: classes, onClick: handleClick, disabled: isDisabled }),
+        children,
+        icon && React.createElement(Icon_1.default, { name: icon, theme: iconTheme })));
+};
+exports.default = Button;
 //# sourceMappingURL=Button.js.map

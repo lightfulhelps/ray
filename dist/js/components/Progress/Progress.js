@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,19 +31,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames"], function (require, exports, React, classnames_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    React = __importStar(React);
-    classnames_1 = __importDefault(classnames_1);
-    var Progress = function (_a) {
-        var _b;
-        var children = _a.children, className = _a.className, isAnimated = _a.isAnimated, isStriped = _a.isStriped, _c = _a.theme, theme = _c === void 0 ? 'primary' : _c, _d = _a.value, value = _d === void 0 ? 0 : _d, other = __rest(_a, ["children", "className", "isAnimated", "isStriped", "theme", "value"]);
-        var classes = classnames_1.default(className, 'progress');
-        var barClasses = classnames_1.default('progress-bar', (_b = {}, _b["bg-" + theme] = theme && value <= 100, _b), { 'bg-danger': value > 100 }, { 'progress-bar-animated': isAnimated }, { 'progress-bar-striped': isStriped });
-        return (React.createElement("div", __assign({}, other, { className: classes, "data-test-id": "progress" }),
-            React.createElement("div", { className: barClasses, "data-test-id": "progress-bar", role: "progressbar", style: { width: value + "%" }, "aria-valuenow": value, "aria-valuemin": 0, "aria-valuemax": 100 }, children)));
-    };
-    exports.default = Progress;
-});
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var Progress = function (_a) {
+    var _b;
+    var children = _a.children, className = _a.className, isAnimated = _a.isAnimated, isStriped = _a.isStriped, _c = _a.theme, theme = _c === void 0 ? 'primary' : _c, _d = _a.value, value = _d === void 0 ? 0 : _d, other = __rest(_a, ["children", "className", "isAnimated", "isStriped", "theme", "value"]);
+    var classes = classnames_1.default(className, 'progress');
+    var barClasses = classnames_1.default('progress-bar', (_b = {}, _b["bg-" + theme] = theme && value <= 100, _b), { 'bg-danger': value > 100 }, { 'progress-bar-animated': isAnimated }, { 'progress-bar-striped': isStriped });
+    return (React.createElement("div", __assign({}, other, { className: classes, "data-test-id": "progress" }),
+        React.createElement("div", { className: barClasses, "data-test-id": "progress-bar", role: "progressbar", style: { width: value + "%" }, "aria-valuenow": value, "aria-valuemin": 0, "aria-valuemax": 100 }, children)));
+};
+exports.default = Progress;
 //# sourceMappingURL=Progress.js.map

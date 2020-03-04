@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,16 +31,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames"], function (require, exports, React, classnames_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    React = __importStar(React);
-    classnames_1 = __importDefault(classnames_1);
-    var Nav = function (_a) {
-        var className = _a.className, isFill = _a.isFill, isPills = _a.isPills, isTabs = _a.isTabs, _b = _a.tag, Tag = _b === void 0 ? 'ul' : _b, other = __rest(_a, ["className", "isFill", "isPills", "isTabs", "tag"]);
-        var classes = classnames_1.default(className, 'nav', { 'nav-fill': isFill }, { 'nav-pills': isPills && !isTabs }, { 'nav-tabs': !isPills && isTabs });
-        return React.createElement(Tag, __assign({}, other, { className: classes }));
-    };
-    exports.default = Nav;
-});
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var Nav = function (_a) {
+    var className = _a.className, isFill = _a.isFill, isPills = _a.isPills, isTabs = _a.isTabs, _b = _a.tag, Tag = _b === void 0 ? 'ul' : _b, other = __rest(_a, ["className", "isFill", "isPills", "isTabs", "tag"]);
+    var classes = classnames_1.default(className, 'nav', { 'nav-fill': isFill }, { 'nav-pills': isPills && !isTabs }, { 'nav-tabs': !isPills && isTabs });
+    return React.createElement(Tag, __assign({}, other, { className: classes }));
+};
+exports.default = Nav;
 //# sourceMappingURL=Nav.js.map

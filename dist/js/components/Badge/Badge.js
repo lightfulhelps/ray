@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,18 +31,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames"], function (require, exports, React, classnames_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    React = __importStar(React);
-    classnames_1 = __importDefault(classnames_1);
-    var Badge = function (_a) {
-        var children = _a.children, className = _a.className, color = _a.color, isOutline = _a.isOutline, isPill = _a.isPill, _b = _a.tag, Tag = _b === void 0 ? 'div' : _b, _c = _a.theme, theme = _c === void 0 ? 'primary' : _c, other = __rest(_a, ["children", "className", "color", "isOutline", "isPill", "tag", "theme"]);
-        var classes = classnames_1.default(className, 'badge', "badge" + (isOutline ? '-outline' : '') + "-" + theme, 'text-truncate', 'mw-100', {
-            'badge-pill': isPill,
-        });
-        return (React.createElement(Tag, __assign({}, other, { className: classes, style: { backgroundColor: color } }), children));
-    };
-    exports.default = Badge;
-});
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var Badge = function (_a) {
+    var children = _a.children, className = _a.className, color = _a.color, isOutline = _a.isOutline, isPill = _a.isPill, _b = _a.tag, Tag = _b === void 0 ? 'div' : _b, _c = _a.theme, theme = _c === void 0 ? 'primary' : _c, other = __rest(_a, ["children", "className", "color", "isOutline", "isPill", "tag", "theme"]);
+    var classes = classnames_1.default(className, 'badge', "badge" + (isOutline ? '-outline' : '') + "-" + theme, 'text-truncate', 'mw-100', {
+        'badge-pill': isPill,
+    });
+    return (React.createElement(Tag, __assign({}, other, { className: classes, style: { backgroundColor: color } }), children));
+};
+exports.default = Badge;
 //# sourceMappingURL=Badge.js.map

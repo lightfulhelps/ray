@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -23,16 +24,13 @@ var __rest = (this && this.__rest) || function (s, e) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames"], function (require, exports, react_1, classnames_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    react_1 = __importDefault(react_1);
-    classnames_1 = __importDefault(classnames_1);
-    var Alert = function (_a) {
-        var children = _a.children, className = _a.className, _b = _a.tag, Tag = _b === void 0 ? 'div' : _b, _c = _a.theme, theme = _c === void 0 ? 'primary' : _c, other = __rest(_a, ["children", "className", "tag", "theme"]);
-        var classes = classnames_1.default(className, 'alert', "alert-" + theme);
-        return (react_1.default.createElement(Tag, __assign({}, other, { className: classes }), children));
-    };
-    exports.default = Alert;
-});
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var Alert = function (_a) {
+    var children = _a.children, className = _a.className, _b = _a.tag, Tag = _b === void 0 ? 'div' : _b, _c = _a.theme, theme = _c === void 0 ? 'primary' : _c, other = __rest(_a, ["children", "className", "tag", "theme"]);
+    var classes = classnames_1.default(className, 'alert', "alert-" + theme);
+    return (react_1.default.createElement(Tag, __assign({}, other, { className: classes }), children));
+};
+exports.default = Alert;
 //# sourceMappingURL=Alert.js.map

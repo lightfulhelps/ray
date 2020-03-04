@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,23 +31,20 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames"], function (require, exports, React, classnames_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    React = __importStar(React);
-    classnames_1 = __importDefault(classnames_1);
-    var DropdownMenu = function (_a) {
-        var children = _a.children, className = _a.className, footer = _a.footer, isOpen = _a.isOpen, onClick = _a.onClick, _b = _a.position, position = _b === void 0 ? 'left' : _b, _c = _a.tag, Tag = _c === void 0 ? 'div' : _c, _d = _a.theme, theme = _d === void 0 ? 'light' : _d, other = __rest(_a, ["children", "className", "footer", "isOpen", "onClick", "position", "tag", "theme"]);
-        var classes = classnames_1.default(className, 'dropdown-menu', "dropdown-menu-" + theme, "dropdown-menu-" + position, { show: isOpen });
-        function handleClick(e) {
-            if (typeof onClick === 'function') {
-                onClick(e);
-            }
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var DropdownMenu = function (_a) {
+    var children = _a.children, className = _a.className, footer = _a.footer, isOpen = _a.isOpen, onClick = _a.onClick, _b = _a.position, position = _b === void 0 ? 'left' : _b, _c = _a.tag, Tag = _c === void 0 ? 'div' : _c, _d = _a.theme, theme = _d === void 0 ? 'light' : _d, other = __rest(_a, ["children", "className", "footer", "isOpen", "onClick", "position", "tag", "theme"]);
+    var classes = classnames_1.default(className, 'dropdown-menu', "dropdown-menu-" + theme, "dropdown-menu-" + position, { show: isOpen });
+    function handleClick(e) {
+        if (typeof onClick === 'function') {
+            onClick(e);
         }
-        return (React.createElement(Tag, __assign({}, other, { className: classes, onClick: handleClick }),
-            children,
-            footer && React.createElement("div", { className: "dropdown-footer" }, footer)));
-    };
-    exports.default = DropdownMenu;
-});
+    }
+    return (React.createElement(Tag, __assign({}, other, { className: classes, onClick: handleClick }),
+        children,
+        footer && React.createElement("div", { className: "dropdown-footer" }, footer)));
+};
+exports.default = DropdownMenu;
 //# sourceMappingURL=DropdownMenu.js.map

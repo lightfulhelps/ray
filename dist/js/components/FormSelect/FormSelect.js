@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,51 +31,48 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames", "react-select", "react-select/lib/Creatable", "./ClearIndicator", "./DropdownIndicator", "./MultiValue", "./Option"], function (require, exports, React, classnames_1, react_select_1, Creatable_1, ClearIndicator_1, DropdownIndicator_1, MultiValue_1, Option_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    React = __importStar(React);
-    classnames_1 = __importDefault(classnames_1);
-    react_select_1 = __importDefault(react_select_1);
-    Creatable_1 = __importDefault(Creatable_1);
-    ClearIndicator_1 = __importDefault(ClearIndicator_1);
-    DropdownIndicator_1 = __importDefault(DropdownIndicator_1);
-    MultiValue_1 = __importDefault(MultiValue_1);
-    Option_1 = __importDefault(Option_1);
-    var FormSelect = function (_a) {
-        var className = _a.className, isCreatable = _a.isCreatable, isInvalid = _a.isInvalid, isValid = _a.isValid, size = _a.size, other = __rest(_a, ["className", "isCreatable", "isInvalid", "isValid", "size"]);
-        var Component = isCreatable ? Creatable_1.default : react_select_1.default;
-        var classNamePrefix = 'form-select';
-        var classes = classnames_1.default(className, classNamePrefix, size ? classNamePrefix + "-" + size : '', { 'is-invalid': isInvalid }, { 'is-valid': isValid });
-        return (React.createElement(Component, __assign({}, other, { className: classes, classNamePrefix: classNamePrefix, components: {
-                ClearIndicator: ClearIndicator_1.default,
-                DropdownIndicator: DropdownIndicator_1.default,
-                MultiValue: MultiValue_1.default,
-                Option: Option_1.default,
-            }, styles: {
-                clearIndicator: function () { return ({}); },
-                container: function () { return ({}); },
-                control: function () { return ({}); },
-                dropdownIndicator: function () { return ({}); },
-                group: function () { return ({}); },
-                groupHeading: function () { return ({}); },
-                indicatorsContainer: function () { return ({}); },
-                indicatorSeparator: function () { return ({}); },
-                input: function () { return ({}); },
-                // loadingIndicator: () => ({}),
-                // loadingMessage: () => ({}),
-                menu: function () { return ({}); },
-                menuList: function () { return ({}); },
-                multiValue: function () { return ({}); },
-                multiValueLabel: function () { return ({}); },
-                multiValueRemove: function () { return ({}); },
-                noOptionsMessage: function () { return ({}); },
-                option: function () { return ({}); },
-                placeholder: function () { return ({}); },
-                singleValue: function () { return ({}); },
-                valueContainer: function () { return ({}); },
-            } })));
-    };
-    exports.default = FormSelect;
-});
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var react_select_1 = __importDefault(require("react-select"));
+var Creatable_1 = __importDefault(require("react-select/lib/Creatable"));
+var ClearIndicator_1 = __importDefault(require("./ClearIndicator"));
+var DropdownIndicator_1 = __importDefault(require("./DropdownIndicator"));
+var MultiValue_1 = __importDefault(require("./MultiValue"));
+var Option_1 = __importDefault(require("./Option"));
+var FormSelect = function (_a) {
+    var className = _a.className, isCreatable = _a.isCreatable, isInvalid = _a.isInvalid, isValid = _a.isValid, size = _a.size, other = __rest(_a, ["className", "isCreatable", "isInvalid", "isValid", "size"]);
+    var Component = isCreatable ? Creatable_1.default : react_select_1.default;
+    var classNamePrefix = 'form-select';
+    var classes = classnames_1.default(className, classNamePrefix, size ? classNamePrefix + "-" + size : '', { 'is-invalid': isInvalid }, { 'is-valid': isValid });
+    return (React.createElement(Component, __assign({}, other, { className: classes, classNamePrefix: classNamePrefix, components: {
+            ClearIndicator: ClearIndicator_1.default,
+            DropdownIndicator: DropdownIndicator_1.default,
+            MultiValue: MultiValue_1.default,
+            Option: Option_1.default,
+        }, styles: {
+            clearIndicator: function () { return ({}); },
+            container: function () { return ({}); },
+            control: function () { return ({}); },
+            dropdownIndicator: function () { return ({}); },
+            group: function () { return ({}); },
+            groupHeading: function () { return ({}); },
+            indicatorsContainer: function () { return ({}); },
+            indicatorSeparator: function () { return ({}); },
+            input: function () { return ({}); },
+            // loadingIndicator: () => ({}),
+            // loadingMessage: () => ({}),
+            menu: function () { return ({}); },
+            menuList: function () { return ({}); },
+            multiValue: function () { return ({}); },
+            multiValueLabel: function () { return ({}); },
+            multiValueRemove: function () { return ({}); },
+            noOptionsMessage: function () { return ({}); },
+            option: function () { return ({}); },
+            placeholder: function () { return ({}); },
+            singleValue: function () { return ({}); },
+            valueContainer: function () { return ({}); },
+        } })));
+};
+exports.default = FormSelect;
 //# sourceMappingURL=FormSelect.js.map

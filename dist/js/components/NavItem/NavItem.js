@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,16 +31,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames"], function (require, exports, React, classnames_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    React = __importStar(React);
-    classnames_1 = __importDefault(classnames_1);
-    var NavItem = function (_a) {
-        var className = _a.className, _b = _a.tag, Tag = _b === void 0 ? 'li' : _b, other = __rest(_a, ["className", "tag"]);
-        var classes = classnames_1.default(className, 'nav-item');
-        return React.createElement(Tag, __assign({}, other, { className: classes }));
-    };
-    exports.default = NavItem;
-});
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var NavItem = function (_a) {
+    var className = _a.className, _b = _a.tag, Tag = _b === void 0 ? 'li' : _b, other = __rest(_a, ["className", "tag"]);
+    var classes = classnames_1.default(className, 'nav-item');
+    return React.createElement(Tag, __assign({}, other, { className: classes }));
+};
+exports.default = NavItem;
 //# sourceMappingURL=NavItem.js.map

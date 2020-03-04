@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,16 +31,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames"], function (require, exports, React, classnames_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    React = __importStar(React);
-    classnames_1 = __importDefault(classnames_1);
-    var Row = function (_a) {
-        var children = _a.children, className = _a.className, noGutters = _a.noGutters, _b = _a.tag, Tag = _b === void 0 ? 'div' : _b, other = __rest(_a, ["children", "className", "noGutters", "tag"]);
-        var classes = classnames_1.default(className, 'row', { 'no-gutters': noGutters });
-        return (React.createElement(Tag, __assign({}, other, { className: classes }), children));
-    };
-    exports.default = Row;
-});
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var Row = function (_a) {
+    var children = _a.children, className = _a.className, noGutters = _a.noGutters, _b = _a.tag, Tag = _b === void 0 ? 'div' : _b, other = __rest(_a, ["children", "className", "noGutters", "tag"]);
+    var classes = classnames_1.default(className, 'row', { 'no-gutters': noGutters });
+    return (React.createElement(Tag, __assign({}, other, { className: classes }), children));
+};
+exports.default = Row;
 //# sourceMappingURL=Row.js.map

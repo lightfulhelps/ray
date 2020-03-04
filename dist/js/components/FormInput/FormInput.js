@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,20 +31,17 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define(["require", "exports", "react", "classnames"], function (require, exports, React, classnames_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    React = __importStar(React);
-    classnames_1 = __importDefault(classnames_1);
-    var FormInput = function (_a) {
-        var className = _a.className, isInvalid = _a.isInvalid, isValid = _a.isValid, size = _a.size, _b = _a.type, type = _b === void 0 ? 'text' : _b, name = _a.name, other = __rest(_a, ["className", "isInvalid", "isValid", "size", "type", "name"]);
-        var checkInput = type === 'radio' || type === 'checkbox';
-        var fileInput = type === 'file';
-        var classes = classnames_1.default(className, checkInput ? 'form-check-input' : fileInput ? 'form-control-file' : 'form-control', size ? "form-control-" + size : false, {
-            'is-invalid': isInvalid,
-        }, { 'is-valid': isValid });
-        return React.createElement("input", __assign({}, other, { name: name, className: classes, type: type }));
-    };
-    exports.default = FormInput;
-});
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var FormInput = function (_a) {
+    var className = _a.className, isInvalid = _a.isInvalid, isValid = _a.isValid, size = _a.size, _b = _a.type, type = _b === void 0 ? 'text' : _b, name = _a.name, other = __rest(_a, ["className", "isInvalid", "isValid", "size", "type", "name"]);
+    var checkInput = type === 'radio' || type === 'checkbox';
+    var fileInput = type === 'file';
+    var classes = classnames_1.default(className, checkInput ? 'form-check-input' : fileInput ? 'form-control-file' : 'form-control', size ? "form-control-" + size : false, {
+        'is-invalid': isInvalid,
+    }, { 'is-valid': isValid });
+    return React.createElement("input", __assign({}, other, { name: name, className: classes, type: type }));
+};
+exports.default = FormInput;
 //# sourceMappingURL=FormInput.js.map
