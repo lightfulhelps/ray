@@ -1,13 +1,11 @@
 import * as React from 'react';
-interface Props extends React.HTMLAttributes<HTMLInputElement> {
+interface Props {
     className?: string;
-    onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
     isInvalid?: boolean;
     isValid?: boolean;
     size?: 'sm' | 'md' | 'lg';
     type?: string;
-    name?: string;
-    value?: string;
 }
-declare const FormInput: React.FC<Props>;
+declare type InputAttribute = Omit<React.HTMLProps<HTMLInputElement>, 'size'>;
+declare const FormInput: React.FC<Props & InputAttribute>;
 export default FormInput;

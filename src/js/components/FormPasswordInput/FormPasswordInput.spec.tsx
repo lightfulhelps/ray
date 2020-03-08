@@ -20,7 +20,7 @@ const setup = (overrides = {}) => {
 };
 
 describe('<FormPasswordInput />', () => {
-  it.only('should render', () => {
+  it('should render', () => {
     const { wrapper } = setup();
 
     expect(wrapper).toMatchSnapshot();

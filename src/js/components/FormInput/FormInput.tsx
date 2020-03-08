@@ -1,24 +1,24 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-interface Props extends React.HTMLAttributes<HTMLInputElement> {
+interface Props {
   className?: string;
-  onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
   isInvalid?: boolean;
   isValid?: boolean;
   size?: 'sm' | 'md' | 'lg';
   type?: string;
-  name?: string;
-  value?: string;
 }
 
-const FormInput: React.FC<Props> = ({
+// Size is an attibute of the input html element so there was a conflict with our size props.
+// Hence the need to omit this atribute
+type InputAttribute = Omit<React.HTMLProps<HTMLInputElement>, 'size'>;
+
+const FormInput: React.FC<Props & InputAttribute> = ({
   className,
   isInvalid,
   isValid,
   size,
   type = 'text',
-  name,
   ...other
 }: Props) => {
   const checkInput = type === 'radio' || type === 'checkbox';
@@ -33,7 +33,7 @@ const FormInput: React.FC<Props> = ({
     { 'is-valid': isValid }
   );
 
-  return <input {...other} name={name} className={classes} type={type} />;
+  return <input {...other} className={classes} type={type} />;
 };
 
 export default FormInput;

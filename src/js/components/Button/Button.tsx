@@ -3,7 +3,11 @@ import classNames from 'classnames';
 import Icon from '../Icon/Icon';
 import { IconNameType } from '../Icon/icons';
 
-export type Props = {
+// Size is an attibute of the input html element so there was a conflict with our size props.
+// Hence the need to omit this atribute
+type ButtonAttributes = Omit<React.HTMLProps<HTMLButtonElement>, 'size'>;
+
+export interface Props {
   children?: React.ReactNode;
   className?: string;
   icon?: IconNameType;
@@ -17,9 +21,9 @@ export type Props = {
   tag?: keyof JSX.IntrinsicElements;
   theme?: string;
   type?: 'button' | 'submit' | 'reset';
-};
+}
 
-const Button: React.FC<Props> = ({
+const Button: React.FC<ButtonAttributes & Props> = ({
   children,
   className,
   icon,

@@ -1,15 +1,19 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-type Props = {
+interface Props extends React.HTMLAttributes<HTMLTextAreaElement> {
   children?: string;
   className?: string;
   isInvalid?: boolean;
   isValid?: boolean;
   size?: 'sm' | 'md' | 'lg';
-};
+}
 
-const FormTextarea: React.FC<Props> = ({
+// Size is an attibute of the textArea html element so there was a conflict with our size props.
+// Hence the need to omit this atribute
+type TextAreaAttribute = Omit<React.HTMLProps<HTMLTextAreaElement>, 'size'>;
+
+const FormTextarea: React.FC<Props & TextAreaAttribute> = ({
   children,
   className,
   isInvalid,

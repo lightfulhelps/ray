@@ -1,5 +1,6 @@
 import * as React from 'react';
-interface Props {
+import { Props as ReactSelectProps } from 'react-select/src/Select';
+interface Props extends ReactSelectProps {
     className?: string;
     isCreatable?: boolean;
     isInvalid?: boolean;

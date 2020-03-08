@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Select from 'react-select';
 import Creatable from 'react-select/lib/Creatable';
+import { Props as ReactSelectProps } from 'react-select/src/Select';
 import ClearIndicator from './ClearIndicator';
 import DropdownIndicator from './DropdownIndicator';
 import MultiValue from './MultiValue';
@@ -9,7 +10,7 @@ import Option from './Option';
 
 // Props introduced by Ray - everything else will be passed through
 // See - https://react-select.com/props - for more information
-interface Props {
+interface Props extends ReactSelectProps {
   className?: string;
   isCreatable?: boolean;
   isInvalid?: boolean;

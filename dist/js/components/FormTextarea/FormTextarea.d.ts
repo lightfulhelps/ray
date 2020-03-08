@@ -1,10 +1,11 @@
 import * as React from 'react';
-declare type Props = {
+interface Props extends React.HTMLAttributes<HTMLTextAreaElement> {
     children?: string;
     className?: string;
     isInvalid?: boolean;
     isValid?: boolean;
     size?: 'sm' | 'md' | 'lg';
-};
-declare const FormTextarea: React.FC<Props>;
+}
+declare type TextAreaAttribute = Omit<React.HTMLProps<HTMLTextAreaElement>, 'size'>;
+declare const FormTextarea: React.FC<Props & TextAreaAttribute>;
 export default FormTextarea;

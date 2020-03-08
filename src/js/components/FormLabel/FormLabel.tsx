@@ -7,7 +7,12 @@ type Props = {
   isCheck?: boolean;
 };
 
-const FormLabel: React.FC<Props> = ({ children, className, isCheck, ...other }: Props) => {
+const FormLabel: React.FC<Props & React.HTMLProps<HTMLLabelElement>> = ({
+  children,
+  className,
+  isCheck,
+  ...other
+}: Props) => {
   const classes = classNames(className, isCheck ? 'form-check-label' : 'form-label');
 
   return (

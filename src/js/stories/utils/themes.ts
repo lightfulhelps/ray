@@ -19,31 +19,4 @@ export default {
   Facebook: 'facebook',
   Twitter: 'twitter',
   LinkedIn: 'linkedin',
-} as { [key: string]: string };
-
-// export default [
-//   {
-//     label: 'Primary',
-//     value: 'primary',
-//   },
-//   {
-//     label: 'Secondary',
-//     value: 'secondary',
-//   },
-//   //   {
-//   //     label: ,
-//   //     value: ,
-//   // },
-//   //   {
-//   //     label: ,
-//   //     value: ,
-//   // },
-//   //   {
-//   //     label: ,
-//   //     value: ,
-//   // },
-//   //   {
-//   //     label: ,
-//   //     value: ,
-//   // },
-// ];
+} as const;

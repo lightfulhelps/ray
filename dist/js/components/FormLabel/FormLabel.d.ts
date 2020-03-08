@@ -4,5 +4,5 @@ declare type Props = {
     className?: string;
     isCheck?: boolean;
 };
-declare const FormLabel: React.FC<Props>;
+declare const FormLabel: React.FC<Props & React.HTMLProps<HTMLLabelElement>>;
 export default FormLabel;

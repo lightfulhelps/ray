@@ -1,6 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+
 import {
   Container,
   Row,
@@ -19,6 +21,11 @@ import '../../scss/ray.scss';
 import FormPasswordInput from '../components/FormPasswordInput/FormPasswordInput';
 
 const stories = storiesOf('Forms', module);
+
+const selectSizes = {
+  Small: 'sm',
+  Large: 'lg',
+} as const;
 
 const selectOptions = [
   {
@@ -56,7 +63,7 @@ stories.add('Default', () => (
             isInvalid
             name="name"
             type="text"
-            size={select('Select Size', sizes, sizes.md)}
+            size={select('Select Size', sizes, sizes.Medium)}
           />
           <FormFeedback>This field is invalid</FormFeedback>
         </FormGroup>
@@ -66,12 +73,12 @@ stories.add('Default', () => (
             name="email"
             placeholder="e.g. foo@bar.com"
             type="email"
-            size={select('Select Size', sizes)}
+            size={select('Select Size', sizes, undefined)}
           />
         </FormGroup>
         <FormGroup>
           <FormLabel>Password</FormLabel>
-          <FormPasswordInput size={select('Select Size', sizes)} />
+          <FormPasswordInput size={select('Select Size', sizes, undefined)} />
         </FormGroup>
         <FormGroup>
           <FormLabel>Select</FormLabel>
@@ -80,7 +87,7 @@ stories.add('Default', () => (
             onChange={action('Select change')}
             options={selectOptions}
             placeholder="Some placeholder text..."
-            size={select('Select Size', sizes)}
+            size={select('Select Size', selectSizes, undefined)}
           />
         </FormGroup>
         <FormGroup>
@@ -90,7 +97,7 @@ stories.add('Default', () => (
             isMulti
             onChange={action('Multiple Select change')}
             options={selectOptions}
-            size={select('Select Size', sizes)}
+            size={select('Select Size', selectSizes, undefined)}
           />
         </FormGroup>
         <FormGroup>
