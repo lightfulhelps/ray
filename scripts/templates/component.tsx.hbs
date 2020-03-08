@@ -1,0 +1,15 @@
+import * as React from 'react';
+import classNames from 'classnames';
+
+type Props = {
+className?: string;
+};
+
+const {{componentName}}: React.FC<Props> = ({ className, ...other }) => {
+    const classes = classNames(className, '{{className}}');
+
+    return
+    <div {...other} className={classes} />;
+    };
+
+    export default {{componentName}};

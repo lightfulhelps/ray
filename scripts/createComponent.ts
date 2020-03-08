@@ -1,4 +1,3 @@
-// @flow
 import fs from 'fs';
 import path from 'path';
 import util from 'util';
@@ -33,7 +32,7 @@ export const getNames = (name?: string): NamesType => {
 };
 
 export const getComponentTemplate = async (data: NamesType): Promise<string> => {
-  const template = await readFileAsync(path.join(__dirname, 'templates/component.js.hbs'), {
+  const template = await readFileAsync(path.join(__dirname, 'templates/component.tsx.hbs'), {
     encoding: 'utf8',
   });
 
@@ -41,7 +40,7 @@ export const getComponentTemplate = async (data: NamesType): Promise<string> => 
 };
 
 export const getSpecTemplate = async (data: NamesType): Promise<string> => {
-  const template = await readFileAsync(path.join(__dirname, 'templates/spec.js.hbs'), {
+  const template = await readFileAsync(path.join(__dirname, 'templates/spec.tsx.hbs'), {
     encoding: 'utf8',
   });
 
@@ -54,8 +53,8 @@ const init = async ({ dir, name }: ArgvType) => {
     const componentString = await getComponentTemplate(names);
     const specString = await getSpecTemplate(names);
     const dirPath = `${dir}/${names.componentName}`;
-    const componentPath = `${dirPath}/${names.componentName}.js`;
-    const specPath = `${dirPath}/${names.componentName}.spec.js`;
+    const componentPath = `${dirPath}/${names.componentName}.tsx`;
+    const specPath = `${dirPath}/${names.componentName}.spec.tsx`;
 
     await mkdirAsync(dirPath);
 
