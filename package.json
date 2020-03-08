@@ -9,10 +9,10 @@
   "scripts": {
     "build": "rm -rf dist && run-p build:css build:js",
     "build:css": "node-sass src/scss/ray.scss dist/css/ray.css",
-    "build:icons": "babel-node scripts/buildIcons.tsx --svg-dir src/icons --output-file src/js/components/Icon/icons.tsx",
+    "build:icons": "babel-node scripts/buildIcons.ts --svg-dir src/icons --output-file src/js/components/Icon/icons.tsx",
     "build:js": "tsc",
     "build:storybook": "build-storybook -c .storybook -o storybook",
-    "create:component": "babel-node scripts/createComponent.js --dir src/js/components",
+    "create:component": "ts-node scripts/createComponent.ts --dir src/js/components",
     "format": "run-p format:css format:js",
     "format:css": "prettier --write './src/scss/**/*.scss'",
     "format:js": "prettier --write './src/js/**/*.{ts,tsx}'",
@@ -42,6 +42,11 @@
     ]
   },
   "dependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
     "bootstrap": "~4.3.0",
     "classnames": "^2.2.6",
     "date-fns": "^1.30.1",
@@ -49,7 +54,8 @@
     "react-dom": "^16.8.3",
     "react-lines-ellipsis": "^0.14.1",
     "react-select": "^2.1.0",
-    "run-node": "^2.0.0"
+    "run-node": "^2.0.0",
+    "ts-node": "^8.6.2"
   },
   "devDependencies": {
     "@sambego/storybook-state": "^1.3.2",
