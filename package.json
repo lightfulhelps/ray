@@ -9,7 +9,7 @@
   "scripts": {
     "build": "rm -rf dist && run-p build:css build:js",
     "build:css": "node-sass src/scss/ray.scss dist/css/ray.css",
-    "build:icons": "babel-node scripts/buildIcons.ts --svg-dir src/icons --output-file src/js/components/Icon/icons.tsx",
+    "build:icons": "ts-node scripts/buildIcons.ts --svg-dir src/icons --output-file src/js/components/Icon/icons.tsx",
     "build:js": "tsc",
     "build:storybook": "build-storybook -c .storybook -o storybook",
     "create:component": "ts-node scripts/createComponent.ts --dir src/js/components",
