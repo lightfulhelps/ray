@@ -1,8 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-// Importatn to be able to use it as an index for props (TODO : Look for a better solution)
-const colWidths: Array<'xs' | 'sm' | 'md' | 'lg' | 'xl'> = ['xs', 'sm', 'md', 'lg', 'xl'];
+const colWidths = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 type ColSizeType = boolean | number | string;
 
