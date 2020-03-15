@@ -36,6 +36,7 @@ var React = __importStar(require("react"));
 var classnames_1 = __importDefault(require("classnames"));
 var FormInput = function (_a) {
     var className = _a.className, isInvalid = _a.isInvalid, isValid = _a.isValid, size = _a.size, _b = _a.type, type = _b === void 0 ? 'text' : _b, other = __rest(_a, ["className", "isInvalid", "isValid", "size", "type"]);
+    console.log('type: ', type);
     var checkInput = type === 'radio' || type === 'checkbox';
     var fileInput = type === 'file';
     var classes = classnames_1.default(className, checkInput ? 'form-check-input' : fileInput ? 'form-control-file' : 'form-control', size ? "form-control-" + size : false, {

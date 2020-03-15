@@ -37,7 +37,6 @@ var classnames_1 = __importDefault(require("classnames"));
 var __1 = require("../..");
 require('react-dom');
 window.React2 = require('react');
-console.log(window.React1 === window.React2);
 var FormPasswordInput = function (_a) {
     var className = _a.className, onChange = _a.onChange, onBlur = _a.onBlur, value = _a.value, id = _a.id, isInvalid = _a.isInvalid, isValid = _a.isValid, _b = _a.name, name = _b === void 0 ? 'password' : _b, placeholder = _a.placeholder, size = _a.size, other = __rest(_a, ["className", "onChange", "onBlur", "value", "id", "isInvalid", "isValid", "name", "placeholder", "size"]);
     var _c = react_1.useState(false), hidePassword = _c[0], setHidePassword = _c[1];
