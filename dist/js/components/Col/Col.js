@@ -34,7 +34,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __importStar(require("react"));
 var classnames_1 = __importDefault(require("classnames"));
-// Importatn to be able to use it as an index for props (TODO : Look for a better solution)
 var colWidths = ['xs', 'sm', 'md', 'lg', 'xl'];
 var getColumnSizeClass = function (isXs, colWidth, colSize) {
     if (colSize === true || colSize === '') {
