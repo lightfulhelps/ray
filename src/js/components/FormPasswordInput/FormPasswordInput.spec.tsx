@@ -126,9 +126,9 @@ describe('<FormPasswordInput />', () => {
     });
 
     it('shows password when state is set', () => {
-      const { wrapper } = setup();
+      const { wrapper, button } = setup();
 
-      wrapper.setState({ hidePassword: false });
+      button.simulate('click');
 
       const input = wrapper.find(FormInput);
 
@@ -143,11 +143,11 @@ describe('<FormPasswordInput />', () => {
       });
 
       it('has a button that changes state when clicked', () => {
-        const { button, wrapper } = setup();
+        const { button, input } = setup();
 
         button.simulate('click');
 
-        expect(wrapper.state('hidePassword')).toEqual(false);
+        expect(input.prop('type')).toEqual('password');
       });
 
       it('has a button that says Show when password is hidden', () => {
@@ -159,9 +159,9 @@ describe('<FormPasswordInput />', () => {
       });
 
       it('has a button that says Hide when password is hidden', () => {
-        const { wrapper } = setup();
+        const { wrapper, button } = setup();
 
-        wrapper.setState({ hidePassword: false });
+        button.simulate('click');
 
         const span = wrapper.find('.form-password-input__toggle-password-text');
 
@@ -169,17 +169,17 @@ describe('<FormPasswordInput />', () => {
       });
 
       it('has a preview icon when password is hidden', () => {
-        const { button, wrapper } = setup();
+        const { button, input } = setup();
 
-        expect(wrapper.state('hidePassword')).toEqual(true);
+        expect(input.prop('type')).toEqual('password');
 
         expect(button.prop('icon')).toEqual('preview');
       });
 
       it('has a preview-hide icon when password is hidden', () => {
-        const { wrapper } = setup();
+        const { wrapper, button } = setup();
 
-        wrapper.setState({ hidePassword: false });
+        button.simulate('click');
 
         expect(wrapper.find(Button).prop('icon')).toEqual('previewHide');
       });

@@ -35,7 +35,7 @@ const FormPasswordInput: React.FC<Props> = ({
   size,
   ...other
 }) => {
-  const [hidePassword, setHidePassword] = useState(false);
+  const [hidePassword, setHidePassword] = useState(true);
 
   const togglePassword = () => {
     setHidePassword(!hidePassword);
