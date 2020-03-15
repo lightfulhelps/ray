@@ -47,6 +47,7 @@
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
+    "@jest/core": "^24.0.0",
     "bootstrap": "~4.3.0",
     "classnames": "^2.2.6",
     "date-fns": "^1.30.1",
