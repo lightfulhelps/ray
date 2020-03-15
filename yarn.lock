@@ -13857,11 +13857,6 @@ run-node@^1.0.0:
   resolved "https://registry.yarnpkg.com/run-node/-/run-node-1.0.0.tgz#46b50b946a2aa2d4947ae1d886e9856fd9cabe5e"
   integrity sha512-kc120TBlQ3mih1LSzdAJXo4xn/GWS2ec0l3S+syHDXP9uRr0JAT8Qd3mdMuyjqCzeZktgP3try92cEgf9Nks8A==
 
-run-node@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/run-node/-/run-node-2.0.0.tgz#0f598db2bf1cca3cc972abdb6f48c1f40cb29317"
-  integrity sha512-M024oSKOfXRbBZ4dzWeS4mZfLlkVrLbR+02lSno344whh60hFN7qjWnf3QXm/JePD9CR7W4gRe9tt4H/2PGkcw==
-
 run-parallel@^1.1.9:
   version "1.1.9"
   resolved "https://registry.yarnpkg.com/run-parallel/-/run-parallel-1.1.9.tgz#c9dd3a7cf9f4b2c4b6244e173a6ed866e61dd679"
