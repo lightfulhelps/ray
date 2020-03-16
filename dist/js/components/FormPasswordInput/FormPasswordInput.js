@@ -35,8 +35,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var classnames_1 = __importDefault(require("classnames"));
 var __1 = require("../..");
-require('react-dom');
-window.React2 = require('react');
 var FormPasswordInput = function (_a) {
     var className = _a.className, onChange = _a.onChange, onBlur = _a.onBlur, value = _a.value, id = _a.id, isInvalid = _a.isInvalid, isValid = _a.isValid, _b = _a.name, name = _b === void 0 ? 'password' : _b, placeholder = _a.placeholder, size = _a.size, other = __rest(_a, ["className", "onChange", "onBlur", "value", "id", "isInvalid", "isValid", "name", "placeholder", "size"]);
     var _c = react_1.useState(true), hidePassword = _c[0], setHidePassword = _c[1];

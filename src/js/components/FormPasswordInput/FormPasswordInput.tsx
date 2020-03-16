@@ -2,15 +2,6 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import { FormInput, Button } from '../..';
 
-export {};
-declare global {
-  interface Window {
-    [key: string]: any;
-  }
-}
-require('react-dom');
-window.React2 = require('react');
-
 interface Props extends React.HTMLAttributes<HTMLInputElement> {
   className?: string;
   id?: string;

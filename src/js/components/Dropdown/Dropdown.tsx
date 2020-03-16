@@ -12,12 +12,10 @@ const Dropdown: React.FC<Props> = ({ className, isBlock, render, ...other }) => 
   const [isOpen, setIsOpen] = useState(false);
 
   const handleDocumentClick = (e: Event) => {
-    console.log('e.target :', e.target);
     if (
       !e ||
-      (e && !e.target)
-        ||
-        (node && node?.current.contains(e.target) && node.current !== e.target)
+      (e && !e.target) ||
+      (node && node.current.contains(e.target) && node.current !== e.target)
     ) {
       return;
     }

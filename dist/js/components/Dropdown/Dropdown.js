@@ -39,12 +39,9 @@ var Dropdown = function (_a) {
     var node = react_1.useRef(null);
     var _b = react_1.useState(false), isOpen = _b[0], setIsOpen = _b[1];
     var handleDocumentClick = function (e) {
-        var _a;
-        console.log('e.target :', e.target);
         if (!e ||
-            (e && !e.target)
-            ||
-                (node && ((_a = node) === null || _a === void 0 ? void 0 : _a.current.contains(e.target)) && node.current !== e.target)) {
+            (e && !e.target) ||
+            (node && node.current.contains(e.target) && node.current !== e.target)) {
             return;
         }
         setIsOpen(false);
