@@ -10,10 +10,10 @@ const stories = storiesOf('InspirationPostCard', module);
 const defaultDate = new Date();
 
 const socialProviders = {
-  twitter: 'Twitter',
-  facebook: 'Facebook',
-  linkedin: 'LinkedIn',
-};
+  Twitter: 'twitter',
+  Facebook: 'facebook',
+  Linkedin: 'linkedin',
+} as const;
 
 const media = [
   {
@@ -47,6 +47,7 @@ stories.add('Default', () => (
       <Col md={6}>
         <InspirationPostCard
           post={{
+            id: 'fakeid123112',
             title: text('Title', 'Hope For Children'),
             date: date('Date', defaultDate),
             socialIdentity: {
@@ -76,9 +77,14 @@ stories.add('Default', () => (
               onClick: action('Like'),
               theme: boolean('Like', true) ? 'primary' : 'gray-500',
             },
-            { icon: 'repost', isActive: false, theme: 'gray-500' },
-            { icon: 'reply', isActive: false, theme: 'gray-500' },
-            { icon: 'create', isActive: false, theme: 'gray-500' },
+            {
+              icon: 'repost',
+              onClick: action('Repost'),
+              isActive: false,
+              theme: 'gray-500',
+            },
+            { icon: 'reply', onClick: action('Reply'), isActive: false, theme: 'gray-500' },
+            { icon: 'create', onClick: action('Create'), isActive: false, theme: 'gray-500' },
           ]}
         />
       </Col>

@@ -52,7 +52,7 @@ export type Props = {
     title: string;
     url: string;
   };
-  notesAction?: () => null;
+  notesAction?: () => void;
   notesCount?: number;
   post: PostType;
 };

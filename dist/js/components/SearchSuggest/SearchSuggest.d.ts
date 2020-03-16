@@ -2,7 +2,7 @@ import * as React from 'react';
 declare type ExcludeType = string | RegExp;
 declare type Props = {
     className?: string;
-    exclude: ExcludeType;
+    exclude?: ExcludeType;
     isLoading?: boolean;
     isOpen: boolean;
     limit?: number;

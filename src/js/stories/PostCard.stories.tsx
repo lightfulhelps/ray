@@ -10,10 +10,10 @@ const stories = storiesOf('PostCard', module);
 const defaultDate = new Date();
 
 const socialProviders = {
-  twitter: 'Twitter',
-  facebook: 'Facebook',
-  linkedin: 'LinkedIn',
-};
+  Twitter: 'twitter',
+  Facebook: 'facebook',
+  Linkedin: 'linkedin',
+} as const;
 
 const media = [
   // {
@@ -39,7 +39,7 @@ const media = [
   //   url:
   //     'https://images.unsplash.com/photo-1494451930944-8998635c2123?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a6fc9d727accaab5052cd754f634e768&auto=format&fit=crop&w=2251&q=80',
   // },
-];
+] as const;
 
 const tags = ['Social For Good', 'Charity', 'Lightful', 'Giving', 'Tech For Good'];
 

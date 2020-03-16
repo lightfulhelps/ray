@@ -23,6 +23,7 @@ stories.add('Default', () => (
           <NavItem>
             <NavLink
               href="#"
+              type="button"
               theme={select('Theme', themes, 'primary')}
               isActive={boolean('Active Link', true)}
             >

@@ -6,7 +6,7 @@ type ExcludeType = string | RegExp;
 
 type Props = {
   className?: string;
-  exclude: ExcludeType;
+  exclude?: ExcludeType;
   isLoading?: boolean;
   isOpen: boolean;
   limit?: number;

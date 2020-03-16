@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import Icon from '../Icon/Icon';
 import { IconNameType } from '../Icon/icons';
 
-// Size is an attibute of the input html element so there was a conflict with our size props.
-// Hence the need to omit this atribute
+// Size is an attribute of the input html element so there was a conflict with our size props.
+// Hence the need to omit this attribute
 type ButtonAttributes = Omit<React.HTMLProps<HTMLButtonElement>, 'size'>;
 
 export interface Props {

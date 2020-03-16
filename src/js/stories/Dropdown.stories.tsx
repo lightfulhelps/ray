@@ -20,14 +20,14 @@ const stories = storiesOf('Dropdown', module);
 stories.addDecorator(withKnobs);
 
 const menuThemes = {
-  light: 'Light',
-  dark: 'Dark',
-};
+  Light: 'light',
+  Dark: 'dark',
+} as const;
 
 const menuPositions = {
-  left: 'Left',
-  right: 'Right',
-};
+  Left: 'left',
+  Right: 'right',
+} as const;
 
 stories.add('Default', () => (
   <Container>

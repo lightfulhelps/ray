@@ -1,8 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Button } from '../..';
+import { Props as ButtonProps } from '../Button/Button';
 
-type Props = {
+type Props = ButtonProps & {
   className?: string;
   isOpen?: boolean;
 };

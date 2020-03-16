@@ -2,13 +2,17 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import { Container, Row, Col, Table } from '../';
-import sizes from './utils/sizes';
 
 import '../../scss/ray.scss';
 
 const stories = storiesOf('Table', module);
 
 stories.addDecorator(withKnobs);
+
+const sizes = {
+  Small: 'sm',
+  Large: 'lg',
+} as const;
 
 stories.add('Default', () => (
   <Container>
@@ -21,7 +25,7 @@ stories.add('Default', () => (
           isStriped={boolean('Striped', false)}
           isHoverable={boolean('Hoverable', false)}
           isResponsive={boolean('Responsive', false)}
-          size={select('Size', sizes, 'md')}
+          size={select('Size', sizes, undefined)}
         >
           <thead>
             <tr>
