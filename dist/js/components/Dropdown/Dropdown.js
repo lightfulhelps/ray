@@ -37,8 +37,6 @@ var classnames_1 = __importDefault(require("classnames"));
 var Dropdown = function (_a) {
     var className = _a.className, isBlock = _a.isBlock, render = _a.render, other = __rest(_a, ["className", "isBlock", "render"]);
     var node = react_1.useRef(null);
-    console.log('node :', node);
-    console.log('node.currant :', node && node.current);
     var _b = react_1.useState(false), isOpen = _b[0], setIsOpen = _b[1];
     var handleDocumentClick = function (e) {
         var _a;

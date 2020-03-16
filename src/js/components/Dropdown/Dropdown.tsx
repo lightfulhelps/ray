@@ -9,8 +9,6 @@ type Props = {
 
 const Dropdown: React.FC<Props> = ({ className, isBlock, render, ...other }) => {
   const node = useRef(null);
-  console.log('node :', node);
-  console.log('node.currant :', node && node.current);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleDocumentClick = (e: Event) => {
@@ -18,8 +16,8 @@ const Dropdown: React.FC<Props> = ({ className, isBlock, render, ...other }) => 
     if (
       !e ||
       (e && !e.target)
-      //   ||
-      //   (node && node?.current.contains(e.target) && node.current !== e.target)
+        ||
+        (node && node?.current.contains(e.target) && node.current !== e.target)
     ) {
       return;
     }
