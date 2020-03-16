@@ -9,7 +9,9 @@ const setup = (overrides = {}) => {
       title: 'Create your own',
       description: "Don't use a template, do your own thing.",
       image: 'http://foo.com/bar.jpg',
-      onClick: () => {},
+      onClick: () => {
+        // Empty function
+      },
     },
     overrides
   );
