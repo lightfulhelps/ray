@@ -47,10 +47,10 @@ var Button = function (_a) {
         if (typeof onClick === 'function')
             onClick(e);
     };
-    // Workaround to optionnaly add type attribute since this one is only available on button Jsx element
-    var optionnalProps = {};
-    optionnalProps.type = Tag === 'button' ? type : undefined;
-    return (React.createElement(Tag, __assign({}, other, optionnalProps, { className: classes, onClick: handleClick, disabled: isDisabled }),
+    // Workaround to optionaly add type attribute since this one is only available on button Jsx element
+    var optionalProps = {};
+    optionalProps.type = Tag === 'button' ? type : undefined;
+    return (React.createElement(Tag, __assign({}, other, optionalProps, { className: classes, onClick: handleClick, disabled: isDisabled }),
         children,
         icon && React.createElement(Icon_1.default, { name: icon, theme: iconTheme })));
 };
