@@ -4,7 +4,7 @@ steps:
       - docker pull node:10.16
       - docker run -ti --rm -v $(pwd):/src -w=/src node:10.16 yarn
       - docker run -ti --rm -v $(pwd):/src -w=/src node:10.16 yarn lint
-      - docker run -ti --rm -v $(pwd):/src -w=/src node:10.16 yarn flow
+      - docker run -ti --rm -v $(pwd):/src -w=/src node:10.16 yarn tsc --noEmit
       - docker run -ti --rm -v $(pwd):/src -w=/src node:10.16 yarn test
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE}"
