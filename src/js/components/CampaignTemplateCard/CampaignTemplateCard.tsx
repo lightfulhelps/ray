@@ -39,8 +39,7 @@ const CampaignTemplateCard: React.FC<Props> = ({
     backgroundPosition: 'center',
   };
 
-  const btnProps: ButtonProps & { 'data-test-id': string } = {
-    'data-test-id': 'campaign-template-card-button',
+  const btnProps: ButtonProps = {
     className: 'mt-2',
     onClick,
     isBlock: true,
@@ -70,7 +69,7 @@ const CampaignTemplateCard: React.FC<Props> = ({
             {description}
           </div>
         </div>
-        <Button {...btnProps} />
+        <Button data-test-id="campaign-template-card-button" {...btnProps} />
       </div>
     </div>
   );

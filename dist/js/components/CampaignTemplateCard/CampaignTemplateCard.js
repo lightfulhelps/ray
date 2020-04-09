@@ -45,7 +45,6 @@ var CampaignTemplateCard = function (_a) {
         backgroundPosition: 'center',
     };
     var btnProps = {
-        'data-test-id': 'campaign-template-card-button',
         className: 'mt-2',
         onClick: onClick,
         isBlock: true,
@@ -65,7 +64,7 @@ var CampaignTemplateCard = function (_a) {
             React.createElement("div", null,
                 React.createElement("h5", { "data-test-id": "campaign-template-card-title" }, title),
                 React.createElement("div", { className: "text-sm", "data-test-id": "campaign-template-card-description" }, description)),
-            React.createElement(__1.Button, __assign({}, btnProps)))));
+            React.createElement(__1.Button, __assign({ "data-test-id": "campaign-template-card-button" }, btnProps)))));
 };
 exports.default = CampaignTemplateCard;
 //# sourceMappingURL=CampaignTemplateCard.js.map
