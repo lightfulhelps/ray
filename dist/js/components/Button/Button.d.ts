@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { IconNameType } from '../Icon/icons';
+declare type ButtonAttributes = Omit<React.HTMLProps<HTMLButtonElement>, 'size'>;
 export interface Props {
     children?: React.ReactNode;
     className?: string;
@@ -15,5 +16,5 @@ export interface Props {
     theme?: string;
     type?: 'button' | 'submit' | 'reset';
 }
-declare const Button: React.FC<Props>;
+declare const Button: React.FC<ButtonAttributes & Props>;
 export default Button;

@@ -2,14 +2,13 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 type Props = {
-className?: string;
+  className?: string;
 };
 
 const {{componentName}}: React.FC<Props> = ({ className, ...other }) => {
-    const classes = classNames(className, '{{className}}');
+   const classes = classNames(className, '{{className}}');
 
-    return
-    <div {...other} className={classes} />;
-    };
+   return <div {...other} className={classes} />;
+};
 
-    export default {{componentName}};
+export default {{componentName}};
