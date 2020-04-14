@@ -5,17 +5,17 @@ exports[`getComponentTemplate matches snapshot 1`] = `
 import classNames from 'classnames';
 
 type Props = {
-className?: string;
+  className?: string;
+  [key: string]: any;
 };
 
 const FooBar: React.FC<Props> = ({ className, ...other }) => {
-    const classes = classNames(className, 'foo-bar');
+   const classes = classNames(className, 'foo-bar');
 
-    return
-    <div {...other} className={classes} />;
-    };
+   return <div {...other} className={classes} />;
+};
 
-    export default FooBar;"
+export default FooBar;"
 `;
 
 exports[`getSpecTemplate matches snapshot 1`] = `
