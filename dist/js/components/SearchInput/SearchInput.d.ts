@@ -1,5 +1,5 @@
 import * as React from 'react';
-interface Props extends React.HTMLAttributes<HTMLInputElement> {
+interface Props {
     className?: string;
     onSearch: (arg0: React.KeyboardEvent<HTMLInputElement> | React.MouseEvent) => void;
     placeholder?: string;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-interface Props extends React.HTMLAttributes<HTMLTextAreaElement> {
+interface Props {
     children?: string;
     className?: string;
     isInvalid?: boolean;

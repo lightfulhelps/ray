@@ -1,5 +1,5 @@
 import React from 'react';
-interface Props extends React.HTMLAttributes<HTMLInputElement> {
+interface Props {
     className?: string;
     id?: string;
     isInvalid?: boolean;

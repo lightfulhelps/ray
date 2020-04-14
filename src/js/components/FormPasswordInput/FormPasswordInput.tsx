@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import { FormInput, Button } from '../..';
 
-interface Props extends React.HTMLAttributes<HTMLInputElement> {
+interface Props {
   className?: string;
   id?: string;
   isInvalid?: boolean;
