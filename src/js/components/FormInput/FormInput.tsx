@@ -7,6 +7,7 @@ interface Props {
   isValid?: boolean;
   size?: 'sm' | 'md' | 'lg';
   type?: string;
+  [key: string]: any;
 }
 
 // Size is an attibute of the input html element so there was a conflict with our size props.

@@ -18,6 +18,7 @@ type Props = {
   theme?: string;
   title?: string;
   viewBox?: string;
+  [key: string]: any;
 };
 
 const Icon: React.FC<Props> = ({

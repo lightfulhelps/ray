@@ -3,6 +3,7 @@ declare type Props = {
     children: React.ReactNode;
     className?: string;
     tag?: keyof JSX.IntrinsicElements;
+    [key: string]: any;
 };
 declare const Card: React.FC<Props>;
 export default Card;

@@ -51,6 +51,7 @@ type Props = {
     url: string;
   };
   post: InspirationPostType;
+  [key: string]: any;
 };
 
 export const config = {

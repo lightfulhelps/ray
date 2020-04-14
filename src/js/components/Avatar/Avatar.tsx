@@ -9,6 +9,7 @@ type Props = {
   providerSize?: 'sm' | 'md' | 'lg';
   url?: string;
   style?: { [key: string]: number | string };
+  [key: string]: any;
 };
 
 const Avatar: React.FC<Props> = ({

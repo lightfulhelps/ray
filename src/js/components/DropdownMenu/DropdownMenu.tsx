@@ -10,6 +10,7 @@ type Props = {
   position?: 'left' | 'right';
   tag?: keyof JSX.IntrinsicElements;
   theme?: 'light' | 'dark';
+  [key: string]: any;
 };
 
 const DropdownMenu: React.FC<Props> = ({

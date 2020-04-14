@@ -7,6 +7,7 @@ declare type Props = {
     isPill?: boolean;
     tag?: keyof JSX.IntrinsicElements;
     theme?: string;
+    [key: string]: any;
 };
 declare const Badge: React.FC<Props>;
 export default Badge;

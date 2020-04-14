@@ -7,6 +7,7 @@ type Props = {
   count?: number;
   max?: number;
   text: string;
+  [key: string]: any;
 };
 
 const CharacterCounter: React.FC<Props> = ({

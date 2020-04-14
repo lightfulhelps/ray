@@ -5,6 +5,7 @@ declare type Props = {
     isPills?: boolean;
     isTabs?: boolean;
     tag?: keyof JSX.IntrinsicElements;
+    [key: string]: any;
 };
 declare const Nav: React.FC<Props>;
 export default Nav;

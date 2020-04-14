@@ -5,6 +5,7 @@ interface Props {
     isValid?: boolean;
     size?: 'sm' | 'md' | 'lg';
     type?: string;
+    [key: string]: any;
 }
 declare type InputAttribute = Omit<React.HTMLProps<HTMLInputElement>, 'size'>;
 declare const FormInput: React.FC<Props & InputAttribute>;

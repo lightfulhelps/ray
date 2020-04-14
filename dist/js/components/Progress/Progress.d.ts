@@ -6,6 +6,7 @@ declare type Props = {
     isStriped?: boolean;
     theme?: string;
     value: number;
+    [key: string]: any;
 };
 declare const Progress: React.FC<Props>;
 export default Progress;

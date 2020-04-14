@@ -14,6 +14,7 @@ declare type Props = {
     sm?: ColumnType;
     xl?: ColumnType;
     xs?: ColumnType;
+    [key: string]: any;
 };
 declare const Col: React.FC<Props>;
 export default Col;

@@ -6,6 +6,7 @@ type Props = {
   className?: string;
   isValid?: boolean;
   tag?: keyof JSX.IntrinsicElements;
+  [key: string]: any;
 };
 
 const FormFeedback: React.FC<Props> = ({

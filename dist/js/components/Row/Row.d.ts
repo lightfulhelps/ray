@@ -4,6 +4,7 @@ declare type Props = {
     className?: string;
     noGutters?: boolean;
     tag?: keyof JSX.IntrinsicElements;
+    [key: string]: any;
 };
 declare const Row: React.FC<Props>;
 export default Row;

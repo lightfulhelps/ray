@@ -8,6 +8,7 @@ type Props = {
   isStriped?: boolean;
   theme?: string;
   value: number;
+  [key: string]: any;
 };
 
 const Progress: React.FC<Props> = ({

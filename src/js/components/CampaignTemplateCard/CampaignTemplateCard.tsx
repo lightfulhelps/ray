@@ -12,6 +12,7 @@ type Props = {
   isSelected?: boolean;
   onClick?: (arg0: React.MouseEvent) => void;
   title: string;
+  [key: string]: any;
 };
 
 const CampaignTemplateCard: React.FC<Props> = ({

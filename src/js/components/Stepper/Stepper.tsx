@@ -12,6 +12,7 @@ type Props = {
   activeStep: number;
   className?: string;
   steps: Array<StepType>;
+  [key: string]: any;
 };
 
 const Stepper: React.FC<Props> = ({ activeStep, className, steps, ...other }: Props) => {

@@ -9,6 +9,7 @@ type MediaType = {
 type Props = {
   className?: string;
   media: MediaType[];
+  [key: string]: any;
 };
 
 const PostMedia: React.FC<Props> = ({ className, media, ...other }: Props) => {

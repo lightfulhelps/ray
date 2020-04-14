@@ -4,6 +4,7 @@ declare type Props = {
     className?: string;
     isValid?: boolean;
     tag?: keyof JSX.IntrinsicElements;
+    [key: string]: any;
 };
 declare const FormFeedback: React.FC<Props>;
 export default FormFeedback;

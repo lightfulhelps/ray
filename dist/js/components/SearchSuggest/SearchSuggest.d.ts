@@ -13,6 +13,7 @@ declare type Props = {
     options: string[];
     search: string;
     title?: string;
+    [key: string]: any;
 };
 export declare const findMatches: (option: string, search: string, exclude?: string | RegExp) => boolean;
 export declare const highlightMatches: (option: string, search?: string, exclude?: string | RegExp) => string;

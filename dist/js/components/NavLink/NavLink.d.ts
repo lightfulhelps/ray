@@ -5,6 +5,7 @@ declare type Props = {
     isDisabled?: boolean;
     tag?: keyof JSX.IntrinsicElements;
     theme?: string;
+    [key: string]: any;
 };
 declare const NavLink: React.FC<Props>;
 export default NavLink;

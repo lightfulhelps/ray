@@ -15,6 +15,7 @@ declare type Props = {
     theme?: string;
     title?: string;
     viewBox?: string;
+    [key: string]: any;
 };
 declare const Icon: React.FC<Props>;
 export default Icon;

@@ -5,6 +5,7 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   isCheck?: boolean;
+  [key: string]: any;
 };
 
 const FormLabel: React.FC<Props & React.HTMLProps<HTMLLabelElement>> = ({

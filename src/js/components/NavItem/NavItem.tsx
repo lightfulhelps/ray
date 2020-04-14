@@ -4,6 +4,7 @@ import classNames from 'classnames';
 type Props = {
   className?: string;
   tag?: keyof JSX.IntrinsicElements;
+  [key: string]: any;
 };
 
 const NavItem: React.FC<Props> = ({ className, tag: Tag = 'li', ...other }: Props) => {

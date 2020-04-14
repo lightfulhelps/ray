@@ -47,6 +47,7 @@ export declare type Props = {
     notesAction?: () => void;
     notesCount?: number;
     post: PostType;
+    [key: string]: any;
 };
 declare type State = {
     isTruncated: boolean;

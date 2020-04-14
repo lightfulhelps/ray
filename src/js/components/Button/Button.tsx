@@ -21,6 +21,7 @@ export interface Props {
   tag?: keyof JSX.IntrinsicElements;
   theme?: string;
   type?: 'button' | 'submit' | 'reset';
+  [key: string]: any;
 }
 
 const Button: React.FC<ButtonAttributes & Props> = ({

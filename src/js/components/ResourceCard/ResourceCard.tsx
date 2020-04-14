@@ -11,6 +11,7 @@ type Props = {
   resource: string;
   tag?: keyof JSX.IntrinsicElements;
   title: string;
+  [key: string]: any;
 };
 
 export const isHex = (string: string): boolean => /^#([0-9A-F]{3}){1,2}$/i.test(string);

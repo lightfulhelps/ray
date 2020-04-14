@@ -7,6 +7,7 @@ type Props = {
   className?: string;
   defaultOpen?: boolean;
   label: string;
+  [key: string]: any;
 };
 
 const Collapse: React.FC<Props> = ({ children, className, label, defaultOpen, ...other }) => {

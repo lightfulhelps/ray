@@ -9,6 +9,7 @@ type Props = {
   isResponsive?: boolean;
   isStriped?: boolean;
   size?: 'lg' | 'sm';
+  [key: string]: any;
 };
 
 const Table: React.FC<Props> = ({

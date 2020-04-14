@@ -7,6 +7,7 @@ type Props = {
   isDisabled?: boolean;
   tag?: keyof JSX.IntrinsicElements;
   theme?: string;
+  [key: string]: any;
 };
 
 const NavLink: React.FC<Props> = ({

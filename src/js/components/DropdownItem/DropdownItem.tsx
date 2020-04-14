@@ -9,6 +9,7 @@ export type Props = {
   isHeader?: boolean;
   onClick?: (arg0: React.MouseEvent) => void;
   tag?: keyof JSX.IntrinsicElements;
+  [key: string]: any;
 };
 
 const DropdownItem: React.FC<Props> = ({

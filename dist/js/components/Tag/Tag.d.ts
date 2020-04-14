@@ -5,6 +5,7 @@ declare type Props = {
     onRemove?: () => void;
     theme?: string;
     isOutline?: boolean;
+    [key: string]: any;
 };
 declare const Tag: React.FC<Props>;
 export default Tag;

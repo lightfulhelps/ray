@@ -7,6 +7,7 @@ type Props = {
   state: string;
   tag?: keyof JSX.IntrinsicElements;
   title: string;
+  [key: string]: any;
 };
 
 const CampaignCard: React.FC<Props> = ({

@@ -6,6 +6,7 @@ type Props = {
   className?: string;
   isCheck?: boolean;
   tag?: keyof JSX.IntrinsicElements;
+  [key: string]: any;
 };
 
 const FormGroup: React.FC<Props> = ({

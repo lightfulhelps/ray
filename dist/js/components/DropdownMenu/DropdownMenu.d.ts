@@ -8,6 +8,7 @@ declare type Props = {
     position?: 'left' | 'right';
     tag?: keyof JSX.IntrinsicElements;
     theme?: 'light' | 'dark';
+    [key: string]: any;
 };
 declare const DropdownMenu: React.FC<Props>;
 export default DropdownMenu;

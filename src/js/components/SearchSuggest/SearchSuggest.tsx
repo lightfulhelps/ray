@@ -17,6 +17,7 @@ type Props = {
   options: string[];
   search: string;
   title?: string;
+  [key: string]: any;
 };
 
 export const findMatches = (option: string, search: string, exclude: ExcludeType = ''): boolean => {

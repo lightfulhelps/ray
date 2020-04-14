@@ -6,6 +6,7 @@ declare type MediaType = {
 declare type Props = {
     className?: string;
     media: MediaType[];
+    [key: string]: any;
 };
 declare const PostMedia: React.FC<Props>;
 export default PostMedia;

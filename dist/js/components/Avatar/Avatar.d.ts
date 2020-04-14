@@ -8,6 +8,7 @@ declare type Props = {
     style?: {
         [key: string]: number | string;
     };
+    [key: string]: any;
 };
 declare const Avatar: React.FC<Props>;
 export default Avatar;

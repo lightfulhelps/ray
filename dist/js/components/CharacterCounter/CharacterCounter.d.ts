@@ -4,6 +4,7 @@ declare type Props = {
     count?: number;
     max?: number;
     text: string;
+    [key: string]: any;
 };
 declare const CharacterCounter: React.FC<Props>;
 export default CharacterCounter;

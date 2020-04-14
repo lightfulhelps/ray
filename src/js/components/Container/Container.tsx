@@ -6,6 +6,7 @@ type Props = {
   className?: string;
   isFluid?: boolean;
   tag?: keyof JSX.IntrinsicElements;
+  [key: string]: any;
 };
 
 const Container: React.FC<Props> = ({

@@ -6,6 +6,7 @@ import { Props as ButtonProps } from '../Button/Button';
 type Props = ButtonProps & {
   className?: string;
   isOpen?: boolean;
+  [key: string]: any;
 };
 
 const DropdownToggle: React.FC<Props> = ({ className, isOpen = false, ...other }: Props) => {

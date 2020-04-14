@@ -7,6 +7,7 @@ interface Props extends React.HTMLAttributes<HTMLTextAreaElement> {
   isInvalid?: boolean;
   isValid?: boolean;
   size?: 'sm' | 'md' | 'lg';
+  [key: string]: any;
 }
 
 // Size is an attibute of the textArea html element so there was a conflict with our size props.

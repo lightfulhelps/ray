@@ -6,6 +6,7 @@ declare type Props = {
     isVertical?: boolean;
     title?: string;
     url?: string;
+    [key: string]: any;
 };
 declare const URLMetaPreview: React.FC<Props>;
 export default URLMetaPreview;

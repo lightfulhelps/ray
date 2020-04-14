@@ -55,6 +55,7 @@ export type Props = {
   notesAction?: () => void;
   notesCount?: number;
   post: PostType;
+  [key: string]: any;
 };
 
 type State = {

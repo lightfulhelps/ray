@@ -6,6 +6,7 @@ type Props = {
   className?: string;
   noGutters?: boolean;
   tag?: keyof JSX.IntrinsicElements;
+  [key: string]: any;
 };
 
 const Row: React.FC<Props> = ({

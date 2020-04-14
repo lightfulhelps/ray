@@ -8,6 +8,7 @@ declare type Props = {
     activeStep: number;
     className?: string;
     steps: Array<StepType>;
+    [key: string]: any;
 };
 declare const Stepper: React.FC<Props>;
 export default Stepper;

@@ -42,6 +42,7 @@ declare type Props = {
         url: string;
     };
     post: InspirationPostType;
+    [key: string]: any;
 };
 export declare const config: {
     contentLines: number;

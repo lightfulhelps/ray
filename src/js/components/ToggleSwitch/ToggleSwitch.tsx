@@ -12,6 +12,7 @@ type Props = {
   labelAlign?: string;
   onChange?: () => void;
   onClick?: (arg0: React.MouseEvent) => void;
+  [key: string]: any;
 };
 
 const ToggleSwitch: React.FC<Props> = ({

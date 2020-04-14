@@ -19,16 +19,12 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   tag?: keyof JSX.IntrinsicElements;
-  // eslint-disable-next-line react/no-unused-prop-types
   lg?: ColumnType;
-  // eslint-disable-next-line react/no-unused-prop-types
   md?: ColumnType;
-  // eslint-disable-next-line react/no-unused-prop-types
   sm?: ColumnType;
-  // eslint-disable-next-line react/no-unused-prop-types
   xl?: ColumnType;
-  // eslint-disable-next-line react/no-unused-prop-types
   xs?: ColumnType;
+  [key: string]: any;
 };
 
 const getColumnSizeClass = (isXs: boolean, colWidth: string, colSize: ColSizeType): string => {

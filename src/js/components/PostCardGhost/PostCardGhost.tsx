@@ -5,6 +5,7 @@ import { Card } from '../..';
 type Props = {
   className?: string;
   isLoading?: boolean;
+  [key: string]: any;
 };
 
 const PostCardGhost: React.FC<Props> = ({ className, isLoading, ...other }: Props) => {

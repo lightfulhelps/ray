@@ -6,6 +6,7 @@ interface Props extends ReactSelectProps {
     isInvalid?: boolean;
     isValid?: boolean;
     size?: 'sm' | 'lg';
+    [key: string]: any;
 }
 declare const FormSelect: React.FC<Props>;
 export default FormSelect;

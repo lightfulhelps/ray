@@ -5,6 +5,7 @@ interface Props extends React.HTMLAttributes<HTMLTextAreaElement> {
     isInvalid?: boolean;
     isValid?: boolean;
     size?: 'sm' | 'md' | 'lg';
+    [key: string]: any;
 }
 declare type TextAreaAttribute = Omit<React.HTMLProps<HTMLTextAreaElement>, 'size'>;
 declare const FormTextarea: React.FC<Props & TextAreaAttribute>;

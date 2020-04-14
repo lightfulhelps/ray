@@ -8,6 +8,7 @@ type Props = {
   isVertical?: boolean;
   title?: string;
   url?: string;
+  [key: string]: any;
 };
 
 const cleanURL = (url: string): string => url.replace(/https?:\/\/(www.)?/, '');

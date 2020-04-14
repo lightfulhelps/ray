@@ -9,6 +9,7 @@ type Props = {
   isPill?: boolean;
   tag?: keyof JSX.IntrinsicElements;
   theme?: string;
+  [key: string]: any;
 };
 
 const Badge: React.FC<Props> = ({

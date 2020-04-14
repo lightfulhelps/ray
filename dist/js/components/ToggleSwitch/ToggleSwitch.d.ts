@@ -8,6 +8,7 @@ declare type Props = {
     labelAlign?: string;
     onChange?: () => void;
     onClick?: (arg0: React.MouseEvent) => void;
+    [key: string]: any;
 };
 declare const ToggleSwitch: React.FC<Props>;
 export default ToggleSwitch;

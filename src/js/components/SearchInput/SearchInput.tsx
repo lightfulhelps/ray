@@ -7,6 +7,7 @@ interface Props extends React.HTMLAttributes<HTMLInputElement> {
   onSearch: (arg0: React.KeyboardEvent<HTMLInputElement> | React.MouseEvent) => void;
   placeholder?: string;
   value?: string;
+  [key: string]: any;
 }
 
 const SearchInput: React.FC<Props> = ({

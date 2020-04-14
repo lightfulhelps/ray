@@ -11,6 +11,7 @@ interface Props extends React.HTMLAttributes<HTMLInputElement> {
   value?: string;
   size?: 'sm' | 'md' | 'lg';
   name?: string;
+  [key: string]: any;
 }
 
 const FormPasswordInput: React.FC<Props> = ({

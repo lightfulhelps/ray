@@ -7,6 +7,7 @@ declare type Props = {
     isResponsive?: boolean;
     isStriped?: boolean;
     size?: 'lg' | 'sm';
+    [key: string]: any;
 };
 declare const Table: React.FC<Props>;
 export default Table;

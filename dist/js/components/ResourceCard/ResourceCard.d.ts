@@ -8,6 +8,7 @@ declare type Props = {
     resource: string;
     tag?: keyof JSX.IntrinsicElements;
     title: string;
+    [key: string]: any;
 };
 export declare const isHex: (string: string) => boolean;
 declare const ResourceCard: React.FC<Props>;

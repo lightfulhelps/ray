@@ -5,6 +5,7 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   tag?: keyof JSX.IntrinsicElements;
+  [key: string]: any;
 };
 
 const Card: React.FC<Props> = ({ children, className, tag: Tag = 'div', ...other }: Props) => {

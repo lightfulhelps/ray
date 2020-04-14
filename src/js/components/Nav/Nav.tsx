@@ -7,6 +7,7 @@ type Props = {
   isPills?: boolean;
   isTabs?: boolean;
   tag?: keyof JSX.IntrinsicElements;
+  [key: string]: any;
 };
 
 const Nav: React.FC<Props> = ({

@@ -15,6 +15,7 @@ export interface Props {
     tag?: keyof JSX.IntrinsicElements;
     theme?: string;
     type?: 'button' | 'submit' | 'reset';
+    [key: string]: any;
 }
 declare const Button: React.FC<ButtonAttributes & Props>;
 export default Button;

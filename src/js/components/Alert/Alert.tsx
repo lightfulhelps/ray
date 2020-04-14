@@ -6,6 +6,7 @@ type Props = {
   tag?: keyof JSX.IntrinsicElements;
   theme?: string;
   children: React.ReactNode;
+  [key: string]: any;
 };
 
 const Alert: React.FC<Props> = ({
