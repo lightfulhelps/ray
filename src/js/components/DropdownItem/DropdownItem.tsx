@@ -8,7 +8,7 @@ export type Props = {
   isDisabled?: boolean;
   isHeader?: boolean;
   onClick?: (arg0: React.MouseEvent) => void;
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: keyof JSX.IntrinsicElements | typeof React.Component;
   [key: string]: any;
 };
 

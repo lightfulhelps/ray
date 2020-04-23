@@ -5,7 +5,7 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   noGutters?: boolean;
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: keyof JSX.IntrinsicElements | typeof React.Component;
   [key: string]: any;
 };
 

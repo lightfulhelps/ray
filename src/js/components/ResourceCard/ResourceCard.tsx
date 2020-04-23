@@ -9,7 +9,7 @@ type Props = {
   gradientStart?: string;
   imageForBackground?: string;
   resource: string;
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: keyof JSX.IntrinsicElements | typeof React.Component;
   title: string;
   [key: string]: any;
 };

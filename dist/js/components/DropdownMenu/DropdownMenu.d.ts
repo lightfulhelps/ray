@@ -6,7 +6,7 @@ declare type Props = {
     isOpen: boolean;
     onClick?: (arg0: React.MouseEvent) => void;
     position?: 'left' | 'right';
-    tag?: keyof JSX.IntrinsicElements;
+    tag?: keyof JSX.IntrinsicElements | typeof React.Component;
     theme?: 'light' | 'dark';
     [key: string]: any;
 };

@@ -5,7 +5,7 @@ type Props = {
   className?: string;
   cover: string;
   state: string;
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: keyof JSX.IntrinsicElements | typeof React.Component;
   title: string;
   [key: string]: any;
 };

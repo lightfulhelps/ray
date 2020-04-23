@@ -4,7 +4,7 @@ declare type Props = {
     isFill?: boolean;
     isPills?: boolean;
     isTabs?: boolean;
-    tag?: keyof JSX.IntrinsicElements;
+    tag?: keyof JSX.IntrinsicElements | typeof React.Component;
     [key: string]: any;
 };
 declare const Nav: React.FC<Props>;

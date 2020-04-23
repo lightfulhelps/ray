@@ -6,7 +6,7 @@ export declare type Props = {
     isDisabled?: boolean;
     isHeader?: boolean;
     onClick?: (arg0: React.MouseEvent) => void;
-    tag?: keyof JSX.IntrinsicElements;
+    tag?: keyof JSX.IntrinsicElements | typeof React.Component;
     [key: string]: any;
 };
 declare const DropdownItem: React.FC<Props>;

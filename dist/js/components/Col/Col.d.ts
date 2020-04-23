@@ -8,7 +8,7 @@ declare type ColumnType = boolean | number | string | {
 declare type Props = {
     children: React.ReactNode;
     className?: string;
-    tag?: keyof JSX.IntrinsicElements;
+    tag?: keyof JSX.IntrinsicElements | typeof React.Component;
     lg?: ColumnType;
     md?: ColumnType;
     sm?: ColumnType;

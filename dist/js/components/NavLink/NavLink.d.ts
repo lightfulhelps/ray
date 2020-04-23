@@ -3,7 +3,7 @@ declare type Props = {
     className?: string;
     isActive?: boolean;
     isDisabled?: boolean;
-    tag?: keyof JSX.IntrinsicElements;
+    tag?: keyof JSX.IntrinsicElements | typeof React.Component;
     theme?: string;
     [key: string]: any;
 };

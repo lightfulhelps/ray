@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 type Props = {
   className?: string;
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: keyof JSX.IntrinsicElements | typeof React.Component;
   [key: string]: any;
 };
 

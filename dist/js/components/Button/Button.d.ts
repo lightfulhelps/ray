@@ -12,7 +12,7 @@ export interface Props {
     isOutline?: boolean;
     onClick?: (arg0: React.MouseEvent) => void;
     size?: 'lg' | 'md' | 'sm';
-    tag?: keyof JSX.IntrinsicElements;
+    tag?: keyof JSX.IntrinsicElements | typeof React.Component;
     theme?: string;
     type?: 'button' | 'submit' | 'reset';
     [key: string]: any;
