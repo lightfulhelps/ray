@@ -48,6 +48,7 @@ label {
     height: $spacer * 1.6;
     width: $spacer * 1.6;
     flex-shrink: 0;
+    cursor: pointer;
   }
 
   &::before {
@@ -81,6 +82,7 @@ label {
 
     &::before {
       background-color: $gray-100;
+      cursor: default;
     }
   }
 }

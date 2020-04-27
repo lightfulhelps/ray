@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>icon/grey/bridgehub</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon/grey/bridgehub" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/white/dashboard" transform="translate(2.000000, 2.000000)" fill="#ACB4BD">
+            <path d="M11.4136662,1.86768077 L20.9397096,16.5224268 C21.4903002,17.3694486 21.2499953,18.5024374 20.4029735,19.0530281 C20.1062494,19.245908 19.7599446,19.3485708 19.4060409,19.3485708 L0.353954157,19.3485708 C-0.656291382,19.3485708 -1.4752572,18.5296049 -1.4752572,17.5193594 C-1.4752572,17.1654557 -1.37259444,16.8191509 -1.17971451,16.5224268 L8.34632887,1.86768077 C8.89691954,1.02065896 10.0299083,0.780354041 10.8769301,1.33094472 C11.0914036,1.47035915 11.2742518,1.65320736 11.4136662,1.86768077 Z" id="Triangle" transform="translate(9.880000, 10.174285) rotate(-270.000000) translate(-9.880000, -10.174285) "></path>
+        </g>
+    </g>
+</svg>
