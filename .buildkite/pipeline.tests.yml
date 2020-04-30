@@ -1,10 +1,10 @@
 steps:
   - label: Run tests
     command:
-      - docker pull node:8.10
-      - docker run -ti --rm -v $(pwd):/src -w=/src node:8.10 yarn
-      - docker run -ti --rm -v $(pwd):/src -w=/src node:8.10 yarn lint
-      - docker run -ti --rm -v $(pwd):/src -w=/src node:8.10 yarn flow
-      - docker run -ti --rm -v $(pwd):/src -w=/src node:8.10 yarn test
+      - docker pull node:10.16
+      - docker run -ti --rm -v $(pwd):/src -w=/src node:10.16 yarn
+      - docker run -ti --rm -v $(pwd):/src -w=/src node:10.16 yarn lint
+      - docker run -ti --rm -v $(pwd):/src -w=/src node:10.16 yarn tsc --noEmit
+      - docker run -ti --rm -v $(pwd):/src -w=/src node:10.16 yarn test
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE}"

@@ -1,58 +1,46 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = require('react');
-
-var React = _interopRequireWildcard(_react);
-
-var _classnames = require('classnames');
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-var Progress = function Progress(_ref) {
-  var children = _ref.children,
-      className = _ref.className,
-      isAnimated = _ref.isAnimated,
-      isStriped = _ref.isStriped,
-      _ref$theme = _ref.theme,
-      theme = _ref$theme === undefined ? 'primary' : _ref$theme,
-      _ref$value = _ref.value,
-      value = _ref$value === undefined ? 0 : _ref$value,
-      other = _objectWithoutProperties(_ref, ['children', 'className', 'isAnimated', 'isStriped', 'theme', 'value']);
-
-  var classes = (0, _classnames2.default)(className, 'progress');
-  var barClasses = (0, _classnames2.default)('progress-bar', _defineProperty({}, 'bg-' + theme, theme && value <= 100), { 'bg-danger': value > 100 }, { 'progress-bar-animated': isAnimated }, { 'progress-bar-striped': isStriped });
-
-  return React.createElement(
-    'div',
-    _extends({}, other, { className: classes, 'data-test-id': 'progress' }),
-    React.createElement(
-      'div',
-      {
-        className: barClasses,
-        'data-test-id': 'progress-bar',
-        role: 'progressbar',
-        style: { width: value + '%' },
-        'aria-valuenow': value,
-        'aria-valuemin': '0',
-        'aria-valuemax': '100'
-      },
-      children
-    )
-  );
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
-
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var Progress = function (_a) {
+    var _b;
+    var children = _a.children, className = _a.className, isAnimated = _a.isAnimated, isStriped = _a.isStriped, _c = _a.theme, theme = _c === void 0 ? 'primary' : _c, _d = _a.value, value = _d === void 0 ? 0 : _d, other = __rest(_a, ["children", "className", "isAnimated", "isStriped", "theme", "value"]);
+    var classes = classnames_1.default(className, 'progress');
+    var barClasses = classnames_1.default('progress-bar', (_b = {}, _b["bg-" + theme] = theme && value <= 100, _b), { 'bg-danger': value > 100 }, { 'progress-bar-animated': isAnimated }, { 'progress-bar-striped': isStriped });
+    return (React.createElement("div", __assign({}, other, { className: classes, "data-test-id": "progress" }),
+        React.createElement("div", { className: barClasses, "data-test-id": "progress-bar", role: "progressbar", style: { width: value + "%" }, "aria-valuenow": value, "aria-valuemin": 0, "aria-valuemax": 100 }, children)));
+};
 exports.default = Progress;
+//# sourceMappingURL=Progress.js.map

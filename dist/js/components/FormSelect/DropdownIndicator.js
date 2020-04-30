@@ -1,19 +1,10 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _ = require('../../');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var DropdownIndicator = function DropdownIndicator() {
-  return _react2.default.createElement(_.Icon, { name: 'caretDown', title: 'Open', theme: 'gray-500' });
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(require("react"));
+var __1 = require("../../");
+var DropdownIndicator = function () { return react_1.default.createElement(__1.Icon, { name: "caretDown", title: "Open", theme: "gray-500" }); };
 exports.default = DropdownIndicator;
+//# sourceMappingURL=DropdownIndicator.js.map
