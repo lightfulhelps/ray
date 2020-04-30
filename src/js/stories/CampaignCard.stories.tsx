@@ -5,8 +5,6 @@ import { Container, Row, Col, CampaignCard } from '../';
 
 import '../../scss/ray.scss';
 
-// TODO add types in fonction of the tag passed ? How to do that ?????
-
 const stories = storiesOf('CampaignCard', module);
 
 stories.addDecorator(withKnobs);

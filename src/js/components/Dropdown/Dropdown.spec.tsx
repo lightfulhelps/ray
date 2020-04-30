@@ -40,31 +40,4 @@ describe('<Dropdown />', () => {
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');
   });
-
-  // TODO : rewritte these test for user
-  //   describe('handleToggle', () => {
-  //     it('should update isOpen in state', () => {
-  //       const { wrapper } = setup();
-
-  //       expect(wrapper.state('isOpen')).toBe(false);
-
-  //       wrapper.instance().handleToggle();
-
-  //       expect(wrapper.state('isOpen')).toBe(true);
-
-  //       wrapper.instance().handleToggle();
-
-  //       expect(wrapper.state('isOpen')).toBe(false);
-  //     });
-  //   });
-
-  //   it('should set isOpen false on document click', () => {
-  //     const { wrapper } = setup();
-
-  //     wrapper.instance().handleToggle();
-
-  //     document.body.click();
-
-  //     expect(wrapper.state('isOpen')).toBe(false);
-  //   });
 });
