@@ -1,5 +1,5 @@
 import React from 'react';
-interface Props {
+declare type Props = {
     className?: string;
     id?: string;
     isInvalid?: boolean;
@@ -9,6 +9,6 @@ interface Props {
     size?: 'sm' | 'md' | 'lg';
     name?: string;
     [key: string]: any;
-}
+};
 declare const FormPasswordInput: React.FC<Props>;
 export default FormPasswordInput;

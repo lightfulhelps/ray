@@ -7,7 +7,7 @@ import { IconNameType } from '../Icon/icons';
 // Hence the need to omit this attribute
 type ButtonAttributes = Omit<React.HTMLProps<HTMLButtonElement>, 'size'>;
 
-export interface Props {
+export type Props = {
   children?: React.ReactNode;
   className?: string;
   icon?: IconNameType;
@@ -22,7 +22,7 @@ export interface Props {
   theme?: string;
   type?: 'button' | 'submit' | 'reset';
   [key: string]: any;
-}
+};
 
 const Button: React.FC<ButtonAttributes & Props> = ({
   children,

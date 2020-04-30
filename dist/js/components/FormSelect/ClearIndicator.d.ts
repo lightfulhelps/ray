@@ -1,6 +1,6 @@
 import React from 'react';
-interface Props {
+declare type Props = {
     innerProps: any;
-}
+};
 declare const ClearIndicator: React.FC<Props>;
 export default ClearIndicator;

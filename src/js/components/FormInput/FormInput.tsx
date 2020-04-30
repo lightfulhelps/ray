@@ -1,14 +1,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-interface Props {
+type Props = {
   className?: string;
   isInvalid?: boolean;
   isValid?: boolean;
   size?: 'sm' | 'md' | 'lg';
   type?: string;
   [key: string]: any;
-}
+};
 
 // Size is an attibute of the input html element so there was a conflict with our size props.
 // Hence the need to omit this atribute

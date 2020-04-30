@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import { FormInput, Button } from '../..';
 
-interface Props {
+type Props = {
   className?: string;
   id?: string;
   isInvalid?: boolean;
@@ -12,7 +12,7 @@ interface Props {
   size?: 'sm' | 'md' | 'lg';
   name?: string;
   [key: string]: any;
-}
+};
 
 const FormPasswordInput: React.FC<Props> = ({
   className,
