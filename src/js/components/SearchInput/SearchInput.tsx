@@ -4,7 +4,7 @@ import { FormInput, Button } from '../..';
 
 type Props = {
   className?: string;
-  onSearch: (arg0: React.KeyboardEvent<HTMLInputElement> | React.MouseEvent) => void;
+  onSearch: (event: React.KeyboardEvent<HTMLInputElement> | React.MouseEvent) => void;
   placeholder?: string;
   value?: string;
   [key: string]: any;

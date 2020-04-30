@@ -5,7 +5,7 @@ export declare type Props = {
     isActive?: boolean;
     isDisabled?: boolean;
     isHeader?: boolean;
-    onClick?: (arg0: React.MouseEvent) => void;
+    onClick?: (event: React.MouseEvent) => void;
     tag?: keyof JSX.IntrinsicElements | typeof React.Component;
     [key: string]: any;
 };

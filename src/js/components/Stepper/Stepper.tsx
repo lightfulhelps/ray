@@ -4,7 +4,7 @@ import Step from '../Step/Step';
 
 type StepType = {
   label: string;
-  onClick?: (arg0: React.MouseEvent) => void;
+  onClick?: (event: React.MouseEvent) => void;
   value: number | string;
 };
 

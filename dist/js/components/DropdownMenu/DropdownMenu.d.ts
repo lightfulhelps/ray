@@ -4,7 +4,7 @@ declare type Props = {
     className?: string;
     footer?: string;
     isOpen: boolean;
-    onClick?: (arg0: React.MouseEvent) => void;
+    onClick?: (event: React.MouseEvent) => void;
     position?: 'left' | 'right';
     tag?: keyof JSX.IntrinsicElements | typeof React.Component;
     theme?: 'light' | 'dark';

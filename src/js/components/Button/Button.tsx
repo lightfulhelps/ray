@@ -16,7 +16,7 @@ export type Props = {
   isBlock?: boolean;
   isDisabled?: boolean;
   isOutline?: boolean;
-  onClick?: (arg0: React.MouseEvent) => void;
+  onClick?: (event: React.MouseEvent) => void;
   size?: 'lg' | 'md' | 'sm';
   tag?: keyof JSX.IntrinsicElements | typeof React.Component;
   theme?: string;

@@ -6,7 +6,7 @@ declare type Props = {
     description: string;
     image: string;
     isSelected?: boolean;
-    onClick?: (arg0: React.MouseEvent) => void;
+    onClick?: (event: React.MouseEvent) => void;
     title: string;
     [key: string]: any;
 };

@@ -11,7 +11,7 @@ type Props = {
   label?: string;
   labelAlign?: string;
   onChange?: () => void;
-  onClick?: (arg0: React.MouseEvent) => void;
+  onClick?: (event: React.MouseEvent) => void;
   [key: string]: any;
 };
 

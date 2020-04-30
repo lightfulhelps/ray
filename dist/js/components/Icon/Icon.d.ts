@@ -7,7 +7,7 @@ declare type Props = {
     isActive?: boolean;
     isDisabled?: boolean;
     name: IconNameType;
-    onClick?: (arg0: React.MouseEvent) => void;
+    onClick?: (event: React.MouseEvent) => void;
     size?: number;
     style?: {
         [key: string]: string | number;
