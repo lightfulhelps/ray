@@ -1,131 +1,80 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var _react = require('react');
-
-var React = _interopRequireWildcard(_react);
-
-var _classnames = require('classnames');
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
 var colWidths = ['xs', 'sm', 'md', 'lg', 'xl'];
-
-var getColumnSizeClass = function getColumnSizeClass(isXs, colWidth, colSize) {
-  if (colSize === true || colSize === '') {
-    return isXs ? 'col' : 'col-' + colWidth;
-  }
-
-  if (colSize === 'auto') {
-    return isXs ? 'col-auto' : 'col-' + colWidth + '-auto';
-  }
-
-  if (colSize === false) return '';
-
-  return isXs ? 'col-' + colSize : 'col-' + colWidth + '-' + colSize;
-};
-
-var Col = function Col(props) {
-  var children = props.children,
-      className = props.className,
-      _props$tag = props.tag,
-      Tag = _props$tag === undefined ? 'div' : _props$tag,
-      other = _objectWithoutProperties(props, ['children', 'className', 'tag']);
-
-  var colClasses = [];
-
-  colWidths.forEach(function (colWidth, i) {
-    var columnProp = props[colWidth];
-
-    if (!columnProp && columnProp !== '') {
-      return;
+var getColumnSizeClass = function (isXs, colWidth, colSize) {
+    if (colSize === true || colSize === '') {
+        return isXs ? 'col' : "col-" + colWidth;
     }
-
-    var isXs = !i;
-
-    if ((typeof columnProp === 'undefined' ? 'undefined' : _typeof(columnProp)) === 'object') {
-      var _classNames;
-
-      var colSizeInterfix = isXs ? '-' : '-' + colWidth + '-';
-      var colClass = getColumnSizeClass(isXs, colWidth, columnProp.size);
-
-      colClasses.push((0, _classnames2.default)((_classNames = {}, _defineProperty(_classNames, colClass, columnProp.size || columnProp.size === ''), _defineProperty(_classNames, 'order' + colSizeInterfix + columnProp.order, columnProp.order || columnProp.order === 0), _defineProperty(_classNames, 'offset' + colSizeInterfix + columnProp.offset, columnProp.offset || columnProp.offset === 0), _classNames)));
-    } else {
-      var _colClass = getColumnSizeClass(isXs, colWidth, columnProp);
-      colClasses.push(_colClass);
+    if (colSize === 'auto') {
+        return isXs ? 'col-auto' : "col-" + colWidth + "-auto";
     }
-  });
-
-  if (!colClasses.length) {
-    colClasses.push('col');
-  }
-
-  var classes = (0, _classnames2.default)(className, colClasses);
-
-  return React.createElement(
-    Tag,
-    _extends({}, other, { className: classes }),
-    children
-  );
+    if (colSize === false)
+        return '';
+    return isXs ? "col-" + colSize : "col-" + colWidth + "-" + colSize;
 };
-
-Col.propTypes = {
-  children: _propTypes2.default.node.isRequired,
-  className: _propTypes2.default.string,
-
-  // eslint-disable-next-line react/no-unused-prop-types
-  lg: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.number, _propTypes2.default.string, _propTypes2.default.shape({
-    offset: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
-    order: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
-    size: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.number, _propTypes2.default.string]).isRequired
-  })]),
-
-  // eslint-disable-next-line react/no-unused-prop-types
-  md: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.number, _propTypes2.default.string, _propTypes2.default.shape({
-    offset: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
-    order: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
-    size: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.number, _propTypes2.default.string]).isRequired
-  })]),
-
-  // eslint-disable-next-line react/no-unused-prop-types
-  sm: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.number, _propTypes2.default.string, _propTypes2.default.shape({
-    offset: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
-    order: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
-    size: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.number, _propTypes2.default.string]).isRequired
-  })]),
-  tag: _propTypes2.default.string,
-
-  // eslint-disable-next-line react/no-unused-prop-types
-  xl: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.number, _propTypes2.default.string, _propTypes2.default.shape({
-    offset: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
-    order: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
-    size: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.number, _propTypes2.default.string]).isRequired
-  })]),
-
-  // eslint-disable-next-line react/no-unused-prop-types
-  xs: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.number, _propTypes2.default.string, _propTypes2.default.shape({
-    offset: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
-    order: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
-    size: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.number, _propTypes2.default.string]).isRequired
-  })])
+var Col = function (props) {
+    var children = props.children, className = props.className, _a = props.tag, Tag = _a === void 0 ? 'div' : _a, other = __rest(props, ["children", "className", "tag"]);
+    var colClasses = [];
+    colWidths.forEach(function (colWidth, i) {
+        var _a;
+        var columnProp = props[colWidth];
+        if (!columnProp && columnProp !== '') {
+            return;
+        }
+        var isXs = !i;
+        if (typeof columnProp === 'object') {
+            var colSizeInterfix = isXs ? '-' : "-" + colWidth + "-";
+            var colClass = getColumnSizeClass(isXs, colWidth, columnProp.size);
+            colClasses.push(classnames_1.default((_a = {},
+                _a[colClass] = columnProp.size || columnProp.size === '',
+                _a["order" + colSizeInterfix + columnProp.order] = columnProp.order || columnProp.order === 0,
+                _a["offset" + colSizeInterfix + columnProp.offset] = columnProp.offset || columnProp.offset === 0,
+                _a)));
+        }
+        else {
+            var colClass = getColumnSizeClass(isXs, colWidth, columnProp);
+            colClasses.push(colClass);
+        }
+    });
+    if (!colClasses.length) {
+        colClasses.push('col');
+    }
+    var classes = classnames_1.default(className, colClasses);
+    return (React.createElement(Tag, __assign({}, other, { className: classes }), children));
 };
 exports.default = Col;
+//# sourceMappingURL=Col.js.map

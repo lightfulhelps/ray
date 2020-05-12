@@ -2,21 +2,23 @@ module.exports = {
   extends: [
     'airbnb',
     'plugin:react/recommended',
-    'plugin:flowtype/recommended',
     'plugin:jest/recommended',
     'plugin:prettier/recommended',
     'prettier/react',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
   env: {
     browser: true,
   },
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 6,
     ecmaFeatures: {
       jsx: true,
     },
   },
+  plugins: ['@typescript-eslint', 'prettier', 'react'],
   rules: {
     'array-callback-return': 0,
     'comma-dangle': [
@@ -30,19 +32,14 @@ module.exports = {
       },
     ],
     'consistent-return': 0,
-    'flowtype/delimiter-dangle': [2, 'always-multiline'],
-    'flowtype/object-type-delimiter': 2,
-    'flowtype/semi': 2,
-    'flowtype/sort-keys': 2,
-    'flowtype/space-after-type-colon': [2, 'always', { allowLineBreak: true }],
-    'flowtype/type-id-match': [2, '^(([A-Z][a-z0-9]*)+Type)$|^(Props|State|DefaultProps)$'],
     'import/no-cycle': 0,
     'import/no-extraneous-dependencies': [
       2,
       {
-        devDependencies: ['**/*.spec.js', '**/*.stories.js', 'src/js/setupTests.js'],
+        devDependencies: ['**/*.spec.tsx', '**/*.stories.tsx', 'src/js/setupTests.ts'],
       },
     ],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/no-named-as-default': 0,
     'import/no-useless-path-segments': 0,
     'import/prefer-default-export': 0,
@@ -68,7 +65,7 @@ module.exports = {
     'react/button-has-type': 1, // https://github.com/yannickcr/eslint-plugin-react/issues/1846
     'react/destructuring-assignment': 0,
     'react/forbid-prop-types': 0,
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
     'react/jsx-one-expression-per-line': 0,
     'react/jsx-wrap-multilines': [
       2,
@@ -115,10 +112,14 @@ module.exports = {
         asyncArrow: 'always',
       },
     ],
+    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/no-unused-vars': 2,
   },
   settings: {
-    flowtype: {
-      onlyFilesWithFlowAnnotation: true,
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     },
   },
 };

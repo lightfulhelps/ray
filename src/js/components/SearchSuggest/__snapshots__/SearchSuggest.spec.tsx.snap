@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchSuggest /> should render 1`] = `
+<DropdownMenu
+  className="search-suggest"
+  data-test-id="search-suggest"
+  isOpen={true}
+  onClick={[MockFunction]}
+>
+  <DropdownItem
+    className="d-flex justify-content-between align-items-center"
+    data-test-id="search-suggest-header"
+    isHeader={true}
+  >
+    Recent Searches
+     
+    <div
+      className="ml-1 text-danger cursor-pointer text-capitalize"
+      data-test-id="search-suggest-clear"
+      onClick={[MockFunction]}
+    >
+      Clear All
+    </div>
+  </DropdownItem>
+  <DropdownItem
+    className="d-flex justify-content-between align-items-center text-body"
+    data-test-id="search-suggest-item"
+    key="0"
+    onClick={[Function]}
+  >
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<strong class=\\"text-gray-900\\">T</strong>wo",
+        }
+      }
+    />
+    <Icon
+      className="ml-1"
+      data-test-id="search-suggest-remove"
+      name="close"
+      onClick={[Function]}
+    />
+  </DropdownItem>
+  <DropdownItem
+    className="d-flex justify-content-between align-items-center text-body"
+    data-test-id="search-suggest-item"
+    key="1"
+    onClick={[Function]}
+  >
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<strong class=\\"text-gray-900\\">T</strong>hree",
+        }
+      }
+    />
+    <Icon
+      className="ml-1"
+      data-test-id="search-suggest-remove"
+      name="close"
+      onClick={[Function]}
+    />
+  </DropdownItem>
+  <DropdownItem
+    className="d-flex justify-content-between align-items-center text-body"
+    data-test-id="search-suggest-item"
+    key="2"
+    onClick={[Function]}
+  >
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Eigh<strong class=\\"text-gray-900\\">t</strong>",
+        }
+      }
+    />
+    <Icon
+      className="ml-1"
+      data-test-id="search-suggest-remove"
+      name="close"
+      onClick={[Function]}
+    />
+  </DropdownItem>
+  <DropdownItem
+    className="d-flex justify-content-between align-items-center text-body"
+    data-test-id="search-suggest-item"
+    key="3"
+    onClick={[Function]}
+  >
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<strong class=\\"text-gray-900\\">T</strong>en",
+        }
+      }
+    />
+    <Icon
+      className="ml-1"
+      data-test-id="search-suggest-remove"
+      name="close"
+      onClick={[Function]}
+    />
+  </DropdownItem>
+  <DropdownItem
+    className="d-flex justify-content-between align-items-center text-body"
+    data-test-id="search-suggest-item"
+    key="4"
+    onClick={[Function]}
+  >
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<strong class=\\"text-gray-900\\">T</strong>welve",
+        }
+      }
+    />
+    <Icon
+      className="ml-1"
+      data-test-id="search-suggest-remove"
+      name="close"
+      onClick={[Function]}
+    />
+  </DropdownItem>
+</DropdownMenu>
+`;

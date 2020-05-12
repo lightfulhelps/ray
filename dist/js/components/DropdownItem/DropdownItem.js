@@ -1,69 +1,51 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.bpfrpt_proptype_Props = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = require('react');
-
-var React = _interopRequireWildcard(_react);
-
-var _classnames = require('classnames');
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-var bpfrpt_proptype_Props = {
-  children: _propTypes2.default.node.isRequired,
-  className: _propTypes2.default.string,
-  isActive: _propTypes2.default.bool,
-  isDisabled: _propTypes2.default.bool,
-  isHeader: _propTypes2.default.bool,
-  onClick: _propTypes2.default.func,
-  tag: _propTypes2.default.string
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
-
-
-var DropdownItem = function DropdownItem(_ref) {
-  var children = _ref.children,
-      className = _ref.className,
-      isActive = _ref.isActive,
-      isDisabled = _ref.isDisabled,
-      isHeader = _ref.isHeader,
-      onClick = _ref.onClick,
-      _ref$tag = _ref.tag,
-      Tag = _ref$tag === undefined ? 'div' : _ref$tag,
-      other = _objectWithoutProperties(_ref, ['children', 'className', 'isActive', 'isDisabled', 'isHeader', 'onClick', 'tag']);
-
-  var classes = (0, _classnames2.default)(className, { 'dropdown-item': !isHeader }, { 'dropdown-header': isHeader }, { active: isActive }, { disabled: isDisabled }, { 'cursor-pointer': onClick && !isDisabled });
-
-  function handleClick(e) {
-    if (isDisabled) {
-      e.preventDefault();
-      return;
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var DropdownItem = function (_a) {
+    var children = _a.children, className = _a.className, isActive = _a.isActive, isDisabled = _a.isDisabled, isHeader = _a.isHeader, onClick = _a.onClick, _b = _a.tag, Tag = _b === void 0 ? 'div' : _b, other = __rest(_a, ["children", "className", "isActive", "isDisabled", "isHeader", "onClick", "tag"]);
+    var classes = classnames_1.default(className, { 'dropdown-item': !isHeader }, { 'dropdown-header': isHeader }, { active: isActive }, { disabled: isDisabled }, { 'cursor-pointer': onClick && !isDisabled });
+    function handleClick(e) {
+        if (isDisabled) {
+            e.preventDefault();
+            return;
+        }
+        if (typeof onClick === 'function')
+            onClick(e);
     }
-
-    if (typeof onClick === 'function') onClick(e);
-  }
-
-  return React.createElement(
-    Tag,
-    _extends({}, other, { className: classes, onClick: handleClick }),
-    children
-  );
+    return (React.createElement(Tag, __assign({}, other, { className: classes, onClick: handleClick }), children));
 };
-
 exports.default = DropdownItem;
-exports.bpfrpt_proptype_Props = bpfrpt_proptype_Props;
+//# sourceMappingURL=DropdownItem.js.map
