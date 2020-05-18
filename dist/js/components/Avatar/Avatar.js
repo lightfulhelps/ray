@@ -27,15 +27,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var classnames_1 = __importDefault(require("classnames"));
+var avatars_1 = __importDefault(require("@dicebear/avatars"));
+var avatars_initials_sprites_1 = __importDefault(require("@dicebear/avatars-initials-sprites"));
 var __1 = require("../..");
 var Avatar = function (_a) {
-    var className = _a.className, isDisconnected = _a.isDisconnected, _b = _a.url, url = _b === void 0 ? '' : _b, provider = _a.provider, _c = _a.providerSize, providerSize = _c === void 0 ? 'md' : _c, other = __rest(_a, ["className", "isDisconnected", "url", "provider", "providerSize"]);
+    var className = _a.className, isDisconnected = _a.isDisconnected, _b = _a.name, name = _b === void 0 ? 'Lightful' : _b, provider = _a.provider, _c = _a.providerSize, providerSize = _c === void 0 ? 'md' : _c, _d = _a.url, url = _d === void 0 ? '' : _d, other = __rest(_a, ["className", "isDisconnected", "name", "provider", "providerSize", "url"]);
     var classes = classnames_1.default(className, 'avatar', "avatar-provider-" + providerSize, {
         'avatar-disconnected': isDisconnected,
     });
+    var dbAvatars = new avatars_1.default(avatars_initials_sprites_1.default, {});
+    var initialsSvg = "data:image/svg+xml;utf8," + encodeURIComponent(dbAvatars.create(name));
     return (react_1.default.createElement("div", __assign({}, other, { className: classes }),
         react_1.default.createElement("div", { className: "avatar-inner" },
-            react_1.default.createElement("div", { className: "avatar-image", style: { backgroundImage: "url(" + url + ")" } }),
+            react_1.default.createElement("div", { className: "avatar-image", style: {
+                    backgroundImage: "url(" + (url || initialsSvg) + ")",
+                } }),
             provider && (react_1.default.createElement("div", { className: "avatar-provider avatar-provider-" + provider },
                 react_1.default.createElement(__1.Icon, { name: provider, color: "#ffffff" }))))));
 };

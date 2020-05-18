@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { Container, Row, Col, Avatar } from '../';
 
 import '../../scss/ray.scss';
@@ -14,7 +14,7 @@ stories.add('Default', () => (
     <h1 className="my-4">Avatar</h1>
     <Row>
       <Col xs={3} sm={2} md={1} className="mb-2">
-        <Avatar />
+        <Avatar name={text('Name', 'Lightful')} />
       </Col>
       <Col xs={3} sm={2} md={1} className="mb-2">
         <Avatar url="https://randomuser.me/api/portraits/women/47.jpg" />
