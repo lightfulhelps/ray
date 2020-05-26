@@ -2532,16 +2532,16 @@ input[type="button"].btn-block {
   background-color: #fff;
   background-clip: border-box;
   border: 0 solid #fff;
-  border-radius: 0.3125rem; }
+  border-radius: 1.25rem; }
   .card > hr, .inspiration-post-card > hr {
     margin-right: 0;
     margin-left: 0; }
   .card > .list-group:first-child .list-group-item:first-child, .inspiration-post-card > .list-group:first-child .list-group-item:first-child {
-    border-top-left-radius: 0.3125rem;
-    border-top-right-radius: 0.3125rem; }
+    border-top-left-radius: 1.25rem;
+    border-top-right-radius: 1.25rem; }
   .card > .list-group:last-child .list-group-item:last-child, .inspiration-post-card > .list-group:last-child .list-group-item:last-child {
-    border-bottom-right-radius: 0.3125rem;
-    border-bottom-left-radius: 0.3125rem; }
+    border-bottom-right-radius: 1.25rem;
+    border-bottom-left-radius: 1.25rem; }
 
 .card-body {
   flex: 1 1 auto;
@@ -2569,7 +2569,7 @@ input[type="button"].btn-block {
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 0 solid #fff; }
   .card-header:first-child {
-    border-radius: calc(0.3125rem - 0) calc(0.3125rem - 0) 0 0; }
+    border-radius: calc(1.25rem - 0) calc(1.25rem - 0) 0 0; }
   .card-header + .list-group .list-group-item:first-child {
     border-top: 0; }
 
@@ -2578,7 +2578,7 @@ input[type="button"].btn-block {
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 0 solid #fff; }
   .card-footer:last-child {
-    border-radius: 0 0 calc(0.3125rem - 0) calc(0.3125rem - 0); }
+    border-radius: 0 0 calc(1.25rem - 0) calc(1.25rem - 0); }
 
 .card-header-tabs {
   margin-right: -0.625rem;
@@ -2600,17 +2600,17 @@ input[type="button"].btn-block {
 
 .card-img {
   width: 100%;
-  border-radius: calc(0.3125rem - 0); }
+  border-radius: calc(1.25rem - 0); }
 
 .card-img-top {
   width: 100%;
-  border-top-left-radius: calc(0.3125rem - 0);
-  border-top-right-radius: calc(0.3125rem - 0); }
+  border-top-left-radius: calc(1.25rem - 0);
+  border-top-right-radius: calc(1.25rem - 0); }
 
 .card-img-bottom {
   width: 100%;
-  border-bottom-right-radius: calc(0.3125rem - 0);
-  border-bottom-left-radius: calc(0.3125rem - 0); }
+  border-bottom-right-radius: calc(1.25rem - 0);
+  border-bottom-left-radius: calc(1.25rem - 0); }
 
 .card-deck {
   display: flex;

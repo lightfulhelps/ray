@@ -90,7 +90,7 @@ var PostCard = /** @class */ (function (_super) {
                 break;
         }
         return (React.createElement(__1.Card, __assign({}, other, { className: classes }),
-            React.createElement("div", { className: "bg-" + borderColor + " rounded-top-sm mb-1", style: { height: '3px' } }),
+            React.createElement("div", { className: "bg-" + borderColor + " rounded-top-lg mb-1", style: { height: '20px' } }),
             errors && errors.length > 0 && (React.createElement("div", { className: "mb-1" }, errors.map(function (error, i) { return (React.createElement("div", { key: i, className: classnames_1.default('d-flex align-items-center text-sm font-weight-bold mx-2 alert-danger p-1 rounded-sm', { 'mb-1': i < errors.length - 1 }), style: { lineHeight: 1.4 } },
                 React.createElement(__1.Icon, { className: "mr-half flex-shrink-0", name: "alert", theme: "danger", size: 18 }),
                 error)); }))),
@@ -120,7 +120,7 @@ var PostCard = /** @class */ (function (_super) {
                     post.media && post.media.length > 0 && React.createElement(__1.PostMedia, { media: post.media }),
                     showMetaPreview && React.createElement(__1.URLMetaPreview, __assign({}, metaPreview, { className: "border", isVertical: true })),
                     showMediaEmpty && React.createElement("div", { className: "post-media--empty" }, "No media"))),
-            React.createElement("div", { className: classnames_1.default('py-1 px-2 d-flex flex-column flex-md-row align-items-center', notesAction || hasPostMetrics ? 'justify-content-between' : 'justify-content-end') },
+            React.createElement("div", { className: classnames_1.default('p-2 d-flex flex-column flex-md-row align-items-center', notesAction || hasPostMetrics ? 'justify-content-between' : 'justify-content-end') },
                 (notesAction || hasPostMetrics) && (React.createElement("div", { className: "d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-2 mb-md-0" }, notesAction ? (React.createElement("div", { className: "d-flex align-items-center cursor-pointer", "data-test-id": "post-card-notes", onClick: notesAction },
                     React.createElement(__1.Icon, { className: "mr-half", name: "comment" }),
                     ' ',

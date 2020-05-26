@@ -125,7 +125,7 @@ class PostCard extends React.Component<Props, State> {
 
     return (
       <Card {...other} className={classes}>
-        <div className={`bg-${borderColor} rounded-top-sm mb-1`} style={{ height: '3px' }} />
+        <div className={`bg-${borderColor} rounded-top-lg mb-1`} style={{ height: '20px' }} />
         {errors && errors.length > 0 && (
           <div className="mb-1">
             {errors.map((error, i) => (
@@ -222,7 +222,7 @@ class PostCard extends React.Component<Props, State> {
         </div>
         <div
           className={classNames(
-            'py-1 px-2 d-flex flex-column flex-md-row align-items-center',
+            'p-2 d-flex flex-column flex-md-row align-items-center',
             notesAction || hasPostMetrics ? 'justify-content-between' : 'justify-content-end'
           )}
         >
