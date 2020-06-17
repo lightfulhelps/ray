@@ -1,9 +1,7 @@
 {
-  "name": "ray",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@lightful/ray",
+  "version": "2.0.0",
   "description": "Lightful style guide and component library",
-  "author": "Lightful",
   "main": "dist/js/index.js",
   "type": "dist/js/index.d.ts",
   "scripts": {
@@ -105,5 +103,13 @@
     "ts-node": "^8.6.2",
     "typescript": "^3.7.5",
     "yargs": "^13.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lightfulhelps/ray"
+  },
+  "bugs": {
+    "url": "https://github.com/lightfulhelps/ray/issues"
+  },
+  "homepage": "https://lightful-ray.netlify.app"
 }

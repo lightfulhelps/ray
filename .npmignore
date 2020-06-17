@@ -3,3 +3,4 @@
 .storybook
 *.spec.js
 *.stories.js
+dist
