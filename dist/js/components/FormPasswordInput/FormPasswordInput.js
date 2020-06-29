@@ -1,141 +1,52 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _class, _temp2;
-
-var _react = require('react');
-
-var React = _interopRequireWildcard(_react);
-
-var _classnames = require('classnames');
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _ = require('../../');
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var FormPasswordInput = (_temp2 = _class = function (_React$Component) {
-  _inherits(FormPasswordInput, _React$Component);
-
-  function FormPasswordInput() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, FormPasswordInput);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = FormPasswordInput.__proto__ || Object.getPrototypeOf(FormPasswordInput)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      hidePassword: true
-    }, _this.togglePassword = function () {
-      _this.setState(function (prevState) {
-        return {
-          hidePassword: !prevState.hidePassword
-        };
-      });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(FormPasswordInput, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          className = _props.className,
-          onChange = _props.onChange,
-          onBlur = _props.onBlur,
-          value = _props.value,
-          id = _props.id,
-          isInvalid = _props.isInvalid,
-          isValid = _props.isValid,
-          name = _props.name,
-          placeholder = _props.placeholder,
-          size = _props.size,
-          other = _objectWithoutProperties(_props, ['className', 'onChange', 'onBlur', 'value', 'id', 'isInvalid', 'isValid', 'name', 'placeholder', 'size']);
-
-      var hidePassword = this.state.hidePassword;
-
-      var classes = (0, _classnames2.default)(className, 'form-control');
-
-      return React.createElement(
-        'div',
-        { className: 'form-password-input input-group' },
-        React.createElement(_.FormInput, _extends({}, other, {
-          className: classes,
-          'data-test-id': 'password-input',
-          isInvalid: isInvalid,
-          isValid: isValid,
-          name: name,
-          id: id,
-          onBlur: onBlur,
-          onChange: onChange,
-          placeholder: placeholder,
-          size: size,
-          type: hidePassword ? 'password' : 'text',
-          value: value
-        })),
-        React.createElement(
-          'div',
-          { className: 'input-group-append' },
-          React.createElement(
-            _.Button,
-            {
-              'data-test-id': 'password-input-button',
-              icon: hidePassword ? 'preview' : 'previewHide',
-              isOutline: true,
-              onClick: this.togglePassword,
-              size: size,
-              theme: 'gray-600'
-            },
-            React.createElement(
-              'span',
-              { className: 'form-password-input__toggle-password-text' },
-              hidePassword ? 'Show' : 'Hide'
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return FormPasswordInput;
-}(React.Component), _class.propTypes = {
-  className: _propTypes2.default.string,
-  id: _propTypes2.default.string,
-  isInvalid: _propTypes2.default.bool,
-  isValid: _propTypes2.default.bool,
-  name: _propTypes2.default.string,
-  onBlur: _propTypes2.default.func.isRequired,
-  onChange: _propTypes2.default.func.isRequired,
-  placeholder: _propTypes2.default.string,
-  size: _propTypes2.default.oneOf(['sm', 'md', 'lg']),
-  value: _propTypes2.default.string.isRequired
-}, _temp2);
-FormPasswordInput.defaultProps = {
-  name: 'password'
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var __1 = require("../..");
+var FormPasswordInput = function (_a) {
+    var className = _a.className, onChange = _a.onChange, onBlur = _a.onBlur, value = _a.value, id = _a.id, isInvalid = _a.isInvalid, isValid = _a.isValid, _b = _a.name, name = _b === void 0 ? 'password' : _b, placeholder = _a.placeholder, size = _a.size, other = __rest(_a, ["className", "onChange", "onBlur", "value", "id", "isInvalid", "isValid", "name", "placeholder", "size"]);
+    var _c = react_1.useState(true), hidePassword = _c[0], setHidePassword = _c[1];
+    var togglePassword = function () {
+        setHidePassword(!hidePassword);
+    };
+    var classes = classnames_1.default(className, 'form-control');
+    return (react_1.default.createElement("div", { className: "form-password-input input-group" },
+        react_1.default.createElement(__1.FormInput, __assign({}, other, { className: classes, "data-test-id": "password-input", isInvalid: isInvalid, isValid: isValid, name: name, id: id, onBlur: onBlur, onChange: onChange, placeholder: placeholder, size: size, type: hidePassword ? 'password' : 'text', value: value })),
+        react_1.default.createElement("div", { className: "input-group-append" },
+            react_1.default.createElement(__1.Button, { "data-test-id": "password-input-button", icon: hidePassword ? 'preview' : 'previewHide', isOutline: true, onClick: togglePassword, size: size, theme: "gray-600" },
+                react_1.default.createElement("span", { className: "form-password-input__toggle-password-text" }, hidePassword ? 'Show' : 'Hide')))));
 };
 exports.default = FormPasswordInput;
+//# sourceMappingURL=FormPasswordInput.js.map

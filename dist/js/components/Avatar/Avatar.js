@@ -1,53 +1,49 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _classnames = require('classnames');
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _ = require('../../');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-var Avatar = function Avatar(_ref) {
-  var className = _ref.className,
-      isDisconnected = _ref.isDisconnected,
-      _ref$url = _ref.url,
-      url = _ref$url === undefined ? '' : _ref$url,
-      provider = _ref.provider,
-      _ref$providerSize = _ref.providerSize,
-      providerSize = _ref$providerSize === undefined ? 'md' : _ref$providerSize,
-      other = _objectWithoutProperties(_ref, ['className', 'isDisconnected', 'url', 'provider', 'providerSize']);
-
-  var classes = (0, _classnames2.default)(className, 'avatar', 'avatar-provider-' + providerSize, {
-    'avatar-disconnected': isDisconnected
-  });
-
-  return _react2.default.createElement(
-    'div',
-    _extends({}, other, { className: classes }),
-    _react2.default.createElement(
-      'div',
-      { className: 'avatar-inner' },
-      _react2.default.createElement('div', { className: 'avatar-image', style: { backgroundImage: 'url(' + url + ')' } }),
-      provider && _react2.default.createElement(
-        'div',
-        { className: 'avatar-provider avatar-provider-' + provider },
-        _react2.default.createElement(_.Icon, { name: provider, color: '#ffffff' })
-      )
-    )
-  );
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
-
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var avatars_1 = __importDefault(require("@dicebear/avatars"));
+var avatars_initials_sprites_1 = __importDefault(require("@dicebear/avatars-initials-sprites"));
+var __1 = require("../..");
+var Avatar = function (_a) {
+    var className = _a.className, isDisconnected = _a.isDisconnected, _b = _a.name, name = _b === void 0 ? 'Lightful' : _b, provider = _a.provider, _c = _a.providerSize, providerSize = _c === void 0 ? 'md' : _c, _d = _a.url, url = _d === void 0 ? '' : _d, other = __rest(_a, ["className", "isDisconnected", "name", "provider", "providerSize", "url"]);
+    var classes = classnames_1.default(className, 'avatar', "avatar-provider-" + providerSize, {
+        'avatar-disconnected': isDisconnected,
+    });
+    var dbAvatars = new avatars_1.default(avatars_initials_sprites_1.default, {});
+    var initialsSvg = "data:image/svg+xml;utf8," + encodeURIComponent(dbAvatars.create(name));
+    return (react_1.default.createElement("div", __assign({}, other, { className: classes }),
+        react_1.default.createElement("div", { className: "avatar-inner" },
+            react_1.default.createElement("div", { className: "avatar-image", style: {
+                    backgroundImage: "url(" + (url || initialsSvg) + ")",
+                } }),
+            provider && (react_1.default.createElement("div", { className: "avatar-provider avatar-provider-" + provider },
+                react_1.default.createElement(__1.Icon, { name: provider, color: "#ffffff" }))))));
+};
 exports.default = Avatar;
+//# sourceMappingURL=Avatar.js.map

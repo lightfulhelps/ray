@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/white/bridgehub</title>
+    <g id="icon/white/bridgehub" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/white/dashboard" transform="translate(5.000000, 4.000000)" fill="#FFFFFF">
+            <path d="M8.67438631,1.41943739 L15.9141793,12.5570444 C16.3326282,13.2007809 16.1499965,14.0618524 15.5062599,14.4803013 C15.2807496,14.6268901 15.0175579,14.7049138 14.7485911,14.7049138 L0.269005159,14.7049138 C-0.49878145,14.7049138 -1.12119548,14.0824997 -1.12119548,13.3147131 C-1.12119548,13.0457463 -1.04317178,12.7825547 -0.896583026,12.5570444 L6.34320994,1.41943739 C6.76165885,0.775700807 7.62273033,0.593069071 8.26646691,1.01151799 C8.4294667,1.11747295 8.56843134,1.25643759 8.67438631,1.41943739 Z" id="Triangle" transform="translate(7.508800, 7.732457) rotate(-270.000000) translate(-7.508800, -7.732457) "></path>
+        </g>
+    </g>
+</svg>

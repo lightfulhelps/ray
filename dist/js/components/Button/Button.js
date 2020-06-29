@@ -1,100 +1,58 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.bpfrpt_proptype_Props = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = require('react');
-
-var React = _interopRequireWildcard(_react);
-
-var _classnames = require('classnames');
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _Icon = require('../Icon/Icon');
-
-var _Icon2 = _interopRequireDefault(_Icon);
-
-var _icons = require('../Icon/icons');
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-var bpfrpt_proptype_Props = {
-  children: _propTypes2.default.node,
-  className: _propTypes2.default.string,
-  icon: function icon() {
-    return (typeof _icons.bpfrpt_proptype_IconNameType === 'function' ? _icons.bpfrpt_proptype_IconNameType : _propTypes2.default.shape(_icons.bpfrpt_proptype_IconNameType)).apply(this, arguments);
-  },
-  iconPosition: _propTypes2.default.oneOf(['left', 'right']),
-  iconTheme: _propTypes2.default.string,
-  isBlock: _propTypes2.default.bool,
-  isDisabled: _propTypes2.default.bool,
-  isOutline: _propTypes2.default.bool,
-  onClick: _propTypes2.default.func,
-  size: _propTypes2.default.oneOf(['lg', 'md', 'sm']),
-  tag: _propTypes2.default.string,
-  theme: _propTypes2.default.string,
-  type: _propTypes2.default.oneOf(['button', 'submit', 'reset'])
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
-
-
-var Button = function Button(_ref) {
-  var children = _ref.children,
-      className = _ref.className,
-      icon = _ref.icon,
-      _ref$iconPosition = _ref.iconPosition,
-      iconPosition = _ref$iconPosition === undefined ? 'left' : _ref$iconPosition,
-      iconTheme = _ref.iconTheme,
-      isBlock = _ref.isBlock,
-      isDisabled = _ref.isDisabled,
-      isOutline = _ref.isOutline,
-      onClick = _ref.onClick,
-      size = _ref.size,
-      _ref$tag = _ref.tag,
-      Tag = _ref$tag === undefined ? 'button' : _ref$tag,
-      _ref$theme = _ref.theme,
-      theme = _ref$theme === undefined ? 'primary' : _ref$theme,
-      _ref$type = _ref.type,
-      type = _ref$type === undefined ? 'button' : _ref$type,
-      other = _objectWithoutProperties(_ref, ['children', 'className', 'icon', 'iconPosition', 'iconTheme', 'isBlock', 'isDisabled', 'isOutline', 'onClick', 'size', 'tag', 'theme', 'type']);
-
-  var classes = (0, _classnames2.default)(className, 'btn', 'btn' + (isOutline ? '-outline' : '') + '-' + theme, size ? 'btn-' + size : false, { 'btn-block': isBlock }, { disabled: isDisabled }, { 'btn-icon': icon && !children }, _defineProperty({}, 'btn-icon-' + iconPosition, icon && children));
-
-  function handleClick(e) {
-    if (isDisabled) {
-      e.preventDefault();
-      return;
-    }
-
-    if (typeof onClick === 'function') onClick(e);
-  }
-
-  return React.createElement(
-    Tag,
-    _extends({}, other, {
-      className: classes,
-      onClick: handleClick,
-      type: Tag === 'button' ? type : undefined,
-      disabled: isDisabled
-    }),
-    children,
-    icon && React.createElement(_Icon2.default, { name: icon, theme: iconTheme })
-  );
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
 };
-
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __importStar(require("react"));
+var classnames_1 = __importDefault(require("classnames"));
+var Icon_1 = __importDefault(require("../Icon/Icon"));
+var Button = function (_a) {
+    var _b;
+    var children = _a.children, className = _a.className, icon = _a.icon, _c = _a.iconPosition, iconPosition = _c === void 0 ? 'left' : _c, iconTheme = _a.iconTheme, isBlock = _a.isBlock, isDisabled = _a.isDisabled, isOutline = _a.isOutline, onClick = _a.onClick, size = _a.size, _d = _a.tag, Tag = _d === void 0 ? 'button' : _d, _e = _a.theme, theme = _e === void 0 ? 'primary' : _e, _f = _a.type, type = _f === void 0 ? 'button' : _f, other = __rest(_a, ["children", "className", "icon", "iconPosition", "iconTheme", "isBlock", "isDisabled", "isOutline", "onClick", "size", "tag", "theme", "type"]);
+    var classes = classnames_1.default(className, 'btn', "btn" + (isOutline ? '-outline' : '') + "-" + theme, size ? "btn-" + size : false, { 'btn-block': isBlock }, { disabled: isDisabled }, { 'btn-icon': icon && !children }, (_b = {}, _b["btn-icon-" + iconPosition] = icon && children, _b));
+    var handleClick = function (e) {
+        if (isDisabled) {
+            e.preventDefault();
+            return;
+        }
+        if (typeof onClick === 'function')
+            onClick(e);
+    };
+    // Workaround to optionaly add type attribute since this one is only available on button Jsx element
+    var optionalProps = {};
+    optionalProps.type = Tag === 'button' ? type : undefined;
+    return (React.createElement(Tag, __assign({}, other, optionalProps, { className: classes, onClick: handleClick, disabled: isDisabled }),
+        children,
+        icon && React.createElement(Icon_1.default, { name: icon, theme: iconTheme })));
+};
 exports.default = Button;
-exports.bpfrpt_proptype_Props = bpfrpt_proptype_Props;
+//# sourceMappingURL=Button.js.map
