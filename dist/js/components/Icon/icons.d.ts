@@ -1,5 +1,5 @@
 /// <reference types="react" />
-export declare type IconNameType = 'add' | 'alert' | 'analytics' | 'approvalTick' | 'arrowGrowth' | 'awareness' | 'badge' | 'billing' | 'bridgehub' | 'burgerMenu' | 'calendar' | 'card' | 'caretDown' | 'caretLeft' | 'caretRight' | 'caretUp' | 'characterCount' | 'chat' | 'chevronDown' | 'chevronLeft' | 'chevronRight' | 'chevronUp' | 'click' | 'close' | 'comment' | 'connection' | 'copy' | 'create' | 'dashboard' | 'delete' | 'download' | 'edit' | 'emoji' | 'emojiOutline' | 'facebook' | 'filter' | 'follow' | 'fundraising' | 'grid' | 'hashtag' | 'inspiration' | 'instagram' | 'learning' | 'lightBulb' | 'lightful' | 'lightning' | 'like' | 'link' | 'linkedin' | 'list' | 'lockClosed' | 'lockOpen' | 'mediaLibrary' | 'media' | 'menu' | 'notifications' | 'organisationAccount' | 'pause' | 'plan' | 'play' | 'pointRight' | 'posts' | 'previewHide' | 'preview' | 'publishedPost' | 'questionCircle' | 'question' | 'queuedPost' | 'reply' | 'repost' | 'schedule' | 'scheduledPost' | 'search' | 'settings' | 'share' | 'signOut' | 'socialProfile' | 'spikyTick' | 'star' | 'storyBuilder' | 'tag' | 'tick' | 'tutorial' | 'twitter' | 'user' | 'users';
+export declare type IconNameType = 'add' | 'alert' | 'analytics' | 'approvalTick' | 'arrowGrowth' | 'awareness' | 'badge' | 'billing' | 'bridgehub' | 'burgerMenu' | 'calendar' | 'card' | 'caretDown' | 'caretLeft' | 'caretRight' | 'caretUp' | 'characterCount' | 'chat' | 'chevronDown' | 'chevronLeft' | 'chevronRight' | 'chevronUp' | 'click' | 'close' | 'comment' | 'connection' | 'copy' | 'create' | 'dashboard' | 'delete' | 'download' | 'edit' | 'emoji' | 'emojiOutline' | 'facebook' | 'filter' | 'follow' | 'fundraising' | 'grid' | 'hashtag' | 'inspiration' | 'instagram' | 'learning' | 'lightBulb' | 'lightful' | 'lightning' | 'like' | 'link' | 'linkedin' | 'list' | 'lockClosed' | 'lockOpen' | 'mediaLibrary' | 'media' | 'menu' | 'notifications' | 'organisationAccount' | 'pause' | 'plan' | 'play' | 'pointRight' | 'posts' | 'previewHide' | 'preview' | 'publishedPost' | 'questionCircle' | 'question' | 'queuedPost' | 'reply' | 'repost' | 'schedule' | 'scheduledPost' | 'search' | 'settings' | 'share' | 'signOut' | 'smartGoals' | 'socialProfile' | 'spikyTick' | 'star' | 'storyBuilder' | 'tag' | 'tick' | 'tutorial' | 'twitter' | 'user' | 'users';
 declare const _default: {
     add: JSX.Element;
     alert: JSX.Element;
@@ -77,6 +77,7 @@ declare const _default: {
     settings: JSX.Element;
     share: JSX.Element;
     signOut: JSX.Element;
+    smartGoals: JSX.Element;
     socialProfile: JSX.Element;
     spikyTick: JSX.Element;
     star: JSX.Element;
