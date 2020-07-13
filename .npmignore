@@ -1,2 +1,2 @@
-*.spec.js
-*.stories.js
+*.spec.*
+*.stories.*

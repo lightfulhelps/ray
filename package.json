@@ -25,7 +25,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsc --noEmit && lint-staged && yarn build && git add dist"
+      "pre-commit": "tsc --noEmit && lint-staged"
     }
   },
   "lint-staged": {
