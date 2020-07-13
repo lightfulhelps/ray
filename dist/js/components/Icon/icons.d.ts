@@ -1,5 +1,5 @@
 /// <reference types="react" />
-export declare type IconNameType = 'add' | 'alert' | 'analytics' | 'approvalTick' | 'arrowGrowth' | 'awareness' | 'badge' | 'billing' | 'bridgehub' | 'burgerMenu' | 'calendar' | 'card' | 'caretDown' | 'caretLeft' | 'caretRight' | 'caretUp' | 'characterCount' | 'chat' | 'chevronDown' | 'chevronLeft' | 'chevronRight' | 'chevronUp' | 'click' | 'close' | 'comment' | 'connection' | 'copy' | 'create' | 'dashboard' | 'delete' | 'download' | 'edit' | 'emoji' | 'emojiOutline' | 'facebook' | 'filter' | 'follow' | 'fundraising' | 'grid' | 'hashtag' | 'inspiration' | 'instagram' | 'learning' | 'lightBulb' | 'lightful' | 'lightning' | 'like' | 'link' | 'linkedin' | 'list' | 'lockClosed' | 'lockOpen' | 'mediaLibrary' | 'media' | 'menu' | 'notifications' | 'organisationAccount' | 'pause' | 'plan' | 'play' | 'pointRight' | 'posts' | 'previewHide' | 'preview' | 'publishedPost' | 'questionCircle' | 'question' | 'queuedPost' | 'reply' | 'repost' | 'schedule' | 'scheduledPost' | 'search' | 'settings' | 'share' | 'signOut' | 'smartGoals' | 'socialProfile' | 'spikyTick' | 'star' | 'storyBuilder' | 'tag' | 'tick' | 'tutorial' | 'twitter' | 'user' | 'users';
+export declare type IconNameType = 'add' | 'alert' | 'analytics' | 'approvalTick' | 'arrowGrowth' | 'awareness' | 'badge' | 'billing' | 'bridgehub' | 'burgerMenu' | 'calendar' | 'card' | 'caretDown' | 'caretLeft' | 'caretRight' | 'caretUp' | 'characterCount' | 'chat' | 'checkIn' | 'chevronDown' | 'chevronLeft' | 'chevronRight' | 'chevronUp' | 'click' | 'close' | 'comment' | 'connection' | 'copy' | 'create' | 'dashboard' | 'delete' | 'download' | 'edit' | 'emoji' | 'emojiOutline' | 'facebook' | 'filter' | 'flag' | 'follow' | 'fundraising' | 'grid' | 'hashtag' | 'inspiration' | 'instagram' | 'learning' | 'lightBulb' | 'lightful' | 'lightning' | 'like' | 'link' | 'linkedin' | 'list' | 'lockClosed' | 'lockOpen' | 'mediaLibrary' | 'media' | 'menu' | 'notifications' | 'organisationAccount' | 'pause' | 'plan' | 'play' | 'pointRight' | 'posts' | 'previewHide' | 'preview' | 'publishedPost' | 'questionCircle' | 'question' | 'queuedPost' | 'reply' | 'repost' | 'schedule' | 'scheduledPost' | 'search' | 'settings' | 'share' | 'signOut' | 'smartGoals' | 'socialProfile' | 'spikyTick' | 'star' | 'storyBuilder' | 'tag' | 'tick' | 'tutorial' | 'twitter' | 'user' | 'users';
 declare const _default: {
     add: JSX.Element;
     alert: JSX.Element;
@@ -19,6 +19,7 @@ declare const _default: {
     caretUp: JSX.Element;
     characterCount: JSX.Element;
     chat: JSX.Element;
+    checkIn: JSX.Element;
     chevronDown: JSX.Element;
     chevronLeft: JSX.Element;
     chevronRight: JSX.Element;
@@ -37,6 +38,7 @@ declare const _default: {
     emojiOutline: JSX.Element;
     facebook: JSX.Element;
     filter: JSX.Element;
+    flag: JSX.Element;
     follow: JSX.Element;
     fundraising: JSX.Element;
     grid: JSX.Element;
