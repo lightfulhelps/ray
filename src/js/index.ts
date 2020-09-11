@@ -3,9 +3,7 @@ export { default as Avatar } from './components/Avatar/Avatar';
 export { default as Badge } from './components/Badge/Badge';
 export { default as Button } from './components/Button/Button';
 export { default as CampaignCard } from './components/CampaignCard/CampaignCard';
-export {
-  default as CampaignTemplateCard,
-} from './components/CampaignTemplateCard/CampaignTemplateCard';
+export { default as CampaignTemplateCard } from './components/CampaignTemplateCard/CampaignTemplateCard';
 export { default as Card } from './components/Card/Card';
 export { default as CharacterCounter } from './components/CharacterCounter/CharacterCounter';
 export { default as Col } from './components/Col/Col';
@@ -23,9 +21,7 @@ export { default as FormSelect } from './components/FormSelect/FormSelect';
 export { default as FormTextarea } from './components/FormTextarea/FormTextarea';
 export { default as FormPasswordInput } from './components/FormPasswordInput/FormPasswordInput';
 export { default as Icon } from './components/Icon/Icon';
-export {
-  default as InspirationPostCard,
-} from './components/InspirationPostCard/InspirationPostCard';
+export { default as InspirationPostCard } from './components/InspirationPostCard/InspirationPostCard';
 export { default as Nav } from './components/Nav/Nav';
 export { default as NavItem } from './components/NavItem/NavItem';
 export { default as NavLink } from './components/NavLink/NavLink';

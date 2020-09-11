@@ -32,6 +32,17 @@ module.exports = {
       },
     ],
     'consistent-return': 0,
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        mjs: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
     'import/no-cycle': 0,
     'import/no-extraneous-dependencies': [
       2,
