@@ -1,23 +1,30 @@
-# Ray
+<p align="center">
+  <a href="https://lightful.com">
+    <img src="https://assets.lightful.com/platform/brand/logo_purple.png" alt="Lightful" width="200">
+  </a>
+</p>
 
-[![Build status](https://badge.buildkite.com/71a56e0a65b60c1d9e1c42dd098c254e23eb0415ba57cbbfca.svg)](https://buildkite.com/lightful/ray-tests)
+## Ray
 
-Ray is [Lightful's](https://www.lightful.com/) style guide and component library. The package includes a CSS file that can be dropped in to any website or single-page application and a set of React components.
+Ray is [Lightful's](https://www.lightful.com/) CSS and React component library. The package includes a CSS file that can be dropped in to any website or single-page application and a set of React components.
 
 ## Installation
 
 ### CDN
 
-You can include the Ray CSS file from the jsDelivr CDN as follows:
+The Ray CSS file is available at the following CDN link:
 
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lightfulhelps/ray@master/dist/css/ray.css" />
+https://cdn.jsdelivr.net/npm/@lightful/ray@2.2.4/dist/css/ray.css
 ```
 
 ### npm
 
+Install the package with npm or yarn:
+
 ```
 npm install @lightful/ray
+yarn add @lightful/ray
 ```
 
 ## Contributing
@@ -37,3 +44,11 @@ Once you have obtained a new icon SVG it should be added to the `src/icons` dire
 Ray has been built on top of Bootstrap so includes Bootstrap CSS with variables changed to match the Ray style guide.
 
 Please refer to the [Bootstrap documention](https://getbootstrap.com/docs/4.1/getting-started/introduction/) to get started.
+
+## Releases
+
+Releases are handled by [np](https://github.com/sindresorhus/np) which provides and interactive UI for generating releases, safe-guarding against various mistakes and improving consistency in releases.
+
+We follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning), please ensure you are familiar with this approach before making a release.
+
+Once ready, run `yarn release` to start a new release.
