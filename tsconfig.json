@@ -12,6 +12,6 @@
     "outDir": "dist/js",
     "noImplicitReturns": false
   },
-  "include": ["src/js/index.ts"],
-  "exclude": ["node_modules", "dist", "*.spec.tsx", "*.stories.tsx"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
