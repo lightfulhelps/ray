@@ -7,7 +7,7 @@ import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon, Badge } fro
 import { IconNameType } from '../Icon/icons';
 import { Props as ButtonProps } from '../Button/Button';
 
-type MediaType = {
+export type MediaType = {
   id: string;
   type: string;
   url: string;

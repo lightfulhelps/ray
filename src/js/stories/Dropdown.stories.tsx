@@ -37,7 +37,7 @@ stories.add('Default', () => (
         <Dropdown
           isBlock={boolean('Block', false)}
           render={(isOpen, onToggle) => (
-            <React.Fragment>
+            <>
               <DropdownToggle isBlock={boolean('Block', false)} isOpen={isOpen} onClick={onToggle}>
                 Dropdown
               </DropdownToggle>
@@ -60,14 +60,14 @@ stories.add('Default', () => (
                   Delete
                 </DropdownItem>
               </DropdownMenu>
-            </React.Fragment>
+            </>
           )}
         />
       </div>
       <div className="col-6">
         <Dropdown
           render={(isOpen, onToggle) => (
-            <React.Fragment>
+            <>
               <Button icon="menu" theme="light" onClick={onToggle} />
               <DropdownMenu
                 isOpen={isOpen}
@@ -83,7 +83,7 @@ stories.add('Default', () => (
                 <DropdownItem>Option 3</DropdownItem>
                 <DropdownItem>Option 4</DropdownItem>
               </DropdownMenu>
-            </React.Fragment>
+            </>
           )}
         />
       </div>
