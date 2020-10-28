@@ -110,7 +110,7 @@ const init = async ({ svgDir, outputFile, glob = '*.svg' }: ArgvType) => {
     const prettierConfig = await prettier.resolveConfig(process.cwd());
     const formattedOutputJS = prettier.format(
       outputJS,
-      Object.assign(prettierConfig, { parser: 'babylon' })
+      Object.assign(prettierConfig, { parser: 'babel' })
     );
 
     await writeFileAsync(outputFile, formattedOutputJS);
