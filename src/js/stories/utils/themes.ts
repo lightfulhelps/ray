@@ -19,4 +19,5 @@ export default {
   Facebook: 'facebook',
   Twitter: 'twitter',
   LinkedIn: 'linkedin',
+  Instagram: 'instagram',
 } as const;
