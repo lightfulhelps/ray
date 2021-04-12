@@ -55,7 +55,8 @@ const Icon: React.FC<Props> = ({
   );
 
   if (theme) {
-    delete style.fill;
+    if (theme === 'instagram') style.fill = 'url(#instagram-gradient)';
+    else delete style.fill;
   } else {
     style.fill = hover && hoverColor ? hoverColor : color;
   }
@@ -71,6 +72,15 @@ const Icon: React.FC<Props> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      <defs>
+        <radialGradient id="instagram-gradient" r="150%" cx="30%" cy="107%">
+          <stop stopColor="#fdf497" offset="0" />
+          <stop stopColor="#fdf497" offset="0.05" />
+          <stop stopColor="#fd5949" offset="0.45" />
+          <stop stopColor="#d6249f" offset="0.6" />
+          <stop stopColor="#285AEB" offset="0.9" />
+        </radialGradient>
+      </defs>
       {title && <title>{title}</title>}
       {icons[name]}
     </svg>
