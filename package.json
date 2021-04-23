@@ -116,7 +116,6 @@
   "bugs": {
     "url": "https://github.com/lightfulhelps/ray/issues"
   },
-  "homepage": "https://lightful-ray.netlify.app",
   "files": [
     "dist",
     "src"

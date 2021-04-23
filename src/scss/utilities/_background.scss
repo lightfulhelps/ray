@@ -6,6 +6,10 @@
   @include bg-variant('.bg-#{$sm}', $value);
 }
 
+.bg-instagram {
+  background: $instagram-gradient;
+}
+
 .bg-contain {
   background-size: contain;
 }
