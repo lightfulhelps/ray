@@ -32,6 +32,9 @@ stories.add('Default', () => (
         <Avatar url="https://randomuser.me/api/portraits/women/47.jpg" provider="linkedin" />
       </Col>
       <Col xs={3} sm={2} md={1} className="mb-2">
+        <Avatar url="https://randomuser.me/api/portraits/women/47.jpg" provider="instagram" />
+      </Col>
+      <Col xs={3} sm={2} md={1} className="mb-2">
         <Avatar
           url="https://randomuser.me/api/portraits/women/47.jpg"
           provider="tick"

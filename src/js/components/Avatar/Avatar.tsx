@@ -8,7 +8,7 @@ type Props = {
   className?: string;
   isDisconnected?: boolean;
   name?: string;
-  provider?: 'facebook' | 'twitter' | 'linkedin' | 'tick';
+  provider?: 'facebook' | 'twitter' | 'linkedin' | 'instagram' | 'tick';
   providerSize?: 'sm' | 'md' | 'lg';
   url?: string;
   style?: { [key: string]: number | string };

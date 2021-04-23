@@ -37,7 +37,7 @@ Start by running `yarn create:component --name=MyComponent`. This will create a 
 
 Icons should be in SVG format with a 24px width/height and ideally made of a single path with a fill of #ADB5BD.
 
-Once you have obtained a new icon SVG it should be added to the `src/icons` directory and then you should run `yarn build:icons` - this will make the icon availabel for use in the React `<Icon />` component.
+Once you have obtained a new icon SVG it should be added to the `src/icons` directory and then you should run `yarn build:icons` - this will make the icon available for use in the React `<Icon />` component.
 
 ### CSS
 
