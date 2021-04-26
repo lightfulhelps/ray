@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 import classNames from 'classnames';
 import icons, { IconNameType } from './icons';
 
@@ -54,8 +55,10 @@ const Icon: React.FC<Props> = ({
     { 'cursor-pointer': typeof other.onClick === 'function' && !isDisabled }
   );
 
+  const instagramGradientId = theme === 'instagram' ? nanoid() : null;
+
   if (theme) {
-    if (theme === 'instagram') style.fill = 'url(#instagram-gradient)';
+    if (theme === 'instagram') style.fill = `url(#${instagramGradientId})`;
     else delete style.fill;
   } else {
     style.fill = hover && hoverColor ? hoverColor : color;
@@ -72,15 +75,17 @@ const Icon: React.FC<Props> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <defs>
-        <radialGradient id="instagram-gradient" r="150%" cx="30%" cy="107%">
-          <stop stopColor="#fdf497" offset="0" />
-          <stop stopColor="#fdf497" offset="0.05" />
-          <stop stopColor="#fd5949" offset="0.45" />
-          <stop stopColor="#d6249f" offset="0.6" />
-          <stop stopColor="#285AEB" offset="0.9" />
-        </radialGradient>
-      </defs>
+      {theme === 'instagram' && (
+        <defs>
+          <radialGradient id={instagramGradientId} r="150%" cx="30%" cy="107%">
+            <stop stopColor="#fdf497" offset="0" />
+            <stop stopColor="#fdf497" offset="0.05" />
+            <stop stopColor="#fd5949" offset="0.45" />
+            <stop stopColor="#d6249f" offset="0.6" />
+            <stop stopColor="#285AEB" offset="0.9" />
+          </radialGradient>
+        </defs>
+      )}
       {title && <title>{title}</title>}
       {icons[name]}
     </svg>
