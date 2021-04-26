@@ -74,11 +74,11 @@ const Icon: React.FC<Props> = ({
     >
       <defs>
         <radialGradient id="instagram-gradient" r="150%" cx="30%" cy="107%">
-          <stop stopColor="#fdf497" offset="0" />
-          <stop stopColor="#fdf497" offset="0.05" />
-          <stop stopColor="#fd5949" offset="0.45" />
-          <stop stopColor="#d6249f" offset="0.6" />
-          <stop stopColor="#285AEB" offset="0.9" />
+          <stop stopColor="#fdf497" offset="0%" />
+          <stop stopColor="#fdf497" offset="5%" />
+          <stop stopColor="#fd5949" offset="45%" />
+          <stop stopColor="#d6249f" offset="60%" />
+          <stop stopColor="#285AEB" offset="90%" />
         </radialGradient>
       </defs>
       {title && <title>{title}</title>}
