@@ -44,14 +44,16 @@
   "dependencies": {
     "@dicebear/avatars": "^4.1.1",
     "@dicebear/avatars-initials-sprites": "^4.1.1",
-    "bootstrap": "~4.3.0",
     "classnames": "^2.2.6",
     "date-fns": "^1.30.1",
     "nanoid": "^3.1.22",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
     "react-lines-ellipsis": "^0.14.1",
     "react-select": "^2.1.0"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.3",
+    "react-dom": ">= 16.8.3",
+    "bootstrap": "~4.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -72,6 +74,7 @@
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.1.0",
     "babel-loader": "^8.1.0",
+    "bootstrap": "~4.3.0",
     "chokidar-cli": "^2.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
@@ -96,6 +99,8 @@
     "np": "^6.3.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.15.3",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
     "sass-loader": "^7.1.0",
     "storybook": "^6.0.21",
     "stylelint": "^13.7.1",
