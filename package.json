@@ -1,6 +1,6 @@
 {
   "name": "@lightful/ray",
-  "version": "2.4.2",
+  "version": "2.5.0",
   "description": "Lightful style guide and component library",
   "main": "dist/js/index.js",
   "type": "dist/js/index.d.ts",
@@ -51,9 +51,9 @@
     "react-select": "^2.1.0"
   },
   "peerDependencies": {
+    "bootstrap": "~4.3.0",
     "react": ">= 16.8.3",
-    "react-dom": ">= 16.8.3",
-    "bootstrap": "~4.3.0"
+    "react-dom": ">= 16.8.3"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
