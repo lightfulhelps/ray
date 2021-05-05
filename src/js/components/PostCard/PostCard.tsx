@@ -77,7 +77,7 @@ class PostCard extends React.Component<Props, State> {
     const {
       actions = [],
       className,
-      dateFormat = 'HH:mm [on] dddd, D MMMM',
+      dateFormat = "HH:mm 'on' eeee, d MMMM",
       errors,
       isDraft,
       isImported,
@@ -164,7 +164,7 @@ class PostCard extends React.Component<Props, State> {
                 <div className="h6 mb-0" data-test-id="post-card-date">
                   {post.date
                     ? `${post.state === 'published' ? 'Published' : 'Scheduled for'} ${formatDate(
-                        post.date,
+                        new Date(post.date),
                         dateFormat
                       )}`
                     : 'Unscheduled'}

@@ -138,7 +138,7 @@ describe('<PostCard />', () => {
       'Scheduled for 14:34 on Wednesday, 22 August'
     );
 
-    wrapper.setProps({ dateFormat: 'HH:MM [on] DD-MM-YYYY' });
+    wrapper.setProps({ dateFormat: "HH:MM 'on' dd-MM-yyyy" });
 
     expect(wrapper.find('[data-test-id="post-card-date"]').text()).toEqual(
       'Scheduled for 14:08 on 22-08-2018'

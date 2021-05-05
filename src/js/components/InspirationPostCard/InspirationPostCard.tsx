@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
-import formatDate from 'date-fns/format';
+import { format as formatDate } from 'date-fns';
 import { Card, Avatar, Icon, PostMedia, URLMetaPreview, Tag } from '../..';
 import { IconNameType } from '../Icon/icons';
 
@@ -63,7 +63,7 @@ const ResponsiveHTMLEllipsis = responsiveHOC()(HTMLEllipsis);
 
 const InspirationPostCard: React.FC<Props> = ({
   className,
-  dateFormat = 'D MMM YY [-] HH:mm',
+  dateFormat = "d MMM yy '-' HH:mm",
   inspirationActions,
   metaPreview,
   post,
@@ -87,7 +87,7 @@ const InspirationPostCard: React.FC<Props> = ({
         <div className="mx-1" style={{ minWidth: 0, flex: 1 }}>
           <h1 className={`${blockClass}__title`}>{post.title}</h1>
           <div className={`${blockClass}__date`}>
-            {post.date ? formatDate(post.date, dateFormat) : 'Unscheduled'}
+            {post.date ? formatDate(new Date(post.date), dateFormat) : 'Unscheduled'}
           </div>
         </div>
       </div>
