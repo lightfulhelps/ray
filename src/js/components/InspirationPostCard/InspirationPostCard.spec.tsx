@@ -83,7 +83,7 @@ describe('<InspirationPostCard />', () => {
 
     expect(wrapper.find('.inspiration-post-card__date').text()).toEqual('22 Aug 18 - 14:34');
 
-    wrapper.setProps({ dateFormat: 'HH:MM [on] DD-MM-YYYY' });
+    wrapper.setProps({ dateFormat: "HH:MM 'on' dd-MM-yyyy" });
 
     expect(wrapper.find('.inspiration-post-card__date').text()).toEqual('14:08 on 22-08-2018');
   });
