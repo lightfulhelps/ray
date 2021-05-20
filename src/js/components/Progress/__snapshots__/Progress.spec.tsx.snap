@@ -4,6 +4,12 @@ exports[`<Progress /> should render 1`] = `
 <div
   className="progress"
   data-test-id="progress"
+  style={
+    Object {
+      "fontSize": "0.75rem",
+      "height": "1rem",
+    }
+  }
 >
   <div
     aria-valuemax={100}

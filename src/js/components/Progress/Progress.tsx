@@ -8,6 +8,7 @@ type Props = {
   isStriped?: boolean;
   theme?: string;
   value: number;
+  size?: 'sm' | 'md' | 'lg';
   [key: string]: any;
 };
 
@@ -17,6 +18,7 @@ const Progress: React.FC<Props> = ({
   isAnimated,
   isStriped,
   theme = 'primary',
+  size = 'md',
   value = 0,
   ...other
 }: Props) => {
@@ -30,12 +32,22 @@ const Progress: React.FC<Props> = ({
   );
 
   return (
-    <div {...other} className={classes} data-test-id="progress">
+    <div
+      {...other}
+      className={classes}
+      data-test-id="progress"
+      style={{
+        height: `${size === 'sm' ? '0.5rem' : size === 'lg' ? '1.5rem' : '1rem'}`,
+        fontSize: `${size === 'sm' ? '0.5rem' : size === 'lg' ? '1rem' : '0.75rem'}`,
+      }}
+    >
       <div
         className={barClasses}
         data-test-id="progress-bar"
         role="progressbar"
-        style={{ width: `${value}%` }}
+        style={{
+          width: `${value}%`,
+        }}
         aria-valuenow={value}
         aria-valuemin={0}
         aria-valuemax={100}
