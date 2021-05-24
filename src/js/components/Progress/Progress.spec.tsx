@@ -74,6 +74,29 @@ describe('<Progress />', () => {
     expect(wrapper.find('[data-test-id="progress-bar"]').prop('style').width).toBe('30%');
   });
 
+  it('should handle the small size prop', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.find('[data-test-id="progress"]').prop('style').height).toBe('1rem');
+    expect(wrapper.find('[data-test-id="progress"]').prop('style').fontSize).toBe('0.75rem');
+
+    wrapper.setProps({ size: 'sm' });
+
+    expect(wrapper.find('[data-test-id="progress"]').prop('style').height).toBe('0.5rem');
+    expect(wrapper.find('[data-test-id="progress"]').prop('style').fontSize).toBe('0.5rem');
+  });
+  it('should handle the large size prop', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.find('[data-test-id="progress"]').prop('style').height).toBe('1rem');
+    expect(wrapper.find('[data-test-id="progress"]').prop('style').fontSize).toBe('0.75rem');
+
+    wrapper.setProps({ size: 'lg' });
+
+    expect(wrapper.find('[data-test-id="progress"]').prop('style').height).toBe('1.5rem');
+    expect(wrapper.find('[data-test-id="progress"]').prop('style').fontSize).toBe('1rem');
+  });
+
   it('should change to bg-danger when value is greater than 100', () => {
     const { wrapper } = setup({ value: 25 });
 
