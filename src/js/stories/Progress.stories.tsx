@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, number, select } from '@storybook/addon-knobs';
 import { Container, Progress } from '../';
+import sizes from './utils/sizes';
 
 import '../../scss/ray.scss';
 
@@ -14,14 +15,11 @@ stories.add('Default', () => (
     <h1 className="my-4">Progress</h1>
     <div className="mb-2">
       <h2 className="h6">Default</h2>
-      <Progress
-        value={number('Value 1', 25)}
-        size={select('Size', { Small: 'sm', Medium: 'md', Large: 'lg' }, 'md')}
-      />
+      <Progress value={number('Value 1', 25)} size={select('Size', sizes, 'md')} />
     </div>
     <div className="mb-2">
       <h2 className="h6">With Label</h2>
-      <Progress value={33} size={select('Size', { Small: 'sm', Medium: 'md', Large: 'lg' }, 'md')}>
+      <Progress value={33} size={select('Size', sizes, 'md')}>
         33%
       </Progress>
     </div>
@@ -29,7 +27,7 @@ stories.add('Default', () => (
       <h2 className="h6">Themed and striped</h2>
       <Progress
         value={number('Value 2', 50)}
-        size={select('Size', { Small: 'sm', Medium: 'md', Large: 'lg' }, 'md')}
+        size={select('Size', sizes, 'md')}
         theme="warning"
         isStriped
       />
@@ -38,7 +36,7 @@ stories.add('Default', () => (
       <h2 className="h6">Themed, striped and animated</h2>
       <Progress
         value={75}
-        size={select('Size', { Small: 'sm', Medium: 'md', Large: 'lg' }, 'md')}
+        size={select('Size', sizes, 'md')}
         theme="success"
         isStriped
         isAnimated
