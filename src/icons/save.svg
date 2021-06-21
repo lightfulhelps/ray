@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>icon/white/instagramsave</title>
-    <g id="icon/white/instagramsave" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <title>instagramsave</title>
+    <g id="instagramsave" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <path d="M18.3068399,5 L6.2563925,5 C6.102557,5 6,5.102557 6,5.2563925 L6,19.7425686 C6,19.8451256 6.0512785,19.9476826 6.1538355,19.9733219 C6.2563925,20.0246004 6.3589495,19.9989611 6.43586725,19.9220434 L12.2816162,14.0762944 L18.1273652,19.9220434 C18.1786437,19.9733219 18.2299222,19.9989611 18.3068399,19.9989611 C18.3324792,19.9989611 18.3837577,19.9989611 18.4093969,19.9733219 C18.5119539,19.9220434 18.5632324,19.8451256 18.5632324,19.7425686 L18.5632324,5.2563925 C18.5632324,5.102557 18.4606754,5 18.3068399,5 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
     </g>
 </svg>
