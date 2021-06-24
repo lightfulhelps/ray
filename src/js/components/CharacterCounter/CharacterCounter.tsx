@@ -19,7 +19,7 @@ const CharacterCounter: React.FC<Props> = ({
 }: Props) => {
   const current = count || text.length;
   const classes = classNames(className, 'character-counter', {
-    'text-danger': max && current >= max,
+    'text-danger': max && current > max,
   });
 
   return (
