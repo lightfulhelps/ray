@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
 import Select from 'react-select';
-import Creatable from 'react-select/lib/Creatable';
+import Creatable from 'react-select/creatable';
 import FormSelect from './FormSelect';
 
 const setup = (overrides = {}) => {
