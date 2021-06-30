@@ -45,6 +45,28 @@ Ray has been built on top of Bootstrap so includes Bootstrap CSS with variables 
 
 Please refer to the [Bootstrap documention](https://getbootstrap.com/docs/4.1/getting-started/introduction/) to get started.
 
+## Using Ray during development
+
+If you are working on changes to Ray and wish to test them out in your application before publishing a new version of Ray to npm you can use [yarn link](https://classic.yarnpkg.com/en/docs/cli/link/).
+
+First, run the link command in Ray:
+
+```
+yarn link
+```
+
+Then, in the application you are using Ray in:
+
+```
+yarn link @lightful/ray
+```
+
+This will create a symlink to your local copy of Ray to use in place of the package installed from npm.
+
+**Important: if you are making changes to Ray remember to rebuild `yarn build` for them to be picked up in your application.**
+
+To stop using the linked version you can use [yarn unlink](https://classic.yarnpkg.com/en/docs/cli/unlink).
+
 ## Releases
 
 Releases are handled by [np](https://github.com/sindresorhus/np) which provides and interactive UI for generating releases, safe-guarding against various mistakes and improving consistency in releases.
