@@ -37,7 +37,7 @@ const MediaThumbnail: React.FC<Props> = ({
       {...other}
       className={classes}
       data-test-id={`${testId}`}
-      onClick={() => !isDisabled && onClick(src)}
+      onClick={() => !isDisabled && typeof onClick === 'function' && onClick(src)}
     >
       <div className="media-thumbnail-inner d-flex justify-content-center overflow-hidden align-items-center bg-gray-300 rounded-sm">
         <img className="mw-100 mh-100" src={src} alt={alt} />

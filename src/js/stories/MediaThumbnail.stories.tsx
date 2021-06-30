@@ -44,6 +44,7 @@ stories.add('Default', () => (
         <MediaThumbnail
           src="https://images.unsplash.com/photo-1624493176575-7a5a3b74460a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
           onClick={action('Click')}
+          checkbox={boolean('Checkbox', false)}
         />
       </Col>
     </Row>
