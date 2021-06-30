@@ -1,0 +1,49 @@
+.media-thumbnail {
+  position: relative;
+  height: 0;
+  padding-bottom: 100%;
+  @include transition(opacity, 0.2s);
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    background-color: rgba($gray-700, 0.6);
+    border-radius: $border-radius-sm;
+    opacity: 0;
+    @include transition(opacity, 0.2s);
+  }
+
+  &:hover:not(.disabled),
+  &.selected {
+    &::after {
+      opacity: 1;
+    }
+
+    img {
+      filter: grayscale(100%);
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+}
+
+.media-thumbnail-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.media-thumbnail-checkbox-group {
+  position: absolute;
+  top: map-get($spacers, 2);
+  left: map-get($spacers, 2);
+  z-index: 1;
+}
