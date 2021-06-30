@@ -63,7 +63,7 @@ yarn link @lightful/ray
 
 This will create a symlink to your local copy of Ray to use in place of the package installed from npm.
 
-**Important: if you are making changes to Ray remember to rebuild `yarn build` for them to be picked up in your application.**
+**Important: if you are continuing to make changes to Ray remember to rebuild `yarn build` for them to be picked up in your application.**
 
 To stop using the linked version you can use [yarn unlink](https://classic.yarnpkg.com/en/docs/cli/unlink).
 
