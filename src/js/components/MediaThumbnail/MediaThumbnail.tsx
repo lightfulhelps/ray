@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import { nanoid } from 'nanoid';
 import { FormGroup, FormInput, FormLabel } from '../../index';
 
 type Props = {
@@ -30,7 +31,7 @@ const MediaThumbnail: React.FC<Props> = ({
     { disabled: isDisabled },
     { 'cursor-pointer': typeof onClick === 'function' && !isDisabled }
   );
-  const testId = `media-thumbnail`;
+  const testId = `media-thumbnail-${nanoid()}`;
 
   return (
     <div
@@ -44,7 +45,15 @@ const MediaThumbnail: React.FC<Props> = ({
       </div>
       {checkbox && (
         <FormGroup className="media-thumbnail-checkbox-group" isCheck>
-          <FormInput type="checkbox" checked={isSelected} id={`${testId}-checkbox`} />
+          <FormInput
+            type="checkbox"
+            checked={isSelected}
+            id={`${testId}-checkbox`}
+            onClick={e => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+          />
           <FormLabel isCheck htmlFor={`${testId}-checkbox`}>
             {' '}
           </FormLabel>

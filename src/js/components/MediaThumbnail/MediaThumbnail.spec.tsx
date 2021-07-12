@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
 import MediaThumbnail from './MediaThumbnail';
+import FormInput from '../FormInput/FormInput';
 
 const setup = (overrides = {}) => {
   const props = merge(
@@ -20,9 +21,7 @@ const setup = (overrides = {}) => {
 
 describe('<MediaThumbnail />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper).toMatchSnapshot();
+    setup();
   });
 
   it('should handle className', () => {
@@ -37,11 +36,11 @@ describe('<MediaThumbnail />', () => {
   it('should handle the checkbox prop', () => {
     const { wrapper } = setup({ checkbox: false });
 
-    expect(wrapper.find('#media-thumbnail-checkbox').exists()).toBe(false);
+    expect(wrapper.find(FormInput).exists()).toBe(false);
 
     wrapper.setProps({ checkbox: true });
 
-    expect(wrapper.find('#media-thumbnail-checkbox').exists()).toBe(true);
+    expect(wrapper.find(FormInput).exists()).toBe(true);
   });
 
   it('should handle the isDisabled prop', () => {
