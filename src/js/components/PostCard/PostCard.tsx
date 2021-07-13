@@ -6,6 +6,7 @@ import { format as formatDate } from 'date-fns';
 import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon, Badge } from '../..';
 import { IconNameType } from '../Icon/icons';
 import { Props as ButtonProps } from '../Button/Button';
+import Alert from '../Alert/Alert';
 
 export type MediaType = {
   id: string;
@@ -129,17 +130,13 @@ class PostCard extends React.Component<Props, State> {
         {errors && errors.length > 0 && (
           <div className="mb-1">
             {errors.map((error, i) => (
-              <div
+              <Alert
                 key={i}
-                className={classNames(
-                  'd-flex align-items-center text-sm font-weight-bold mx-2 alert-danger p-1 rounded-sm',
-                  { 'mb-1': i < errors.length - 1 }
-                )}
-                style={{ lineHeight: 1.4 }}
+                className={classNames('mx-2', { 'mb-1': i < errors.length - 1 })}
+                theme="danger"
               >
-                <Icon className="mr-half flex-shrink-0" name="alert" theme="danger" size={18} />
                 {error}
-              </div>
+              </Alert>
             ))}
           </div>
         )}
