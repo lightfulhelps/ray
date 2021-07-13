@@ -65,4 +65,41 @@ describe('<Alert />', () => {
     expect(wrapper.prop('tabIndex')).toEqual(1);
     expect(wrapper.prop('id')).toEqual('test');
   });
+
+  it('should add a header', () => {
+    const { wrapper } = setup({ header: 'Bonjour' });
+
+    expect(wrapper.exists('h4')).toBe(true);
+    expect(wrapper.find('h4').text()).toBe('Bonjour');
+  });
+
+  describe('Icon', () => {
+    it('should hide the icon if no icon is set for the theme or in props', () => {
+      const { wrapper } = setup();
+
+      expect(wrapper.exists('Icon')).toBe(false);
+    });
+
+    it('should show an icon if an icon is set in the props', () => {
+      const { wrapper } = setup({ icon: 'info' });
+
+      expect(wrapper.exists('Icon')).toBe(true);
+    });
+
+    it('should show an icon if an icon is set for the theme', () => {
+      const { wrapper } = setup({ theme: 'danger' });
+
+      expect(wrapper.exists('Icon')).toBe(true);
+    });
+
+    it('should hide the icon if hideIcon is true', () => {
+      const { wrapper } = setup({ theme: 'danger' });
+
+      expect(wrapper.exists('Icon')).toBe(true);
+
+      wrapper.setProps({ hideIcon: true });
+
+      expect(wrapper.exists('Icon')).toBe(false);
+    });
+  });
 });
