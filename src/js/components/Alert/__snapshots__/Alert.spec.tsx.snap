@@ -2,8 +2,14 @@
 
 exports[`<Alert /> should render 1`] = `
 <div
-  className="alert alert-primary"
+  className="alert  alert-primary"
 >
-  Alert
+  <div
+    className="d-flex align-items-start"
+  >
+    <span>
+      Alert
+    </span>
+  </div>
 </div>
 `;
