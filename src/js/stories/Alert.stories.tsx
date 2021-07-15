@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 
 import { Container, Row, Col, Alert } from '../';
 import themes from './utils/themes';
@@ -15,11 +15,19 @@ stories.add('Default', () => (
     <h1 className="my-4">Alert</h1>
     <Row>
       <Col>
-        <Alert className="mb-2" theme={select('Theme', themes, 'primary')}>
+        <Alert
+          className="mb-2"
+          theme={select('Theme', themes, 'primary')}
+          hideIcon={boolean('Hide Icon', false)}
+        >
           A simple alert—check it out!
         </Alert>
-        <Alert theme={select('Theme', themes, 'primary')}>
-          <h4 className="alert-heading">Well done!</h4>An alert with a heading!
+        <Alert
+          theme={select('Theme', themes, 'primary')}
+          header="Well done!"
+          hideIcon={boolean('Hide Icon', false)}
+        >
+          An alert with a heading!
         </Alert>
       </Col>
     </Row>
