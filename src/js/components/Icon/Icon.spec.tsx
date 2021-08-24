@@ -169,4 +169,18 @@ describe('<Icon />', () => {
 
     expect(wrapper.hasClass('cursor-pointer')).toBe(false);
   });
+
+  it('should add the with-hover class if withHover is true', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper.hasClass('with-hover')).toBe(false);
+
+    wrapper.setProps({ withHover: true });
+
+    expect(wrapper.hasClass('with-hover')).toBe(true);
+
+    wrapper.setProps({ withHover: false });
+
+    expect(wrapper.hasClass('with-hover')).toBe(false);
+  });
 });
