@@ -26,6 +26,7 @@ stories.add('Default', () => (
                   color={color('Color', '#adb5bd')}
                   hoverColor={color('Hover Color', '#212529')}
                   theme={boolean('Use theme?', false) && select('Theme', themes, 'primary')}
+                  withHover={boolean('Use theme?', false) && boolean('With hover state?', false)}
                 />
                 <div>{icon}</div>
               </Col>

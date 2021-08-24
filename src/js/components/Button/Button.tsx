@@ -73,7 +73,7 @@ const Button: React.FC<ButtonAttributes & Props> = ({
       disabled={isDisabled}
     >
       {children}
-      {icon && <Icon name={icon} theme={iconTheme} />}
+      {icon && <Icon name={icon} theme={iconTheme} withHover={!isDisabled} />}
     </Tag>
   );
 };

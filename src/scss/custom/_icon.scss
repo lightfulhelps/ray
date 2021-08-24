@@ -1,7 +1,7 @@
 @mixin icon-variant($color) {
   fill: $color;
 
-  &:not(.disabled):not(.active):hover {
+  &.with-hover:not(.disabled):not(.active):hover {
     fill: scale-color($color, $lightness: -55%);
   }
 }
