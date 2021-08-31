@@ -19,6 +19,7 @@ type Props = {
   theme?: string;
   title?: string;
   viewBox?: string;
+  withHover?: boolean;
   [key: string]: any;
 };
 
@@ -34,6 +35,7 @@ const Icon: React.FC<Props> = ({
   theme,
   title,
   viewBox = '0 0 24 24',
+  withHover = false,
   ...other
 }) => {
   const [hover, setHover] = useState(false);
@@ -50,6 +52,7 @@ const Icon: React.FC<Props> = ({
     className,
     'icon',
     theme ? `icon-${theme}` : '',
+    withHover ? `with-hover` : '',
     { disabled: isDisabled },
     { active: isActive },
     { 'cursor-pointer': typeof other.onClick === 'function' && !isDisabled }

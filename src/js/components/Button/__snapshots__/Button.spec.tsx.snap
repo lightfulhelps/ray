@@ -10,6 +10,7 @@ exports[`<Button /> should handle the iconTheme props 1`] = `
   <Icon
     name="create"
     theme="primary"
+    withHover={true}
   />
 </button>
 `;
@@ -33,6 +34,7 @@ exports[`<Button /> should render with an icon 1`] = `
   Click Me
   <Icon
     name="create"
+    withHover={true}
   />
 </button>
 `;
