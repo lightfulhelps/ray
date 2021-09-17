@@ -7,6 +7,23 @@
 // Color system
 //
 
+// Gradients
+$gradient-primary: #3023ae, #6c3fff, #c76dd8;
+$gradient-secondary: #00a8e6, #006fb7;
+$gradient-tertiary-red: #f19191, #e95948;
+$gradient-tertiary-green: #3dcfae, #16abab;
+$gradient-tertiary-black: #666, #000;
+$gradient-academy: #2e6aff, #3dcfae;
+
+$gradient-colors: (
+  'gradient-primary': $gradient-primary,
+  'gradient-secondary': $gradient-secondary,
+  'gradient-tertiary-red': $gradient-tertiary-red,
+  'gradient-tertiary-green': $gradient-tertiary-green,
+  'gradient-tertiary-black': $gradient-tertiary-black,
+  'gradient-academy': $gradient-academy,
+);
+
 $white: #fff;
 $gray-100: #f8f9fa;
 $gray-200: #e9ecef;
@@ -19,18 +36,29 @@ $gray-800: #343a40;
 $gray-900: #212529;
 $black: #000;
 
-$primary: #27b0cc;
-$secondary: #4513bb;
-$success: #27cc98;
+$primary: #3023ae;
+$secondary: #00a8e6;
+$tertiary-red: #f19191;
+$tertiary-green: #3dcfae;
+$tertiary-black: #666;
+$academy: #3dcfae;
+$success: #02cb8c;
 $info: #0095f1;
-$warning: #f0b954;
-$danger: #f25270;
+$warning: #ffc65c;
+$danger: #f25252;
+
+$theme-colors: (
+  'tertiary-red': $tertiary-red,
+  'tertiary-green': $tertiary-green,
+  'tertiary-black': $tertiary-black,
+  'academy': $academy,
+);
 
 // Social media network colors
 $sm-colors: (
-  facebook: #1678f2,
-  twitter: #1da1f2,
-  linkedin: #2767b2,
+  facebook: #155fef,
+  twitter: #1e8eee,
+  linkedin: #1f52a2,
 );
 
 $instagram-gradient: radial-gradient(
@@ -167,9 +195,15 @@ $input-btn-line-height-lg: 1;
 
 // Buttons
 
-$btn-padding-x: $spacer * 2.5;
-$btn-padding-x-sm: $spacer * 1.5;
-$btn-padding-x-lg: $spacer * 3;
+$btn-gradient-alternative: rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2);
+
+$btn-padding-x: $spacer * 3;
+$btn-padding-x-sm: $spacer * 2;
+$btn-padding-x-lg: $spacer * 4;
+
+$btn-padding-y: $spacer * 1;
+$btn-padding-y-sm: $spacer * 0.5;
+$btn-padding-y-lg: $spacer * 1.5;
 
 $btn-font-weight: $font-weight-bold;
 $btn-active-box-shadow: none;

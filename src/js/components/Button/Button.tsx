@@ -10,12 +10,14 @@ type ButtonAttributes = Omit<React.HTMLProps<HTMLButtonElement>, 'size'>;
 export type Props = {
   children?: React.ReactNode;
   className?: string;
+  forceSolidColor?: boolean;
   icon?: IconNameType;
   iconPosition?: 'left' | 'right';
   iconTheme?: string;
   isBlock?: boolean;
   isDisabled?: boolean;
   isOutline?: boolean;
+  loading?: boolean;
   onClick?: (event: React.MouseEvent) => void;
   size?: 'lg' | 'md' | 'sm';
   tag?: keyof JSX.IntrinsicElements | typeof React.Component;
@@ -27,28 +29,32 @@ export type Props = {
 const Button: React.FC<ButtonAttributes & Props> = ({
   children,
   className,
+  forceSolidColor = false,
   icon,
   iconPosition = 'left',
   iconTheme,
   isBlock,
   isDisabled,
   isOutline,
+  loading = false,
   onClick,
   size,
   tag: Tag = 'button',
-  theme = 'primary',
+  theme = 'secondary',
   type = 'button',
   ...other
 }: Props) => {
   const classes = classNames(
     className,
     'btn',
-    `btn${isOutline ? '-outline' : ''}-${theme}`,
+    { [`btn${isOutline ? '-outline' : ''}-gradient-${theme}`]: !forceSolidColor },
+    `btn${isOutline ? '-outline' : ''}-${theme}`, // backup
     size ? `btn-${size}` : false,
     { 'btn-block': isBlock },
     { disabled: isDisabled },
     { 'btn-icon': icon && !children },
-    { [`btn-icon-${iconPosition}`]: icon && children }
+    { [`btn-icon-${iconPosition}`]: icon && children },
+    { loading }
   );
 
   const handleClick = (e: React.MouseEvent): void => {
@@ -60,7 +66,7 @@ const Button: React.FC<ButtonAttributes & Props> = ({
     if (typeof onClick === 'function') onClick(e);
   };
 
-  // Workaround to optionaly add type attribute since this one is only available on button Jsx element
+  // Workaround to optionally add type attribute since this one is only available on button Jsx element
   const optionalProps: { [key: string]: any } = {};
   optionalProps.type = Tag === 'button' ? type : undefined;
 
@@ -72,8 +78,16 @@ const Button: React.FC<ButtonAttributes & Props> = ({
       onClick={handleClick}
       disabled={isDisabled}
     >
-      {children}
-      {icon && <Icon name={icon} theme={iconTheme} withHover={!isDisabled} />}
+      <span>
+        {children}
+        {icon && (
+          <Icon
+            name={icon}
+            theme={iconTheme || (isOutline && theme)}
+            forceSolidColor={forceSolidColor}
+          />
+        )}
+      </span>
     </Tag>
   );
 };
