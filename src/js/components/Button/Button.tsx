@@ -40,7 +40,7 @@ const Button: React.FC<ButtonAttributes & Props> = ({
   onClick,
   size,
   tag: Tag = 'button',
-  theme = 'secondary',
+  theme = 'primary',
   type = 'button',
   ...other
 }: Props) => {
