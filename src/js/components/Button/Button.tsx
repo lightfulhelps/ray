@@ -84,7 +84,7 @@ const Button: React.FC<ButtonAttributes & Props> = ({
           <Icon
             name={icon}
             theme={iconTheme || (isOutline && theme)}
-            forceSolidColor={forceSolidColor}
+            isGradient={!forceSolidColor}
           />
         )}
       </span>
