@@ -2,12 +2,15 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import { merge } from 'lodash';
 import { Container, Row, Col, Button } from '..';
 import allIcons, { IconNameType } from '../components/Icon/icons';
 import themes from './utils/themes';
 import sizes from './utils/sizes';
 
 import '../../scss/ray.scss';
+
+const buttonThemes = merge(themes, { alternative: 'alternative' });
 
 const stories = storiesOf('Button', module);
 
@@ -31,10 +34,12 @@ stories.add('Default', () => (
       <Col xs={6}>
         <h2 className="h4 mb-2">Regular.</h2>
         <Button
-          theme={select('Theme', themes, 'primary')}
+          theme={select('Theme', buttonThemes, 'secondary')}
+          forceSolidColor={boolean('Force solid color over gradient?', false)}
           isBlock={boolean('Block', false)}
           isDisabled={boolean('Disabled', false)}
           isOutline={boolean('Outline', false)}
+          loading={boolean('Loading', false)}
           onClick={action('clicked')}
           size={select('Size', sizes, 'md')}
           icon={boolean('Show Icon', false) ? select('Icon', icons, 'media') : undefined}
@@ -54,8 +59,10 @@ stories.add('Default', () => (
         <h2 className="h4 mb-2">Icon Only.</h2>
         <Button
           theme={select('Theme', themes, 'primary')}
+          forceSolidColor={boolean('Force solid color over gradient?', false)}
           isDisabled={boolean('Disabled', false)}
           isOutline={boolean('Outline', false)}
+          loading={boolean('Loading', false)}
           size={select('Size', sizes, 'md')}
           icon={select('Icon', icons, 'media')}
           iconTheme={
