@@ -1,96 +1,4 @@
 // Ray
-
-//Gradient Button
-@mixin gradient-button($gradient) {
-  @if length($gradient) == 3 {
-    @include gradient-x-three-colors(nth($gradient, 2), nth($gradient, 1), 50%, nth($gradient, 2));
-  } @else if length($gradient) ==2 {
-    @include gradient-x-three-colors(nth($gradient, 2), nth($gradient, 1), 50%, nth($gradient, 2));
-  }
-
-  background-size: 200% 100%;
-  background-position: 0 0;
-  color: $white;
-  position: relative;
-  overflow: hidden;
-  border: none;
-  @include transition(background-position 0.3s ease);
-
-  &:hover {
-    background-position: 100% 0;
-    color: $white;
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 0.2rem rgba(nth($gradient, 1), 0.5);
-  }
-
-  &.loading {
-    animation: gradient-button-loading;
-    animation-iteration-count: infinite;
-    animation-duration: 1.1s;
-    opacity: 1;
-  }
-}
-
-@mixin gradient-outline-button($gradient) {
-  @include gradient-button($gradient);
-
-  $border: 1px;
-
-  background-image: none;
-  background-color: $white;
-  box-sizing: border-box;
-  position: relative;
-  overflow: unset;
-  background-clip: padding-box; /* !important */
-  border: solid $border transparent; /* !important */
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    margin: -$border; /* !important */
-    border-radius: inherit; /* !important */
-    background: linear-gradient(to right, nth($gradient, 1), nth($gradient, 2));
-  }
-  span {
-    @include gradient-text($gradient);
-  }
-}
-
-@each $color, $value in $gradient-colors {
-  .btn-#{$color} {
-    @include gradient-button($value);
-  }
-  .btn-outline-#{$color} {
-    @include gradient-outline-button($value);
-  }
-}
-
-.btn-gradient-alternative {
-  @include gradient-button($btn-gradient-alternative);
-}
-
-@keyframes gradient-button-loading {
-  0% {
-    background-position: 100% 0;
-  }
-
-  50% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 100% 0;
-  }
-}
-
-// Plain Button
 @each $color, $value in $grays {
   .btn-gray-#{$color} {
     @include button-variant($value, $value);
@@ -98,6 +6,16 @@
 
   .btn-outline-gray-#{$color} {
     @include button-outline-variant($value);
+  }
+}
+
+.btn-white {
+  @include button-variant($white, $white);
+
+  &:hover,
+  &:focus {
+    background-color: $white;
+    border-color: $white;
   }
 }
 
@@ -120,16 +38,16 @@
 }
 
 .btn-icon {
-  padding: $btn-padding-y;
+  padding: $input-btn-padding-y;
   border-radius: $btn-border-radius;
 
   &.btn-sm {
-    padding: $btn-padding-y-sm;
+    padding: $input-btn-padding-y-sm;
     border-radius: $btn-border-radius-sm;
   }
 
   &.btn-lg {
-    padding: $btn-padding-y-lg;
+    padding: $input-btn-padding-y-lg;
     border-radius: $btn-border-radius-lg;
   }
 
@@ -139,14 +57,12 @@
 
   &-left,
   &-right {
-    span {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  &-left span {
+  &-left {
     flex-direction: row-reverse;
 
     .icon {
@@ -154,7 +70,7 @@
     }
   }
 
-  &-right span {
+  &-right {
     .icon {
       margin-left: $spacer;
     }
@@ -163,5 +79,7 @@
 
 .btn.disabled,
 .btn:hover.disabled {
-  background-position: 0; // Prevent effect when disabled for gradient buttons
+  background-color: $gray-200;
+  border-color: $gray-400;
+  color: $gray-600;
 }
