@@ -26,7 +26,6 @@ stories.add('Default', () => (
                   color={color('Color', '#adb5bd')}
                   hoverColor={color('Hover Color', '#212529')}
                   theme={boolean('Use theme?', false) && select('Theme', themes, 'primary')}
-                  isGradient={boolean('Use theme?', false) && boolean('Use gradient?', false)}
                   withHover={boolean('Use theme?', false) && boolean('With hover state?', false)}
                 />
                 <div>{icon}</div>

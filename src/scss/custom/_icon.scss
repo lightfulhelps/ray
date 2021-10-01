@@ -31,14 +31,3 @@
     @include icon-variant($value);
   }
 }
-
-//Gradient Icons
-
-@each $gradient, $value in $gradient-colors {
-  .#{$gradient}-stop1 {
-    stop-color: nth($value, 1);
-  }
-  .#{$gradient}-stop2 {
-    stop-color: nth($value, 2);
-  }
-}
