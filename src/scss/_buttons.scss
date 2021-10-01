@@ -120,16 +120,16 @@
 }
 
 .btn-icon {
-  padding: $input-btn-padding-y;
+  padding: $btn-padding-y;
   border-radius: $btn-border-radius;
 
   &.btn-sm {
-    padding: $input-btn-padding-y-sm;
+    padding: $btn-padding-y-sm;
     border-radius: $btn-border-radius-sm;
   }
 
   &.btn-lg {
-    padding: $input-btn-padding-y-lg;
+    padding: $btn-padding-y-lg;
     border-radius: $btn-border-radius-lg;
   }
 
