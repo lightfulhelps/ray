@@ -47,6 +47,15 @@ $info: #0095f1;
 $warning: #ffc65c;
 $danger: #f25252;
 
+$success-100: #d6fff2;
+$success-300: #6eebc3;
+$warning-100: #ffefd1;
+$warning-300: #ffdc9b;
+$danger-100: #ffebeb;
+$danger-300: #ff8484;
+$secondary-100: #e8f9ff;
+$secondary-300: $secondary;
+
 $theme-colors: (
   'tertiary-red': $tertiary-red,
   'tertiary-green': $tertiary-green,
@@ -303,3 +312,20 @@ $custom-control-indicator-size: $spacer * 2;
 $custom-switch-width: $spacer * 4;
 $custom-switch-height: $spacer * 2;
 $custom-switch-indicator-bg: $white;
+
+// Alerts
+//
+// Define alert colors
+
+$alert-bg-level: -11;
+$alert-border-level: -9;
+$alert-color-level: 6;
+
+// new sucess colour
+// background: #02CB8C;
+
+// what we want the new sucess background to be
+// background: #D6FFF2;
+
+// what we want the new sucess border colour to be
+// background: #6EEBC3;
