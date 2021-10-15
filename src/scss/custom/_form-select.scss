@@ -2,6 +2,9 @@
 
 .form-select {
   position: relative;
+  padding: 0;
+  background: none;
+  border: none;
 
   &--is-disabled {
     pointer-events: none;

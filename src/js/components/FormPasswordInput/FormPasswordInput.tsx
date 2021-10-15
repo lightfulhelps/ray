@@ -36,23 +36,23 @@ const FormPasswordInput: React.FC<Props> = ({
   const classes = classNames(className, 'form-control');
 
   return (
-    <div className="form-password-input input-group">
-      <FormInput
-        {...other}
-        className={classes}
-        data-test-id="password-input"
-        isInvalid={isInvalid}
-        isValid={isValid}
-        name={name}
-        id={id}
-        onBlur={onBlur}
-        onChange={onChange}
-        placeholder={placeholder}
-        size={size}
-        type={hidePassword ? 'password' : 'text'}
-        value={value}
-      />
-      <div className="input-group-append">
+    <>
+      <div className="form-password-input input-group">
+        <FormInput
+          {...other}
+          className={classes}
+          data-test-id="password-input"
+          isInvalid={isInvalid}
+          isValid={isValid}
+          name={name}
+          id={id}
+          onBlur={onBlur}
+          onChange={onChange}
+          placeholder={placeholder}
+          size={size}
+          type={hidePassword ? 'password' : 'text'}
+          value={value}
+        />
         <Button
           data-test-id="password-input-button"
           icon={hidePassword ? 'preview' : 'previewHide'}
@@ -66,7 +66,7 @@ const FormPasswordInput: React.FC<Props> = ({
           </span>
         </Button>
       </div>
-    </div>
+    </>
   );
 };
 
