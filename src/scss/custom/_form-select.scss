@@ -1,189 +1,190 @@
-// // Styling for React Select using Bootstrap variables
+// Styling for React Select using Bootstrap variables
 
-// .form-select {
-//   position: relative;
+.form-select {
+  position: relative;
 
-//   &--is-disabled {
-//     pointer-events: none;
-//     cursor: default;
-//   }
+  &--is-disabled {
+    pointer-events: none;
+    cursor: default;
+  }
 
-//   .tag {
-//     font-size: $font-size-sm;
-//     margin: $spacer / 4;
-//   }
-// }
+  .tag {
+    font-size: $font-size-sm;
+    margin: $spacer / 4;
+  }
+}
 
-// .form-select__control {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   min-height: $input-height;
-//   padding: $input-padding-y $input-padding-x;
-//   font-size: $font-size-base;
-//   line-height: $input-line-height;
-//   color: $input-color;
-//   background-color: $input-bg;
-//   background-clip: padding-box;
-//   border: $input-border-width solid $input-border-color;
-//   border-radius: $input-border-radius;
+.form-select__control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: $input-height;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $font-size-base;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  background-clip: padding-box;
+  border: $input-border-width solid $input-border-color;
+  border-radius: $input-border-radius;
 
-//   @include transition($input-transition);
+  @include transition($input-transition);
 
-//   &--is-focused {
-//     color: $input-focus-color;
-//     background-color: $input-focus-bg;
-//     border-color: $input-focus-border-color;
-//     outline: 0;
-//   }
+  &--is-focused {
+    color: $input-focus-color;
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    outline: 0;
+  }
 
-//   &--is-disabled {
-//     background-color: $input-disabled-bg;
-//   }
-// }
+  &--is-disabled {
+    background-color: $input-disabled-bg;
+  }
+}
 
-// .form-select-sm {
-//   .form-select__control {
-//     min-height: $input-height-sm;
-//     padding: $input-padding-y-sm $input-padding-x-sm;
-//     font-size: $font-size-base;
-//     line-height: $input-line-height-sm;
+.form-select-sm {
+  .form-select__control {
+    min-height: $input-height-sm;
+    padding: $input-padding-y-sm $input-padding-x-sm;
+    font-size: $font-size-base;
+    line-height: $input-line-height-sm;
 
-//     @include border-radius($input-border-radius-sm);
-//   }
-// }
+    @include border-radius($input-border-radius-sm);
+  }
+}
 
-// .form-select-lg {
-//   .form-select__control {
-//     min-height: $input-height-lg;
-//     padding: $input-padding-y-lg $input-padding-x-lg;
-//     font-size: $font-size-lg;
-//     line-height: $input-line-height-lg;
+.form-select-lg {
+  .form-select__control {
+    min-height: $input-height-lg;
+    padding: $input-padding-y-lg $input-padding-x-lg;
+    font-size: $font-size-lg;
+    line-height: $input-line-height-lg;
 
-//     @include border-radius($input-border-radius-lg);
-//   }
-// }
+    @include border-radius($input-border-radius-lg);
+  }
+}
 
-// .form-select.is-valid {
-//   .form-select__control {
-//     border-color: $form-feedback-valid-color;
-//   }
-// }
+.form-select.is-valid {
+  .form-select__control {
+    border-color: $form-feedback-valid-color;
+  }
+}
 
-// .form-select.is-invalid {
-//   .form-select__control {
-//     border-color: $form-feedback-invalid-color;
-//   }
-// }
+.form-select.is-invalid {
+  .form-select__control {
+    border-color: $form-feedback-invalid-color;
+  }
+}
 
-// .form-select__control:hover:not(.form-select__control--is-focused) {
-//   border-color: $input-hover-border-color;
-// }
+.form-select__control:hover:not(.form-select__control--is-focused) {
+  border-color: $input-hover-border-color;
+}
 
-// .form-select__placeholder {
-//   position: absolute;
-//   top: 50%;
-//   transform: translateY(-50%);
-//   color: $input-placeholder-color;
-// }
+.form-select__placeholder {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $input-placeholder-color;
+}
 
-// .form-select__value-container {
-//   display: flex;
-//   flex-wrap: wrap;
-//   align-items: center;
-//   flex: 1 1 auto;
-// }
+.form-select__value-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex: 1 1 auto;
+}
 
-// .form-select__value-container--is-multi.form-select__value-container--has-value {
-//   margin-top: -$spacer / 2;
-//   margin-bottom: -$spacer / 2;
-// }
+.form-select__value-container--is-multi.form-select__value-container--has-value {
+  margin-top: -$spacer / 2;
+  margin-bottom: -$spacer / 2;
+}
 
-// .form-select__single-value {
-//   color: $input-color;
-//   position: absolute;
-//   top: 50%;
-//   transform: translateY(-50%);
-//   text-overflow: ellipsis;
-//   white-space: nowrap;
-// }
+.form-select__single-value {
+  color: $input-color;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-// .form-select__indicators {
-//   display: flex;
-//   align-items: center;
-//   flex-shrink: 0;
+.form-select__indicators {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 
-//   .icon {
-//     margin-left: $spacer;
-//     cursor: pointer;
-//   }
-// }
+  .icon {
+    margin-left: $spacer;
+    cursor: pointer;
+  }
+}
 
-// .form-select__menu {
-//   position: absolute;
-//   top: 100%;
-//   left: 0;
-//   z-index: $zindex-dropdown;
-//   min-width: 100%;
-//   padding: $dropdown-padding-y $dropdown-padding-x;
-//   margin: $dropdown-spacer 0 0;
-//   font-size: $font-size-base;
-//   color: $body-color;
-//   text-align: left;
-//   list-style: none;
-//   background-color: $dropdown-bg;
-//   background-clip: padding-box;
-//   border: $dropdown-border-width solid $dropdown-border-color;
-//   overflow: hidden;
+.form-select__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: $zindex-dropdown;
+  min-width: 100%;
+  padding: $dropdown-padding-y $dropdown-padding-x;
+  margin: $dropdown-spacer 0 0;
+  font-size: $font-size-base;
+  color: $body-color;
+  text-align: left;
+  list-style: none;
+  background-color: $dropdown-bg;
+  background-clip: padding-box;
+  border: $dropdown-border-width solid $dropdown-border-color;
+  overflow: hidden;
 
-//   @include border-radius($dropdown-border-radius);
-//   @include box-shadow($dropdown-box-shadow);
-// }
+  @include border-radius($dropdown-border-radius);
+  @include box-shadow($dropdown-box-shadow);
+}
 
-// .form-select__menu-list {
-//   max-height: 300px;
-//   overflow-y: auto;
-// }
+.form-select__menu-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
 
-// .form-select__option,
-// .form-select__menu-notice {
-//   display: flex;
-//   align-items: center;
-//   width: 100%;
-//   padding: $dropdown-item-padding-y $dropdown-item-padding-x;
-//   font-weight: $font-weight-light;
-//   color: $dropdown-link-color;
-//   white-space: nowrap;
-//   border-bottom: 1px solid $dropdown-divider-bg;
-//   line-height: 1;
-//   cursor: pointer;
+.form-select__option,
+.form-select__menu-notice {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+  font-weight: $font-weight-light;
+  color: $dropdown-link-color;
+  white-space: nowrap;
+  border-bottom: 1px solid $dropdown-divider-bg;
+  line-height: 1;
+  cursor: pointer;
 
-//   &:last-child {
-//     border: none;
-//   }
+  &:last-child {
+    border: none;
+  }
 
-//   @include hover-focus {
-//     color: $dropdown-link-hover-color;
-//     text-decoration: none;
-//     @include gradient-bg($dropdown-link-hover-bg);
-//   }
-// }
+  &:hover,
+  &:focus {
+    color: $dropdown-link-hover-color;
+    text-decoration: none;
+    @include gradient-bg($dropdown-link-hover-bg);
+  }
+}
 
-// .form-select__group {
-//   border-bottom: 1px solid $dropdown-divider-bg;
+.form-select__group {
+  border-bottom: 1px solid $dropdown-divider-bg;
 
-//   &:last-child {
-//     border: none;
-//   }
-// }
+  &:last-child {
+    border: none;
+  }
+}
 
-// .form-select__group-heading {
-//   display: block;
-//   margin-bottom: 0;
-//   padding: $dropdown-item-padding-y $dropdown-item-padding-x $dropdown-item-padding-y * 0.5
-//     $dropdown-item-padding-x;
-//   font-size: $font-size-xs;
-//   color: $dropdown-header-color;
-//   text-transform: uppercase;
-//   white-space: nowrap;
-// }
+.form-select__group-heading {
+  display: block;
+  margin-bottom: 0;
+  padding: $dropdown-item-padding-y $dropdown-item-padding-x $dropdown-item-padding-y * 0.5
+    $dropdown-item-padding-x;
+  font-size: $font-size-xs;
+  color: $dropdown-header-color;
+  text-transform: uppercase;
+  white-space: nowrap;
+}

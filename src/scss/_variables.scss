@@ -236,6 +236,9 @@ $input-border-radius-sm: $border-radius-sm;
 $input-focus-border-color: $primary;
 $input-focus-box-shadow: none;
 
+$input-line-height-sm: $line-height-sm;
+$input-line-height-lg: $line-height-lg;
+
 $input-hover-border-color: $gray-500; // Ray
 
 // Dropdowns
@@ -313,3 +316,5 @@ $custom-control-indicator-size: $spacer * 2;
 $custom-switch-width: $spacer * 4;
 $custom-switch-height: $spacer * 2;
 $custom-switch-indicator-bg: $white;
+
+$custom-control-gutter: 0.5rem !default;
