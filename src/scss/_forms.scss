@@ -74,7 +74,7 @@ label {
     color: $gray-900;
 
     &::before {
-      background-color: $primary;
+      background-image: linear-gradient(90deg, $gradient-primary);
     }
   }
 
@@ -92,7 +92,7 @@ label {
 .form-check-input[type='checkbox'] {
   &:checked ~ .form-check-label {
     &::before {
-      border-color: $primary;
+      border-width: 0;
     }
 
     &::after {
