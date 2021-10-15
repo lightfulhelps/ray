@@ -6,12 +6,12 @@
   &:first-child {
     .page-link {
       margin-left: 0;
-      @include border-left-radius($border-radius-sm);
+      @include border-start-radius($border-radius-sm);
     }
   }
   &:last-child {
     .page-link {
-      @include border-right-radius($border-radius-sm);
+      @include border-end-radius($border-radius-sm);
     }
   }
 
@@ -29,7 +29,6 @@
     $pagination-padding-y-lg,
     $pagination-padding-x-lg,
     $font-size-lg,
-    $line-height-lg,
     $border-radius
   );
 }

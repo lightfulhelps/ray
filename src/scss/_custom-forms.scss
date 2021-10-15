@@ -1,104 +1,103 @@
-// Switches
+// // Switches
 
-.custom-switch {
-  .custom-control-label {
-    &::after {
-      background-color: $custom-switch-indicator-bg;
-    }
-  }
+// .custom-switch {
+//   .custom-control-label {
+//     &::after {
+//       // background-color: $form-switch-indicator-bg;
+//     }
+//   }
 
-  .custom-control-input:checked ~ .custom-control-label {
-    &::after {
-      background-color: $custom-switch-indicator-bg;
-    }
-  }
-}
+//   .custom-control-input:checked ~ .custom-control-label {
+//     &::after {
+//       // background-color: $form-switch-indicator-bg;
+//     }
+//   }
+// }
 
-// Left aligned label
+// // Left aligned label
 
-.custom-switch-left {
-  padding-right: $custom-switch-width + $custom-control-gutter;
-  padding-left: unset;
+// .custom-switch-left {
+//   padding-right: $form-switch-width + $form-control-gutter;
+//   padding-left: unset;
 
-  .custom-control-label {
-    &::before {
-      left: unset;
-      right: -($custom-switch-width + $custom-control-gutter);
-    }
+//   .custom-control-label {
+//     &::before {
+//       left: unset;
+//       right: -($form-switch-width + $form-control-gutter);
+//     }
 
-    &::after {
-      left: unset;
-      right: calc(
-        #{- ($custom-switch-width + $custom-control-gutter)} + #{$custom-control-indicator-border-width *
-          2}
-      );
-      transform: translateX(-$custom-switch-width + $custom-control-indicator-size);
-    }
-  }
+//     &::after {
+//       left: unset;
+//       right: calc(
+//         #{- ($form-switch-width + $form-control-gutter)} + #{$form-control-indicator-border-width * 2}
+//       );
+//       transform: translateX(-$form-switch-width + $form-control-indicator-size);
+//     }
+//   }
 
-  .custom-control-input:checked ~ .custom-control-label {
-    &::after {
-      transform: translateX(0);
-    }
-  }
-}
+//   .custom-control-input:checked ~ .custom-control-label {
+//     &::after {
+//       transform: translateX(0);
+//     }
+//   }
+// }
 
-.custom-switch-top {
-  padding-bottom: $custom-switch-height + $custom-control-gutter;
-  padding-left: unset;
+// .custom-switch-top {
+//   padding-bottom: $form-switch-height + $form-control-gutter;
+//   padding-left: unset;
 
-  .custom-control-label {
-    &::before {
-      top: unset;
-      left: 50%;
-      bottom: -($custom-switch-height + $custom-control-gutter);
-      transform: translateX(-50%);
-    }
+//   .custom-control-label {
+//     &::before {
+//       top: unset;
+//       left: 50%;
+//       bottom: -($form-switch-height + $form-control-gutter);
+//       transform: translateX(-50%);
+//     }
 
-    &::after {
-      top: unset;
-      left: 50%;
-      bottom: calc(
-        #{- ($custom-switch-height + $custom-control-gutter)} + #{$custom-control-indicator-border-width *
-          2}
-      );
-      transform: translateX(-$custom-switch-width + $custom-control-indicator-size + 0.1rem);
-    }
-  }
+//     &::after {
+//       top: unset;
+//       left: 50%;
+//       bottom: calc(
+//         #{- ($form-switch-height + $form-control-gutter)} + #{$form-control-indicator-border-width *
+//           2}
+//       );
+//       transform: translateX(-$form-switch-width + $form-control-indicator-size + 0.1rem);
+//     }
+//   }
 
-  .custom-control-input:checked ~ .custom-control-label {
-    &::after {
-      transform: translateX(0.125rem);
-    }
-  }
-}
+//   .custom-control-input:checked ~ .custom-control-label {
+//     &::after {
+//       transform: translateX(0.125rem);
+//     }
+//   }
+// }
 
-.custom-switch-bottom {
-  padding-top: $custom-switch-height + $custom-control-gutter;
-  padding-left: unset;
+// .custom-switch-bottom {
+//   padding-top: $form-switch-height + $form-control-gutter;
+//   padding-left: unset;
 
-  .custom-control-label {
-    &::before {
-      bottom: unset;
-      left: 50%;
-      top: -($custom-switch-height + $custom-control-gutter);
-      transform: translateX(-50%);
-    }
+//   .custom-control-label {
+//     &::before {
+//       bottom: unset;
+//       left: 50%;
+//       top: -($form-switch-height + $form-control-gutter);
+//       transform: translateX(-50%);
+//     }
 
-    &::after {
-      bottom: unset;
-      left: 50%;
-      top: calc(
-        #{- ($custom-switch-height + $custom-control-gutter)} + #{$custom-control-indicator-border-width *
-          2}
-      );
-      transform: translateX(-$custom-switch-width + $custom-control-indicator-size + 0.1rem);
-    }
-  }
+//     &::after {
+//       bottom: unset;
+//       left: 50%;
+//       top: calc(
+//         #{- ($form-switch-height + $form-control-gutter)} + #{$form-control-indicator-border-width *
+//           2}
+//       );
+//       transform: translateX(-$form-switch-width + $form-control-indicator-size + 0.1rem);
+//     }
+//   }
 
-  .custom-control-input:checked ~ .custom-control-label {
-    &::after {
-      transform: translateX(0.125rem);
-    }
-  }
-}
+//   .custom-control-input:checked ~ .custom-control-label {
+//     &::after {
+//       transform: translateX(0.125rem);
+//     }
+//   }
+// }

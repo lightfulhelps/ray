@@ -47,13 +47,14 @@
 }
 
 .inspiration-post-card__title {
-  @extend .h5, .text-truncate;
+  @extend .h5;
+  @include text-truncate();
 
   margin-bottom: $spacer / 2;
 }
 
 .inspiration-post-card__date {
-  @extend .text-truncate;
+  @include text-truncate();
 
   display: flex;
   align-items: center;

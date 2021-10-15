@@ -8,7 +8,7 @@
   }
 
   .rounded-right-#{$size} {
-    @include border-right-radius($radius);
+    @include border-end-radius($radius);
   }
 
   .rounded-bottom-#{$size} {
@@ -16,6 +16,6 @@
   }
 
   .rounded-left-#{$size} {
-    @include border-left-radius($radius);
+    @include border-start-radius($radius);
   }
 }

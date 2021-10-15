@@ -46,12 +46,22 @@ $success: #02cb8c;
 $info: #0095f1;
 $warning: #ffc65c;
 $danger: #f25252;
+$light: $gray-100;
+$dark: $gray-900;
 
 $theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
   'tertiary-red': $tertiary-red,
   'tertiary-green': $tertiary-green,
   'tertiary-black': $tertiary-black,
   'academy': $academy,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
 );
 
 // Social media network colors

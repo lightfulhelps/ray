@@ -19,10 +19,6 @@ small,
   font-size: $font-size-xxs !important;
 }
 
-@each $color, $value in $grays {
-  @include text-emphasis-variant('.text-gray-#{$color}', $value);
-}
-
 .text-underline {
   text-decoration: underline !important;
 }
