@@ -1,21 +1,22 @@
-// @mixin bg-variant($parent, $color) {
-//   #{$parent} {
-//     background-color: $color !important;
-//   }
-//   a#{$parent},
-//   button#{$parent} {
-//     @include hover-focus {
-//       background-color: darken($color, 10%) !important;
-//     }
-//   }
-// }
-// @each $color, $value in $grays {
-//   @include bg-variant('.bg-gray-#{$color}', $value);
-// }
+@mixin bg-variant($parent, $color) {
+  #{$parent} {
+    background-color: $color !important;
+  }
+  a#{$parent},
+  button#{$parent} {
+    &:hover,
+    &:focus {
+      background-color: darken($color, 10%) !important;
+    }
+  }
+}
+@each $color, $value in $grays {
+  @include bg-variant('.bg-gray-#{$color}', $value);
+}
 
-// @each $sm, $value in $sm-colors {
-//   @include bg-variant('.bg-#{$sm}', $value);
-// }
+@each $sm, $value in $sm-colors {
+  @include bg-variant('.bg-#{$sm}', $value);
+}
 
 //TODO :
 
