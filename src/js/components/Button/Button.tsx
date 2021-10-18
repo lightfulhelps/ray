@@ -50,7 +50,6 @@ const Button: React.FC<ButtonAttributes & Props> = ({
     { [`btn${isOutline ? '-outline' : ''}-gradient-${theme}`]: !forceSolidColor },
     `btn${isOutline ? '-outline' : ''}-${theme}`, // backup
     size ? `btn-${size}` : false,
-    { 'd-block': isBlock },
     { disabled: isDisabled },
     { 'btn-icon': icon && !children },
     { [`btn-icon-${iconPosition}`]: icon && children },
