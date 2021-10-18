@@ -1,0 +1,19 @@
+.alert {
+  color: $gray-900;
+}
+.alert-success {
+  background: $success-100;
+  border: 1px solid $success-300;
+}
+.alert-warning {
+  background: $warning-100;
+  border: 1px solid $warning-300;
+}
+.alert-danger {
+  background: $danger-100;
+  border: 1px solid $danger-300;
+}
+.alert-secondary {
+  background: $secondary-100;
+  border: 1px solid $secondary-300;
+}
