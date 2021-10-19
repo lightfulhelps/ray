@@ -18,8 +18,6 @@
   @include bg-variant('.bg-#{$sm}', $value);
 }
 
-//TODO :
-
 .bg-instagram {
   background: $instagram-gradient;
 }
