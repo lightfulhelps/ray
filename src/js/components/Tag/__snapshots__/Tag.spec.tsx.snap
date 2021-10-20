@@ -2,8 +2,9 @@
 
 exports[`<Tag /> should render 1`] = `
 <Badge
-  className="tag"
+  className="tag text-sm px-2 py-1"
   isPill={true}
+  theme="dark"
 >
   <div
     className="d-flex align-items-center"
@@ -19,8 +20,9 @@ exports[`<Tag /> should render 1`] = `
 
 exports[`<Tag /> should render with a remove Icon 1`] = `
 <Badge
-  className="tag"
+  className="tag text-sm px-2 py-1"
   isPill={true}
+  theme="dark"
 >
   <div
     className="d-flex align-items-center"

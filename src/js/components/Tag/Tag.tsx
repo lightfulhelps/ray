@@ -11,7 +11,9 @@ type Props = {
 };
 
 const Tag: React.FC<Props> = ({ children, className, onRemove, isOutline, ...other }: Props) => {
-  const classes = classNames(className, 'tag text-sm px-2 py-1');
+  const classes = classNames(className, 'tag text-sm px-2 py-1', {
+    'border border-gray-500': isOutline,
+  });
 
   return (
     <Badge
