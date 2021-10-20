@@ -3,7 +3,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>alert</title>
-    <g id="alert" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="alert" stroke="none" stroke-width="1" fill="#ADB5BD" fill-rule="evenodd">
         <path d="M12,3 C16.9705627,3 21,7.02943725 21,12 C21,16.9705627 16.9705627,21 12,21 C7.02943725,21 3,16.9705627 3,12 C3,7.02943725 7.02943725,3 12,3 Z M12.936,15.2544 L11.496,15.2544 C11.1648,15.4848 10.9632,15.8592 10.9632,16.2624 C10.9632,16.9536 11.5248,17.5152 12.2016,17.5152 C12.9072,17.5152 13.4544,16.9536 13.4544,16.2624 C13.4544,15.8592 13.2528,15.4848 12.936,15.2544 Z M13.0224,7.176 L11.424,7.176 L11.424,11.28 L11.7264,14.0448 L12.72,14.0448 L13.0224,11.28 L13.0224,7.176 Z" id="Combined-Shape"></path>
     </g>
 </svg>

@@ -3,7 +3,7 @@
     <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
     <title>icon/grey/question mark circle</title>
     <desc>Created with Sketch.</desc>
-    <g id="icon/grey/question-mark-circle" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="icon/grey/question-mark-circle" stroke="none" stroke-width="1" fill="#ADB5BD" fill-rule="evenodd">
         <path d="M12,0 C18.627417,0 24,5.372583 24,12 C24,18.627417 18.627417,24 12,24 C5.372583,24 0,18.627417 0,12 C0,5.372583 5.372583,0 12,0 Z M12.312,14.424 L10.408,14.424 C10.058,14.704 9.848,15.124 9.848,15.6 C9.848,16.44 10.52,17.112 11.36,17.112 C12.2,17.112 12.872,16.44 12.872,15.6 C12.872,15.124 12.648,14.704 12.312,14.424 Z M11.64,6.948 C9.778,6.948 8.392,8.39 8.392,10.196 L10.52,10.196 C10.52,9.328 11.08,8.922 11.64,8.922 C12.2,8.922 12.802,9.328 12.802,10.196 C12.802,11.064 12.2,11.456 11.416,11.456 L10.478,11.456 L10.478,13.43 L11.416,13.43 C13.502,13.43 14.93,12.002 14.93,10.196 C14.93,8.39 13.502,6.948 11.64,6.948 Z" id="Combined-Shape" fill="#ACB4BD"></path>
     </g>
 </svg>
