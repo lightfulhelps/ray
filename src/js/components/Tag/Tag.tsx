@@ -6,16 +6,21 @@ type Props = {
   children: string;
   className?: string;
   onRemove?: () => void;
-  theme?: string;
   isOutline?: boolean;
   [key: string]: any;
 };
 
-const Tag: React.FC<Props> = ({ children, className, onRemove, ...other }: Props) => {
-  const classes = classNames(className, 'tag');
+const Tag: React.FC<Props> = ({ children, className, onRemove, isOutline, ...other }: Props) => {
+  const classes = classNames(className, 'tag text-sm px-2 py-1');
 
   return (
-    <Badge {...other} className={classes} isPill>
+    <Badge
+      {...other}
+      theme={isOutline ? 'white' : 'dark'}
+      className={classes}
+      isPill
+      withBorder={isOutline}
+    >
       <div className="d-flex align-items-center">
         <Icon className="tag__tag-icon flex-shrink-0" name="tag" />
         {children}
