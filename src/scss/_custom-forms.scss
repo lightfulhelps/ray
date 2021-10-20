@@ -29,8 +29,7 @@
     &::after {
       left: unset;
       right: calc(
-        #{- ($custom-switch-width + $custom-control-gutter)} + #{$custom-control-indicator-border-width *
-          2}
+        #{- ($custom-switch-width + $custom-control-gutter)} + #{$input-border-width * 2}
       );
       transform: translateX(-$custom-switch-width + $custom-control-indicator-size);
     }
@@ -59,8 +58,7 @@
       top: unset;
       left: 50%;
       bottom: calc(
-        #{- ($custom-switch-height + $custom-control-gutter)} + #{$custom-control-indicator-border-width *
-          2}
+        #{- ($custom-switch-height + $custom-control-gutter)} + #{$input-border-width * 2}
       );
       transform: translateX(-$custom-switch-width + $custom-control-indicator-size + 0.1rem);
     }
@@ -88,10 +86,7 @@
     &::after {
       bottom: unset;
       left: 50%;
-      top: calc(
-        #{- ($custom-switch-height + $custom-control-gutter)} + #{$custom-control-indicator-border-width *
-          2}
-      );
+      top: calc(#{- ($custom-switch-height + $custom-control-gutter)} + #{$input-border-width * 2});
       transform: translateX(-$custom-switch-width + $custom-control-indicator-size + 0.1rem);
     }
   }

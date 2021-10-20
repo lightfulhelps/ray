@@ -50,7 +50,6 @@ const Button: React.FC<ButtonAttributes & Props> = ({
     { [`btn${isOutline ? '-outline' : ''}-gradient-${theme}`]: !forceSolidColor },
     `btn${isOutline ? '-outline' : ''}-${theme}`, // backup
     size ? `btn-${size}` : false,
-    { 'btn-block': isBlock },
     { disabled: isDisabled },
     { 'btn-icon': icon && !children },
     { [`btn-icon-${iconPosition}`]: icon && children },
@@ -70,7 +69,7 @@ const Button: React.FC<ButtonAttributes & Props> = ({
   const optionalProps: { [key: string]: any } = {};
   optionalProps.type = Tag === 'button' ? type : undefined;
 
-  return (
+  const buttonComponent = (
     <Tag
       {...other}
       {...optionalProps}
@@ -90,6 +89,9 @@ const Button: React.FC<ButtonAttributes & Props> = ({
       </span>
     </Tag>
   );
+
+  if (isBlock) return <div className="d-grid">{buttonComponent}</div>;
+  return buttonComponent;
 };
 
 export default Button;

@@ -1,15 +1,17 @@
-@each $color, $value in $theme-colors {
-  .badge-outline-#{$color} {
-    @include badge-outline-variant($value);
-  }
-}
+// @each $color, $value in $theme-colors {
+//   .badge-outline-#{$color} {
+//     @include badge-outline-variant($value);
+//   }
+// }
 
-@each $color, $value in $grays {
-  .badge-gray-#{$color} {
-    @include badge-variant($value);
-  }
+// @each $color, $value in $grays {
+//   .badge-gray-#{$color} {
+//     @include badge-variant($value);
+//   }
 
-  .badge-outline-gray-#{$color} {
-    @include badge-outline-variant($value);
-  }
-}
+//   .badge-outline-gray-#{$color} {
+//     @include badge-outline-variant($value);
+//   }
+// }
+
+//Needs redoing

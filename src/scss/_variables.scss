@@ -46,6 +46,8 @@ $success: #02cb8c;
 $info: #0095f1;
 $warning: #ffc65c;
 $danger: #f25252;
+$light: $gray-100;
+$dark: $gray-900;
 
 $success-100: #d6fff2;
 $success-300: #6eebc3;
@@ -57,10 +59,18 @@ $secondary-100: #e8f9ff;
 $secondary-300: $secondary;
 
 $theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
   'tertiary-red': $tertiary-red,
   'tertiary-green': $tertiary-green,
   'tertiary-black': $tertiary-black,
   'academy': $academy,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
 );
 
 // Social media network colors
@@ -227,6 +237,7 @@ $label-margin-bottom: $spacer;
 
 $input-color: $gray-900;
 $input-border-color: $gray-300;
+$input-bg: $white;
 
 $input-border-radius: $border-radius-sm;
 $input-border-radius-lg: $border-radius-sm;
@@ -234,6 +245,9 @@ $input-border-radius-sm: $border-radius-sm;
 
 $input-focus-border-color: $primary;
 $input-focus-box-shadow: none;
+
+$input-line-height-sm: $line-height-sm;
+$input-line-height-lg: $line-height-lg;
 
 $input-hover-border-color: $gray-500; // Ray
 
@@ -312,3 +326,5 @@ $custom-control-indicator-size: $spacer * 2;
 $custom-switch-width: $spacer * 4;
 $custom-switch-height: $spacer * 2;
 $custom-switch-indicator-bg: $white;
+
+$custom-control-gutter: 0.5rem !default;

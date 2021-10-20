@@ -23,7 +23,8 @@
     color: $white;
     border-color: $dropdown-dark-divider-bg;
 
-    @include hover-focus {
+    &:hover,
+    &:focus {
       color: $dropdown-dark-link-hover-color;
       text-decoration: none;
       background-color: $dropdown-dark-link-hover-bg;
@@ -60,7 +61,8 @@
   font-size: $font-size-xs;
   cursor: default;
 
-  @include hover-focus {
+  &:hover,
+  &:focus {
     color: $gray-500;
     text-decoration: none;
   }

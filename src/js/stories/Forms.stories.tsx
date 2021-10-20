@@ -106,7 +106,9 @@ stories.add('Default', () => (
         </FormGroup>
         <FormGroup>
           <FormLabel>File</FormLabel>
-          <FormInput type="file" name="file" />
+          <div>
+            <FormInput type="file" name="file" />
+          </div>
         </FormGroup>
         <FormGroup className="bg-white p-2 rounded-sm border">
           <FormGroup className="mb-1" isCheck>

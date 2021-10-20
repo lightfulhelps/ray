@@ -56,11 +56,11 @@ describe('<Button />', () => {
   it('should handle the isBlock prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.hasClass('btn-block')).toBe(false);
+    expect(wrapper.exists('div.d-grid')).toBe(false);
 
     wrapper.setProps({ isBlock: true });
 
-    expect(wrapper.hasClass('btn-block')).toBe(true);
+    expect(wrapper.exists('div.d-grid')).toBe(true);
   });
 
   it('should handle the isDisabled prop', () => {
