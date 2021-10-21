@@ -1,16 +1,25 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Badge, Icon } from '../..';
+import { IconNameType } from '../Icon/icons';
 
 type Props = {
   children: string;
   className?: string;
   onRemove?: () => void;
   isOutline?: boolean;
+  icon?: IconNameType;
   [key: string]: any;
 };
 
-const Tag: React.FC<Props> = ({ children, className, onRemove, isOutline, ...other }: Props) => {
+const Tag: React.FC<Props> = ({
+  children,
+  className,
+  onRemove,
+  isOutline,
+  icon,
+  ...other
+}: Props) => {
   const classes = classNames(className, 'tag text-sm px-2 py-1', {
     'border border-gray-500': isOutline,
   });
@@ -24,7 +33,7 @@ const Tag: React.FC<Props> = ({ children, className, onRemove, isOutline, ...oth
       withBorder={isOutline}
     >
       <div className="d-flex align-items-center">
-        <Icon className="tag__tag-icon flex-shrink-0" name="tag" />
+        {icon && <Icon className="tag__tag-icon flex-shrink-0" name={icon} />}
         {children}
         {onRemove && (
           <Icon
