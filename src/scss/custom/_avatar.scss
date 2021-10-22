@@ -19,18 +19,6 @@
   background-position: center;
 }
 
-.avatar-initials {
-  position: absolute;
-  top: 40%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  color: $white;
-  font-size: 200%;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
 .avatar-provider-lg {
   .avatar-provider {
     width: 60%;
