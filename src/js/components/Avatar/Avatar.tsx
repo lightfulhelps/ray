@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import DBAvatars from '@dicebear/avatars';
 import DBAvatarsInitialsSprites from '@dicebear/avatars-initials-sprites';
-import lightfulBg from './lightful_bg.png';
 import { Icon } from '../..';
 
 type Props = {
@@ -39,7 +38,9 @@ const Avatar: React.FC<Props> = ({
         <div
           className="avatar-image"
           style={{
-            backgroundImage: url ? `url(${url})` : `url(${initialsSvg}), url(${lightfulBg})`,
+            backgroundImage: url
+              ? `url(${url})`
+              : `url(${initialsSvg}), url(https://assets.lightful.com/platform/brand/avatar_background.png)`,
           }}
         />
         {provider && (
