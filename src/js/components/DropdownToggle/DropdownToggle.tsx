@@ -9,17 +9,23 @@ type Props = ButtonProps & {
   [key: string]: any;
 };
 
-const DropdownToggle: React.FC<Props> = ({ className, isOpen = false, ...other }: Props) => {
+const DropdownToggle: React.FC<Props> = ({
+  size = 'md',
+  className,
+  isOpen = false,
+  ...other
+}: Props) => {
   const classes = classNames(className, 'dropdown-toggle');
 
   return (
     <Button
-      icon={isOpen ? 'caretUp' : 'caretDown'}
+      icon={isOpen ? 'chevronUp' : 'chevronDown'}
       iconPosition="right"
       isOutline
-      theme="gray-600"
+      theme="primary"
       {...other}
       className={classes}
+      size={size}
     />
   );
 };
