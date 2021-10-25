@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import { format as formatDate } from 'date-fns';
-import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon, Badge } from '../..';
+import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon } from '../..';
 import { IconNameType } from '../Icon/icons';
 import { Props as ButtonProps } from '../Button/Button';
 import Alert from '../Alert/Alert';
@@ -91,7 +91,7 @@ class PostCard extends React.Component<Props, State> {
     } = this.props;
     const classes = classNames(
       className,
-      'post-card shadow',
+      'post-card shadow rounded overflow-hidden',
       { 'post-card--draft': isDraft },
       { 'post-card--invalid': isInvalid }
     );
@@ -111,7 +111,7 @@ class PostCard extends React.Component<Props, State> {
 
     switch (post.state) {
       case 'scheduled':
-        borderColor = 'info';
+        borderColor = 'gradient-primary-x';
         break;
       case 'published':
         borderColor = 'success';
@@ -126,7 +126,7 @@ class PostCard extends React.Component<Props, State> {
 
     return (
       <Card {...other} className={classes}>
-        <div className={`bg-${borderColor} rounded-top-sm mb-1`} style={{ height: '3px' }} />
+        <div className={`bg-${borderColor} rounded-top mb-1`} style={{ height: '5px' }} />
         {errors && errors.length > 0 && (
           <div className="mb-1">
             {errors.map((error, i) => (
@@ -145,20 +145,19 @@ class PostCard extends React.Component<Props, State> {
             This post was imported from outside of Lightful. Link clicks are not tracked.
           </div>
         )}
-        <div className="d-flex flex-column flex-md-row justify-content-between px-2 pb-2 pt-1 border-bottom">
+        <div className="d-flex flex-column flex-md-row justify-content-between px-2 pb-3 pt-1 border-bottom">
           <div className="flex-fill">
-            <div className="d-flex mb-1">
+            <div className="d-flex mb-2">
               {post.socialIdentity && (
                 <Avatar
                   className="flex-shrink-0"
                   url={post.socialIdentity.avatar}
                   provider={post.socialIdentity.provider}
-                  providerSize="lg"
                   style={{ width: '45px', height: '45px' }}
                 />
               )}
-              <div className="ml-half">
-                <div className="h6 mb-0" data-test-id="post-card-date">
+              <div className="ms-1">
+                <div className="h4 mb-0" data-test-id="post-card-date">
                   {post.date
                     ? `${post.state === 'published' ? 'Published' : 'Scheduled for'} ${formatDate(
                         new Date(post.date),
@@ -167,12 +166,12 @@ class PostCard extends React.Component<Props, State> {
                     : 'Unscheduled'}
                 </div>
                 {post.socialIdentity && (
-                  <div className="text-sm">{post.socialIdentity.displayName}</div>
+                  <div className="text-sm text-dark">{post.socialIdentity.displayName}</div>
                 )}
               </div>
             </div>
             <div
-              className="text-sm mb-1 post-card__content"
+              className="mb-2 post-card__content text-dark"
               data-test-id="post-card-content"
               onClick={this.handleToggleTruncate}
             >
@@ -185,22 +184,22 @@ class PostCard extends React.Component<Props, State> {
             </div>
             <div className="d-flex flex-wrap">
               {post.campaign && (
-                <Badge
-                  className="d-flex align-items-center mb-1 mb-lg-0 mr-1 badge-pill"
-                  color={post.campaign.color}
+                <Tag
+                  className="d-flex align-items-center mb-1 mb-lg-0 me-1 badge-pill"
+                  icon="storyBuilder"
                 >
-                  <Icon className="mr-half" name="storyBuilder" />
                   Story: {post.campaign.name}
-                </Badge>
+                </Tag>
               )}
               {post.tags &&
                 post.tags.length > 0 &&
                 post.tags.map((tag, i) => (
                   <Tag
-                    className={`text-xs mr-half mb-1 mb-lg-0 ${i === 0 ? '' : ''}`}
+                    className={`text-xs me-half mb-1 mb-lg-0 ${i === 0 ? '' : ''}`}
                     isOutline
                     key={i}
                     theme="gray-600"
+                    icon="tag"
                   >
                     {tag}
                   </Tag>
@@ -208,18 +207,18 @@ class PostCard extends React.Component<Props, State> {
             </div>
           </div>
           <div
-            className={classNames('post-card__media-wrap flex-shrink-0 overflow-hidden', {
+            className={classNames('post-card__media-wrap flex-shrink-0', {
               'h-100': showMetaPreview,
             })}
           >
             {post.media && post.media.length > 0 && <PostMedia media={post.media} />}
-            {showMetaPreview && <URLMetaPreview {...metaPreview} className="border" isVertical />}
+            {showMetaPreview && <URLMetaPreview {...metaPreview} className="shadow" isVertical />}
             {showMediaEmpty && <div className="post-media--empty">No media</div>}
           </div>
         </div>
         <div
           className={classNames(
-            'py-1 px-2 d-flex flex-column flex-md-row align-items-center',
+            'pt-2 pb-3 px-2 d-flex flex-column flex-md-row align-items-center',
             notesAction || hasPostMetrics ? 'justify-content-between' : 'justify-content-end'
           )}
         >
@@ -231,7 +230,7 @@ class PostCard extends React.Component<Props, State> {
                   data-test-id="post-card-notes"
                   onClick={notesAction}
                 >
-                  <Icon className="mr-half" name="comment" />{' '}
+                  <Icon className="me-half" name="comment" />{' '}
                   <span
                     className="text-underline text-sm font-weight-bold"
                     style={{ lineHeight: 1 }}
@@ -244,12 +243,12 @@ class PostCard extends React.Component<Props, State> {
                 post.metrics.length > 0 &&
                 post.metrics.map(metric => (
                   <div
-                    className="d-flex align-items-center text-sm mr-1"
+                    className="d-flex align-items-center text-sm me-1"
                     data-test-id="post-card-metric"
                     key={metric.key}
                   >
                     {metric.icon && (
-                      <Icon className="mr-half" isActive name={metric.icon} size={20} />
+                      <Icon className="me-half" isActive name={metric.icon} size={20} />
                     )}{' '}
                     {metric.value} {metric.key}
                   </div>
@@ -262,10 +261,8 @@ class PostCard extends React.Component<Props, State> {
               actions.map((action, i) => (
                 <Button
                   key={i}
-                  theme="gray-600"
                   isOutline
-                  size="sm"
-                  className="mr-1 mb-1 mr-md-0 ml-md-1 mb-lg-0"
+                  className="me-2 mb-1 me-md-0 ms-md-2 mb-lg-0"
                   data-test-id="post-card-action"
                   {...action}
                 />
