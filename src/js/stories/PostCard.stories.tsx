@@ -95,7 +95,12 @@ stories.add('Default', () => {
           tags,
         }}
         actions={[
-          { children: 'Approve', onClick: action('Approve') },
+          {
+            children: 'Approve',
+            isOutline: false,
+            icon: 'approvalTick',
+            onClick: action('Approve'),
+          },
           { children: 'Preview', onClick: action('Preview') },
           { children: 'Edit', onClick: action('Edit') },
           { children: 'Delete', onClick: action('Delete') }, // { children: 'Reschedule', onClick: action('Reschedule') },
