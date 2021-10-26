@@ -1,16 +1,7 @@
 .campaign-template-card {
   box-shadow: $box-shadow-lg;
 
-  &-image {
-    border-top-left-radius: $border-radius-lg - 0.1rem;
-    border-top-right-radius: $border-radius-lg - 0.1rem;
-  }
-
   &--selected {
-    border: solid 2px transparent; /* !important */
-    background-image: linear-gradient(white, white),
-      linear-gradient(to right, nth($gradient-primary, 1), nth($gradient-primary, 2));
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
+    box-shadow: 0 0 0 2px $success, $box-shadow-lg;
   }
 }

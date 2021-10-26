@@ -14,7 +14,7 @@ exports[`<ResourceCard /> should render 1`] = `
     className="d-flex align-items-center mb-2"
   >
     <div
-      className="rounded-circle d-flex align-items-center justify-content-center me-1 flex-shrink-0"
+      className="rounded-circle d-flex align-items-center justify-content-center mr-1 flex-shrink-0"
       style={
         Object {
           "background": "rgba(255, 255, 255, 0.2)",

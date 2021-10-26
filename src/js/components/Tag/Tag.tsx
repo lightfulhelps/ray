@@ -4,7 +4,7 @@ import { Badge, Icon } from '../..';
 import { IconNameType } from '../Icon/icons';
 
 type Props = {
-  children: React.ReactNode;
+  children: string;
   className?: string;
   onRemove?: () => void;
   isOutline?: boolean;

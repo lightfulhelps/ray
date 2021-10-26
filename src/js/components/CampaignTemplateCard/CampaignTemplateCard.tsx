@@ -43,15 +43,16 @@ const CampaignTemplateCard: React.FC<Props> = ({
   const btnProps: ButtonProps = {
     className: 'mt-2',
     onClick,
+    isBlock: true,
     isDisabled: false,
     theme: 'primary',
     children: ctaText,
-    size: 'lg',
   };
 
   if (isSelected) {
     btnProps.isDisabled = true;
-    btnProps.icon = 'approvalTick';
+    btnProps.theme = 'success';
+    btnProps.icon = 'tick';
     btnProps.children = ctaTextSelected;
   }
 
@@ -59,19 +60,17 @@ const CampaignTemplateCard: React.FC<Props> = ({
     <div {...other} className={classes}>
       <div
         style={imgStyles}
-        className="bg-cover bg-gray-900 w-100 campaign-template-card-image"
+        className="bg-cover bg-gray-900 w-100 rounded-top-lg"
         data-test-id="campaign-template-card-image"
       />
       <div className="p-2 d-flex h-100 flex-column justify-content-between">
         <div>
-          <h4 data-test-id="campaign-template-card-title">{title}</h4>
+          <h5 data-test-id="campaign-template-card-title">{title}</h5>
           <div className="text-sm" data-test-id="campaign-template-card-description">
             {description}
           </div>
         </div>
-        <div>
-          <Button data-test-id="campaign-template-card-button" {...btnProps} />
-        </div>
+        <Button data-test-id="campaign-template-card-button" {...btnProps} />
       </div>
     </div>
   );

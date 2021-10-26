@@ -16,7 +16,7 @@ const PostCardGhost: React.FC<Props> = ({ className, isLoading, ...other }: Prop
   return (
     <Card {...other} className={classes}>
       <div className="d-flex align-items-top px-2 pt-2 pb-0">
-        <div className="ghost rounded-circle me-2 mb-0" style={{ width: '35px', height: '35px' }} />
+        <div className="ghost rounded-circle mr-2 mb-0" style={{ width: '35px', height: '35px' }} />
         <div className="flex-fill">
           <div className="ghost ghost-lg w-75" />
           <div className="ghost w-50" />

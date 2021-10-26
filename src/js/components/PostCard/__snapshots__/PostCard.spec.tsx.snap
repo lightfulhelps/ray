@@ -66,18 +66,18 @@ exports[`<PostCard /> should render 1`] = `
         className="d-flex flex-wrap"
       >
         <Badge
-          className="d-flex align-items-center mb-1 mb-lg-0 me-1 badge-pill"
+          className="d-flex align-items-center mb-1 mb-lg-0 mr-1 badge-pill"
           color="#ff0000"
         >
           <Icon
-            className="me-half"
+            className="mr-half"
             name="storyBuilder"
           />
           Story: 
           Campaign
         </Badge>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="0"
           theme="gray-600"
@@ -85,7 +85,7 @@ exports[`<PostCard /> should render 1`] = `
           charity
         </Tag>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="1"
           theme="gray-600"
@@ -93,7 +93,7 @@ exports[`<PostCard /> should render 1`] = `
           social for good
         </Tag>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="2"
           theme="gray-600"
@@ -101,7 +101,7 @@ exports[`<PostCard /> should render 1`] = `
           campaigns
         </Tag>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="3"
           theme="gray-600"
@@ -133,12 +133,12 @@ exports[`<PostCard /> should render 1`] = `
       className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-2 mb-md-0"
     >
       <div
-        className="d-flex align-items-center text-sm me-1"
+        className="d-flex align-items-center text-sm mr-1"
         data-test-id="post-card-metric"
         key="likes"
       >
         <Icon
-          className="me-half"
+          className="mr-half"
           isActive={true}
           name="like"
           size={20}
@@ -149,12 +149,12 @@ exports[`<PostCard /> should render 1`] = `
         likes
       </div>
       <div
-        className="d-flex align-items-center text-sm me-1"
+        className="d-flex align-items-center text-sm mr-1"
         data-test-id="post-card-metric"
         key="shares"
       >
         <Icon
-          className="me-half"
+          className="mr-half"
           isActive={true}
           name="share"
           size={20}
@@ -256,18 +256,18 @@ exports[`<PostCard /> should render with errors 1`] = `
         className="d-flex flex-wrap"
       >
         <Badge
-          className="d-flex align-items-center mb-1 mb-lg-0 me-1 badge-pill"
+          className="d-flex align-items-center mb-1 mb-lg-0 mr-1 badge-pill"
           color="#ff0000"
         >
           <Icon
-            className="me-half"
+            className="mr-half"
             name="storyBuilder"
           />
           Story: 
           Campaign
         </Badge>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="0"
           theme="gray-600"
@@ -275,7 +275,7 @@ exports[`<PostCard /> should render with errors 1`] = `
           charity
         </Tag>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="1"
           theme="gray-600"
@@ -283,7 +283,7 @@ exports[`<PostCard /> should render with errors 1`] = `
           social for good
         </Tag>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="2"
           theme="gray-600"
@@ -291,7 +291,7 @@ exports[`<PostCard /> should render with errors 1`] = `
           campaigns
         </Tag>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="text-xs mr-half mb-1 mb-lg-0 "
           isOutline={true}
           key="3"
           theme="gray-600"
@@ -323,12 +323,12 @@ exports[`<PostCard /> should render with errors 1`] = `
       className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-2 mb-md-0"
     >
       <div
-        className="d-flex align-items-center text-sm me-1"
+        className="d-flex align-items-center text-sm mr-1"
         data-test-id="post-card-metric"
         key="likes"
       >
         <Icon
-          className="me-half"
+          className="mr-half"
           isActive={true}
           name="like"
           size={20}
@@ -339,12 +339,12 @@ exports[`<PostCard /> should render with errors 1`] = `
         likes
       </div>
       <div
-        className="d-flex align-items-center text-sm me-1"
+        className="d-flex align-items-center text-sm mr-1"
         data-test-id="post-card-metric"
         key="shares"
       >
         <Icon
-          className="me-half"
+          className="mr-half"
           isActive={true}
           name="share"
           size={20}
