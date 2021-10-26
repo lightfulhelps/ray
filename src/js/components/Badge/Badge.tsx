@@ -22,7 +22,6 @@ const Badge: React.FC<Props> = ({
 }: Props) => {
   const classes = classNames(className, 'badge', `bg-${theme}`, 'text-truncate', 'mw-100', {
     'rounded-pill': isPill,
-    'text-dark': ['light', 'white'].includes(theme),
   });
 
   return (
