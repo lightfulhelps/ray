@@ -3,3 +3,7 @@
     color: color-contrast($value);
   }
 }
+
+.badge.bg-white {
+  color: color-contrast($white);
+}
