@@ -22,7 +22,7 @@ const URLMetaPreview: React.FC<Props> = ({
   url,
   ...other
 }: Props) => {
-  const classes = classNames(className, 'url-meta-preview', 'bg-white h-100');
+  const classes = classNames(className, 'url-meta-preview', 'bg-white h-100 rounded-sm shadow-sm');
 
   if (!url) {
     return null;
@@ -38,7 +38,7 @@ const URLMetaPreview: React.FC<Props> = ({
               data-test-id="url-meta-preview-image"
               style={{ backgroundImage: `url(${image})` }}
             >
-              {isVertical && <img className="w-100" src={image} alt="" />}
+              {isVertical && <img className="w-100 rounded-top-sm d-block" src={image} alt="" />}
             </div>
           </div>
         )}
