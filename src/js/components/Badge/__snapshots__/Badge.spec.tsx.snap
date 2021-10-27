@@ -2,7 +2,7 @@
 
 exports[`<Badge /> should render 1`] = `
 <div
-  className="badge badge-primary text-truncate mw-100"
+  className="badge bg-primary text-truncate mw-100"
   style={
     Object {
       "backgroundColor": undefined,

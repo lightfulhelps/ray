@@ -29,3 +29,11 @@ Icons now include gradients. Set the `isGradient` prop to `true`. If a gradient 
 ## Gradient text
 
 Use the classes `.text-{gradient}` to get gradient texts. 
+
+## Tags
+
+Remove themes for tags (as per design). By default the tag will be `dark` themed. If you set `isOutline` to `true` the the tag will by `white` themed.
+
+## Badges
+
+No more `isOutline` prop

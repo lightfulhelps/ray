@@ -50,26 +50,14 @@ describe('<Badge />', () => {
     });
   });
 
-  it('should handle the isOutline prop', () => {
-    const { wrapper } = setup();
-
-    expect(wrapper.hasClass('badge-outline-primary')).toBe(false);
-    expect(wrapper.hasClass('badge-primary')).toBe(true);
-
-    wrapper.setProps({ isOutline: true });
-
-    expect(wrapper.hasClass('badge-outline-primary')).toBe(true);
-    expect(wrapper.hasClass('badge-primary')).toBe(false);
-  });
-
   it('should handle the isPill prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.hasClass('badge-pill')).toBe(false);
+    expect(wrapper.hasClass('rounded-pill')).toBe(false);
 
     wrapper.setProps({ isPill: true });
 
-    expect(wrapper.hasClass('badge-pill')).toBe(true);
+    expect(wrapper.hasClass('rounded-pill')).toBe(true);
   });
 
   it('should handle the tag prop', () => {
@@ -89,12 +77,12 @@ describe('<Badge />', () => {
   it('should handle the theme prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.hasClass('badge-primary')).toBe(true);
+    expect(wrapper.hasClass('bg-primary')).toBe(true);
 
     wrapper.setProps({ theme: 'secondary' });
 
-    expect(wrapper.hasClass('badge-primary')).toBe(false);
-    expect(wrapper.hasClass('badge-secondary')).toBe(true);
+    expect(wrapper.hasClass('bg-primary')).toBe(false);
+    expect(wrapper.hasClass('bg-secondary')).toBe(true);
   });
 
   it('should pass through other props', () => {

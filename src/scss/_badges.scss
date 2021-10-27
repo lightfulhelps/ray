@@ -1,0 +1,9 @@
+@each $name, $value in $theme-colors {
+  .badge.bg-#{$name} {
+    color: color-contrast($value);
+  }
+}
+
+.badge.bg-white {
+  color: color-contrast($white);
+}
