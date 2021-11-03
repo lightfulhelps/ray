@@ -59,15 +59,15 @@ stories.add('Default', () => (
                 theme={select('Menu Theme', menuThemes, 'light')}
               >
                 <DropdownItem onClick={action('Edit')}>
-                  <Icon className="mr-1" name="edit" />
+                  <Icon className="me-1" name="edit" />
                   Edit
                 </DropdownItem>
                 <DropdownItem onClick={action('Comment')}>
-                  <Icon className="mr-1" name="comment" />
+                  <Icon className="me-1" name="comment" />
                   Comment
                 </DropdownItem>
                 <DropdownItem isDisabled onClick={action('Edit')}>
-                  <Icon className="mr-1" name="edit" />
+                  <Icon className="me-1" name="edit" />
                   Delete
                 </DropdownItem>
               </DropdownMenu>
