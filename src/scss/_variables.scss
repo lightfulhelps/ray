@@ -25,15 +25,15 @@ $gradient-colors: (
 );
 
 $white: #fff;
-$gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #adb5bd;
-$gray-600: #6c757c;
-$gray-700: #495057;
-$gray-800: #343a40;
-$gray-900: #212529;
+$gray-100: #fafbff;
+$gray-200: #f5f6fd;
+$gray-300: #dfe1ef;
+$gray-400: #cbcee8;
+$gray-500: #a7aac6;
+$gray-600: #7c7f9c;
+$gray-700: #555879;
+$gray-800: #313454;
+$gray-900: #202237;
 $black: #000;
 
 $primary: #00a8e6;
@@ -129,7 +129,7 @@ $spacers: (
 // Settings for the `<body>` element.
 
 $body-bg: $gray-100;
-$body-color: $gray-600;
+$body-color: #1e2128;
 
 // Components
 //
@@ -159,10 +159,12 @@ $box-shadow-lg: 0 0 30px 0 rgba($gray-700, 0.12);
 $font-family-sans-serif: 'Euclid Flex B', sans-serif;
 
 $font-size-base: 1rem; // 16px
-$font-size-lg: ($font-size-base * 1.25); // 20px
+$font-size-lg: ($font-size-base * 1.125); // 18px
 $font-size-sm: ($font-size-base * 0.875); // 14px
 $font-size-xs: ($font-size-base * 0.75); // 12px
 $font-size-xxs: ($font-size-base * 0.5); // 10px
+
+$h5-font-size: $font-size-base * 1.125 !default;
 
 $font-weight-light: 300;
 $font-weight-normal: 400;
