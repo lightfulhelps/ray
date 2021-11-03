@@ -2,6 +2,7 @@
   min-width: 100%;
   padding: $dropdown-padding-y $dropdown-padding-x;
   overflow: hidden;
+  margin-top: $spacer;
 }
 
 .dropdown-item {
@@ -10,6 +11,7 @@
   font-weight: $font-weight-light;
   border-bottom: 1px solid $dropdown-divider-bg;
   line-height: 1;
+  padding: $spacer $spacer * 2;
 
   &:last-child {
     border: none;
