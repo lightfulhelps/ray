@@ -166,12 +166,12 @@ class PostCard extends React.Component<Props, State> {
                     : 'Unscheduled'}
                 </div>
                 {post.socialIdentity && (
-                  <div className="text-sm text-dark">{post.socialIdentity.displayName}</div>
+                  <div className="text-sm">{post.socialIdentity.displayName}</div>
                 )}
               </div>
             </div>
             <div
-              className="mb-2 post-card__content text-dark"
+              className="mb-2 post-card__content"
               data-test-id="post-card-content"
               onClick={this.handleToggleTruncate}
             >
