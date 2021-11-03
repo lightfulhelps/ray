@@ -29,6 +29,12 @@ const menuPositions = {
   Right: 'right',
 } as const;
 
+const sizes = {
+  Small: 'sm',
+  Medium: 'md',
+  Large: 'lg',
+} as const;
+
 stories.add('Default', () => (
   <Container>
     <h1 className="my-4">Dropdown</h1>
@@ -38,7 +44,12 @@ stories.add('Default', () => (
           isBlock={boolean('Block', false)}
           render={(isOpen, onToggle) => (
             <>
-              <DropdownToggle isBlock={boolean('Block', false)} isOpen={isOpen} onClick={onToggle}>
+              <DropdownToggle
+                isBlock={boolean('Block', false)}
+                isOpen={isOpen}
+                onClick={onToggle}
+                size={select('Size', sizes, 'md')}
+              >
                 Dropdown
               </DropdownToggle>
               <DropdownMenu
@@ -48,15 +59,15 @@ stories.add('Default', () => (
                 theme={select('Menu Theme', menuThemes, 'light')}
               >
                 <DropdownItem onClick={action('Edit')}>
-                  <Icon className="mr-1" name="edit" />
+                  <Icon className="me-1" name="edit" />
                   Edit
                 </DropdownItem>
                 <DropdownItem onClick={action('Comment')}>
-                  <Icon className="mr-1" name="comment" />
+                  <Icon className="me-1" name="comment" />
                   Comment
                 </DropdownItem>
                 <DropdownItem isDisabled onClick={action('Edit')}>
-                  <Icon className="mr-1" name="edit" />
+                  <Icon className="me-1" name="edit" />
                   Delete
                 </DropdownItem>
               </DropdownMenu>
@@ -68,7 +79,13 @@ stories.add('Default', () => (
         <Dropdown
           render={(isOpen, onToggle) => (
             <>
-              <Button icon="menu" theme="light" onClick={onToggle} />
+              <Button
+                icon="menu"
+                theme="primary"
+                isOutline
+                onClick={onToggle}
+                size={select('Size', sizes, 'md')}
+              />
               <DropdownMenu
                 isOpen={isOpen}
                 onClick={onToggle}
