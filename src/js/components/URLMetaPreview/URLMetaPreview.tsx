@@ -45,7 +45,7 @@ const URLMetaPreview: React.FC<Props> = ({
         <div className={isVertical ? '' : image ? 'col-8 pl-0' : 'col-12'}>
           <div className="d-flex flex-column justify-content-between h-100 p-1 text-xs">
             <a
-              className="font-weight-bold text-dark text-truncate"
+              className="font-weight-bold text-truncate"
               href={url}
               target="_blank"
               rel="noopener noreferrer"
