@@ -25,7 +25,7 @@ const Progress: React.FC<Props> = ({
   const classes = classNames(className, 'progress');
   const barClasses = classNames(
     'progress-bar',
-    { [`bg-gradient-${theme}-x`]: theme && value <= 100 },
+    { [`bg-gradient-${theme}-x bg-${theme}`]: theme && value <= 100 },
     { 'bg-danger': value > 100 },
     { 'progress-bar-animated': isAnimated },
     { 'progress-bar-striped': isStriped }
@@ -37,7 +37,7 @@ const Progress: React.FC<Props> = ({
       className={classes}
       data-test-id="progress"
       style={{
-        height: `${size === 'sm' ? '0.5rem' : size === 'lg' ? '1.5rem' : '1rem'}`,
+        height: `${size === 'sm' ? '0.5rem' : size === 'lg' ? '1.5rem' : '1.25rem'}`,
         fontSize: `${size === 'sm' ? '0.5rem' : size === 'lg' ? '1rem' : '0.75rem'}`,
       }}
     >
