@@ -26,7 +26,11 @@ const Nav: React.FC<Props> = ({
     { 'nav-tabs': !isPills && isTabs }
   );
 
-  return <Tag {...other} className={classes} />;
+  return (
+    <div className="overflow-hidden">
+      <Tag {...other} className={classes} />
+    </div>
+  );
 };
 
 export default Nav;

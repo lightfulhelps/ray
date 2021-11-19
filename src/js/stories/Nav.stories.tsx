@@ -11,7 +11,7 @@ const stories = storiesOf('Nav', module);
 stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
-  <Container>
+  <Container className="bg-gray-200 pb-5">
     <h1 className="my-4">Nav</h1>
     <Row>
       <Col>
@@ -34,8 +34,11 @@ stories.add('Default', () => (
             <NavLink href="#">Second</NavLink>
           </NavItem>
           <NavItem>
+            <NavLink href="#">Third</NavLink>
+          </NavItem>
+          <NavItem>
             <NavLink href="#" isDisabled={boolean('Disabled Link', true)}>
-              Third
+              Fourth
             </NavLink>
           </NavItem>
         </Nav>
