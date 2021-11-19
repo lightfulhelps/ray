@@ -20,7 +20,11 @@ const NavLink: React.FC<Props> = ({
   theme = 'primary',
   ...other
 }: Props) => {
-  const classes = classNames(className, 'nav-link', { active: isActive }, { disabled: isDisabled });
+  const classes = classNames(className, 'nav-link', {
+    active: isActive,
+    disabled: isDisabled,
+    [`nav-link-${theme}`]: theme,
+  });
 
   return (
     <Tag {...other} className={`${classes} position-relative shadow-lg`}>

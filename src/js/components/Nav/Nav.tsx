@@ -10,7 +10,7 @@ type Props = {
   [key: string]: any;
 };
 
-const Nav: React.FC<Props> = ({
+export const Nav: React.FC<Props> = ({
   className,
   isFill,
   isPills,
@@ -26,11 +26,13 @@ const Nav: React.FC<Props> = ({
     { 'nav-tabs': !isPills && isTabs }
   );
 
-  return (
-    <div className="overflow-hidden">
-      <Tag {...other} className={classes} />
-    </div>
-  );
+  return <Tag {...other} className={classes} />;
 };
 
-export default Nav;
+const NavWithWrapper: React.FC<Props> = props => (
+  <div className="overflow-hidden">
+    <Nav {...props} />
+  </div>
+);
+
+export default NavWithWrapper;
