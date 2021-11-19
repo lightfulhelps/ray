@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 type Props = {
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   isActive?: boolean;
   isDisabled?: boolean;
   tag?: keyof JSX.IntrinsicElements | typeof React.Component;
