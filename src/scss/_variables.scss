@@ -148,9 +148,9 @@ $radiuses: (
   4: $border-radius * 4,
 );
 
-$box-shadow-sm: 0 0 15px 0 rgba($gray-700, 0.04);
-$box-shadow: 0 0 30px 0 rgba($gray-700, 0.04);
-$box-shadow-lg: 0 0 30px 0 rgba($gray-700, 0.12);
+$box-shadow-sm: 0 10px 20px 0 rgba($gray-300, 0.3), 0 2px 10px 0 rgba($gray-300, 0.3);
+$box-shadow: 0 10px 20px 0 rgba($gray-300, 0.5), 0 2px 10px 0 rgba($gray-300, 0.5);
+$box-shadow-lg: 0 10px 20px 0 rgba($gray-300, 1), 0 2px 10px 0 rgba($gray-300, 1);
 
 // Fonts
 //
