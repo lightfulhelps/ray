@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import merge from 'lodash/merge';
-import Nav from './Nav';
+import { Nav } from './Nav';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);

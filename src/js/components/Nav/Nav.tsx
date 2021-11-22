@@ -10,7 +10,7 @@ type Props = {
   [key: string]: any;
 };
 
-const Nav: React.FC<Props> = ({
+export const Nav: React.FC<Props> = ({
   className,
   isFill,
   isPills,
@@ -29,4 +29,10 @@ const Nav: React.FC<Props> = ({
   return <Tag {...other} className={classes} />;
 };
 
-export default Nav;
+const NavWithWrapper: React.FC<Props> = props => (
+  <div className="overflow-hidden">
+    <Nav {...props} />
+  </div>
+);
+
+export default NavWithWrapper;

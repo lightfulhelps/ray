@@ -11,6 +11,9 @@
 }
 
 .nav-tabs {
+  border-bottom-color: $gray-300;
+  padding: $spacer * 2;
+  padding-bottom: 0;
   .nav-item {
     margin-right: $spacer;
 
@@ -21,21 +24,17 @@
 
   .nav-link {
     color: $nav-tabs-link-color;
-    // background-color: $nav-tabs-link-active-bg;
-    border-color: $nav-tabs-border-color;
-    border-top-width: 2px;
     font-weight: $font-weight-light;
+    border: 1px solid transparent;
+    border-bottom: 1px solid $gray-300;
+    background-color: $white;
+    padding: $spacer ($spacer * 3);
 
     &.active {
+      background-color: $gray-200;
       color: $nav-tabs-link-active-color;
-      border-top-color: $primary;
       font-weight: $font-weight-bold;
-
-      @each $color, $value in $theme-colors {
-        &.nav-link-#{$color} {
-          border-top-color: $value;
-        }
-      }
+      border-bottom-color: $gray-200;
     }
 
     &.disabled {
