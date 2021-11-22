@@ -77,7 +77,7 @@ describe('<Progress />', () => {
   it('should handle the small size prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('[data-test-id="progress"]').prop('style').height).toBe('1rem');
+    expect(wrapper.find('[data-test-id="progress"]').prop('style').height).toBe('1.25rem');
     expect(wrapper.find('[data-test-id="progress"]').prop('style').fontSize).toBe('0.75rem');
 
     wrapper.setProps({ size: 'sm' });
@@ -88,7 +88,7 @@ describe('<Progress />', () => {
   it('should handle the large size prop', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('[data-test-id="progress"]').prop('style').height).toBe('1rem');
+    expect(wrapper.find('[data-test-id="progress"]').prop('style').height).toBe('1.25rem');
     expect(wrapper.find('[data-test-id="progress"]').prop('style').fontSize).toBe('0.75rem');
 
     wrapper.setProps({ size: 'lg' });
