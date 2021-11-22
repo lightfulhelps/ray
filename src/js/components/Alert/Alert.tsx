@@ -26,22 +26,22 @@ const Alert: React.FC<Props> = ({
 }: Props) => {
   const classes = classNames(className, 'alert ', `alert-${theme}`);
   const iconsByTheme = {
-    danger: 'alert',
+    warning: 'warning',
+    danger: 'error',
     success: 'approvalTick',
     info: 'info',
   };
 
   return (
     <Tag {...other} className={classes}>
-      {header && <h4 className="alert-heading">{header}</h4>}
-      <div className="d-flex align-items-start">
+      {header && <h3 className="alert-heading mb-1">{header}</h3>}
+      <div className="d-flex align-items-start text-sm">
         {!hideIcon && (iconsByTheme[theme] || icon) && (
           <Icon
-            className="mr-half flex-shrink-0"
+            className="me-1 flex-shrink-0"
             name={icon || iconsByTheme[theme]}
             theme={theme}
             size={18}
-            style={{ marginTop: '3px' }}
           />
         )}
         <span>{children}</span>
