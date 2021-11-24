@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
@@ -59,216 +59,208 @@ export type Props = {
   [key: string]: any;
 };
 
-type State = {
-  isTruncated: boolean;
-};
-
 const ResponsiveHTMLEllipsis = responsiveHOC()(HTMLEllipsis);
 
-class PostCard extends React.Component<Props, State> {
-  state = {
-    isTruncated: true,
+const PostCard: React.FC<Props> = props => {
+  const [isTruncated, setIsTruncated] = useState(true);
+
+  const handleToggleTruncate = () => {
+    setIsTruncated(!isTruncated);
   };
 
-  handleToggleTruncate = () => {
-    this.setState(prevState => ({ isTruncated: !prevState.isTruncated }));
-  };
+  const {
+    actions = [],
+    className,
+    dateFormat = "HH:mm 'on' eeee, d MMMM",
+    errors,
+    isDraft,
+    isImported,
+    isInvalid,
+    metaPreview,
+    notesAction,
+    notesCount = 0,
+    post,
+    ...other
+  } = props;
+  const classes = classNames(
+    className,
+    'post-card shadow rounded overflow-hidden',
+    { 'post-card--draft': isDraft },
+    { 'post-card--invalid': isInvalid }
+  );
 
-  render() {
-    const {
-      actions = [],
-      className,
-      dateFormat = "HH:mm 'on' eeee, d MMMM",
-      errors,
-      isDraft,
-      isImported,
-      isInvalid,
-      metaPreview,
-      notesAction,
-      notesCount = 0,
-      post,
-      ...other
-    } = this.props;
-    const classes = classNames(
-      className,
-      'post-card shadow rounded overflow-hidden',
-      { 'post-card--draft': isDraft },
-      { 'post-card--invalid': isInvalid }
-    );
+  if (!post) return null;
 
-    if (!post) return null;
+  const showMetaPreview =
+    (!post.media || (post.media && post.media.length === 0)) && metaPreview && metaPreview.url;
+  const showMediaEmpty =
+    post.media && post.media.length === 0 && (!metaPreview || (metaPreview && !metaPreview.url));
+  const hasPostMetrics = post.metrics && post.metrics.length > 0;
 
-    const showMetaPreview =
-      (!post.media || (post.media && post.media.length === 0)) && metaPreview && metaPreview.url;
-    const showMediaEmpty =
-      post.media && post.media.length === 0 && (!metaPreview || (metaPreview && !metaPreview.url));
-    const hasPostMetrics = post.metrics && post.metrics.length > 0;
+  const defaultLineClamp = 3;
+  const allLinesClamp = 9999;
 
-    const defaultLineClamp = 3;
-    const allLinesClamp = 9999;
+  let borderColor;
 
-    let borderColor;
+  switch (post.state) {
+    case 'scheduled':
+      borderColor = 'gradient-primary-x';
+      break;
+    case 'published':
+      borderColor = 'success';
+      break;
+    case 'review':
+      borderColor = 'warning';
+      break;
+    default:
+      borderColor = '';
+      break;
+  }
 
-    switch (post.state) {
-      case 'scheduled':
-        borderColor = 'gradient-primary-x';
-        break;
-      case 'published':
-        borderColor = 'success';
-        break;
-      case 'review':
-        borderColor = 'warning';
-        break;
-      default:
-        borderColor = '';
-        break;
-    }
-
-    return (
-      <Card {...other} className={classes}>
-        <div className={`bg-${borderColor} rounded-top mb-1`} style={{ height: '5px' }} />
-        {errors && errors.length > 0 && (
-          <div className="mb-1">
-            {errors.map((error, i) => (
-              <Alert
-                key={i}
-                className={classNames('mx-2', { 'mb-1': i < errors.length - 1 })}
-                theme="danger"
-              >
-                {error}
-              </Alert>
-            ))}
-          </div>
-        )}
-        {isImported && (
-          <div className="post-card__imported px-1 py-half rounded-sm text-sm alert-info fw-normal">
-            This post was imported from outside of Lightful. Link clicks are not tracked.
-          </div>
-        )}
-        <div className="d-flex flex-column flex-md-row justify-content-between px-2 pb-3 pt-1 border-bottom">
-          <div className="flex-fill">
-            <div className="d-flex mb-2">
-              {post.socialIdentity && (
-                <Avatar
-                  className="flex-shrink-0"
-                  url={post.socialIdentity.avatar}
-                  provider={post.socialIdentity.provider}
-                  style={{ width: '45px', height: '45px' }}
-                />
-              )}
-              <div className="ms-1">
-                <div className="h4 mb-0" data-test-id="post-card-date">
-                  {post.date
-                    ? `${post.state === 'published' ? 'Published' : 'Scheduled for'} ${formatDate(
-                        new Date(post.date),
-                        dateFormat
-                      )}`
-                    : 'Unscheduled'}
-                </div>
-                {post.socialIdentity && (
-                  <div className="text-sm">{post.socialIdentity.displayName}</div>
-                )}
-              </div>
-            </div>
-            <div
-              className="mb-2 post-card__content"
-              data-test-id="post-card-content"
-              onClick={this.handleToggleTruncate}
+  return (
+    <Card {...other} className={classes}>
+      <div className={`bg-${borderColor} rounded-top mb-1`} style={{ height: '5px' }} />
+      {errors && errors.length > 0 && (
+        <div className="mb-1">
+          {errors.map((error, i) => (
+            <Alert
+              key={i}
+              className={classNames('mx-2', { 'mb-1': i < errors.length - 1 })}
+              theme="danger"
             >
-              <ResponsiveHTMLEllipsis
-                unsafeHTML={post.content.replace(/\n/g, '<br />')}
-                maxLine={this.state.isTruncated ? defaultLineClamp : allLinesClamp}
-                ellipsisHTML='<span class="text-underline cursor-pointer fw-bold">See more</span>'
-                basedOn="words"
+              {error}
+            </Alert>
+          ))}
+        </div>
+      )}
+      {isImported && (
+        <div className="post-card__imported px-1 py-half rounded-sm text-sm alert-info fw-normal">
+          This post was imported from outside of Lightful. Link clicks are not tracked.
+        </div>
+      )}
+      <div className="d-flex flex-column flex-md-row justify-content-between px-2 pb-3 pt-1 border-bottom">
+        <div className="flex-fill">
+          <div className="d-flex mb-2">
+            {post.socialIdentity && (
+              <Avatar
+                className="flex-shrink-0"
+                url={post.socialIdentity.avatar}
+                provider={post.socialIdentity.provider}
+                style={{ width: '45px', height: '45px' }}
               />
-            </div>
-            <div className="d-flex flex-wrap">
-              {post.campaign && (
-                <Tag
-                  className="d-flex align-items-center mb-1 mb-lg-0 me-1 badge-pill"
-                  icon="storyBuilder"
-                >
-                  Story: {post.campaign.name}
-                </Tag>
+            )}
+            <div className="ms-1">
+              <div className="h4 mb-0" data-test-id="post-card-date">
+                {post.date
+                  ? `${post.state === 'published' ? 'Published' : 'Scheduled for'} ${formatDate(
+                      new Date(post.date),
+                      dateFormat
+                    )}`
+                  : 'Unscheduled'}
+              </div>
+              {post.socialIdentity && (
+                <div className="text-sm">{post.socialIdentity.displayName}</div>
               )}
-              {post.tags &&
-                post.tags.length > 0 &&
-                post.tags.map((tag, i) => (
-                  <Tag
-                    className={`text-xs me-half mb-1 mb-lg-0 ${i === 0 ? '' : ''}`}
-                    isOutline
-                    key={i}
-                    theme="gray-600"
-                    icon="tag"
-                  >
-                    {tag}
-                  </Tag>
-                ))}
             </div>
           </div>
           <div
-            className={classNames('post-card__media-wrap flex-shrink-0', {
-              'h-100': showMetaPreview,
-            })}
+            className="mb-2 post-card__content"
+            data-test-id="post-card-content"
+            onClick={handleToggleTruncate}
           >
-            {post.media && post.media.length > 0 && <PostMedia media={post.media} />}
-            {showMetaPreview && <URLMetaPreview {...metaPreview} className="shadow" isVertical />}
-            {showMediaEmpty && <div className="post-media--empty">No media</div>}
+            <ResponsiveHTMLEllipsis
+              unsafeHTML={post.content.replace(/\n/g, '<br />')}
+              maxLine={isTruncated ? defaultLineClamp : allLinesClamp}
+              ellipsisHTML='<span class="text-underline cursor-pointer fw-bold">See more</span>'
+              basedOn="words"
+            />
           </div>
-        </div>
-        <div
-          className={classNames(
-            'pt-2 pb-3 px-2 d-flex flex-column flex-md-row align-items-center',
-            notesAction || hasPostMetrics ? 'justify-content-between' : 'justify-content-end'
-          )}
-        >
-          {(notesAction || hasPostMetrics) && (
-            <div className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-2 mb-md-0">
-              {notesAction ? (
-                <div
-                  className="d-flex align-items-center cursor-pointer"
-                  data-test-id="post-card-notes"
-                  onClick={notesAction}
-                >
-                  <Icon className="me-half" name="comment" />{' '}
-                  <span className="text-underline text-sm" style={{ lineHeight: 1 }}>
-                    View notes ({notesCount.toString()})
-                  </span>
-                </div>
-              ) : (
-                post.metrics &&
-                post.metrics.length > 0 &&
-                post.metrics.map(metric => (
-                  <div
-                    className="d-flex align-items-center text-sm me-1"
-                    data-test-id="post-card-metric"
-                    key={metric.key}
-                  >
-                    {metric.icon && (
-                      <Icon className="me-half" isActive name={metric.icon} size={20} />
-                    )}{' '}
-                    {metric.value} {metric.key}
-                  </div>
-                ))
-              )}
-            </div>
-          )}
           <div className="d-flex flex-wrap">
-            {actions.length > 0 &&
-              actions.map((action, i) => (
-                <Button
-                  key={i}
+            {post.campaign && (
+              <Tag
+                className="d-flex align-items-center mb-1 mb-lg-0 me-1 badge-pill"
+                icon="storyBuilder"
+              >
+                Story: {post.campaign.name}
+              </Tag>
+            )}
+            {post.tags &&
+              post.tags.length > 0 &&
+              post.tags.map((tag, i) => (
+                <Tag
+                  className={`text-xs me-half mb-1 mb-lg-0 ${i === 0 ? '' : ''}`}
                   isOutline
-                  className="me-2 mb-1 me-md-0 ms-md-2 mb-lg-0"
-                  data-test-id="post-card-action"
-                  {...action}
-                />
+                  key={i}
+                  theme="gray-600"
+                  icon="tag"
+                >
+                  {tag}
+                </Tag>
               ))}
           </div>
         </div>
-      </Card>
-    );
-  }
-}
+        <div
+          className={classNames('post-card__media-wrap flex-shrink-0', {
+            'h-100': showMetaPreview,
+          })}
+        >
+          {post.media && post.media.length > 0 && <PostMedia media={post.media} />}
+          {showMetaPreview && <URLMetaPreview {...metaPreview} className="shadow" isVertical />}
+          {showMediaEmpty && <div className="post-media--empty">No media</div>}
+        </div>
+      </div>
+      <div
+        className={classNames(
+          'pt-2 pb-3 px-2 d-flex flex-column flex-md-row align-items-center',
+          notesAction || hasPostMetrics ? 'justify-content-between' : 'justify-content-end'
+        )}
+      >
+        {(notesAction || hasPostMetrics) && (
+          <div className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-2 mb-md-0">
+            {notesAction ? (
+              <div
+                className="d-flex align-items-center cursor-pointer"
+                data-test-id="post-card-notes"
+                onClick={notesAction}
+              >
+                <Icon className="me-half" name="comment" />{' '}
+                <span className="text-underline text-sm" style={{ lineHeight: 1 }}>
+                  View notes ({notesCount.toString()})
+                </span>
+              </div>
+            ) : (
+              post.metrics &&
+              post.metrics.length > 0 &&
+              post.metrics.map(metric => (
+                <div
+                  className="d-flex align-items-center text-sm me-1"
+                  data-test-id="post-card-metric"
+                  key={metric.key}
+                >
+                  {metric.icon && (
+                    <Icon className="me-half" isActive name={metric.icon} size={20} />
+                  )}{' '}
+                  {metric.value} {metric.key}
+                </div>
+              ))
+            )}
+          </div>
+        )}
+        <div className="d-flex flex-wrap">
+          {actions.length > 0 &&
+            actions.map((action, i) => (
+              <Button
+                key={i}
+                isOutline
+                className="me-2 mb-1 me-md-0 ms-md-2 mb-lg-0"
+                data-test-id="post-card-action"
+                {...action}
+              />
+            ))}
+        </div>
+      </div>
+    </Card>
+  );
+};
 
 export default PostCard;
