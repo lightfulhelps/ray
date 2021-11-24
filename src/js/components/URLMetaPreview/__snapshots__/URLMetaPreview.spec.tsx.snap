@@ -27,7 +27,7 @@ exports[`<URLMetaPreview /> should render 1`] = `
         className="d-flex flex-column justify-content-between h-100 p-1 text-xs"
       >
         <a
-          className="font-weight-bold text-truncate"
+          className="fw-bold text-truncate"
           href="https://www.bbc.co.uk/news/business-45242008"
           rel="noopener noreferrer"
           target="_blank"
@@ -35,7 +35,7 @@ exports[`<URLMetaPreview /> should render 1`] = `
           National Living Wage 'fails to cover families' basic needs
         </a>
         <div
-          className="font-weight-light text-gray-500 text-truncate"
+          className="fw-light text-gray-500 text-truncate"
           data-test-id="url-meta-preview-description"
         >
           Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says.
@@ -88,7 +88,7 @@ exports[`<URLMetaPreview /> should render in vertical mode 1`] = `
         className="d-flex flex-column justify-content-between h-100 p-1 text-xs"
       >
         <a
-          className="font-weight-bold text-truncate"
+          className="fw-bold text-truncate"
           href="https://www.bbc.co.uk/news/business-45242008"
           rel="noopener noreferrer"
           target="_blank"
@@ -96,7 +96,7 @@ exports[`<URLMetaPreview /> should render in vertical mode 1`] = `
           National Living Wage 'fails to cover families' basic needs
         </a>
         <div
-          className="font-weight-light text-gray-500 text-truncate"
+          className="fw-light text-gray-500 text-truncate"
           data-test-id="url-meta-preview-description"
         >
           Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says.

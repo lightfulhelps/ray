@@ -55,7 +55,7 @@ exports[`<PostCard /> should render 1`] = `
       >
         <Responsive(HTMLEllipsis)
           basedOn="words"
-          ellipsisHTML="<span class=\\"text-underline cursor-pointer font-weight-bold\\">See more</span>"
+          ellipsisHTML="<span class=\\"text-underline cursor-pointer fw-bold\\">See more</span>"
           innerRef={[Function]}
           maxLine={3}
           unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."
@@ -244,7 +244,7 @@ exports[`<PostCard /> should render with errors 1`] = `
       >
         <Responsive(HTMLEllipsis)
           basedOn="words"
-          ellipsisHTML="<span class=\\"text-underline cursor-pointer font-weight-bold\\">See more</span>"
+          ellipsisHTML="<span class=\\"text-underline cursor-pointer fw-bold\\">See more</span>"
           innerRef={[Function]}
           maxLine={3}
           unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."

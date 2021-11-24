@@ -10,12 +10,12 @@ exports[`<Step /> should render 1`] = `
     onClick={[MockFunction]}
   >
     <div
-      className="stepper__value border rounded-circle d-flex align-items-center justify-content-center me-1 text-xs font-weight-bold bg-primary text-white border-primary"
+      className="stepper__value border rounded-circle d-flex align-items-center justify-content-center me-1 text-xs fw-bold bg-primary text-white border-primary"
     >
       2
     </div>
     <div
-      className="me-1 font-weight-bold text-primary"
+      className="me-1 fw-bold text-primary"
     >
       step one
     </div>
