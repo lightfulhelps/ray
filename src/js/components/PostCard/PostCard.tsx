@@ -141,7 +141,7 @@ class PostCard extends React.Component<Props, State> {
           </div>
         )}
         {isImported && (
-          <div className="post-card__imported px-1 py-half rounded-sm text-sm alert-info font-weight-normal">
+          <div className="post-card__imported px-1 py-half rounded-sm text-sm alert-info fw-normal">
             This post was imported from outside of Lightful. Link clicks are not tracked.
           </div>
         )}
@@ -178,7 +178,7 @@ class PostCard extends React.Component<Props, State> {
               <ResponsiveHTMLEllipsis
                 unsafeHTML={post.content.replace(/\n/g, '<br />')}
                 maxLine={this.state.isTruncated ? defaultLineClamp : allLinesClamp}
-                ellipsisHTML='<span class="text-underline cursor-pointer font-weight-bold">See more</span>'
+                ellipsisHTML='<span class="text-underline cursor-pointer fw-bold">See more</span>'
                 basedOn="words"
               />
             </div>
@@ -231,10 +231,7 @@ class PostCard extends React.Component<Props, State> {
                   onClick={notesAction}
                 >
                   <Icon className="me-half" name="comment" />{' '}
-                  <span
-                    className="text-underline text-sm font-weight-bold"
-                    style={{ lineHeight: 1 }}
-                  >
+                  <span className="text-underline text-sm" style={{ lineHeight: 1 }}>
                     View notes ({notesCount.toString()})
                   </span>
                 </div>

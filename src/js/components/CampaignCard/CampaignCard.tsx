@@ -24,7 +24,7 @@ const CampaignCard: React.FC<Props> = ({
     'card rounded-lg shadow text-decoration-none h-100'
   );
   const stateClasses = classNames(
-    'text-xs font-weight-bold',
+    'text-xs',
     { 'text-primary': state.toLowerCase() === 'live' },
     { 'text-warning': state.toLowerCase() === 'draft' }
   );
