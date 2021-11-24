@@ -22,7 +22,7 @@ stories.add('Default', () => {
       <div className="mb-4">
         <Stepper steps={steps} activeStep={activeStep} />
       </div>
-      <Button className="mr-1 mt-2" onClick={() => setActiveStep(activeStep - 1)}>
+      <Button className="me-1 mt-2" onClick={() => setActiveStep(activeStep - 1)}>
         Back
       </Button>
       <Button className="mt-2" theme="dark" onClick={() => setActiveStep(activeStep + 1)}>
