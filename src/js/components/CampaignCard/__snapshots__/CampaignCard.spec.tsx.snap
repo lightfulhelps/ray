@@ -24,7 +24,7 @@ exports[`<CampaignCard /> should render 1`] = `
       THX distributed
     </div>
     <div
-      className="text-xs font-weight-bold text-primary"
+      className="text-xs text-primary"
       data-test-id="campaign-card-state"
     >
       Live

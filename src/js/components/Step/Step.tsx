@@ -21,16 +21,16 @@ const Step: React.FC<Props> = ({ activeStep, isLast, label, onClick, thisStep, v
   });
 
   const valueClasses = classNames(
-    'stepper__value border rounded-circle d-flex align-items-center justify-content-center mr-1 text-xs font-weight-bold',
+    'stepper__value border rounded-circle d-flex align-items-center justify-content-center me-1 text-xs fw-bold',
     { 'bg-gray-400 border-gray-400 text-white': isTodo },
     { 'bg-primary text-white border-primary': isActive },
     { 'bg-white border-primary': isCompleted }
   );
 
   const labelClasses = classNames(
-    'mr-1',
-    { 'text-gray-400 font-weight-light': isTodo },
-    { 'font-weight-bold text-primary': isActive || isCompleted }
+    'me-1',
+    { 'text-gray-400 fw-light': isTodo },
+    { 'fw-bold text-primary': isActive || isCompleted }
   );
 
   return (
@@ -45,7 +45,7 @@ const Step: React.FC<Props> = ({ activeStep, isLast, label, onClick, thisStep, v
         </div>
         <div className={labelClasses}>{label}</div>
       </div>
-      {!isLast && <div className="d-none d-sm-block mr-1 flex-fill border-top border-gray-400" />}
+      {!isLast && <div className="d-none d-sm-block me-1 flex-fill border-top border-gray-400" />}
     </div>
   );
 };

@@ -37,7 +37,7 @@ exports[`<ResourceCard /> should render 1`] = `
     </div>
   </div>
   <div
-    className="text-sm font-weight-bold text-white"
+    className="text-sm fw-bold text-white"
     data-test-id="resource-card-title"
   >
     Useful storytelling guide

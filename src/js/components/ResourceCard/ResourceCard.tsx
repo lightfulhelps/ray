@@ -54,7 +54,7 @@ const ResourceCard: React.FC<Props> = ({
           {campaign}
         </div>
       </div>
-      <div className="text-sm font-weight-bold text-white" data-test-id="resource-card-title">
+      <div className="text-sm fw-bold text-white" data-test-id="resource-card-title">
         {title}
       </div>
     </Tag>

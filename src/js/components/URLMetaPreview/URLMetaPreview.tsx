@@ -32,7 +32,7 @@ const URLMetaPreview: React.FC<Props> = ({
     <div {...other} className={classes}>
       <div className={isVertical ? '' : 'row h-100'}>
         {image && (
-          <div className={isVertical ? '' : 'col-4 pr-0'}>
+          <div className={isVertical ? '' : 'col-4 pe-0'}>
             <div
               className="w-100 h-100 bg-cover bg-center"
               data-test-id="url-meta-preview-image"
@@ -42,10 +42,10 @@ const URLMetaPreview: React.FC<Props> = ({
             </div>
           </div>
         )}
-        <div className={isVertical ? '' : image ? 'col-8 pl-0' : 'col-12'}>
+        <div className={isVertical ? '' : image ? 'col-8 ps-0' : 'col-12'}>
           <div className="d-flex flex-column justify-content-between h-100 p-1 text-xs">
             <a
-              className="font-weight-bold text-truncate"
+              className="fw-bold text-truncate"
               href={url}
               target="_blank"
               rel="noopener noreferrer"
@@ -54,13 +54,13 @@ const URLMetaPreview: React.FC<Props> = ({
             </a>
             {description && (
               <div
-                className="font-weight-light text-gray-500 text-truncate"
+                className="fw-light text-gray-500 text-truncate"
                 data-test-id="url-meta-preview-description"
               >
                 {description}
               </div>
             ) // <ResponsiveEllipsis
-            //   className="font-weight-light text-gray-500"
+            //   className="fw-light text-gray-500"
             //   text={description}
             //   maxLine={3}
             //   ellipsis="..."

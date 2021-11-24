@@ -159,7 +159,7 @@ stories.add('Default', () => (
                     provider="facebook"
                   />
                 </div>
-                <div className="ml-1">Checkbox with markup</div>
+                <div className="ms-1">Checkbox with markup</div>
               </div>
             </FormLabel>
           </FormGroup>
