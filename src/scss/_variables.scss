@@ -322,16 +322,22 @@ $tag-font-size: 100%; // Ray
 
 $ghost-base-height: $spacer * 0.9;
 
-// Custom forms
+// Form switch
 
-$custom-control-indicator-bg: $danger;
-$custom-control-indicator-border-color: $danger;
-$custom-control-indicator-checked-bg: $success;
-$custom-control-indicator-focus-border-color: $danger;
+$form-switch-bg-color: $danger;
+$form-switch-border-color: $danger;
+$form-switch-checked-bg-color: $success;
+$form-switch-checked-border-color: $success;
 
-$custom-control-indicator-size: $spacer * 2;
-$custom-switch-width: $spacer * 4;
-$custom-switch-height: $spacer * 2;
-$custom-switch-indicator-bg: $white;
+$form-switch-color: $white;
+$form-switch-width: 2.5em !default;
+$form-switch-height: 1.25em !default;
+$form-switch-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color}'/></svg>");
 
-$custom-control-gutter: 0.5rem !default;
+$form-switch-focus-color: $white !default;
+$form-switch-focus-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color}'/></svg>");
+
+$form-switch-checked-color: $white;
+$form-switch-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-checked-color}'/></svg>");
+$form-check-gutter: 0.5em !default;
+$form-check-indicator-size: 2em;

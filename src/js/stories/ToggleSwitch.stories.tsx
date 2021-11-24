@@ -23,7 +23,7 @@ stories.add('Default', () => {
         checked={checked}
         labelAlign={select(
           'Align Label',
-          { left: 'Left', right: 'Right', bottom: 'Bottom', top: 'Top' },
+          { left: 'left', right: 'right', bottom: 'bottom', top: 'top' },
           'right'
         )}
       />
