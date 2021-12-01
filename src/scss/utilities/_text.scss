@@ -7,3 +7,15 @@
   text-transform: uppercase !important;
   letter-spacing: 0.04em !important;
 }
+
+@each $color, $value in $grays {
+  .text-gray-#{$color} {
+    color: $value;
+  }
+}
+
+@each $sm, $value in $sm-colors {
+  .text-#{$sm} {
+    color: $value;
+  }
+}
