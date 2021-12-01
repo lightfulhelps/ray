@@ -52,7 +52,7 @@ const Progress: React.FC<Props> = ({
         aria-valuemin={0}
         aria-valuemax={100}
       >
-        {children}
+        <span className="fw-bold">{children}</span>
       </div>
     </div>
   );
