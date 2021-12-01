@@ -17,7 +17,7 @@ exports[`<CampaignTemplateCard /> should render 1`] = `
     }
   />
   <div
-    className="p-2 d-flex h-100 flex-column justify-content-between"
+    className="p-3 d-flex h-100 flex-column justify-content-between"
   >
     <div>
       <h4
@@ -34,7 +34,7 @@ exports[`<CampaignTemplateCard /> should render 1`] = `
     </div>
     <div>
       <Button
-        className="mt-2"
+        className="mt-3"
         data-test-id="campaign-template-card-button"
         isDisabled={false}
         onClick={[Function]}
@@ -65,7 +65,7 @@ exports[`<CampaignTemplateCard /> should render when isSelected 1`] = `
     }
   />
   <div
-    className="p-2 d-flex h-100 flex-column justify-content-between"
+    className="p-3 d-flex h-100 flex-column justify-content-between"
   >
     <div>
       <h4
@@ -82,7 +82,7 @@ exports[`<CampaignTemplateCard /> should render when isSelected 1`] = `
     </div>
     <div>
       <Button
-        className="mt-2"
+        className="mt-3"
         data-test-id="campaign-template-card-button"
         icon="approvalTick"
         isDisabled={true}
