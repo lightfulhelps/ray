@@ -138,7 +138,7 @@ const PostCard: React.FC<Props> = props => {
           This post was imported from outside of Lightful. Link clicks are not tracked.
         </div>
       )}
-      <div className="d-flex flex-column flex-md-row justify-content-between px-2 pb-3 pt-1 border-bottom">
+      <div className="d-flex flex-column flex-md-row justify-content-between px-2 pb-5 pt-1 border-bottom">
         <div className="flex-fill">
           <div className="d-flex mb-2">
             {post.socialIdentity && (
@@ -211,7 +211,7 @@ const PostCard: React.FC<Props> = props => {
       </div>
       <div
         className={classNames(
-          'pt-2 pb-3 px-2 d-flex flex-column flex-md-row align-items-center',
+          'pt-2 pb-5 px-2 d-flex flex-column flex-md-row align-items-center',
           notesAction || hasPostMetrics ? 'justify-content-between' : 'justify-content-end'
         )}
       >
