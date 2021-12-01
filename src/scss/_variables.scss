@@ -121,9 +121,9 @@ $spacers: (
   2: $spacer * 1.5,
   3: $spacer * 2,
   4: $spacer * 2.5,
-  5: $spacer * 3,
+  5: $spacer * 2,
   6: $spacer * 4,
-  7: $spacer * 5,
+  7: $spacer * 3,
   half: $spacer / 2,
 );
 
@@ -235,7 +235,7 @@ $input-btn-font-size-lg: $font-size-base;
 
 $btn-gradient-alternative: rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2);
 
-$btn-padding-x: $spacer * 3;
+$btn-padding-x: $spacer * 2;
 $btn-padding-x-sm: $spacer * 2;
 $btn-padding-x-lg: $spacer * 4;
 

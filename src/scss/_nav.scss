@@ -12,7 +12,7 @@
 
 .nav-tabs {
   border-bottom-color: $gray-300;
-  padding: $spacer * 3;
+  padding: $spacer * 2;
   padding-bottom: 0;
   .nav-item {
     margin-right: $spacer;
@@ -28,7 +28,7 @@
     border: 1px solid transparent;
     border-bottom: 1px solid $gray-300;
     background-color: $white;
-    padding: $spacer ($spacer * 5);
+    padding: $spacer ($spacer * 3);
 
     &.active {
       background-color: $gray-200;
