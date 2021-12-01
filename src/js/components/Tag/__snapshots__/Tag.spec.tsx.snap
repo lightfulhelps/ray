@@ -2,7 +2,7 @@
 
 exports[`<Tag /> should render 1`] = `
 <Badge
-  className="tag text-sm px-2 py-1"
+  className="tag text-sm px-3 py-1"
   isPill={true}
   theme="dark"
 >
@@ -16,7 +16,7 @@ exports[`<Tag /> should render 1`] = `
 
 exports[`<Tag /> should render with a remove Icon 1`] = `
 <Badge
-  className="tag text-sm px-2 py-1"
+  className="tag text-sm px-3 py-1"
   isPill={true}
   theme="dark"
 >
