@@ -105,6 +105,7 @@ $enable-transitions: true;
 $enable-grid-classes: true;
 $enable-print-styles: false;
 $enable-validation-icons: false;
+$enable-negative-margins: true;
 
 // Spacing
 //
@@ -122,6 +123,16 @@ $spacers: (
   4: $spacer * 4,
   5: $spacer * 5,
   half: $spacer / 2,
+);
+
+//Containers
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1240px,
 );
 
 // Body
