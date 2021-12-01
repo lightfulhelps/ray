@@ -277,6 +277,7 @@ $input-hover-border-color: $gray-500; // Ray
 $dropdown-padding-y: 0; // Ray
 $dropdown-padding-x: 0; // Ray
 $dropdown-border-radius: $border-radius-sm;
+$dropdown-border-width: 0;
 $dropdown-link-color: $gray-900;
 $dropdown-link-hover-color: darken($gray-900, 5%);
 $dropdown-link-hover-bg: $gray-100;
@@ -292,8 +293,8 @@ $dropdown-dark-link-active-color: $white; // Ray
 $dropdown-dark-link-active-bg: $gray-700; // Ray
 $dropdown-dark-link-disabled-color: $gray-600; // Ray
 
-$dropdown-item-padding-y: $spacer * 2;
-$dropdown-item-padding-x: $spacer * 2;
+$dropdown-item-padding-y: map-get($spacers, 3);
+$dropdown-item-padding-x: map-get($spacers, 2);
 
 // Navs
 

@@ -67,7 +67,7 @@ stories.add('Default', () => (
                   Comment
                 </DropdownItem>
                 <DropdownItem isDisabled onClick={action('Edit')}>
-                  <Icon className="me-1" name="edit" />
+                  <Icon className="me-1" name="delete" />
                   Delete
                 </DropdownItem>
               </DropdownMenu>
