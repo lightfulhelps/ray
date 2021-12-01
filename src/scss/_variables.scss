@@ -345,14 +345,18 @@ $form-switch-checked-bg-color: $success;
 $form-switch-checked-border-color: $success;
 
 $form-switch-color: $white;
-$form-switch-width: 2.5em !default;
-$form-switch-height: 1.25em !default;
+$form-switch-width: 2.5em;
+$form-switch-height: 1.25em;
 $form-switch-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color}'/></svg>");
 
-$form-switch-focus-color: $white !default;
+$form-switch-focus-color: $white;
 $form-switch-focus-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color}'/></svg>");
 
 $form-switch-checked-color: $white;
 $form-switch-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-checked-color}'/></svg>");
-$form-check-gutter: 0.5em !default;
+
+//Form check
+
+$form-check-gutter: 0.5em;
 $form-check-indicator-size: 2em;
+$form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2.5' fill='url(#paint0_linear_72_1700)'/><defs><linearGradient id='paint0_linear_72_1700' x1='-3.72529e-08' y1='5' x2='10' y2='5' gradientUnits='userSpaceOnUse'><stop stop-color='#00A8E6'/><stop offset='1' stop-color='#006FB7'/></linearGradient></defs></svg>") !default;
