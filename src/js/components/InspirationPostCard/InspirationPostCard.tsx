@@ -107,7 +107,7 @@ const InspirationPostCard: React.FC<Props> = ({
         {showMediaEmpty && <div className="post-media--empty">No media</div>}
       </div>
       {post.tags && post.tags.length > 0 && (
-        <div className={`${blockClass}__tags d-flex align-items-center bg-gray-200 px-2 py-1`}>
+        <div className={`${blockClass}__tags d-flex align-items-center bg-gray-200 px-3 py-1`}>
           <div className="d-flex align-items-center text-gray-900 fw-bold me-1">
             {post.tags.length}{' '}
             <Icon name="tag" theme="gray-500" isActive style={{ marginLeft: '2px' }} />

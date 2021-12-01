@@ -16,17 +16,17 @@ stories.add('Default', () => (
     <h1 className="my-6">Tag</h1>
     <Row>
       <Col>
-        <h2 className="h4 mb-2">Default</h2>
+        <h2 className="h4 mb-3">Default</h2>
         <Tag theme={select('Theme', themes, 'dark')}>{text('Text', 'Social For Good')}</Tag>
       </Col>
       <Col>
-        <h2 className="h4 mb-2">Outline</h2>
+        <h2 className="h4 mb-3">Outline</h2>
         <Tag isOutline theme={select('Theme', themes, 'dark')}>
           {text('Text', 'Social For Good')}
         </Tag>
       </Col>
       <Col>
-        <h2 className="h4 mb-2">With Remove</h2>
+        <h2 className="h4 mb-3">With Remove</h2>
         <Tag theme={select('Theme', themes, 'dark')} onRemove={action('Remove')}>
           {text('Text', 'Social For Good')}
         </Tag>

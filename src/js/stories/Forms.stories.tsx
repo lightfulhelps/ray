@@ -110,7 +110,7 @@ stories.add('Default', () => (
             <FormInput type="file" name="file" />
           </div>
         </FormGroup>
-        <FormGroup className="bg-white p-2 rounded-sm border">
+        <FormGroup className="bg-white p-3 rounded-sm border">
           <FormGroup className="mb-1" isCheck>
             <FormInput name="radios" type="radio" id="radio1" />
             <FormLabel isCheck htmlFor="radio1">
@@ -130,7 +130,7 @@ stories.add('Default', () => (
             </FormLabel>
           </FormGroup>
         </FormGroup>
-        <FormGroup className="bg-white p-2 rounded-sm border">
+        <FormGroup className="bg-white p-3 rounded-sm border">
           <FormGroup className="mb-1" isCheck>
             <FormInput type="checkbox" id="checkbox1" />
             <FormLabel isCheck htmlFor="checkbox1">
@@ -143,7 +143,7 @@ stories.add('Default', () => (
               Checkbox 2 (disabled)
             </FormLabel>
           </FormGroup>
-          <FormGroup className="mb-2" isCheck>
+          <FormGroup className="mb-3" isCheck>
             <FormInput type="checkbox" id="checkbox3" />
             <FormLabel isCheck htmlFor="checkbox3">
               Checkbox 3

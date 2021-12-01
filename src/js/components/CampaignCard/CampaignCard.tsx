@@ -38,7 +38,7 @@ const CampaignCard: React.FC<Props> = ({
           backgroundImage: `url(${cover})`,
         }}
       />
-      <div className="px-2 py-1 h-100 d-flex flex-column justify-content-between">
+      <div className="px-3 py-1 h-100 d-flex flex-column justify-content-between">
         <div className="h6" data-test-id="campaign-card-title">
           {title}
         </div>

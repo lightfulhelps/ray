@@ -13,7 +13,7 @@ stories.add('Default', () => (
   <Container>
     <h1 className="my-6">CampaignCard</h1>
     <Row>
-      <Col sm={6} md={4} lg={3} className="mb-2 mb-lg-0">
+      <Col sm={6} md={4} lg={3} className="mb-3 mb-lg-0">
         <CampaignCard
           title="Social media toolkit for charities"
           state="Live"
@@ -22,7 +22,7 @@ stories.add('Default', () => (
           href="http://foo.com"
         />
       </Col>
-      <Col sm={6} md={4} lg={3} className="mb-2 mb-lg-0">
+      <Col sm={6} md={4} lg={3} className="mb-3 mb-lg-0">
         <CampaignCard
           title="Social media toolkit for charities"
           state="Live"
@@ -31,7 +31,7 @@ stories.add('Default', () => (
           href="http://foo.com"
         />
       </Col>
-      <Col sm={6} md={4} lg={3} className="mb-2 mb-lg-0">
+      <Col sm={6} md={4} lg={3} className="mb-3 mb-lg-0">
         <CampaignCard
           title="Social media toolkit for charities"
           state="Draft"
@@ -40,7 +40,7 @@ stories.add('Default', () => (
           href="http://foo.com"
         />
       </Col>
-      <Col sm={6} md={4} lg={3} className="mb-2 mb-lg-0">
+      <Col sm={6} md={4} lg={3} className="mb-3 mb-lg-0">
         <CampaignCard
           title="#GivingTueday logo and asset"
           state="Draft"

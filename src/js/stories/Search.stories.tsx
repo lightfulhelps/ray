@@ -114,7 +114,7 @@ stories.add('Input', () => (
   <Container>
     <h1 className="my-6">Search Input</h1>
     <Row>
-      <Col className="mb-2">
+      <Col className="mb-3">
         <SearchInput
           value={text('Search', '')}
           onChange={action('Change')}
@@ -130,7 +130,7 @@ stories.add('Suggest', () => (
   <Container>
     <h1 className="my-6">Search Suggest</h1>
     <Row>
-      <Col className="mb-2">
+      <Col className="mb-3">
         <SearchSuggest
           className="w-100"
           isLoading={boolean('Loading', false)}

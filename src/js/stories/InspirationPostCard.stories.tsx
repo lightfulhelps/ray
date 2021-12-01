@@ -96,13 +96,13 @@ stories.add('Ghost', () => (
   <Container>
     <h1 className="my-6">PostCardGhost</h1>
     <Row>
-      <Col className="mb-2" md={6} lg={4}>
+      <Col className="mb-3" md={6} lg={4}>
         <PostCardGhost />
       </Col>
-      <Col className="mb-2" md={6} lg={4}>
+      <Col className="mb-3" md={6} lg={4}>
         <PostCardGhost />
       </Col>
-      <Col className="mb-2" md={6} lg={4}>
+      <Col className="mb-3" md={6} lg={4}>
         <PostCardGhost />
       </Col>
     </Row>

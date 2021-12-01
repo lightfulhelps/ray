@@ -16,7 +16,7 @@ stories.add('Default', () => (
     <Row>
       <Col>
         <Alert
-          className="mb-2"
+          className="mb-3"
           theme={select('Theme', themes, 'primary')}
           hideIcon={boolean('Hide Icon', false)}
         >
