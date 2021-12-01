@@ -112,7 +112,7 @@ const breeds = [
 
 stories.add('Input', () => (
   <Container>
-    <h1 className="my-4">Search Input</h1>
+    <h1 className="my-6">Search Input</h1>
     <Row>
       <Col className="mb-2">
         <SearchInput
@@ -128,7 +128,7 @@ stories.add('Input', () => (
 
 stories.add('Suggest', () => (
   <Container>
-    <h1 className="my-4">Search Suggest</h1>
+    <h1 className="my-6">Search Suggest</h1>
     <Row>
       <Col className="mb-2">
         <SearchSuggest

@@ -12,7 +12,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">Progress</h1>
+    <h1 className="my-6">Progress</h1>
     <div className="mb-2">
       <h2 className="h6">Default</h2>
       <Progress value={number('Value 1', 25)} size={select('Size', sizes, 'md')} />

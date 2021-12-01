@@ -11,7 +11,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">CampaignCard</h1>
+    <h1 className="my-6">CampaignCard</h1>
     <Row>
       <Col sm={6} md={4} lg={3} className="mb-2 mb-lg-0">
         <CampaignCard

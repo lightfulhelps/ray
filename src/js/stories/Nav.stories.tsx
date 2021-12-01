@@ -12,7 +12,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container className="bg-gray-200 pb-5">
-    <h1 className="my-4">Nav</h1>
+    <h1 className="my-6">Nav</h1>
     <Row>
       <Col>
         <Nav

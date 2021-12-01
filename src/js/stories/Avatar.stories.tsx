@@ -11,7 +11,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">Avatar</h1>
+    <h1 className="my-6">Avatar</h1>
     <Row>
       <Col xs={3} sm={2} md={1} className="mb-2">
         <Avatar name={text('Name', 'Lightful')} />

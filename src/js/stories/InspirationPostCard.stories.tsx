@@ -42,7 +42,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">InspirationPostCard</h1>
+    <h1 className="my-6">InspirationPostCard</h1>
     <Row>
       <Col md={6}>
         <InspirationPostCard
@@ -94,7 +94,7 @@ stories.add('Default', () => (
 
 stories.add('Ghost', () => (
   <Container>
-    <h1 className="my-4">PostCardGhost</h1>
+    <h1 className="my-6">PostCardGhost</h1>
     <Row>
       <Col className="mb-2" md={6} lg={4}>
         <PostCardGhost />

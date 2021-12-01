@@ -11,7 +11,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">MediaThumbnail</h1>
+    <h1 className="my-6">MediaThumbnail</h1>
     <Row>
       <Col xs={6} md={3} lg={2} className="mb-3 mb-md-0">
         <h5 className="mb-2">Default</h5>

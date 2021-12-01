@@ -12,7 +12,7 @@ const stories = storiesOf('Alert', module);
 stories.addDecorator(withKnobs);
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">Alert</h1>
+    <h1 className="my-6">Alert</h1>
     <Row>
       <Col>
         <Alert
