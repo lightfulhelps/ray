@@ -28,7 +28,7 @@ const ResourceCard: React.FC<Props> = ({
   const classes = classNames(
     className,
     'resource-card',
-    'card p-1 rounded shadow h-100 bg-gray-900 text-decoration-none'
+    'card p-2 rounded shadow h-100 bg-gray-900 text-decoration-none'
   );
   const style: { [key: string]: string | number } = {};
 
