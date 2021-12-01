@@ -29,10 +29,10 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">Button</h1>
+    <h1 className="my-6">Button</h1>
     <Row>
       <Col xs={6}>
-        <h2 className="h4 mb-2">Regular.</h2>
+        <h2 className="h4 mb-3">Regular.</h2>
         <Button
           theme={select('Theme', buttonThemes, 'secondary')}
           forceSolidColor={boolean('Force solid color over gradient?', false)}
@@ -56,7 +56,7 @@ stories.add('Default', () => (
         </Button>
       </Col>
       <Col xs={6}>
-        <h2 className="h4 mb-2">Icon Only.</h2>
+        <h2 className="h4 mb-3">Icon Only.</h2>
         <Button
           theme={select('Theme', themes, 'primary')}
           forceSolidColor={boolean('Force solid color over gradient?', false)}

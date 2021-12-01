@@ -1,7 +1,7 @@
 .post-card {
   &__imported {
     width: fit-content !important;
-    margin: 0 $spacer * 2;
+    margin: 0 $spacer * 3;
   }
 
   &__error {
@@ -16,7 +16,7 @@
     @include media-breakpoint-up('md') {
       width: 150px;
       height: 150px;
-      margin: 0 0 0 $spacer * 2;
+      margin: 0 0 0 $spacer * 3;
     }
   }
 

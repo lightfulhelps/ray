@@ -41,7 +41,7 @@ const CampaignTemplateCard: React.FC<Props> = ({
   };
 
   const btnProps: ButtonProps = {
-    className: 'mt-2',
+    className: 'mt-3',
     onClick,
     isDisabled: false,
     theme: 'primary',
@@ -62,7 +62,7 @@ const CampaignTemplateCard: React.FC<Props> = ({
         className="bg-cover bg-gray-900 w-100 campaign-template-card-image"
         data-test-id="campaign-template-card-image"
       />
-      <div className="p-2 d-flex h-100 flex-column justify-content-between">
+      <div className="p-3 d-flex h-100 flex-column justify-content-between">
         <div>
           <h4 data-test-id="campaign-template-card-title">{title}</h4>
           <div className="text-sm" data-test-id="campaign-template-card-description">

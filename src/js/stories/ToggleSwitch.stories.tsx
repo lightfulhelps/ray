@@ -15,7 +15,7 @@ stories.add('Default', () => {
 
   return (
     <Container>
-      <h1 className="my-4">ToggleSwitch</h1>
+      <h1 className="my-6">ToggleSwitch</h1>
       <ToggleSwitch
         isDisabled={boolean('Disabled', false)}
         onClick={() => setChecked(!checked)}

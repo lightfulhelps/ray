@@ -125,7 +125,7 @@ const PostCard: React.FC<Props> = props => {
           {errors.map((error, i) => (
             <Alert
               key={i}
-              className={classNames('mx-2', { 'mb-1': i < errors.length - 1 })}
+              className={classNames('mx-3', { 'mb-1': i < errors.length - 1 })}
               theme="danger"
             >
               {error}
@@ -138,9 +138,9 @@ const PostCard: React.FC<Props> = props => {
           This post was imported from outside of Lightful. Link clicks are not tracked.
         </div>
       )}
-      <div className="d-flex flex-column flex-md-row justify-content-between px-2 pb-3 pt-1 border-bottom">
+      <div className="d-flex flex-column flex-md-row justify-content-between px-3 pb-5 pt-1 border-bottom">
         <div className="flex-fill">
-          <div className="d-flex mb-2">
+          <div className="d-flex mb-3">
             {post.socialIdentity && (
               <Avatar
                 className="flex-shrink-0"
@@ -164,7 +164,7 @@ const PostCard: React.FC<Props> = props => {
             </div>
           </div>
           <div
-            className="mb-2 post-card__content"
+            className="mb-3 post-card__content"
             data-test-id="post-card-content"
             onClick={handleToggleTruncate}
           >
@@ -211,12 +211,12 @@ const PostCard: React.FC<Props> = props => {
       </div>
       <div
         className={classNames(
-          'pt-2 pb-3 px-2 d-flex flex-column flex-md-row align-items-center',
+          'pt-3 pb-5 px-3 d-flex flex-column flex-md-row align-items-center',
           notesAction || hasPostMetrics ? 'justify-content-between' : 'justify-content-end'
         )}
       >
         {(notesAction || hasPostMetrics) && (
-          <div className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-2 mb-md-0">
+          <div className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-3 mb-md-0">
             {notesAction ? (
               <div
                 className="d-flex align-items-center cursor-pointer"
@@ -252,7 +252,7 @@ const PostCard: React.FC<Props> = props => {
               <Button
                 key={i}
                 isOutline
-                className="me-2 mb-1 me-md-0 ms-md-2 mb-lg-0"
+                className="me-3 mb-1 me-md-0 ms-md-3 mb-lg-0"
                 data-test-id="post-card-action"
                 {...action}
               />

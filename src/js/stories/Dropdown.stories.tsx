@@ -37,7 +37,7 @@ const sizes = {
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">Dropdown</h1>
+    <h1 className="my-6">Dropdown</h1>
     <Row>
       <div className="col-6">
         <Dropdown

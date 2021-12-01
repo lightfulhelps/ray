@@ -118,10 +118,12 @@ $spacer: 0.625rem;
 $spacers: (
   0: 0,
   1: $spacer,
-  2: $spacer * 2,
-  3: $spacer * 3,
-  4: $spacer * 4,
-  5: $spacer * 5,
+  2: $spacer * 1.5,
+  3: $spacer * 2,
+  4: $spacer * 2.5,
+  5: $spacer * 3,
+  6: $spacer * 4,
+  7: $spacer * 5,
   half: $spacer / 2,
 );
 

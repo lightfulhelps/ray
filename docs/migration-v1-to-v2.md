@@ -37,3 +37,17 @@ Remove themes for tags (as per design). By default the tag will be `dark` themed
 ## Badges
 
 No more `isOutline` prop
+
+## Spacings
+We have new spacings : 15px and 25px. They are intermediate values. Meaning that there is a shift in the class names 
+
+|   | Old  | New  |
+|---|------|------|
+| 0 | 0px  | 0px  |
+| 1 | 10px | 10px |
+| 2 | 20px | 15px |
+| 3 | 30PX | 20px |
+| 4 | 40px | 25px |
+| 5 | 50px | 30px |
+| 6 | -    | 40px |
+| 7 | -    | 50px |
