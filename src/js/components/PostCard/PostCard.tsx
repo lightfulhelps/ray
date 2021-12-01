@@ -138,7 +138,7 @@ const PostCard: React.FC<Props> = props => {
           This post was imported from outside of Lightful. Link clicks are not tracked.
         </div>
       )}
-      <div className="d-flex flex-column flex-md-row justify-content-between px-3 pb-5 pt-1 border-bottom">
+      <div className="d-flex flex-column flex-md-row justify-content-between px-3 pb-3 pt-1 border-bottom">
         <div className="flex-fill">
           <div className="d-flex mb-3">
             {post.socialIdentity && (
@@ -177,10 +177,7 @@ const PostCard: React.FC<Props> = props => {
           </div>
           <div className="d-flex flex-wrap">
             {post.campaign && (
-              <Tag
-                className="d-flex align-items-center mb-1 mb-lg-0 me-1 badge-pill"
-                icon="storyBuilder"
-              >
+              <Tag className="d-flex align-items-center mb-1 me-1 badge-pill" icon="storyBuilder">
                 Story: {post.campaign.name}
               </Tag>
             )}
@@ -188,7 +185,7 @@ const PostCard: React.FC<Props> = props => {
               post.tags.length > 0 &&
               post.tags.map((tag, i) => (
                 <Tag
-                  className={`text-xs me-half mb-1 mb-lg-0 ${i === 0 ? '' : ''}`}
+                  className={`me-half mb-1 ${i === 0 ? '' : ''}`}
                   isOutline
                   key={i}
                   theme="gray-600"
