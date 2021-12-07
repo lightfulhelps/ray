@@ -113,17 +113,15 @@ $enable-negative-margins: true;
 // variables. Mostly focused on spacing.
 // You can add more entries to the $spacers map, should you need more variation.
 
-$spacer: 0.625rem;
-
+$spacer: 0.5rem;
 $spacers: (
   0: 0,
   1: $spacer,
-  2: $spacer * 1.5,
-  3: $spacer * 2,
-  4: $spacer * 2.5,
-  5: $spacer * 3,
-  6: $spacer * 4,
-  7: $spacer * 5,
+  2: $spacer * 2,
+  3: $spacer * 3,
+  4: $spacer * 4,
+  5: $spacer * 5,
+  6: $spacer * 6,
   half: $spacer / 2,
 );
 
