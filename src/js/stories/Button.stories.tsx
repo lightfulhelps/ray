@@ -34,7 +34,7 @@ stories.add('Default', () => (
       <Col xs={6}>
         <h2 className="h4 mb-3">Regular.</h2>
         <Button
-          theme={select('Theme', buttonThemes, 'secondary')}
+          theme={select('Theme', buttonThemes, 'primary')}
           forceSolidColor={boolean('Force solid color over gradient?', false)}
           isBlock={boolean('Block', false)}
           isDisabled={boolean('Disabled', false)}

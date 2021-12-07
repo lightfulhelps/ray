@@ -17,13 +17,13 @@ stories.add('Default', () => (
       <Col>
         <Alert
           className="mb-3"
-          theme={select('Theme', themes, 'primary')}
+          theme={select('Theme', themes, 'success')}
           hideIcon={boolean('Hide Icon', false)}
         >
           A simple alert—check it out!
         </Alert>
         <Alert
-          theme={select('Theme', themes, 'primary')}
+          theme={select('Theme', themes, 'success')}
           header="Well done!"
           hideIcon={boolean('Hide Icon', false)}
         >
