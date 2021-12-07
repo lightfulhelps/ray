@@ -35,21 +35,21 @@ const props3 = {
 
 stories.add('CampaignTemplateCard', () => (
   <Container>
-    <h1 className="mb-5">CampaignTemplateCard</h1>
+    <h1 className="mb-4">CampaignTemplateCard</h1>
     <Row>
-      <Col lg={4} md={6} sm={8} className="mb-5">
+      <Col lg={4} md={6} sm={8} className="mb-4">
         <CampaignTemplateCard {...props} />
       </Col>
-      <Col lg={4} md={6} sm={8} className="mb-5">
+      <Col lg={4} md={6} sm={8} className="mb-4">
         <CampaignTemplateCard {...props3} isSelected />
       </Col>
-      <Col lg={4} md={6} sm={8} className="mb-5">
+      <Col lg={4} md={6} sm={8} className="mb-4">
         <CampaignTemplateCard {...props2} />
       </Col>
-      <Col lg={4} md={6} sm={8} className="mb-5">
+      <Col lg={4} md={6} sm={8} className="mb-4">
         <CampaignTemplateCard {...props} />
       </Col>
-      <Col lg={4} md={6} sm={8} className="mb-5">
+      <Col lg={4} md={6} sm={8} className="mb-4">
         <CampaignTemplateCard {...props3} />
       </Col>
     </Row>

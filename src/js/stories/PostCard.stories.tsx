@@ -50,7 +50,7 @@ stories.add('Default', () => {
     <Container>
       <h1 className="my-6">PostCard</h1>
       <PostCard
-        className="mb-6"
+        className="mb-5"
         post={{
           id: '4f20c60c-203e-454b-8953-f192911c966e',
           campaign: {

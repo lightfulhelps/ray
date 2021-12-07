@@ -19,7 +19,7 @@ stories.add('Default', () => (
         <div className="bg-white py-4 shadow">
           <Row>
             {Object.keys(icons).map(icon => (
-              <Col key={icon} xs={6} sm={4} md={3} lg={2} className="text-center mb-6">
+              <Col key={icon} xs={6} sm={4} md={3} lg={2} className="text-center mb-5">
                 <Icon
                   name={icon as IconNameType}
                   size={number('Size', 24)}
