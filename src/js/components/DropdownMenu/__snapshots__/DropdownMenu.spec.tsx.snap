@@ -2,7 +2,7 @@
 
 exports[`<DropdownMenu /> should render 1`] = `
 <div
-  className="dropdown-menu dropdown-menu-light dropdown-menu-left"
+  className="dropdown-menu shadow dropdown-menu-light dropdown-menu-left"
   onClick={[Function]}
 >
   Children

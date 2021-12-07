@@ -23,6 +23,10 @@ exports[`<Progress /> should render 1`] = `
         "width": "0%",
       }
     }
-  />
+  >
+    <span
+      className="fw-bold"
+    />
+  </div>
 </div>
 `;
