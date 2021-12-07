@@ -1,6 +1,6 @@
 .alert {
   color: $gray-900;
-  padding: $spacer * 3;
+  padding: $spacer * 2;
 }
 .alert-success {
   background: $success-100;
@@ -14,7 +14,7 @@
   background: $danger-100;
   border: 1px solid $danger-300;
 }
-.alert-secondary {
+.alert-info {
   background: $secondary-100;
   border: 1px solid $secondary-300;
 }

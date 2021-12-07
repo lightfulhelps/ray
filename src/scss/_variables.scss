@@ -56,7 +56,7 @@ $warning-300: #ffdc9b;
 $danger-100: #ffebeb;
 $danger-300: #ff8484;
 $secondary-100: #e8f9ff;
-$secondary-300: $secondary;
+$secondary-300: #b1eaff;
 
 $theme-colors: (
   'primary': $primary,
@@ -124,7 +124,6 @@ $spacers: (
   5: $spacer * 3,
   6: $spacer * 4,
   7: $spacer * 5,
-
   half: $spacer / 2,
 );
 
@@ -236,7 +235,9 @@ $input-btn-font-size-lg: $font-size-base;
 
 $btn-gradient-alternative: rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2);
 
-$btn-padding-x: $spacer * 2;
+$btn-disabled-opacity: 0.4;
+
+$btn-padding-x: $spacer * 3;
 $btn-padding-x-sm: $spacer * 2;
 $btn-padding-x-lg: $spacer * 4;
 
@@ -276,6 +277,7 @@ $input-hover-border-color: $gray-500; // Ray
 $dropdown-padding-y: 0; // Ray
 $dropdown-padding-x: 0; // Ray
 $dropdown-border-radius: $border-radius-sm;
+$dropdown-border-width: 0;
 $dropdown-link-color: $gray-900;
 $dropdown-link-hover-color: darken($gray-900, 5%);
 $dropdown-link-hover-bg: $gray-100;
@@ -291,8 +293,8 @@ $dropdown-dark-link-active-color: $white; // Ray
 $dropdown-dark-link-active-bg: $gray-700; // Ray
 $dropdown-dark-link-disabled-color: $gray-600; // Ray
 
-$dropdown-item-padding-y: $spacer * 2;
-$dropdown-item-padding-x: $spacer * 2;
+$dropdown-item-padding-y: map-get($spacers, 3);
+$dropdown-item-padding-x: map-get($spacers, 2);
 
 // Navs
 
@@ -343,14 +345,18 @@ $form-switch-checked-bg-color: $success;
 $form-switch-checked-border-color: $success;
 
 $form-switch-color: $white;
-$form-switch-width: 2.5em !default;
-$form-switch-height: 1.25em !default;
+$form-switch-width: 2.5em;
+$form-switch-height: 1.25em;
 $form-switch-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color}'/></svg>");
 
-$form-switch-focus-color: $white !default;
+$form-switch-focus-color: $white;
 $form-switch-focus-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color}'/></svg>");
 
 $form-switch-checked-color: $white;
 $form-switch-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-checked-color}'/></svg>");
-$form-check-gutter: 0.5em !default;
+
+//Form check
+
+$form-check-gutter: 0.5em;
 $form-check-indicator-size: 2em;
+$form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2.5' fill='url(#paint0_linear_72_1700)'/><defs><linearGradient id='paint0_linear_72_1700' x1='-3.72529e-08' y1='5' x2='10' y2='5' gradientUnits='userSpaceOnUse'><stop stop-color='#00A8E6'/><stop offset='1' stop-color='#006FB7'/></linearGradient></defs></svg>") !default;
