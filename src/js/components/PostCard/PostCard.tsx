@@ -185,7 +185,7 @@ const PostCard: React.FC<Props> = props => {
               post.tags.length > 0 &&
               post.tags.map((tag, i) => (
                 <Tag
-                  className={`me-half mb-1 ${i === 0 ? '' : ''}`}
+                  className={`me-1 mb-1 ${i === 0 ? '' : ''}`}
                   isOutline
                   key={i}
                   theme="gray-600"

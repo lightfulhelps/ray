@@ -32,12 +32,13 @@ const Tag: React.FC<Props> = ({
       isPill
       withBorder={isOutline}
     >
-      <div className="d-flex align-items-center">
-        {icon && <Icon className="tag__tag-icon flex-shrink-0" name={icon} />}
+      <div className="lh-sm d-flex align-items-center">
+        {icon && <Icon size={14} className="tag__tag-icon flex-shrink-0" name={icon} />}
         {children}
         {onRemove && (
           <Icon
-            className="tag__remove-icon cursor-pointer"
+            size={14}
+            className="tag__remove-icon cursor-pointer flex-shrink-0"
             data-test-id="tag-remove-icon"
             name="close"
             onClick={onRemove}

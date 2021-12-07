@@ -43,7 +43,7 @@ const ResourceCard: React.FC<Props> = ({
 
   return (
     <Tag {...other} className={classes} style={style}>
-      <div className="d-flex align-items-center mb-3">
+      <div className="d-flex align-items-center mb-2">
         <div
           className="rounded-circle d-flex align-items-center justify-content-center me-1 flex-shrink-0"
           style={{ width: '24px', height: '24px', background: 'rgba(255, 255, 255, 0.2)' }}
