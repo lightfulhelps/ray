@@ -21,6 +21,7 @@ exports[`<CampaignTemplateCard /> should render 1`] = `
   >
     <div>
       <h4
+        className="mb-1"
         data-test-id="campaign-template-card-title"
       >
         Create your own
@@ -69,6 +70,7 @@ exports[`<CampaignTemplateCard /> should render when isSelected 1`] = `
   >
     <div>
       <h4
+        className="mb-1"
         data-test-id="campaign-template-card-title"
       >
         Create your own

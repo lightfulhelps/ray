@@ -7,7 +7,7 @@ exports[`<Tag /> should render 1`] = `
   theme="dark"
 >
   <div
-    className="d-flex align-items-center"
+    className="lh-sm d-flex align-items-center"
   >
     Social For Good
   </div>
@@ -21,14 +21,15 @@ exports[`<Tag /> should render with a remove Icon 1`] = `
   theme="dark"
 >
   <div
-    className="d-flex align-items-center"
+    className="lh-sm d-flex align-items-center"
   >
     Social For Good
     <Icon
-      className="tag__remove-icon cursor-pointer"
+      className="tag__remove-icon cursor-pointer flex-shrink-0"
       data-test-id="tag-remove-icon"
       name="close"
       onClick={[MockFunction]}
+      size={14}
     />
   </div>
 </Badge>
