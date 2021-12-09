@@ -26,6 +26,14 @@ export type Props = {
   [key: string]: any;
 };
 
+const gradientThemes = [
+  'primary',
+  'secondary',
+  'tertiary-red',
+  'tertiary-green',
+  'tertiary-black',
+  'academy',
+];
 const Button: React.FC<ButtonAttributes & Props> = ({
   children,
   className,
@@ -83,7 +91,7 @@ const Button: React.FC<ButtonAttributes & Props> = ({
           <Icon
             name={icon}
             theme={iconTheme || (isOutline && theme)}
-            isGradient={!forceSolidColor}
+            isGradient={gradientThemes.includes(theme) && !forceSolidColor}
           />
         )}
       </span>
