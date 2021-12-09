@@ -39,7 +39,7 @@ Remove themes for tags (as per design). By default the tag will be `dark` themed
 No more `isOutline` prop
 
 ## Spacings
-We have new spacings : 15px and 25px. They are intermediate values. Meaning that there is a shift in the class names 
+We decided to go back to a 8pts system to avoid split pixel and be in line with the most used system:
 
 |    | Old  | New  |
 |----|------|------|
