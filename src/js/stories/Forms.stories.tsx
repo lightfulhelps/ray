@@ -55,7 +55,7 @@ stories.addDecorator(withKnobs);
 stories.add('Default', () => (
   <Container>
     <h1 className="my-6">Forms</h1>
-    <Row className="mb-6">
+    <Row className="mb-5">
       <Col>
         <FormGroup>
           <FormLabel>Name</FormLabel>

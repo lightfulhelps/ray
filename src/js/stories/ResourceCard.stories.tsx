@@ -12,7 +12,7 @@ stories.addDecorator(withKnobs);
 stories.add('Default', () => (
   <Container>
     <h1 className="my-6">ResourceCard</h1>
-    <p className="mb-6">
+    <p className="mb-5">
       The ResourceCard component is intended to behave as a link which is clickable all over. The
       default tag is an anchor and you can use props/element attributes related to anchors.
     </p>

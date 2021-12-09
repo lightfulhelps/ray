@@ -14,7 +14,7 @@ stories.add('Default', () => (
     <h1 className="my-6">Collapse</h1>
     <Row>
       <Col sm={6}>
-        <p className="mb-6">
+        <p className="mb-5">
           The collapse component does not have any styling but you can apply any Bootstrap classes
           to change it's appearance. Here they are also displayed inside a Card component.
         </p>

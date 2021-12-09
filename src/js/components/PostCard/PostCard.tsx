@@ -185,7 +185,7 @@ const PostCard: React.FC<Props> = props => {
               post.tags.length > 0 &&
               post.tags.map((tag, i) => (
                 <Tag
-                  className={`me-half mb-1 ${i === 0 ? '' : ''}`}
+                  className={`me-1 mb-1 ${i === 0 ? '' : ''}`}
                   isOutline
                   key={i}
                   theme="gray-600"
@@ -208,7 +208,7 @@ const PostCard: React.FC<Props> = props => {
       </div>
       <div
         className={classNames(
-          'pt-3 pb-5 px-3 d-flex flex-column flex-md-row align-items-center',
+          'pt-3 pb-4 px-3 d-flex flex-column flex-md-row align-items-center',
           notesAction || hasPostMetrics ? 'justify-content-between' : 'justify-content-end'
         )}
       >

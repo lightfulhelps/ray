@@ -2,7 +2,7 @@
 
 exports[`<ResourceCard /> should render 1`] = `
 <a
-  className="resource-card card p-1 rounded shadow h-100 bg-gray-900 text-decoration-none"
+  className="resource-card card p-2 rounded shadow h-100 bg-gray-900 text-decoration-none"
   resource="http://foo.com/bar.pdf"
   style={
     Object {
@@ -11,7 +11,7 @@ exports[`<ResourceCard /> should render 1`] = `
   }
 >
   <div
-    className="d-flex align-items-center mb-3"
+    className="d-flex align-items-center mb-2"
   >
     <div
       className="rounded-circle d-flex align-items-center justify-content-center me-1 flex-shrink-0"

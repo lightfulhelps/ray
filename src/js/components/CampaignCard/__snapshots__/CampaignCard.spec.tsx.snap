@@ -15,10 +15,10 @@ exports[`<CampaignCard /> should render 1`] = `
     }
   />
   <div
-    className="px-3 py-1 h-100 d-flex flex-column justify-content-between"
+    className="px-3 pt-2 pb-3 h-100 d-flex flex-column justify-content-between"
   >
     <div
-      className="h6"
+      className="h5"
       data-test-id="campaign-card-title"
     >
       THX distributed

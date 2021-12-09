@@ -11,7 +11,7 @@ const stories = storiesOf('Nav', module);
 stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
-  <Container className="bg-gray-200 pb-5">
+  <Container>
     <h1 className="my-6">Nav</h1>
     <Row>
       <Col>

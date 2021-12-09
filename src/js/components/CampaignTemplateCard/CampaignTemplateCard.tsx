@@ -64,7 +64,9 @@ const CampaignTemplateCard: React.FC<Props> = ({
       />
       <div className="p-3 d-flex h-100 flex-column justify-content-between">
         <div>
-          <h4 data-test-id="campaign-template-card-title">{title}</h4>
+          <h4 data-test-id="campaign-template-card-title" className="mb-1">
+            {title}
+          </h4>
           <div className="text-sm" data-test-id="campaign-template-card-description">
             {description}
           </div>

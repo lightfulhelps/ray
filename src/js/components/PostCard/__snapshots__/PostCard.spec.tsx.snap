@@ -13,7 +13,7 @@ exports[`<PostCard /> should render 1`] = `
     }
   />
   <div
-    className="d-flex flex-column flex-md-row justify-content-between px-3 pb-5 pt-1 border-bottom"
+    className="d-flex flex-column flex-md-row justify-content-between px-3 pb-3 pt-1 border-bottom"
   >
     <div
       className="flex-fill"
@@ -65,14 +65,14 @@ exports[`<PostCard /> should render 1`] = `
         className="d-flex flex-wrap"
       >
         <Tag
-          className="d-flex align-items-center mb-1 mb-lg-0 me-1 badge-pill"
+          className="d-flex align-items-center mb-1 me-1 badge-pill"
           icon="storyBuilder"
         >
           Story: 
           Campaign
         </Tag>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
           icon="tag"
           isOutline={true}
           key="0"
@@ -81,7 +81,7 @@ exports[`<PostCard /> should render 1`] = `
           charity
         </Tag>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
           icon="tag"
           isOutline={true}
           key="1"
@@ -90,7 +90,7 @@ exports[`<PostCard /> should render 1`] = `
           social for good
         </Tag>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
           icon="tag"
           isOutline={true}
           key="2"
@@ -99,7 +99,7 @@ exports[`<PostCard /> should render 1`] = `
           campaigns
         </Tag>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
           icon="tag"
           isOutline={true}
           key="3"
@@ -126,7 +126,7 @@ exports[`<PostCard /> should render 1`] = `
     </div>
   </div>
   <div
-    className="pt-3 pb-5 px-3 d-flex flex-column flex-md-row align-items-center justify-content-between"
+    className="pt-3 pb-4 px-3 d-flex flex-column flex-md-row align-items-center justify-content-between"
   >
     <div
       className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-3 mb-md-0"
@@ -202,7 +202,7 @@ exports[`<PostCard /> should render with errors 1`] = `
     </Alert>
   </div>
   <div
-    className="d-flex flex-column flex-md-row justify-content-between px-3 pb-5 pt-1 border-bottom"
+    className="d-flex flex-column flex-md-row justify-content-between px-3 pb-3 pt-1 border-bottom"
   >
     <div
       className="flex-fill"
@@ -254,14 +254,14 @@ exports[`<PostCard /> should render with errors 1`] = `
         className="d-flex flex-wrap"
       >
         <Tag
-          className="d-flex align-items-center mb-1 mb-lg-0 me-1 badge-pill"
+          className="d-flex align-items-center mb-1 me-1 badge-pill"
           icon="storyBuilder"
         >
           Story: 
           Campaign
         </Tag>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
           icon="tag"
           isOutline={true}
           key="0"
@@ -270,7 +270,7 @@ exports[`<PostCard /> should render with errors 1`] = `
           charity
         </Tag>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
           icon="tag"
           isOutline={true}
           key="1"
@@ -279,7 +279,7 @@ exports[`<PostCard /> should render with errors 1`] = `
           social for good
         </Tag>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
           icon="tag"
           isOutline={true}
           key="2"
@@ -288,7 +288,7 @@ exports[`<PostCard /> should render with errors 1`] = `
           campaigns
         </Tag>
         <Tag
-          className="text-xs me-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
           icon="tag"
           isOutline={true}
           key="3"
@@ -315,7 +315,7 @@ exports[`<PostCard /> should render with errors 1`] = `
     </div>
   </div>
   <div
-    className="pt-3 pb-5 px-3 d-flex flex-column flex-md-row align-items-center justify-content-between"
+    className="pt-3 pb-4 px-3 d-flex flex-column flex-md-row align-items-center justify-content-between"
   >
     <div
       className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-3 mb-md-0"

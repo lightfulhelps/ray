@@ -13,7 +13,7 @@ type Props = {
   isDisabled?: boolean;
   name: IconNameType;
   onClick?: (event: React.MouseEvent) => void;
-  size?: number;
+  size?: number | string;
   style?: {
     [key: string]: string | number;
   };

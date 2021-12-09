@@ -113,17 +113,15 @@ $enable-negative-margins: true;
 // variables. Mostly focused on spacing.
 // You can add more entries to the $spacers map, should you need more variation.
 
-$spacer: 0.625rem;
-
+$spacer: 0.5rem;
 $spacers: (
   0: 0,
   1: $spacer,
-  2: $spacer * 1.5,
-  3: $spacer * 2,
-  4: $spacer * 2.5,
-  5: $spacer * 3,
-  6: $spacer * 4,
-  7: $spacer * 5,
+  2: $spacer * 2,
+  3: $spacer * 3,
+  4: $spacer * 4,
+  5: $spacer * 5,
+  6: $spacer * 6,
   half: $spacer / 2,
 );
 
@@ -218,8 +216,8 @@ $table-striped-order: odd;
 //
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
 
-$input-btn-padding-y: $spacer * 1.5;
-$input-btn-padding-x: $spacer * 2;
+$input-btn-padding-y: $spacer * 2;
+$input-btn-padding-x: $spacer * 2.5;
 $input-btn-line-height: 1;
 
 $input-btn-padding-y-sm: $spacer;
@@ -237,13 +235,13 @@ $btn-gradient-alternative: rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2);
 
 $btn-disabled-opacity: 0.4;
 
-$btn-padding-x: $spacer * 3;
-$btn-padding-x-sm: $spacer * 2;
-$btn-padding-x-lg: $spacer * 4;
+$btn-padding-x: $spacer * 4;
+$btn-padding-x-sm: $spacer * 2.5;
+$btn-padding-x-lg: $spacer * 5;
 
-$btn-padding-y: $spacer * 1;
-$btn-padding-y-sm: $spacer * 0.5;
-$btn-padding-y-lg: $spacer * 1.5;
+$btn-padding-y: $spacer * 1.5;
+$btn-padding-y-sm: $spacer * 0.75;
+$btn-padding-y-lg: $spacer * 2;
 
 $btn-font-weight: $font-weight-bold;
 $btn-active-box-shadow: none;
@@ -293,8 +291,8 @@ $dropdown-dark-link-active-color: $white; // Ray
 $dropdown-dark-link-active-bg: $gray-700; // Ray
 $dropdown-dark-link-disabled-color: $gray-600; // Ray
 
-$dropdown-item-padding-y: map-get($spacers, 3);
-$dropdown-item-padding-x: map-get($spacers, 2);
+$dropdown-item-padding-y: $spacer * 2;
+$dropdown-item-padding-x: $spacer * 2;
 
 // Navs
 
@@ -313,11 +311,21 @@ $nav-tabs-link-active-border-color: $nav-tabs-border-color $nav-tabs-border-colo
 
 $nav-pills-link-color: $nav-link-color; // Ray
 
+// Alerts
+
+$alert-padding-y: $spacer * 2.5;
+$alert-padding-x: $spacer * 2.5;
+
 // Cards
 
 $card-border-width: 0;
 $card-border-radius: $border-radius-sm;
 $card-border-color: $white;
+
+//Nav
+
+$nav-link-padding-y: $spacer;
+$nav-link-padding-x: $spacer * 4.5;
 
 // Badges
 

@@ -19,7 +19,7 @@ stories.add('Default', () => {
   return (
     <Container>
       <h1 className="my-6">Stepper</h1>
-      <div className="mb-6">
+      <div className="mb-5">
         <Stepper steps={steps} activeStep={activeStep} />
       </div>
       <Button className="me-1 mt-3" onClick={() => setActiveStep(activeStep - 1)}>
