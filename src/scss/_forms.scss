@@ -3,8 +3,13 @@ label {
   font-weight: $font-weight-bold;
 }
 
+.form-group {
+  margin-bottom: 1rem;
+}
+
 .form-control {
   font-weight: $font-weight-light;
+  background-color: $white;
 
   &:hover:not(:focus):not(.focus):not(:disabled):not(.is-invalid):not(.is-valid) {
     border-color: $input-hover-border-color;
@@ -27,83 +32,26 @@ label {
 // Shared
 
 .form-check {
-  padding-left: 0;
-}
-
-.form-check-inline .form-check-input {
-  position: absolute;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  .form-check-input {
+    float: unset;
+    margin-right: $spacer;
+    margin-left: 0;
+    margin-top: 0;
+  }
 }
 
 .form-check-label {
   position: relative;
-  display: flex;
-  align-items: center;
   color: $gray-600;
   font-weight: $font-weight-light;
   line-height: 1;
 
-  &::before,
-  &::after {
-    display: block;
-    height: $spacer * 1.6;
-    width: $spacer * 1.6;
-    flex-shrink: 0;
-    cursor: pointer;
-  }
-
-  &::before {
-    content: '';
-    background-color: $white;
-    border-color: $gray-400;
-    border-radius: $border-radius-sm / 2;
-    border-style: solid;
-    border-width: 1px;
-  }
-
-  &:not(:empty) {
-    &::before {
-      margin-right: $spacer;
-    }
-  }
-}
-
-.form-check-input {
-  opacity: 0;
-
-  &:checked ~ .form-check-label {
-    color: $gray-900;
-
-    &::before {
-      background-color: $primary;
-    }
-  }
-
-  &:disabled ~ .form-check-label {
-    color: $gray-600;
-
-    &::before {
-      background-color: $gray-100;
-      cursor: default;
-    }
-  }
-}
-
-// Checkboxes
-.form-check-input[type='checkbox'] {
-  &:checked ~ .form-check-label {
-    &::before {
-      border-color: $primary;
-    }
-
-    &::after {
-      content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='white'><path fill-rule='evenodd' d='M10.5118 18.5821a1.4435 1.4435 0 0 1-2.0315 0L3.4252 13.475c-.567-.5571-.567-1.4857 0-2.0429a1.4435 1.4435 0 0 1 2.0315 0l4.0157 4.0858 9.071-9.1a1.4435 1.4435 0 0 1 2.0314 0c.567.5571.567 1.4857 0 2.0428l-10.063 10.1214z' /></svg>");
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 0;
-      text-align: center;
-      transform: translate3d(0, -52%, 0);
-    }
+  .form-check-input {
+    float: unset;
+    margin-right: $spacer * 0.5;
   }
 }
 
@@ -115,9 +63,29 @@ label {
     }
   }
 
-  &:checked ~ .form-check-label {
-    &::before {
-      box-shadow: inset 0 0 0 2px $white;
+  &:checked {
+    background-color: $white;
+    & ~ .form-check-label {
+      &::before {
+        box-shadow: inset 0 0 0 2px $white;
+      }
+    }
+  }
+}
+
+// Switches
+
+.form-switch {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  .form-check-input {
+    height: $form-switch-height;
+    background-color: $form-switch-bg-color;
+    border-color: $form-switch-border-color;
+    &:checked {
+      background-color: $form-switch-checked-bg-color;
+      border-color: $form-switch-checked-border-color;
     }
   }
 }

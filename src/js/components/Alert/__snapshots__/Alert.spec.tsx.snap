@@ -5,7 +5,7 @@ exports[`<Alert /> should render 1`] = `
   className="alert  alert-primary"
 >
   <div
-    className="d-flex align-items-start"
+    className="d-flex align-items-start text-sm"
   >
     <span>
       Alert

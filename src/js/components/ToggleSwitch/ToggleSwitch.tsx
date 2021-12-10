@@ -16,7 +16,6 @@ type Props = {
 };
 
 const ToggleSwitch: React.FC<Props> = ({
-  checked,
   className,
   id = 'toggle-switch',
   isDisabled,
@@ -26,11 +25,30 @@ const ToggleSwitch: React.FC<Props> = ({
   onClick,
   ...other
 }: Props) => {
-  const classes = classNames(
-    className,
-    'custom-control custom-switch',
-    labelAlign && labelAlign !== 'right' && `custom-switch-${labelAlign}`
-  );
+  let wrapperClasses = '';
+  let inputClasses;
+  if (labelAlign)
+    switch (labelAlign) {
+      case 'left':
+        wrapperClasses = 'flex-row-reverse';
+        inputClasses = 'ms-1';
+        break;
+      case 'bottom':
+        wrapperClasses = 'flex-column';
+        inputClasses = 'mb-1';
+        break;
+
+      case 'top':
+        wrapperClasses = 'flex-column-reverse';
+        inputClasses = 'mt-1';
+        break;
+
+      default:
+        inputClasses = 'me-1';
+        break;
+    }
+
+  const classes = classNames(className, 'form-check form-switch', wrapperClasses);
 
   function handleClick(e: React.MouseEvent) {
     if (isDisabled) {
@@ -45,13 +63,13 @@ const ToggleSwitch: React.FC<Props> = ({
     <div {...other} className={classes}>
       <input
         type="checkbox"
-        className="custom-control-input"
+        className={`form-check-input m-0 ${inputClasses}`}
         id={id}
         disabled={isDisabled}
-        checked={checked}
+        role="switch"
         onChange={onChange}
       />
-      <label className="custom-control-label" htmlFor={id} onClick={handleClick}>
+      <label className="form-check-label" htmlFor={id} onClick={handleClick}>
         {label}
       </label>
     </div>

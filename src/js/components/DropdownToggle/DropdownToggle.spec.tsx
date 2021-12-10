@@ -29,11 +29,11 @@ describe('<DropdownToggle />', () => {
   it('should handle isOpen', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.prop('icon')).toEqual('caretDown');
+    expect(wrapper.prop('icon')).toEqual('chevronDown');
 
     wrapper.setProps({ isOpen: true });
 
-    expect(wrapper.prop('icon')).toEqual('caretUp');
+    expect(wrapper.prop('icon')).toEqual('chevronUp');
   });
 
   it('should pass through other props', () => {

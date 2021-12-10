@@ -26,7 +26,7 @@ const DropdownMenu: React.FC<Props> = ({
 }: Props) => {
   const classes = classNames(
     className,
-    'dropdown-menu',
+    'dropdown-menu shadow',
     `dropdown-menu-${theme}`,
     `dropdown-menu-${position}`,
     { show: isOpen }

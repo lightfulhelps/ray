@@ -8,14 +8,14 @@ const stories = storiesOf('PostMedia', module);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">PostMedia</h1>
+    <h1 className="my-6">PostMedia</h1>
     <Row>
-      <Col className="mb-2" md={6} lg={4}>
+      <Col className="mb-3" md={6} lg={4}>
         <div className="shadow" style={{ height: '170px' }}>
           <PostMedia media={[]} />
         </div>
       </Col>
-      <Col className="mb-2" md={6} lg={4}>
+      <Col className="mb-3" md={6} lg={4}>
         <div className="shadow" style={{ height: '170px' }}>
           <PostMedia
             media={[
@@ -24,7 +24,7 @@ stories.add('Default', () => (
           />
         </div>
       </Col>
-      <Col className="mb-2" md={6} lg={4}>
+      <Col className="mb-3" md={6} lg={4}>
         <div className="shadow" style={{ height: '170px' }}>
           <PostMedia
             media={[
@@ -37,7 +37,7 @@ stories.add('Default', () => (
           />
         </div>
       </Col>
-      <Col className="mb-2" md={6} lg={4}>
+      <Col className="mb-3" md={6} lg={4}>
         <div className="shadow" style={{ height: '170px' }}>
           <PostMedia
             media={[
@@ -55,7 +55,7 @@ stories.add('Default', () => (
           />
         </div>
       </Col>
-      <Col className="mb-2" md={6} lg={4}>
+      <Col className="mb-3" md={6} lg={4}>
         <div className="shadow" style={{ height: '170px' }}>
           <PostMedia
             media={[
@@ -78,7 +78,7 @@ stories.add('Default', () => (
           />
         </div>
       </Col>
-      <Col className="mb-2" md={6} lg={4}>
+      <Col className="mb-3" md={6} lg={4}>
         <div className="shadow" style={{ height: '170px' }}>
           <PostMedia
             media={[

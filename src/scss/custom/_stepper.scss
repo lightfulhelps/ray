@@ -1,6 +1,8 @@
 .stepper {
   &__value {
-    height: $spacer * 2;
-    width: $spacer * 2;
+    $size: $spacer * 2.5;
+
+    height: $size;
+    width: $size;
   }
 }

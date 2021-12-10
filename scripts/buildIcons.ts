@@ -78,6 +78,8 @@ export const sanitizeSVG = (data: string): string =>
     .replace(/ fill=".+?"/g, '')
     .replace(/fill-opacity=/g, 'fillOpacity=')
     .replace(/fill-rule=/g, 'fillRule=')
+    .replace(/clip-rule=/g, 'clipRule=')
+    .replace(/clip-path=/g, 'clipPath=')
     .replace(/stroke-width=/g, 'strokeWidth=');
 
 export const getIconsTemplate = async (data: IconsType): Promise<string> => {

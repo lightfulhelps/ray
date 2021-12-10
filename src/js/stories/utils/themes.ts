@@ -1,6 +1,10 @@
 export default {
   Primary: 'primary',
   Secondary: 'secondary',
+  'Tertiary Red': 'tertiary-red',
+  'Tertiary green': 'tertiary-green',
+  'Tertiary black': 'tertiary-black',
+  Academy: 'academy',
   Success: 'success',
   Info: 'info',
   Warning: 'warning',

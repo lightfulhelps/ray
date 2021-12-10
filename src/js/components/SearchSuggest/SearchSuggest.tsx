@@ -78,7 +78,7 @@ const SearchSuggest: React.FC<Props> = ({
           {title}{' '}
           {!isLoading && onClear && (
             <div
-              className="ml-1 text-danger cursor-pointer text-capitalize"
+              className="ms-1 text-danger cursor-pointer text-capitalize"
               data-test-id="search-suggest-clear"
               onClick={onClear}
             >
@@ -103,7 +103,7 @@ const SearchSuggest: React.FC<Props> = ({
             <div dangerouslySetInnerHTML={{ __html: highlightMatches(option, search, exclude) }} />
             {onRemove && (
               <Icon
-                className="ml-1"
+                className="ms-1"
                 data-test-id="search-suggest-remove"
                 name="close"
                 onClick={(e: React.MouseEvent) => {

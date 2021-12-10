@@ -1,4 +1,33 @@
 // Ray
+
+@each $color, $value in $gradient-colors {
+  .btn-#{$color} {
+    @include gradient-button($value);
+  }
+  .btn-outline-#{$color} {
+    @include gradient-outline-button($value);
+  }
+}
+
+.btn-gradient-alternative {
+  @include gradient-button($btn-gradient-alternative);
+}
+
+@keyframes gradient-button-loading {
+  0% {
+    background-position: 100% 0;
+  }
+
+  50% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+// Plain Button
 @each $color, $value in $grays {
   .btn-gray-#{$color} {
     @include button-variant($value, $value);
@@ -6,16 +35,6 @@
 
   .btn-outline-gray-#{$color} {
     @include button-outline-variant($value);
-  }
-}
-
-.btn-white {
-  @include button-variant($white, $white);
-
-  &:hover,
-  &:focus {
-    background-color: $white;
-    border-color: $white;
   }
 }
 
@@ -38,16 +57,16 @@
 }
 
 .btn-icon {
-  padding: $input-btn-padding-y;
+  padding: $btn-padding-y;
   border-radius: $btn-border-radius;
 
   &.btn-sm {
-    padding: $input-btn-padding-y-sm;
+    padding: $btn-padding-y-sm;
     border-radius: $btn-border-radius-sm;
   }
 
   &.btn-lg {
-    padding: $input-btn-padding-y-lg;
+    padding: $btn-padding-y-lg;
     border-radius: $btn-border-radius-lg;
   }
 
@@ -57,12 +76,14 @@
 
   &-left,
   &-right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
-  &-left {
+  &-left span {
     flex-direction: row-reverse;
 
     .icon {
@@ -70,7 +91,7 @@
     }
   }
 
-  &-right {
+  &-right span {
     .icon {
       margin-left: $spacer;
     }
@@ -79,7 +100,5 @@
 
 .btn.disabled,
 .btn:hover.disabled {
-  background-color: $gray-200;
-  border-color: $gray-400;
-  color: $gray-600;
+  background-position: 0; // Prevent effect when disabled for gradient buttons
 }

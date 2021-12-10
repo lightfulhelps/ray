@@ -15,7 +15,7 @@ stories.add('Default', () => {
 
   return (
     <Container>
-      <h1 className="my-4">ToggleSwitch</h1>
+      <h1 className="my-6">ToggleSwitch</h1>
       <ToggleSwitch
         isDisabled={boolean('Disabled', false)}
         onClick={() => setChecked(!checked)}
@@ -23,7 +23,7 @@ stories.add('Default', () => {
         checked={checked}
         labelAlign={select(
           'Align Label',
-          { left: 'Left', right: 'Right', bottom: 'Bottom', top: 'Top' },
+          { left: 'left', right: 'right', bottom: 'bottom', top: 'top' },
           'right'
         )}
       />

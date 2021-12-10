@@ -2,15 +2,16 @@
 
 exports[`<ToggleSwitch /> should render 1`] = `
 <div
-  className="custom-control custom-switch"
+  className="form-check form-switch"
 >
   <input
-    className="custom-control-input"
+    className="form-check-input m-0 undefined"
     id="toggle-switch"
+    role="switch"
     type="checkbox"
   />
   <label
-    className="custom-control-label"
+    className="form-check-label"
     htmlFor="toggle-switch"
     onClick={[Function]}
   />
@@ -19,15 +20,16 @@ exports[`<ToggleSwitch /> should render 1`] = `
 
 exports[`<ToggleSwitch /> should render label 1`] = `
 <div
-  className="custom-control custom-switch"
+  className="form-check form-switch"
 >
   <input
-    className="custom-control-input"
+    className="form-check-input m-0 undefined"
     id="toggle-switch"
+    role="switch"
     type="checkbox"
   />
   <label
-    className="custom-control-label"
+    className="form-check-label"
     htmlFor="toggle-switch"
     onClick={[Function]}
   >

@@ -52,20 +52,18 @@ const FormPasswordInput: React.FC<Props> = ({
         type={hidePassword ? 'password' : 'text'}
         value={value}
       />
-      <div className="input-group-append">
-        <Button
-          data-test-id="password-input-button"
-          icon={hidePassword ? 'preview' : 'previewHide'}
-          isOutline
-          onClick={togglePassword}
-          size={size}
-          theme="gray-600"
-        >
-          <span className="form-password-input__toggle-password-text">
-            {hidePassword ? 'Show' : 'Hide'}
-          </span>
-        </Button>
-      </div>
+      <Button
+        data-test-id="password-input-button"
+        icon={hidePassword ? 'preview' : 'previewHide'}
+        isOutline
+        onClick={togglePassword}
+        size={size}
+        theme="gray-600"
+      >
+        <span className="form-password-input__toggle-password-text">
+          {hidePassword ? 'Show' : 'Hide'}
+        </span>
+      </Button>
     </div>
   );
 };

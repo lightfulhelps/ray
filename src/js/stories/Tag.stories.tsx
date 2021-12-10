@@ -1,33 +1,53 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
+import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col, Tag } from '../';
 import themes from './utils/themes';
+import allIcons, { IconNameType } from '../components/Icon/icons';
 
 import '../../scss/ray.scss';
 
 const stories = storiesOf('Tag', module);
 
+const icons: { [key: string]: IconNameType } = {};
+
+Object.keys(allIcons).forEach(key => {
+  icons[key as IconNameType] = key as IconNameType;
+});
+
 stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">Tag</h1>
+    <h1 className="my-6">Tag</h1>
     <Row>
       <Col>
-        <h2 className="h4 mb-2">Default</h2>
-        <Tag theme={select('Theme', themes, 'dark')}>{text('Text', 'Social For Good')}</Tag>
-      </Col>
-      <Col>
-        <h2 className="h4 mb-2">Outline</h2>
-        <Tag isOutline theme={select('Theme', themes, 'dark')}>
+        <h2 className="h4 mb-3">Default</h2>
+        <Tag
+          icon={boolean('Show Icon', false) ? select('Icon', icons, 'media') : undefined}
+          theme={select('Theme', themes, 'dark')}
+        >
           {text('Text', 'Social For Good')}
         </Tag>
       </Col>
       <Col>
-        <h2 className="h4 mb-2">With Remove</h2>
-        <Tag theme={select('Theme', themes, 'dark')} onRemove={action('Remove')}>
+        <h2 className="h4 mb-3">Outline</h2>
+        <Tag
+          icon={boolean('Show Icon', false) ? select('Icon', icons, 'media') : undefined}
+          isOutline
+          theme={select('Theme', themes, 'dark')}
+        >
+          {text('Text', 'Social For Good')}
+        </Tag>
+      </Col>
+      <Col>
+        <h2 className="h4 mb-3">With Remove</h2>
+        <Tag
+          icon={boolean('Show Icon', false) ? select('Icon', icons, 'media') : undefined}
+          theme={select('Theme', themes, 'dark')}
+          onRemove={action('Remove')}
+        >
           {text('Text', 'Social For Good')}
         </Tag>
       </Col>

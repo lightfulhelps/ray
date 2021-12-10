@@ -12,18 +12,18 @@ const stories = storiesOf('Alert', module);
 stories.addDecorator(withKnobs);
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">Alert</h1>
+    <h1 className="my-6">Alert</h1>
     <Row>
       <Col>
         <Alert
-          className="mb-2"
-          theme={select('Theme', themes, 'primary')}
+          className="mb-3"
+          theme={select('Theme', themes, 'success')}
           hideIcon={boolean('Hide Icon', false)}
         >
           A simple alert—check it out!
         </Alert>
         <Alert
-          theme={select('Theme', themes, 'primary')}
+          theme={select('Theme', themes, 'success')}
           header="Well done!"
           hideIcon={boolean('Hide Icon', false)}
         >

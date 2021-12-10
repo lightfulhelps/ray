@@ -58,10 +58,10 @@ exports[`<InspirationPostCard /> should render 1`] = `
     className="inspiration-post-card__media"
   />
   <div
-    className="inspiration-post-card__tags d-flex align-items-center bg-gray-200 px-2 py-1"
+    className="inspiration-post-card__tags d-flex align-items-center bg-gray-200 px-3 py-1"
   >
     <div
-      className="d-flex align-items-center text-gray-900 font-weight-bold mr-1"
+      className="d-flex align-items-center text-gray-900 fw-bold me-1"
     >
       4
        
@@ -85,14 +85,14 @@ exports[`<InspirationPostCard /> should render 1`] = `
       }
     >
       <Tag
-        className="text-xs mr-1"
+        className="text-xs me-1"
         key="0"
         theme="light"
       >
         charity
       </Tag>
       <Tag
-        className="text-xs mr-1"
+        className="text-xs me-1"
         key="1"
         theme="light"
       >

@@ -4,7 +4,7 @@ import Icon from '../Icon/Icon';
 
 const Option: React.FC = (props: any) => (
   <components.Option {...props}>
-    {props.data.icon && <Icon className="mr-1" name={props.data.icon} theme="gray-500" isActive />}
+    {props.data.icon && <Icon className="me-1" name={props.data.icon} theme="gray-500" isActive />}
     {props.label}
   </components.Option>
 );

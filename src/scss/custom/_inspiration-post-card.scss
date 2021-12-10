@@ -36,10 +36,10 @@
 .inspiration-post-card__header {
   display: flex;
   align-items: flex-start;
-  margin-top: map-get($spacers, 2);
-  margin-right: map-get($spacers, 2);
+  margin-top: map-get($spacers, 3);
+  margin-right: map-get($spacers, 3);
   margin-bottom: 0;
-  margin-left: map-get($spacers, 2);
+  margin-left: map-get($spacers, 3);
 
   .dropdown-menu {
     min-width: 190px;
@@ -47,13 +47,14 @@
 }
 
 .inspiration-post-card__title {
-  @extend .h5, .text-truncate;
+  @extend .h5;
+  @include text-truncate();
 
   margin-bottom: $spacer / 2;
 }
 
 .inspiration-post-card__date {
-  @extend .text-truncate;
+  @include text-truncate();
 
   display: flex;
   align-items: center;
@@ -73,7 +74,7 @@
 }
 
 .inspiration-post-card__content {
-  margin: map-get($spacers, 2);
+  margin: map-get($spacers, 3);
   font-weight: $font-weight-light;
   font-size: $font-size-sm;
   height: $line-height-base * 5em;
@@ -108,7 +109,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: map-get($spacers, 1) map-get($spacers, 2);
+  padding: map-get($spacers, 1) map-get($spacers, 3);
 }
 
 .inspiration-post-card__metric {
@@ -127,7 +128,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: map-get($spacers, 1) map-get($spacers, 2);
+  padding: map-get($spacers, 1) map-get($spacers, 3);
   font-size: $h4-font-size;
   border-top: $border-width solid $border-color;
 }

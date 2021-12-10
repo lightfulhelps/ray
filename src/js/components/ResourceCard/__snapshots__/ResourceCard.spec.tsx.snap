@@ -2,7 +2,7 @@
 
 exports[`<ResourceCard /> should render 1`] = `
 <a
-  className="resource-card card p-1 rounded shadow h-100 bg-gray-900 text-decoration-none"
+  className="resource-card card p-2 rounded shadow h-100 bg-gray-900 text-decoration-none"
   resource="http://foo.com/bar.pdf"
   style={
     Object {
@@ -14,7 +14,7 @@ exports[`<ResourceCard /> should render 1`] = `
     className="d-flex align-items-center mb-2"
   >
     <div
-      className="rounded-circle d-flex align-items-center justify-content-center mr-1 flex-shrink-0"
+      className="rounded-circle d-flex align-items-center justify-content-center me-1 flex-shrink-0"
       style={
         Object {
           "background": "rgba(255, 255, 255, 0.2)",
@@ -37,7 +37,7 @@ exports[`<ResourceCard /> should render 1`] = `
     </div>
   </div>
   <div
-    className="text-sm font-weight-bold text-white"
+    className="text-sm fw-bold text-white"
     data-test-id="resource-card-title"
   >
     Useful storytelling guide

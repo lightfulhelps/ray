@@ -12,7 +12,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">Nav</h1>
+    <h1 className="my-6">Nav</h1>
     <Row>
       <Col>
         <Nav
@@ -34,8 +34,11 @@ stories.add('Default', () => (
             <NavLink href="#">Second</NavLink>
           </NavItem>
           <NavItem>
+            <NavLink href="#">Third</NavLink>
+          </NavItem>
+          <NavItem>
             <NavLink href="#" isDisabled={boolean('Disabled Link', true)}>
-              Third
+              Fourth
             </NavLink>
           </NavItem>
         </Nav>

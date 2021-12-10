@@ -3,9 +3,10 @@
 exports[`<DropdownToggle /> should render 1`] = `
 <Button
   className="dropdown-toggle"
-  icon="caretDown"
+  icon="chevronDown"
   iconPosition="right"
   isOutline={true}
-  theme="gray-600"
+  size="md"
+  theme="primary"
 />
 `;

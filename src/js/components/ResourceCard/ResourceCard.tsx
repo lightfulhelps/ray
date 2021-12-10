@@ -28,7 +28,7 @@ const ResourceCard: React.FC<Props> = ({
   const classes = classNames(
     className,
     'resource-card',
-    'card p-1 rounded shadow h-100 bg-gray-900 text-decoration-none'
+    'card p-2 rounded shadow h-100 bg-gray-900 text-decoration-none'
   );
   const style: { [key: string]: string | number } = {};
 
@@ -45,7 +45,7 @@ const ResourceCard: React.FC<Props> = ({
     <Tag {...other} className={classes} style={style}>
       <div className="d-flex align-items-center mb-2">
         <div
-          className="rounded-circle d-flex align-items-center justify-content-center mr-1 flex-shrink-0"
+          className="rounded-circle d-flex align-items-center justify-content-center me-1 flex-shrink-0"
           style={{ width: '24px', height: '24px', background: 'rgba(255, 255, 255, 0.2)' }}
         >
           <Icon isActive name="download" theme="white" />
@@ -54,7 +54,7 @@ const ResourceCard: React.FC<Props> = ({
           {campaign}
         </div>
       </div>
-      <div className="text-sm font-weight-bold text-white" data-test-id="resource-card-title">
+      <div className="text-sm fw-bold text-white" data-test-id="resource-card-title">
         {title}
       </div>
     </Tag>

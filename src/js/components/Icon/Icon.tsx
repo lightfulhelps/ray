@@ -8,11 +8,12 @@ type Props = {
   className?: string;
   color?: string;
   hoverColor?: string;
+  isGradient?: boolean;
   isActive?: boolean;
   isDisabled?: boolean;
   name: IconNameType;
   onClick?: (event: React.MouseEvent) => void;
-  size?: number;
+  size?: number | string;
   style?: {
     [key: string]: string | number;
   };
@@ -27,6 +28,7 @@ const Icon: React.FC<Props> = ({
   className,
   color = 'currentColor',
   hoverColor,
+  isGradient = false,
   isActive,
   isDisabled,
   name,
@@ -58,10 +60,10 @@ const Icon: React.FC<Props> = ({
     { 'cursor-pointer': typeof other.onClick === 'function' && !isDisabled }
   );
 
-  const instagramGradientId = theme === 'instagram' ? nanoid() : null;
+  const gradientId = isGradient ? nanoid() : '';
 
   if (theme) {
-    if (theme === 'instagram') style.fill = `url(#${instagramGradientId})`;
+    if (isGradient) style.fill = `url(#${gradientId})`;
     else delete style.fill;
   } else {
     style.fill = hover && hoverColor ? hoverColor : color;
@@ -78,17 +80,26 @@ const Icon: React.FC<Props> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {theme === 'instagram' && (
-        <defs>
-          <radialGradient id={instagramGradientId} r="150%" cx="30%" cy="107%">
-            <stop stopColor="#fdf497" offset="0" />
-            <stop stopColor="#fdf497" offset="0.05" />
-            <stop stopColor="#fd5949" offset="0.45" />
-            <stop stopColor="#d6249f" offset="0.6" />
-            <stop stopColor="#285AEB" offset="0.9" />
-          </radialGradient>
-        </defs>
-      )}
+      {theme &&
+        isGradient &&
+        (theme === 'instagram' ? (
+          <defs>
+            <radialGradient id={gradientId} r="150%" cx="30%" cy="107%">
+              <stop stopColor="#fdf497" offset="0" />
+              <stop stopColor="#FCC06E" offset="0.05" />
+              <stop stopColor="#fd5949" offset="0.45" />
+              <stop stopColor="#CB008D" offset="0.6" />
+              <stop stopColor="#3D33D1" offset="0.9" />
+            </radialGradient>
+          </defs>
+        ) : (
+          <defs>
+            <linearGradient id={gradientId} r="90%">
+              <stop className={`gradient-${theme}-stop1`} offset="0%" />
+              <stop className={`gradient-${theme}-stop2`} offset="100%" />
+            </linearGradient>
+          </defs>
+        ))}
       {title && <title>{title}</title>}
       {icons[name]}
     </svg>

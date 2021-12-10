@@ -69,8 +69,8 @@ describe('<Alert />', () => {
   it('should add a header', () => {
     const { wrapper } = setup({ header: 'Bonjour' });
 
-    expect(wrapper.exists('h4')).toBe(true);
-    expect(wrapper.find('h4').text()).toBe('Bonjour');
+    expect(wrapper.exists('h3')).toBe(true);
+    expect(wrapper.find('h3').text()).toBe('Bonjour');
   });
 
   describe('Icon', () => {

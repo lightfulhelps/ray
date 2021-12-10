@@ -7,30 +7,77 @@
 // Color system
 //
 
+// Gradients
+$gradient-primary: #00a8e6, #006fb7;
+$gradient-secondary: #3023ae, #6c3fff, #c76dd8;
+$gradient-tertiary-red: #f19191, #e95948;
+$gradient-tertiary-green: #3dcfae, #16abab;
+$gradient-tertiary-black: #666, #000;
+$gradient-academy: #2e6aff, #3dcfae;
+
+$gradient-colors: (
+  'gradient-primary': $gradient-primary,
+  'gradient-secondary': $gradient-secondary,
+  'gradient-tertiary-red': $gradient-tertiary-red,
+  'gradient-tertiary-green': $gradient-tertiary-green,
+  'gradient-tertiary-black': $gradient-tertiary-black,
+  'gradient-academy': $gradient-academy,
+);
+
 $white: #fff;
-$gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #adb5bd;
-$gray-600: #6c757c;
-$gray-700: #495057;
-$gray-800: #343a40;
-$gray-900: #212529;
+$gray-100: #fafbff;
+$gray-200: #f5f6fd;
+$gray-300: #dfe1ef;
+$gray-400: #cbcee8;
+$gray-500: #a7aac6;
+$gray-600: #7c7f9c;
+$gray-700: #555879;
+$gray-800: #313454;
+$gray-900: #202237;
 $black: #000;
 
-$primary: #27b0cc;
-$secondary: #4513bb;
-$success: #27cc98;
+$primary: #00a8e6;
+$secondary: #3023ae;
+$tertiary-red: #f19191;
+$tertiary-green: #3dcfae;
+$tertiary-black: #666;
+$academy: #3dcfae;
+$success: #02cb8c;
 $info: #0095f1;
-$warning: #f0b954;
-$danger: #f25270;
+$warning: #ffc65c;
+$danger: #f25252;
+$light: $gray-100;
+$dark: $gray-900;
+
+$success-100: #d6fff2;
+$success-300: #6eebc3;
+$warning-100: #ffefd1;
+$warning-300: #ffdc9b;
+$danger-100: #ffebeb;
+$danger-300: #ff8484;
+$secondary-100: #e8f9ff;
+$secondary-300: #b1eaff;
+
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'tertiary-red': $tertiary-red,
+  'tertiary-green': $tertiary-green,
+  'tertiary-black': $tertiary-black,
+  'academy': $academy,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
+);
 
 // Social media network colors
 $sm-colors: (
-  facebook: #1678f2,
-  twitter: #1da1f2,
-  linkedin: #2767b2,
+  facebook: #155fef,
+  twitter: #1e8eee,
+  linkedin: #1f52a2,
 );
 
 $instagram-gradient: radial-gradient(
@@ -41,6 +88,10 @@ $instagram-gradient: radial-gradient(
   #d6249f 60%,
   #285aeb 90%
 );
+
+// The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
+// See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
+$min-contrast-ratio: 3 !default;
 
 // Options
 //
@@ -54,6 +105,7 @@ $enable-transitions: true;
 $enable-grid-classes: true;
 $enable-print-styles: false;
 $enable-validation-icons: false;
+$enable-negative-margins: true;
 
 // Spacing
 //
@@ -61,8 +113,7 @@ $enable-validation-icons: false;
 // variables. Mostly focused on spacing.
 // You can add more entries to the $spacers map, should you need more variation.
 
-$spacer: 0.625rem;
-
+$spacer: 0.5rem;
 $spacers: (
   0: 0,
   1: $spacer,
@@ -70,7 +121,17 @@ $spacers: (
   3: $spacer * 3,
   4: $spacer * 4,
   5: $spacer * 5,
+  6: $spacer * 6,
   half: $spacer / 2,
+);
+
+//Containers
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
 );
 
 // Body
@@ -78,7 +139,7 @@ $spacers: (
 // Settings for the `<body>` element.
 
 $body-bg: $gray-100;
-$body-color: $gray-600;
+$body-color: #1e2128;
 
 // Components
 //
@@ -97,9 +158,9 @@ $radiuses: (
   4: $border-radius * 4,
 );
 
-$box-shadow-sm: 0 0 15px 0 rgba($gray-700, 0.04);
-$box-shadow: 0 0 30px 0 rgba($gray-700, 0.04);
-$box-shadow-lg: 0 0 30px 0 rgba($gray-700, 0.12);
+$box-shadow-sm: 0 10px 20px 0 rgba($gray-300, 0.3), 0 2px 10px 0 rgba($gray-300, 0.3);
+$box-shadow: 0 10px 20px 0 rgba($gray-300, 0.5), 0 2px 10px 0 rgba($gray-300, 0.5);
+$box-shadow-lg: 0 10px 20px 0 rgba($gray-300, 1), 0 2px 10px 0 rgba($gray-300, 1);
 
 // Fonts
 //
@@ -108,10 +169,12 @@ $box-shadow-lg: 0 0 30px 0 rgba($gray-700, 0.12);
 $font-family-sans-serif: 'Euclid Flex B', sans-serif;
 
 $font-size-base: 1rem; // 16px
-$font-size-lg: ($font-size-base * 1.25); // 20px
+$font-size-lg: ($font-size-base * 1.125); // 18px
 $font-size-sm: ($font-size-base * 0.875); // 14px
 $font-size-xs: ($font-size-base * 0.75); // 12px
 $font-size-xxs: ($font-size-base * 0.5); // 10px
+
+$h5-font-size: $font-size-base * 1.125 !default;
 
 $font-weight-light: 300;
 $font-weight-normal: 400;
@@ -153,8 +216,8 @@ $table-striped-order: odd;
 //
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
 
-$input-btn-padding-y: $spacer * 1.5;
-$input-btn-padding-x: $spacer * 2;
+$input-btn-padding-y: $spacer * 2;
+$input-btn-padding-x: $spacer * 2.5;
 $input-btn-line-height: 1;
 
 $input-btn-padding-y-sm: $spacer;
@@ -164,12 +227,21 @@ $input-btn-line-height-sm: 1;
 $input-btn-padding-y-lg: $spacer * 2;
 $input-btn-padding-x-lg: $spacer * 2;
 $input-btn-line-height-lg: 1;
+$input-btn-font-size-lg: $font-size-base;
 
 // Buttons
 
-$btn-padding-x: $spacer * 2.5;
-$btn-padding-x-sm: $spacer * 1.5;
-$btn-padding-x-lg: $spacer * 3;
+$btn-gradient-alternative: rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2);
+
+$btn-disabled-opacity: 0.4;
+
+$btn-padding-x: $spacer * 4;
+$btn-padding-x-sm: $spacer * 2.5;
+$btn-padding-x-lg: $spacer * 5;
+
+$btn-padding-y: $spacer * 1.5;
+$btn-padding-y-sm: $spacer * 0.75;
+$btn-padding-y-lg: $spacer * 2;
 
 $btn-font-weight: $font-weight-bold;
 $btn-active-box-shadow: none;
@@ -184,6 +256,7 @@ $label-margin-bottom: $spacer;
 
 $input-color: $gray-900;
 $input-border-color: $gray-300;
+$input-bg: $white;
 
 $input-border-radius: $border-radius-sm;
 $input-border-radius-lg: $border-radius-sm;
@@ -192,6 +265,9 @@ $input-border-radius-sm: $border-radius-sm;
 $input-focus-border-color: $primary;
 $input-focus-box-shadow: none;
 
+$input-line-height-sm: $line-height-sm;
+$input-line-height-lg: $line-height-lg;
+
 $input-hover-border-color: $gray-500; // Ray
 
 // Dropdowns
@@ -199,6 +275,7 @@ $input-hover-border-color: $gray-500; // Ray
 $dropdown-padding-y: 0; // Ray
 $dropdown-padding-x: 0; // Ray
 $dropdown-border-radius: $border-radius-sm;
+$dropdown-border-width: 0;
 $dropdown-link-color: $gray-900;
 $dropdown-link-hover-color: darken($gray-900, 5%);
 $dropdown-link-hover-bg: $gray-100;
@@ -223,8 +300,8 @@ $nav-link-color: $gray-600; // Ray
 $nav-link-active-color: $primary; // Ray
 $nav-link-disabled-color: $gray-400;
 
-$nav-tabs-border-color: $gray-400;
-$nav-tabs-border-radius: $border-radius-sm;
+$nav-tabs-border-color: $gray-300;
+$nav-tabs-border-radius: $border-radius;
 $nav-tabs-link-color: $nav-link-color; // Ray
 $nav-tabs-link-hover-border-color: $nav-tabs-border-color;
 $nav-tabs-link-active-color: $gray-700;
@@ -234,11 +311,21 @@ $nav-tabs-link-active-border-color: $nav-tabs-border-color $nav-tabs-border-colo
 
 $nav-pills-link-color: $nav-link-color; // Ray
 
+// Alerts
+
+$alert-padding-y: $spacer * 2.5;
+$alert-padding-x: $spacer * 2.5;
+
 // Cards
 
 $card-border-width: 0;
 $card-border-radius: $border-radius-sm;
 $card-border-color: $white;
+
+//Nav
+
+$nav-link-padding-y: $spacer;
+$nav-link-padding-x: $spacer * 4.5;
 
 // Badges
 
@@ -258,14 +345,26 @@ $tag-font-size: 100%; // Ray
 
 $ghost-base-height: $spacer * 0.9;
 
-// Custom forms
+// Form switch
 
-$custom-control-indicator-bg: $danger;
-$custom-control-indicator-border-color: $danger;
-$custom-control-indicator-checked-bg: $success;
-$custom-control-indicator-focus-border-color: $danger;
+$form-switch-bg-color: $danger;
+$form-switch-border-color: $danger;
+$form-switch-checked-bg-color: $success;
+$form-switch-checked-border-color: $success;
 
-$custom-control-indicator-size: $spacer * 2;
-$custom-switch-width: $spacer * 4;
-$custom-switch-height: $spacer * 2;
-$custom-switch-indicator-bg: $white;
+$form-switch-color: $white;
+$form-switch-width: 2.5em;
+$form-switch-height: 1.25em;
+$form-switch-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color}'/></svg>");
+
+$form-switch-focus-color: $white;
+$form-switch-focus-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color}'/></svg>");
+
+$form-switch-checked-color: $white;
+$form-switch-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-checked-color}'/></svg>");
+
+//Form check
+
+$form-check-gutter: 0.5em;
+$form-check-indicator-size: 2em;
+$form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2.5' fill='url(#paint0_linear_72_1700)'/><defs><linearGradient id='paint0_linear_72_1700' x1='-3.72529e-08' y1='5' x2='10' y2='5' gradientUnits='userSpaceOnUse'><stop stop-color='#00A8E6'/><stop offset='1' stop-color='#006FB7'/></linearGradient></defs></svg>") !default;

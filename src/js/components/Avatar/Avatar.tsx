@@ -28,7 +28,9 @@ const Avatar: React.FC<Props> = ({
     'avatar-disconnected': isDisconnected,
   });
   const dbAvatars = new DBAvatars(DBAvatarsInitialsSprites, {});
-  const initialsSvg = `data:image/svg+xml;utf8,${encodeURIComponent(dbAvatars.create(name))}`;
+  const initialsSvg = `data:image/svg+xml;utf8,${encodeURIComponent(
+    dbAvatars.create(name, { background: 'transparent' })
+  )}`;
 
   return (
     <div {...other} className={classes}>
@@ -36,7 +38,9 @@ const Avatar: React.FC<Props> = ({
         <div
           className="avatar-image"
           style={{
-            backgroundImage: `url(${url || initialsSvg})`,
+            backgroundImage: url
+              ? `url(${url})`
+              : `url(${initialsSvg}), url(https://assets.lightful.com/platform/brand/avatar_background.png)`,
           }}
         />
         {provider && (

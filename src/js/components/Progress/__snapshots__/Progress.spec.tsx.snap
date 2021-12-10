@@ -7,7 +7,7 @@ exports[`<Progress /> should render 1`] = `
   style={
     Object {
       "fontSize": "0.75rem",
-      "height": "1rem",
+      "height": "1.25rem",
     }
   }
 >
@@ -15,7 +15,7 @@ exports[`<Progress /> should render 1`] = `
     aria-valuemax={100}
     aria-valuemin={0}
     aria-valuenow={0}
-    className="progress-bar bg-primary"
+    className="progress-bar bg-gradient-primary-x bg-primary"
     data-test-id="progress-bar"
     role="progressbar"
     style={
@@ -23,6 +23,10 @@ exports[`<Progress /> should render 1`] = `
         "width": "0%",
       }
     }
-  />
+  >
+    <span
+      className="fw-bold"
+    />
+  </div>
 </div>
 `;

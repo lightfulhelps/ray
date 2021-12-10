@@ -2,29 +2,28 @@
 
 exports[`<PostCard /> should render 1`] = `
 <Card
-  className="post-card shadow"
+  className="post-card shadow rounded overflow-hidden"
 >
   <div
-    className="bg-info rounded-top-sm mb-1"
+    className="bg-gradient-primary-x rounded-top mb-1"
     style={
       Object {
-        "height": "3px",
+        "height": "5px",
       }
     }
   />
   <div
-    className="d-flex flex-column flex-md-row justify-content-between px-2 pb-2 pt-1 border-bottom"
+    className="d-flex flex-column flex-md-row justify-content-between px-3 pb-3 pt-1 border-bottom"
   >
     <div
       className="flex-fill"
     >
       <div
-        className="d-flex mb-1"
+        className="d-flex mb-3"
       >
         <Avatar
           className="flex-shrink-0"
           provider="facebook"
-          providerSize="lg"
           style={
             Object {
               "height": "45px",
@@ -34,10 +33,10 @@ exports[`<PostCard /> should render 1`] = `
           url="http://foo.com/avatar.jpg"
         />
         <div
-          className="ml-half"
+          className="ms-1"
         >
           <div
-            className="h6 mb-0"
+            className="h4 mb-0"
             data-test-id="post-card-date"
           >
             Scheduled for 14:34 on Wednesday, 22 August
@@ -50,13 +49,13 @@ exports[`<PostCard /> should render 1`] = `
         </div>
       </div>
       <div
-        className="text-sm mb-1 post-card__content"
+        className="mb-3 post-card__content"
         data-test-id="post-card-content"
         onClick={[Function]}
       >
         <Responsive(HTMLEllipsis)
           basedOn="words"
-          ellipsisHTML="<span class=\\"text-underline cursor-pointer font-weight-bold\\">See more</span>"
+          ellipsisHTML="<span class=\\"text-underline cursor-pointer fw-bold\\">See more</span>"
           innerRef={[Function]}
           maxLine={3}
           unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."
@@ -65,19 +64,16 @@ exports[`<PostCard /> should render 1`] = `
       <div
         className="d-flex flex-wrap"
       >
-        <Badge
-          className="d-flex align-items-center mb-1 mb-lg-0 mr-1 badge-pill"
-          color="#ff0000"
+        <Tag
+          className="d-flex align-items-center mb-1 me-1 badge-pill"
+          icon="storyBuilder"
         >
-          <Icon
-            className="mr-half"
-            name="storyBuilder"
-          />
           Story: 
           Campaign
-        </Badge>
+        </Tag>
         <Tag
-          className="text-xs mr-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
+          icon="tag"
           isOutline={true}
           key="0"
           theme="gray-600"
@@ -85,7 +81,8 @@ exports[`<PostCard /> should render 1`] = `
           charity
         </Tag>
         <Tag
-          className="text-xs mr-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
+          icon="tag"
           isOutline={true}
           key="1"
           theme="gray-600"
@@ -93,7 +90,8 @@ exports[`<PostCard /> should render 1`] = `
           social for good
         </Tag>
         <Tag
-          className="text-xs mr-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
+          icon="tag"
           isOutline={true}
           key="2"
           theme="gray-600"
@@ -101,7 +99,8 @@ exports[`<PostCard /> should render 1`] = `
           campaigns
         </Tag>
         <Tag
-          className="text-xs mr-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
+          icon="tag"
           isOutline={true}
           key="3"
           theme="gray-600"
@@ -111,7 +110,7 @@ exports[`<PostCard /> should render 1`] = `
       </div>
     </div>
     <div
-      className="post-card__media-wrap flex-shrink-0 overflow-hidden"
+      className="post-card__media-wrap flex-shrink-0"
     >
       <PostMedia
         media={
@@ -127,18 +126,18 @@ exports[`<PostCard /> should render 1`] = `
     </div>
   </div>
   <div
-    className="py-1 px-2 d-flex flex-column flex-md-row align-items-center justify-content-between"
+    className="pt-3 pb-4 px-3 d-flex flex-column flex-md-row align-items-center justify-content-between"
   >
     <div
-      className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-2 mb-md-0"
+      className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-3 mb-md-0"
     >
       <div
-        className="d-flex align-items-center text-sm mr-1"
+        className="d-flex align-items-center text-sm me-1"
         data-test-id="post-card-metric"
         key="likes"
       >
         <Icon
-          className="mr-half"
+          className="me-half"
           isActive={true}
           name="like"
           size={20}
@@ -149,12 +148,12 @@ exports[`<PostCard /> should render 1`] = `
         likes
       </div>
       <div
-        className="d-flex align-items-center text-sm mr-1"
+        className="d-flex align-items-center text-sm me-1"
         data-test-id="post-card-metric"
         key="shares"
       >
         <Icon
-          className="mr-half"
+          className="me-half"
           isActive={true}
           name="share"
           size={20}
@@ -174,13 +173,13 @@ exports[`<PostCard /> should render 1`] = `
 
 exports[`<PostCard /> should render with errors 1`] = `
 <Card
-  className="post-card shadow"
+  className="post-card shadow rounded overflow-hidden"
 >
   <div
-    className="bg-info rounded-top-sm mb-1"
+    className="bg-gradient-primary-x rounded-top mb-1"
     style={
       Object {
-        "height": "3px",
+        "height": "5px",
       }
     }
   />
@@ -188,14 +187,14 @@ exports[`<PostCard /> should render with errors 1`] = `
     className="mb-1"
   >
     <Alert
-      className="mx-2 mb-1"
+      className="mx-3 mb-1"
       key="0"
       theme="danger"
     >
       foo
     </Alert>
     <Alert
-      className="mx-2"
+      className="mx-3"
       key="1"
       theme="danger"
     >
@@ -203,18 +202,17 @@ exports[`<PostCard /> should render with errors 1`] = `
     </Alert>
   </div>
   <div
-    className="d-flex flex-column flex-md-row justify-content-between px-2 pb-2 pt-1 border-bottom"
+    className="d-flex flex-column flex-md-row justify-content-between px-3 pb-3 pt-1 border-bottom"
   >
     <div
       className="flex-fill"
     >
       <div
-        className="d-flex mb-1"
+        className="d-flex mb-3"
       >
         <Avatar
           className="flex-shrink-0"
           provider="facebook"
-          providerSize="lg"
           style={
             Object {
               "height": "45px",
@@ -224,10 +222,10 @@ exports[`<PostCard /> should render with errors 1`] = `
           url="http://foo.com/avatar.jpg"
         />
         <div
-          className="ml-half"
+          className="ms-1"
         >
           <div
-            className="h6 mb-0"
+            className="h4 mb-0"
             data-test-id="post-card-date"
           >
             Scheduled for 14:34 on Wednesday, 22 August
@@ -240,13 +238,13 @@ exports[`<PostCard /> should render with errors 1`] = `
         </div>
       </div>
       <div
-        className="text-sm mb-1 post-card__content"
+        className="mb-3 post-card__content"
         data-test-id="post-card-content"
         onClick={[Function]}
       >
         <Responsive(HTMLEllipsis)
           basedOn="words"
-          ellipsisHTML="<span class=\\"text-underline cursor-pointer font-weight-bold\\">See more</span>"
+          ellipsisHTML="<span class=\\"text-underline cursor-pointer fw-bold\\">See more</span>"
           innerRef={[Function]}
           maxLine={3}
           unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."
@@ -255,19 +253,16 @@ exports[`<PostCard /> should render with errors 1`] = `
       <div
         className="d-flex flex-wrap"
       >
-        <Badge
-          className="d-flex align-items-center mb-1 mb-lg-0 mr-1 badge-pill"
-          color="#ff0000"
+        <Tag
+          className="d-flex align-items-center mb-1 me-1 badge-pill"
+          icon="storyBuilder"
         >
-          <Icon
-            className="mr-half"
-            name="storyBuilder"
-          />
           Story: 
           Campaign
-        </Badge>
+        </Tag>
         <Tag
-          className="text-xs mr-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
+          icon="tag"
           isOutline={true}
           key="0"
           theme="gray-600"
@@ -275,7 +270,8 @@ exports[`<PostCard /> should render with errors 1`] = `
           charity
         </Tag>
         <Tag
-          className="text-xs mr-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
+          icon="tag"
           isOutline={true}
           key="1"
           theme="gray-600"
@@ -283,7 +279,8 @@ exports[`<PostCard /> should render with errors 1`] = `
           social for good
         </Tag>
         <Tag
-          className="text-xs mr-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
+          icon="tag"
           isOutline={true}
           key="2"
           theme="gray-600"
@@ -291,7 +288,8 @@ exports[`<PostCard /> should render with errors 1`] = `
           campaigns
         </Tag>
         <Tag
-          className="text-xs mr-half mb-1 mb-lg-0 "
+          className="me-1 mb-1 "
+          icon="tag"
           isOutline={true}
           key="3"
           theme="gray-600"
@@ -301,7 +299,7 @@ exports[`<PostCard /> should render with errors 1`] = `
       </div>
     </div>
     <div
-      className="post-card__media-wrap flex-shrink-0 overflow-hidden"
+      className="post-card__media-wrap flex-shrink-0"
     >
       <PostMedia
         media={
@@ -317,18 +315,18 @@ exports[`<PostCard /> should render with errors 1`] = `
     </div>
   </div>
   <div
-    className="py-1 px-2 d-flex flex-column flex-md-row align-items-center justify-content-between"
+    className="pt-3 pb-4 px-3 d-flex flex-column flex-md-row align-items-center justify-content-between"
   >
     <div
-      className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-2 mb-md-0"
+      className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-3 mb-md-0"
     >
       <div
-        className="d-flex align-items-center text-sm mr-1"
+        className="d-flex align-items-center text-sm me-1"
         data-test-id="post-card-metric"
         key="likes"
       >
         <Icon
-          className="mr-half"
+          className="me-half"
           isActive={true}
           name="like"
           size={20}
@@ -339,12 +337,12 @@ exports[`<PostCard /> should render with errors 1`] = `
         likes
       </div>
       <div
-        className="d-flex align-items-center text-sm mr-1"
+        className="d-flex align-items-center text-sm me-1"
         data-test-id="post-card-metric"
         key="shares"
       >
         <Icon
-          className="mr-half"
+          className="me-half"
           isActive={true}
           name="share"
           size={20}

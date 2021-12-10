@@ -11,14 +11,14 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">Collapse</h1>
+    <h1 className="my-6">Collapse</h1>
     <Row>
       <Col sm={6}>
-        <p className="mb-4">
+        <p className="mb-5">
           The collapse component does not have any styling but you can apply any Bootstrap classes
           to change it's appearance. Here they are also displayed inside a Card component.
         </p>
-        <Card className="shadow p-2">
+        <Card className="shadow p-3">
           <Collapse className="pb-1 mb-1 border-bottom" defaultOpen label="Social profiles">
             <div>
               Commodo lectus a VHS urna vivamus mattis quisque VHS porttitor enim lectus rutrum

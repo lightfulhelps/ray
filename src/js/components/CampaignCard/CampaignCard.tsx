@@ -24,7 +24,7 @@ const CampaignCard: React.FC<Props> = ({
     'card rounded-lg shadow text-decoration-none h-100'
   );
   const stateClasses = classNames(
-    'text-xs font-weight-bold',
+    'text-xs',
     { 'text-primary': state.toLowerCase() === 'live' },
     { 'text-warning': state.toLowerCase() === 'draft' }
   );
@@ -38,8 +38,8 @@ const CampaignCard: React.FC<Props> = ({
           backgroundImage: `url(${cover})`,
         }}
       />
-      <div className="px-2 py-1 h-100 d-flex flex-column justify-content-between">
-        <div className="h6" data-test-id="campaign-card-title">
+      <div className="px-3 pt-2 pb-3 h-100 d-flex flex-column justify-content-between">
+        <div className="h5" data-test-id="campaign-card-title">
           {title}
         </div>
         <div className={stateClasses} data-test-id="campaign-card-state">

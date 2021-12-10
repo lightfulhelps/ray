@@ -10,7 +10,7 @@ type Props = {
   [key: string]: any;
 };
 
-const Nav: React.FC<Props> = ({
+export const Nav: React.FC<Props> = ({
   className,
   isFill,
   isPills,

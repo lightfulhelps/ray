@@ -48,9 +48,9 @@ stories.add('Default', () => {
 
   return (
     <Container>
-      <h1 className="my-4">PostCard</h1>
+      <h1 className="my-6">PostCard</h1>
       <PostCard
-        className="mb-4"
+        className="mb-5"
         post={{
           id: '4f20c60c-203e-454b-8953-f192911c966e',
           campaign: {
@@ -95,7 +95,12 @@ stories.add('Default', () => {
           tags,
         }}
         actions={[
-          { children: 'Approve', onClick: action('Approve') },
+          {
+            children: 'Approve',
+            isOutline: false,
+            icon: 'approvalTick',
+            onClick: action('Approve'),
+          },
           { children: 'Preview', onClick: action('Preview') },
           { children: 'Edit', onClick: action('Edit') },
           { children: 'Delete', onClick: action('Delete') }, // { children: 'Reschedule', onClick: action('Reschedule') },

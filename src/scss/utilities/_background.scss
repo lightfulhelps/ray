@@ -1,3 +1,15 @@
+@mixin bg-variant($parent, $color) {
+  #{$parent} {
+    background-color: $color !important;
+  }
+  a#{$parent},
+  button#{$parent} {
+    &:hover,
+    &:focus {
+      background-color: darken($color, 10%) !important;
+    }
+  }
+}
 @each $color, $value in $grays {
   @include bg-variant('.bg-gray-#{$color}', $value);
 }
@@ -20,4 +32,64 @@
 
 .bg-center {
   background-position: center;
+}
+
+//Gradients
+
+@each $color, $gradient in $gradient-colors {
+  // Horizontal
+  .bg-#{$color}-x {
+    @if length($gradient) == 3 {
+      @include gradient-x-three-colors(
+        nth($gradient, 1),
+        nth($gradient, 2),
+        50%,
+        nth($gradient, 3)
+      );
+    } @else {
+      @include gradient-x(nth($gradient, 1), nth($gradient, 2));
+    }
+  }
+
+  // Horizontal reversed
+  .bg-#{$color}-nx {
+    @if length($gradient) == 3 {
+      @include gradient-x-three-colors(
+        nth($gradient, 3),
+        nth($gradient, 2),
+        50%,
+        nth($gradient, 1)
+      );
+    } @else {
+      @include gradient-x(nth($gradient, 2), nth($gradient, 1));
+    }
+  }
+
+  // Vertical
+  .bg-#{$color}-y {
+    @if length($gradient) == 3 {
+      @include gradient-x-three-colors(
+        nth($gradient, 1),
+        nth($gradient, 2),
+        50%,
+        nth($gradient, 3)
+      );
+    } @else {
+      @include gradient-y(nth($gradient, 1), nth($gradient, 2));
+    }
+  }
+
+  // Vertical reversed
+  .bg-#{$color}-ny {
+    @if length($gradient) == 3 {
+      @include gradient-x-three-colors(
+        nth($gradient, 3),
+        nth($gradient, 2),
+        50%,
+        nth($gradient, 1)
+      );
+    } @else {
+      @include gradient-y(nth($gradient, 2), nth($gradient, 1));
+    }
+  }
 }

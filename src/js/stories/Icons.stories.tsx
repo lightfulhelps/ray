@@ -13,19 +13,20 @@ stories.addDecorator(withKnobs);
 
 stories.add('Default', () => (
   <Container>
-    <h1 className="my-4">Icons</h1>
+    <h1 className="my-6">Icons</h1>
     <Row>
       <Col>
         <div className="bg-white py-4 shadow">
           <Row>
             {Object.keys(icons).map(icon => (
-              <Col key={icon} xs={6} sm={4} md={3} lg={2} className="text-center mb-4">
+              <Col key={icon} xs={6} sm={4} md={3} lg={2} className="text-center mb-5">
                 <Icon
                   name={icon as IconNameType}
                   size={number('Size', 24)}
                   color={color('Color', '#adb5bd')}
                   hoverColor={color('Hover Color', '#212529')}
                   theme={boolean('Use theme?', false) && select('Theme', themes, 'primary')}
+                  isGradient={boolean('Use theme?', false) && boolean('Use gradient?', false)}
                   withHover={boolean('Use theme?', false) && boolean('With hover state?', false)}
                 />
                 <div>{icon}</div>
