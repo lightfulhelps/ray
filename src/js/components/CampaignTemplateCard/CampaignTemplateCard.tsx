@@ -72,7 +72,7 @@ const CampaignTemplateCard: React.FC<Props> = ({
           </div>
         </div>
         <div>
-          <Button data-test-id="campaign-template-card-button" {...btnProps} />
+          <Button isBlock data-test-id="campaign-template-card-button" {...btnProps} />
         </div>
       </div>
     </div>

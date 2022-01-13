@@ -10,6 +10,10 @@ type Props = {
   [key: string]: any;
 };
 
+type WrapperProps = Props & {
+  wrapperClasses?: string;
+};
+
 export const Nav: React.FC<Props> = ({
   className,
   isFill,
@@ -29,4 +33,10 @@ export const Nav: React.FC<Props> = ({
   return <Tag {...other} className={classes} />;
 };
 
-export default Nav;
+const NavWithWrapper: React.FC<WrapperProps> = props => (
+  <div className={classNames(props.wrapperClasses, 'overflow-hidden')}>
+    <Nav {...props} />
+  </div>
+);
+
+export default NavWithWrapper;

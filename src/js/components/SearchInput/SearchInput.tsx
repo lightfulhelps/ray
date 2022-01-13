@@ -35,15 +35,14 @@ const SearchInput: React.FC<Props> = ({
         type="text"
         value={value}
       />
-      <div className="input-group-append">
-        <Button
-          data-test-id="search-input-button"
-          icon="search"
-          isOutline
-          onClick={onSearch}
-          theme="gray-600"
-        />
-      </div>
+      <Button
+        data-test-id="search-input-button"
+        className="input-group-append"
+        icon="search"
+        isOutline
+        onClick={onSearch}
+        theme="gray-600"
+      />
     </div>
   );
 };
