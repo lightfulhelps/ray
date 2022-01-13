@@ -208,7 +208,7 @@ const PostCard: React.FC<Props> = props => {
       </div>
       <div
         className={classNames(
-          'pt-3 pb-4 px-3 d-flex flex-column flex-md-row align-items-center',
+          'py-2 px-3 d-flex flex-column flex-md-row align-items-center',
           notesAction || hasPostMetrics ? 'justify-content-between' : 'justify-content-end'
         )}
       >
