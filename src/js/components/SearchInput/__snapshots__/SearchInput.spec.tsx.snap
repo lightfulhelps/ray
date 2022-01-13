@@ -12,7 +12,8 @@ exports[`<SearchInput /> should render 1`] = `
     type="text"
   />
   <Button
-    data-test-id="search-input-button input-group-append"
+    className="input-group-append"
+    data-test-id="search-input-button"
     icon="search"
     isOutline={true}
     onClick={[MockFunction]}
