@@ -11,16 +11,12 @@ exports[`<SearchInput /> should render 1`] = `
     placeholder="Search..."
     type="text"
   />
-  <div
-    className="input-group-append"
-  >
-    <Button
-      data-test-id="search-input-button"
-      icon="search"
-      isOutline={true}
-      onClick={[MockFunction]}
-      theme="gray-600"
-    />
-  </div>
+  <Button
+    data-test-id="search-input-button input-group-append"
+    icon="search"
+    isOutline={true}
+    onClick={[MockFunction]}
+    theme="gray-600"
+  />
 </div>
 `;

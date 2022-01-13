@@ -37,6 +37,7 @@ exports[`<CampaignTemplateCard /> should render 1`] = `
       <Button
         className="mt-3"
         data-test-id="campaign-template-card-button"
+        isBlock={true}
         isDisabled={false}
         onClick={[Function]}
         size="lg"
@@ -87,6 +88,7 @@ exports[`<CampaignTemplateCard /> should render when isSelected 1`] = `
         className="mt-3"
         data-test-id="campaign-template-card-button"
         icon="approvalTick"
+        isBlock={true}
         isDisabled={true}
         onClick={[Function]}
         size="lg"

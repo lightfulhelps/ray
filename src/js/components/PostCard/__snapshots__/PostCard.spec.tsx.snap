@@ -126,7 +126,7 @@ exports[`<PostCard /> should render 1`] = `
     </div>
   </div>
   <div
-    className="pt-3 pb-4 px-3 d-flex flex-column flex-md-row align-items-center justify-content-between"
+    className="py-2 px-3 d-flex flex-column flex-md-row align-items-center justify-content-between"
   >
     <div
       className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-3 mb-md-0"
@@ -315,7 +315,7 @@ exports[`<PostCard /> should render with errors 1`] = `
     </div>
   </div>
   <div
-    className="pt-3 pb-4 px-3 d-flex flex-column flex-md-row align-items-center justify-content-between"
+    className="py-2 px-3 d-flex flex-column flex-md-row align-items-center justify-content-between"
   >
     <div
       className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-3 mb-md-0"

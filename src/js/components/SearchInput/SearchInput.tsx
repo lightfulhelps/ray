@@ -36,7 +36,8 @@ const SearchInput: React.FC<Props> = ({
         value={value}
       />
       <Button
-        data-test-id="search-input-button input-group-append"
+        data-test-id="search-input-button"
+        className="input-group-append"
         icon="search"
         isOutline
         onClick={onSearch}
