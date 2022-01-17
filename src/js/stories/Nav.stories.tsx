@@ -16,6 +16,7 @@ stories.add('Default', () => (
     <Row>
       <Col>
         <Nav
+          withoutWrapper
           isFill={boolean('Fill', false)}
           isPills={boolean('Pills', false)}
           isTabs={boolean('Tabs', true)}

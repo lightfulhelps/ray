@@ -6,12 +6,9 @@ type Props = {
   isFill?: boolean;
   isPills?: boolean;
   isTabs?: boolean;
+  withoutWrapper?: boolean;
   tag?: keyof JSX.IntrinsicElements | typeof React.Component;
   [key: string]: any;
-};
-
-type WrapperProps = Props & {
-  wrapperClasses?: string;
 };
 
 export const Nav: React.FC<Props> = ({
@@ -19,6 +16,7 @@ export const Nav: React.FC<Props> = ({
   isFill,
   isPills,
   isTabs,
+  withoutWrapper = false,
   tag: Tag = 'ul',
   ...other
 }: Props) => {
@@ -30,13 +28,9 @@ export const Nav: React.FC<Props> = ({
     { 'nav-tabs': !isPills && isTabs }
   );
 
-  return <Tag {...other} className={classes} />;
+  const renderNav = () => <Tag {...other} className={classes} />;
+
+  return withoutWrapper ? renderNav() : <div className="overflow-hidden">{renderNav()}</div>;
 };
 
-const NavWithWrapper: React.FC<WrapperProps> = props => (
-  <div className={classNames(props.wrapperClasses, 'overflow-hidden')}>
-    <Nav {...props} />
-  </div>
-);
-
-export default NavWithWrapper;
+export default Nav;

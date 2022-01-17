@@ -5,7 +5,7 @@ import { Nav } from './Nav';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
-  const wrapper = shallow(<Nav {...props} />);
+  const wrapper = shallow(<Nav withoutWrapper {...props} />);
 
   return { wrapper, props };
 };
@@ -13,6 +13,12 @@ const setup = (overrides = {}) => {
 describe('<Nav />', () => {
   it('should render', () => {
     const { wrapper } = setup();
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should render with a wrapper', () => {
+    const { wrapper } = setup({ withoutWrapper: false });
 
     expect(wrapper).toMatchSnapshot();
   });

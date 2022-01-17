@@ -5,3 +5,13 @@ exports[`<Nav /> should render 1`] = `
   className="nav"
 />
 `;
+
+exports[`<Nav /> should render with a wrapper 1`] = `
+<div
+  className="overflow-hidden"
+>
+  <ul
+    className="nav"
+  />
+</div>
+`;
