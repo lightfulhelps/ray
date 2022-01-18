@@ -1,9 +1,11 @@
-# Migration guide from Ray 1.0 to Ray 2.0
+# Migration guide from Ray v1 to Ray v2
 ### New version of ray!
 
 Review the changes to Ray's components here.
 
 We've upgraded `Bootstrap` version from 4 to 5
+
+Follow this doc to migrate bootstrap https://getbootstrap.com/docs/5.1/migration/
 
 ## Gradients
 
