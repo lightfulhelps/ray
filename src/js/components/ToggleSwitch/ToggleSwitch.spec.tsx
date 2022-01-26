@@ -44,14 +44,14 @@ describe('<ToggleSwitch />', () => {
 
   it('should handle onClick events', () => {
     const { wrapper, props } = setup({ onClick: jest.fn() });
-    wrapper.find('label').simulate('click');
+    wrapper.find('input').simulate('click');
     expect(props.onClick).toHaveBeenCalled();
   });
 
   it('should not call onClick if isDisabled', () => {
     const preventDefault = jest.fn();
     const { wrapper, props } = setup({ onClick: jest.fn(), isDisabled: true });
-    wrapper.find('label').simulate('click', { preventDefault });
+    wrapper.find('input').simulate('click', { preventDefault });
     expect(preventDefault).toHaveBeenCalled();
     expect(props.onClick).not.toHaveBeenCalled();
   });
