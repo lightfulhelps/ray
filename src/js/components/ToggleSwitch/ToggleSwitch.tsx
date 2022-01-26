@@ -17,6 +17,7 @@ type Props = {
 
 const ToggleSwitch: React.FC<Props> = ({
   className,
+  checked,
   id = 'toggle-switch',
   isDisabled,
   label,
@@ -61,15 +62,17 @@ const ToggleSwitch: React.FC<Props> = ({
 
   return (
     <div {...other} className={classes}>
-      <input
-        type="checkbox"
-        className={`form-check-input m-0 ${inputClasses}`}
-        id={id}
-        disabled={isDisabled}
-        role="switch"
-        onChange={onChange}
-      />
-      <label className="form-check-label" htmlFor={id} onClick={handleClick}>
+      <label className="form-check-label" htmlFor={id}>
+        <input
+          type="checkbox"
+          className={`form-check-input m-0 ${inputClasses}`}
+          id={id}
+          disabled={isDisabled}
+          role="switch"
+          onChange={onChange}
+          onClick={handleClick}
+          checked={checked}
+        />
         {label}
       </label>
     </div>
