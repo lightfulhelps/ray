@@ -4,18 +4,17 @@ exports[`<ToggleSwitch /> should render 1`] = `
 <div
   className="form-check form-switch"
 >
+  <input
+    className="form-check-input m-0 undefined"
+    id="toggle-switch"
+    onClick={[Function]}
+    role="switch"
+    type="checkbox"
+  />
   <label
     className="form-check-label"
     htmlFor="toggle-switch"
-  >
-    <input
-      className="form-check-input m-0 undefined"
-      id="toggle-switch"
-      onClick={[Function]}
-      role="switch"
-      type="checkbox"
-    />
-  </label>
+  />
 </div>
 `;
 
@@ -23,17 +22,17 @@ exports[`<ToggleSwitch /> should render label 1`] = `
 <div
   className="form-check form-switch"
 >
+  <input
+    className="form-check-input m-0 undefined"
+    id="toggle-switch"
+    onClick={[Function]}
+    role="switch"
+    type="checkbox"
+  />
   <label
     className="form-check-label"
     htmlFor="toggle-switch"
   >
-    <input
-      className="form-check-input m-0 undefined"
-      id="toggle-switch"
-      onClick={[Function]}
-      role="switch"
-      type="checkbox"
-    />
     this is a label
   </label>
 </div>
