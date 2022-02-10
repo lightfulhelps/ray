@@ -1,6 +1,6 @@
 {
   "name": "@lightful/ray",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Lightful style guide and component library",
   "main": "dist/js/index.js",
   "type": "dist/js/index.d.ts",
@@ -22,7 +22,8 @@
     "start": "run-p watch:css storybook",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "jest",
-    "watch:css": "chokidar 'src/scss/*.scss' -c 'run-s lint:css build:css'"
+    "watch:css": "chokidar 'src/scss/*.scss' -c 'run-s lint:css build:css'",
+    "watch:js": "tsc --watch"
   },
   "husky": {
     "hooks": {
