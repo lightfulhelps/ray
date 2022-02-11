@@ -41,6 +41,7 @@ export type PostType = {
 
 export type Props = {
   actions?: ButtonProps[];
+  addLabel?: Partial<ButtonProps>;
   className?: string;
   dateFormat?: string;
   errors?: string[];
@@ -70,6 +71,7 @@ const PostCard: React.FC<Props> = props => {
 
   const {
     actions = [],
+    addLabel,
     className,
     dateFormat = "HH:mm 'on' eeee, d MMMM",
     errors,
@@ -194,6 +196,15 @@ const PostCard: React.FC<Props> = props => {
                   {tag}
                 </Tag>
               ))}
+            {addLabel && (
+              <Button
+                isOutline
+                icon="add"
+                className="me-1 mb-1 rounded-pill"
+                data-test-id="post-card-add-label"
+                {...addLabel}
+              />
+            )}
           </div>
         </div>
         <div
