@@ -41,7 +41,7 @@ export type PostType = {
 
 export type Props = {
   actions?: ButtonProps[];
-  addLabel?: any;
+  addLabel?: Partial<ButtonProps>;
   className?: string;
   dateFormat?: string;
   errors?: string[];
