@@ -33,12 +33,16 @@ const MediaThumbnail: React.FC<Props> = ({
   );
   const testId = `media-thumbnail-${nanoid()}`;
 
+  console.log('isSelected :', isSelected);
   return (
     <div
       {...other}
       className={classes}
       data-test-id={`${testId}`}
-      onClick={() => !isDisabled && typeof onClick === 'function' && onClick(src)}
+      onClick={() => {
+        console.log('onlcik');
+        return !isDisabled && typeof onClick === 'function' && onClick(src);
+      }}
     >
       <div className="media-thumbnail-inner d-flex justify-content-center overflow-hidden align-items-center bg-gray-300 rounded-sm">
         <img className="mw-100 mh-100" src={src} alt={alt} />
@@ -46,12 +50,12 @@ const MediaThumbnail: React.FC<Props> = ({
       {checkbox && (
         <FormGroup className="media-thumbnail-checkbox-group" isCheck>
           <FormInput
+            onChange={e => e.preventDefault()}
             type="checkbox"
             checked={isSelected}
             id={`${testId}-checkbox`}
             onClick={e => {
               e.preventDefault();
-              e.stopPropagation();
             }}
           />
           <FormLabel isCheck htmlFor={`${testId}-checkbox`}>
