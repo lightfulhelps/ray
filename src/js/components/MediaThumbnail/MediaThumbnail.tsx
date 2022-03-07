@@ -33,24 +33,14 @@ const MediaThumbnail: React.FC<Props> = ({
   );
   const testId = `media-thumbnail-${nanoid()}`;
 
-  console.log('isSelected :', isSelected);
   return (
-    <div
-      {...other}
-      className={classes}
-      data-test-id={`${testId}`}
-      onClick={() => {
-        console.log('onlcik');
-        return !isDisabled && typeof onClick === 'function' && onClick(src);
-      }}
-    >
+    <div {...other} className={classes} data-test-id={`${testId}`}>
       <div className="media-thumbnail-inner d-flex justify-content-center overflow-hidden align-items-center bg-gray-300 rounded-sm">
         <img className="mw-100 mh-100" src={src} alt={alt} />
       </div>
       {checkbox && (
         <FormGroup className="media-thumbnail-checkbox-group" isCheck>
           <FormInput
-            onChange={e => e.preventDefault()}
             type="checkbox"
             checked={isSelected}
             id={`${testId}-checkbox`}
@@ -63,6 +53,10 @@ const MediaThumbnail: React.FC<Props> = ({
           </FormLabel>
         </FormGroup>
       )}
+      <div
+        onClick={() => !isDisabled && typeof onClick === 'function' && onClick(src)}
+        className="stretched-link"
+      />
     </div>
   );
 };

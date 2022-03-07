@@ -66,7 +66,7 @@ describe('<MediaThumbnail />', () => {
   it('should call onClick with the src when clicked', () => {
     const { wrapper, props } = setup();
 
-    wrapper.simulate('click');
+    wrapper.find('.stretched-link').simulate('click');
 
     expect(props.onClick).toHaveBeenCalledWith(props.src);
   });
