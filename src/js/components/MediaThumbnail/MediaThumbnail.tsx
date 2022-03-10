@@ -34,12 +34,7 @@ const MediaThumbnail: React.FC<Props> = ({
   const testId = `media-thumbnail-${nanoid()}`;
 
   return (
-    <div
-      {...other}
-      className={classes}
-      data-test-id={`${testId}`}
-      onClick={() => !isDisabled && typeof onClick === 'function' && onClick(src)}
-    >
+    <div {...other} className={classes} data-test-id={`${testId}`}>
       <div className="media-thumbnail-inner d-flex justify-content-center overflow-hidden align-items-center bg-gray-300 rounded-sm">
         <img className="mw-100 mh-100" src={src} alt={alt} />
       </div>
@@ -51,7 +46,6 @@ const MediaThumbnail: React.FC<Props> = ({
             id={`${testId}-checkbox`}
             onClick={e => {
               e.preventDefault();
-              e.stopPropagation();
             }}
           />
           <FormLabel isCheck htmlFor={`${testId}-checkbox`}>
@@ -59,6 +53,10 @@ const MediaThumbnail: React.FC<Props> = ({
           </FormLabel>
         </FormGroup>
       )}
+      <div
+        onClick={() => !isDisabled && typeof onClick === 'function' && onClick(src)}
+        className="stretched-link"
+      />
     </div>
   );
 };
