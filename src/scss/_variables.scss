@@ -80,22 +80,24 @@ $sm-colors: (
   linkedin: #1f52a2,
 );
 
+$instagram-colours: #fdf497, #fcc06e, #fd5949, #d6249f, #285aeb;
+
 $sm-colors-instagram-gradient: radial-gradient(
   circle at 30% 107%,
-  #3d33d1 0%,
-  #3d33d1 5%,
-  #cb008d 25%,
-  #f96f4e 50%,
-  #fcc06e 95%
+  nth($instagram-colours, 5) 0%,
+  nth($instagram-colours, 5) 5%,
+  nth($instagram-colours, 4) 25%,
+  nth($instagram-colours, 3) 50%,
+  nth($instagram-colours, 2) 95%
 );
 
 $instagram-gradient: radial-gradient(
   circle at 30% 107%,
-  #fdf497 0%,
-  #fdf497 5%,
-  #fd5949 45%,
-  #d6249f 60%,
-  #285aeb 90%
+  nth($instagram-colours, 1) 0%,
+  nth($instagram-colours, 1) 5%,
+  nth($instagram-colours, 3) 45%,
+  nth($instagram-colours, 4) 60%,
+  nth($instagram-colours, 5) 90%
 );
 
 // The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
