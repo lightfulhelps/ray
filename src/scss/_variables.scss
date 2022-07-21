@@ -80,6 +80,15 @@ $sm-colors: (
   linkedin: #1f52a2,
 );
 
+$sm-colors-instagram-gradient: radial-gradient(
+  circle at 30% 107%,
+  #3d33d1 0%,
+  #3d33d1 5%,
+  #cb008d 25%,
+  #f96f4e 50%,
+  #fcc06e 95%
+);
+
 $instagram-gradient: radial-gradient(
   circle at 30% 107%,
   #fdf497 0%,
