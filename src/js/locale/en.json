@@ -1,0 +1,36 @@
+{
+  "avatar": {
+    "name": "Lightful"
+  },
+  "button": {
+    "buttonText": "Click Me"
+  },
+  "characterCounter": {
+    "text": "Type something here"
+  },
+  "dropdown": {
+    "footer": "Created by: Bruno"
+  },
+  "inspirationPostCard": {
+    "title": "Hope For Children"
+  },
+  "postCard": {
+    "campaignName": "Wildlife",
+    "title": "National Living Wage 'fails to cover families' basic needs",
+    "description": "Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says."
+  },
+  "search": {
+    "placeholder": "Search...",
+    "title": "Recent Searches"
+  },
+  "tag": {
+    "text": "Social For Good"
+  },
+  "toggleSwitch": {
+    "label": "Noice!"
+  },
+  "urlMetaPreview": {
+    "title": "National Living Wage 'fails to cover families' basic needs",
+    "description": "Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says."
+  }
+}

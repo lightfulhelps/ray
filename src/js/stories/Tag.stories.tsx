@@ -7,6 +7,7 @@ import themes from './utils/themes';
 import allIcons, { IconNameType } from '../components/Icon/icons';
 
 import '../../scss/ray.scss';
+import translation from '../locale/i18n';
 
 const stories = storiesOf('Tag', module);
 
@@ -28,7 +29,7 @@ stories.add('Default', () => (
           icon={boolean('Show Icon', false) ? select('Icon', icons, 'media') : undefined}
           theme={select('Theme', themes, 'dark')}
         >
-          {text('Text', 'Social For Good')}
+          {text('Text', translation.t('tag:text'))}
         </Tag>
       </Col>
       <Col>
@@ -38,7 +39,7 @@ stories.add('Default', () => (
           isOutline
           theme={select('Theme', themes, 'dark')}
         >
-          {text('Text', 'Social For Good')}
+          {text('Text', translation.t('tag:text'))}
         </Tag>
       </Col>
       <Col>
@@ -48,7 +49,7 @@ stories.add('Default', () => (
           theme={select('Theme', themes, 'dark')}
           onRemove={action('Remove')}
         >
-          {text('Text', 'Social For Good')}
+          {text('Text', translation.t('tag:text'))}
         </Tag>
       </Col>
     </Row>
