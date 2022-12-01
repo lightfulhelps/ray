@@ -14,7 +14,6 @@ import {
 } from '../';
 
 import '../../scss/ray.scss';
-import translation from '../locale/i18n';
 
 const stories = storiesOf('Dropdown', module);
 
@@ -92,7 +91,7 @@ stories.add('Default', () => (
                 onClick={onToggle}
                 position={select('Menu Position', menuPositions, 'left')}
                 theme={select('Menu Theme', menuThemes, 'light')}
-                footer={text('Menu Footer', translation.t('dropdown:footer'))}
+                footer={text('Menu Footer', 'Created by: Bruno')}
               >
                 <DropdownItem isHeader>Header</DropdownItem>
                 <DropdownItem>Option 1</DropdownItem>

@@ -5,7 +5,6 @@ import { Container } from '../';
 import ToggleSwitch from '../components/ToggleSwitch/ToggleSwitch';
 
 import '../../scss/ray.scss';
-import translation from '../locale/i18n';
 
 const stories = storiesOf('ToggleSwitch', module);
 
@@ -20,7 +19,7 @@ stories.add('Default', () => {
       <ToggleSwitch
         isDisabled={boolean('Disabled', false)}
         onClick={() => setChecked(!checked)}
-        label={text('Label', translation.t('toggleSwitch:label'))}
+        label={text('Label', 'Noice!')}
         checked={checked}
         labelAlign={select(
           'Align Label',

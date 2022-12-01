@@ -5,7 +5,6 @@ import { withKnobs, boolean, text, date, select } from '@storybook/addon-knobs';
 import { Container, Row, Col, InspirationPostCard, PostCardGhost } from '..';
 
 import '../../scss/ray.scss';
-import translation from '../locale/i18n';
 
 const stories = storiesOf('InspirationPostCard', module);
 const defaultDate = new Date();
@@ -49,7 +48,7 @@ stories.add('Default', () => (
         <InspirationPostCard
           post={{
             id: 'fakeid123112',
-            title: text('Title', translation.t('inspirationPostCard:title')),
+            title: text('Title', 'Hope For Children'),
             date: date('Date', defaultDate),
             socialIdentity: {
               id: '123',

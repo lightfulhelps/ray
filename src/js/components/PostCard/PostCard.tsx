@@ -7,6 +7,7 @@ import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon } from '../.
 import { IconNameType } from '../Icon/icons';
 import { Props as ButtonProps } from '../Button/Button';
 import Alert from '../Alert/Alert';
+import translation from '../../locale/i18n';
 
 export type MediaType = {
   id: string;
@@ -158,7 +159,7 @@ const PostCard: React.FC<Props> = props => {
                       new Date(post.date),
                       dateFormat
                     )}`
-                  : 'Unscheduled'}
+                  : translation.t('postCard:unscheduled')}
               </div>
               {post.socialIdentity && (
                 <div className="text-sm">{post.socialIdentity.displayName}</div>

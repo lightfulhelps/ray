@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { FormInput, Button } from '../..';
+import translation from '../../locale/i18n';
 
 type Props = {
   className?: string;
@@ -61,7 +62,9 @@ const FormPasswordInput: React.FC<Props> = ({
         theme="gray-600"
       >
         <span className="form-password-input__toggle-password-text">
-          {hidePassword ? 'Show' : 'Hide'}
+          {hidePassword
+            ? translation.t('formPasswordInput:show')
+            : translation.t('formPasswordInput:hide')}
         </span>
       </Button>
     </div>

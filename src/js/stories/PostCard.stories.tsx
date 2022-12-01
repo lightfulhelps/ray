@@ -6,7 +6,6 @@ import { Container, PostCard } from '..';
 import { MediaType } from '../components/PostCard/PostCard';
 
 import '../../scss/ray.scss';
-import translation from '../locale/i18n';
 
 const stories = storiesOf('PostCard', module);
 const defaultDate = new Date();
@@ -55,7 +54,7 @@ stories.add('Default', () => {
         post={{
           id: '4f20c60c-203e-454b-8953-f192911c966e',
           campaign: {
-            name: text('Campaign Name', translation.t('postCard:campaignName')),
+            name: text('Campaign Name', 'Wildlife'),
             color: color('Campaign Color', '#D72E85'),
           },
           date: date('Date', defaultDate),
@@ -65,7 +64,10 @@ stories.add('Default', () => {
             provider: select('Social Provider', socialProviders, 'twitter'),
             displayName: 'Save the rabbits',
           },
-          content: text('Content', translation.t('postCard:content')),
+          content: text(
+            'Content',
+            'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most". Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school.'
+          ),
           media: !showMeta && media,
           metrics: [
             {
@@ -108,8 +110,11 @@ stories.add('Default', () => {
         isImported={boolean('Imported', false)}
         metaPreview={
           showMeta && {
-            title: text('Meta Title', translation.t('postCard:title')),
-            description: text('Meta Description', translation.t('postCard:description')),
+            title: text('Meta Title', "National Living Wage 'fails to cover families' basic needs"),
+            description: text(
+              'Meta Description',
+              "Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says."
+            ),
             image: text(
               'Meta Image',
               'https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg'

@@ -1,37 +1,12 @@
 {
-  "avatar": {
-    "name": "Lightful"
-  },
-  "button": {
-    "buttonText": "Click Me"
-  },
-  "characterCounter": {
-    "text": "Type something here"
-  },
-  "dropdown": {
-    "footer": "Created by: Bruno"
-  },
-  "inspirationPostCard": {
-    "title": "Hope For Children"
+  "formPasswordInput": {
+    "show": "Show",
+    "hide": "Hide"
   },
   "postCard": {
-    "campaignName": "Wildlife",
-    "content": "Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \"supporting those who need it most\". Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school.",
-    "title": "National Living Wage 'fails to cover families' basic needs",
-    "description": "Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says."
+    "unscheduled": "Unscheduled"
   },
-  "search": {
-    "placeholder": "Search...",
-    "title": "Recent Searches"
-  },
-  "tag": {
-    "text": "Social For Good"
-  },
-  "toggleSwitch": {
-    "label": "Noice!"
-  },
-  "urlMetaPreview": {
-    "title": "National Living Wage 'fails to cover families' basic needs",
-    "description": "Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says."
+  "postMedia": {
+    "noMedia": "No media"
   }
 }

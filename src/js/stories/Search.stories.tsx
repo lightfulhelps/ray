@@ -5,7 +5,6 @@ import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col, SearchInput, SearchSuggest } from '../';
 
 import '../../scss/ray.scss';
-import translation from '../locale/i18n';
 
 const stories = storiesOf('Search', module);
 
@@ -120,7 +119,7 @@ stories.add('Input', () => (
           value={text('Search', '')}
           onChange={action('Change')}
           onSearch={action('Search')}
-          placeholder={text('Placeholder', translation.t('search:placeholder'))}
+          placeholder={text('Placeholder', 'Search...')}
         />
       </Col>
     </Row>
@@ -142,7 +141,7 @@ stories.add('Suggest', () => (
           onSelect={action('Select')}
           options={boolean('Has options?', true) ? breeds : []}
           search={text('Search', '')}
-          title={text('Title', translation.t('search:title'))}
+          title={text('Title', 'Recent Searches')}
         />
       </Col>
     </Row>

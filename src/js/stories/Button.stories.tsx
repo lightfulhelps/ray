@@ -9,7 +9,6 @@ import themes from './utils/themes';
 import sizes from './utils/sizes';
 
 import '../../scss/ray.scss';
-import translation from '../locale/i18n';
 
 const buttonThemes = merge(themes, { alternative: 'alternative' });
 
@@ -53,7 +52,7 @@ stories.add('Default', () => (
               : undefined
           }
         >
-          {text('Text', translation.t('button:buttonText'))}
+          {text('Text', 'Click Me')}
         </Button>
       </Col>
       <Col xs={6}>

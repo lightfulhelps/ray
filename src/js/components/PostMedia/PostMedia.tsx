@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import translation from '../../locale/i18n';
 
 type MediaType = {
   type: string;
@@ -19,7 +20,7 @@ const PostMedia: React.FC<Props> = ({ className, media, ...other }: Props) => {
   if (!media.length) {
     return (
       <div {...other} className={`${classes} ${blockClass}--empty`}>
-        No media
+        {translation.t('postMedia:noMedia')}
       </div>
     );
   }
