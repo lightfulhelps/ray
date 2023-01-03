@@ -181,7 +181,8 @@ const PostCard: React.FC<Props> = props => {
           <div className="d-flex flex-wrap">
             {post.campaign && (
               <Tag className="d-flex align-items-center mb-1 me-1 badge-pill" icon="storyBuilder">
-                {translation.t('postCard:story')}: {post.campaign.name}
+                {`${translation.t('postCard:story')}: `}
+                {post.campaign.name}
               </Tag>
             )}
             {post.tags &&
