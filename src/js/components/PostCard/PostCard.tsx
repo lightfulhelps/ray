@@ -138,7 +138,7 @@ const PostCard: React.FC<Props> = props => {
       )}
       {isImported && (
         <div className="post-card__imported px-1 py-half rounded-sm text-sm alert-info fw-normal">
-          This post was imported from outside of Lightful. Link clicks are not tracked.
+          {translation.t('postCard:imported')}
         </div>
       )}
       <div className="d-flex flex-column flex-md-row justify-content-between px-3 pb-3 pt-1 border-bottom">
@@ -181,7 +181,7 @@ const PostCard: React.FC<Props> = props => {
           <div className="d-flex flex-wrap">
             {post.campaign && (
               <Tag className="d-flex align-items-center mb-1 me-1 badge-pill" icon="storyBuilder">
-                Story: {post.campaign.name}
+                {translation.t('postCard:story')}: {post.campaign.name}
               </Tag>
             )}
             {post.tags &&
@@ -234,7 +234,7 @@ const PostCard: React.FC<Props> = props => {
               >
                 <Icon className="me-half" name="comment" />{' '}
                 <span className="text-underline text-sm" style={{ lineHeight: 1 }}>
-                  View notes ({notesCount.toString()})
+                  {translation.t('postCard:viewNotes')} ({notesCount.toString()})
                 </span>
               </div>
             ) : (

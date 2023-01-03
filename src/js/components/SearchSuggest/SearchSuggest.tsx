@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { DropdownMenu, DropdownItem, Icon } from '../..';
+import translation from '../../locale/i18n';
 
 type ExcludeType = string | RegExp;
 
@@ -82,14 +83,14 @@ const SearchSuggest: React.FC<Props> = ({
               data-test-id="search-suggest-clear"
               onClick={onClear}
             >
-              Clear All
+              {translation.t('searchSuggest:clearAll')}
             </div>
           )}
         </DropdownItem>
       )}
       {isLoading && (
         <DropdownItem data-test-id="search-suggest-loading" isDisabled>
-          Loading...
+          {translation.t('searchSuggest:loading')}
         </DropdownItem>
       )}
       {!isLoading &&

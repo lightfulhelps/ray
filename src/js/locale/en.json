@@ -4,9 +4,16 @@
     "hide": "Hide"
   },
   "postCard": {
-    "unscheduled": "Unscheduled"
+    "unscheduled": "Unscheduled",
+    "story": "Story",
+    "viewNotes": "View Notes",
+    "imported": "This post was imported from outside of Lightful. Link clicks are not tracked."
   },
   "postMedia": {
     "noMedia": "No media"
+  },
+  "searchSuggest": {
+    "clearAll": "Clear All",
+    "loading": "Loading..."
   }
 }
