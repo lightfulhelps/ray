@@ -10,7 +10,7 @@ translation.use(initReactI18next).init({
   interpolation: {
     escapeValue: false, // not needed for react as it escapes by default
   },
-  lng: 'en',
+  lng: window.localStorage.getItem('lng') || 'en',
   resources: { en: { ...en } },
 });
 
