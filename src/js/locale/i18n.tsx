@@ -7,6 +7,9 @@ const translation = i18n.createInstance();
 translation.use(initReactI18next).init({
   debug: true,
   fallbackLng: 'en',
+  interpolation: {
+    escapeValue: false, // not needed for react as it escapes by default
+  },
   lng: localStorage.getItem('userLanguage') ?? 'en',
   supportedLngs: ['en'],
   resources: { en: { ...en } },
