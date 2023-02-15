@@ -4,6 +4,8 @@
     "hide": "Hide"
   },
   "postCard": {
+    "published": "Published",
+    "scheduledFor": "Scheduled for",
     "unscheduled": "Unscheduled",
     "story": "Story",
     "viewNotes": "View Notes",
