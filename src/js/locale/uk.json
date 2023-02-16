@@ -1,0 +1,20 @@
+{
+  "formPasswordInput": {
+    "show": "Показати",
+    "hide": "Приховати"
+  },
+  "postCard": {
+    "published": "Опубліковано",
+    "unscheduled": "Не заплановано",
+    "story": "Історія",
+    "viewNotes": "Переглянути примітки",
+    "imported": "Цей допис був імпортований з-за меж Lightful. Переходи за посиланнями не відстежуються."
+  },
+  "postMedia": {
+    "noMedia": "Без медіафайлів"
+  },
+  "searchSuggest": {
+    "clearAll": "Очистити все",
+    "loading": "Завантаження..."
+  }
+}
