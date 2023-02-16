@@ -155,7 +155,7 @@ const PostCard: React.FC<Props> = props => {
             <div className="ms-1">
               <div className="h4 mb-0" data-test-id="post-card-date">
                 {post.date
-                  ? `${post.state === 'published' ? 'Published' : 'Scheduled for'} ${formatDate(
+                  ? `${post.state === 'published' ? translation.t('postCard:published') : translation.t('postCard:scheduledFor')} ${formatDate(
                       new Date(post.date),
                       dateFormat
                     )}`
