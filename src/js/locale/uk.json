@@ -5,6 +5,7 @@
   },
   "postCard": {
     "published": "Опубліковано",
+    "scheduledFor": "Заплановано на",
     "unscheduled": "Не заплановано",
     "story": "Історія",
     "viewNotes": "Переглянути примітки",
