@@ -61,12 +61,13 @@ const Icon: React.FC<Props> = ({
   );
 
   const gradientId = isGradient ? nanoid() : '';
+  let mergedStyles = { ...style };
 
   if (theme) {
-    if (isGradient) style.fill = `url(#${gradientId})`;
-    else delete style.fill;
+    if (isGradient) mergedStyles = { ...mergedStyles, fill: `url(#${gradientId})` };
+    else delete mergedStyles.fill;
   } else {
-    style.fill = hover && hoverColor ? hoverColor : color;
+    mergedStyles = { ...mergedStyles, fill: hover && hoverColor ? hoverColor : color };
   }
 
   return (
@@ -76,7 +77,7 @@ const Icon: React.FC<Props> = ({
       width={size}
       height={size}
       viewBox={viewBox}
-      style={style}
+      style={mergedStyles}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
