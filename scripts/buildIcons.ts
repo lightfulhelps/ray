@@ -72,8 +72,8 @@ const svgo = new SVGO({
 
 export const sanitizeSVG = (data: string): string =>
   data
-    .replace(/<svg[^>]*>/g, '')
-    .replace(/<\/svg>/g, '')
+    .replace(/<svg[^>]*>/g, '<>')
+    .replace(/<\/svg>/g, '</>')
     .replace(/"\/>/g, '" />')
     .replace(/ fill=".+?"/g, '')
     .replace(/fill-opacity=/g, 'fillOpacity=')
@@ -86,7 +86,7 @@ export const getIconsTemplate = async (data: IconsType): Promise<string> => {
   const template = await readFileAsync(path.join(__dirname, 'templates/icons.js.hbs'), {
     encoding: 'utf8',
   });
-
+  console.log('template', template);
   return Handlebars.compile(template, { noEscape: true })(data);
 };
 
