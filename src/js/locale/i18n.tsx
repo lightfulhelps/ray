@@ -3,9 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import en from './en.json';
 import uk from './uk.json';
 
-const translation = i18n.createInstance();
-
-translation.use(initReactI18next).init({
+i18n.use(initReactI18next).init({
   debug: true,
   fallbackLng: 'en',
   interpolation: {
@@ -19,4 +17,4 @@ translation.use(initReactI18next).init({
   },
 });
 
-export default translation;
+export default i18n;
