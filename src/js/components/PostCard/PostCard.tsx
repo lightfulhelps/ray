@@ -3,11 +3,11 @@ import classNames from 'classnames';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import { format as formatDate } from 'date-fns';
+import { useTranslation } from 'react-i18next';
 import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon } from '../..';
 import { IconNameType } from '../Icon/icons';
 import { Props as ButtonProps } from '../Button/Button';
 import Alert from '../Alert/Alert';
-import translation from '../../locale/i18n';
 
 export type MediaType = {
   id: string;
@@ -65,6 +65,7 @@ const ResponsiveHTMLEllipsis = responsiveHOC()(HTMLEllipsis);
 
 const PostCard: React.FC<Props> = props => {
   const [isTruncated, setIsTruncated] = useState(true);
+  const { t } = useTranslation();
 
   const handleToggleTruncate = () => {
     setIsTruncated(!isTruncated);
@@ -138,7 +139,7 @@ const PostCard: React.FC<Props> = props => {
       )}
       {isImported && (
         <div className="post-card__imported px-1 py-half rounded-sm text-sm alert-info fw-normal">
-          {translation.t('postCard:imported')}
+          {t('postCard:imported')}
         </div>
       )}
       <div className="d-flex flex-column flex-md-row justify-content-between px-3 pb-3 pt-1 border-bottom">
@@ -155,11 +156,12 @@ const PostCard: React.FC<Props> = props => {
             <div className="ms-1">
               <div className="h4 mb-0" data-test-id="post-card-date">
                 {post.date
-                  ? `${post.state === 'published' ? translation.t('postCard:published') : translation.t('postCard:scheduledFor')} ${formatDate(
-                      new Date(post.date),
-                      dateFormat
-                    )}`
-                  : translation.t('postCard:unscheduled')}
+                  ? `${
+                      post.state === 'published'
+                        ? t('postCard:published')
+                        : t('postCard:scheduledFor')
+                    } ${formatDate(new Date(post.date), dateFormat)}`
+                  : t('postCard:unscheduled')}
               </div>
               {post.socialIdentity && (
                 <div className="text-sm">{post.socialIdentity.displayName}</div>
@@ -181,7 +183,7 @@ const PostCard: React.FC<Props> = props => {
           <div className="d-flex flex-wrap">
             {post.campaign && (
               <Tag className="d-flex align-items-center mb-1 me-1 badge-pill" icon="storyBuilder">
-                {`${translation.t('postCard:story')}: `}
+                {`${t('postCard:story')}: `}
                 {post.campaign.name}
               </Tag>
             )}
@@ -235,7 +237,7 @@ const PostCard: React.FC<Props> = props => {
               >
                 <Icon className="me-half" name="comment" />{' '}
                 <span className="text-underline text-sm" style={{ lineHeight: 1 }}>
-                  {translation.t('postCard:viewNotes')} ({notesCount.toString()})
+                  {t('postCard:viewNotes')} ({notesCount.toString()})
                 </span>
               </div>
             ) : (
