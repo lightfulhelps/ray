@@ -44,7 +44,7 @@ const Alert: React.FC<Props> = ({
             size={18}
           />
         )}
-        <span>{children}</span>
+        {children}
       </div>
     </Tag>
   );
