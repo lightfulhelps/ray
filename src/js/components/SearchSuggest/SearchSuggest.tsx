@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
 import { DropdownMenu, DropdownItem, Icon } from '../..';
 
 type ExcludeType = string | RegExp;
@@ -18,6 +17,10 @@ type Props = {
   options: string[];
   search: string;
   title?: string;
+  text?: {
+    clearAll?: string;
+    loading?: string;
+  };
   [key: string]: any;
 };
 
@@ -53,10 +56,12 @@ const SearchSuggest: React.FC<Props> = ({
   options = [],
   search = '',
   title,
+  text = {
+    clearAll: 'Clear All',
+    loading: 'Loading...',
+  },
   ...other
 }: Props) => {
-  const { t } = useTranslation();
-
   const classes = classNames(className, 'search-suggest');
   const count = limit && limit > 0 ? limit : 10;
   const filteredOptions = options.filter(option => findMatches(option, search, exclude));
@@ -85,14 +90,14 @@ const SearchSuggest: React.FC<Props> = ({
               data-test-id="search-suggest-clear"
               onClick={onClear}
             >
-              {t('searchSuggest:clearAll')}
+              {text.clearAll}
             </div>
           )}
         </DropdownItem>
       )}
       {isLoading && (
         <DropdownItem data-test-id="search-suggest-loading" isDisabled>
-          {t('searchSuggest:loading')}
+          {text.loading}
         </DropdownItem>
       )}
       {!isLoading &&
