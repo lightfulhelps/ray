@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
 import { FormInput, Button } from '../..';
 
 type Props = {
@@ -12,6 +11,10 @@ type Props = {
   value?: string;
   size?: 'sm' | 'md' | 'lg';
   name?: string;
+  text?: {
+    hide?: string;
+    show?: string;
+  };
   [key: string]: any;
 };
 
@@ -26,6 +29,10 @@ const FormPasswordInput: React.FC<Props> = ({
   name = 'password',
   placeholder,
   size,
+  text = {
+    show: 'Show',
+    hide: 'Hide',
+  },
   ...other
 }) => {
   const [hidePassword, setHidePassword] = useState(true);
@@ -35,8 +42,6 @@ const FormPasswordInput: React.FC<Props> = ({
   };
 
   const classes = classNames(className, 'form-control');
-
-  const { t } = useTranslation();
 
   return (
     <div className="form-password-input input-group">
@@ -64,7 +69,7 @@ const FormPasswordInput: React.FC<Props> = ({
         theme="gray-600"
       >
         <span className="form-password-input__toggle-password-text">
-          {hidePassword ? t('formPasswordInput:show') : t('formPasswordInput:hide')}
+          {hidePassword ? text.show : text.hide}
         </span>
       </Button>
     </div>

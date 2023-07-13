@@ -1,5 +1,3 @@
-import './locale/i18n';
-
 export { default as Alert } from './components/Alert/Alert';
 export { default as Avatar } from './components/Avatar/Avatar';
 export { default as Badge } from './components/Badge/Badge';
