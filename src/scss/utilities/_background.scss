@@ -68,7 +68,7 @@
   // Vertical
   .bg-#{$color}-y {
     @if length($gradient) == 3 {
-      @include gradient-x-three-colors(
+      @include gradient-y-three-colors(
         nth($gradient, 1),
         nth($gradient, 2),
         50%,
@@ -82,10 +82,23 @@
   // Vertical reversed
   .bg-#{$color}-ny {
     @if length($gradient) == 3 {
-      @include gradient-x-three-colors(
+      @include gradient-y-three-colors(
         nth($gradient, 3),
         nth($gradient, 2),
         50%,
+        nth($gradient, 1)
+      );
+    } @else {
+      @include gradient-y(nth($gradient, 2), nth($gradient, 1));
+    }
+  }
+
+  .bg-#{$color}-45 {
+    @if length($gradient) == 3 {
+      background-image: linear-gradient(
+        to right bottom,
+        nth($gradient, 3),
+        nth($gradient, 2),
         nth($gradient, 1)
       );
     } @else {
