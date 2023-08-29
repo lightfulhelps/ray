@@ -37,7 +37,7 @@ const Alert: React.FC<Props> = ({
   return (
     <Tag {...other} className={classes}>
       {header && <h3 className="alert-heading mb-1">{header}</h3>}
-      <div className={`d-flex text-sm ${containerFlexType}`}>
+      <div className={`d-flex text-sm w-100 ${containerFlexType}`}>
         {!hideIcon && (iconsByTheme[theme] || icon) && (
           <Icon
             className="me-1 flex-shrink-0"

@@ -6,7 +6,9 @@ exports[`<Button /> should handle the iconTheme props 1`] = `
   onClick={[Function]}
   type="button"
 >
-  <span>
+  <span
+    className="d-flex align-items-center"
+  >
     Click Me
     <Icon
       isGradient={true}
@@ -23,7 +25,9 @@ exports[`<Button /> should render 1`] = `
   onClick={[Function]}
   type="button"
 >
-  <span>
+  <span
+    className="d-flex align-items-center"
+  >
     Click Me
   </span>
 </button>
@@ -35,7 +39,9 @@ exports[`<Button /> should render with an icon 1`] = `
   onClick={[Function]}
   type="button"
 >
-  <span>
+  <span
+    className="d-flex align-items-center"
+  >
     Click Me
     <Icon
       isGradient={true}

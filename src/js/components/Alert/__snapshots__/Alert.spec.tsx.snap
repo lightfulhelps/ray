@@ -5,7 +5,7 @@ exports[`<Alert /> should render 1`] = `
   className="alert  alert-primary"
 >
   <div
-    className="d-flex text-sm align-items-center"
+    className="d-flex text-sm w-100 align-items-center"
   >
     Alert
   </div>
