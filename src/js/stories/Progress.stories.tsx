@@ -44,7 +44,7 @@ stories.add('Default', () => (
     </div>
     <div className="mb-3">
       <h2 className="h6">Alternative (ProgressAlt)</h2>
-      <ProgressAlt value={66} size={select('Size', sizes, 'md')} theme="secondary" />
+      <ProgressAlt value={0} size={select('Size', sizes, 'md')} theme="secondary" />
     </div>
   </Container>
 ));

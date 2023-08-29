@@ -23,7 +23,7 @@ const Progress: React.FC<Props> = ({
   value = 0,
   ...other
 }: Props) => {
-  const classes = classNames(className, 'bg-gray-300 rounded d-flex');
+  const classes = classNames(className, 'bg-gray-300 rounded d-flex me-2');
   const barClasses = classNames('position-relative rounded', {
     [`bg-gradient-${theme}-45 bg-${theme}`]: theme && value <= 100,
   });
@@ -54,7 +54,7 @@ const Progress: React.FC<Props> = ({
             style={{
               height: '24px',
               top: '-4px',
-              right: 0,
+              left: '90%',
               backgroundImage: 'linear-gradient($start-color, $mid-color $color-stop, $end-color)',
             }}
             className={`bg-gradient-${theme}-45 position-absolute rounded-3 d-flex justify-content-center align-items-center text-white px-2 h6 fw-normal`}
