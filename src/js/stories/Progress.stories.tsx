@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, number, select } from '@storybook/addon-knobs';
-import { Container, Progress } from '../';
+import { Container, Progress, ProgressAlt } from '../';
 import sizes from './utils/sizes';
 
 import '../../scss/ray.scss';
@@ -41,6 +41,10 @@ stories.add('Default', () => (
         isStriped
         isAnimated
       />
+    </div>
+    <div className="mb-3">
+      <h2 className="h6">Alternative (ProgressAlt)</h2>
+      <ProgressAlt value={0} size={select('Size', sizes, 'md')} theme="secondary" />
     </div>
   </Container>
 ));

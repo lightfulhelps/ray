@@ -1,5 +1,3 @@
-import './locale/i18n';
-
 export { default as Alert } from './components/Alert/Alert';
 export { default as Avatar } from './components/Avatar/Avatar';
 export { default as Badge } from './components/Badge/Badge';
@@ -32,6 +30,7 @@ export { default as PostCard } from './components/PostCard/PostCard';
 export { default as PostCardGhost } from './components/PostCardGhost/PostCardGhost';
 export { default as PostMedia } from './components/PostMedia/PostMedia';
 export { default as Progress } from './components/Progress/Progress';
+export { default as ProgressAlt } from './components/ProgressAlt/ProgressAlt';
 export { default as ResourceCard } from './components/ResourceCard/ResourceCard';
 export { default as Row } from './components/Row/Row';
 export { default as SearchInput } from './components/SearchInput/SearchInput';
