@@ -11,6 +11,7 @@ type Props = {
   theme?: string;
   hideIcon?: boolean;
   children: React.ReactNode;
+  containerFlexType?: string;
   [key: string]: any;
 };
 
@@ -19,6 +20,7 @@ const Alert: React.FC<Props> = ({
   className,
   header,
   icon,
+  containerFlexType = 'align-items-center',
   tag: Tag = 'div',
   theme = 'primary',
   hideIcon = false,
@@ -35,7 +37,7 @@ const Alert: React.FC<Props> = ({
   return (
     <Tag {...other} className={classes}>
       {header && <h3 className="alert-heading mb-1">{header}</h3>}
-      <div className="d-flex align-items-start text-sm">
+      <div className={`d-flex text-sm w-100 ${containerFlexType}`}>
         {!hideIcon && (iconsByTheme[theme] || icon) && (
           <Icon
             className="me-1 flex-shrink-0"

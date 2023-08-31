@@ -52,6 +52,26 @@
   color: $white;
 }
 
+.btn--borderless {
+  border: none;
+  border-radius: unset;
+
+  &:hover {
+    background-position: 0;
+  }
+
+  &:focus,
+  &.focus {
+    box-shadow: none;
+  }
+}
+
+.btn--borderless-active {
+  span {
+    background-image: none;
+  }
+}
+
 .btn .icon {
   pointer-events: none;
 }
