@@ -54,7 +54,8 @@ const Progress: React.FC<Props> = ({
             style={{
               height: '24px',
               top: '-4px',
-              left: '99%',
+              transform: 'translateX(-50%)',
+              left: '100%',
               backgroundImage: 'linear-gradient($start-color, $mid-color $color-stop, $end-color)',
             }}
             className={`bg-gradient-${theme}-45 position-absolute rounded-3 d-flex justify-content-center align-items-center text-white px-2 h6 fw-normal`}
