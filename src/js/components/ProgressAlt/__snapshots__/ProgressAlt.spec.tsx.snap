@@ -33,7 +33,7 @@ exports[`<ProgressAlt /> should render 1`] = `
           Object {
             "backgroundImage": "linear-gradient($start-color, $mid-color $color-stop, $end-color)",
             "height": "24px",
-            "left": "90%",
+            "left": "99%",
             "top": "-4px",
           }
         }
