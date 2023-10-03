@@ -12,6 +12,7 @@ type Props = {
   hideIcon?: boolean;
   children: React.ReactNode;
   containerFlexType?: string;
+  containerDisplayType?: string;
   [key: string]: any;
 };
 
@@ -24,6 +25,7 @@ const Alert: React.FC<Props> = ({
   tag: Tag = 'div',
   theme = 'primary',
   hideIcon = false,
+  containerDisplayType = 'd-flex',
   ...other
 }: Props) => {
   const classes = classNames(className, 'alert ', `alert-${theme}`);
@@ -37,7 +39,7 @@ const Alert: React.FC<Props> = ({
   return (
     <Tag {...other} className={classes}>
       {header && <h3 className="alert-heading mb-1">{header}</h3>}
-      <div className={`d-flex text-sm w-100 ${containerFlexType}`}>
+      <div className={`${containerDisplayType} text-sm w-100 ${containerFlexType}`}>
         {!hideIcon && (iconsByTheme[theme] || icon) && (
           <Icon
             className="me-1 flex-shrink-0"
