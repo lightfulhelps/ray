@@ -1,6 +1,6 @@
 {
   "name": "@lightful/ray",
-  "version": "3.6.2",
+  "version": "3.7.0",
   "description": "Lightful style guide and component library",
   "main": "dist/js/index.js",
   "type": "dist/js/index.d.ts",
