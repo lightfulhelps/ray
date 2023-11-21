@@ -85,7 +85,7 @@ const Button: React.FC<ButtonAttributes & Props> = ({
       onClick={handleClick}
       disabled={isDisabled}
     >
-      <span className="d-flex align-items-center">
+      <span>
         {children}
         {icon && (
           <Icon
