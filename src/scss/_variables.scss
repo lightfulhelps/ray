@@ -9,7 +9,11 @@
 
 // Gradients
 $gradient-primary: #00a8e6, #006fb7;
+$gradient-primary-100: #e8f9ff, #bfe6ff;
+$gradient-primary-300: #b1eaff, #5eb9f3;
 $gradient-secondary: #3023ae, #6c3fff, #c76dd8;
+$gradient-secondary-100: #fcefff, #ece7ff, #d0cbff;
+$gradient-secondary-300: #fae0ff, #b8a3ff, #8f84ff;
 $gradient-tertiary-red: #f19191, #e95948;
 $gradient-tertiary-green: #3dcfae, #16abab;
 $gradient-tertiary-black: #666, #000;
@@ -17,7 +21,11 @@ $gradient-academy: #2e6aff, #3dcfae;
 
 $gradient-colors: (
   'gradient-primary': $gradient-primary,
+  'gradient-primary-100': $gradient-primary-100,
+  'gradient-primary-300': $gradient-primary-300,
   'gradient-secondary': $gradient-secondary,
+  'gradient-secondary-100': $gradient-secondary-100,
+  'gradient-secondary-300': $gradient-secondary-300,
   'gradient-tertiary-red': $gradient-tertiary-red,
   'gradient-tertiary-green': $gradient-tertiary-green,
   'gradient-tertiary-black': $gradient-tertiary-black,
@@ -37,7 +45,11 @@ $gray-900: #202237;
 $black: #000;
 
 $primary: #00a8e6;
+$primary-100: #e8f9ff;
+$primary-300: #b1eaff;
 $secondary: #3023ae;
+$secondary-100: #c76dd8;
+$secondary-300: #6c3fff;
 $tertiary-red: #f19191;
 $tertiary-green: #3dcfae;
 $tertiary-black: #666;
@@ -55,12 +67,14 @@ $warning-100: #ffefd1;
 $warning-300: #ffdc9b;
 $danger-100: #ffebeb;
 $danger-300: #ff8484;
-$secondary-100: #e8f9ff;
-$secondary-300: #b1eaff;
 
 $theme-colors: (
   'primary': $primary,
+  'primary-100': $primary-100,
+  'primary-300': $primary-300,
   'secondary': $secondary,
+  'secondary-100': $secondary-100,
+  'secondary-300': $secondary-300,
   'tertiary-red': $tertiary-red,
   'tertiary-green': $tertiary-green,
   'tertiary-black': $tertiary-black,
