@@ -67,6 +67,25 @@ This will create a symlink to your local copy of Ray to use in place of the pack
 
 To stop using the linked version you can use [yarn unlink](https://classic.yarnpkg.com/en/docs/cli/unlink).
 
+### Using Ray
+
+The components and icons can be viewed using the `storybook` packaged. There is a script you can run to get it working locally:  
+`nvm use 12.19.1`  
+`yarn storybook`
+
+It is also hosted on AWS Amplify which automatically deploys new builds, so you can check the storybook on there as well.
+
+There is also a Ray Design System in Figma. Ask for the link.
+
+### Finding Ray CSS classes
+
+In Chrome:  
+Inspect > Elements > Styles
+
+There's a `Filter` field, click the `.cls` button next to it, a new field will show beneath called `Add new class`.
+
+Type in that field and it should bring up matching searches.
+
 ## Releases
 
 Releases are handled by [np](https://github.com/sindresorhus/np) which provides and interactive UI for generating releases, safe-guarding against various mistakes and improving consistency in releases.
