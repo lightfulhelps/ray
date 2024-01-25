@@ -75,6 +75,8 @@ The components and icons can be viewed using the `storybook` packaged. There is 
 
 It is also hosted on AWS Amplify which automatically deploys new builds, so you can check the storybook on there as well.
 
+There is also a Ray Design System in Figma. Ask for the link.
+
 ### Finding Ray CSS classes
 
 In Chrome:  
