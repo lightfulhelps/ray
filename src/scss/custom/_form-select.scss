@@ -13,7 +13,7 @@
 
   .tag {
     font-size: $font-size-sm;
-    margin: $spacer / 4;
+    margin: calc($spacer / 4);
   }
 }
 
@@ -98,8 +98,8 @@
 }
 
 .form-select__value-container--is-multi.form-select__value-container--has-value {
-  margin-top: -$spacer / 2;
-  margin-bottom: -$spacer / 2;
+  margin-top: -calc($spacer / 2);
+  margin-bottom: -calc($spacer / 2);
 }
 
 .form-select__single-value {

@@ -147,7 +147,7 @@ $spacers: (
   4: $spacer * 4,
   5: $spacer * 5,
   6: $spacer * 6,
-  half: $spacer / 2,
+  half: calc($spacer / 2),
 );
 
 //Containers
@@ -172,7 +172,7 @@ $body-color: #1e2128;
 
 $border-radius: $spacer;
 $border-radius-lg: $spacer * 2;
-$border-radius-sm: $spacer / 2;
+$border-radius-sm: calc($spacer / 2);
 
 $border-width: 1px;
 
