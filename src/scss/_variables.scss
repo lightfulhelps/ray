@@ -9,11 +9,13 @@
 
 // Gradients
 
-$gradient-primary: #3023ae, #6c3fff, #c76dd8;
-$gradient-primary-100: #fcefff, #ece7ff, #d0cbff;
+$gradient-primary: #5a37e6, #240a9e;
 $gradient-primary-300: #fae0ff, #b8a3ff, #8f84ff;
-$gradient-ai: #ebb5f5 #ad4cd1;
-$gradient-ai-100: #fbebff #f7cefe;
+$gradient-primary-100: #fcefff, #ece7ff, #d0cbff;
+$gradient-secondary: #8c00a3, #bc57cd;
+$gradient-secondary-300: #d78ce8, #bc57cd;
+$gradient-secondary-100: #f8daff, #f2bdfb;
+$gradient-success: #00a8e6, #006fb7;
 $gradient-tertiary-red: #f19191, #e95948;
 $gradient-tertiary-green: #3dcfae, #16abab;
 $gradient-tertiary-black: #666, #000;
@@ -21,10 +23,12 @@ $gradient-academy: #2e6aff, #3dcfae;
 
 $gradient-colors: (
   'gradient-primary': $gradient-primary,
-  'gradient-primary-100': $gradient-primary-100,
   'gradient-primary-300': $gradient-primary-300,
-  'gradient-ai': $gradient-ai,
-  'gradient-ai-100': $gradient-ai-100,
+  'gradient-primary-100': $gradient-primary-100,
+  'gradient-secondary': $gradient-secondary,
+  'gradient-secondary-300': $gradient-secondary-300,
+  'gradient-secondary-100': $gradient-secondary-100,
+  'gradient-success': $gradient-success,
   'gradient-tertiary-red': $gradient-tertiary-red,
   'gradient-tertiary-green': $gradient-tertiary-green,
   'gradient-tertiary-black': $gradient-tertiary-black,
@@ -44,14 +48,16 @@ $gray-900: #202237;
 $black: #000;
 
 $primary: #3023ae;
-$primary-100: #c76dd8;
 $primary-300: #6c3fff;
-$ai: #f7cefe;
+$primary-100: #efe8ff;
+$secondary: #8c00a3;
+$secondary-300: #bc57cd;
+$secondary-100: #f2bdfb;
 $tertiary-red: #f19191;
 $tertiary-green: #3dcfae;
 $tertiary-black: #666;
 $academy: #3dcfae;
-$success: #02cb8c;
+$success: #00a8e6;
 $info: #0095f1;
 $warning: #ffc65c;
 $danger: #f25252;
@@ -67,9 +73,12 @@ $danger-300: #ff8484;
 
 $theme-colors: (
   'primary': $primary,
-  'primary-100': $primary-100,
   'primary-300': $primary-300,
-  'ai': $ai,
+  'primary-100': $primary-100,
+  'secondary': $secondary,
+  'secondary-300': $secondary-300,
+  'secondary-100': $secondary-100,
+  'lumi': $lumi,
   'tertiary-red': $tertiary-red,
   'tertiary-green': $tertiary-green,
   'tertiary-black': $tertiary-black,
