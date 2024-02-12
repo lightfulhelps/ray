@@ -27,7 +27,7 @@ const Tag: React.FC<Props> = ({
   return (
     <Badge
       {...other}
-      theme={isOutline ? 'white' : 'dark'}
+      theme={isOutline ? 'white' : 'primary'}
       className={classes}
       isPill
       withBorder={isOutline}

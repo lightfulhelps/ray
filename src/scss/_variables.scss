@@ -20,6 +20,7 @@ $gradient-tertiary-red: #f19191, #e95948;
 $gradient-tertiary-green: #3dcfae, #16abab;
 $gradient-tertiary-black: #666, #000;
 $gradient-academy: #2e6aff, #3dcfae;
+$gradient-neutral: #fff, #7e86ce;
 
 $gradient-colors: (
   'gradient-primary': $gradient-primary,
@@ -33,6 +34,7 @@ $gradient-colors: (
   'gradient-tertiary-green': $gradient-tertiary-green,
   'gradient-tertiary-black': $gradient-tertiary-black,
   'gradient-academy': $gradient-academy,
+  'gradient-neutral': $gradient-neutral,
 );
 
 $white: #fff;
@@ -78,7 +80,6 @@ $theme-colors: (
   'secondary': $secondary,
   'secondary-300': $secondary-300,
   'secondary-100': $secondary-100,
-  'lumi': $lumi,
   'tertiary-red': $tertiary-red,
   'tertiary-green': $tertiary-green,
   'tertiary-black': $tertiary-black,
@@ -128,7 +129,7 @@ $min-contrast-ratio: 3 !default;
 
 $enable-caret: false;
 $enable-rounded: true;
-$enable-shadows: false;
+$enable-shadows: true;
 $enable-gradients: false;
 $enable-transitions: true;
 $enable-grid-classes: true;
@@ -187,9 +188,9 @@ $radiuses: (
   4: $border-radius * 4,
 );
 
-$box-shadow-sm: 0 10px 20px 0 rgba($gray-300, 0.3), 0 2px 10px 0 rgba($gray-300, 0.3);
-$box-shadow: 0 10px 20px 0 rgba($gray-300, 0.5), 0 2px 10px 0 rgba($gray-300, 0.5);
-$box-shadow-lg: 0 10px 20px 0 rgba($gray-300, 1), 0 2px 10px 0 rgba($gray-300, 1);
+$box-shadow-xs: 0 10px 20px 0 rgba($gray-300, 0.3), 0 2px 10px 0 rgba($gray-300, 0.3);
+$box-shadow-sm: 0 10px 20px 0 rgba($gray-300, 0.5), 0 2px 10px 0 rgba($gray-300, 0.5);
+$box-shadow: 0 10px 20px 0 rgba($gray-300, 1), 0 2px 10px 0 rgba($gray-300, 1);
 
 // Fonts
 //
@@ -257,7 +258,7 @@ $input-btn-padding-y-lg: $spacer * 2;
 $input-btn-padding-x-lg: $spacer * 2;
 $input-btn-line-height-lg: 1;
 $input-btn-font-size-lg: $font-size-base;
-
+$input-btn-focus-blur: 6px;
 // Buttons
 
 $btn-gradient-alternative: rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2);
@@ -292,7 +293,6 @@ $input-border-radius-lg: $border-radius-sm;
 $input-border-radius-sm: $border-radius-sm;
 
 $input-focus-border-color: $primary;
-$input-focus-box-shadow: none;
 
 $input-line-height-sm: $line-height-sm;
 $input-line-height-lg: $line-height-lg;
@@ -396,4 +396,5 @@ $form-switch-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3
 
 $form-check-gutter: 0.5em;
 $form-check-indicator-size: 2em;
-$form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2.5' fill='url(#paint0_linear_72_1700)'/><defs><linearGradient id='paint0_linear_72_1700' x1='-3.72529e-08' y1='5' x2='10' y2='5' gradientUnits='userSpaceOnUse'><stop stop-color='#00A8E6'/><stop offset='1' stop-color='#006FB7'/></linearGradient></defs></svg>") !default;
+$form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2.5' fill='url(#paint0_linear_72_1700)'/><defs><linearGradient id='paint0_linear_72_1700' x1='-3.72529e-08' y1='5' x2='10' y2='5' gradientUnits='userSpaceOnUse'><stop stop-color='#5a37e6'/><stop offset='1' stop-color='#240a9e;'/></linearGradient></defs></svg>") !default;
+$form-check-input-border: 1px solid $gray-400 !default;
