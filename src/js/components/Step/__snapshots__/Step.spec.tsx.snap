@@ -21,7 +21,7 @@ exports[`<Step /> should render 1`] = `
     </div>
   </div>
   <div
-    className="d-none d-sm-block me-1 flex-fill border-top border-gray-400"
+    className="d-none d-sm-block me-1 flex-fill border-top border-gray-500"
   />
 </div>
 `;
