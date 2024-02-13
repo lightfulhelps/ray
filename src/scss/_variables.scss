@@ -129,7 +129,7 @@ $min-contrast-ratio: 3 !default;
 
 $enable-caret: false;
 $enable-rounded: true;
-$enable-shadows: true;
+$enable-shadows: false;
 $enable-gradients: false;
 $enable-transitions: true;
 $enable-grid-classes: true;
@@ -177,7 +177,7 @@ $body-color: #1e2128;
 
 $border-radius: $spacer;
 $border-radius-lg: $spacer * 2;
-$border-radius-sm: calc($spacer / 2);
+$border-radius-sm: $spacer / 2;
 
 $border-width: 1px;
 

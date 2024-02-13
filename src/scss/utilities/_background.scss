@@ -34,6 +34,23 @@
   background-position: center;
 }
 
+.animate-gradient {
+  background-size: 400% 400%;
+  animation: gradient 7s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 //Gradients
 
 @each $color, $gradient in $gradient-colors {

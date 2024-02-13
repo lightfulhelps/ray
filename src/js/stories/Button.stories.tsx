@@ -39,6 +39,7 @@ stories.add('Default', () => (
           isBlock={boolean('Block', false)}
           isDisabled={boolean('Disabled', false)}
           isOutline={boolean('Outline', false)}
+          animateGradient={boolean('Animate Gradient', false)}
           loading={boolean('Loading', false)}
           onClick={action('clicked')}
           size={select('Size', sizes, 'md')}
