@@ -21,6 +21,7 @@ $gradient-tertiary-green: #3dcfae, #16abab;
 $gradient-tertiary-black: #666, #000;
 $gradient-academy: #2e6aff, #3dcfae;
 $gradient-neutral: #fff, #7e86ce;
+$gradient-neutral-100: #fbfcff, #e4e6f6;
 
 $gradient-colors: (
   'gradient-primary': $gradient-primary,
@@ -35,6 +36,7 @@ $gradient-colors: (
   'gradient-tertiary-black': $gradient-tertiary-black,
   'gradient-academy': $gradient-academy,
   'gradient-neutral': $gradient-neutral,
+  'gradient-neutral-100': $gradient-neutral-100,
 );
 
 $white: #fff;
@@ -65,6 +67,7 @@ $warning: #ffc65c;
 $danger: #f25252;
 $light: $gray-100;
 $dark: $gray-900;
+$lavender: #c6c3ea;
 
 $success-100: #d6fff2;
 $success-300: #6eebc3;
@@ -90,6 +93,7 @@ $theme-colors: (
   'danger': $danger,
   'light': $light,
   'dark': $dark,
+  'lavender': $lavender,
 );
 
 // Social media network colors
