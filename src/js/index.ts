@@ -6,6 +6,7 @@ export { default as CampaignCard } from './components/CampaignCard/CampaignCard'
 export { default as CampaignTemplateCard } from './components/CampaignTemplateCard/CampaignTemplateCard';
 export { default as Card } from './components/Card/Card';
 export { default as CharacterCounter } from './components/CharacterCounter/CharacterCounter';
+export { default as Chevron } from './components/Chevron/Chevron';
 export { default as Col } from './components/Col/Col';
 export { default as Collapse } from './components/Collapse/Collapse';
 export { default as Container } from './components/Container/Container';

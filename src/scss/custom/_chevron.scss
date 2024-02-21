@@ -1,0 +1,15 @@
+.chevron-button {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: var(--Gray-300, #eceef6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &--mobile {
+    width: 132px;
+  }
+}
