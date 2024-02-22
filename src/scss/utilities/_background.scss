@@ -110,6 +110,16 @@
     }
   }
 
+  // Angled
+  .bg-#{$color}-directional {
+    @include gradient-directional(nth($gradient, 1), nth($gradient, 2), 154deg);
+  }
+
+  // Angled reversed
+  .bg-#{$color}-ndirectional {
+    @include gradient-directional(nth($gradient, 1), nth($gradient, 2), 334deg);
+  }
+
   .bg-#{$color}-45 {
     @if length($gradient) == 3 {
       background-image: linear-gradient(
