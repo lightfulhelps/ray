@@ -8,6 +8,7 @@ type Props = {
   direction?: ChevronDirection;
   onClick: () => void;
   className?: string;
+  [key: string]: any;
 };
 
 const dirToIconName = (direction: ChevronDirection): IconNameType => {
@@ -25,9 +26,9 @@ const dirToIconName = (direction: ChevronDirection): IconNameType => {
   }
 };
 
-const Chevron: React.FC<Props> = ({ direction = 'left', onClick, className }: Props) => {
+const Chevron: React.FC<Props> = ({ direction = 'left', onClick, className, ...other }: Props) => {
   return (
-    <div onClick={onClick} className={`chevron-button ${className || ''}`}>
+    <div onClick={onClick} className={`chevron-button ${className || ''}`} {...other}>
       <Icon name={dirToIconName(direction)} color="gray-600" />
     </div>
   );
