@@ -1,6 +1,7 @@
 import React from 'react';
 import Icon from '../Icon/Icon';
 import { IconNameType } from '../Icon/icons';
+import Button from '../Button/Button';
 
 type ChevronDirection = 'left' | 'right' | 'up' | 'down';
 
@@ -28,9 +29,15 @@ const dirToIconName = (direction: ChevronDirection): IconNameType => {
 
 const Chevron: React.FC<Props> = ({ direction = 'left', onClick, className, ...other }: Props) => {
   return (
-    <div onClick={onClick} className={`chevron-button ${className || ''}`} {...other}>
+    <Button
+      onClick={onClick}
+      size="sm"
+      className={`chevron-button ${className || ''}`}
+      theme="gray-300"
+      {...other}
+    >
       <Icon name={dirToIconName(direction)} color="gray-600" />
-    </div>
+    </Button>
   );
 };
 
