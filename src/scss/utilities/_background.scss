@@ -34,6 +34,23 @@
   background-position: center;
 }
 
+.animate-gradient {
+  background-size: 400% 400%;
+  animation: gradient 7s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 //Gradients
 
 @each $color, $gradient in $gradient-colors {
@@ -91,6 +108,16 @@
     } @else {
       @include gradient-y(nth($gradient, 2), nth($gradient, 1));
     }
+  }
+
+  // Angled
+  .bg-#{$color}-directional {
+    @include gradient-directional(nth($gradient, 1), nth($gradient, 2), 154deg);
+  }
+
+  // Angled reversed
+  .bg-#{$color}-ndirectional {
+    @include gradient-directional(nth($gradient, 1), nth($gradient, 2), 334deg);
   }
 
   .bg-#{$color}-45 {

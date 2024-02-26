@@ -49,7 +49,7 @@ describe('<Step />', () => {
     it('should add appropriate classes if the `thisStep` prop is greater than the `activeStep` prop', () => {
       const { wrapper } = setup({ activeStep: 1 });
 
-      expect(wrapper.html()).toContain('bg-gray-400 border-gray-400 text-white');
+      expect(wrapper.html()).toContain('bg-gray-500 border-gray-500 text-white');
     });
 
     it('should render the label prop as the content if the `activeStep` prop is less than the `thisStep` prop', () => {

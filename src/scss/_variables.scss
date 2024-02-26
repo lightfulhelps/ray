@@ -8,28 +8,35 @@
 //
 
 // Gradients
-$gradient-primary: #00a8e6, #006fb7;
-$gradient-primary-100: #e8f9ff, #bfe6ff;
-$gradient-primary-300: #b1eaff, #5eb9f3;
-$gradient-secondary: #3023ae, #6c3fff, #c76dd8;
-$gradient-secondary-100: #fcefff, #ece7ff, #d0cbff;
-$gradient-secondary-300: #fae0ff, #b8a3ff, #8f84ff;
+
+$gradient-primary: #5a37e6, #240a9e;
+$gradient-primary-300: #fae0ff, #b8a3ff, #8f84ff;
+$gradient-primary-100: #fcefff, #ece7ff, #d0cbff;
+$gradient-secondary: #8c00a3, #bc57cd;
+$gradient-secondary-300: #d78ce8, #bc57cd;
+$gradient-secondary-100: #f8daff, #f2bdfb;
+$gradient-success: #00a8e6, #006fb7;
 $gradient-tertiary-red: #f19191, #e95948;
 $gradient-tertiary-green: #3dcfae, #16abab;
 $gradient-tertiary-black: #666, #000;
 $gradient-academy: #2e6aff, #3dcfae;
+$gradient-neutral: #fff, #7e86ce;
+$gradient-neutral-100: #fbfcff, #e4e6f6;
 
 $gradient-colors: (
   'gradient-primary': $gradient-primary,
-  'gradient-primary-100': $gradient-primary-100,
   'gradient-primary-300': $gradient-primary-300,
+  'gradient-primary-100': $gradient-primary-100,
   'gradient-secondary': $gradient-secondary,
-  'gradient-secondary-100': $gradient-secondary-100,
   'gradient-secondary-300': $gradient-secondary-300,
+  'gradient-secondary-100': $gradient-secondary-100,
+  'gradient-success': $gradient-success,
   'gradient-tertiary-red': $gradient-tertiary-red,
   'gradient-tertiary-green': $gradient-tertiary-green,
   'gradient-tertiary-black': $gradient-tertiary-black,
   'gradient-academy': $gradient-academy,
+  'gradient-neutral': $gradient-neutral,
+  'gradient-neutral-100': $gradient-neutral-100,
 );
 
 $white: #fff;
@@ -44,22 +51,23 @@ $gray-800: #313454;
 $gray-900: #202237;
 $black: #000;
 
-$primary: #00a8e6;
-$primary-100: #e8f9ff;
-$primary-300: #b1eaff;
-$secondary: #3023ae;
-$secondary-100: #c76dd8;
-$secondary-300: #6c3fff;
+$primary: #3023ae;
+$primary-300: #6c3fff;
+$primary-100: #efe8ff;
+$secondary: #8c00a3;
+$secondary-300: #bc57cd;
+$secondary-100: #f2bdfb;
 $tertiary-red: #f19191;
 $tertiary-green: #3dcfae;
 $tertiary-black: #666;
 $academy: #3dcfae;
-$success: #02cb8c;
+$success: #00a8e6;
 $info: #0095f1;
 $warning: #ffc65c;
 $danger: #f25252;
 $light: $gray-100;
 $dark: $gray-900;
+$lavender: #c6c3ea;
 
 $success-100: #d6fff2;
 $success-300: #6eebc3;
@@ -70,11 +78,11 @@ $danger-300: #ff8484;
 
 $theme-colors: (
   'primary': $primary,
-  'primary-100': $primary-100,
   'primary-300': $primary-300,
+  'primary-100': $primary-100,
   'secondary': $secondary,
-  'secondary-100': $secondary-100,
   'secondary-300': $secondary-300,
+  'secondary-100': $secondary-100,
   'tertiary-red': $tertiary-red,
   'tertiary-green': $tertiary-green,
   'tertiary-black': $tertiary-black,
@@ -85,6 +93,7 @@ $theme-colors: (
   'danger': $danger,
   'light': $light,
   'dark': $dark,
+  'lavender': $lavender,
 );
 
 // Social media network colors
@@ -172,7 +181,7 @@ $body-color: #1e2128;
 
 $border-radius: $spacer;
 $border-radius-lg: $spacer * 2;
-$border-radius-sm: calc($spacer / 2);
+$border-radius-sm: $spacer / 2;
 
 $border-width: 1px;
 
@@ -183,9 +192,9 @@ $radiuses: (
   4: $border-radius * 4,
 );
 
-$box-shadow-sm: 0 10px 20px 0 rgba($gray-300, 0.3), 0 2px 10px 0 rgba($gray-300, 0.3);
-$box-shadow: 0 10px 20px 0 rgba($gray-300, 0.5), 0 2px 10px 0 rgba($gray-300, 0.5);
-$box-shadow-lg: 0 10px 20px 0 rgba($gray-300, 1), 0 2px 10px 0 rgba($gray-300, 1);
+$box-shadow-xs: 0 10px 20px 0 rgba($gray-300, 0.3), 0 2px 10px 0 rgba($gray-300, 0.3);
+$box-shadow-sm: 0 10px 20px 0 rgba($gray-300, 0.5), 0 2px 10px 0 rgba($gray-300, 0.5);
+$box-shadow: 0 10px 20px 0 rgba($gray-300, 1), 0 2px 10px 0 rgba($gray-300, 1);
 
 // Fonts
 //
@@ -253,7 +262,7 @@ $input-btn-padding-y-lg: $spacer * 2;
 $input-btn-padding-x-lg: $spacer * 2;
 $input-btn-line-height-lg: 1;
 $input-btn-font-size-lg: $font-size-base;
-
+$input-btn-focus-blur: 6px;
 // Buttons
 
 $btn-gradient-alternative: rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2);
@@ -288,7 +297,6 @@ $input-border-radius-lg: $border-radius-sm;
 $input-border-radius-sm: $border-radius-sm;
 
 $input-focus-border-color: $primary;
-$input-focus-box-shadow: none;
 
 $input-line-height-sm: $line-height-sm;
 $input-line-height-lg: $line-height-lg;
@@ -392,4 +400,5 @@ $form-switch-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3
 
 $form-check-gutter: 0.5em;
 $form-check-indicator-size: 2em;
-$form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2.5' fill='url(#paint0_linear_72_1700)'/><defs><linearGradient id='paint0_linear_72_1700' x1='-3.72529e-08' y1='5' x2='10' y2='5' gradientUnits='userSpaceOnUse'><stop stop-color='#00A8E6'/><stop offset='1' stop-color='#006FB7'/></linearGradient></defs></svg>") !default;
+$form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2.5' fill='url(#paint0_linear_72_1700)'/><defs><linearGradient id='paint0_linear_72_1700' x1='-3.72529e-08' y1='5' x2='10' y2='5' gradientUnits='userSpaceOnUse'><stop stop-color='#5a37e6'/><stop offset='1' stop-color='#240a9e;'/></linearGradient></defs></svg>") !default;
+$form-check-input-border: 1px solid $gray-400 !default;

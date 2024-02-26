@@ -4,7 +4,7 @@ exports[`<Tag /> should render 1`] = `
 <Badge
   className="tag text-sm px-3 py-1"
   isPill={true}
-  theme="dark"
+  theme="primary"
 >
   <div
     className="lh-sm d-flex align-items-center"
@@ -18,7 +18,7 @@ exports[`<Tag /> should render with a remove Icon 1`] = `
 <Badge
   className="tag text-sm px-3 py-1"
   isPill={true}
-  theme="dark"
+  theme="primary"
 >
   <div
     className="lh-sm d-flex align-items-center"

@@ -8,6 +8,7 @@ import { IconNameType } from '../Icon/icons';
 type ButtonAttributes = Omit<React.HTMLProps<HTMLButtonElement>, 'size'>;
 
 export type Props = {
+  animateGradient?: boolean;
   children?: React.ReactNode;
   className?: string;
   forceSolidColor?: boolean;
@@ -33,6 +34,8 @@ const gradientThemes = [
   'tertiary-green',
   'tertiary-black',
   'academy',
+  'success',
+  'neutral',
 ];
 const Button: React.FC<ButtonAttributes & Props> = ({
   children,
@@ -50,6 +53,7 @@ const Button: React.FC<ButtonAttributes & Props> = ({
   tag: Tag = 'button',
   theme = 'primary',
   type = 'button',
+  animateGradient = false,
   ...other
 }: Props) => {
   const classes = classNames(
@@ -61,7 +65,8 @@ const Button: React.FC<ButtonAttributes & Props> = ({
     { disabled: isDisabled },
     { 'btn-icon': icon && !children },
     { [`btn-icon-${iconPosition}`]: icon && children },
-    { loading }
+    { loading },
+    { 'animate-gradient': animateGradient }
   );
 
   const handleClick = (e: React.MouseEvent): void => {

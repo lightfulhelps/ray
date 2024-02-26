@@ -98,8 +98,8 @@
 }
 
 .form-select__value-container--is-multi.form-select__value-container--has-value {
-  margin-top: -calc($spacer / 2);
-  margin-bottom: -calc($spacer / 2);
+  margin-top: -$spacer / 2;
+  margin-bottom: -$spacer / 2;
 }
 
 .form-select__single-value {
