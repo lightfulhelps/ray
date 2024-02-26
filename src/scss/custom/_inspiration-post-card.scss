@@ -50,7 +50,7 @@
   @extend .h5;
   @include text-truncate();
 
-  margin-bottom: $spacer / 2;
+  margin-bottom: calc($spacer / 2);
 }
 
 .inspiration-post-card__date {
