@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chevron should handle the direction correctly and change the icon 1`] = `
+<Button
+  className="chevron-button "
+  onClick={[Function]}
+  size="sm"
+  theme="gray-300"
+>
+  <Icon
+    color="gray-600"
+    name="chevronRight"
+  />
+</Button>
+`;
+
+exports[`Chevron should have the defaut left chevron direction icon 1`] = `
+<Button
+  className="chevron-button "
+  onClick={[Function]}
+  size="sm"
+  theme="gray-300"
+>
+  <Icon
+    color="gray-600"
+    name="chevronLeft"
+  />
+</Button>
+`;
+
+exports[`Chevron should render correctly 1`] = `
+<Button
+  className="chevron-button "
+  onClick={[Function]}
+  size="sm"
+  theme="gray-300"
+>
+  <Icon
+    color="gray-600"
+    name="chevronLeft"
+  />
+</Button>
+`;
