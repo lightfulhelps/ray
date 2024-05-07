@@ -426,9 +426,23 @@ Object {
     />
   </React.Fragment>,
   "lumiAi": <React.Fragment>
-    <path
-      d="M6.9957 1.3868L5.1806 7.4743H8.751L1.3847 19.1187l3.0638-8.8142H.6908l1.1257-8.9177h5.1792z"
-    />
+    <g
+      clipPath="url(#clip0_3276_99734)"
+    >
+      <path
+        d="M16.0927 2.062l-2.0998 7.042h4.1305L9.6018 22.5744l3.5443-10.1964h-4.347l1.3023-10.316h5.9913z"
+      />
+    </g>
+    <defs>
+      <clipPath
+        id="clip0_3276_99734"
+      >
+        <path
+          d="M0 0h24v21.7143H0z"
+          transform="translate(0 .621)"
+        />
+      </clipPath>
+    </defs>
   </React.Fragment>,
   "media": <React.Fragment>
     <path
