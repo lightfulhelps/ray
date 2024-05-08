@@ -549,14 +549,7 @@ export default {
   ),
   lumiAi: (
     <>
-      <g clipPath="url(#clip0_3276_99734)">
-        <path d="M16.0927 2.062l-2.0998 7.042h4.1305L9.6018 22.5744l3.5443-10.1964h-4.347l1.3023-10.316h5.9913z" />
-      </g>
-      <defs>
-        <clipPath id="clip0_3276_99734">
-          <path d="M0 0h24v21.7143H0z" transform="translate(0 .621)" />
-        </clipPath>
-      </defs>
+      <path d="M15.0927 2.0619l-2.0998 7.042h4.1305L8.6018 22.5744l3.5443-10.1963h-4.347L9.1013 2.0619h5.9914z" />
     </>
   ),
   mediaLibrary: (
