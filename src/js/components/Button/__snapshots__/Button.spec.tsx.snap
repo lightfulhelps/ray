@@ -11,6 +11,7 @@ exports[`<Button /> should handle the iconTheme props 1`] = `
     <Icon
       isGradient={true}
       name="create"
+      size="1em"
       theme="primary"
     />
   </span>
@@ -40,6 +41,7 @@ exports[`<Button /> should render with an icon 1`] = `
     <Icon
       isGradient={true}
       name="create"
+      size="1em"
     />
   </span>
 </button>
