@@ -15,14 +15,14 @@ type Props = {
   [key: string]: any;
 };
 
-const Stepper: React.FC<Props> = ({ activeStep, className, steps, ...other }: Props) => {
+const Stepper: React.FC<Props> = ({ activeStep = 0, className, steps, ...other }: Props) => {
   const classes = classNames(
     className,
     'stepper',
     'd-flex flex-column flex-sm-row justify-content-between'
   );
 
-  if (!Array.isArray(steps) || !activeStep) {
+  if (!Array.isArray(steps)) {
     return null;
   }
 
