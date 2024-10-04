@@ -88,4 +88,14 @@ label {
       border-color: $form-switch-checked-border-color;
     }
   }
+
+  .form-check-input-primary {
+    height: $form-switch-height;
+    background-color: $gray-500;
+    border-color: $gray-500;
+    &:checked {
+      background-color: $primary;
+      border-color: $primary;
+    }
+  }
 }

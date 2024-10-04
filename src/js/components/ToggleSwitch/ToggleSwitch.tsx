@@ -10,6 +10,7 @@ type Props = {
   isDisabled?: boolean;
   label?: string;
   labelAlign?: string;
+  theme?: string;
   onChange?: () => void;
   onClick?: (event: React.MouseEvent) => void;
   [key: string]: any;
@@ -22,6 +23,7 @@ const ToggleSwitch: React.FC<Props> = ({
   isDisabled,
   label,
   labelAlign,
+  theme,
   onChange,
   onClick,
   ...other
@@ -64,7 +66,9 @@ const ToggleSwitch: React.FC<Props> = ({
     <div {...other} className={classes}>
       <input
         type="checkbox"
-        className={`form-check-input m-0 ${inputClasses}`}
+        className={`form-check-input m-0${
+          theme === 'primary' ? ' form-check-input-primary' : ''
+        } ${inputClasses}`}
         id={id}
         disabled={isDisabled}
         role="switch"

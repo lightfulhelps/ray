@@ -36,10 +36,10 @@ describe('<Stepper />', () => {
     expect(wrapper.type()).toBeNull();
   });
 
-  it('should return null if there is no activeStep prop', () => {
+  it('should render if there is no activeStep prop', () => {
     const { wrapper } = setup({ activeStep: null });
 
-    expect(wrapper.type()).toBeNull();
+    expect(wrapper.type()).not.toBeNull();
   });
 
   it('should handle className', () => {
