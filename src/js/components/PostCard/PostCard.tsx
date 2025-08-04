@@ -44,7 +44,7 @@ export type Props = {
   addLabel?: Partial<ButtonProps>;
   className?: string;
   dateFormat?: string;
-  errors?: string[];
+  errors?: (string | React.ReactNode)[];
   isDraft?: boolean;
   isImported?: boolean;
   isInvalid?: boolean;
