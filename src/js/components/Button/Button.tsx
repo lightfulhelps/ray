@@ -16,6 +16,7 @@ export type Props = {
   iconPosition?: 'left' | 'right';
   iconSize?: string;
   iconTheme?: string;
+  iconViewBox?: string;
   isBlock?: boolean;
   isDisabled?: boolean;
   isOutline?: boolean;
@@ -46,6 +47,7 @@ const Button: React.FC<ButtonAttributes & Props> = ({
   iconPosition = 'left',
   iconSize = '1em',
   iconTheme,
+  iconViewBox,
   isBlock,
   isDisabled,
   isOutline,
@@ -100,6 +102,7 @@ const Button: React.FC<ButtonAttributes & Props> = ({
             size={iconSize}
             theme={iconTheme || (isOutline && theme)}
             isGradient={gradientThemes.includes(theme) && !forceSolidColor}
+            viewBox={iconViewBox}
           />
         )}
       </span>
