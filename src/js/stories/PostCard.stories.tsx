@@ -1,13 +1,10 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, boolean, text, date, select, color } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container, PostCard } from '..';
 import { MediaType } from '../components/PostCard/PostCard';
 
 import '../../scss/ray.scss';
 
-const stories = storiesOf('PostCard', module);
 const defaultDate = new Date();
 
 const socialProviders = {
@@ -41,12 +38,22 @@ const tags = ['Social For Good', 'Charity', 'Lightful', 'Giving', 'Tech For Good
 
 const states = ['scheduled', 'published', 'review'];
 
-stories.addDecorator(withKnobs);
+const meta: Meta<typeof PostCard> = {
+  title: 'PostCard',
+  component: PostCard,
+  parameters: {
+    layout: 'padded',
+  },
+};
 
-stories.add('Default', () => {
-  const showMeta = boolean('Show meta', true);
+export default meta;
+type Story = StoryObj<typeof PostCard>;
 
-  return (
+export const Default: Story = {
+  render: () => {
+    const showMeta = true;
+
+    return (
     <Container>
       <h1 className="my-6">PostCard</h1>
       <PostCard
@@ -54,20 +61,17 @@ stories.add('Default', () => {
         post={{
           id: '4f20c60c-203e-454b-8953-f192911c966e',
           campaign: {
-            name: text('Campaign Name', 'Wildlife'),
-            color: color('Campaign Color', '#D72E85'),
+            name: 'Wildlife',
+            color: '#D72E85',
           },
-          date: date('Date', defaultDate),
+          date: defaultDate,
           socialIdentity: {
             id: '123',
             avatar: 'https://randomuser.me/api/portraits/women/47.jpg',
-            provider: select('Social Provider', socialProviders, 'twitter'),
+            provider: 'twitter',
             displayName: 'Save the rabbits',
           },
-          content: text(
-            'Content',
-            'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most". Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school.'
-          ),
+          content: 'Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most". Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school.',
           media: !showMeta && media,
           metrics: [
             {
@@ -91,7 +95,7 @@ stories.add('Default', () => {
               value: 0,
             },
           ],
-          state: select('Post State', states, 'scheduled'),
+          state: 'scheduled',
           tags,
         }}
         actions={[
@@ -99,40 +103,28 @@ stories.add('Default', () => {
             children: 'Approve',
             isOutline: false,
             icon: 'approvalTick',
-            onClick: action('Approve'),
+            onClick: () => console.log('console.log', 'Approve'),
           },
-          { children: 'Preview', onClick: action('Preview') },
-          { children: 'Edit', onClick: action('Edit') },
-          { children: 'Delete', onClick: action('Delete') }, // { children: 'Reschedule', onClick: action('Reschedule') },
+          { children: 'Preview', onClick: () => console.log('console.log', 'Preview') },
+          { children: 'Edit', onClick: () => console.log('console.log', 'Edit') },
+          { children: 'Delete', onClick: () => console.log('console.log', 'Delete') },
         ]}
-        isDraft={boolean('Draft', false)}
-        isInvalid={boolean('Invalid', false)}
-        isImported={boolean('Imported', false)}
+        isDraft={false}
+        isInvalid={false}
+        isImported={false}
         metaPreview={
           showMeta && {
-            title: text('Meta Title', "National Living Wage 'fails to cover families' basic needs"),
-            description: text(
-              'Meta Description',
-              "Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says."
-            ),
-            image: text(
-              'Meta Image',
-              'https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg'
-            ),
-            url: text('Meta URL', 'https://www.bbc.co.uk/news/business-45242008'),
+            title: "National Living Wage 'fails to cover families' basic needs",
+            description: "Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says.",
+            image: 'https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg',
+            url: 'https://www.bbc.co.uk/news/business-45242008',
           }
         }
-        notesAction={action('Notes')}
+        notesAction={() => console.log('console.log', 'Notes')}
         notesCount={3}
-        errors={
-          boolean('Show errors', false) && [
-            'Error string',
-            'Error string two with a much longer string than the other one',
-            'Error string two with a much longer string than the other one kinda long',
-            'Error string two with a much longer string than the other one much much longer its long',
-          ]
-        }
+        errors={undefined}
       />
     </Container>
-  );
-});
+    );
+  },
+};

@@ -1,17 +1,23 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, color, number, boolean, select } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container, Row, Col, Icon } from '../';
 import icons, { IconNameType } from '../components/Icon/icons';
-import themes from './utils/themes';
 
 import '../../scss/ray.scss';
 
-const stories = storiesOf('Icons', module);
+const meta: Meta<typeof Icon> = {
+  title: 'Icons',
+  component: Icon,
+  parameters: {
+    layout: 'padded',
+  },
+};
 
-stories.addDecorator(withKnobs);
+export default meta;
+type Story = StoryObj<typeof Icon>;
 
-stories.add('Default', () => (
+export const Default: Story = {
+  render: () => (
   <Container>
     <h1 className="my-6">Icons</h1>
     <Row>
@@ -22,12 +28,9 @@ stories.add('Default', () => (
               <Col key={icon} xs={6} sm={4} md={3} lg={2} className="text-center mb-5">
                 <Icon
                   name={icon as IconNameType}
-                  size={number('Size', 24)}
-                  color={color('Color', '#adb5bd')}
-                  hoverColor={color('Hover Color', '#212529')}
-                  theme={boolean('Use theme?', false) && select('Theme', themes, 'primary')}
-                  isGradient={boolean('Use theme?', false) && boolean('Use gradient?', false)}
-                  withHover={boolean('Use theme?', false) && boolean('With hover state?', false)}
+                  size={24}
+                  color="#adb5bd"
+                  hoverColor="#212529"
                 />
                 <div>{icon}</div>
               </Col>
@@ -37,4 +40,5 @@ stories.add('Default', () => (
       </Col>
     </Row>
   </Container>
-));
+  ),
+};

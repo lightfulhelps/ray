@@ -1,14 +1,8 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container, Row, Col, SearchInput, SearchSuggest } from '../';
 
 import '../../scss/ray.scss';
-
-const stories = storiesOf('Search', module);
-
-stories.addDecorator(withKnobs);
 
 const breeds = [
   'Abyssinian',
@@ -110,40 +104,57 @@ const breeds = [
   'Ukrainian Levkoy',
 ];
 
-stories.add('Input', () => (
-  <Container>
-    <h1 className="my-6">Search Input</h1>
-    <Row>
-      <Col className="mb-3">
-        <SearchInput
-          value={text('Search', '')}
-          onChange={action('Change')}
-          onSearch={action('Search')}
-          placeholder={text('Placeholder', 'Search...')}
-        />
-      </Col>
-    </Row>
-  </Container>
-));
+const meta: Meta<typeof SearchInput> = {
+  title: 'Search',
+  component: SearchInput,
+  parameters: {
+    layout: 'padded',
+  },
+};
 
-stories.add('Suggest', () => (
-  <Container>
-    <h1 className="my-6">Search Suggest</h1>
-    <Row>
-      <Col className="mb-3">
-        <SearchSuggest
-          className="w-100"
-          isLoading={boolean('Loading', false)}
-          isOpen
-          limit={number('Limit', 5)}
-          onClear={action('Clear')}
-          onRemove={action('Remove')}
-          onSelect={action('Select')}
-          options={boolean('Has options?', true) ? breeds : []}
-          search={text('Search', '')}
-          title={text('Title', 'Recent Searches')}
-        />
-      </Col>
-    </Row>
-  </Container>
-));
+export default meta;
+
+type Story = StoryObj<typeof SearchInput>;
+
+export const Default: Story = {
+  render: () => (
+    <Container>
+      <h1 className="my-6">Search Input</h1>
+      <Row>
+        <Col className="mb-3">
+          <SearchInput
+            placeholder="Search"
+            value=""
+            onSearch={() => console.log('console.log', 'onSearch')}
+            onChange={() => console.log('console.log', 'onChange')}
+            onClear={() => console.log('console.log', 'onClear')}
+          />
+        </Col>
+      </Row>
+    </Container>
+  ),
+};
+
+export const SearchSuggestStory: Story = {
+  render: () => (
+    <Container>
+      <h1 className="my-6">Search Suggest</h1>
+      <Row>
+        <Col className="mb-3">
+          <SearchSuggest
+            className="w-100"
+            isLoading={false}
+            isOpen
+            limit={5}
+            onClear={() => console.log('console.log', 'Clear')}
+            onRemove={() => console.log('console.log', 'Remove')}
+            onSelect={() => console.log('console.log', 'Select')}
+            options={breeds}
+            search=""
+            title="Recent Searches"
+          />
+        </Col>
+      </Row>
+    </Container>
+  ),
+};

@@ -1,32 +1,54 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container, Row, Col, Nav, NavItem, NavLink } from '../';
-import themes from './utils/themes';
 
 import '../../scss/ray.scss';
 
-const stories = storiesOf('Nav', module);
+const meta: Meta<typeof Nav> = {
+  title: 'Nav',
+  component: Nav,
+  parameters: {
+    layout: 'padded',
+  },
+  argTypes: {
+    isFill: {
+      control: 'boolean',
+    },
+    isPills: {
+      control: 'boolean',
+    },
+    isTabs: {
+      control: 'boolean',
+    },
+  },
+};
 
-stories.addDecorator(withKnobs);
+export default meta;
+type Story = StoryObj<typeof Nav>;
 
-stories.add('Default', () => (
+export const Default: Story = {
+  args: {
+    isFill: false,
+    isPills: false,
+    isTabs: true,
+  },
+  render: (args) => (
   <Container>
     <h1 className="my-6">Nav</h1>
     <Row>
       <Col>
         <Nav
           withoutWrapper
-          isFill={boolean('Fill', false)}
-          isPills={boolean('Pills', false)}
-          isTabs={boolean('Tabs', true)}
+          isFill={args.isFill}
+          isPills={args.isPills}
+          isTabs={args.isTabs}
         >
           <NavItem>
             <NavLink
               href="#"
               type="button"
-              theme={select('Theme', themes, 'primary')}
-              isActive={boolean('Active Link', true)}
+              theme="primary"
+              isActive
             >
               First
             </NavLink>
@@ -38,7 +60,7 @@ stories.add('Default', () => (
             <NavLink href="#">Third</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#" isDisabled={boolean('Disabled Link', true)}>
+            <NavLink href="#" isDisabled>
               Fourth
             </NavLink>
           </NavItem>
@@ -46,4 +68,5 @@ stories.add('Default', () => (
       </Col>
     </Row>
   </Container>
-));
+  ),
+};

@@ -1,15 +1,22 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container, Row, Col, Collapse, Card } from '../';
 
 import '../../scss/ray.scss';
 
-const stories = storiesOf('Collapse', module);
+const meta: Meta<typeof Collapse> = {
+  title: 'Collapse',
+  component: Collapse,
+  parameters: {
+    layout: 'padded',
+  },
+};
 
-stories.addDecorator(withKnobs);
+export default meta;
+type Story = StoryObj<typeof Collapse>;
 
-stories.add('Default', () => (
+export const Default: Story = {
+  render: () => (
   <Container>
     <h1 className="my-6">Collapse</h1>
     <Row>
@@ -45,4 +52,5 @@ stories.add('Default', () => (
       </Col>
     </Row>
   </Container>
-));
+  ),
+};

@@ -1,14 +1,10 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container, Row, Col, Tag } from '../';
 import themes from './utils/themes';
 import allIcons, { IconNameType } from '../components/Icon/icons';
 
 import '../../scss/ray.scss';
-
-const stories = storiesOf('Tag', module);
 
 const icons: { [key: string]: IconNameType } = {};
 
@@ -16,41 +12,56 @@ Object.keys(allIcons).forEach(key => {
   icons[key as IconNameType] = key as IconNameType;
 });
 
-stories.addDecorator(withKnobs);
+const meta: Meta<typeof Tag> = {
+  title: 'Tag',
+  component: Tag,
+  parameters: {
+    layout: 'padded',
+  },
+  argTypes: {
+    theme: {
+      control: 'select',
+      options: Object.values(themes),
+    },
+    icon: {
+      control: 'select',
+      options: Object.keys(icons),
+    },
+    onRemove: { action: 'removed' },
+  },
+};
 
-stories.add('Default', () => (
+export default meta;
+type Story = StoryObj<typeof Tag>;
+
+export const Default: Story = {
+  args: {
+    theme: 'dark',
+    children: 'Social For Good',
+  },
+  render: (args) => (
   <Container>
     <h1 className="my-6">Tag</h1>
     <Row>
       <Col>
         <h2 className="h4 mb-3">Default</h2>
-        <Tag
-          icon={boolean('Show Icon', false) ? select('Icon', icons, 'media') : undefined}
-          theme={select('Theme', themes, 'dark')}
-        >
-          {text('Text', 'Social For Good')}
+        <Tag theme={args.theme} icon={args.icon}>
+          {args.children}
         </Tag>
       </Col>
       <Col>
         <h2 className="h4 mb-3">Outline</h2>
-        <Tag
-          icon={boolean('Show Icon', false) ? select('Icon', icons, 'media') : undefined}
-          isOutline
-          theme={select('Theme', themes, 'dark')}
-        >
-          {text('Text', 'Social For Good')}
+        <Tag theme={args.theme} icon={args.icon} isOutline>
+          {args.children}
         </Tag>
       </Col>
       <Col>
         <h2 className="h4 mb-3">With Remove</h2>
-        <Tag
-          icon={boolean('Show Icon', false) ? select('Icon', icons, 'media') : undefined}
-          theme={select('Theme', themes, 'dark')}
-          onRemove={action('Remove')}
-        >
-          {text('Text', 'Social For Good')}
+        <Tag theme={args.theme} icon={args.icon} onRemove={args.onRemove}>
+          {args.children}
         </Tag>
       </Col>
     </Row>
   </Container>
-));
+  ),
+};

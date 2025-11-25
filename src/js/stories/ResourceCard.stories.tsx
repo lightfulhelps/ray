@@ -1,15 +1,22 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container, Row, Col, ResourceCard } from '../';
 
 import '../../scss/ray.scss';
 
-const stories = storiesOf('ResourceCard', module);
+const meta: Meta<typeof ResourceCard> = {
+  title: 'ResourceCard',
+  component: ResourceCard,
+  parameters: {
+    layout: 'padded',
+  },
+};
 
-stories.addDecorator(withKnobs);
+export default meta;
+type Story = StoryObj<typeof ResourceCard>;
 
-stories.add('Default', () => (
+export const Default: Story = {
+  render: () => (
   <Container>
     <h1 className="my-6">ResourceCard</h1>
     <p className="mb-5">
@@ -80,4 +87,5 @@ stories.add('Default', () => (
       </Col>
     </Row>
   </Container>
-));
+  ),
+};
