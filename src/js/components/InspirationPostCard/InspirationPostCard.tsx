@@ -1,7 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
-import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import { format as formatDate } from 'date-fns';
 import { Card, Avatar, Icon, PostMedia, URLMetaPreview, Tag } from '../..';
 import { IconNameType } from '../Icon/icons';
@@ -59,8 +57,6 @@ export const config = {
   tagLimit: 3,
 };
 
-const ResponsiveHTMLEllipsis = responsiveHOC()(HTMLEllipsis);
-
 const InspirationPostCard: React.FC<Props> = ({
   className,
   dateFormat = "d MMM yy '-' HH:mm",
@@ -91,14 +87,16 @@ const InspirationPostCard: React.FC<Props> = ({
           </div>
         </div>
       </div>
-      <div className={`${blockClass}__content`}>
-        <ResponsiveHTMLEllipsis
-          unsafeHTML={post.content.replace(/\n/g, '<br />')}
-          maxLine={config.contentLines}
-          ellipsis="..."
-          basedOn="words"
-        />
-      </div>
+      <div
+        className={`${blockClass}__content`}
+        style={{
+          display: '-webkit-box',
+          WebkitLineClamp: config.contentLines,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden',
+        }}
+        dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br />') }}
+      />
       <div className={`${blockClass}__media`}>
         {post.media && post.media.length > 0 && <PostMedia media={post.media} />}
         {showMetaPreview && (

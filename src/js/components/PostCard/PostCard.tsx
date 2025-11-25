@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
-import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import { format as formatDate } from 'date-fns';
 import { Card, Avatar, PostMedia, URLMetaPreview, Button, Tag, Icon } from '../..';
 import { IconNameType } from '../Icon/icons';
@@ -67,8 +65,6 @@ export type Props = {
   };
   [key: string]: any;
 };
-
-const ResponsiveHTMLEllipsis = responsiveHOC()(HTMLEllipsis);
 
 const PostCard: React.FC<Props> = props => {
   const [isTruncated, setIsTruncated] = useState(true);
@@ -181,17 +177,26 @@ const PostCard: React.FC<Props> = props => {
             </div>
           </div>
           <div
-            className="mb-3 post-card__content"
+            className={` ${isTruncated ? '' : 'mb-3'} post-card__content`}
             data-test-id="post-card-content"
             onClick={handleToggleTruncate}
-          >
-            <ResponsiveHTMLEllipsis
-              unsafeHTML={post.content.replace(/\n/g, '<br />')}
-              maxLine={isTruncated ? defaultLineClamp : allLinesClamp}
-              ellipsisHTML='<span class="text-underline cursor-pointer fw-bold">See more</span>'
-              basedOn="words"
-            />
-          </div>
+            style={{
+              display: '-webkit-box',
+              WebkitLineClamp: isTruncated ? defaultLineClamp : allLinesClamp,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+              cursor: 'pointer',
+            }}
+            dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br />') }}
+          />
+          {isTruncated && (
+            <span
+              className="text-underline cursor-pointer fw-bold d-block mb-3"
+              onClick={handleToggleTruncate}
+            >
+              See more
+            </span>
+          )}
           <div className="d-flex flex-wrap">
             {post.campaign && (
               <Tag className="d-flex align-items-center mb-1 me-1 badge-pill" icon="storyBuilder">
