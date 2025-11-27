@@ -33,7 +33,7 @@
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "prettier --write",
-      "eslint --max-warnings 60",
+      "eslint --max-warnings 5",
       "git add"
     ],
     "src/**/*.scss": [
