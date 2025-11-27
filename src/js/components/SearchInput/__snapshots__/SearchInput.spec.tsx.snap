@@ -1,23 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SearchInput /> should render 1`] = `
-<div
-  className="search-input input-group shadow"
->
-  <FormInput
-    data-test-id="search-input"
-    onChange={[MockFunction]}
-    onKeyPress={[Function]}
-    placeholder="Search..."
-    type="text"
-  />
-  <Button
-    className="input-group-append"
-    data-test-id="search-input-button"
-    icon="search"
-    isOutline={true}
-    onClick={[MockFunction]}
-    theme="gray-600"
-  />
+<div>
+  <div
+    class="search-input input-group shadow"
+  >
+    <input
+      class="form-control"
+      data-testid="search-input"
+      placeholder="Search..."
+      type="text"
+    />
+    <button
+      class="input-group-append btn btn-outline-gradient-gray-600 btn-outline-gray-600 btn-icon"
+      data-testid="search-input-button"
+      type="button"
+    >
+      <span>
+        <svg
+          class="icon icon-gray-600"
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M20.875 19.4602l-4-4.0048a2.441 2.441 0 00-.43-.3504l-1-.6908c2.0569-2.5482 2.076-6.1832.046-8.753-2.03-2.5697-5.5674-3.3884-8.5179-1.9713-2.9505 1.417-4.5267 4.6917-3.7954 7.8852.7313 3.1935 3.575 5.4536 6.8473 5.4422a6.9946 6.9946 0 004.37-1.5318l.75 1.0012c.089.1289.1894.2495.3.3604l4 4.0048a.4997.4997 0 00.71 0l.7-.7008a.5012.5012 0 00.02-.6909zm-10.85-4.4453c-2.7614 0-5-2.2413-5-5.006 0-2.7648 2.2386-5.006 5-5.006s5 2.2412 5 5.006a5.0092 5.0092 0 01-1.4645 3.5398 4.9969 4.9969 0 01-3.5355 1.4662z"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
 </div>
 `;

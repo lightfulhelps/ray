@@ -1,27 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Avatar /> should render 1`] = `
-<div
-  className="avatar avatar-provider-md"
->
+<div>
   <div
-    className="avatar-inner"
+    class="avatar avatar-provider-md"
   >
     <div
-      className="avatar-image"
-      style={
-        Object {
-          "backgroundImage": "url(https://randomuser.me/api/portraits/women/47.jpg)",
-        }
-      }
-    />
-    <div
-      className="avatar-provider avatar-provider-twitter"
+      class="avatar-inner"
     >
-      <Icon
-        color="#ffffff"
-        name="twitter"
+      <div
+        class="avatar-image"
+        style="background-image: url(https://randomuser.me/api/portraits/women/47.jpg);"
       />
+      <div
+        class="avatar-provider avatar-provider-twitter"
+      >
+        <svg
+          class="icon"
+          height="1em"
+          style="fill: #ffffff;"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <g
+            clip-path="url(#clip0_5329_288)"
+          >
+            <path
+              d="M13.5222 10.7749L19.4785 4h-1.4114l-5.1719 5.8826L8.7644 4H4l6.2466 8.8955L4 20h1.4116l5.4616-6.2122L15.2356 20H20l-6.4782-9.2251h.0004zm-1.9333 2.1989l-.6329-.8857-5.0358-7.0484h2.168l4.064 5.6883.6329.8857 5.2826 7.3938h-2.168l-4.3108-6.0333v-.0004z"
+            />
+          </g>
+          <defs>
+            <clippath
+              id="clip0_5329_288"
+            >
+              <path
+                d="M0 0h24v24H0z"
+              />
+            </clippath>
+          </defs>
+        </svg>
+      </div>
     </div>
   </div>
 </div>

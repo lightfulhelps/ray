@@ -73,21 +73,21 @@ const SearchSuggest: React.FC<Props> = ({
     <DropdownMenu
       {...other}
       className={classes}
-      data-test-id="search-suggest"
+      data-testid="search-suggest"
       isOpen={isOpen}
       onClick={onClick}
     >
       {title && (
         <DropdownItem
           className="d-flex justify-content-between align-items-center"
-          data-test-id="search-suggest-header"
+          data-testid="search-suggest-header"
           isHeader
         >
           {title}{' '}
           {!isLoading && onClear && (
             <div
               className="ms-1 text-danger cursor-pointer text-capitalize"
-              data-test-id="search-suggest-clear"
+              data-testid="search-suggest-clear"
               onClick={onClear}
             >
               {text.clearAll}
@@ -96,7 +96,7 @@ const SearchSuggest: React.FC<Props> = ({
         </DropdownItem>
       )}
       {isLoading && (
-        <DropdownItem data-test-id="search-suggest-loading" isDisabled>
+        <DropdownItem data-testid="search-suggest-loading" isDisabled>
           {text.loading}
         </DropdownItem>
       )}
@@ -104,7 +104,7 @@ const SearchSuggest: React.FC<Props> = ({
         filteredOptions.slice(0, count).map((option, i) => (
           <DropdownItem
             className="d-flex justify-content-between align-items-center text-body"
-            data-test-id="search-suggest-item"
+            data-testid="search-suggest-item"
             key={i}
             onClick={() => onSelect(option, i)}
           >
@@ -112,7 +112,7 @@ const SearchSuggest: React.FC<Props> = ({
             {onRemove && (
               <Icon
                 className="ms-1"
-                data-test-id="search-suggest-remove"
+                data-testid="search-suggest-remove"
                 name="close"
                 onClick={(e: React.MouseEvent) => {
                   e.stopPropagation();

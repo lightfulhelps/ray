@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import FormLabel from './FormLabel';
 
@@ -10,49 +10,53 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<FormLabel {...props} />);
+  const utils = render(<FormLabel {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<FormLabel />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle children', () => {
-    const { wrapper } = setup({ children: 'Children' });
+    const { container } = setup({ children: 'Children' });
 
-    expect(wrapper.text()).toBe('Children');
+    expect(container.textContent).toBe('Children');
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<FormLabel {...props} className="custom" />);
 
-    expect(wrapper.hasClass('form-label')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const label = container.querySelector('label');
+    expect(label).toHaveClass('form-label');
+    expect(label).toHaveClass('custom');
   });
 
   it('should handle isCheck', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('form-label')).toBe(true);
-    expect(wrapper.hasClass('form-check-label')).toBe(false);
+    let label = container.querySelector('label');
+    expect(label).toHaveClass('form-label');
+    expect(label).not.toHaveClass('form-check-label');
 
-    wrapper.setProps({ isCheck: true });
+    rerender(<FormLabel {...props} isCheck />);
 
-    expect(wrapper.hasClass('form-label')).toBe(false);
-    expect(wrapper.hasClass('form-check-label')).toBe(true);
+    label = container.querySelector('label');
+    expect(label).not.toHaveClass('form-label');
+    expect(label).toHaveClass('form-check-label');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const label = container.querySelector('label');
+    expect(label).toHaveAttribute('tabIndex', '1');
+    expect(label).toHaveAttribute('id', 'test');
   });
 });

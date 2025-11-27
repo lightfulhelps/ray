@@ -48,7 +48,7 @@ const FormPasswordInput: React.FC<Props> = ({
       <FormInput
         {...other}
         className={classes}
-        data-test-id="password-input"
+        data-testid="password-input"
         isInvalid={isInvalid}
         isValid={isValid}
         name={name}
@@ -61,7 +61,7 @@ const FormPasswordInput: React.FC<Props> = ({
         value={value}
       />
       <Button
-        data-test-id="password-input-button"
+        data-testid="password-input-button"
         icon={hidePassword ? 'preview' : 'previewHide'}
         isOutline
         onClick={togglePassword}

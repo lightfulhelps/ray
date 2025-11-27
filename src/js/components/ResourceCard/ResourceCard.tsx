@@ -50,11 +50,11 @@ const ResourceCard: React.FC<Props> = ({
         >
           <Icon isActive name="download" theme="white" />
         </div>
-        <div className="text-xs text-white" data-test-id="resource-card-campaign">
+        <div className="text-xs text-white" data-testid="resource-card-campaign">
           {campaign}
         </div>
       </div>
-      <div className="text-sm fw-bold text-white" data-test-id="resource-card-title">
+      <div className="text-sm fw-bold text-white" data-testid="resource-card-title">
         {title}
       </div>
     </Tag>

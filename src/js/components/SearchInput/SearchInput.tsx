@@ -19,7 +19,7 @@ const SearchInput: React.FC<Props> = ({
   ...other
 }: Props) => {
   const classes = classNames(className, 'search-input input-group shadow');
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       onSearch(e);
     }
@@ -28,15 +28,15 @@ const SearchInput: React.FC<Props> = ({
   return (
     <div {...other} className={classes}>
       <FormInput
-        data-test-id="search-input"
+        data-testid="search-input"
         onChange={onChange}
-        onKeyPress={handleKeyPress}
+        onKeyDown={handleKeyDown}
         placeholder={placeholder}
         type="text"
         value={value}
       />
       <Button
-        data-test-id="search-input-button"
+        data-testid="search-input-button"
         className="input-group-append"
         icon="search"
         isOutline

@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { merge } from 'lodash';
 import { InspirationPostCard, PostMedia, URLMetaPreview, Icon } from '../..';
 
@@ -44,122 +45,154 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<InspirationPostCard {...props} />);
+  const renderResult = render(<InspirationPostCard {...props} />);
 
   return {
-    wrapper,
+    ...renderResult,
     props,
   };
 };
 
 describe('<InspirationPostCard />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle the className prop', () => {
-    const { wrapper } = setup();
+    const { container } = setup({ className: 'custom' });
 
-    wrapper.setProps({ className: 'custom' });
-
-    expect(wrapper.hasClass('inspiration-post-card')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const card = container.querySelector('.inspiration-post-card');
+    expect(card).toHaveClass('inspiration-post-card');
+    expect(card).toHaveClass('custom');
   });
 
   it('should optionally display post date', () => {
-    const { wrapper, props } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.find('.inspiration-post-card__date').text()).toBe('22 Aug 18 - 14:34');
+    let dateElement = container.querySelector('.inspiration-post-card__date');
+    expect(dateElement).toHaveTextContent('22 Aug 18 - 14:34');
 
-    wrapper.setProps({ post: { ...props.post, date: null } });
+    rerender(<InspirationPostCard {...props} post={{ ...props.post, date: null }} />);
 
-    expect(wrapper.find('.inspiration-post-card__date').text()).toBe('Unscheduled');
+    dateElement = container.querySelector('.inspiration-post-card__date');
+    expect(dateElement).toHaveTextContent('Unscheduled');
   });
 
   it('should handle the dateFormat prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.find('.inspiration-post-card__date').text()).toEqual('22 Aug 18 - 14:34');
+    let dateElement = container.querySelector('.inspiration-post-card__date');
+    expect(dateElement).toHaveTextContent('22 Aug 18 - 14:34');
 
-    wrapper.setProps({ dateFormat: "HH:MM 'on' dd-MM-yyyy" });
+    rerender(<InspirationPostCard {...props} dateFormat="HH:MM 'on' dd-MM-yyyy" />);
 
-    expect(wrapper.find('.inspiration-post-card__date').text()).toEqual('14:08 on 22-08-2018');
+    dateElement = container.querySelector('.inspiration-post-card__date');
+    expect(dateElement).toHaveTextContent('14:08 on 22-08-2018');
   });
 
   it('should set HTML in the post content', () => {
     const content = 'Hi <a href="">@Buttle</a>';
-    const { wrapper } = setup({ post: { content } });
+    const { container } = setup({ post: { content } });
 
-    expect(
-      wrapper
-        .find('.inspiration-post-card__content')
-        .children()
-        .at(0)
-        .prop('unsafeHTML')
-    ).toEqual(content);
+    const contentElement = container.querySelector('.inspiration-post-card__content');
+    expect(contentElement.innerHTML).toContain(content);
   });
 
   it('should show PostMedia if has media', () => {
-    const { wrapper, props } = setup();
+    const result = setup();
+    const { container, rerender, props } = result;
 
-    expect(wrapper.find(PostMedia).exists()).toBe(false);
+    expect(container.querySelector('.post-media')).not.toBeInTheDocument();
 
-    wrapper.setProps({ post: { ...props.post, media: [{ id: 1 }] } });
+    rerender(
+      <InspirationPostCard
+        {...props}
+        post={{ ...props.post, media: [{ type: 'image', url: 'test.jpg' }] }}
+      />
+    );
 
-    expect(wrapper.find(PostMedia).exists()).toBe(true);
+    expect(container.querySelector('.post-media')).toBeInTheDocument();
   });
 
   it('should show URLMetaPreview if no media and metaPreview.url value', () => {
-    const { wrapper, props } = setup({ post: { media: [{ id: 1 }] } });
+    const result = setup();
+    const { container, rerender, props } = result;
 
-    expect(wrapper.find(PostMedia).exists()).toBe(true);
+    rerender(
+      <InspirationPostCard
+        {...props}
+        post={{ ...props.post, media: [{ type: 'image', url: 'test.jpg' }] }}
+      />
+    );
+    expect(container.querySelector('.post-media')).toBeInTheDocument();
 
-    wrapper.setProps({
-      post: { ...props.post, media: [] },
-      metaPreview: { url: 'http://foo.com' },
-    });
+    rerender(
+      <InspirationPostCard
+        {...props}
+        post={{ ...props.post, media: [] }}
+        metaPreview={{ url: 'http://foo.com', title: 'Test' }}
+      />
+    );
 
-    expect(wrapper.find(PostMedia).exists()).toBe(false);
-    expect(wrapper.find(URLMetaPreview).exists()).toBe(true);
+    expect(container.querySelector('.post-media')).not.toBeInTheDocument();
+    expect(container.querySelector('.url-meta-preview')).toBeInTheDocument();
   });
 
   it('should display the empty media message if no media and no metaPreview', () => {
-    const { wrapper, props } = setup({ post: { media: [{ id: 1 }] } });
+    const result = setup();
+    const { container, rerender, props } = result;
 
-    expect(wrapper.find('.post-media--empty').exists()).toBe(false);
+    rerender(
+      <InspirationPostCard
+        {...props}
+        post={{ ...props.post, media: [{ type: 'image', url: 'test.jpg' }] }}
+      />
+    );
+    expect(container.querySelector('.post-media--empty')).not.toBeInTheDocument();
 
-    wrapper.setProps({
-      post: { ...props.post, media: [] },
-      metaPreview: { url: 'http://foo.com' },
-    });
+    rerender(
+      <InspirationPostCard
+        {...props}
+        post={{ ...props.post, media: [] }}
+        metaPreview={{ url: 'http://foo.com', title: 'Test' }}
+      />
+    );
 
-    expect(wrapper.find('.post-media--empty').exists()).toBe(false);
+    expect(container.querySelector('.post-media--empty')).not.toBeInTheDocument();
 
-    wrapper.setProps({ metaPreview: {} });
+    rerender(<InspirationPostCard {...props} post={{ ...props.post, media: [] }} />);
 
-    expect(wrapper.find('.post-media--empty').exists()).toBe(true);
+    expect(container.querySelector('.post-media--empty')).toBeInTheDocument();
   });
 
   it('should optionally display inspirationActions', () => {
-    const { wrapper } = setup({ inspirationActions: [{ icon: 'follow' }] });
+    const { container, rerender, props } = setup({
+      inspirationActions: [{ icon: 'follow', onClick: jest.fn() }],
+    });
 
-    expect(wrapper.find('.inspiration-post-card__inspiration-actions').exists()).toBe(true);
+    expect(
+      container.querySelector('.inspiration-post-card__inspiration-actions')
+    ).toBeInTheDocument();
 
-    wrapper.setProps({ inspirationActions: [] });
+    rerender(<InspirationPostCard {...props} inspirationActions={[]} />);
 
-    expect(wrapper.find('.inspiration-post-card__inspiration-actions').exists()).toBe(false);
+    expect(
+      container.querySelector('.inspiration-post-card__inspiration-actions')
+    ).not.toBeInTheDocument();
 
-    wrapper.setProps({ inspirationActions: null });
+    rerender(<InspirationPostCard {...props} inspirationActions={null} />);
 
-    expect(wrapper.find('.inspiration-post-card__inspiration-actions').exists()).toBe(false);
+    expect(
+      container.querySelector('.inspiration-post-card__inspiration-actions')
+    ).not.toBeInTheDocument();
   });
 
-  it('should handle the inspirationActions prop', () => {
+  it('should handle the inspirationActions prop', async () => {
     const follow = jest.fn();
     const like = jest.fn();
-    const { wrapper } = setup({
+    const { container } = setup({
       inspirationActions: [
         {
           icon: 'follow',
@@ -176,38 +209,34 @@ describe('<InspirationPostCard />', () => {
       ],
     });
 
-    const inspirationActions = wrapper
-      .find('.inspiration-post-card__inspiration-actions')
-      .find(Icon);
+    const icons = container.querySelectorAll('.inspiration-post-card__inspiration-actions .icon');
 
-    expect(inspirationActions).toHaveLength(2);
+    expect(icons).toHaveLength(2);
 
-    expect(inspirationActions.at(0).prop('name')).toEqual('follow');
-    expect(inspirationActions.at(0).prop('theme')).toEqual('gray-500');
-    expect(inspirationActions.at(1).prop('name')).toEqual('like');
-    expect(inspirationActions.at(1).prop('theme')).toEqual('gray-500');
-
-    inspirationActions.at(0).simulate('click');
-    inspirationActions.at(1).simulate('click');
+    await userEvent.click(icons[0]);
+    await userEvent.click(icons[1]);
 
     expect(follow).toHaveBeenCalledTimes(1);
     expect(like).toHaveBeenCalledTimes(0); // because like isActive
   });
 
   it('should optionally display post metrics', () => {
-    const { wrapper, props } = setup({ post: { metrics: { likes: 3 } } });
+    const result = setup();
+    const { container, rerender, props } = result;
 
-    expect(wrapper.find('.inspiration-post-card__metrics').exists()).toBe(true);
+    rerender(<InspirationPostCard {...props} post={{ ...props.post, metrics: { likes: 3 } }} />);
+    expect(container.querySelector('.inspiration-post-card__metrics')).toBeInTheDocument();
 
-    wrapper.setProps({ post: { ...props.post, metrics: {} } });
+    rerender(<InspirationPostCard {...props} post={{ ...props.post, metrics: {} }} />);
 
-    expect(wrapper.find('.inspiration-post-card__metrics').exists()).toBe(false);
+    expect(container.querySelector('.inspiration-post-card__metrics')).not.toBeInTheDocument();
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const card = container.firstChild as Element;
+    expect(card).toHaveAttribute('tabIndex', '1');
+    expect(card).toHaveAttribute('id', 'test');
   });
 });

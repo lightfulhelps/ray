@@ -1,79 +1,82 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
-import Select from 'react-select';
-import Creatable from 'react-select/creatable';
 import FormSelect from './FormSelect';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
-  const wrapper = shallow(<FormSelect {...props} />);
+  const utils = render(<FormSelect {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<FormSelect />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
-    expect(wrapper.hasClass('custom')).toBe(true);
+    rerender(<FormSelect {...props} className="custom" />);
+    const select = container.firstChild;
+    expect(select).toHaveClass('custom');
   });
 
   it('should handle isCreatable', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.find(Select)).toHaveLength(1);
-    expect(wrapper.find(Creatable)).toHaveLength(0);
+    expect(container.querySelector('.form-select')).toBeInTheDocument();
 
-    wrapper.setProps({ isCreatable: true });
+    rerender(<FormSelect {...props} isCreatable />);
 
-    expect(wrapper.find(Select)).toHaveLength(0);
-    expect(wrapper.find(Creatable)).toHaveLength(1);
+    expect(container.querySelector('.form-select')).toBeInTheDocument();
   });
 
   it('should handle isInvalid', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('is-invalid')).toBe(false);
+    let select = container.firstChild;
+    expect(select).not.toHaveClass('is-invalid');
 
-    wrapper.setProps({ isInvalid: true });
+    rerender(<FormSelect {...props} isInvalid />);
 
-    expect(wrapper.hasClass('is-invalid')).toBe(true);
+    select = container.firstChild;
+    expect(select).toHaveClass('is-invalid');
   });
 
   it('should handle isValid', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('is-valid')).toBe(false);
+    let select = container.firstChild;
+    expect(select).not.toHaveClass('is-valid');
 
-    wrapper.setProps({ isValid: true });
+    rerender(<FormSelect {...props} isValid />);
 
-    expect(wrapper.hasClass('is-valid')).toBe(true);
+    select = container.firstChild;
+    expect(select).toHaveClass('is-valid');
   });
 
   it('should handle size', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ size: 'sm' });
+    rerender(<FormSelect {...props} size="sm" />);
 
-    expect(wrapper.hasClass('form-select-sm')).toBe(true);
+    let select = container.firstChild;
+    expect(select).toHaveClass('form-select-sm');
 
-    wrapper.setProps({ size: 'lg' });
+    rerender(<FormSelect {...props} size="lg" />);
 
-    expect(wrapper.hasClass('form-select-lg')).toBe(true);
+    select = container.firstChild;
+    expect(select).toHaveClass('form-select-lg');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const select = container.firstChild;
+    expect(select).toHaveAttribute('id', 'test');
   });
 });

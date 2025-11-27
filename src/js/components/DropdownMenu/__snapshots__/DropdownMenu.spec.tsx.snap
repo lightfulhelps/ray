@@ -1,15 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<DropdownMenu /> should render 1`] = `
-<div
-  className="dropdown-menu shadow dropdown-menu-light dropdown-menu-left"
-  onClick={[Function]}
->
-  Children
+<div>
   <div
-    className="dropdown-footer"
+    class="dropdown-menu shadow dropdown-menu-light dropdown-menu-left"
   >
-    Footer
+    Children
+    <div
+      class="dropdown-footer"
+    >
+      Footer
+    </div>
   </div>
 </div>
 `;

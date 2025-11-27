@@ -1,14 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Badge /> should render 1`] = `
-<div
-  className="badge bg-primary text-truncate mw-100"
-  style={
-    Object {
-      "backgroundColor": undefined,
-    }
-  }
->
-  Badge
+<div>
+  <div
+    class="badge bg-primary text-truncate mw-100"
+  >
+    Badge
+  </div>
 </div>
 `;

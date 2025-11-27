@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import Row from './Row';
 
@@ -10,60 +10,66 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<Row {...props} />);
+  const utils = render(<Row {...props} />);
 
   return {
-    wrapper,
+    ...utils,
     props,
   };
 };
 
 describe('<Row />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle the children prop', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper.children().text()).toEqual('Children');
+    expect(container.textContent).toEqual('Children');
   });
 
   it('should handle the className prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<Row {...props} className="custom" />);
 
-    expect(wrapper.hasClass('row')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const row = container.querySelector('.row');
+    expect(row).toHaveClass('row');
+    expect(row).toHaveClass('custom');
   });
 
   it('should handle the noGutter prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('no-gutters')).toBe(false);
+    let row = container.querySelector('.row');
+    expect(row).not.toHaveClass('no-gutters');
 
-    wrapper.setProps({ noGutters: true });
+    rerender(<Row {...props} noGutters />);
 
-    expect(wrapper.hasClass('no-gutters')).toBe(true);
+    row = container.querySelector('.row');
+    expect(row).toHaveClass('no-gutters');
   });
 
   it('should handle the tag prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.type()).toBe('div');
+    let row = container.querySelector('.row');
+    expect(row?.tagName.toLowerCase()).toBe('div');
 
-    wrapper.setProps({ tag: 'a' });
+    rerender(<Row {...props} tag="a" />);
 
-    expect(wrapper.type()).toBe('a');
+    row = container.querySelector('.row');
+    expect(row?.tagName.toLowerCase()).toBe('a');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const row = container.querySelector('.row');
+    expect(row).toHaveAttribute('tabIndex', '1');
+    expect(row).toHaveAttribute('id', 'test');
   });
 });

@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import merge from 'lodash/merge';
 import { addDays, subDays } from 'date-fns';
-import { PostCard, PostMedia, URLMetaPreview } from '../..';
+import { PostCard } from '../..';
 import { PostType } from './PostCard';
 
 const setup = (overrides = {}) => {
@@ -48,161 +48,168 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<PostCard {...props} />);
+  const utils = render(<PostCard {...props} />);
 
   return {
-    wrapper,
+    ...utils,
     props,
   };
 };
 
 describe('<PostCard />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with errors', () => {
-    const { wrapper } = setup({ errors: ['foo', 'bar'] });
+    const { container } = setup({ errors: ['foo', 'bar'] });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container } = setup({ className: 'custom' });
 
-    wrapper.setProps({ className: 'custom' });
-
-    expect(wrapper.hasClass('post-card')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const postCard = container.querySelector('.post-card');
+    expect(postCard).toHaveClass('post-card');
+    expect(postCard).toHaveClass('custom');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const postCard = container.querySelector('.post-card');
+    expect(postCard).toHaveAttribute('tabIndex', '1');
+    expect(postCard).toHaveAttribute('id', 'test');
   });
 
   it('should handle the draft prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('post-card--draft')).toBe(false);
+    let postCard = container.querySelector('.post-card');
+    expect(postCard).not.toHaveClass('post-card--draft');
 
-    wrapper.setProps({ isDraft: true });
+    rerender(<PostCard post={props.post} isDraft />);
 
-    expect(wrapper.hasClass('post-card--draft')).toBe(true);
+    postCard = container.querySelector('.post-card');
+    expect(postCard).toHaveClass('post-card--draft');
   });
 
   it('should handle the invalid prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('post-card--invalid')).toBe(false);
+    let postCard = container.querySelector('.post-card');
+    expect(postCard).not.toHaveClass('post-card--invalid');
 
-    wrapper.setProps({ isInvalid: true });
+    rerender(<PostCard post={props.post} isInvalid />);
 
-    expect(wrapper.hasClass('post-card--invalid')).toBe(true);
+    postCard = container.querySelector('.post-card');
+    expect(postCard).toHaveClass('post-card--invalid');
   });
 
   it('should optionally display post date', () => {
-    const { wrapper, props } = setup();
+    const { rerender, props } = setup();
 
-    expect(wrapper.find('[data-test-id="post-card-date"]').text()).toBe(
+    expect(screen.getByTestId('post-card-date')).toHaveTextContent(
       'Scheduled for 14:34 on Wednesday, 22 August'
     );
 
-    wrapper.setProps({ post: { ...props.post, date: null } });
+    rerender(<PostCard post={{ ...props.post, date: null }} />);
 
-    expect(wrapper.find('[data-test-id="post-card-date"]').text()).toBe('Unscheduled');
+    expect(screen.getByTestId('post-card-date')).toHaveTextContent('Unscheduled');
   });
 
   it('should handle post state in date message', () => {
-    const { wrapper, props } = setup({
+    const { rerender, props } = setup({
       post: { date: addDays(new Date(), 1), state: 'scheduled' },
     });
 
-    expect(wrapper.find('[data-test-id="post-card-date"]').text()).not.toContain('Published');
-    expect(wrapper.find('[data-test-id="post-card-date"]').text()).toContain('Scheduled');
+    expect(screen.getByTestId('post-card-date')).not.toHaveTextContent('Published');
+    expect(screen.getByTestId('post-card-date')).toHaveTextContent('Scheduled');
 
-    wrapper.setProps({ post: { ...props.post, date: subDays(new Date(), 1), state: 'published' } });
+    rerender(
+      <PostCard post={{ ...props.post, date: subDays(new Date(), 1), state: 'published' }} />
+    );
 
-    expect(wrapper.find('[data-test-id="post-card-date"]').text()).toContain('Published');
-    expect(wrapper.find('[data-test-id="post-card-date"]').text()).not.toContain('Scheduled');
+    expect(screen.getByTestId('post-card-date')).toHaveTextContent('Published');
+    expect(screen.getByTestId('post-card-date')).not.toHaveTextContent('Scheduled');
   });
 
   it('should handle the dateFormat prop', () => {
-    const { wrapper } = setup();
+    const { rerender, props } = setup();
 
-    expect(wrapper.find('[data-test-id="post-card-date"]').text()).toEqual(
+    expect(screen.getByTestId('post-card-date')).toHaveTextContent(
       'Scheduled for 14:34 on Wednesday, 22 August'
     );
 
-    wrapper.setProps({ dateFormat: "HH:MM 'on' dd-MM-yyyy" });
+    rerender(<PostCard post={props.post} dateFormat="HH:MM 'on' dd-MM-yyyy" />);
 
-    expect(wrapper.find('[data-test-id="post-card-date"]').text()).toEqual(
+    expect(screen.getByTestId('post-card-date')).toHaveTextContent(
       'Scheduled for 14:08 on 22-08-2018'
     );
   });
 
   it('should set HTML in the post content', () => {
     const content = 'Hi <a href="">@Buttle</a>';
-    const { wrapper } = setup({ post: { content } });
+    setup({ post: { content } });
 
-    expect(
-      wrapper
-        .find('[data-test-id="post-card-content"]')
-        .children()
-        .at(0)
-        .prop('unsafeHTML')
-    ).toEqual(content);
+    const contentElement = screen.getByTestId('post-card-content');
+    expect(contentElement.innerHTML).toContain(content);
   });
 
   it('should show PostMedia if has media', () => {
-    const { wrapper, props } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.find(PostMedia).exists()).toBe(true);
+    // Check that media is rendered (PostMedia component renders the media)
+    expect(container.querySelector('.post-card__media-wrap')).toBeInTheDocument();
 
-    wrapper.setProps({ post: { ...props.post, media: [] } });
+    rerender(<PostCard post={{ ...props.post, media: [] }} />);
 
-    expect(wrapper.find(PostMedia).exists()).toBe(false);
+    // When no media, should show empty state
+    expect(container.querySelector('.post-media--empty')).toBeInTheDocument();
   });
 
   it('should show URLMetaPreview if no media and metaPreview.url value', () => {
-    const { wrapper, props } = setup({ post: { media: [{ id: 1 }] } });
+    const postWithoutMedia = { ...setup().props.post, media: [] };
+    const { container, rerender } = render(<PostCard post={postWithoutMedia} />);
 
-    expect(wrapper.find(PostMedia).exists()).toBe(true);
+    expect(container.querySelector('.post-media--empty')).toBeInTheDocument();
 
-    wrapper.setProps({
-      post: { ...props.post, media: [] },
-      metaPreview: { url: 'http://foo.com', title: 'Foo' },
-    });
+    rerender(
+      <PostCard post={postWithoutMedia} metaPreview={{ url: 'http://foo.com', title: 'Foo' }} />
+    );
 
-    expect(wrapper.find(PostMedia).exists()).toBe(false);
-    expect(wrapper.find(URLMetaPreview).exists()).toBe(true);
+    expect(container.querySelector('.post-media--empty')).not.toBeInTheDocument();
+    expect(container.querySelector('.url-meta-preview')).toBeInTheDocument();
   });
 
   it('should display the empty media message if no media and no metaPreview', () => {
-    const { wrapper, props } = setup({ post: { media: [{ id: 1 }] } });
-
-    expect(wrapper.find('.post-media--empty').exists()).toBe(false);
-
-    wrapper.setProps({
-      post: { ...props.post, media: [] },
-      metaPreview: { url: 'http://foo.com', title: 'Foo' },
+    const { container, rerender, props } = setup({
+      post: { media: [{ id: '1', type: 'image', url: 'test.jpg' }] },
     });
 
-    expect(wrapper.find('.post-media--empty').exists()).toBe(false);
+    expect(container.querySelector('.post-media--empty')).not.toBeInTheDocument();
 
-    wrapper.setProps({ metaPreview: {} });
+    rerender(
+      <PostCard
+        post={{ ...props.post, media: [] }}
+        metaPreview={{ url: 'http://foo.com', title: 'Foo' }}
+      />
+    );
 
-    expect(wrapper.find('.post-media--empty').exists()).toBe(true);
+    expect(container.querySelector('.post-media--empty')).not.toBeInTheDocument();
+
+    rerender(<PostCard post={{ ...props.post, media: [] }} />);
+
+    expect(container.querySelector('.post-media--empty')).toBeInTheDocument();
   });
 
   it('should display notes if notesAction', () => {
-    const { wrapper } = setup({ notesAction: jest.fn(), notesCount: 3 });
+    const { container } = setup({ notesAction: jest.fn(), notesCount: 3 });
 
-    expect(wrapper.find('[data-test-id="post-card-notes"]')).toHaveLength(1);
-    expect(wrapper.find('[data-test-id="post-card-metric"]')).toHaveLength(0);
+    expect(screen.getByTestId('post-card-notes')).toBeInTheDocument();
+    expect(container.querySelectorAll('[data-testid="post-card-metric"]')).toHaveLength(0);
   });
 });

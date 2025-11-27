@@ -35,7 +35,7 @@ const URLMetaPreview: React.FC<Props> = ({
           <div className={isVertical ? '' : 'col-4 pe-0'}>
             <div
               className="w-100 h-100 bg-cover bg-center"
-              data-test-id="url-meta-preview-image"
+              data-testid="url-meta-preview-image"
               style={{ backgroundImage: `url(${image})` }}
             >
               {isVertical && <img className="w-100 rounded-top-sm d-block" src={image} alt="" />}
@@ -55,7 +55,7 @@ const URLMetaPreview: React.FC<Props> = ({
             {description && (
               <div
                 className="fw-light text-gray-500 text-truncate"
-                data-test-id="url-meta-preview-description"
+                data-testid="url-meta-preview-description"
               >
                 {description}
               </div>
@@ -69,7 +69,7 @@ const URLMetaPreview: React.FC<Props> = ({
             }
             <a
               className="d-block text-body text-truncate"
-              data-test-id="url-meta-preview-url"
+              data-testid="url-meta-preview-url"
               href={url}
               target="_blank"
               rel="noopener noreferrer"

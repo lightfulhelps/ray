@@ -1,13 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CharacterCounter /> should render 1`] = `
-<div
-  className="character-counter"
->
-  <Icon
-    name="characterCount"
-  />
-  4
-  /5
+<div>
+  <div
+    class="character-counter"
+  >
+    <svg
+      class="icon"
+      height="1em"
+      style="fill: currentColor;"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M22 5c0-1.1046-.8954-2-2-2H4c-1.1046 0-2 .8954-2 2v12c0 1.1046.8954 2 2 2h5.09c.2623.0011.5137.1053.7.29l1.49 1.49a.7501.7501 0 00.53.22h.38a.7501.7501 0 00.53-.22l1.49-1.49a1.0003 1.0003 0 01.7-.29H20c1.1046 0 2-.8954 2-2V5zm-8 8.5a.5.5 0 01-.5.5h-7a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5h7a.5.5 0 01.5.5v1zm4-4a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5h11a.5.5 0 01.5.5v1z"
+      />
+    </svg>
+    4
+    /5
+  </div>
 </div>
 `;

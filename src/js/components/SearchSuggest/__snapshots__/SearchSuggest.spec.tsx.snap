@@ -1,126 +1,149 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SearchSuggest /> should render 1`] = `
-<DropdownMenu
-  className="search-suggest"
-  data-test-id="search-suggest"
-  isOpen={true}
-  onClick={[MockFunction]}
->
-  <DropdownItem
-    className="d-flex justify-content-between align-items-center"
-    data-test-id="search-suggest-header"
-    isHeader={true}
+<div>
+  <div
+    class="search-suggest dropdown-menu shadow dropdown-menu-light dropdown-menu-left show"
+    data-testid="search-suggest"
   >
-    Recent Searches
-     
     <div
-      className="ms-1 text-danger cursor-pointer text-capitalize"
-      data-test-id="search-suggest-clear"
-      onClick={[MockFunction]}
+      class="d-flex justify-content-between align-items-center dropdown-header"
+      data-testid="search-suggest-header"
     >
-      Clear All
+      Recent Searches
+       
+      <div
+        class="ms-1 text-danger cursor-pointer text-capitalize"
+        data-testid="search-suggest-clear"
+      >
+        Clear All
+      </div>
     </div>
-  </DropdownItem>
-  <DropdownItem
-    className="d-flex justify-content-between align-items-center text-body"
-    data-test-id="search-suggest-item"
-    key="0"
-    onClick={[Function]}
-  >
     <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "<strong class=\\"text-gray-900\\">T</strong>wo",
-        }
-      }
-    />
-    <Icon
-      className="ms-1"
-      data-test-id="search-suggest-remove"
-      name="close"
-      onClick={[Function]}
-    />
-  </DropdownItem>
-  <DropdownItem
-    className="d-flex justify-content-between align-items-center text-body"
-    data-test-id="search-suggest-item"
-    key="1"
-    onClick={[Function]}
-  >
+      class="d-flex justify-content-between align-items-center text-body dropdown-item cursor-pointer"
+      data-testid="search-suggest-item"
+    >
+      <div>
+        <strong
+          class="text-gray-900"
+        >
+          T
+        </strong>
+        wo
+      </div>
+      <svg
+        class="ms-1 icon cursor-pointer"
+        data-testid="search-suggest-remove"
+        height="1em"
+        style="fill: currentColor;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M17.85 16.44a.5003.5003 0 010 .71l-.7.7a.5003.5003 0 01-.71 0L12 13.41l-4.44 4.44a.5002.5002 0 01-.71 0l-.7-.7a.5.5 0 010-.71L10.59 12 6.15 7.56a.5.5 0 010-.71l.7-.7a.5.5 0 01.71 0L12 10.59l4.44-4.44a.5.5 0 01.71 0l.7.7a.5003.5003 0 010 .71L13.41 12l4.44 4.44z"
+        />
+      </svg>
+    </div>
     <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "<strong class=\\"text-gray-900\\">T</strong>hree",
-        }
-      }
-    />
-    <Icon
-      className="ms-1"
-      data-test-id="search-suggest-remove"
-      name="close"
-      onClick={[Function]}
-    />
-  </DropdownItem>
-  <DropdownItem
-    className="d-flex justify-content-between align-items-center text-body"
-    data-test-id="search-suggest-item"
-    key="2"
-    onClick={[Function]}
-  >
+      class="d-flex justify-content-between align-items-center text-body dropdown-item cursor-pointer"
+      data-testid="search-suggest-item"
+    >
+      <div>
+        <strong
+          class="text-gray-900"
+        >
+          T
+        </strong>
+        hree
+      </div>
+      <svg
+        class="ms-1 icon cursor-pointer"
+        data-testid="search-suggest-remove"
+        height="1em"
+        style="fill: currentColor;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M17.85 16.44a.5003.5003 0 010 .71l-.7.7a.5003.5003 0 01-.71 0L12 13.41l-4.44 4.44a.5002.5002 0 01-.71 0l-.7-.7a.5.5 0 010-.71L10.59 12 6.15 7.56a.5.5 0 010-.71l.7-.7a.5.5 0 01.71 0L12 10.59l4.44-4.44a.5.5 0 01.71 0l.7.7a.5003.5003 0 010 .71L13.41 12l4.44 4.44z"
+        />
+      </svg>
+    </div>
     <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Eigh<strong class=\\"text-gray-900\\">t</strong>",
-        }
-      }
-    />
-    <Icon
-      className="ms-1"
-      data-test-id="search-suggest-remove"
-      name="close"
-      onClick={[Function]}
-    />
-  </DropdownItem>
-  <DropdownItem
-    className="d-flex justify-content-between align-items-center text-body"
-    data-test-id="search-suggest-item"
-    key="3"
-    onClick={[Function]}
-  >
+      class="d-flex justify-content-between align-items-center text-body dropdown-item cursor-pointer"
+      data-testid="search-suggest-item"
+    >
+      <div>
+        Eigh
+        <strong
+          class="text-gray-900"
+        >
+          t
+        </strong>
+      </div>
+      <svg
+        class="ms-1 icon cursor-pointer"
+        data-testid="search-suggest-remove"
+        height="1em"
+        style="fill: currentColor;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M17.85 16.44a.5003.5003 0 010 .71l-.7.7a.5003.5003 0 01-.71 0L12 13.41l-4.44 4.44a.5002.5002 0 01-.71 0l-.7-.7a.5.5 0 010-.71L10.59 12 6.15 7.56a.5.5 0 010-.71l.7-.7a.5.5 0 01.71 0L12 10.59l4.44-4.44a.5.5 0 01.71 0l.7.7a.5003.5003 0 010 .71L13.41 12l4.44 4.44z"
+        />
+      </svg>
+    </div>
     <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "<strong class=\\"text-gray-900\\">T</strong>en",
-        }
-      }
-    />
-    <Icon
-      className="ms-1"
-      data-test-id="search-suggest-remove"
-      name="close"
-      onClick={[Function]}
-    />
-  </DropdownItem>
-  <DropdownItem
-    className="d-flex justify-content-between align-items-center text-body"
-    data-test-id="search-suggest-item"
-    key="4"
-    onClick={[Function]}
-  >
+      class="d-flex justify-content-between align-items-center text-body dropdown-item cursor-pointer"
+      data-testid="search-suggest-item"
+    >
+      <div>
+        <strong
+          class="text-gray-900"
+        >
+          T
+        </strong>
+        en
+      </div>
+      <svg
+        class="ms-1 icon cursor-pointer"
+        data-testid="search-suggest-remove"
+        height="1em"
+        style="fill: currentColor;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M17.85 16.44a.5003.5003 0 010 .71l-.7.7a.5003.5003 0 01-.71 0L12 13.41l-4.44 4.44a.5002.5002 0 01-.71 0l-.7-.7a.5.5 0 010-.71L10.59 12 6.15 7.56a.5.5 0 010-.71l.7-.7a.5.5 0 01.71 0L12 10.59l4.44-4.44a.5.5 0 01.71 0l.7.7a.5003.5003 0 010 .71L13.41 12l4.44 4.44z"
+        />
+      </svg>
+    </div>
     <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "<strong class=\\"text-gray-900\\">T</strong>welve",
-        }
-      }
-    />
-    <Icon
-      className="ms-1"
-      data-test-id="search-suggest-remove"
-      name="close"
-      onClick={[Function]}
-    />
-  </DropdownItem>
-</DropdownMenu>
+      class="d-flex justify-content-between align-items-center text-body dropdown-item cursor-pointer"
+      data-testid="search-suggest-item"
+    >
+      <div>
+        <strong
+          class="text-gray-900"
+        >
+          T
+        </strong>
+        welve
+      </div>
+      <svg
+        class="ms-1 icon cursor-pointer"
+        data-testid="search-suggest-remove"
+        height="1em"
+        style="fill: currentColor;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M17.85 16.44a.5003.5003 0 010 .71l-.7.7a.5003.5003 0 01-.71 0L12 13.41l-4.44 4.44a.5002.5002 0 01-.71 0l-.7-.7a.5.5 0 010-.71L10.59 12 6.15 7.56a.5.5 0 010-.71l.7-.7a.5.5 0 01.71 0L12 10.59l4.44-4.44a.5.5 0 01.71 0l.7.7a.5003.5003 0 010 .71L13.41 12l4.44 4.44z"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
 `;

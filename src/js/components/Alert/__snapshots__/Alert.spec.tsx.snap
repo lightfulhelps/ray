@@ -1,13 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Alert /> should render 1`] = `
-<div
-  className="alert  alert-primary"
->
+<div>
   <div
-    className="d-flex text-sm w-100 align-items-center"
+    class="alert  alert-primary"
   >
-    Alert
+    <div
+      class="d-flex text-sm w-100 align-items-center"
+    >
+      Alert
+    </div>
   </div>
 </div>
 `;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import { CharacterCounter } from '../..';
 
@@ -10,47 +10,48 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<CharacterCounter {...props} />);
+  const utils = render(<CharacterCounter {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<CharacterCounter />', () => {
   it('should render', () => {
-    const { wrapper } = setup({ text: 'Text', max: 5 });
+    const { container } = setup({ text: 'Text', max: 5 });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<CharacterCounter {...props} className="custom" />);
 
-    expect(wrapper.hasClass('character-counter')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const counter = container.querySelector('.character-counter');
+    expect(counter).toHaveClass('character-counter');
+    expect(counter).toHaveClass('custom');
   });
 
   it('should handle max', () => {
-    const { wrapper } = setup({ max: 10 });
+    const { container, rerender, props } = setup({ max: 10 });
 
-    expect(wrapper.text()).toEqual('<Icon />0/10');
+    expect(container.textContent).toContain('0/10');
 
-    wrapper.setProps({ max: 60000 });
+    rerender(<CharacterCounter {...props} max={60000} />);
 
-    expect(wrapper.text()).toEqual('<Icon />0/60,000');
+    expect(container.textContent).toContain('0/60,000');
   });
 
   it('should handle count', () => {
-    const { wrapper } = setup({ count: 5 });
+    const { container } = setup({ count: 5 });
 
-    expect(wrapper.text()).toEqual('<Icon />5');
+    expect(container.textContent).toContain('5');
   });
 
   it('should handle text', () => {
-    const { wrapper } = setup({ text: 'This is my text' });
+    const { container, rerender, props } = setup({ text: 'This is my text' });
 
-    expect(wrapper.text()).toEqual('<Icon />15');
+    expect(container.textContent).toContain('15');
 
     let longText = '';
 
@@ -58,31 +59,34 @@ describe('<CharacterCounter />', () => {
       longText += 'a';
     }
 
-    wrapper.setProps({ text: longText });
+    rerender(<CharacterCounter {...props} text={longText} />);
 
-    expect(wrapper.text()).toEqual('<Icon />9,999');
+    expect(container.textContent).toContain('9,999');
   });
 
   it('should use count over text length', () => {
-    const { wrapper } = setup({ count: 5, text: 'This is my text' });
+    const { container } = setup({ count: 5, text: 'This is my text' });
 
-    expect(wrapper.text()).toEqual('<Icon />5');
+    expect(container.textContent).toContain('5');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const counter = container.querySelector('.character-counter');
+    expect(counter).toHaveAttribute('tabIndex', '1');
+    expect(counter).toHaveAttribute('id', 'test');
   });
 
   it('should add danger class if over max', () => {
-    const { wrapper } = setup({ text: 'Foo', max: '10' });
+    const { container, rerender, props } = setup({ text: 'Foo', max: 10 });
 
-    expect(wrapper.hasClass('text-danger')).toEqual(false);
+    let counter = container.querySelector('.character-counter');
+    expect(counter).not.toHaveClass('text-danger');
 
-    wrapper.setProps({ text: 'Some longer text' });
+    rerender(<CharacterCounter {...props} text="Some longer text" max={10} />);
 
-    expect(wrapper.hasClass('text-danger')).toEqual(true);
+    counter = container.querySelector('.character-counter');
+    expect(counter).toHaveClass('text-danger');
   });
 });

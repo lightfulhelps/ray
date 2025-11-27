@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 import merge from 'lodash/merge';
 import { DropdownMenu } from '../..';
 
@@ -12,110 +12,118 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<DropdownMenu {...props} />);
+  const utils = render(<DropdownMenu {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<DropdownMenu />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle the children prop', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(
-      wrapper
-        .children()
-        .at(0)
-        .text()
-    ).toEqual('Children');
+    expect(container.textContent).toContain('Children');
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<DropdownMenu {...props} className="custom" />);
 
-    expect(wrapper.hasClass('dropdown-menu')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const menu = container.querySelector('.dropdown-menu');
+    expect(menu).toHaveClass('dropdown-menu');
+    expect(menu).toHaveClass('custom');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const menu = container.firstChild;
+    expect(menu).toHaveAttribute('tabIndex', '1');
+    expect(menu).toHaveAttribute('id', 'test');
   });
 
   it('should optionally display the footer', () => {
-    const { wrapper } = setup({ footer: null });
+    const { container, rerender, props } = setup({ footer: null });
 
-    expect(wrapper.find('.dropdown-footer').exists()).toBe(false);
+    expect(container.querySelector('.dropdown-footer')).not.toBeInTheDocument();
 
-    wrapper.setProps({ footer: 'Test' });
+    rerender(<DropdownMenu {...props} footer="Test" />);
 
-    expect(wrapper.find('.dropdown-footer').exists()).toBe(true);
-    expect(wrapper.find('.dropdown-footer').text()).toEqual('Test');
+    const footer = container.querySelector('.dropdown-footer');
+    expect(footer).toBeInTheDocument();
+    expect(footer?.textContent).toEqual('Test');
   });
 
   it('should handle the isOpen prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('show')).toBe(false);
+    let menu = container.querySelector('.dropdown-menu');
+    expect(menu).not.toHaveClass('show');
 
-    wrapper.setProps({ isOpen: true });
+    rerender(<DropdownMenu {...props} isOpen />);
 
-    expect(wrapper.hasClass('show')).toBe(true);
+    menu = container.querySelector('.dropdown-menu');
+    expect(menu).toHaveClass('show');
   });
 
   it('should handle the onClick prop', () => {
     const onClick = jest.fn();
-    const { wrapper } = setup({ onClick });
+    const { container } = setup({ onClick });
 
-    wrapper.simulate('click');
+    const menu = container.firstChild;
+    fireEvent.click(menu!);
 
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('should not error if onClick is not a function', () => {
-    const { wrapper } = setup({ onClick: 'foo' });
+    const { container } = setup({ onClick: 'foo' as any });
 
+    const menu = container.firstChild;
     expect(() => {
-      wrapper.simulate('click');
+      fireEvent.click(menu!);
     }).not.toThrow();
   });
 
   it('should handle the position prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.find('.dropdown-menu').hasClass('dropdown-menu-left')).toBe(true);
+    let menu = container.querySelector('.dropdown-menu');
+    expect(menu).toHaveClass('dropdown-menu-left');
 
-    wrapper.setProps({ position: 'right' });
+    rerender(<DropdownMenu {...props} position="right" />);
 
-    expect(wrapper.find('.dropdown-menu').hasClass('dropdown-menu-right')).toBe(true);
+    menu = container.querySelector('.dropdown-menu');
+    expect(menu).toHaveClass('dropdown-menu-right');
   });
 
   it('should handle the tag prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.type()).toBe('div');
+    let menu = container.firstChild as Element;
+    expect(menu?.tagName.toLowerCase()).toBe('div');
 
-    wrapper.setProps({ tag: 'a' });
+    rerender(<DropdownMenu {...props} tag="a" />);
 
-    expect(wrapper.type()).toBe('a');
+    menu = container.firstChild as Element;
+    expect(menu?.tagName.toLowerCase()).toBe('a');
   });
 
   it('should handle the theme prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.find('.dropdown-menu').hasClass('dropdown-menu-light')).toBe(true);
+    let menu = container.querySelector('.dropdown-menu');
+    expect(menu).toHaveClass('dropdown-menu-light');
 
-    wrapper.setProps({ theme: 'dark' });
+    rerender(<DropdownMenu {...props} theme="dark" />);
 
-    expect(wrapper.find('.dropdown-menu').hasClass('dropdown-menu-dark')).toBe(true);
+    menu = container.querySelector('.dropdown-menu');
+    expect(menu).toHaveClass('dropdown-menu-dark');
   });
 });

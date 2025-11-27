@@ -1,139 +1,101 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<PostMedia /> should render 1 image 1`] = `
-<div
-  className="post-media post-media--1"
->
+<div>
   <div
-    className="post-media__image"
-    key="0"
-    style={
-      Object {
-        "backgroundImage": "url(http://foo.com/image1.jpg)",
-      }
-    }
-  />
+    class="post-media post-media--1"
+  >
+    <div
+      class="post-media__image"
+      style="background-image: url(http://foo.com/image1.jpg);"
+    />
+  </div>
 </div>
 `;
 
 exports[`<PostMedia /> should render 2 image 1`] = `
-<div
-  className="post-media post-media--2"
->
+<div>
   <div
-    className="post-media__image"
-    key="0"
-    style={
-      Object {
-        "backgroundImage": "url(http://foo.com/image1.jpg)",
-      }
-    }
-  />
-  <div
-    className="post-media__image"
-    key="1"
-    style={
-      Object {
-        "backgroundImage": "url(http://foo.com/image2.jpg)",
-      }
-    }
-  />
+    class="post-media post-media--2"
+  >
+    <div
+      class="post-media__image"
+      style="background-image: url(http://foo.com/image1.jpg);"
+    />
+    <div
+      class="post-media__image"
+      style="background-image: url(http://foo.com/image2.jpg);"
+    />
+  </div>
 </div>
 `;
 
 exports[`<PostMedia /> should render 3 image 1`] = `
-<div
-  className="post-media post-media--3"
->
+<div>
   <div
-    className="post-media__image"
-    key="0"
-    style={
-      Object {
-        "backgroundImage": "url(http://foo.com/image1.jpg)",
-      }
-    }
-  />
-  <div
-    className="post-media__image"
-    key="1"
-    style={
-      Object {
-        "backgroundImage": "url(http://foo.com/image2.jpg)",
-      }
-    }
-  />
-  <div
-    className="post-media__image"
-    key="2"
-    style={
-      Object {
-        "backgroundImage": "url(http://foo.com/image3.jpg)",
-      }
-    }
-  />
+    class="post-media post-media--3"
+  >
+    <div
+      class="post-media__image"
+      style="background-image: url(http://foo.com/image1.jpg);"
+    />
+    <div
+      class="post-media__image"
+      style="background-image: url(http://foo.com/image2.jpg);"
+    />
+    <div
+      class="post-media__image"
+      style="background-image: url(http://foo.com/image3.jpg);"
+    />
+  </div>
 </div>
 `;
 
 exports[`<PostMedia /> should render 4 image 1`] = `
-<div
-  className="post-media post-media--4"
->
+<div>
   <div
-    className="post-media__image"
-    key="0"
-    style={
-      Object {
-        "backgroundImage": "url(http://foo.com/image1.jpg)",
-      }
-    }
-  />
-  <div
-    className="post-media__image"
-    key="1"
-    style={
-      Object {
-        "backgroundImage": "url(http://foo.com/image2.jpg)",
-      }
-    }
-  />
-  <div
-    className="post-media__image"
-    key="2"
-    style={
-      Object {
-        "backgroundImage": "url(http://foo.com/image3.jpg)",
-      }
-    }
-  />
-  <div
-    className="post-media__image"
-    key="3"
-    style={
-      Object {
-        "backgroundImage": "url(http://foo.com/image4.jpg)",
-      }
-    }
-  />
+    class="post-media post-media--4"
+  >
+    <div
+      class="post-media__image"
+      style="background-image: url(http://foo.com/image1.jpg);"
+    />
+    <div
+      class="post-media__image"
+      style="background-image: url(http://foo.com/image2.jpg);"
+    />
+    <div
+      class="post-media__image"
+      style="background-image: url(http://foo.com/image3.jpg);"
+    />
+    <div
+      class="post-media__image"
+      style="background-image: url(http://foo.com/image4.jpg);"
+    />
+  </div>
 </div>
 `;
 
 exports[`<PostMedia /> should render with a video 1`] = `
-<div
-  className="post-media post-media--1"
->
-  <video
-    className="post-media__video"
-    controls={true}
-    src="http://foo.com/video.mov"
-  />
+<div>
+  <div
+    class="post-media post-media--1"
+  >
+    <video
+      class="post-media__video"
+      controls=""
+      src="http://foo.com/video.mov"
+    />
+  </div>
 </div>
 `;
 
 exports[`<PostMedia /> should render with no media 1`] = `
-<div
-  className="post-media post-media--0 post-media--empty"
->
-  No media
+<div>
+  <div
+    class="post-media post-media--0 post-media--empty"
+  >
+    No media
+  </div>
 </div>
 `;

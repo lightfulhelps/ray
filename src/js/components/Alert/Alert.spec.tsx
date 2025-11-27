@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import Alert from './Alert';
 
@@ -10,96 +10,102 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<Alert {...props} />);
+  const utils = render(<Alert {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<Alert />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle the children prop', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper.children().text()).toEqual('Alert');
+    expect(container.textContent).toContain('Alert');
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<Alert {...props} className="custom" />);
 
-    expect(wrapper.hasClass('alert')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const alert = container.querySelector('.alert');
+    expect(alert).toHaveClass('alert');
+    expect(alert).toHaveClass('custom');
   });
 
   it('should handle the theme prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('alert-primary')).toBe(true);
+    let alert = container.querySelector('.alert');
+    expect(alert).toHaveClass('alert-primary');
 
-    wrapper.setProps({ theme: 'secondary' });
+    rerender(<Alert {...props} theme="secondary" />);
 
-    expect(wrapper.hasClass('alert-primary')).toBe(false);
-
-    expect(wrapper.hasClass('alert-secondary')).toBe(true);
+    alert = container.querySelector('.alert');
+    expect(alert).not.toHaveClass('alert-primary');
+    expect(alert).toHaveClass('alert-secondary');
   });
 
   it('should handle the tag prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.type()).toBe('div');
+    let alert = container.querySelector('.alert');
+    expect(alert?.tagName.toLowerCase()).toBe('div');
 
-    wrapper.setProps({ tag: 'a' });
+    rerender(<Alert {...props} tag="a" />);
 
-    expect(wrapper.type()).toBe('a');
+    alert = container.querySelector('.alert');
+    expect(alert?.tagName.toLowerCase()).toBe('a');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const alert = container.querySelector('.alert');
+    expect(alert).toHaveAttribute('tabIndex', '1');
+    expect(alert).toHaveAttribute('id', 'test');
   });
 
   it('should add a header', () => {
-    const { wrapper } = setup({ header: 'Bonjour' });
+    const { container } = setup({ header: 'Bonjour' });
 
-    expect(wrapper.exists('h3')).toBe(true);
-    expect(wrapper.find('h3').text()).toBe('Bonjour');
+    const header = container.querySelector('h3');
+    expect(header).toBeInTheDocument();
+    expect(header?.textContent).toBe('Bonjour');
   });
 
   describe('Icon', () => {
     it('should hide the icon if no icon is set for the theme or in props', () => {
-      const { wrapper } = setup();
+      const { container } = setup();
 
-      expect(wrapper.exists('Icon')).toBe(false);
+      expect(container.querySelector('.icon')).not.toBeInTheDocument();
     });
 
     it('should show an icon if an icon is set in the props', () => {
-      const { wrapper } = setup({ icon: 'info' });
+      const { container } = setup({ icon: 'info' });
 
-      expect(wrapper.exists('Icon')).toBe(true);
+      expect(container.querySelector('.icon')).toBeInTheDocument();
     });
 
     it('should show an icon if an icon is set for the theme', () => {
-      const { wrapper } = setup({ theme: 'danger' });
+      const { container } = setup({ theme: 'danger' });
 
-      expect(wrapper.exists('Icon')).toBe(true);
+      expect(container.querySelector('.icon')).toBeInTheDocument();
     });
 
     it('should hide the icon if hideIcon is true', () => {
-      const { wrapper } = setup({ theme: 'danger' });
+      const { container, rerender, props } = setup({ theme: 'danger' });
 
-      expect(wrapper.exists('Icon')).toBe(true);
+      expect(container.querySelector('.icon')).toBeInTheDocument();
 
-      wrapper.setProps({ hideIcon: true });
+      rerender(<Alert {...props} theme="danger" hideIcon />);
 
-      expect(wrapper.exists('Icon')).toBe(false);
+      expect(container.querySelector('.icon')).not.toBeInTheDocument();
     });
   });
 });

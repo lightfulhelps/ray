@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import URLMetaPreview from './URLMetaPreview';
 
@@ -15,74 +15,81 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<URLMetaPreview {...props} />);
+  const utils = render(<URLMetaPreview {...props} />);
 
   return {
-    wrapper,
+    ...utils,
     props,
   };
 };
 
 describe('<URLMetaPreview />', () => {
   it('should return null if no url', () => {
-    const { wrapper } = setup({ url: null });
+    const { container } = setup({ url: null });
 
-    expect(wrapper.type()).toBe(null);
+    expect(container.firstChild).toBe(null);
   });
 
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render in vertical mode', () => {
-    const { wrapper } = setup({ isVertical: true });
+    const { container } = setup({ isVertical: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle the className prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<URLMetaPreview {...props} className="custom" />);
 
-    expect(wrapper.hasClass('url-meta-preview')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const preview = container.querySelector('.url-meta-preview');
+    expect(preview).toHaveClass('url-meta-preview');
+    expect(preview).toHaveClass('custom');
   });
 
   it('should handle no image', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.find('[data-test-id="url-meta-preview-image"]').exists()).toBe(true);
+    expect(container.querySelector('[data-testid="url-meta-preview-image"]')).toBeInTheDocument();
 
-    wrapper.setProps({ image: null });
+    rerender(<URLMetaPreview {...props} image={null} />);
 
-    expect(wrapper.find('[data-test-id="url-meta-preview-image"]').exists()).toBe(false);
+    expect(
+      container.querySelector('[data-testid="url-meta-preview-image"]')
+    ).not.toBeInTheDocument();
   });
 
   it('should handle no description', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.find('[data-test-id="url-meta-preview-description"]').exists()).toBe(true);
+    expect(
+      container.querySelector('[data-testid="url-meta-preview-description"]')
+    ).toBeInTheDocument();
 
-    wrapper.setProps({ description: null });
+    rerender(<URLMetaPreview {...props} description={null} />);
 
-    expect(wrapper.find('[data-test-id="url-meta-preview-description"]').exists()).toBe(false);
+    expect(
+      container.querySelector('[data-testid="url-meta-preview-description"]')
+    ).not.toBeInTheDocument();
   });
 
   it('should format the url', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper.find('[data-test-id="url-meta-preview-url"]').text()).toBe(
-      'bbc.co.uk/news/business-45242008'
-    );
+    const urlElement = container.querySelector('[data-testid="url-meta-preview-url"]');
+    expect(urlElement?.textContent).toBe('bbc.co.uk/news/business-45242008');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const preview = container.querySelector('.url-meta-preview');
+    expect(preview).toHaveAttribute('tabIndex', '1');
+    expect(preview).toHaveAttribute('id', 'test');
   });
 });

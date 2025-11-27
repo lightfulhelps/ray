@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<NavLink /> should render 1`] = `
-<a
-  className="nav-link nav-link-primary position-relative shadow-lg"
-/>
+<div>
+  <a
+    class="nav-link nav-link-primary position-relative shadow-lg"
+  />
+</div>
 `;

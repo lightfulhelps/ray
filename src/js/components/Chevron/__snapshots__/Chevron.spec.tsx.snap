@@ -1,43 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Chevron should handle the direction correctly and change the icon 1`] = `
-<Button
-  className="chevron-button "
-  onClick={[Function]}
-  size="sm"
-  theme="gray-300"
->
-  <Icon
-    color="gray-600"
-    name="chevronRight"
-  />
-</Button>
+<div>
+  <button
+    class="chevron-button  btn btn-gradient-gray-300 btn-gray-300 btn-sm"
+    type="button"
+  >
+    <span>
+      <svg
+        class="icon"
+        height="1em"
+        style="fill: gray-600;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M15.78 11.28a.7495.7495 0 01.22.53v.38a.7699.7699 0 01-.22.53l-5.14 5.13a.5.5 0 01-.71 0l-.71-.71a.49.49 0 010-.7L13.67 12 9.22 7.56a.5.5 0 010-.71l.71-.7a.5.5 0 01.71 0l5.14 5.13z"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
 `;
 
 exports[`Chevron should have the defaut left chevron direction icon 1`] = `
-<Button
-  className="chevron-button "
-  onClick={[Function]}
-  size="sm"
-  theme="gray-300"
->
-  <Icon
-    color="gray-600"
-    name="chevronLeft"
-  />
-</Button>
+<div>
+  <button
+    class="chevron-button  btn btn-gradient-gray-300 btn-gray-300 btn-sm"
+    type="button"
+  >
+    <span>
+      <svg
+        class="icon"
+        height="1em"
+        style="fill: gray-600;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M8.22 12.72a.75.75 0 01-.22-.53v-.38a.77.77 0 01.22-.53l5.14-5.13a.5.5 0 01.71 0l.71.71a.4899.4899 0 010 .7L10.33 12l4.45 4.44a.4999.4999 0 010 .71l-.71.7a.5003.5003 0 01-.71 0l-5.14-5.13z"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
 `;
 
 exports[`Chevron should render correctly 1`] = `
-<Button
-  className="chevron-button "
-  onClick={[Function]}
-  size="sm"
-  theme="gray-300"
->
-  <Icon
-    color="gray-600"
-    name="chevronLeft"
-  />
-</Button>
+<div>
+  <button
+    class="chevron-button  btn btn-gradient-gray-300 btn-gray-300 btn-sm"
+    type="button"
+  >
+    <span>
+      <svg
+        class="icon"
+        height="1em"
+        style="fill: gray-600;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M8.22 12.72a.75.75 0 01-.22-.53v-.38a.77.77 0 01.22-.53l5.14-5.13a.5.5 0 01.71 0l.71.71a.4899.4899 0 010 .7L10.33 12l4.45 4.44a.4999.4999 0 010 .71l-.71.7a.5003.5003 0 01-.71 0l-5.14-5.13z"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
 `;

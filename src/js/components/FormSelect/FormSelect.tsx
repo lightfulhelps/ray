@@ -27,7 +27,7 @@ const FormSelect: React.FC<Props> = ({
   size,
   ...other
 }: Props) => {
-  const Component: React.ElementType = isCreatable ? Creatable : Select;
+  const Component = ((isCreatable ? Creatable : Select) as unknown) as React.ElementType;
   const classNamePrefix = 'form-select';
   const classes = classNames(
     className,

@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Dropdown /> should render 1`] = `
-<div
-  className="dropdown d-inline-block"
-/>
+<div>
+  <div
+    class="dropdown d-inline-block"
+  />
+</div>
 `;

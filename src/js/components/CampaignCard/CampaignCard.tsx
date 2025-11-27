@@ -30,19 +30,19 @@ const CampaignCard: React.FC<Props> = ({
   );
 
   return (
-    <Tag {...other} className={classes} data-test-id="campaign-card">
+    <Tag {...other} className={classes} data-testid="campaign-card">
       <div
         className="campaign-card-cover"
-        data-test-id="campaign-card-cover"
+        data-testid="campaign-card-cover"
         style={{
           backgroundImage: `url(${cover})`,
         }}
       />
       <div className="px-3 pt-2 pb-3 h-100 d-flex flex-column justify-content-between">
-        <div className="h5" data-test-id="campaign-card-title">
+        <div className="h5" data-testid="campaign-card-title">
           {title}
         </div>
-        <div className={stateClasses} data-test-id="campaign-card-state">
+        <div className={stateClasses} data-testid="campaign-card-state">
           {state}
         </div>
       </div>

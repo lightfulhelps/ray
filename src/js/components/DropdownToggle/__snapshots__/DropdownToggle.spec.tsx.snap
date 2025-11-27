@@ -1,12 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<DropdownToggle /> should render 1`] = `
-<Button
-  className="dropdown-toggle"
-  icon="chevronDown"
-  iconPosition="right"
-  isOutline={true}
-  size="md"
-  theme="primary"
-/>
+<div>
+  <button
+    class="dropdown-toggle btn btn-outline-gradient-primary btn-outline-primary btn-md btn-icon"
+    type="button"
+  >
+    <span>
+      <svg
+        class="icon icon-primary"
+        height="1em"
+        style="fill: url(#test-id-123);"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <defs>
+          <lineargradient
+            id="test-id-123"
+            r="90%"
+          >
+            <stop
+              class="gradient-primary-stop1"
+              offset="0%"
+            />
+            <stop
+              class="gradient-primary-stop2"
+              offset="100%"
+            />
+          </lineargradient>
+        </defs>
+        <path
+          d="M12.72 15.78a.7501.7501 0 01-.53.22h-.38a.7699.7699 0 01-.53-.22l-5.13-5.14a.5.5 0 010-.71l.71-.71a.49.49 0 01.7 0L12 13.67l4.44-4.45a.5.5 0 01.71 0l.7.71a.5004.5004 0 010 .71l-5.13 5.14z"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
 `;

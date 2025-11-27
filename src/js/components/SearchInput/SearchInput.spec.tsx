@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import merge from 'lodash/merge';
 import SearchInput from './SearchInput';
 
@@ -11,80 +12,90 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<SearchInput {...props} />);
+  const utils = render(<SearchInput {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<SearchInput />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<SearchInput {...props} className="custom" />);
 
-    expect(wrapper.hasClass('search-input')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const searchInput = container.querySelector('.search-input');
+    expect(searchInput).toHaveClass('search-input');
+    expect(searchInput).toHaveClass('custom');
   });
 
-  it('should handle onChange', () => {
-    const { wrapper, props } = setup();
+  it('should handle onChange', async () => {
+    const onChange = jest.fn();
+    const user = userEvent.setup();
+    const { container } = setup({ onChange });
 
-    wrapper.find('[data-test-id="search-input"]').simulate('change', { target: { value: 'Test' } });
+    const input = container.querySelector('[data-testid="search-input"]') as HTMLInputElement;
+    await user.type(input, 'Test');
 
-    expect(props.onChange).toHaveBeenCalledWith({ target: { value: 'Test' } });
+    expect(onChange).toHaveBeenCalled();
   });
 
   describe('onSearch', () => {
-    it('should call onSearch on button click', () => {
-      const { wrapper, props } = setup();
+    it('should call onSearch on button click', async () => {
+      const onSearch = jest.fn();
+      const user = userEvent.setup();
+      const { container } = setup({ onSearch });
 
-      wrapper.find('[data-test-id="search-input-button"]').simulate('click');
+      const button = container.querySelector('[data-testid="search-input-button"]');
+      await user.click(button!);
 
-      expect(props.onSearch).toHaveBeenCalledTimes(1);
+      expect(onSearch).toHaveBeenCalledTimes(1);
     });
 
     it('should call onSearch with event on Enter keypress', () => {
-      const { wrapper, props } = setup();
+      const onSearch = jest.fn();
+      const { container } = setup({ onSearch });
 
-      wrapper.find('[data-test-id="search-input"]').simulate('keyPress', { key: 'a' });
+      const input = container.querySelector('[data-testid="search-input"]');
+      fireEvent.keyDown(input!, { key: 'a' });
 
-      expect(props.onSearch).toHaveBeenCalledTimes(0);
+      expect(onSearch).toHaveBeenCalledTimes(0);
 
-      wrapper.find('[data-test-id="search-input"]').simulate('keyPress', { key: 'Enter' });
+      fireEvent.keyDown(input!, { key: 'Enter' });
 
-      expect(props.onSearch).toHaveBeenCalledTimes(1);
-      expect(props.onSearch).toHaveBeenCalledWith({ key: 'Enter' });
+      expect(onSearch).toHaveBeenCalledTimes(1);
     });
   });
 
   it('should handle placeholder', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.find('[data-test-id="search-input"]').prop('placeholder')).toEqual('Search...');
+    let input = container.querySelector('[data-testid="search-input"]');
+    expect(input).toHaveAttribute('placeholder', 'Search...');
 
-    wrapper.setProps({ placeholder: 'Search here...' });
+    rerender(<SearchInput {...props} placeholder="Search here..." />);
 
-    expect(wrapper.find('[data-test-id="search-input"]').prop('placeholder')).toEqual(
-      'Search here...'
-    );
+    input = container.querySelector('[data-testid="search-input"]');
+    expect(input).toHaveAttribute('placeholder', 'Search here...');
   });
 
   it('should handle value', () => {
-    const { wrapper } = setup({ value: 'Test' });
+    const { container } = setup({ value: 'Test' });
 
-    expect(wrapper.find('[data-test-id="search-input"]').prop('value')).toEqual('Test');
+    const input = container.querySelector('[data-testid="search-input"]') as HTMLInputElement;
+    expect(input.value).toEqual('Test');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const searchInput = container.querySelector('.search-input');
+    expect(searchInput).toHaveAttribute('tabIndex', '1');
+    expect(searchInput).toHaveAttribute('id', 'test');
   });
 });

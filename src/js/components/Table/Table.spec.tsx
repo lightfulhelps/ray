@@ -1,105 +1,120 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import Table from './Table';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
-  const wrapper = shallow(<Table {...props} />);
+  const utils = render(<Table {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<Table />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<Table {...props} className="custom" />);
 
-    expect(wrapper.hasClass('table')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const table = container.querySelector('.table');
+    expect(table).toHaveClass('table');
+    expect(table).toHaveClass('custom');
   });
 
   it('should handle isBordered', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('table-bordered')).toBe(false);
+    let table = container.querySelector('.table');
+    expect(table).not.toHaveClass('table-bordered');
 
-    wrapper.setProps({ isBordered: true });
+    rerender(<Table {...props} isBordered />);
 
-    expect(wrapper.hasClass('table-bordered')).toBe(true);
+    table = container.querySelector('.table');
+    expect(table).toHaveClass('table-bordered');
   });
 
   it('should handle isBorderless', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('table-borderless')).toBe(false);
+    let table = container.querySelector('.table');
+    expect(table).not.toHaveClass('table-borderless');
 
-    wrapper.setProps({ isBorderless: true });
+    rerender(<Table {...props} isBorderless />);
 
-    expect(wrapper.hasClass('table-borderless')).toBe(true);
+    table = container.querySelector('.table');
+    expect(table).toHaveClass('table-borderless');
   });
 
   it('should handle isHoverable', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('table-hover')).toBe(false);
+    let table = container.querySelector('.table');
+    expect(table).not.toHaveClass('table-hover');
 
-    wrapper.setProps({ isHoverable: true });
+    rerender(<Table {...props} isHoverable />);
 
-    expect(wrapper.hasClass('table-hover')).toBe(true);
+    table = container.querySelector('.table');
+    expect(table).toHaveClass('table-hover');
   });
 
   it('should handle isResponsive', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('table-responsive')).toBe(false);
+    let table = container.querySelector('.table');
+    expect(table).not.toHaveClass('table-responsive');
 
-    wrapper.setProps({ isResponsive: true });
+    rerender(<Table {...props} isResponsive />);
 
-    expect(wrapper.hasClass('table-responsive')).toBe(true);
+    table = container.querySelector('.table');
+    expect(table).toHaveClass('table-responsive');
   });
 
   it('should handle isStriped', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('table-striped')).toBe(false);
+    let table = container.querySelector('.table');
+    expect(table).not.toHaveClass('table-striped');
 
-    wrapper.setProps({ isStriped: true });
+    rerender(<Table {...props} isStriped />);
 
-    expect(wrapper.hasClass('table-striped')).toBe(true);
+    table = container.querySelector('.table');
+    expect(table).toHaveClass('table-striped');
   });
 
   it('should handle size', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('table')).toBe(true);
-    expect(wrapper.hasClass('table-sm')).toBe(false);
-    expect(wrapper.hasClass('table-lg')).toBe(false);
+    let table = container.querySelector('.table');
+    expect(table).toHaveClass('table');
+    expect(table).not.toHaveClass('table-sm');
+    expect(table).not.toHaveClass('table-lg');
 
-    wrapper.setProps({ size: 'sm' });
+    rerender(<Table {...props} size="sm" />);
 
-    expect(wrapper.hasClass('table')).toBe(true);
-    expect(wrapper.hasClass('table-sm')).toBe(true);
-    expect(wrapper.hasClass('table-lg')).toBe(false);
+    table = container.querySelector('.table');
+    expect(table).toHaveClass('table');
+    expect(table).toHaveClass('table-sm');
+    expect(table).not.toHaveClass('table-lg');
 
-    wrapper.setProps({ size: 'lg' });
+    rerender(<Table {...props} size="lg" />);
 
-    expect(wrapper.hasClass('table')).toBe(true);
-    expect(wrapper.hasClass('table-sm')).toBe(false);
-    expect(wrapper.hasClass('table-lg')).toBe(true);
+    table = container.querySelector('.table');
+    expect(table).toHaveClass('table');
+    expect(table).not.toHaveClass('table-sm');
+    expect(table).toHaveClass('table-lg');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const table = container.querySelector('.table');
+    expect(table).toHaveAttribute('tabIndex', '1');
+    expect(table).toHaveAttribute('id', 'test');
   });
 });

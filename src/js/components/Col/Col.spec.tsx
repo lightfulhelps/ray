@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import Col from './Col';
 
@@ -10,93 +10,102 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<Col {...props} />);
+  const utils = render(<Col {...props} />);
 
   return {
-    wrapper,
+    ...utils,
     props,
   };
 };
 
 describe('Col', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render children', () => {
-    const { wrapper } = setup({ children: 'Children' });
+    const { container } = setup({ children: 'Children' });
 
-    expect(wrapper.text()).toBe('Children');
+    expect(container.textContent).toBe('Children');
   });
 
   it('should handle the className prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<Col {...props} className="custom" />);
 
-    expect(wrapper.hasClass('col')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const col = container.firstChild;
+    expect(col).toHaveClass('col');
+    expect(col).toHaveClass('custom');
   });
 
   it('should handle all recognised col widths', () => {
-    const { wrapper } = setup({ xs: 12, sm: 6, md: 4, lg: 2, xl: 1, xxl: 3 });
+    const { container } = setup({ xs: 12, sm: 6, md: 4, lg: 2, xl: 1, xxl: 3 });
 
-    expect(wrapper.hasClass('col-12')).toBe(true);
-    expect(wrapper.hasClass('col-sm-6')).toBe(true);
-    expect(wrapper.hasClass('col-md-4')).toBe(true);
-    expect(wrapper.hasClass('col-lg-2')).toBe(true);
-    expect(wrapper.hasClass('col-xl-1')).toBe(true);
-    expect(wrapper.hasClass('col-xxl-3')).toBe(false);
+    const col = container.firstChild;
+    expect(col).toHaveClass('col-12');
+    expect(col).toHaveClass('col-sm-6');
+    expect(col).toHaveClass('col-md-4');
+    expect(col).toHaveClass('col-lg-2');
+    expect(col).toHaveClass('col-xl-1');
+    expect(col).not.toHaveClass('col-xxl-3');
   });
 
   it('should pass col size specific classes as Strings', () => {
-    const { wrapper } = setup({ sm: '6' });
+    const { container } = setup({ sm: '6' });
 
-    expect(wrapper.hasClass('col-sm-6')).toBe(true);
-    expect(wrapper.hasClass('col')).toBe(false);
+    const col = container.firstChild;
+    expect(col).toHaveClass('col-sm-6');
+    expect(col).not.toHaveClass('col');
   });
 
   it('should pass col size specific classes as Numbers', () => {
-    const { wrapper } = setup({ sm: 6 });
+    const { container } = setup({ sm: 6 });
 
-    expect(wrapper.hasClass('col-sm-6')).toBe(true);
-    expect(wrapper.hasClass('col')).toBe(false);
+    const col = container.firstChild;
+    expect(col).toHaveClass('col-sm-6');
+    expect(col).not.toHaveClass('col');
   });
 
   it('should pass col size specific classes via Objects', () => {
-    const { wrapper } = setup({ sm: { size: 6, order: 2, offset: 2 } });
+    const { container } = setup({ sm: { size: 6, order: 2, offset: 2 } });
 
-    expect(wrapper.hasClass('col-sm-6')).toBe(true);
-    expect(wrapper.hasClass('col')).toBe(false);
-    expect(wrapper.hasClass('order-sm-2')).toBe(true);
-    expect(wrapper.hasClass('offset-sm-2')).toBe(true);
+    const col = container.firstChild;
+    expect(col).toHaveClass('col-sm-6');
+    expect(col).not.toHaveClass('col');
+    expect(col).toHaveClass('order-sm-2');
+    expect(col).toHaveClass('offset-sm-2');
   });
 
   it('should pass col size specific classes via Objects including 0', () => {
-    const { wrapper } = setup({ sm: { size: 6, order: 0, offset: 0 } });
+    const { container } = setup({ sm: { size: 6, order: 0, offset: 0 } });
 
-    expect(wrapper.hasClass('col-sm-6')).toBe(true);
-    expect(wrapper.hasClass('col')).toBe(false);
-    expect(wrapper.hasClass('order-sm-0')).toBe(true);
-    expect(wrapper.hasClass('offset-sm-0')).toBe(true);
+    const col = container.firstChild;
+    expect(col).toHaveClass('col-sm-6');
+    expect(col).not.toHaveClass('col');
+    expect(col).toHaveClass('order-sm-0');
+    expect(col).toHaveClass('offset-sm-0');
   });
 
   it('should handle the tag prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.type()).toBe('div');
+    let col = container.firstChild as Element;
+    expect(col?.tagName.toLowerCase()).toBe('div');
 
-    wrapper.setProps({ tag: 'span' });
+    rerender(<Col {...props} tag="span" />);
 
-    expect(wrapper.type()).toBe('span');
+    col = container.firstChild as Element;
+    expect(col?.tagName.toLowerCase()).toBe('span');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const col = container.firstChild;
+    expect(col).toHaveAttribute('tabIndex', '1');
+    expect(col).toHaveAttribute('id', 'test');
   });
 });

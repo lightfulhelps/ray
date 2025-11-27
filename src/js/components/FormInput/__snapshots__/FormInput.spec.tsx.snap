@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FormInput /> should render 1`] = `
-<input
-  className="form-control"
-  type="text"
-/>
+<div>
+  <input
+    class="form-control"
+    type="text"
+  />
+</div>
 `;

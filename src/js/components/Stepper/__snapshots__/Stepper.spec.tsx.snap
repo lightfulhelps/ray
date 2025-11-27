@@ -1,35 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Stepper /> should render 1`] = `
-<div
-  className="stepper d-flex flex-column flex-sm-row justify-content-between"
-  data-test-id="stepper"
->
-  <Step
-    activeStep={1}
-    isLast={false}
-    key="0"
-    label="step one"
-    onClick={[MockFunction]}
-    thisStep={1}
-    value={1}
-  />
-  <Step
-    activeStep={1}
-    isLast={false}
-    key="1"
-    label="step two"
-    onClick={[MockFunction]}
-    thisStep={2}
-    value={2}
-  />
-  <Step
-    activeStep={1}
-    isLast={true}
-    key="2"
-    label="step three"
-    thisStep={3}
-    value={3}
-  />
+<div>
+  <div
+    class="stepper d-flex flex-column flex-sm-row justify-content-between"
+    data-testid="stepper"
+  >
+    <div
+      class="d-flex align-items-center mb-1 mb-sm-0 flex-fill"
+    >
+      <div
+        class="d-flex align-items-center cursor-pointer"
+        data-testid="stepper-step"
+      >
+        <div
+          class="stepper__value border rounded-circle d-flex align-items-center justify-content-center me-1 text-xs fw-bold bg-primary text-white border-primary"
+        >
+          1
+        </div>
+        <div
+          class="me-1 fw-bold text-primary"
+        >
+          step one
+        </div>
+      </div>
+      <div
+        class="d-none d-sm-block me-1 flex-fill border-top border-gray-500"
+      />
+    </div>
+    <div
+      class="d-flex align-items-center mb-1 mb-sm-0 flex-fill"
+    >
+      <div
+        class="d-flex align-items-center cursor-pointer"
+        data-testid="stepper-step"
+      >
+        <div
+          class="stepper__value border rounded-circle d-flex align-items-center justify-content-center me-1 text-xs fw-bold bg-gray-500 border-gray-500 text-white"
+        >
+          2
+        </div>
+        <div
+          class="me-1 text-gray-500 fw-light"
+        >
+          step two
+        </div>
+      </div>
+      <div
+        class="d-none d-sm-block me-1 flex-fill border-top border-gray-500"
+      />
+    </div>
+    <div
+      class="d-flex align-items-center"
+    >
+      <div
+        class="d-flex align-items-center "
+        data-testid="stepper-step"
+      >
+        <div
+          class="stepper__value border rounded-circle d-flex align-items-center justify-content-center me-1 text-xs fw-bold bg-gray-500 border-gray-500 text-white"
+        >
+          3
+        </div>
+        <div
+          class="me-1 text-gray-500 fw-light"
+        >
+          step three
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;

@@ -1,116 +1,120 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import merge from 'lodash/merge';
 import Progress from './Progress';
 
 const setup = (overrides = {}) => {
   const props = merge({ value: 0 }, overrides);
-  const wrapper = shallow(<Progress {...props} />);
+  const utils = render(<Progress {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<Progress />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<Progress {...props} className="custom" />);
 
-    expect(wrapper.hasClass('progress')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const progress = screen.getByTestId('progress');
+    expect(progress).toHaveClass('progress');
+    expect(progress).toHaveClass('custom');
   });
 
   it('should handle the isAnimated prop', () => {
-    const { wrapper } = setup();
+    const { rerender, props } = setup();
 
-    expect(wrapper.find('[data-test-id="progress-bar"]').hasClass('progress-bar-animated')).toBe(
-      false
-    );
+    let progressBar = screen.getByTestId('progress-bar');
+    expect(progressBar).not.toHaveClass('progress-bar-animated');
 
-    wrapper.setProps({ isAnimated: true });
+    rerender(<Progress {...props} isAnimated />);
 
-    expect(wrapper.find('[data-test-id="progress-bar"]').hasClass('progress-bar-animated')).toBe(
-      true
-    );
+    progressBar = screen.getByTestId('progress-bar');
+    expect(progressBar).toHaveClass('progress-bar-animated');
   });
 
   it('should handle the isStriped prop', () => {
-    const { wrapper } = setup();
+    const { rerender, props } = setup();
 
-    expect(wrapper.find('[data-test-id="progress-bar"]').hasClass('progress-bar-striped')).toBe(
-      false
-    );
+    let progressBar = screen.getByTestId('progress-bar');
+    expect(progressBar).not.toHaveClass('progress-bar-striped');
 
-    wrapper.setProps({ isStriped: true });
+    rerender(<Progress {...props} isStriped />);
 
-    expect(wrapper.find('[data-test-id="progress-bar"]').hasClass('progress-bar-striped')).toBe(
-      true
-    );
+    progressBar = screen.getByTestId('progress-bar');
+    expect(progressBar).toHaveClass('progress-bar-striped');
   });
 
   it('should handle the theme prop', () => {
-    const { wrapper } = setup();
+    const { rerender, props } = setup();
 
-    expect(wrapper.find('[data-test-id="progress-bar"]').hasClass('bg-primary')).toBe(true);
+    let progressBar = screen.getByTestId('progress-bar');
+    expect(progressBar).toHaveClass('bg-primary');
 
-    wrapper.setProps({ theme: 'secondary' });
+    rerender(<Progress {...props} theme="secondary" />);
 
-    expect(wrapper.find('[data-test-id="progress-bar"]').hasClass('bg-secondary')).toBe(true);
+    progressBar = screen.getByTestId('progress-bar');
+    expect(progressBar).toHaveClass('bg-secondary');
   });
 
   it('should handle the value prop', () => {
-    const { wrapper } = setup();
+    const { rerender, props } = setup();
 
-    expect(wrapper.find('[data-test-id="progress-bar"]').prop('style').width).toBe('0%');
+    let progressBar = screen.getByTestId('progress-bar');
+    expect(progressBar).toHaveStyle({ width: '0%' });
 
-    wrapper.setProps({ value: 30 });
+    rerender(<Progress {...props} value={30} />);
 
-    expect(wrapper.find('[data-test-id="progress-bar"]').prop('style').width).toBe('30%');
+    progressBar = screen.getByTestId('progress-bar');
+    expect(progressBar).toHaveStyle({ width: '30%' });
   });
 
   it('should handle the small size prop', () => {
-    const { wrapper } = setup();
+    const { rerender, props } = setup();
 
-    expect(wrapper.find('[data-test-id="progress"]').prop('style').height).toBe('1.25rem');
-    expect(wrapper.find('[data-test-id="progress"]').prop('style').fontSize).toBe('0.75rem');
+    let progress = screen.getByTestId('progress');
+    expect(progress).toHaveStyle({ height: '1.25rem', fontSize: '0.75rem' });
 
-    wrapper.setProps({ size: 'sm' });
+    rerender(<Progress {...props} size="sm" />);
 
-    expect(wrapper.find('[data-test-id="progress"]').prop('style').height).toBe('0.5rem');
-    expect(wrapper.find('[data-test-id="progress"]').prop('style').fontSize).toBe('0.5rem');
+    progress = screen.getByTestId('progress');
+    expect(progress).toHaveStyle({ height: '0.5rem', fontSize: '0.5rem' });
   });
   it('should handle the large size prop', () => {
-    const { wrapper } = setup();
+    const { rerender, props } = setup();
 
-    expect(wrapper.find('[data-test-id="progress"]').prop('style').height).toBe('1.25rem');
-    expect(wrapper.find('[data-test-id="progress"]').prop('style').fontSize).toBe('0.75rem');
+    let progress = screen.getByTestId('progress');
+    expect(progress).toHaveStyle({ height: '1.25rem', fontSize: '0.75rem' });
 
-    wrapper.setProps({ size: 'lg' });
+    rerender(<Progress {...props} size="lg" />);
 
-    expect(wrapper.find('[data-test-id="progress"]').prop('style').height).toBe('1.5rem');
-    expect(wrapper.find('[data-test-id="progress"]').prop('style').fontSize).toBe('1rem');
+    progress = screen.getByTestId('progress');
+    expect(progress).toHaveStyle({ height: '1.5rem', fontSize: '1rem' });
   });
 
   it('should change to bg-danger when value is greater than 100', () => {
-    const { wrapper } = setup({ value: 25 });
+    const { rerender, props } = setup({ value: 25 });
 
-    expect(wrapper.find('[data-test-id="progress-bar"]').hasClass('bg-danger')).toBe(false);
+    let progressBar = screen.getByTestId('progress-bar');
+    expect(progressBar).not.toHaveClass('bg-danger');
 
-    wrapper.setProps({ value: 101 });
+    rerender(<Progress {...props} value={101} />);
 
-    expect(wrapper.find('[data-test-id="progress-bar"]').hasClass('bg-danger')).toBe(true);
+    progressBar = screen.getByTestId('progress-bar');
+    expect(progressBar).toHaveClass('bg-danger');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const progress = screen.getByTestId('progress');
+    expect(progress).toHaveAttribute('tabIndex', '1');
+    expect(progress).toHaveAttribute('id', 'test');
   });
 });

@@ -32,7 +32,7 @@ const Progress: React.FC<Props> = ({
     <div
       {...other}
       className={classes}
-      data-test-id="progress"
+      data-testid="progress"
       style={{
         height: '16px',
         fontSize: '0.75rem',
@@ -40,7 +40,7 @@ const Progress: React.FC<Props> = ({
     >
       <div
         className={barClasses}
-        data-test-id="progress-bar"
+        data-testid="progress-bar"
         role="progressbar"
         style={{
           width: `${value}%`,

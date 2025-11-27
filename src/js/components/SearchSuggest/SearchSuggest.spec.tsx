@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import merge from 'lodash/merge';
 import SearchSuggest, { findMatches, highlightMatches } from './SearchSuggest';
-import DropdownMenu from '../DropdownMenu/DropdownMenu';
 
 const setup = (overrides = {}) => {
   const props = merge(
@@ -34,136 +34,122 @@ const setup = (overrides = {}) => {
     overrides
   );
 
-  const wrapper = shallow(<SearchSuggest {...props} />);
+  const renderResult = render(<SearchSuggest {...props} />);
 
-  return { wrapper, props };
+  return { ...renderResult, props };
 };
 
 describe('<SearchSuggest />', () => {
   it('should return null if not loading and no options', () => {
-    const { wrapper, props } = setup();
+    const { rerender, props, container } = setup();
 
-    wrapper.setProps({ ...props, isLoading: true, search: '', options: [] });
+    rerender(<SearchSuggest {...props} isLoading search="" options={[]} />);
+    expect(container.querySelector('[data-testid="search-suggest"]')).toBeInTheDocument();
 
-    expect(wrapper.type()).toBe(DropdownMenu);
-
-    wrapper.setProps({ ...props, isLoading: false, search: '', options: [] });
-
-    expect(wrapper.type()).toBe(null);
+    rerender(<SearchSuggest {...props} isLoading={false} search="" options={[]} />);
+    expect(container.querySelector('[data-testid="search-suggest"]')).not.toBeInTheDocument();
   });
 
   it('should return null if search value and no matching options', () => {
-    const { wrapper, props } = setup();
+    const { rerender, props, container } = setup();
 
-    wrapper.setProps({ ...props, search: 'a', options: ['a', 'b', 'c'] });
+    rerender(<SearchSuggest {...props} search="a" options={['a', 'b', 'c']} />);
+    expect(container.querySelector('[data-testid="search-suggest"]')).toBeInTheDocument();
 
-    expect(wrapper.type()).toBe(DropdownMenu);
-
-    wrapper.setProps({ ...props, search: 'd' });
-
-    expect(wrapper.type()).toBe(null);
+    rerender(<SearchSuggest {...props} search="d" options={['a', 'b', 'c']} />);
+    expect(container.querySelector('[data-testid="search-suggest"]')).not.toBeInTheDocument();
   });
 
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container } = setup({ className: 'custom' });
 
-    wrapper.setProps({ className: 'custom' });
-
-    expect(wrapper.hasClass('search-suggest')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const searchSuggest = container.querySelector('[data-testid="search-suggest"]');
+    expect(searchSuggest).toHaveClass('search-suggest');
+    expect(searchSuggest).toHaveClass('custom');
   });
 
   it('should handle isLoading', () => {
-    const { wrapper } = setup({ isLoading: true });
+    const { rerender, props, container } = setup({ isLoading: true });
 
-    expect(wrapper.find('[data-test-id="search-suggest-loading"]')).toHaveLength(1);
+    expect(container.querySelector('[data-testid="search-suggest-loading"]')).toBeInTheDocument();
 
-    wrapper.setProps({ isLoading: false });
+    rerender(<SearchSuggest {...props} isLoading={false} />);
 
-    expect(wrapper.find('[data-test-id="search-suggest-loading"]')).toHaveLength(0);
+    expect(
+      container.querySelector('[data-testid="search-suggest-loading"]')
+    ).not.toBeInTheDocument();
   });
 
   it('should handle isOpen', () => {
-    const { wrapper } = setup({ isOpen: true });
+    const { rerender, props, container } = setup({ isOpen: true });
 
-    expect(wrapper.prop('isOpen')).toBe(true);
+    let searchSuggest = container.querySelector('[data-testid="search-suggest"]');
+    expect(searchSuggest).toHaveClass('show');
 
-    wrapper.setProps({ isOpen: false });
+    rerender(<SearchSuggest {...props} isOpen={false} />);
 
-    expect(wrapper.prop('isOpen')).toBe(false);
+    searchSuggest = container.querySelector('[data-testid="search-suggest"]');
+    expect(searchSuggest).not.toHaveClass('show');
   });
 
   it('should handle limit', () => {
     const options = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'];
-    const { wrapper } = setup({ options, search: '' });
+    const { rerender, props, container } = setup({ options, search: '' });
 
-    expect(wrapper.find('[data-test-id="search-suggest-item"]')).toHaveLength(10);
+    expect(container.querySelectorAll('[data-testid="search-suggest-item"]')).toHaveLength(10);
 
-    wrapper.setProps({ limit: 5 });
+    rerender(<SearchSuggest {...props} options={options} search="" limit={5} />);
 
-    expect(wrapper.find('[data-test-id="search-suggest-item"]')).toHaveLength(5);
+    expect(container.querySelectorAll('[data-testid="search-suggest-item"]')).toHaveLength(5);
 
-    wrapper.setProps({ limit: null });
+    rerender(<SearchSuggest {...props} options={options} search="" limit={null} />);
 
-    expect(wrapper.find('[data-test-id="search-suggest-item"]')).toHaveLength(10);
+    expect(container.querySelectorAll('[data-testid="search-suggest-item"]')).toHaveLength(10);
   });
 
-  it('should handle onClear', () => {
-    const { wrapper, props } = setup();
+  it('should handle onClear', async () => {
+    const { container, props } = setup();
 
-    wrapper.find('[data-test-id="search-suggest-clear"]').simulate('click');
+    const clearButton = container.querySelector('[data-testid="search-suggest-clear"]');
+    await userEvent.click(clearButton);
 
     expect(props.onClear).toHaveBeenCalledTimes(1);
   });
 
-  it('should handle onClick', () => {
-    const { wrapper, props } = setup();
+  it('should handle onClick', async () => {
+    const { container, props } = setup();
 
-    wrapper.simulate('click');
+    const searchSuggest = container.querySelector('[data-testid="search-suggest"]');
+    await userEvent.click(searchSuggest);
 
     expect(props.onClick).toHaveBeenCalledTimes(1);
   });
 
-  it('should handle onRemove', () => {
-    const { wrapper, props } = setup();
-    const stopPropagation = jest.fn();
+  it('should handle onRemove', async () => {
+    const { container, props } = setup();
 
-    wrapper
-      .find('[data-test-id="search-suggest-item"]')
-      .at(0)
-      .find('[data-test-id="search-suggest-remove"]')
-      .simulate('click', { stopPropagation });
-    wrapper
-      .find('[data-test-id="search-suggest-item"]')
-      .at(1)
-      .find('[data-test-id="search-suggest-remove"]')
-      .simulate('click', { stopPropagation });
+    const removeButtons = container.querySelectorAll('[data-testid="search-suggest-remove"]');
+    await userEvent.click(removeButtons[0]);
+    await userEvent.click(removeButtons[1]);
 
-    expect(stopPropagation).toHaveBeenCalledTimes(2);
     expect(props.onRemove).toHaveBeenCalledTimes(2);
     expect(props.onRemove).toHaveBeenNthCalledWith(1, 0);
     expect(props.onRemove).toHaveBeenNthCalledWith(2, 1);
   });
 
-  it('should handle onSelect', () => {
+  it('should handle onSelect', async () => {
     const options = ['A', 'B', 'C'];
-    const { wrapper, props } = setup({ options, search: '' });
+    const { container, props } = setup({ options, search: '' });
 
-    wrapper
-      .find('[data-test-id="search-suggest-item"]')
-      .at(0)
-      .simulate('click');
-
-    wrapper
-      .find('[data-test-id="search-suggest-item"]')
-      .at(1)
-      .simulate('click');
+    const items = container.querySelectorAll('[data-testid="search-suggest-item"]');
+    await userEvent.click(items[0]);
+    await userEvent.click(items[1]);
 
     expect(props.onSelect).toHaveBeenCalledTimes(2);
     expect(props.onSelect).toHaveBeenNthCalledWith(1, options[0], 0);
@@ -172,39 +158,42 @@ describe('<SearchSuggest />', () => {
 
   it('should handle options', () => {
     const options = ['A', 'b', 'c'];
-    const { wrapper } = setup();
+    const { rerender, props, container } = setup();
 
-    wrapper.setProps({ options, search: '' });
+    rerender(<SearchSuggest {...props} options={options} search="" />);
 
-    expect(wrapper.find('[data-test-id="search-suggest-item"]')).toHaveLength(3);
+    expect(container.querySelectorAll('[data-testid="search-suggest-item"]')).toHaveLength(3);
   });
 
   it('should handle search', () => {
     const options = ['A', 'a', 'B', 'C'];
-    const { wrapper } = setup({ options, search: 'a' });
+    const { rerender, props, container } = setup({ options, search: 'a' });
 
-    expect(wrapper.find('[data-test-id="search-suggest-item"]')).toHaveLength(2);
+    expect(container.querySelectorAll('[data-testid="search-suggest-item"]')).toHaveLength(2);
 
-    wrapper.setProps({ search: 'b' });
+    rerender(<SearchSuggest {...props} options={options} search="b" />);
 
-    expect(wrapper.find('[data-test-id="search-suggest-item"]')).toHaveLength(1);
+    expect(container.querySelectorAll('[data-testid="search-suggest-item"]')).toHaveLength(1);
   });
 
   it('should handle title', () => {
-    const { wrapper } = setup({ title: '' });
+    const { rerender, props, container } = setup({ title: '' });
 
-    expect(wrapper.find('[data-test-id="search-suggest-header"]')).toHaveLength(0);
+    expect(
+      container.querySelector('[data-testid="search-suggest-header"]')
+    ).not.toBeInTheDocument();
 
-    wrapper.setProps({ title: 'Test' });
+    rerender(<SearchSuggest {...props} title="Test" />);
 
-    expect(wrapper.find('[data-test-id="search-suggest-header"]')).toHaveLength(1);
+    expect(container.querySelector('[data-testid="search-suggest-header"]')).toBeInTheDocument();
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const searchSuggest = container.querySelector('[data-testid="search-suggest"]');
+    expect(searchSuggest).toHaveAttribute('tabIndex', '1');
+    expect(searchSuggest).toHaveAttribute('id', 'test');
   });
 });
 

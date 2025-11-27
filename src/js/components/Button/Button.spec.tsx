@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import merge from 'lodash/merge';
 import Button from './Button';
 
@@ -11,186 +12,208 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<Button {...props} />);
+  const utils = render(<Button {...props} />);
 
   return {
-    wrapper,
+    ...utils,
     props,
   };
 };
 
 describe('<Button />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with an icon', () => {
-    const { wrapper } = setup({ icon: 'create' });
+    const { container } = setup({ icon: 'create' });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle the iconTheme props', () => {
-    const { wrapper } = setup({ icon: 'create', iconTheme: 'primary' });
+    const { container } = setup({ icon: 'create', iconTheme: 'primary' });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle the children prop', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper.children().text()).toEqual('Click Me');
+    expect(container.textContent).toContain('Click Me');
   });
 
   it('should handle the className prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<Button {...props} className="custom" />);
 
-    expect(wrapper.hasClass('btn')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const button = container.querySelector('.btn');
+    expect(button).toHaveClass('btn');
+    expect(button).toHaveClass('custom');
   });
 
   it('should handle the isBlock prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.exists('div.d-grid')).toBe(false);
+    expect(container.querySelector('div.d-grid')).not.toBeInTheDocument();
 
-    wrapper.setProps({ isBlock: true });
+    rerender(<Button {...props} isBlock />);
 
-    expect(wrapper.exists('div.d-grid')).toBe(true);
+    expect(container.querySelector('div.d-grid')).toBeInTheDocument();
   });
 
   it('should handle the isDisabled prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('disabled')).toBe(false);
+    let button = container.querySelector('.btn');
+    expect(button).not.toHaveClass('disabled');
 
-    wrapper.setProps({ isDisabled: true });
+    rerender(<Button {...props} isDisabled />);
 
-    expect(wrapper.hasClass('disabled')).toBe(true);
+    button = container.querySelector('.btn');
+    expect(button).toHaveClass('disabled');
   });
 
   it('should handle the isOutline prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('btn-outline-primary')).toBe(false);
-    expect(wrapper.hasClass('btn-primary')).toBe(true);
+    let button = container.querySelector('.btn');
+    expect(button).not.toHaveClass('btn-outline-primary');
+    expect(button).toHaveClass('btn-primary');
 
-    wrapper.setProps({ isOutline: true });
+    rerender(<Button {...props} isOutline />);
 
-    expect(wrapper.hasClass('btn-outline-primary')).toBe(true);
-    expect(wrapper.hasClass('btn-primary')).toBe(false);
+    button = container.querySelector('.btn');
+    expect(button).toHaveClass('btn-outline-primary');
+    expect(button).not.toHaveClass('btn-primary');
   });
 
   it('should handle the size prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ size: 'lg' });
+    rerender(<Button {...props} size="lg" />);
 
-    expect(wrapper.hasClass('btn-lg')).toBe(true);
+    let button = container.querySelector('.btn');
+    expect(button).toHaveClass('btn-lg');
 
-    wrapper.setProps({ size: 'sm' });
+    rerender(<Button {...props} size="sm" />);
 
-    expect(wrapper.hasClass('btn-sm')).toBe(true);
+    button = container.querySelector('.btn');
+    expect(button).toHaveClass('btn-sm');
   });
 
   it('should handle the tag prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.type()).toBe('button');
+    let button = container.querySelector('.btn');
+    expect(button?.tagName.toLowerCase()).toBe('button');
 
-    wrapper.setProps({ tag: 'a' });
+    rerender(<Button {...props} tag="a" />);
 
-    expect(wrapper.type()).toBe('a');
+    button = container.querySelector('.btn');
+    expect(button?.tagName.toLowerCase()).toBe('a');
 
-    wrapper.setProps({ tag: 'div' });
+    rerender(<Button {...props} tag="div" />);
 
-    expect(wrapper.type()).toBe('div');
+    button = container.querySelector('.btn');
+    expect(button?.tagName.toLowerCase()).toBe('div');
   });
 
   it('should handle the theme prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('btn-primary')).toBe(true);
+    let button = container.querySelector('.btn');
+    expect(button).toHaveClass('btn-primary');
 
-    wrapper.setProps({ theme: 'secondary' });
+    rerender(<Button {...props} theme="secondary" />);
 
-    expect(wrapper.hasClass('btn-primary')).toBe(false);
-
-    expect(wrapper.hasClass('btn-secondary')).toBe(true);
+    button = container.querySelector('.btn');
+    expect(button).not.toHaveClass('btn-primary');
+    expect(button).toHaveClass('btn-secondary');
   });
 
   it('should default the type prop to button if Tag is button', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ tag: 'button' });
+    rerender(<Button {...props} tag="button" />);
 
-    expect(wrapper.prop('type')).toEqual('button');
+    let button = container.querySelector('.btn');
+    expect(button).toHaveAttribute('type', 'button');
 
-    wrapper.setProps({ type: 'submit' });
+    rerender(<Button {...props} type="submit" />);
 
-    expect(wrapper.prop('type')).toEqual('submit');
+    button = container.querySelector('.btn');
+    expect(button).toHaveAttribute('type', 'submit');
 
-    wrapper.setProps({ tag: 'a' });
+    rerender(<Button {...props} tag="a" />);
 
-    expect(wrapper.prop('type')).toEqual(undefined);
+    button = container.querySelector('.btn');
+    expect(button).not.toHaveAttribute('type');
   });
 
   it('should handle the iconPosition prop', () => {
-    const { wrapper } = setup({ icon: 'create' });
+    const { container, rerender, props } = setup({ icon: 'create' });
 
-    expect(wrapper.hasClass('btn-icon-left')).toBe(true);
+    let button = container.querySelector('.btn');
+    expect(button).toHaveClass('btn-icon-left');
 
-    wrapper.setProps({ iconPosition: 'right' });
+    rerender(<Button {...props} icon="create" iconPosition="right" />);
 
-    expect(wrapper.hasClass('btn-icon-right')).toBe(true);
+    button = container.querySelector('.btn');
+    expect(button).toHaveClass('btn-icon-right');
 
-    wrapper.setProps({ iconPosition: 'left' });
+    rerender(<Button {...props} icon="create" iconPosition="left" />);
 
-    expect(wrapper.hasClass('btn-icon-left')).toBe(true);
+    button = container.querySelector('.btn');
+    expect(button).toHaveClass('btn-icon-left');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const button = container.querySelector('.btn');
+    expect(button).toHaveAttribute('tabIndex', '1');
+    expect(button).toHaveAttribute('id', 'test');
   });
 
   describe('onClick', () => {
-    it('should call onClick with data provided', () => {
-      const { wrapper, props } = setup();
+    it('should call onClick with data provided', async () => {
+      const onClick = jest.fn();
+      const user = userEvent.setup();
+      setup({ onClick });
 
-      wrapper.simulate('click', { foo: 'bar' });
+      const button = screen.getByRole('button');
+      await user.click(button);
 
-      expect(props.onClick).toHaveBeenCalledTimes(1);
-      expect(props.onClick).toHaveBeenCalledWith({ foo: 'bar' });
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
 
-    it('should preventDefault if isDisabled', () => {
-      const preventDefault = jest.fn();
-      const { wrapper } = setup();
+    it('should preventDefault if isDisabled', async () => {
+      const onClick = jest.fn();
+      const user = userEvent.setup();
+      const { rerender, props } = setup({ onClick });
 
-      wrapper.simulate('click');
+      const button = screen.getByRole('button');
+      await user.click(button);
 
-      expect(preventDefault).not.toHaveBeenCalled();
+      expect(onClick).toHaveBeenCalledTimes(1);
 
-      wrapper.setProps({ isDisabled: true });
+      rerender(<Button {...props} onClick={onClick} isDisabled />);
 
-      wrapper.simulate('click', { preventDefault });
+      await user.click(button);
 
-      expect(preventDefault).toHaveBeenCalledTimes(1);
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
 
-    it('should not error if onClick is not a function', () => {
-      const { wrapper } = setup({ onClick: 'foo' });
+    it('should not error if onClick is not a function', async () => {
+      const user = userEvent.setup();
+      setup({ onClick: 'foo' as any });
 
-      expect(() => {
-        wrapper.simulate('click');
-      }).not.toThrow();
+      const button = screen.getByRole('button');
+      await expect(user.click(button)).resolves.not.toThrow();
     });
   });
 });

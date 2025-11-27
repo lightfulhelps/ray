@@ -1,77 +1,86 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import NavLink from './NavLink';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
-  const wrapper = shallow(<NavLink {...props} />);
+  const utils = render(<NavLink {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<NavLink />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<NavLink {...props} className="custom" />);
 
-    expect(wrapper.hasClass('nav-link')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const navLink = container.querySelector('.nav-link');
+    expect(navLink).toHaveClass('nav-link');
+    expect(navLink).toHaveClass('custom');
   });
 
   it('should handle isActive', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('active')).toBe(false);
+    let navLink = container.querySelector('.nav-link');
+    expect(navLink).not.toHaveClass('active');
 
-    wrapper.setProps({ isActive: true });
+    rerender(<NavLink {...props} isActive />);
 
-    expect(wrapper.hasClass('active')).toBe(true);
+    navLink = container.querySelector('.nav-link');
+    expect(navLink).toHaveClass('active');
   });
 
   it('should handle isDisabled', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('disabled')).toBe(false);
+    let navLink = container.querySelector('.nav-link');
+    expect(navLink).not.toHaveClass('disabled');
 
-    wrapper.setProps({ isDisabled: true });
+    rerender(<NavLink {...props} isDisabled />);
 
-    expect(wrapper.hasClass('disabled')).toBe(true);
+    navLink = container.querySelector('.nav-link');
+    expect(navLink).toHaveClass('disabled');
   });
 
   it('should handle the theme prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('nav-link-primary')).toBe(true);
+    let navLink = container.querySelector('.nav-link');
+    expect(navLink).toHaveClass('nav-link-primary');
 
-    wrapper.setProps({ theme: 'secondary' });
+    rerender(<NavLink {...props} theme="secondary" />);
 
-    expect(wrapper.hasClass('nav-link-primary')).toBe(false);
-
-    expect(wrapper.hasClass('nav-link-secondary')).toBe(true);
+    navLink = container.querySelector('.nav-link');
+    expect(navLink).not.toHaveClass('nav-link-primary');
+    expect(navLink).toHaveClass('nav-link-secondary');
   });
 
   it('should handle the tag prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.type()).toBe('a');
+    let navLink = container.querySelector('.nav-link');
+    expect(navLink?.tagName.toLowerCase()).toBe('a');
 
-    wrapper.setProps({ tag: 'div' });
+    rerender(<NavLink {...props} tag="div" />);
 
-    expect(wrapper.type()).toBe('div');
+    navLink = container.querySelector('.nav-link');
+    expect(navLink?.tagName.toLowerCase()).toBe('div');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const navLink = container.querySelector('.nav-link');
+    expect(navLink).toHaveAttribute('tabIndex', '1');
+    expect(navLink).toHaveAttribute('id', 'test');
   });
 });
