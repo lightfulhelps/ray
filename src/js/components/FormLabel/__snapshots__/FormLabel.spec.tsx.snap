@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FormLabel /> should render 1`] = `
-<label
-  className="form-label"
->
-  Email
-</label>
+<div>
+  <label
+    class="form-label"
+  >
+    Email
+  </label>
+</div>
 `;

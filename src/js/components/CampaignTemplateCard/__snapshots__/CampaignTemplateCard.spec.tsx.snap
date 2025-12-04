@@ -1,101 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CampaignTemplateCard /> should render 1`] = `
-<div
-  className="card h-100 rounded-lg campaign-template-card"
->
+<div>
   <div
-    className="bg-cover bg-gray-900 w-100 campaign-template-card-image"
-    data-test-id="campaign-template-card-image"
-    style={
-      Object {
-        "backgroundImage": "url(http://foo.com/bar.jpg)",
-        "backgroundPosition": "center",
-        "height": 0,
-        "paddingBottom": "50%",
-      }
-    }
-  />
-  <div
-    className="p-3 d-flex h-100 flex-column justify-content-between"
+    class="card h-100 rounded-lg campaign-template-card"
   >
-    <div>
-      <h4
-        className="mb-1"
-        data-test-id="campaign-template-card-title"
-      >
-        Create your own
-      </h4>
-      <div
-        className="text-sm"
-        data-test-id="campaign-template-card-description"
-      >
-        Don't use a template, do your own thing.
+    <div
+      class="bg-cover bg-gray-900 w-100 campaign-template-card-image"
+      data-testid="campaign-template-card-image"
+      style="background-image: url(http://foo.com/bar.jpg); height: 0px; padding-bottom: 50%; background-position: center;"
+    />
+    <div
+      class="p-3 d-flex h-100 flex-column justify-content-between"
+    >
+      <div>
+        <h4
+          class="mb-1"
+          data-testid="campaign-template-card-title"
+        >
+          Create your own
+        </h4>
+        <div
+          class="text-sm"
+          data-testid="campaign-template-card-description"
+        >
+          Don't use a template, do your own thing.
+        </div>
       </div>
-    </div>
-    <div>
-      <Button
-        className="mt-3"
-        data-test-id="campaign-template-card-button"
-        isBlock={true}
-        isDisabled={false}
-        onClick={[Function]}
-        size="lg"
-        theme="primary"
-      >
-        Use this template
-      </Button>
+      <div>
+        <div
+          class="d-grid"
+        >
+          <button
+            class="mt-3 btn btn-gradient-primary btn-primary btn-lg"
+            data-testid="campaign-template-card-button"
+            type="button"
+          >
+            <span>
+              Use this template
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`<CampaignTemplateCard /> should render when isSelected 1`] = `
-<div
-  className="card h-100 rounded-lg campaign-template-card--selected campaign-template-card"
->
+<div>
   <div
-    className="bg-cover bg-gray-900 w-100 campaign-template-card-image"
-    data-test-id="campaign-template-card-image"
-    style={
-      Object {
-        "backgroundImage": "url(http://foo.com/bar.jpg)",
-        "backgroundPosition": "center",
-        "height": 0,
-        "paddingBottom": "50%",
-      }
-    }
-  />
-  <div
-    className="p-3 d-flex h-100 flex-column justify-content-between"
+    class="card h-100 rounded-lg campaign-template-card--selected campaign-template-card"
   >
-    <div>
-      <h4
-        className="mb-1"
-        data-test-id="campaign-template-card-title"
-      >
-        Create your own
-      </h4>
-      <div
-        className="text-sm"
-        data-test-id="campaign-template-card-description"
-      >
-        Don't use a template, do your own thing.
+    <div
+      class="bg-cover bg-gray-900 w-100 campaign-template-card-image"
+      data-testid="campaign-template-card-image"
+      style="background-image: url(http://foo.com/bar.jpg); height: 0px; padding-bottom: 50%; background-position: center;"
+    />
+    <div
+      class="p-3 d-flex h-100 flex-column justify-content-between"
+    >
+      <div>
+        <h4
+          class="mb-1"
+          data-testid="campaign-template-card-title"
+        >
+          Create your own
+        </h4>
+        <div
+          class="text-sm"
+          data-testid="campaign-template-card-description"
+        >
+          Don't use a template, do your own thing.
+        </div>
       </div>
-    </div>
-    <div>
-      <Button
-        className="mt-3"
-        data-test-id="campaign-template-card-button"
-        icon="approvalTick"
-        isBlock={true}
-        isDisabled={true}
-        onClick={[Function]}
-        size="lg"
-        theme="primary"
-      >
-        Selected
-      </Button>
+      <div>
+        <div
+          class="d-grid"
+        >
+          <button
+            class="mt-3 btn btn-gradient-primary btn-primary btn-lg disabled btn-icon-left"
+            data-testid="campaign-template-card-button"
+            disabled=""
+            type="button"
+          >
+            <span>
+              Selected
+              <svg
+                class="icon"
+                height="1em"
+                style="fill: currentColor;"
+                viewBox="0 0 24 24"
+                width="1em"
+              >
+                <path
+                  d="M12 2C6.4771 2 2 6.4771 2 12c0 5.5228 4.4771 10 10 10 5.5228 0 10-4.4772 10-10A10.0003 10.0003 0 0012 2zm4.35 7.73l-5.62 5.62a.4798.4798 0 01-.7 0L7.65 13a.5.5 0 010-.71l.53-.53a.4799.4799 0 01.7 0l1.5 1.49 4.74-4.74a.5.5 0 01.7 0l.53.53a.5.5 0 010 .69z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

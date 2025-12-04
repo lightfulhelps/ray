@@ -1,70 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<PostCardGhost /> should render 1`] = `
-<Card
-  className="post-card-ghost bg-gray-200 border-0 overflow-hidden"
->
+<div>
   <div
-    className="d-flex align-items-top px-3 pt-3 pb-0"
+    class="post-card-ghost bg-gray-200 border-0 overflow-hidden card"
   >
     <div
-      className="ghost rounded-circle me-3 mb-0"
-      style={
-        Object {
-          "height": "35px",
-          "width": "35px",
-        }
-      }
-    />
-    <div
-      className="flex-fill"
+      class="d-flex align-items-top px-3 pt-3 pb-0"
     >
       <div
-        className="ghost ghost-lg w-75"
+        class="ghost rounded-circle me-3 mb-0"
+        style="width: 35px; height: 35px;"
       />
       <div
-        className="ghost w-50"
-      />
+        class="flex-fill"
+      >
+        <div
+          class="ghost ghost-lg w-75"
+        />
+        <div
+          class="ghost w-50"
+        />
+        <div
+          class="ghost w-50 mb-0"
+        />
+      </div>
       <div
-        className="ghost w-50 mb-0"
+        class="ghost rounded-sm"
+        style="width: 26px; height: 26px;"
       />
     </div>
     <div
-      className="ghost rounded-sm"
-      style={
-        Object {
-          "height": "26px",
-          "width": "26px",
-        }
-      }
+      class="p-3"
+    >
+      <div
+        class="ghost ghost-sm"
+      />
+      <div
+        class="ghost ghost-sm"
+      />
+      <div
+        class="ghost ghost-sm"
+      />
+      <div
+        class="ghost ghost-sm"
+      />
+      <div
+        class="ghost ghost-sm mb-0 w-75"
+      />
+    </div>
+    <div
+      class="ghost mb-0"
+      style="height: 164px;"
     />
   </div>
-  <div
-    className="p-3"
-  >
-    <div
-      className="ghost ghost-sm"
-    />
-    <div
-      className="ghost ghost-sm"
-    />
-    <div
-      className="ghost ghost-sm"
-    />
-    <div
-      className="ghost ghost-sm"
-    />
-    <div
-      className="ghost ghost-sm mb-0 w-75"
-    />
-  </div>
-  <div
-    className="ghost mb-0"
-    style={
-      Object {
-        "height": "164px",
-      }
-    }
-  />
-</Card>
+</div>
 `;

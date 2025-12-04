@@ -1,7 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import {
   Container,
@@ -19,8 +17,6 @@ import sizes from './utils/sizes';
 
 import '../../scss/ray.scss';
 import FormPasswordInput from '../components/FormPasswordInput/FormPasswordInput';
-
-const stories = storiesOf('Forms', module);
 
 const selectSizes = {
   Small: 'sm',
@@ -50,9 +46,19 @@ const selectOptions = [
   },
 ];
 
-stories.addDecorator(withKnobs);
+const meta: Meta<typeof FormInput> = {
+  title: 'Forms',
+  component: FormInput,
+  parameters: {
+    layout: 'padded',
+  },
+};
 
-stories.add('Default', () => (
+export default meta;
+type Story = StoryObj<typeof FormInput>;
+
+export const Default: Story = {
+  render: () => (
   <Container>
     <h1 className="my-6">Forms</h1>
     <Row className="mb-5">
@@ -63,7 +69,7 @@ stories.add('Default', () => (
             isInvalid
             name="name"
             type="text"
-            size={select('Select Size', sizes, sizes.Medium)}
+            size="md"
           />
           <FormFeedback>This field is invalid</FormFeedback>
         </FormGroup>
@@ -73,21 +79,21 @@ stories.add('Default', () => (
             name="email"
             placeholder="e.g. foo@bar.com"
             type="email"
-            size={select('Select Size', sizes, undefined)}
+            size={undefined}
           />
         </FormGroup>
         <FormGroup>
           <FormLabel>Password</FormLabel>
-          <FormPasswordInput size={select('Select Size', sizes, undefined)} />
+          <FormPasswordInput size={undefined} />
         </FormGroup>
         <FormGroup>
           <FormLabel>Select</FormLabel>
           <FormSelect
-            isInvalid={boolean('Select Invalid', false)}
-            onChange={action('Select change')}
+            isInvalid={false}
+            onChange={() => console.log('console.log', 'Select change')}
             options={selectOptions}
             placeholder="Some placeholder text..."
-            size={select('Select Size', selectSizes, undefined)}
+            size={undefined}
           />
         </FormGroup>
         <FormGroup>
@@ -95,9 +101,9 @@ stories.add('Default', () => (
           <FormSelect
             isCreatable
             isMulti
-            onChange={action('Multiple Select change')}
+            onChange={() => console.log('console.log', 'Multiple Select change')}
             options={selectOptions}
-            size={select('Select Size', selectSizes, undefined)}
+            size={undefined}
           />
         </FormGroup>
         <FormGroup>
@@ -167,4 +173,5 @@ stories.add('Default', () => (
       </Col>
     </Row>
   </Container>
-));
+  ),
+};

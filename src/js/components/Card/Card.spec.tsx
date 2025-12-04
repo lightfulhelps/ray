@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import Card from './Card';
 
@@ -10,50 +10,54 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<Card {...props} />);
+  const utils = render(<Card {...props} />);
 
   return {
-    wrapper,
+    ...utils,
     props,
   };
 };
 
 describe('<Card />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle the children prop', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper.children().text()).toEqual('Children');
+    expect(container.textContent).toEqual('Children');
   });
 
   it('should handle the className prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<Card {...props} className="custom" />);
 
-    expect(wrapper.hasClass('card')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const card = container.querySelector('.card');
+    expect(card).toHaveClass('card');
+    expect(card).toHaveClass('custom');
   });
 
   it('should handle the tag prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.type()).toBe('div');
+    let card = container.querySelector('.card');
+    expect(card?.tagName.toLowerCase()).toBe('div');
 
-    wrapper.setProps({ tag: 'a' });
+    rerender(<Card {...props} tag="a" />);
 
-    expect(wrapper.type()).toBe('a');
+    card = container.querySelector('.card');
+    expect(card?.tagName.toLowerCase()).toBe('a');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const card = container.querySelector('.card');
+    expect(card).toHaveAttribute('tabIndex', '1');
+    expect(card).toHaveAttribute('id', 'test');
   });
 });

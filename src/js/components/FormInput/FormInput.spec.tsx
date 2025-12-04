@@ -1,85 +1,97 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import FormInput from './FormInput';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
-  const wrapper = shallow(<FormInput {...props} />);
+  const utils = render(<FormInput {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<FormInput />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<FormInput {...props} className="custom" />);
 
-    expect(wrapper.hasClass('form-control')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const input = container.firstChild;
+    expect(input).toHaveClass('form-control');
+    expect(input).toHaveClass('custom');
   });
 
   it('should handle isInvalid', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('is-invalid')).toBe(false);
+    let input = container.firstChild;
+    expect(input).not.toHaveClass('is-invalid');
 
-    wrapper.setProps({ isInvalid: true });
+    rerender(<FormInput {...props} isInvalid />);
 
-    expect(wrapper.hasClass('is-invalid')).toBe(true);
+    input = container.firstChild;
+    expect(input).toHaveClass('is-invalid');
   });
 
   it('should handle isValid', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('is-valid')).toBe(false);
+    let input = container.firstChild;
+    expect(input).not.toHaveClass('is-valid');
 
-    wrapper.setProps({ isValid: true });
+    rerender(<FormInput {...props} isValid />);
 
-    expect(wrapper.hasClass('is-valid')).toBe(true);
+    input = container.firstChild;
+    expect(input).toHaveClass('is-valid');
   });
 
   it('should handle size', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ size: 'lg' });
+    rerender(<FormInput {...props} size="lg" />);
 
-    expect(wrapper.hasClass('form-control-lg')).toBe(true);
+    let input = container.firstChild;
+    expect(input).toHaveClass('form-control-lg');
 
-    wrapper.setProps({ size: 'sm' });
+    rerender(<FormInput {...props} size="sm" />);
 
-    expect(wrapper.hasClass('form-control-sm')).toBe(true);
+    input = container.firstChild;
+    expect(input).toHaveClass('form-control-sm');
   });
 
   it('should handle type', () => {
-    const { wrapper } = setup({ type: 'text' });
+    const { container, rerender, props } = setup({ type: 'text' });
 
-    expect(wrapper.hasClass('form-control')).toBe(true);
+    let input = container.firstChild;
+    expect(input).toHaveClass('form-control');
 
-    wrapper.setProps({ type: 'file' });
+    rerender(<FormInput {...props} type="file" />);
 
-    expect(wrapper.hasClass('form-control-file')).toBe(true);
+    input = container.firstChild;
+    expect(input).toHaveClass('form-control-file');
 
-    wrapper.setProps({ type: 'radio' });
+    rerender(<FormInput {...props} type="radio" />);
 
-    expect(wrapper.hasClass('form-check-input')).toBe(true);
+    input = container.firstChild;
+    expect(input).toHaveClass('form-check-input');
 
-    wrapper.setProps({ type: 'checkbox' });
+    rerender(<FormInput {...props} type="checkbox" />);
 
-    expect(wrapper.hasClass('form-check-input')).toBe(true);
+    input = container.firstChild;
+    expect(input).toHaveClass('form-check-input');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const input = container.firstChild;
+    expect(input).toHaveAttribute('tabIndex', '1');
+    expect(input).toHaveAttribute('id', 'test');
   });
 });

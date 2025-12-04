@@ -1,73 +1,81 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import FormTextarea from './FormTextarea';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
-  const wrapper = shallow(<FormTextarea {...props} />);
+  const utils = render(<FormTextarea {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<FormTextarea />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle children', () => {
-    const { wrapper } = setup({ children: 'Children' });
+    const { container } = setup({ children: 'Children' });
 
-    expect(wrapper.text()).toBe('Children');
+    expect(container.textContent).toBe('Children');
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<FormTextarea {...props} className="custom" />);
 
-    expect(wrapper.hasClass('form-control')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const textarea = container.firstChild;
+    expect(textarea).toHaveClass('form-control');
+    expect(textarea).toHaveClass('custom');
   });
 
   it('should handle isInvalid', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('is-invalid')).toBe(false);
+    let textarea = container.firstChild;
+    expect(textarea).not.toHaveClass('is-invalid');
 
-    wrapper.setProps({ isInvalid: true });
+    rerender(<FormTextarea {...props} isInvalid />);
 
-    expect(wrapper.hasClass('is-invalid')).toBe(true);
+    textarea = container.firstChild;
+    expect(textarea).toHaveClass('is-invalid');
   });
 
   it('should handle isValid', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('is-valid')).toBe(false);
+    let textarea = container.firstChild;
+    expect(textarea).not.toHaveClass('is-valid');
 
-    wrapper.setProps({ isValid: true });
+    rerender(<FormTextarea {...props} isValid />);
 
-    expect(wrapper.hasClass('is-valid')).toBe(true);
+    textarea = container.firstChild;
+    expect(textarea).toHaveClass('is-valid');
   });
 
   it('should handle size', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ size: 'lg' });
+    rerender(<FormTextarea {...props} size="lg" />);
 
-    expect(wrapper.hasClass('form-control-lg')).toBe(true);
+    let textarea = container.firstChild;
+    expect(textarea).toHaveClass('form-control-lg');
 
-    wrapper.setProps({ size: 'sm' });
+    rerender(<FormTextarea {...props} size="sm" />);
 
-    expect(wrapper.hasClass('form-control-sm')).toBe(true);
+    textarea = container.firstChild;
+    expect(textarea).toHaveClass('form-control-sm');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const textarea = container.firstChild;
+    expect(textarea).toHaveAttribute('tabIndex', '1');
+    expect(textarea).toHaveAttribute('id', 'test');
   });
 });

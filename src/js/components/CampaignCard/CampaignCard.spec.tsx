@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import merge from 'lodash/merge';
 import CampaignCard from './CampaignCard';
 
@@ -12,87 +12,76 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<CampaignCard {...props} />);
+  const renderResult = render(<CampaignCard {...props} />);
 
-  return { wrapper, props };
+  return { ...renderResult, props };
 };
 
 describe('<CampaignCard />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    setup({ className: 'custom' });
 
-    wrapper.setProps({ className: 'custom' });
-
-    expect(wrapper.hasClass('campaign-card')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const card = screen.getByTestId('campaign-card');
+    expect(card).toHaveClass('campaign-card');
+    expect(card).toHaveClass('custom');
   });
 
   it('should handle the cover prop', () => {
     const cover = 'http://lorempixel.com/b924f7e6-5434-4ef4-bdc6-2670b799f27c';
-    const { wrapper } = setup({
-      cover,
-    });
+    setup({ cover });
 
-    expect(
-      wrapper.find('[data-test-id="campaign-card-cover"]').prop('style').backgroundImage
-    ).toContain(cover);
+    const coverElement = screen.getByTestId('campaign-card-cover') as HTMLElement;
+    expect(coverElement.style.backgroundImage).toContain(cover);
   });
 
   it('should handle the title prop', () => {
     const title = 'azure Handcrafted Wooden Car';
-    const { wrapper } = setup({ title });
+    setup({ title });
 
-    expect(wrapper.find('[data-test-id="campaign-card-title"]').text()).toEqual(title);
+    expect(screen.getByTestId('campaign-card-title')).toHaveTextContent(title);
   });
 
   it('should handle the Live state', () => {
-    const { wrapper } = setup({ state: 'Live' });
+    setup({ state: 'Live' });
 
-    expect(wrapper.find('[data-test-id="campaign-card-state"]').text()).toEqual('Live');
-
-    expect(wrapper.find('[data-test-id="campaign-card-state"]').prop('className')).toContain(
-      'text-primary'
-    );
-
-    expect(wrapper.find('[data-test-id="campaign-card-state"]').prop('className')).not.toContain(
-      'text-warning'
-    );
+    const stateElement = screen.getByTestId('campaign-card-state');
+    expect(stateElement).toHaveTextContent('Live');
+    expect(stateElement).toHaveClass('text-primary');
+    expect(stateElement).not.toHaveClass('text-warning');
   });
 
   it('should handle the Draft state', () => {
-    const { wrapper } = setup({ state: 'Draft' });
+    setup({ state: 'Draft' });
 
-    expect(wrapper.find('[data-test-id="campaign-card-state"]').text()).toEqual('Draft');
-
-    expect(wrapper.find('[data-test-id="campaign-card-state"]').prop('className')).not.toContain(
-      'text-primary'
-    );
-
-    expect(wrapper.find('[data-test-id="campaign-card-state"]').prop('className')).toContain(
-      'text-warning'
-    );
+    const stateElement = screen.getByTestId('campaign-card-state');
+    expect(stateElement).toHaveTextContent('Draft');
+    expect(stateElement).not.toHaveClass('text-primary');
+    expect(stateElement).toHaveClass('text-warning');
   });
 
   it('should handle the tag prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.type()).toBe('div');
+    let card = container.firstChild as Element;
+    expect(card?.tagName.toLowerCase()).toBe('div');
 
-    wrapper.setProps({ tag: 'a' });
+    rerender(<CampaignCard {...props} tag="a" />);
 
-    expect(wrapper.type()).toBe('a');
+    card = container.firstChild as Element;
+    expect(card?.tagName.toLowerCase()).toBe('a');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const card = screen.getByTestId('campaign-card');
+    expect(card).toHaveAttribute('tabIndex', '1');
+    expect(card).toHaveAttribute('id', 'test');
   });
 });

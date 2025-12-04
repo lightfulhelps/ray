@@ -1,32 +1,61 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container, Row, Col, Table } from '../';
 
 import '../../scss/ray.scss';
-
-const stories = storiesOf('Table', module);
-
-stories.addDecorator(withKnobs);
 
 const sizes = {
   Small: 'sm',
   Large: 'lg',
 } as const;
 
-stories.add('Default', () => (
+const meta: Meta<typeof Table> = {
+  title: 'Table',
+  component: Table,
+  parameters: {
+    layout: 'padded',
+  },
+  argTypes: {
+    isBordered: {
+      control: 'boolean',
+    },
+    isBorderless: {
+      control: 'boolean',
+    },
+    isStriped: {
+      control: 'boolean',
+    },
+    isHoverable: {
+      control: 'boolean',
+    },
+    isResponsive: {
+      control: 'boolean',
+    },
+    size: {
+      control: 'select',
+      options: [...Object.values(sizes), undefined],
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof Table>;
+
+export const Default: Story = {
+  args: {
+    isBordered: false,
+    isBorderless: false,
+    isStriped: false,
+    isHoverable: false,
+    isResponsive: false,
+    size: undefined,
+  },
+  render: (args) => (
   <Container>
     <h1 className="my-6">Table</h1>
     <Row>
       <Col>
-        <Table
-          isBordered={boolean('Bordered', false)}
-          isBorderless={boolean('Borderless', false)}
-          isStriped={boolean('Striped', false)}
-          isHoverable={boolean('Hoverable', false)}
-          isResponsive={boolean('Responsive', false)}
-          size={select('Size', sizes, undefined)}
-        >
+        <Table {...args}>
           <thead>
             <tr>
               <th>#</th>
@@ -59,4 +88,5 @@ stories.add('Default', () => (
       </Col>
     </Row>
   </Container>
-));
+  ),
+};

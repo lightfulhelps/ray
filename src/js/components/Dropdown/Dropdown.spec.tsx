@@ -1,6 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import { Dropdown } from '../..';
 
 const setup = (overrides = {}) => {
@@ -10,34 +10,36 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<Dropdown {...props} />);
+  const utils = render(<Dropdown {...props} />);
 
   return {
-    wrapper,
+    ...utils,
     props,
   };
 };
 
 describe('<Dropdown />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle the className prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<Dropdown {...props} className="custom" />);
 
-    expect(wrapper.hasClass('dropdown')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const dropdown = container.querySelector('.dropdown');
+    expect(dropdown).toHaveClass('dropdown');
+    expect(dropdown).toHaveClass('custom');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const dropdown = container.querySelector('.dropdown');
+    expect(dropdown).toHaveAttribute('tabIndex', '1');
+    expect(dropdown).toHaveAttribute('id', 'test');
   });
 });

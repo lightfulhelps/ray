@@ -1,35 +1,54 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Container, Row, Col, Alert } from '../';
 import themes from './utils/themes';
 
 import '../../scss/ray.scss';
 
-const stories = storiesOf('Alert', module);
+const meta: Meta<typeof Alert> = {
+  title: 'Alert',
+  component: Alert,
+  parameters: {
+    layout: 'padded',
+  },
+  argTypes: {
+    theme: {
+      control: 'select',
+      options: Object.values(themes),
+    },
+    hideIcon: {
+      control: 'boolean',
+    },
+  },
+};
 
-stories.addDecorator(withKnobs);
-stories.add('Default', () => (
-  <Container>
-    <h1 className="my-6">Alert</h1>
-    <Row>
-      <Col>
-        <Alert
-          className="mb-3"
-          theme={select('Theme', themes, 'success')}
-          hideIcon={boolean('Hide Icon', false)}
-        >
-          A simple alert—check it out!
-        </Alert>
-        <Alert
-          theme={select('Theme', themes, 'success')}
-          header="Well done!"
-          hideIcon={boolean('Hide Icon', false)}
-        >
-          An alert with a heading!
-        </Alert>
-      </Col>
-    </Row>
-  </Container>
-));
+export default meta;
+type Story = StoryObj<typeof Alert>;
+
+export const Default: Story = {
+  args: {
+    theme: 'success',
+    hideIcon: false,
+    children: 'A simple alert—check it out!',
+  },
+  render: (args) => (
+    <Container>
+      <h1 className="my-6">Alert</h1>
+      <Row>
+        <Col>
+          <Alert className="mb-3" {...args}>
+            A simple alert—check it out!
+          </Alert>
+          <Alert
+            theme={args.theme}
+            header="Well done!"
+            hideIcon={args.hideIcon}
+          >
+            An alert with a heading!
+          </Alert>
+        </Col>
+      </Row>
+    </Container>
+  ),
+};

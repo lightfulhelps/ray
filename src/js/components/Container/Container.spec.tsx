@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import Container from './Container';
 
@@ -10,55 +10,60 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<Container {...props} />);
+  const utils = render(<Container {...props} />);
 
   return {
-    wrapper,
+    ...utils,
     props,
   };
 };
 
 describe('<Container />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle the children prop', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper.children().text()).toEqual('Children');
+    expect(container.textContent).toEqual('Children');
   });
 
   it('should handle the className prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<Container {...props} className="custom" />);
 
-    expect(wrapper.hasClass('container')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const containerEl = container.querySelector('.container');
+    expect(containerEl).toHaveClass('container');
+    expect(containerEl).toHaveClass('custom');
   });
 
   it('should handle the isFluid prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('container')).toBe(true);
-    expect(wrapper.hasClass('container-fluid')).toBe(false);
+    let containerEl = container.firstChild;
+    expect(containerEl).toHaveClass('container');
+    expect(containerEl).not.toHaveClass('container-fluid');
 
-    wrapper.setProps({ isFluid: true });
+    rerender(<Container {...props} isFluid />);
 
-    expect(wrapper.hasClass('container')).toBe(false);
-    expect(wrapper.hasClass('container-fluid')).toBe(true);
+    containerEl = container.firstChild;
+    expect(containerEl).not.toHaveClass('container');
+    expect(containerEl).toHaveClass('container-fluid');
   });
 
   it('should handle the tag prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.type()).toBe('div');
+    let containerEl = container.firstChild as Element;
+    expect(containerEl?.tagName.toLowerCase()).toBe('div');
 
-    wrapper.setProps({ tag: 'a' });
+    rerender(<Container {...props} tag="a" />);
 
-    expect(wrapper.type()).toBe('a');
+    containerEl = container.firstChild as Element;
+    expect(containerEl?.tagName.toLowerCase()).toBe('a');
   });
 });

@@ -1,15 +1,22 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container, Row, Col, CampaignCard } from '../';
 
 import '../../scss/ray.scss';
 
-const stories = storiesOf('CampaignCard', module);
+const meta: Meta<typeof CampaignCard> = {
+  title: 'CampaignCard',
+  component: CampaignCard,
+  parameters: {
+    layout: 'padded',
+  },
+};
 
-stories.addDecorator(withKnobs);
+export default meta;
+type Story = StoryObj<typeof CampaignCard>;
 
-stories.add('Default', () => (
+export const Default: Story = {
+  render: () => (
   <Container>
     <h1 className="my-6">CampaignCard</h1>
     <Row>
@@ -51,4 +58,5 @@ stories.add('Default', () => (
       </Col>
     </Row>
   </Container>
-));
+  ),
+};

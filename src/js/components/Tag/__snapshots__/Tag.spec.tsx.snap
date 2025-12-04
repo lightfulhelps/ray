@@ -1,36 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Tag /> should render 1`] = `
-<Badge
-  className="tag text-sm px-3 py-1"
-  isPill={true}
-  theme="primary"
->
+<div>
   <div
-    className="lh-sm d-flex align-items-center"
+    class="tag text-sm px-3 py-1 badge bg-primary text-truncate mw-100 rounded-pill"
   >
-    Social For Good
+    <div
+      class="lh-sm d-flex align-items-center"
+    >
+      Social For Good
+    </div>
   </div>
-</Badge>
+</div>
 `;
 
 exports[`<Tag /> should render with a remove Icon 1`] = `
-<Badge
-  className="tag text-sm px-3 py-1"
-  isPill={true}
-  theme="primary"
->
+<div>
   <div
-    className="lh-sm d-flex align-items-center"
+    class="tag text-sm px-3 py-1 badge bg-primary text-truncate mw-100 rounded-pill"
   >
-    Social For Good
-    <Icon
-      className="tag__remove-icon cursor-pointer flex-shrink-0"
-      data-test-id="tag-remove-icon"
-      name="close"
-      onClick={[MockFunction]}
-      size={14}
-    />
+    <div
+      class="lh-sm d-flex align-items-center"
+    >
+      Social For Good
+      <svg
+        class="tag__remove-icon cursor-pointer flex-shrink-0 icon cursor-pointer"
+        data-testid="tag-remove-icon"
+        height="14"
+        style="fill: currentColor;"
+        viewBox="0 0 24 24"
+        width="14"
+      >
+        <path
+          d="M17.85 16.44a.5003.5003 0 010 .71l-.7.7a.5003.5003 0 01-.71 0L12 13.41l-4.44 4.44a.5002.5002 0 01-.71 0l-.7-.7a.5.5 0 010-.71L10.59 12 6.15 7.56a.5.5 0 010-.71l.7-.7a.5.5 0 01.71 0L12 10.59l4.44-4.44a.5.5 0 01.71 0l.7.7a.5003.5003 0 010 .71L13.41 12l4.44 4.44z"
+        />
+      </svg>
+    </div>
   </div>
-</Badge>
+</div>
 `;

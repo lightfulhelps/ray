@@ -1,17 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Nav /> should render 1`] = `
-<ul
-  className="nav"
-/>
+<div>
+  <ul
+    class="nav"
+  />
+</div>
 `;
 
 exports[`<Nav /> should render with a wrapper 1`] = `
-<div
-  className="overflow-hidden"
->
-  <ul
-    className="nav"
-  />
+<div>
+  <div
+    class="overflow-hidden"
+  >
+    <ul
+      class="nav"
+    />
+  </div>
 </div>
 `;

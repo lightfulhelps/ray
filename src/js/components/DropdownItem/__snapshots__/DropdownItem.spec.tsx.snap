@@ -1,10 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<DropdownItem /> should render 1`] = `
-<div
-  className="dropdown-item cursor-pointer"
-  onClick={[Function]}
->
-  Test
+<div>
+  <div
+    class="dropdown-item cursor-pointer"
+  >
+    Test
+  </div>
 </div>
 `;

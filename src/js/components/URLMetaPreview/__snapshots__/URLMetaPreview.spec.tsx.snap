@@ -1,54 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<URLMetaPreview /> should render 1`] = `
-<div
-  className="url-meta-preview bg-white h-100 rounded-sm shadow-sm"
->
+<div>
   <div
-    className="row h-100"
+    class="url-meta-preview bg-white h-100 rounded-sm shadow-sm"
   >
     <div
-      className="col-4 pe-0"
+      class="row h-100"
     >
       <div
-        className="w-100 h-100 bg-cover bg-center"
-        data-test-id="url-meta-preview-image"
-        style={
-          Object {
-            "backgroundImage": "url(https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg)",
-          }
-        }
-      />
-    </div>
-    <div
-      className="col-8 ps-0"
-    >
-      <div
-        className="d-flex flex-column justify-content-between h-100 p-1 text-xs"
+        class="col-4 pe-0"
       >
-        <a
-          className="fw-bold text-truncate"
-          href="https://www.bbc.co.uk/news/business-45242008"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          National Living Wage 'fails to cover families' basic needs
-        </a>
         <div
-          className="fw-light text-gray-500 text-truncate"
-          data-test-id="url-meta-preview-description"
+          class="w-100 h-100 bg-cover bg-center"
+          data-testid="url-meta-preview-image"
+          style="background-image: url(https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg);"
+        />
+      </div>
+      <div
+        class="col-8 ps-0"
+      >
+        <div
+          class="d-flex flex-column justify-content-between h-100 p-1 text-xs"
         >
-          Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says.
+          <a
+            class="fw-bold text-truncate"
+            href="https://www.bbc.co.uk/news/business-45242008"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            National Living Wage 'fails to cover families' basic needs
+          </a>
+          <div
+            class="fw-light text-gray-500 text-truncate"
+            data-testid="url-meta-preview-description"
+          >
+            Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says.
+          </div>
+          <a
+            class="d-block text-body text-truncate"
+            data-testid="url-meta-preview-url"
+            href="https://www.bbc.co.uk/news/business-45242008"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            bbc.co.uk/news/business-45242008
+          </a>
         </div>
-        <a
-          className="d-block text-body text-truncate"
-          data-test-id="url-meta-preview-url"
-          href="https://www.bbc.co.uk/news/business-45242008"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          bbc.co.uk/news/business-45242008
-        </a>
       </div>
     </div>
   </div>
@@ -56,60 +54,58 @@ exports[`<URLMetaPreview /> should render 1`] = `
 `;
 
 exports[`<URLMetaPreview /> should render in vertical mode 1`] = `
-<div
-  className="url-meta-preview bg-white h-100 rounded-sm shadow-sm"
->
+<div>
   <div
-    className=""
+    class="url-meta-preview bg-white h-100 rounded-sm shadow-sm"
   >
     <div
-      className=""
+      class=""
     >
       <div
-        className="w-100 h-100 bg-cover bg-center"
-        data-test-id="url-meta-preview-image"
-        style={
-          Object {
-            "backgroundImage": "url(https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg)",
-          }
-        }
+        class=""
       >
-        <img
-          alt=""
-          className="w-100 rounded-top-sm d-block"
-          src="https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg"
-        />
-      </div>
-    </div>
-    <div
-      className=""
-    >
-      <div
-        className="d-flex flex-column justify-content-between h-100 p-1 text-xs"
-      >
-        <a
-          className="fw-bold text-truncate"
-          href="https://www.bbc.co.uk/news/business-45242008"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          National Living Wage 'fails to cover families' basic needs
-        </a>
         <div
-          className="fw-light text-gray-500 text-truncate"
-          data-test-id="url-meta-preview-description"
+          class="w-100 h-100 bg-cover bg-center"
+          data-testid="url-meta-preview-image"
+          style="background-image: url(https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg);"
         >
-          Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says.
+          <img
+            alt=""
+            class="w-100 rounded-top-sm d-block"
+            src="https://ichef.bbci.co.uk/news/1024/branded_news/81C6/production/_98022233_gettyimages-842414672-1.jpg"
+          />
         </div>
-        <a
-          className="d-block text-body text-truncate"
-          data-test-id="url-meta-preview-url"
-          href="https://www.bbc.co.uk/news/business-45242008"
-          rel="noopener noreferrer"
-          target="_blank"
+      </div>
+      <div
+        class=""
+      >
+        <div
+          class="d-flex flex-column justify-content-between h-100 p-1 text-xs"
         >
-          bbc.co.uk/news/business-45242008
-        </a>
+          <a
+            class="fw-bold text-truncate"
+            href="https://www.bbc.co.uk/news/business-45242008"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            National Living Wage 'fails to cover families' basic needs
+          </a>
+          <div
+            class="fw-light text-gray-500 text-truncate"
+            data-testid="url-meta-preview-description"
+          >
+            Low-paid parents working full-time do not earn enough to meet their families' needs, a charity says.
+          </div>
+          <a
+            class="d-block text-body text-truncate"
+            data-testid="url-meta-preview-url"
+            href="https://www.bbc.co.uk/news/business-45242008"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            bbc.co.uk/news/business-45242008
+          </a>
+        </div>
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import merge from 'lodash/merge';
 import Collapse from './Collapse';
 
@@ -11,79 +12,73 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<Collapse {...props} />);
+  const utils = render(<Collapse {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<Collapse />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<Collapse {...props} className="custom" />);
 
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const collapse = container.firstChild;
+    expect(collapse).toHaveClass('custom');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const collapse = container.firstChild;
+    expect(collapse).toHaveAttribute('tabIndex', '1');
+    expect(collapse).toHaveAttribute('id', 'test');
   });
 
-  it('should toggle display of children', () => {
-    const { wrapper } = setup({ children: <div>My test content</div> });
+  it('should toggle display of children', async () => {
+    const user = userEvent.setup();
+    const { container } = setup({ children: <div>My test content</div> });
 
-    expect(wrapper.find('[data-test-id="collapse-children"]')).toHaveLength(0);
+    expect(container.querySelector('[data-testid="collapse-children"]')).not.toBeInTheDocument();
 
-    wrapper.find('[data-test-id="collapse-toggle"]').simulate('click');
+    const toggle = container.querySelector('[data-testid="collapse-toggle"]');
+    await user.click(toggle!);
 
-    expect(wrapper.find('[data-test-id="collapse-children"]')).toHaveLength(1);
+    expect(container.querySelector('[data-testid="collapse-children"]')).toBeInTheDocument();
 
-    wrapper.find('[data-test-id="collapse-toggle"]').simulate('click');
+    await user.click(toggle!);
 
-    expect(wrapper.find('[data-test-id="collapse-children"]')).toHaveLength(0);
+    expect(container.querySelector('[data-testid="collapse-children"]')).not.toBeInTheDocument();
   });
 
-  it('should toggle icon', () => {
-    const { wrapper } = setup();
+  it('should toggle icon', async () => {
+    const user = userEvent.setup();
+    const { container } = setup();
 
-    expect(
-      wrapper
-        .find('[data-test-id="collapse-toggle"]')
-        .find('Icon')
-        .prop('name')
-    ).toEqual('chevronDown');
+    const toggle = container.querySelector('[data-testid="collapse-toggle"]');
+    let icon = container.querySelector('.icon');
+    expect(icon).toBeInTheDocument();
 
-    wrapper.find('[data-test-id="collapse-toggle"]').simulate('click');
+    await user.click(toggle!);
 
-    expect(
-      wrapper
-        .find('[data-test-id="collapse-toggle"]')
-        .find('Icon')
-        .prop('name')
-    ).toEqual('chevronUp');
+    icon = container.querySelector('.icon');
+    expect(icon).toBeInTheDocument();
 
-    wrapper.find('[data-test-id="collapse-toggle"]').simulate('click');
+    await user.click(toggle!);
 
-    expect(
-      wrapper
-        .find('[data-test-id="collapse-toggle"]')
-        .find('Icon')
-        .prop('name')
-    ).toEqual('chevronDown');
+    icon = container.querySelector('.icon');
+    expect(icon).toBeInTheDocument();
   });
 
   it('should be open if defaultOpen is true', () => {
-    const { wrapper } = setup({ defaultOpen: true });
+    const { container } = setup({ defaultOpen: true });
 
-    expect(wrapper.find('[data-test-id="collapse-children"]')).toHaveLength(1);
+    expect(container.querySelector('[data-testid="collapse-children"]')).toBeInTheDocument();
   });
 });

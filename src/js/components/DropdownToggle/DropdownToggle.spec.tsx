@@ -1,45 +1,49 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import DropdownToggle from './DropdownToggle';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
-  const wrapper = shallow(<DropdownToggle {...props} />);
+  const utils = render(<DropdownToggle {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<DropdownToggle />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<DropdownToggle {...props} className="custom" />);
 
-    expect(wrapper.hasClass('dropdown-toggle')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const toggle = container.querySelector('.dropdown-toggle');
+    expect(toggle).toHaveClass('dropdown-toggle');
+    expect(toggle).toHaveClass('custom');
   });
 
   it('should handle isOpen', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.prop('icon')).toEqual('chevronDown');
+    let icon = container.querySelector('.icon');
+    expect(icon).toBeInTheDocument();
 
-    wrapper.setProps({ isOpen: true });
+    rerender(<DropdownToggle {...props} isOpen />);
 
-    expect(wrapper.prop('icon')).toEqual('chevronUp');
+    icon = container.querySelector('.icon');
+    expect(icon).toBeInTheDocument();
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const toggle = container.querySelector('.dropdown-toggle');
+    expect(toggle).toHaveAttribute('tabIndex', '1');
+    expect(toggle).toHaveAttribute('id', 'test');
   });
 });

@@ -1,361 +1,541 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<PostCard /> should render 1`] = `
-<Card
-  className="post-card shadow rounded overflow-hidden"
->
+<div>
   <div
-    className="bg-gradient-primary-x rounded-top mb-1"
-    style={
-      Object {
-        "height": "5px",
-      }
-    }
-  />
-  <div
-    className="d-flex flex-column flex-md-row justify-content-between px-3 pb-3 pt-1 border-bottom"
+    class="post-card shadow rounded overflow-hidden card"
   >
     <div
-      className="flex-fill"
+      class="bg-gradient-primary-x rounded-top mb-1"
+      style="height: 5px;"
+    />
+    <div
+      class="d-flex flex-column flex-md-row justify-content-between px-3 pb-3 pt-1 border-bottom"
     >
       <div
-        className="d-flex mb-3"
+        class="flex-fill"
       >
-        <Avatar
-          className="flex-shrink-0"
-          provider="facebook"
-          style={
-            Object {
-              "height": "45px",
-              "width": "45px",
-            }
-          }
-          url="http://foo.com/avatar.jpg"
-        />
         <div
-          className="ms-1"
+          class="d-flex mb-3"
         >
           <div
-            className="h4 mb-0"
-            data-test-id="post-card-date"
+            class="flex-shrink-0 avatar avatar-provider-md"
+            style="width: 45px; height: 45px;"
           >
-            Scheduled for 14:34 on Wednesday, 22 August
+            <div
+              class="avatar-inner"
+            >
+              <div
+                class="avatar-image"
+                style="background-image: url(http://foo.com/avatar.jpg);"
+              />
+              <div
+                class="avatar-provider avatar-provider-facebook"
+              >
+                <svg
+                  class="icon"
+                  height="1em"
+                  style="fill: #ffffff;"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                >
+                  <path
+                    d="M16.5 6h-3c-.5523 0-1 .4477-1 1v3h4a.35.35 0 01.34.46l-.74 2.2a.5.5 0 01-.47.34H12.5v7.5a.5.5 0 01-.5.5H9.5a.5.5 0 01-.5-.5V13H7.5a.5.5 0 01-.5-.5v-2a.5.5 0 01.5-.5H9V7c0-2.2091 1.7909-4 4-4h3.5a.5.5 0 01.5.5v2a.5.5 0 01-.5.5z"
+                  />
+                </svg>
+              </div>
+            </div>
           </div>
           <div
-            className="text-sm"
+            class="ms-1"
           >
-            Myah Graham
+            <div
+              class="h4 mb-0"
+              data-testid="post-card-date"
+            >
+              Scheduled for 14:34 on Wednesday, 22 August
+            </div>
+            <div
+              class="text-sm"
+            >
+              Myah Graham
+            </div>
+          </div>
+        </div>
+        <div
+          class="  post-card__content"
+          data-testid="post-card-content"
+          style="display: -webkit-box; overflow: hidden; cursor: pointer;"
+        >
+          Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".
+        </div>
+        <span
+          class="text-underline cursor-pointer fw-bold d-block mb-3"
+        >
+          See more
+        </span>
+        <div
+          class="d-flex flex-wrap"
+        >
+          <div
+            class="d-flex align-items-center mb-1 me-1 badge-pill tag text-sm px-3 py-1 badge bg-primary text-truncate mw-100 rounded-pill"
+          >
+            <div
+              class="lh-sm d-flex align-items-center"
+            >
+              <svg
+                class="tag__tag-icon flex-shrink-0 icon"
+                height="14"
+                style="fill: currentColor;"
+                viewBox="0 0 24 24"
+                width="14"
+              >
+                <path
+                  d="M21 8.92v.16a.4899.4899 0 01-.22.41l-7.67 5.25a1.49 1.49 0 01-.84.26h-.54a1.49 1.49 0 01-.84-.26L3.22 9.49A.49.49 0 013 9.08v-.16a.49.49 0 01.22-.41l7.67-5.25a1.49 1.49 0 01.84-.26h.54a1.49 1.49 0 01.84.26l7.67 5.25a.4899.4899 0 01.22.41zm-2.33 4.14l-1.77 1.21L18 15l-5.85 4h-.22L6 15l1.06-.73-1.73-1.21-2.11 1.45a.49.49 0 00-.22.41v.16a.49.49 0 00.22.41l7.67 5.25a1.49 1.49 0 00.84.26h.54a1.49 1.49 0 00.84-.26l7.67-5.25a.4899.4899 0 00.22-.41v-.16a.4899.4899 0 00-.22-.41l-2.11-1.45z"
+                />
+              </svg>
+              Story: 
+              Campaign
+            </div>
+          </div>
+          <div
+            class="me-1 mb-1  tag text-sm px-3 py-1 border border-gray-500 badge bg-white text-truncate mw-100 rounded-pill border border-2"
+          >
+            <div
+              class="lh-sm d-flex align-items-center"
+            >
+              <svg
+                class="tag__tag-icon flex-shrink-0 icon"
+                height="14"
+                style="fill: currentColor;"
+                viewBox="0 0 24 24"
+                width="14"
+              >
+                <path
+                  d="M20.7108 4.41l-.12-.12a1.0499 1.0499 0 00-.71-.29h-7.95a2 2 0 00-1.42.59l-7.22 7.22c-.3877.39-.3877 1.02 0 1.41l8.49 8.49c.39.3877 1.02.3877 1.41 0l7.22-7.22c.378-.3758.5904-.887.59-1.42V5.12a1.0502 1.0502 0 00-.29-.71zm-4.71 6.59c-1.1046 0-2-.8954-2-2s.8954-2 2-2 2 .8954 2 2a2 2 0 01-2 2z"
+                />
+              </svg>
+              charity
+            </div>
+          </div>
+          <div
+            class="me-1 mb-1  tag text-sm px-3 py-1 border border-gray-500 badge bg-white text-truncate mw-100 rounded-pill border border-2"
+          >
+            <div
+              class="lh-sm d-flex align-items-center"
+            >
+              <svg
+                class="tag__tag-icon flex-shrink-0 icon"
+                height="14"
+                style="fill: currentColor;"
+                viewBox="0 0 24 24"
+                width="14"
+              >
+                <path
+                  d="M20.7108 4.41l-.12-.12a1.0499 1.0499 0 00-.71-.29h-7.95a2 2 0 00-1.42.59l-7.22 7.22c-.3877.39-.3877 1.02 0 1.41l8.49 8.49c.39.3877 1.02.3877 1.41 0l7.22-7.22c.378-.3758.5904-.887.59-1.42V5.12a1.0502 1.0502 0 00-.29-.71zm-4.71 6.59c-1.1046 0-2-.8954-2-2s.8954-2 2-2 2 .8954 2 2a2 2 0 01-2 2z"
+                />
+              </svg>
+              social for good
+            </div>
+          </div>
+          <div
+            class="me-1 mb-1  tag text-sm px-3 py-1 border border-gray-500 badge bg-white text-truncate mw-100 rounded-pill border border-2"
+          >
+            <div
+              class="lh-sm d-flex align-items-center"
+            >
+              <svg
+                class="tag__tag-icon flex-shrink-0 icon"
+                height="14"
+                style="fill: currentColor;"
+                viewBox="0 0 24 24"
+                width="14"
+              >
+                <path
+                  d="M20.7108 4.41l-.12-.12a1.0499 1.0499 0 00-.71-.29h-7.95a2 2 0 00-1.42.59l-7.22 7.22c-.3877.39-.3877 1.02 0 1.41l8.49 8.49c.39.3877 1.02.3877 1.41 0l7.22-7.22c.378-.3758.5904-.887.59-1.42V5.12a1.0502 1.0502 0 00-.29-.71zm-4.71 6.59c-1.1046 0-2-.8954-2-2s.8954-2 2-2 2 .8954 2 2a2 2 0 01-2 2z"
+                />
+              </svg>
+              campaigns
+            </div>
+          </div>
+          <div
+            class="me-1 mb-1  tag text-sm px-3 py-1 border border-gray-500 badge bg-white text-truncate mw-100 rounded-pill border border-2"
+          >
+            <div
+              class="lh-sm d-flex align-items-center"
+            >
+              <svg
+                class="tag__tag-icon flex-shrink-0 icon"
+                height="14"
+                style="fill: currentColor;"
+                viewBox="0 0 24 24"
+                width="14"
+              >
+                <path
+                  d="M20.7108 4.41l-.12-.12a1.0499 1.0499 0 00-.71-.29h-7.95a2 2 0 00-1.42.59l-7.22 7.22c-.3877.39-.3877 1.02 0 1.41l8.49 8.49c.39.3877 1.02.3877 1.41 0l7.22-7.22c.378-.3758.5904-.887.59-1.42V5.12a1.0502 1.0502 0 00-.29-.71zm-4.71 6.59c-1.1046 0-2-.8954-2-2s.8954-2 2-2 2 .8954 2 2a2 2 0 01-2 2z"
+                />
+              </svg>
+              lightful
+            </div>
           </div>
         </div>
       </div>
       <div
-        className="mb-3 post-card__content"
-        data-test-id="post-card-content"
-        onClick={[Function]}
+        class="post-card__media-wrap flex-shrink-0"
       >
-        <Responsive(HTMLEllipsis)
-          basedOn="words"
-          ellipsisHTML="<span class=\\"text-underline cursor-pointer fw-bold\\">See more</span>"
-          innerRef={[Function]}
-          maxLine={3}
-          unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."
-        />
-      </div>
-      <div
-        className="d-flex flex-wrap"
-      >
-        <Tag
-          className="d-flex align-items-center mb-1 me-1 badge-pill"
-          icon="storyBuilder"
+        <div
+          class="post-media post-media--1"
         >
-          Story: 
-          Campaign
-        </Tag>
-        <Tag
-          className="me-1 mb-1 "
-          icon="tag"
-          isOutline={true}
-          key="0"
-          theme="gray-600"
-        >
-          charity
-        </Tag>
-        <Tag
-          className="me-1 mb-1 "
-          icon="tag"
-          isOutline={true}
-          key="1"
-          theme="gray-600"
-        >
-          social for good
-        </Tag>
-        <Tag
-          className="me-1 mb-1 "
-          icon="tag"
-          isOutline={true}
-          key="2"
-          theme="gray-600"
-        >
-          campaigns
-        </Tag>
-        <Tag
-          className="me-1 mb-1 "
-          icon="tag"
-          isOutline={true}
-          key="3"
-          theme="gray-600"
-        >
-          lightful
-        </Tag>
+          <div
+            class="post-media__image"
+            style="background-image: url(http://lorempixel.com/640/480);"
+          />
+        </div>
       </div>
     </div>
     <div
-      className="post-card__media-wrap flex-shrink-0"
+      class="py-2 px-3 d-flex flex-column flex-md-row align-items-center justify-content-between"
     >
-      <PostMedia
-        media={
-          Array [
-            Object {
-              "id": "af712270-b03e-4b1c-98d2-f744f807df2f",
-              "type": "image",
-              "url": "http://lorempixel.com/640/480",
-            },
-          ]
-        }
+      <div
+        class="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-3 mb-md-0"
+      >
+        <div
+          class="d-flex align-items-center text-sm me-1"
+          data-testid="post-card-metric"
+        >
+          <svg
+            class="me-half icon active"
+            height="20"
+            style="fill: currentColor;"
+            viewBox="0 0 24 24"
+            width="20"
+          >
+            <path
+              d="M22 8.5C22 5.4624 19.5376 3 16.5 3A6.36 6.36 0 0012 5.07 6.36 6.36 0 007.5 3C4.4624 3 2 5.4624 2 8.5c0 3.92 4.75 8.25 7 10.5l2.28 2.28a.7501.7501 0 00.53.22h.38a.7501.7501 0 00.53-.22L15 19c2.25-2.25 7-6.58 7-10.5z"
+            />
+          </svg>
+           
+          10
+           
+          likes
+        </div>
+        <div
+          class="d-flex align-items-center text-sm me-1"
+          data-testid="post-card-metric"
+        >
+          <svg
+            class="me-half icon active"
+            height="20"
+            style="fill: currentColor;"
+            viewBox="0 0 24 24"
+            width="20"
+          >
+            <path
+              d="M19.9626 8.7213c-6.0782-4.221-10.7777-.2646-11.541.4446l1.454 1.3678a.5.5 0 01-.3425.8642H3.5a.5.5 0 01-.5-.5v-5.675a.5.5 0 01.8425-.3642l1.1006 1.0348C5.6026 5.2959 8.3619 3 11.8135 3c5.5753 0 8.202 4.2156 8.1491 5.7213zM4.0374 15.2787c6.0782 4.2219 10.7777.2655 11.541-.4446l-1.454-1.3678a.5.5 0 01.3425-.8642H20.5a.5.5 0 01.5.5v5.6746a.5.5 0 01-.8426.3641l-1.1005-1.0352C18.3974 18.7032 15.6381 21 12.1865 21c-5.5753 0-8.202-4.2165-8.1491-5.7213z"
+              fill-rule="nonzero"
+            />
+          </svg>
+           
+          5
+           
+          shares
+        </div>
+      </div>
+      <div
+        class="d-flex flex-wrap"
       />
     </div>
   </div>
-  <div
-    className="py-2 px-3 d-flex flex-column flex-md-row align-items-center justify-content-between"
-  >
-    <div
-      className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-3 mb-md-0"
-    >
-      <div
-        className="d-flex align-items-center text-sm me-1"
-        data-test-id="post-card-metric"
-        key="likes"
-      >
-        <Icon
-          className="me-half"
-          isActive={true}
-          name="like"
-          size={20}
-        />
-         
-        10
-         
-        likes
-      </div>
-      <div
-        className="d-flex align-items-center text-sm me-1"
-        data-test-id="post-card-metric"
-        key="shares"
-      >
-        <Icon
-          className="me-half"
-          isActive={true}
-          name="share"
-          size={20}
-        />
-         
-        5
-         
-        shares
-      </div>
-    </div>
-    <div
-      className="d-flex flex-wrap"
-    />
-  </div>
-</Card>
+</div>
 `;
 
 exports[`<PostCard /> should render with errors 1`] = `
-<Card
-  className="post-card shadow rounded overflow-hidden"
->
+<div>
   <div
-    className="bg-gradient-primary-x rounded-top mb-1"
-    style={
-      Object {
-        "height": "5px",
-      }
-    }
-  />
-  <div
-    className="mb-1"
-  >
-    <Alert
-      className="mx-3 mb-1"
-      key="0"
-      theme="danger"
-    >
-      foo
-    </Alert>
-    <Alert
-      className="mx-3"
-      key="1"
-      theme="danger"
-    >
-      bar
-    </Alert>
-  </div>
-  <div
-    className="d-flex flex-column flex-md-row justify-content-between px-3 pb-3 pt-1 border-bottom"
+    class="post-card shadow rounded overflow-hidden card"
   >
     <div
-      className="flex-fill"
+      class="bg-gradient-primary-x rounded-top mb-1"
+      style="height: 5px;"
+    />
+    <div
+      class="mb-1"
     >
       <div
-        className="d-flex mb-3"
+        class="mx-3 mb-1 alert  alert-danger"
       >
-        <Avatar
-          className="flex-shrink-0"
-          provider="facebook"
-          style={
-            Object {
-              "height": "45px",
-              "width": "45px",
-            }
-          }
-          url="http://foo.com/avatar.jpg"
-        />
         <div
-          className="ms-1"
+          class="d-flex text-sm w-100 align-items-center"
+        >
+          <svg
+            class="me-1 flex-shrink-0 icon icon-danger"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+          >
+            <path
+              d="M12 2C6.4771 2 2 6.4771 2 12c0 5.5228 4.4771 10 10 10 5.5228 0 10-4.4772 10-10A10.0003 10.0003 0 0012 2zm1 13.5a.5.5 0 01-.5.5h-1a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5h1a.5.5 0 01.5.5v1zm-.22-3.72a.25.25 0 01-.25.22h-1.06a.25.25 0 01-.25-.22l-.4-3.22a.5002.5002 0 01.5-.56h1.36a.5.5 0 01.5.56l-.4 3.22z"
+            />
+          </svg>
+          foo
+        </div>
+      </div>
+      <div
+        class="mx-3 alert  alert-danger"
+      >
+        <div
+          class="d-flex text-sm w-100 align-items-center"
+        >
+          <svg
+            class="me-1 flex-shrink-0 icon icon-danger"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+          >
+            <path
+              d="M12 2C6.4771 2 2 6.4771 2 12c0 5.5228 4.4771 10 10 10 5.5228 0 10-4.4772 10-10A10.0003 10.0003 0 0012 2zm1 13.5a.5.5 0 01-.5.5h-1a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5h1a.5.5 0 01.5.5v1zm-.22-3.72a.25.25 0 01-.25.22h-1.06a.25.25 0 01-.25-.22l-.4-3.22a.5002.5002 0 01.5-.56h1.36a.5.5 0 01.5.56l-.4 3.22z"
+            />
+          </svg>
+          bar
+        </div>
+      </div>
+    </div>
+    <div
+      class="d-flex flex-column flex-md-row justify-content-between px-3 pb-3 pt-1 border-bottom"
+    >
+      <div
+        class="flex-fill"
+      >
+        <div
+          class="d-flex mb-3"
         >
           <div
-            className="h4 mb-0"
-            data-test-id="post-card-date"
+            class="flex-shrink-0 avatar avatar-provider-md"
+            style="width: 45px; height: 45px;"
           >
-            Scheduled for 14:34 on Wednesday, 22 August
+            <div
+              class="avatar-inner"
+            >
+              <div
+                class="avatar-image"
+                style="background-image: url(http://foo.com/avatar.jpg);"
+              />
+              <div
+                class="avatar-provider avatar-provider-facebook"
+              >
+                <svg
+                  class="icon"
+                  height="1em"
+                  style="fill: #ffffff;"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                >
+                  <path
+                    d="M16.5 6h-3c-.5523 0-1 .4477-1 1v3h4a.35.35 0 01.34.46l-.74 2.2a.5.5 0 01-.47.34H12.5v7.5a.5.5 0 01-.5.5H9.5a.5.5 0 01-.5-.5V13H7.5a.5.5 0 01-.5-.5v-2a.5.5 0 01.5-.5H9V7c0-2.2091 1.7909-4 4-4h3.5a.5.5 0 01.5.5v2a.5.5 0 01-.5.5z"
+                  />
+                </svg>
+              </div>
+            </div>
           </div>
           <div
-            className="text-sm"
+            class="ms-1"
           >
-            Myah Graham
+            <div
+              class="h4 mb-0"
+              data-testid="post-card-date"
+            >
+              Scheduled for 14:34 on Wednesday, 22 August
+            </div>
+            <div
+              class="text-sm"
+            >
+              Myah Graham
+            </div>
+          </div>
+        </div>
+        <div
+          class="  post-card__content"
+          data-testid="post-card-content"
+          style="display: -webkit-box; overflow: hidden; cursor: pointer;"
+        >
+          Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".
+        </div>
+        <span
+          class="text-underline cursor-pointer fw-bold d-block mb-3"
+        >
+          See more
+        </span>
+        <div
+          class="d-flex flex-wrap"
+        >
+          <div
+            class="d-flex align-items-center mb-1 me-1 badge-pill tag text-sm px-3 py-1 badge bg-primary text-truncate mw-100 rounded-pill"
+          >
+            <div
+              class="lh-sm d-flex align-items-center"
+            >
+              <svg
+                class="tag__tag-icon flex-shrink-0 icon"
+                height="14"
+                style="fill: currentColor;"
+                viewBox="0 0 24 24"
+                width="14"
+              >
+                <path
+                  d="M21 8.92v.16a.4899.4899 0 01-.22.41l-7.67 5.25a1.49 1.49 0 01-.84.26h-.54a1.49 1.49 0 01-.84-.26L3.22 9.49A.49.49 0 013 9.08v-.16a.49.49 0 01.22-.41l7.67-5.25a1.49 1.49 0 01.84-.26h.54a1.49 1.49 0 01.84.26l7.67 5.25a.4899.4899 0 01.22.41zm-2.33 4.14l-1.77 1.21L18 15l-5.85 4h-.22L6 15l1.06-.73-1.73-1.21-2.11 1.45a.49.49 0 00-.22.41v.16a.49.49 0 00.22.41l7.67 5.25a1.49 1.49 0 00.84.26h.54a1.49 1.49 0 00.84-.26l7.67-5.25a.4899.4899 0 00.22-.41v-.16a.4899.4899 0 00-.22-.41l-2.11-1.45z"
+                />
+              </svg>
+              Story: 
+              Campaign
+            </div>
+          </div>
+          <div
+            class="me-1 mb-1  tag text-sm px-3 py-1 border border-gray-500 badge bg-white text-truncate mw-100 rounded-pill border border-2"
+          >
+            <div
+              class="lh-sm d-flex align-items-center"
+            >
+              <svg
+                class="tag__tag-icon flex-shrink-0 icon"
+                height="14"
+                style="fill: currentColor;"
+                viewBox="0 0 24 24"
+                width="14"
+              >
+                <path
+                  d="M20.7108 4.41l-.12-.12a1.0499 1.0499 0 00-.71-.29h-7.95a2 2 0 00-1.42.59l-7.22 7.22c-.3877.39-.3877 1.02 0 1.41l8.49 8.49c.39.3877 1.02.3877 1.41 0l7.22-7.22c.378-.3758.5904-.887.59-1.42V5.12a1.0502 1.0502 0 00-.29-.71zm-4.71 6.59c-1.1046 0-2-.8954-2-2s.8954-2 2-2 2 .8954 2 2a2 2 0 01-2 2z"
+                />
+              </svg>
+              charity
+            </div>
+          </div>
+          <div
+            class="me-1 mb-1  tag text-sm px-3 py-1 border border-gray-500 badge bg-white text-truncate mw-100 rounded-pill border border-2"
+          >
+            <div
+              class="lh-sm d-flex align-items-center"
+            >
+              <svg
+                class="tag__tag-icon flex-shrink-0 icon"
+                height="14"
+                style="fill: currentColor;"
+                viewBox="0 0 24 24"
+                width="14"
+              >
+                <path
+                  d="M20.7108 4.41l-.12-.12a1.0499 1.0499 0 00-.71-.29h-7.95a2 2 0 00-1.42.59l-7.22 7.22c-.3877.39-.3877 1.02 0 1.41l8.49 8.49c.39.3877 1.02.3877 1.41 0l7.22-7.22c.378-.3758.5904-.887.59-1.42V5.12a1.0502 1.0502 0 00-.29-.71zm-4.71 6.59c-1.1046 0-2-.8954-2-2s.8954-2 2-2 2 .8954 2 2a2 2 0 01-2 2z"
+                />
+              </svg>
+              social for good
+            </div>
+          </div>
+          <div
+            class="me-1 mb-1  tag text-sm px-3 py-1 border border-gray-500 badge bg-white text-truncate mw-100 rounded-pill border border-2"
+          >
+            <div
+              class="lh-sm d-flex align-items-center"
+            >
+              <svg
+                class="tag__tag-icon flex-shrink-0 icon"
+                height="14"
+                style="fill: currentColor;"
+                viewBox="0 0 24 24"
+                width="14"
+              >
+                <path
+                  d="M20.7108 4.41l-.12-.12a1.0499 1.0499 0 00-.71-.29h-7.95a2 2 0 00-1.42.59l-7.22 7.22c-.3877.39-.3877 1.02 0 1.41l8.49 8.49c.39.3877 1.02.3877 1.41 0l7.22-7.22c.378-.3758.5904-.887.59-1.42V5.12a1.0502 1.0502 0 00-.29-.71zm-4.71 6.59c-1.1046 0-2-.8954-2-2s.8954-2 2-2 2 .8954 2 2a2 2 0 01-2 2z"
+                />
+              </svg>
+              campaigns
+            </div>
+          </div>
+          <div
+            class="me-1 mb-1  tag text-sm px-3 py-1 border border-gray-500 badge bg-white text-truncate mw-100 rounded-pill border border-2"
+          >
+            <div
+              class="lh-sm d-flex align-items-center"
+            >
+              <svg
+                class="tag__tag-icon flex-shrink-0 icon"
+                height="14"
+                style="fill: currentColor;"
+                viewBox="0 0 24 24"
+                width="14"
+              >
+                <path
+                  d="M20.7108 4.41l-.12-.12a1.0499 1.0499 0 00-.71-.29h-7.95a2 2 0 00-1.42.59l-7.22 7.22c-.3877.39-.3877 1.02 0 1.41l8.49 8.49c.39.3877 1.02.3877 1.41 0l7.22-7.22c.378-.3758.5904-.887.59-1.42V5.12a1.0502 1.0502 0 00-.29-.71zm-4.71 6.59c-1.1046 0-2-.8954-2-2s.8954-2 2-2 2 .8954 2 2a2 2 0 01-2 2z"
+                />
+              </svg>
+              lightful
+            </div>
           </div>
         </div>
       </div>
       <div
-        className="mb-3 post-card__content"
-        data-test-id="post-card-content"
-        onClick={[Function]}
+        class="post-card__media-wrap flex-shrink-0"
       >
-        <Responsive(HTMLEllipsis)
-          basedOn="words"
-          ellipsisHTML="<span class=\\"text-underline cursor-pointer fw-bold\\">See more</span>"
-          innerRef={[Function]}
-          maxLine={3}
-          unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."
-        />
-      </div>
-      <div
-        className="d-flex flex-wrap"
-      >
-        <Tag
-          className="d-flex align-items-center mb-1 me-1 badge-pill"
-          icon="storyBuilder"
+        <div
+          class="post-media post-media--1"
         >
-          Story: 
-          Campaign
-        </Tag>
-        <Tag
-          className="me-1 mb-1 "
-          icon="tag"
-          isOutline={true}
-          key="0"
-          theme="gray-600"
-        >
-          charity
-        </Tag>
-        <Tag
-          className="me-1 mb-1 "
-          icon="tag"
-          isOutline={true}
-          key="1"
-          theme="gray-600"
-        >
-          social for good
-        </Tag>
-        <Tag
-          className="me-1 mb-1 "
-          icon="tag"
-          isOutline={true}
-          key="2"
-          theme="gray-600"
-        >
-          campaigns
-        </Tag>
-        <Tag
-          className="me-1 mb-1 "
-          icon="tag"
-          isOutline={true}
-          key="3"
-          theme="gray-600"
-        >
-          lightful
-        </Tag>
+          <div
+            class="post-media__image"
+            style="background-image: url(http://lorempixel.com/640/480);"
+          />
+        </div>
       </div>
     </div>
     <div
-      className="post-card__media-wrap flex-shrink-0"
+      class="py-2 px-3 d-flex flex-column flex-md-row align-items-center justify-content-between"
     >
-      <PostMedia
-        media={
-          Array [
-            Object {
-              "id": "af712270-b03e-4b1c-98d2-f744f807df2f",
-              "type": "image",
-              "url": "http://lorempixel.com/640/480",
-            },
-          ]
-        }
+      <div
+        class="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-3 mb-md-0"
+      >
+        <div
+          class="d-flex align-items-center text-sm me-1"
+          data-testid="post-card-metric"
+        >
+          <svg
+            class="me-half icon active"
+            height="20"
+            style="fill: currentColor;"
+            viewBox="0 0 24 24"
+            width="20"
+          >
+            <path
+              d="M22 8.5C22 5.4624 19.5376 3 16.5 3A6.36 6.36 0 0012 5.07 6.36 6.36 0 007.5 3C4.4624 3 2 5.4624 2 8.5c0 3.92 4.75 8.25 7 10.5l2.28 2.28a.7501.7501 0 00.53.22h.38a.7501.7501 0 00.53-.22L15 19c2.25-2.25 7-6.58 7-10.5z"
+            />
+          </svg>
+           
+          10
+           
+          likes
+        </div>
+        <div
+          class="d-flex align-items-center text-sm me-1"
+          data-testid="post-card-metric"
+        >
+          <svg
+            class="me-half icon active"
+            height="20"
+            style="fill: currentColor;"
+            viewBox="0 0 24 24"
+            width="20"
+          >
+            <path
+              d="M19.9626 8.7213c-6.0782-4.221-10.7777-.2646-11.541.4446l1.454 1.3678a.5.5 0 01-.3425.8642H3.5a.5.5 0 01-.5-.5v-5.675a.5.5 0 01.8425-.3642l1.1006 1.0348C5.6026 5.2959 8.3619 3 11.8135 3c5.5753 0 8.202 4.2156 8.1491 5.7213zM4.0374 15.2787c6.0782 4.2219 10.7777.2655 11.541-.4446l-1.454-1.3678a.5.5 0 01.3425-.8642H20.5a.5.5 0 01.5.5v5.6746a.5.5 0 01-.8426.3641l-1.1005-1.0352C18.3974 18.7032 15.6381 21 12.1865 21c-5.5753 0-8.202-4.2165-8.1491-5.7213z"
+              fill-rule="nonzero"
+            />
+          </svg>
+           
+          5
+           
+          shares
+        </div>
+      </div>
+      <div
+        class="d-flex flex-wrap"
       />
     </div>
   </div>
-  <div
-    className="py-2 px-3 d-flex flex-column flex-md-row align-items-center justify-content-between"
-  >
-    <div
-      className="d-flex align-items-center flex-wrap mt-1 mt-md-0 mb-3 mb-md-0"
-    >
-      <div
-        className="d-flex align-items-center text-sm me-1"
-        data-test-id="post-card-metric"
-        key="likes"
-      >
-        <Icon
-          className="me-half"
-          isActive={true}
-          name="like"
-          size={20}
-        />
-         
-        10
-         
-        likes
-      </div>
-      <div
-        className="d-flex align-items-center text-sm me-1"
-        data-test-id="post-card-metric"
-        key="shares"
-      >
-        <Icon
-          className="me-half"
-          isActive={true}
-          name="share"
-          size={20}
-        />
-         
-        5
-         
-        shares
-      </div>
-    </div>
-    <div
-      className="d-flex flex-wrap"
-    />
-  </div>
-</Card>
+</div>
 `;

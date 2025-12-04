@@ -1,13 +1,8 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container, Row, Col, CampaignTemplateCard } from '..';
 
 import '../../scss/ray.scss';
-
-const stories = storiesOf('CampaignTemplateCard', module);
-
-stories.addDecorator(withKnobs);
 
 const props = {
   image:
@@ -33,7 +28,19 @@ const props3 = {
     'A quick, easy to fill out guide to help you decide what you want to say before, during and after your event/appeal/campaign.',
 };
 
-stories.add('CampaignTemplateCard', () => (
+const meta: Meta<typeof CampaignTemplateCard> = {
+  title: 'CampaignTemplateCard',
+  component: CampaignTemplateCard,
+  parameters: {
+    layout: 'padded',
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof CampaignTemplateCard>;
+
+export const Default: Story = {
+  render: () => (
   <Container>
     <h1 className="mb-4">CampaignTemplateCard</h1>
     <Row>
@@ -54,4 +61,5 @@ stories.add('CampaignTemplateCard', () => (
       </Col>
     </Row>
   </Container>
-));
+  ),
+};

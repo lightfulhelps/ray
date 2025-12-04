@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import merge from 'lodash/merge';
 import MediaThumbnail from './MediaThumbnail';
-import FormInput from '../FormInput/FormInput';
 
 const setup = (overrides = {}) => {
   const props = merge(
@@ -14,75 +14,88 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<MediaThumbnail {...props} />);
+  const utils = render(<MediaThumbnail {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<MediaThumbnail />', () => {
   it('should render', () => {
-    setup();
+    const { container } = setup();
+    expect(container).toBeInTheDocument();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<MediaThumbnail {...props} className="custom" />);
 
-    expect(wrapper.hasClass('media-thumbnail')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const thumbnail = container.querySelector('.media-thumbnail');
+    expect(thumbnail).toHaveClass('media-thumbnail');
+    expect(thumbnail).toHaveClass('custom');
   });
 
   it('should handle the checkbox prop', () => {
-    const { wrapper } = setup({ checkbox: false });
+    const { container, rerender, props } = setup({ checkbox: false });
 
-    expect(wrapper.find(FormInput).exists()).toBe(false);
+    expect(container.querySelector('input[type="checkbox"]')).not.toBeInTheDocument();
 
-    wrapper.setProps({ checkbox: true });
+    rerender(<MediaThumbnail {...props} checkbox />);
 
-    expect(wrapper.find(FormInput).exists()).toBe(true);
+    expect(container.querySelector('input[type="checkbox"]')).toBeInTheDocument();
   });
 
   it('should handle the isDisabled prop', () => {
-    const { wrapper } = setup({ isDisabled: false });
+    const { container, rerender, props } = setup({ isDisabled: false });
 
-    expect(wrapper.hasClass('disabled')).toBe(false);
+    let thumbnail = container.querySelector('.media-thumbnail');
+    expect(thumbnail).not.toHaveClass('disabled');
 
-    wrapper.setProps({ isDisabled: true });
+    rerender(<MediaThumbnail {...props} isDisabled />);
 
-    expect(wrapper.hasClass('disabled')).toBe(true);
+    thumbnail = container.querySelector('.media-thumbnail');
+    expect(thumbnail).toHaveClass('disabled');
   });
 
   it('should handle the isSelected prop', () => {
-    const { wrapper } = setup({ isSelected: false });
+    const { container, rerender, props } = setup({ isSelected: false });
 
-    expect(wrapper.hasClass('selected')).toBe(false);
+    let thumbnail = container.querySelector('.media-thumbnail');
+    expect(thumbnail).not.toHaveClass('selected');
 
-    wrapper.setProps({ isSelected: true });
+    rerender(<MediaThumbnail {...props} isSelected />);
 
-    expect(wrapper.hasClass('selected')).toBe(true);
+    thumbnail = container.querySelector('.media-thumbnail');
+    expect(thumbnail).toHaveClass('selected');
   });
 
-  it('should call onClick with the src when clicked', () => {
-    const { wrapper, props } = setup();
+  it('should call onClick with the src when clicked', async () => {
+    const onClick = jest.fn();
+    const user = userEvent.setup();
+    const { container, props } = setup({ onClick });
 
-    wrapper.find('.stretched-link').simulate('click');
+    const link = container.querySelector('.stretched-link');
+    await user.click(link!);
 
-    expect(props.onClick).toHaveBeenCalledWith(props.src);
+    expect(onClick).toHaveBeenCalledWith(props.src);
   });
 
-  it('should not call onClick if isDisabled is true', () => {
-    const { wrapper, props } = setup({ isDisabled: true });
+  it('should not call onClick if isDisabled is true', async () => {
+    const onClick = jest.fn();
+    const user = userEvent.setup();
+    const { container } = setup({ onClick, isDisabled: true });
 
-    wrapper.simulate('click');
+    const thumbnail = container.querySelector('.media-thumbnail');
+    await user.click(thumbnail!);
 
-    expect(props.onClick).not.toHaveBeenCalled();
+    expect(onClick).not.toHaveBeenCalled();
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const thumbnail = container.querySelector('.media-thumbnail');
+    expect(thumbnail).toHaveAttribute('tabIndex', '1');
+    expect(thumbnail).toHaveAttribute('id', 'test');
   });
 });

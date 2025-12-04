@@ -1,12 +1,22 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container, Row, Col, PostMedia } from '../';
 
 import '../../scss/ray.scss';
 
-const stories = storiesOf('PostMedia', module);
+const meta: Meta<typeof PostMedia> = {
+  title: 'PostMedia',
+  component: PostMedia,
+  parameters: {
+    layout: 'padded',
+  },
+};
 
-stories.add('Default', () => (
+export default meta;
+type Story = StoryObj<typeof PostMedia>;
+
+export const Default: Story = {
+  render: () => (
   <Container>
     <h1 className="my-6">PostMedia</h1>
     <Row>
@@ -108,4 +118,5 @@ stories.add('Default', () => (
       </Col>
     </Row>
   </Container>
-));
+  ),
+};

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import FormFeedback from './FormFeedback';
 
@@ -10,59 +10,65 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<FormFeedback {...props} />);
+  const utils = render(<FormFeedback {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<FormFeedback />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle children', () => {
-    const { wrapper } = setup({ children: 'Children' });
+    const { container } = setup({ children: 'Children' });
 
-    expect(wrapper.text()).toBe('Children');
+    expect(container.textContent).toBe('Children');
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<FormFeedback {...props} className="custom" />);
 
-    expect(wrapper.hasClass('invalid-feedback')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const feedback = container.firstChild;
+    expect(feedback).toHaveClass('invalid-feedback');
+    expect(feedback).toHaveClass('custom');
   });
 
   it('should handle isValid', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('invalid-feedback')).toBe(true);
-    expect(wrapper.hasClass('valid-feedback')).toBe(false);
+    let feedback = container.firstChild;
+    expect(feedback).toHaveClass('invalid-feedback');
+    expect(feedback).not.toHaveClass('valid-feedback');
 
-    wrapper.setProps({ isValid: true });
+    rerender(<FormFeedback {...props} isValid />);
 
-    expect(wrapper.hasClass('invalid-feedback')).toBe(false);
-    expect(wrapper.hasClass('valid-feedback')).toBe(true);
+    feedback = container.firstChild;
+    expect(feedback).not.toHaveClass('invalid-feedback');
+    expect(feedback).toHaveClass('valid-feedback');
   });
 
   it('should handle tag', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.type()).toBe('div');
+    let feedback = container.firstChild as Element;
+    expect(feedback?.tagName.toLowerCase()).toBe('div');
 
-    wrapper.setProps({ tag: 'span' });
+    rerender(<FormFeedback {...props} tag="span" />);
 
-    expect(wrapper.type()).toBe('span');
+    feedback = container.firstChild as Element;
+    expect(feedback?.tagName.toLowerCase()).toBe('span');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const feedback = container.firstChild;
+    expect(feedback).toHaveAttribute('tabIndex', '1');
+    expect(feedback).toHaveAttribute('id', 'test');
   });
 });

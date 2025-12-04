@@ -22,13 +22,13 @@ const Collapse: React.FC<Props> = ({ children, className, label, defaultOpen, ..
     <div {...other} className={classes}>
       <div
         className="collapse-toggle h6 mb-0 cursor-pointer d-flex justify-content-between align-items-center"
-        data-test-id="collapse-toggle"
+        data-testid="collapse-toggle"
         onClick={handleToggle}
       >
         {label} <Icon isActive theme="gray-600" name={isOpen ? 'chevronUp' : 'chevronDown'} />
       </div>
       {isOpen && (
-        <div className="collapse-children" data-test-id="collapse-children">
+        <div className="collapse-children" data-testid="collapse-children">
           {children}
         </div>
       )}

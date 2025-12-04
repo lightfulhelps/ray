@@ -1,85 +1,96 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import { Nav } from './Nav';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
-  const wrapper = shallow(<Nav withoutWrapper {...props} />);
+  const utils = render(<Nav withoutWrapper {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<Nav />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with a wrapper', () => {
-    const { wrapper } = setup({ withoutWrapper: false });
+    const { container } = setup({ withoutWrapper: false });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<Nav withoutWrapper {...props} className="custom" />);
 
-    expect(wrapper.hasClass('nav')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const nav = container.querySelector('.nav');
+    expect(nav).toHaveClass('nav');
+    expect(nav).toHaveClass('custom');
   });
 
   it('should handle isFill', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('nav-fill')).toBe(false);
+    let nav = container.querySelector('.nav');
+    expect(nav).not.toHaveClass('nav-fill');
 
-    wrapper.setProps({ isFill: true });
+    rerender(<Nav withoutWrapper {...props} isFill />);
 
-    expect(wrapper.hasClass('nav-fill')).toBe(true);
+    nav = container.querySelector('.nav');
+    expect(nav).toHaveClass('nav-fill');
   });
 
   it('should handle isPills', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('nav-pills')).toBe(false);
+    let nav = container.querySelector('.nav');
+    expect(nav).not.toHaveClass('nav-pills');
 
-    wrapper.setProps({ isPills: true });
+    rerender(<Nav withoutWrapper {...props} isPills />);
 
-    expect(wrapper.hasClass('nav-pills')).toBe(true);
+    nav = container.querySelector('.nav');
+    expect(nav).toHaveClass('nav-pills');
   });
 
   it('should handle isTabs', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('nav-tabs')).toBe(false);
+    let nav = container.querySelector('.nav');
+    expect(nav).not.toHaveClass('nav-tabs');
 
-    wrapper.setProps({ isTabs: true });
+    rerender(<Nav withoutWrapper {...props} isTabs />);
 
-    expect(wrapper.hasClass('nav-tabs')).toBe(true);
+    nav = container.querySelector('.nav');
+    expect(nav).toHaveClass('nav-tabs');
   });
 
   it('should handle tag', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.type()).toBe('ul');
+    let nav = container.querySelector('.nav');
+    expect(nav?.tagName.toLowerCase()).toBe('ul');
 
-    wrapper.setProps({ tag: 'nav' });
+    rerender(<Nav withoutWrapper {...props} tag="nav" />);
 
-    expect(wrapper.type()).toBe('nav');
+    nav = container.querySelector('.nav');
+    expect(nav?.tagName.toLowerCase()).toBe('nav');
 
-    wrapper.setProps({ tag: 'div' });
+    rerender(<Nav withoutWrapper {...props} tag="div" />);
 
-    expect(wrapper.type()).toBe('div');
+    nav = container.querySelector('.nav');
+    expect(nav?.tagName.toLowerCase()).toBe('div');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const nav = container.querySelector('.nav');
+    expect(nav).toHaveAttribute('tabIndex', '1');
+    expect(nav).toHaveAttribute('id', 'test');
   });
 });

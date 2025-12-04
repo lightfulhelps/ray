@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Container /> should render 1`] = `
-<div
-  className="container"
->
-  <p>
-    Children
-  </p>
+<div>
+  <div
+    class="container"
+  >
+    <p>
+      Children
+    </p>
+  </div>
 </div>
 `;

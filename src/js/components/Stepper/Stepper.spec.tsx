@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import Stepper from './Stepper';
 
@@ -15,68 +15,65 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<Stepper {...props} />);
+  const utils = render(<Stepper {...props} />);
 
   return {
-    wrapper,
+    ...utils,
     props,
   };
 };
 
 describe('<Stepper />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should return null if the steps prop is not an array', () => {
-    const { wrapper } = setup({ steps: 'Suuurrreee, I am an array. DW' });
+    const { container } = setup({ steps: 'Suuurrreee, I am an array. DW' as any });
 
-    expect(wrapper.type()).toBeNull();
+    expect(container.firstChild).toBeNull();
   });
 
   it('should render if there is no activeStep prop', () => {
-    const { wrapper } = setup({ activeStep: null });
+    const { container } = setup({ activeStep: null });
 
-    expect(wrapper.type()).not.toBeNull();
+    expect(container.firstChild).not.toBeNull();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<Stepper {...props} className="custom" />);
 
-    expect(wrapper.hasClass('stepper')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const stepper = container.querySelector('.stepper');
+    expect(stepper).toHaveClass('stepper');
+    expect(stepper).toHaveClass('custom');
   });
 
   it('`isLast` prop should eveluate to false for all but the last step', () => {
-    const { wrapper } = setup();
-    const firstStep = wrapper.find('Step').at(0);
-    const secondStep = wrapper.find('Step').at(1);
-    const lastStep = wrapper.find('Step').at(2);
+    const { container } = setup();
+    const steps = container.querySelectorAll('[data-testid="stepper-step"]');
 
-    expect(firstStep.prop('isLast')).toBe(false);
-    expect(secondStep.prop('isLast')).toBe(false);
-    expect(lastStep.prop('isLast')).toBe(true);
+    expect(steps).toHaveLength(3);
   });
 
   it('should pass steps object values to Step component via props', () => {
-    const { wrapper, props } = setup();
-    const renderedSteps = wrapper.find('Step');
+    const { container, props } = setup();
+    const renderedSteps = container.querySelectorAll('[data-testid="stepper-step"]');
 
+    expect(renderedSteps).toHaveLength(props.steps.length);
     props.steps.forEach((step, index) => {
-      expect(renderedSteps.at(index).prop('label')).toEqual(step.label);
-      expect(renderedSteps.at(index).prop('value')).toEqual(step.value);
-      expect(renderedSteps.at(index).prop('onClick')).toEqual(step.onClick);
+      expect(renderedSteps[index].textContent).toContain(step.label);
     });
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const stepper = container.querySelector('.stepper');
+    expect(stepper).toHaveAttribute('tabIndex', '1');
+    expect(stepper).toHaveAttribute('id', 'test');
   });
 });

@@ -1,161 +1,193 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<InspirationPostCard /> should render 1`] = `
-<Card
-  className="inspiration-post-card"
->
+<div>
   <div
-    className="inspiration-post-card__header"
+    class="inspiration-post-card card"
   >
     <div
-      style={
-        Object {
-          "height": "35px",
-          "minHeight": "35px",
-          "minWidth": "35px",
-          "width": "35px",
-        }
-      }
+      class="inspiration-post-card__header"
     >
-      <Avatar
-        provider="twitter"
-        url="http://foo.com/avatar.jpg"
-      />
-    </div>
-    <div
-      className="mx-1"
-      style={
-        Object {
-          "flex": 1,
-          "minWidth": 0,
-        }
-      }
-    >
-      <h1
-        className="inspiration-post-card__title"
-      >
-        Hope For Children
-      </h1>
       <div
-        className="inspiration-post-card__date"
+        style="width: 35px; height: 35px; min-width: 35px; min-height: 35px;"
       >
-        22 Aug 18 - 14:34
+        <div
+          class="avatar avatar-provider-md"
+        >
+          <div
+            class="avatar-inner"
+          >
+            <div
+              class="avatar-image"
+              style="background-image: url(http://foo.com/avatar.jpg);"
+            />
+            <div
+              class="avatar-provider avatar-provider-twitter"
+            >
+              <svg
+                class="icon"
+                height="1em"
+                style="fill: #ffffff;"
+                viewBox="0 0 24 24"
+                width="1em"
+              >
+                <g
+                  clip-path="url(#clip0_5329_288)"
+                >
+                  <path
+                    d="M13.5222 10.7749L19.4785 4h-1.4114l-5.1719 5.8826L8.7644 4H4l6.2466 8.8955L4 20h1.4116l5.4616-6.2122L15.2356 20H20l-6.4782-9.2251h.0004zm-1.9333 2.1989l-.6329-.8857-5.0358-7.0484h2.168l4.064 5.6883.6329.8857 5.2826 7.3938h-2.168l-4.3108-6.0333v-.0004z"
+                  />
+                </g>
+                <defs>
+                  <clippath
+                    id="clip0_5329_288"
+                  >
+                    <path
+                      d="M0 0h24v24H0z"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mx-1"
+        style="min-width: 0; flex: 1;"
+      >
+        <h1
+          class="inspiration-post-card__title"
+        >
+          Hope For Children
+        </h1>
+        <div
+          class="inspiration-post-card__date"
+        >
+          22 Aug 18 - 14:34
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    className="inspiration-post-card__content"
-  >
-    <Responsive(HTMLEllipsis)
-      basedOn="words"
-      ellipsis="..."
-      innerRef={[Function]}
-      maxLine={5}
-      unsafeHTML="Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were \\"supporting those who need it most\\"."
+    <div
+      class="inspiration-post-card__content"
+      style="display: -webkit-box; overflow: hidden;"
+    >
+      Buttle UK helped more than 3,000 vulnerable families buy beds for their children last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".
+    </div>
+    <div
+      class="inspiration-post-card__media"
     />
-  </div>
-  <div
-    className="inspiration-post-card__media"
-  />
-  <div
-    className="inspiration-post-card__tags d-flex align-items-center bg-gray-200 px-3 py-1"
-  >
     <div
-      className="d-flex align-items-center text-gray-900 fw-bold me-1"
+      class="inspiration-post-card__tags d-flex align-items-center bg-gray-200 px-3 py-1"
     >
-      4
-       
-      <Icon
-        isActive={true}
-        name="tag"
-        style={
-          Object {
-            "marginLeft": "2px",
-          }
-        }
-        theme="gray-500"
-      />
-    </div>
-    <div
-      className="d-flex flex-fill"
-      style={
-        Object {
-          "minWidth": 0,
-        }
-      }
-    >
-      <Tag
-        className="text-xs me-1"
-        key="0"
-        theme="light"
+      <div
+        class="d-flex align-items-center text-gray-900 fw-bold me-1"
       >
-        charity
-      </Tag>
-      <Tag
-        className="text-xs me-1"
-        key="1"
-        theme="light"
+        4
+         
+        <svg
+          class="icon icon-gray-500 active"
+          height="1em"
+          style="margin-left: 2px;"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M20.7108 4.41l-.12-.12a1.0499 1.0499 0 00-.71-.29h-7.95a2 2 0 00-1.42.59l-7.22 7.22c-.3877.39-.3877 1.02 0 1.41l8.49 8.49c.39.3877 1.02.3877 1.41 0l7.22-7.22c.378-.3758.5904-.887.59-1.42V5.12a1.0502 1.0502 0 00-.29-.71zm-4.71 6.59c-1.1046 0-2-.8954-2-2s.8954-2 2-2 2 .8954 2 2a2 2 0 01-2 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="d-flex flex-fill"
+        style="min-width: 0;"
       >
-        social for good
-      </Tag>
-      <Tag
-        className="text-xs "
-        key="2"
-        theme="light"
+        <div
+          class="text-xs me-1 tag text-sm px-3 py-1 badge bg-primary text-truncate mw-100 rounded-pill"
+        >
+          <div
+            class="lh-sm d-flex align-items-center"
+          >
+            charity
+          </div>
+        </div>
+        <div
+          class="text-xs me-1 tag text-sm px-3 py-1 badge bg-primary text-truncate mw-100 rounded-pill"
+        >
+          <div
+            class="lh-sm d-flex align-items-center"
+          >
+            social for good
+          </div>
+        </div>
+        <div
+          class="text-xs  tag text-sm px-3 py-1 badge bg-primary text-truncate mw-100 rounded-pill"
+        >
+          <div
+            class="lh-sm d-flex align-items-center"
+          >
+            campaigns
+          </div>
+        </div>
+      </div>
+      <div
+        class="inspiration-post-card__tags-more"
       >
-        campaigns
-      </Tag>
+        +
+        1
+      </div>
     </div>
     <div
-      className="inspiration-post-card__tags-more"
+      class="inspiration-post-card__metrics"
     >
-      +
-      1
+      <div
+        class="inspiration-post-card__metric"
+      >
+        <span>
+          10
+        </span>
+         
+        likes
+      </div>
+      <div
+        class="inspiration-post-card__metric"
+      >
+        <span>
+          5
+        </span>
+         
+        shares
+      </div>
     </div>
-  </div>
-  <div
-    className="inspiration-post-card__metrics"
-  >
     <div
-      className="inspiration-post-card__metric"
-      key="likes"
+      class="inspiration-post-card__inspiration-actions"
     >
-      <span>
-        10
-      </span>
-       
-      likes
-    </div>
-    <div
-      className="inspiration-post-card__metric"
-      key="shares"
-    >
-      <span>
-        5
-      </span>
-       
-      shares
+      <svg
+        class="icon icon-gray-500 cursor-pointer"
+        height="1em"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <title>
+          follow
+        </title>
+        <path
+          d="M11.89 16.55A1 1 0 0111 18H1a.9999.9999 0 01-.89-1.45l1-1.9A3 3 0 013.74 13h4.52a3 3 0 012.68 1.65l.95 1.9zM6 11c1.6569 0 3-1.3431 3-3C9 6.3432 7.657 5 6 5 4.3432 5 3 6.3432 3 8c0 1.6569 1.3432 3 3 3zm17.5-1H21V7.5a.5.5 0 00-.5-.5h-1a.5.5 0 00-.5.5V10h-2.5a.5.5 0 00-.5.5v1a.5.5 0 00.5.5H19v2.5a.5.5 0 00.5.5h1a.5.5 0 00.5-.5V12h2.5a.5.5 0 00.5-.5v-1a.5.5 0 00-.5-.5zM11 11a3 3 0 10-.9-5.86c1.1983 1.7184 1.1983 4.0016 0 5.72.2912.0922.5946.1394.9.14zm4.94 3.65A3 3 0 0013.26 13h-1a4.891 4.891 0 01.48.76l.95 1.89a2.9996 2.9996 0 01.13 2.35H16a1 1 0 00.89-1.45l-.95-1.9z"
+        />
+      </svg>
+      <svg
+        class="icon icon-gray-500 active cursor-pointer"
+        height="1em"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <title>
+          like
+        </title>
+        <path
+          d="M22 8.5C22 5.4624 19.5376 3 16.5 3A6.36 6.36 0 0012 5.07 6.36 6.36 0 007.5 3C4.4624 3 2 5.4624 2 8.5c0 3.92 4.75 8.25 7 10.5l2.28 2.28a.7501.7501 0 00.53.22h.38a.7501.7501 0 00.53-.22L15 19c2.25-2.25 7-6.58 7-10.5z"
+        />
+      </svg>
     </div>
   </div>
-  <div
-    className="inspiration-post-card__inspiration-actions"
-  >
-    <Icon
-      isActive={false}
-      key="0"
-      name="follow"
-      onClick={[Function]}
-      theme="gray-500"
-      title="follow"
-    />
-    <Icon
-      isActive={true}
-      key="1"
-      name="like"
-      onClick={[Function]}
-      theme="gray-500"
-      title="like"
-    />
-  </div>
-</Card>
+</div>
 `;

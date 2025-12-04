@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import merge from 'lodash/merge';
 import Step from './Step';
 
@@ -15,70 +16,73 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<Step {...props} />);
+  const utils = render(<Step {...props} />);
 
   return {
-    wrapper,
+    ...utils,
     props,
   };
 };
 
 describe('<Step />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   describe('active state', () => {
     it('should add appropriate classes if the `activeStep` prop is equal to the `thisStep` prop', () => {
-      const { wrapper } = setup();
+      const { container } = setup();
 
-      expect(wrapper.html()).toContain('bg-primary text-white border-primary');
+      expect(container.innerHTML).toContain('bg-primary text-white border-primary');
     });
 
     it('should render the label prop as the content if the `activeStep` prop is equal to the `thisStep` prop', () => {
-      const { wrapper, props } = setup();
+      const { container, props } = setup();
 
-      expect(wrapper.find('Icon')).toHaveLength(0);
-      expect(wrapper.text()).toContain(props.label);
+      expect(container.querySelector('.icon')).not.toBeInTheDocument();
+      expect(container.textContent).toContain(props.label);
     });
   });
 
   describe('todo state', () => {
     it('should add appropriate classes if the `thisStep` prop is greater than the `activeStep` prop', () => {
-      const { wrapper } = setup({ activeStep: 1 });
+      const { container } = setup({ activeStep: 1 });
 
-      expect(wrapper.html()).toContain('bg-gray-500 border-gray-500 text-white');
+      expect(container.innerHTML).toContain('bg-gray-500 border-gray-500 text-white');
     });
 
     it('should render the label prop as the content if the `activeStep` prop is less than the `thisStep` prop', () => {
-      const { wrapper, props } = setup();
+      const { container, props } = setup();
 
-      expect(wrapper.find('Icon')).toHaveLength(0);
-      expect(wrapper.text()).toContain(props.label);
+      expect(container.querySelector('.icon')).not.toBeInTheDocument();
+      expect(container.textContent).toContain(props.label);
     });
   });
 
   describe('done state', () => {
     it('should add appropriate classes if the `thisStep` prop is less than the `activeStep` prop', () => {
-      const { wrapper } = setup({ thisStep: 1 });
+      const { container } = setup({ thisStep: 1 });
 
-      expect(wrapper.html()).toContain('bg-white border-primary');
+      expect(container.innerHTML).toContain('bg-white border-primary');
     });
 
     it('render a tick icon if the `thisStep` prop is less than the `activeStep` prop', () => {
-      const { wrapper } = setup({ thisStep: 1 });
+      const { container } = setup({ thisStep: 1 });
 
-      expect(wrapper.find('Icon')).toHaveLength(1);
+      expect(container.querySelector('.icon')).toBeInTheDocument();
     });
   });
 
-  it('should call onClick on click', () => {
-    const { wrapper, props } = setup();
+  it('should call onClick on click', async () => {
+    const onClick = jest.fn();
+    const user = userEvent.setup();
+    const { container } = setup({ onClick });
 
-    wrapper.find('[data-test-id="stepper-step"]').simulate('click');
+    const step = container.querySelector('[data-testid="stepper-step"]');
+    await user.click(step!);
 
-    expect(props.onClick).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

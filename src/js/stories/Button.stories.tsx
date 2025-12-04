@@ -1,7 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { merge } from 'lodash';
 import { Container, Row, Col, Button } from '..';
 import allIcons, { IconNameType } from '../components/Icon/icons';
@@ -11,8 +9,6 @@ import sizes from './utils/sizes';
 import '../../scss/ray.scss';
 
 const buttonThemes = merge(themes, { alternative: 'alternative' });
-
-const stories = storiesOf('Button', module);
 
 const icons: { [key: string]: IconNameType } = {};
 
@@ -25,54 +21,94 @@ const iconPositions: { [key: string]: 'left' | 'right' } = {
   right: 'right',
 };
 
-stories.addDecorator(withKnobs);
+const meta: Meta<typeof Button> = {
+  title: 'Button',
+  component: Button,
+  parameters: {
+    layout: 'padded',
+  },
+  argTypes: {
+    theme: {
+      control: 'select',
+      options: Object.values(buttonThemes),
+    },
+    size: {
+      control: 'select',
+      options: Object.values(sizes),
+    },
+    icon: {
+      control: 'select',
+      options: Object.keys(icons),
+    },
+    iconPosition: {
+      control: 'select',
+      options: Object.values(iconPositions),
+    },
+    iconTheme: {
+      control: 'select',
+      options: Object.values(themes),
+    },
+    forceSolidColor: {
+      control: 'boolean',
+    },
+    isBlock: {
+      control: 'boolean',
+    },
+    isDisabled: {
+      control: 'boolean',
+    },
+    isOutline: {
+      control: 'boolean',
+    },
+    animateGradient: {
+      control: 'boolean',
+    },
+    loading: {
+      control: 'boolean',
+    },
+    onClick: { action: 'clicked' },
+  },
+};
 
-stories.add('Default', () => (
-  <Container>
-    <h1 className="my-6">Button</h1>
-    <Row>
-      <Col xs={6}>
-        <h2 className="h4 mb-3">Regular.</h2>
-        <Button
-          theme={select('Theme', buttonThemes, 'primary')}
-          forceSolidColor={boolean('Force solid color over gradient?', false)}
-          isBlock={boolean('Block', false)}
-          isDisabled={boolean('Disabled', false)}
-          isOutline={boolean('Outline', false)}
-          animateGradient={boolean('Animate Gradient', false)}
-          loading={boolean('Loading', false)}
-          onClick={action('clicked')}
-          size={select('Size', sizes, 'md')}
-          icon={boolean('Show Icon', false) ? select('Icon', icons, 'media') : undefined}
-          iconPosition={
-            boolean('Show Icon', false) ? select('Icon Position', iconPositions, 'left') : undefined
-          }
-          iconTheme={
-            boolean('Show Icon', false) && boolean('Use theme?', false)
-              ? select('Icon Theme', themes, 'light')
-              : undefined
-          }
-        >
-          {text('Text', 'Click Me')}
-        </Button>
-      </Col>
-      <Col xs={6}>
-        <h2 className="h4 mb-3">Icon Only.</h2>
-        <Button
-          theme={select('Theme', themes, 'primary')}
-          forceSolidColor={boolean('Force solid color over gradient?', false)}
-          isDisabled={boolean('Disabled', false)}
-          isOutline={boolean('Outline', false)}
-          loading={boolean('Loading', false)}
-          size={select('Size', sizes, 'md')}
-          icon={select('Icon', icons, 'media')}
-          iconTheme={
-            boolean('Show Icon', false) && boolean('Use theme?', false)
-              ? select('Icon Theme', themes, 'light')
-              : undefined
-          }
-        />
-      </Col>
-    </Row>
-  </Container>
-));
+export default meta;
+type Story = StoryObj<typeof Button>;
+
+export const Default: Story = {
+  args: {
+    theme: 'primary',
+    size: 'md',
+    forceSolidColor: false,
+    isBlock: false,
+    isDisabled: false,
+    isOutline: false,
+    animateGradient: false,
+    loading: false,
+    children: 'Click Me',
+  },
+  render: (args) => (
+    <Container>
+      <h1 className="my-6">Button</h1>
+      <Row>
+        <Col xs={6}>
+          <h2 className="h4 mb-3">Regular.</h2>
+          <Button {...args}>
+            {args.children}
+          </Button>
+        </Col>
+        <Col xs={6}>
+          <h2 className="h4 mb-3">Icon Only.</h2>
+          <Button
+            theme={args.theme}
+            forceSolidColor={args.forceSolidColor}
+            isDisabled={args.isDisabled}
+            isOutline={args.isOutline}
+            loading={args.loading}
+            size={args.size}
+            icon={args.icon || 'media'}
+            iconTheme={args.iconTheme}
+          />
+        </Col>
+      </Row>
+    </Container>
+  ),
+};

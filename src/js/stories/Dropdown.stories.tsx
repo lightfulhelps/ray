@@ -1,7 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import {
   Container,
   Row,
@@ -14,10 +12,6 @@ import {
 } from '../';
 
 import '../../scss/ray.scss';
-
-const stories = storiesOf('Dropdown', module);
-
-stories.addDecorator(withKnobs);
 
 const menuThemes = {
   Light: 'light',
@@ -35,75 +29,96 @@ const sizes = {
   Large: 'lg',
 } as const;
 
-stories.add('Default', () => (
-  <Container>
-    <h1 className="my-6">Dropdown</h1>
-    <Row>
-      <div className="col-6">
-        <Dropdown
-          isBlock={boolean('Block', false)}
-          render={(isOpen, onToggle) => (
-            <>
-              <DropdownToggle
-                isBlock={boolean('Block', false)}
-                isOpen={isOpen}
-                onClick={onToggle}
-                size={select('Size', sizes, 'md')}
-              >
-                Dropdown
-              </DropdownToggle>
-              <DropdownMenu
-                isOpen={isOpen}
-                onClick={onToggle}
-                position={select('Menu Position', menuPositions, 'left')}
-                theme={select('Menu Theme', menuThemes, 'light')}
-              >
-                <DropdownItem onClick={action('Edit')}>
-                  <Icon className="me-1" name="edit" />
-                  Edit
-                </DropdownItem>
-                <DropdownItem onClick={action('Comment')}>
-                  <Icon className="me-1" name="comment" />
-                  Comment
-                </DropdownItem>
-                <DropdownItem isDisabled onClick={action('Edit')}>
-                  <Icon className="me-1" name="delete" />
-                  Delete
-                </DropdownItem>
-              </DropdownMenu>
-            </>
-          )}
-        />
-      </div>
-      <div className="col-6">
-        <Dropdown
-          render={(isOpen, onToggle) => (
-            <>
-              <Button
-                icon="menu"
-                theme="primary"
-                isOutline
-                onClick={onToggle}
-                size={select('Size', sizes, 'md')}
-              />
-              <DropdownMenu
-                isOpen={isOpen}
-                onClick={onToggle}
-                position={select('Menu Position', menuPositions, 'left')}
-                theme={select('Menu Theme', menuThemes, 'light')}
-                footer={text('Menu Footer', 'Created by: Bruno')}
-              >
-                <DropdownItem isHeader>Header</DropdownItem>
-                <DropdownItem>Option 1</DropdownItem>
-                <DropdownItem>Option 2</DropdownItem>
-                <DropdownItem isHeader>Header</DropdownItem>
-                <DropdownItem>Option 3</DropdownItem>
-                <DropdownItem>Option 4</DropdownItem>
-              </DropdownMenu>
-            </>
-          )}
-        />
-      </div>
-    </Row>
-  </Container>
-));
+const meta: Meta<typeof Dropdown> = {
+  title: 'Dropdown',
+  component: Dropdown,
+  parameters: {
+    layout: 'padded',
+  },
+  argTypes: {
+    isBlock: {
+      control: 'boolean',
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof Dropdown>;
+
+export const Default: Story = {
+  args: {
+    isBlock: false,
+  },
+  render: (args) => (
+    <Container>
+      <h1 className="my-6">Dropdown</h1>
+      <Row>
+        <div className="col-6">
+          <Dropdown
+            isBlock={args.isBlock}
+            render={(isOpen, onToggle) => (
+              <>
+                <DropdownToggle
+                  isBlock={args.isBlock}
+                  isOpen={isOpen}
+                  onClick={onToggle}
+                  size="md"
+                >
+                  Dropdown
+                </DropdownToggle>
+                <DropdownMenu
+                  isOpen={isOpen}
+                  onClick={onToggle}
+                  position="left"
+                  theme="light"
+                >
+                  <DropdownItem onClick={() => console.log('console.log', 'Edit')}>
+                    <Icon className="me-1" name="edit" />
+                    Edit
+                  </DropdownItem>
+                  <DropdownItem onClick={() => console.log('console.log', 'Comment')}>
+                    <Icon className="me-1" name="comment" />
+                    Comment
+                  </DropdownItem>
+                  <DropdownItem isDisabled onClick={() => console.log('console.log', 'Delete')}>
+                    <Icon className="me-1" name="delete" />
+                    Delete
+                  </DropdownItem>
+                </DropdownMenu>
+              </>
+            )}
+          />
+        </div>
+        <div className="col-6">
+          <Dropdown
+            render={(isOpen, onToggle) => (
+              <>
+                <Button
+                  icon="menu"
+                  theme="primary"
+                  isOutline
+                  onClick={onToggle}
+                  size="md"
+                />
+                <DropdownMenu
+                  isOpen={isOpen}
+                  onClick={onToggle}
+                  position="left"
+                  theme="light"
+                  footer="Created by: Bruno"
+                >
+                  <DropdownItem isHeader>Header</DropdownItem>
+                  <DropdownItem>Option 1</DropdownItem>
+                  <DropdownItem>Option 2</DropdownItem>
+                  <DropdownItem isHeader>Header</DropdownItem>
+                  <DropdownItem>Option 3</DropdownItem>
+                  <DropdownItem>Option 4</DropdownItem>
+                </DropdownMenu>
+              </>
+            )}
+          />
+        </div>
+      </Row>
+    </Container>
+  ),
+};

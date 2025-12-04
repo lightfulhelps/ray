@@ -1,12 +1,9 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, boolean, text, date, select } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container, Row, Col, InspirationPostCard, PostCardGhost } from '..';
 
 import '../../scss/ray.scss';
 
-const stories = storiesOf('InspirationPostCard', module);
 const defaultDate = new Date();
 
 const socialProviders = {
@@ -38,9 +35,19 @@ const media = [
   },
 ];
 
-stories.addDecorator(withKnobs);
+const meta: Meta<typeof InspirationPostCard> = {
+  title: 'InspirationPostCard',
+  component: InspirationPostCard,
+  parameters: {
+    layout: 'padded',
+  },
+};
 
-stories.add('Default', () => (
+export default meta;
+type Story = StoryObj<typeof InspirationPostCard>;
+
+export const Default: Story = {
+  render: () => (
   <Container>
     <h1 className="my-6">InspirationPostCard</h1>
     <Row>
@@ -48,12 +55,12 @@ stories.add('Default', () => (
         <InspirationPostCard
           post={{
             id: 'fakeid123112',
-            title: text('Title', 'Hope For Children'),
-            date: date('Date', defaultDate),
+            title: 'Hope For Children',
+            date: defaultDate,
             socialIdentity: {
               id: '123',
-              avatar: text('Avatar URL', 'https://randomuser.me/api/portraits/women/47.jpg'),
-              provider: select('Social Provider', socialProviders, 'twitter'),
+              avatar: 'https://randomuser.me/api/portraits/women/47.jpg',
+              provider: 'twitter',
             },
             content:
               '<a href="">@Buttle UK</a> helped more than 3,000 vulnerable families buy beds for their <a href="">#children</a> last year. It fears thousands more across the UK may lack a bed of their own, leading to problems concentrating in school. The government said its welfare reforms were "supporting those who need it most".',
@@ -69,30 +76,32 @@ stories.add('Default', () => (
           inspirationActions={[
             {
               icon: 'follow',
-              onClick: action('Follow'),
-              theme: boolean('Following', true) ? 'primary' : 'gray-500',
+              onClick: () => console.log('console.log', 'Follow'),
+              theme: 'primary',
             },
             {
               icon: 'like',
-              onClick: action('Like'),
-              theme: boolean('Like', true) ? 'primary' : 'gray-500',
+              onClick: () => console.log('console.log', 'Like'),
+              theme: 'primary',
             },
             {
               icon: 'repost',
-              onClick: action('Repost'),
+              onClick: () => console.log('console.log', 'Repost'),
               isActive: false,
               theme: 'gray-500',
             },
-            { icon: 'reply', onClick: action('Reply'), isActive: false, theme: 'gray-500' },
-            { icon: 'create', onClick: action('Create'), isActive: false, theme: 'gray-500' },
+            { icon: 'reply', onClick: () => console.log('console.log', 'Reply'), isActive: false, theme: 'gray-500' },
+            { icon: 'create', onClick: () => console.log('console.log', 'Create'), isActive: false, theme: 'gray-500' },
           ]}
         />
       </Col>
     </Row>
   </Container>
-));
+  ),
+};
 
-stories.add('Ghost', () => (
+export const Ghost: Story = {
+  render: () => (
   <Container>
     <h1 className="my-6">PostCardGhost</h1>
     <Row>
@@ -107,4 +116,5 @@ stories.add('Ghost', () => (
       </Col>
     </Row>
   </Container>
-));
+  ),
+};

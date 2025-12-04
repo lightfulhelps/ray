@@ -34,7 +34,7 @@ const MediaThumbnail: React.FC<Props> = ({
   const testId = `media-thumbnail-${nanoid()}`;
 
   return (
-    <div {...other} className={classes} data-test-id={`${testId}`}>
+    <div {...other} className={classes} data-testid={`${testId}`}>
       <div className="media-thumbnail-inner d-flex justify-content-center overflow-hidden align-items-center bg-gray-300 rounded-sm">
         <img className="mw-100 mh-100" src={src} alt={alt} />
       </div>

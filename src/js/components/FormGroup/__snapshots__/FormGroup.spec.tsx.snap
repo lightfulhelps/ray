@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FormGroup /> should render 1`] = `
-<div
-  className="form-group"
->
-  Default
+<div>
+  <div
+    class="form-group"
+  >
+    Default
+  </div>
 </div>
 `;

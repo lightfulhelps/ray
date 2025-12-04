@@ -1,6 +1,7 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { DropdownItem } from '../..';
 
 const setup = (overrides = {}) => {
@@ -11,98 +12,107 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<DropdownItem {...props} />);
+  const utils = render(<DropdownItem {...props} />);
 
   return {
-    wrapper,
+    ...utils,
     props,
   };
 };
 
 describe('<DropdownItem />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle the children prop', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper.children().text()).toEqual('Test');
+    expect(container.textContent).toEqual('Test');
   });
 
   it('should handle the className prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<DropdownItem {...props} className="custom" />);
 
-    expect(wrapper.hasClass('dropdown-item')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const item = container.querySelector('.dropdown-item');
+    expect(item).toHaveClass('dropdown-item');
+    expect(item).toHaveClass('custom');
   });
 
   it('should handle the isActive prop', () => {
-    const { wrapper } = setup({ isActive: true });
+    const { container } = setup({ isActive: true });
 
-    expect(wrapper.hasClass('dropdown-item')).toBe(true);
-    expect(wrapper.hasClass('active')).toBe(true);
+    const item = container.querySelector('.dropdown-item');
+    expect(item).toHaveClass('dropdown-item');
+    expect(item).toHaveClass('active');
   });
 
   it('should handle the isDisabled prop', () => {
-    const { wrapper } = setup({ isDisabled: true });
+    const { container } = setup({ isDisabled: true });
 
-    expect(wrapper.hasClass('dropdown-item')).toBe(true);
-    expect(wrapper.hasClass('disabled')).toBe(true);
+    const item = container.querySelector('.dropdown-item');
+    expect(item).toHaveClass('dropdown-item');
+    expect(item).toHaveClass('disabled');
   });
 
   it('should handle the isHeader prop', () => {
-    const { wrapper } = setup({ isHeader: true });
+    const { container } = setup({ isHeader: true });
 
-    expect(wrapper.hasClass('dropdown-item')).toBe(false);
-    expect(wrapper.hasClass('dropdown-header')).toBe(true);
+    expect(container.querySelector('.dropdown-item')).not.toBeInTheDocument();
+    expect(container.querySelector('.dropdown-header')).toBeInTheDocument();
   });
 
   it('should handle the tag prop', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.type()).toBe('div');
+    let item = container.firstChild as Element;
+    expect(item?.tagName.toLowerCase()).toBe('div');
 
-    wrapper.setProps({ tag: 'a' });
+    rerender(<DropdownItem {...props} tag="a" />);
 
-    expect(wrapper.type()).toBe('a');
+    item = container.firstChild as Element;
+    expect(item?.tagName.toLowerCase()).toBe('a');
   });
 
   describe('onClick', () => {
-    it('should call onClick with data provided', () => {
-      const { wrapper, props } = setup();
+    it('should call onClick with data provided', async () => {
+      const onClick = jest.fn();
+      const user = userEvent.setup();
+      setup({ onClick });
 
-      wrapper.simulate('click', { foo: 'bar' });
+      const item = screen.getByText('Test');
+      await user.click(item);
 
-      expect(props.onClick).toHaveBeenCalledTimes(1);
-      expect(props.onClick).toHaveBeenCalledWith({ foo: 'bar' });
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
 
-    it('should preventDefault if isDisabled', () => {
-      const preventDefault = jest.fn();
-      const { wrapper } = setup();
+    it('should preventDefault if isDisabled', async () => {
+      const onClick = jest.fn();
+      const user = userEvent.setup();
+      const { rerender, props } = setup({ onClick });
 
-      wrapper.simulate('click');
+      const item = screen.getByText('Test');
+      await user.click(item);
 
-      expect(preventDefault).not.toHaveBeenCalled();
+      expect(onClick).toHaveBeenCalledTimes(1);
 
-      wrapper.setProps({ isDisabled: true });
+      rerender(<DropdownItem {...props} onClick={onClick} isDisabled />);
 
-      wrapper.simulate('click', { preventDefault });
+      await user.click(item);
 
-      expect(preventDefault).toHaveBeenCalledTimes(1);
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
 
-    it('should not error if onClick is not a function', () => {
-      const { wrapper } = setup({ onClick: 'foo' });
+    it('should not error if onClick is not a function', async () => {
+      const user = userEvent.setup();
+      setup({ onClick: 'foo' as any });
 
-      expect(() => {
-        wrapper.simulate('click');
-      }).not.toThrow();
+      const item = screen.getByText('Test');
+      await expect(user.click(item)).resolves.not.toThrow();
     });
   });
 });

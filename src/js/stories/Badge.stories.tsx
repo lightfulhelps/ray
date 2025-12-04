@@ -1,24 +1,46 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container, Row, Col, Badge } from '../';
 import themes from './utils/themes';
 
 import '../../scss/ray.scss';
 
-const stories = storiesOf('Badge', module);
+const meta: Meta<typeof Badge> = {
+  title: 'Badge',
+  component: Badge,
+  parameters: {
+    layout: 'padded',
+  },
+  argTypes: {
+    theme: {
+      control: 'select',
+      options: Object.values(themes),
+    },
+    isOutline: {
+      control: 'boolean',
+    },
+  },
+};
 
-stories.addDecorator(withKnobs);
+export default meta;
+type Story = StoryObj<typeof Badge>;
 
-stories.add('Default', () => (
-  <Container>
-    <h1 className="my-6">Badge</h1>
-    <Row>
-      <Col>
-        <Badge isOutline={boolean('Outline', false)} theme={select('Theme', themes, 'primary')}>
-          Hello
-        </Badge>
-      </Col>
-    </Row>
-  </Container>
-));
+export const Default: Story = {
+  args: {
+    theme: 'primary',
+    isOutline: false,
+    children: 'Hello',
+  },
+  render: (args) => (
+    <Container>
+      <h1 className="my-6">Badge</h1>
+      <Row>
+        <Col>
+          <Badge {...args}>
+            Hello
+          </Badge>
+        </Col>
+      </Row>
+    </Container>
+  ),
+};

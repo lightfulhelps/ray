@@ -1,42 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FormSelect /> should render 1`] = `
-<StateManager
-  className="form-select"
-  classNamePrefix="form-select"
-  components={
-    Object {
-      "ClearIndicator": [Function],
-      "DropdownIndicator": [Function],
-      "MultiValue": [Function],
-      "Option": [Function],
-    }
-  }
-  defaultInputValue=""
-  defaultMenuIsOpen={false}
-  defaultValue={null}
-  styles={
-    Object {
-      "clearIndicator": [Function],
-      "container": [Function],
-      "control": [Function],
-      "dropdownIndicator": [Function],
-      "group": [Function],
-      "groupHeading": [Function],
-      "indicatorSeparator": [Function],
-      "indicatorsContainer": [Function],
-      "input": [Function],
-      "menu": [Function],
-      "menuList": [Function],
-      "multiValue": [Function],
-      "multiValueLabel": [Function],
-      "multiValueRemove": [Function],
-      "noOptionsMessage": [Function],
-      "option": [Function],
-      "placeholder": [Function],
-      "singleValue": [Function],
-      "valueContainer": [Function],
-    }
-  }
-/>
+<div>
+  <div
+    class="form-select css-1daubv-SelectContainer"
+  >
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+    />
+    <div
+      class="form-select__control css-1g8ily9-Control"
+    >
+      <div
+        class="form-select__value-container css-pilx6v-ValueContainer"
+      >
+        <div
+          class="form-select__placeholder css-ovmm9z-Placeholder"
+        >
+          Select...
+        </div>
+        <div
+          class="css-17yls17-Input"
+        >
+          <div
+            class="form-select__input"
+            style="display: inline-block;"
+          >
+            <input
+              aria-autocomplete="list"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
+              id="react-select-2-input"
+              spellcheck="false"
+              style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+            <div
+              style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="form-select__indicators css-1pmvkci-IndicatorsContainer"
+      >
+        <span
+          class="form-select__indicator-separator css-62wm9a-IndicatorSeparator"
+        />
+        <svg
+          class="icon icon-gray-500"
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <title>
+            Open
+          </title>
+          <path
+            d="M12.72 15.78a.7501.7501 0 01-.53.22h-.38a.7699.7699 0 01-.53-.22l-5.13-5.14a.5.5 0 010-.71l.71-.71a.49.49 0 01.7 0L12 13.67l4.44-4.45a.5.5 0 01.71 0l.7.71a.5004.5004 0 010 .71l-5.13 5.14z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
 `;

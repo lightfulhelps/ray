@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Col should render 1`] = `
-<div
-  className="col"
->
-  <div>
-    Content
+<div>
+  <div
+    class="col"
+  >
+    <div>
+      Content
+    </div>
   </div>
 </div>
 `;

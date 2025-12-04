@@ -37,7 +37,7 @@ const Step: React.FC<Props> = ({ activeStep, isLast, label, onClick, thisStep, v
     <div className={stepClasses}>
       <div
         className={`d-flex align-items-center ${onClick ? 'cursor-pointer' : ''}`}
-        data-test-id="stepper-step"
+        data-testid="stepper-step"
         onClick={onClick}
       >
         <div className={valueClasses}>

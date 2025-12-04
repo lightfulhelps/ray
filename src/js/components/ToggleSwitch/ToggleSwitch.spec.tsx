@@ -1,64 +1,83 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import merge from 'lodash/merge';
 import ToggleSwitch from './ToggleSwitch';
 
 const setup = (overrides = {}) => {
   const props = merge(overrides);
-  const wrapper = shallow(<ToggleSwitch {...props} />);
+  const utils = render(<ToggleSwitch {...props} />);
 
   return {
-    wrapper,
+    ...utils,
     props,
   };
 };
 
 describe('<ToggleSwitch />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
-    expect(wrapper).toMatchSnapshot();
+    const { container } = setup();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render label', () => {
-    const { wrapper } = setup({ label: 'this is a label' });
-    expect(wrapper).toMatchSnapshot();
+    const { container } = setup({ label: 'this is a label' });
+    expect(container).toMatchSnapshot();
   });
 
   it('should render label on the right side if labelAlign prop is set', () => {
-    const { wrapper } = setup({ label: 'this is a label', labelAlign: 'left' });
-    expect(wrapper.hasClass('flex-row-reverse')).toBe(true);
-    wrapper.setProps({ labelAlign: 'top' });
-    expect(wrapper.hasClass('flex-column-reverse')).toBe(true);
-    wrapper.setProps({ labelAlign: 'bottom' });
-    expect(wrapper.hasClass('flex-column')).toBe(true);
-    wrapper.setProps({ labelAlign: '' });
-    expect(wrapper.hasClass('flex-column-reverse')).toBe(false);
-    expect(wrapper.hasClass('flex-row-reverse')).toBe(false);
-    expect(wrapper.hasClass('flex-column')).toBe(false);
+    const { container, rerender, props } = setup({ label: 'this is a label', labelAlign: 'left' });
+    let toggleSwitch = container.querySelector('.form-check');
+    expect(toggleSwitch).toHaveClass('flex-row-reverse');
+
+    rerender(<ToggleSwitch {...props} label="this is a label" labelAlign="top" />);
+    toggleSwitch = container.querySelector('.form-check');
+    expect(toggleSwitch).toHaveClass('flex-column-reverse');
+
+    rerender(<ToggleSwitch {...props} label="this is a label" labelAlign="bottom" />);
+    toggleSwitch = container.querySelector('.form-check');
+    expect(toggleSwitch).toHaveClass('flex-column');
+
+    rerender(<ToggleSwitch {...props} label="this is a label" labelAlign="" />);
+    toggleSwitch = container.querySelector('.form-check');
+    expect(toggleSwitch).not.toHaveClass('flex-column-reverse');
+    expect(toggleSwitch).not.toHaveClass('flex-row-reverse');
+    expect(toggleSwitch).not.toHaveClass('flex-column');
   });
 
   it('should set disabled attribute to true if isDisabled prop is specified', () => {
-    const { wrapper } = setup({ isDisabled: true });
-    expect(wrapper.find('input').prop('disabled')).toBe(true);
+    const { container } = setup({ isDisabled: true });
+    const input = container.querySelector('input');
+    expect(input).toBeDisabled();
   });
 
-  it('should handle onClick events', () => {
-    const { wrapper, props } = setup({ onClick: jest.fn() });
-    wrapper.find('input').simulate('click');
-    expect(props.onClick).toHaveBeenCalled();
+  it('should handle onClick events', async () => {
+    const onClick = jest.fn();
+    const user = userEvent.setup();
+    const { container } = setup({ onClick });
+
+    const input = container.querySelector('input');
+    await user.click(input!);
+    expect(onClick).toHaveBeenCalled();
   });
 
-  it('should not call onClick if isDisabled', () => {
-    const preventDefault = jest.fn();
-    const { wrapper, props } = setup({ onClick: jest.fn(), isDisabled: true });
-    wrapper.find('input').simulate('click', { preventDefault });
-    expect(preventDefault).toHaveBeenCalled();
-    expect(props.onClick).not.toHaveBeenCalled();
+  it('should not call onClick if isDisabled', async () => {
+    const onClick = jest.fn();
+    const user = userEvent.setup();
+    const { container } = setup({ onClick, isDisabled: true });
+
+    const input = container.querySelector('input');
+    await user.click(input!);
+    expect(onClick).not.toHaveBeenCalled();
   });
 
-  it('should handle onChange events', () => {
-    const { wrapper, props } = setup({ onChange: jest.fn() });
-    wrapper.find('input').simulate('change', { foo: 'bar' });
-    expect(props.onChange).toHaveBeenCalledWith({ foo: 'bar' });
+  it('should handle onChange events', async () => {
+    const onChange = jest.fn();
+    const user = userEvent.setup();
+    const { container } = setup({ onChange });
+
+    const input = container.querySelector('input');
+    await user.click(input!);
+    expect(onChange).toHaveBeenCalled();
   });
 });

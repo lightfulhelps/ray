@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FormFeedback /> should render 1`] = `
-<div
-  className="invalid-feedback"
->
-  Invalid value for...
+<div>
+  <div
+    class="invalid-feedback"
+  >
+    Invalid value for...
+  </div>
 </div>
 `;

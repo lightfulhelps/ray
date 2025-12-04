@@ -1,27 +1,27 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import PostMedia from './PostMedia';
 
 const setup = (overrides = {}) => {
   const props = merge({ media: [] }, overrides);
-  const wrapper = shallow(<PostMedia {...props} />);
+  const renderResult = render(<PostMedia {...props} />);
 
   return {
-    wrapper,
+    ...renderResult,
     props,
   };
 };
 
 describe('<PostMedia />', () => {
   it('should render with no media', () => {
-    const { wrapper } = setup({ media: [] });
+    const { container } = setup({ media: [] });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with a video', () => {
-    const { wrapper } = setup({
+    const { container } = setup({
       media: [
         {
           type: 'video',
@@ -30,7 +30,7 @@ describe('<PostMedia />', () => {
       ],
     });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   const dummyImages = [
@@ -54,16 +54,17 @@ describe('<PostMedia />', () => {
 
   for (let i = 1; i <= dummyImages.length; i++) {
     it(`should render ${i} image`, () => {
-      const { wrapper } = setup({ media: dummyImages.slice(0, i) });
+      const { container } = setup({ media: dummyImages.slice(0, i) });
 
-      expect(wrapper).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   }
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const postMedia = container.firstChild as Element;
+    expect(postMedia).toHaveAttribute('tabIndex', '1');
+    expect(postMedia).toHaveAttribute('id', 'test');
   });
 });

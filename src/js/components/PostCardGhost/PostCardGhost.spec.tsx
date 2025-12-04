@@ -1,35 +1,37 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import PostCardGhost from './PostCardGhost';
 
 const setup = (overrides = {}) => {
   const props = merge({}, overrides);
-  const wrapper = shallow(<PostCardGhost {...props} />);
+  const utils = render(<PostCardGhost {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<PostCardGhost />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<PostCardGhost {...props} className="custom" />);
 
-    expect(wrapper.hasClass('post-card-ghost')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const ghost = container.querySelector('.post-card-ghost');
+    expect(ghost).toHaveClass('post-card-ghost');
+    expect(ghost).toHaveClass('custom');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const ghost = container.querySelector('.post-card-ghost');
+    expect(ghost).toHaveAttribute('tabIndex', '1');
+    expect(ghost).toHaveAttribute('id', 'test');
   });
 });

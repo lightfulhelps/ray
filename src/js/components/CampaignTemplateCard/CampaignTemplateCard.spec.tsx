@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import merge from 'lodash/merge';
 import CampaignTemplateCard from './CampaignTemplateCard';
 
@@ -15,69 +16,68 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<CampaignTemplateCard {...props} />);
+  const renderResult = render(<CampaignTemplateCard {...props} />);
 
-  return { wrapper, props };
+  return { ...renderResult, props };
 };
 
 describe('<CampaignTemplateCard />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render when isSelected', () => {
-    const { wrapper } = setup({ isSelected: true });
+    const { container } = setup({ isSelected: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container } = setup({ className: 'custom' });
 
-    wrapper.setProps({ className: 'custom' });
-
-    expect(wrapper.hasClass('campaign-template-card')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const card = container.firstChild as Element;
+    expect(card).toHaveClass('campaign-template-card');
+    expect(card).toHaveClass('custom');
   });
 
   it('should handle title', () => {
     const title = 'My title';
-    const { wrapper } = setup({ title });
+    setup({ title });
 
-    expect(wrapper.find('[data-test-id="campaign-template-card-title"]').text()).toEqual(title);
+    expect(screen.getByTestId('campaign-template-card-title')).toHaveTextContent(title);
   });
 
   it('should handle description', () => {
     const description = 'My description';
-    const { wrapper } = setup({ description });
+    setup({ description });
 
-    expect(wrapper.find('[data-test-id="campaign-template-card-description"]').text()).toEqual(
-      description
-    );
+    expect(screen.getByTestId('campaign-template-card-description')).toHaveTextContent(description);
   });
 
   it('should handle background image', () => {
     const image = 'bar.com/foo.jpg';
-    const { wrapper } = setup({ image });
+    setup({ image });
 
-    const style = wrapper.find('[data-test-id="campaign-template-card-image"]').prop('style');
-    expect(style).toHaveProperty('backgroundImage', 'url(bar.com/foo.jpg)');
+    const imageElement = screen.getByTestId('campaign-template-card-image') as HTMLElement;
+    expect(imageElement.style.backgroundImage).toBe('url(bar.com/foo.jpg)');
   });
 
-  it('should run onClick event when button is clicked', () => {
+  it('should run onClick event when button is clicked', async () => {
     const onClick = jest.fn();
-    const { wrapper } = setup({ onClick });
+    setup({ onClick });
 
-    wrapper.find('[data-test-id="campaign-template-card-button"]').simulate('click');
+    const button = screen.getByTestId('campaign-template-card-button');
+    await userEvent.click(button);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const card = container.firstChild as Element;
+    expect(card).toHaveAttribute('tabIndex', '1');
+    expect(card).toHaveAttribute('id', 'test');
   });
 });

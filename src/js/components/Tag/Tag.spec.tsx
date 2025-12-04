@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import merge from 'lodash/merge';
 import Tag from './Tag';
 
@@ -10,52 +11,56 @@ const setup = (overrides = {}) => {
     },
     overrides
   );
-  const wrapper = shallow(<Tag {...props} />);
+  const utils = render(<Tag {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<Tag />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with a remove Icon', () => {
-    const { wrapper } = setup({ onRemove: jest.fn() });
+    const { container } = setup({ onRemove: jest.fn() });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle children', () => {
-    const { wrapper } = setup({ children: 'Test' });
+    const { container } = setup({ children: 'Test' });
 
-    expect(wrapper.find('div').prop('children')).toContain('Test');
+    expect(container.textContent).toContain('Test');
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<Tag {...props} className="custom" />);
 
-    expect(wrapper.hasClass('tag')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const tag = container.querySelector('.tag');
+    expect(tag).toHaveClass('tag');
+    expect(tag).toHaveClass('custom');
   });
 
-  it('should handle onRemove', () => {
+  it('should handle onRemove', async () => {
     const onRemove = jest.fn();
-    const { wrapper } = setup({ onRemove });
+    const user = userEvent.setup();
+    setup({ onRemove });
 
-    wrapper.find('[data-test-id="tag-remove-icon"]').simulate('click');
+    const removeIcon = screen.getByTestId('tag-remove-icon');
+    await user.click(removeIcon);
 
     expect(onRemove).toHaveBeenCalledTimes(1);
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const tag = container.querySelector('.tag');
+    expect(tag).toHaveAttribute('tabIndex', '1');
+    expect(tag).toHaveAttribute('id', 'test');
   });
 });

@@ -39,7 +39,7 @@ const Tag: React.FC<Props> = ({
           <Icon
             size={14}
             className="tag__remove-icon cursor-pointer flex-shrink-0"
-            data-test-id="tag-remove-icon"
+            data-testid="tag-remove-icon"
             name="close"
             onClick={onRemove}
           />

@@ -1,63 +1,69 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import merge from 'lodash/merge';
 import FormGroup from './FormGroup';
 
 const setup = (overrides = {}) => {
   const props = merge({ children: 'Default' }, overrides);
-  const wrapper = shallow(<FormGroup {...props} />);
+  const utils = render(<FormGroup {...props} />);
 
-  return { wrapper, props };
+  return { ...utils, props };
 };
 
 describe('<FormGroup />', () => {
   it('should render', () => {
-    const { wrapper } = setup();
+    const { container } = setup();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle children', () => {
-    const { wrapper } = setup({ children: 'Children' });
+    const { container } = setup({ children: 'Children' });
 
-    expect(wrapper.text()).toBe('Children');
+    expect(container.textContent).toBe('Children');
   });
 
   it('should handle className', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    wrapper.setProps({ className: 'custom' });
+    rerender(<FormGroup {...props} className="custom" />);
 
-    expect(wrapper.hasClass('form-group')).toBe(true);
-    expect(wrapper.hasClass('custom')).toBe(true);
+    const group = container.firstChild;
+    expect(group).toHaveClass('form-group');
+    expect(group).toHaveClass('custom');
   });
 
   it('should handle isCheck', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.hasClass('form-group')).toBe(true);
-    expect(wrapper.hasClass('form-check')).toBe(false);
+    let group = container.firstChild;
+    expect(group).toHaveClass('form-group');
+    expect(group).not.toHaveClass('form-check');
 
-    wrapper.setProps({ isCheck: true });
+    rerender(<FormGroup {...props} isCheck />);
 
-    expect(wrapper.hasClass('form-group')).toBe(false);
-    expect(wrapper.hasClass('form-check')).toBe(true);
+    group = container.firstChild;
+    expect(group).not.toHaveClass('form-group');
+    expect(group).toHaveClass('form-check');
   });
 
   it('should handle tag', () => {
-    const { wrapper } = setup();
+    const { container, rerender, props } = setup();
 
-    expect(wrapper.type()).toBe('div');
+    let group = container.firstChild as Element;
+    expect(group?.tagName.toLowerCase()).toBe('div');
 
-    wrapper.setProps({ tag: 'li' });
+    rerender(<FormGroup {...props} tag="li" />);
 
-    expect(wrapper.type()).toBe('li');
+    group = container.firstChild as Element;
+    expect(group?.tagName.toLowerCase()).toBe('li');
   });
 
   it('should pass through other props', () => {
-    const { wrapper } = setup({ tabIndex: 1, id: 'test' });
+    const { container } = setup({ tabIndex: 1, id: 'test' });
 
-    expect(wrapper.prop('tabIndex')).toEqual(1);
-    expect(wrapper.prop('id')).toEqual('test');
+    const group = container.firstChild;
+    expect(group).toHaveAttribute('tabIndex', '1');
+    expect(group).toHaveAttribute('id', 'test');
   });
 });

@@ -1,20 +1,35 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container, Row, Col, Avatar } from '../';
 
 import '../../scss/ray.scss';
 
-const stories = storiesOf('Avatar', module);
+const meta: Meta<typeof Avatar> = {
+  title: 'Avatar',
+  component: Avatar,
+  parameters: {
+    layout: 'padded',
+  },
+  argTypes: {
+    name: {
+      control: 'text',
+    },
+  },
+};
 
-stories.addDecorator(withKnobs);
+export default meta;
+type Story = StoryObj<typeof Avatar>;
 
-stories.add('Default', () => (
+export const Default: Story = {
+  args: {
+    name: 'Lightful',
+  },
+  render: (args) => (
   <Container>
     <h1 className="my-6">Avatar</h1>
     <Row>
       <Col xs={3} sm={2} md={1} className="mb-3">
-        <Avatar name={text('Name', 'Lightful')} />
+        <Avatar name={args.name} />
       </Col>
       <Col xs={3} sm={2} md={1} className="mb-3">
         <Avatar url="https://randomuser.me/api/portraits/women/47.jpg" />
@@ -64,4 +79,5 @@ stories.add('Default', () => (
       </Col>
     </Row>
   </Container>
-));
+  ),
+};

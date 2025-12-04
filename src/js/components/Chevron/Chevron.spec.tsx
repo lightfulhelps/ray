@@ -1,25 +1,31 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import Chevron from './Chevron';
 
 describe('Chevron', () => {
   it('should render correctly', () => {
-    const wrapper = shallow(<Chevron onClick={() => console.log('click')} />);
-    expect(wrapper).toMatchSnapshot();
+    const { container } = render(<Chevron onClick={() => console.log('onClick', 'click')} />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should have the correct class', () => {
-    const wrapper = shallow(<Chevron className="foo" onClick={() => console.log('click')} />);
-    expect(wrapper.hasClass('chevron-button foo')).toBe(true);
+    const { container } = render(
+      <Chevron className="foo" onClick={() => console.log('onClick', 'click')} />
+    );
+    const button = container.querySelector('.chevron-button');
+    expect(button).toHaveClass('chevron-button');
+    expect(button).toHaveClass('foo');
   });
 
   it('should have the defaut left chevron direction icon', () => {
-    const wrapper = shallow(<Chevron onClick={() => console.log('click')} />);
-    expect(wrapper).toMatchSnapshot();
+    const { container } = render(<Chevron onClick={() => console.log('onClick', 'click')} />);
+    expect(container).toMatchSnapshot();
   });
 
   it('should handle the direction correctly and change the icon', () => {
-    const wrapper = shallow(<Chevron direction="right" onClick={() => console.log('click')} />);
-    expect(wrapper).toMatchSnapshot();
+    const { container } = render(
+      <Chevron direction="right" onClick={() => console.log('onClick', 'click')} />
+    );
+    expect(container).toMatchSnapshot();
   });
 });

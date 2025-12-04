@@ -1,48 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Button /> should handle the iconTheme props 1`] = `
-<button
-  className="btn btn-gradient-primary btn-primary btn-icon-left"
-  onClick={[Function]}
-  type="button"
->
-  <span>
-    Click Me
-    <Icon
-      isGradient={true}
-      name="create"
-      size="1em"
-      theme="primary"
-    />
-  </span>
-</button>
+<div>
+  <button
+    class="btn btn-gradient-primary btn-primary btn-icon-left"
+    type="button"
+  >
+    <span>
+      Click Me
+      <svg
+        class="icon icon-primary"
+        height="1em"
+        style="fill: url(#test-id-123);"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <defs>
+          <lineargradient
+            id="test-id-123"
+            r="90%"
+          >
+            <stop
+              class="gradient-primary-stop1"
+              offset="0%"
+            />
+            <stop
+              class="gradient-primary-stop2"
+              offset="100%"
+            />
+          </lineargradient>
+        </defs>
+        <path
+          d="M20.8312 9.5082L14.4887 3.15a.4978.4978 0 00-.708 0l-2.6925 2.6992a.5005.5005 0 000 .7098l.5883.5998-5.415 2.1694a1.9977 1.9977 0 00-1.2366 1.3696l-1.9944 8.0577a1.0015 1.0015 0 00.2593.9498l.9972.9997a.996.996 0 00.738.2899.9981.9981 0 00.2393 0l8.0377-1.9994a1.9964 1.9964 0 001.3663-1.1997l2.164-5.4285.5983.5899a.498.498 0 00.708 0l2.6926-2.6993a.5004.5004 0 000-.7497zm-7.9779 7.5078l-6.143 1.5296 2.852-2.8592a.6377.6377 0 01.4488-.19c.8262 0 1.4959-.6713 1.4959-1.4995s-.6697-1.4996-1.4959-1.4996c-.826 0-1.4958.6714-1.4958 1.4996a.6405.6405 0 01-.1895.4498l-2.852 2.8592 1.5456-6.1282 6.2128-2.4893 2.0942 2.0994-2.4731 6.2282z"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
 `;
 
 exports[`<Button /> should render 1`] = `
-<button
-  className="btn btn-gradient-primary btn-primary"
-  onClick={[Function]}
-  type="button"
->
-  <span>
-    Click Me
-  </span>
-</button>
+<div>
+  <button
+    class="btn btn-gradient-primary btn-primary"
+    type="button"
+  >
+    <span>
+      Click Me
+    </span>
+  </button>
+</div>
 `;
 
 exports[`<Button /> should render with an icon 1`] = `
-<button
-  className="btn btn-gradient-primary btn-primary btn-icon-left"
-  onClick={[Function]}
-  type="button"
->
-  <span>
-    Click Me
-    <Icon
-      isGradient={true}
-      name="create"
-      size="1em"
-    />
-  </span>
-</button>
+<div>
+  <button
+    class="btn btn-gradient-primary btn-primary btn-icon-left"
+    type="button"
+  >
+    <span>
+      Click Me
+      <svg
+        class="icon"
+        height="1em"
+        style="fill: currentColor;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M20.8312 9.5082L14.4887 3.15a.4978.4978 0 00-.708 0l-2.6925 2.6992a.5005.5005 0 000 .7098l.5883.5998-5.415 2.1694a1.9977 1.9977 0 00-1.2366 1.3696l-1.9944 8.0577a1.0015 1.0015 0 00.2593.9498l.9972.9997a.996.996 0 00.738.2899.9981.9981 0 00.2393 0l8.0377-1.9994a1.9964 1.9964 0 001.3663-1.1997l2.164-5.4285.5983.5899a.498.498 0 00.708 0l2.6926-2.6993a.5004.5004 0 000-.7497zm-7.9779 7.5078l-6.143 1.5296 2.852-2.8592a.6377.6377 0 01.4488-.19c.8262 0 1.4959-.6713 1.4959-1.4995s-.6697-1.4996-1.4959-1.4996c-.826 0-1.4958.6714-1.4958 1.4996a.6405.6405 0 01-.1895.4498l-2.852 2.8592 1.5456-6.1282 6.2128-2.4893 2.0942 2.0994-2.4731 6.2282z"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
 `;

@@ -1,39 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ToggleSwitch /> should render 1`] = `
-<div
-  className="form-check form-switch"
->
-  <input
-    className="form-check-input m-0 undefined"
-    id="toggle-switch"
-    onClick={[Function]}
-    role="switch"
-    type="checkbox"
-  />
-  <label
-    className="form-check-label"
-    htmlFor="toggle-switch"
-  />
+<div>
+  <div
+    class="form-check form-switch"
+  >
+    <input
+      class="form-check-input m-0 undefined"
+      id="toggle-switch"
+      role="switch"
+      type="checkbox"
+    />
+    <label
+      class="form-check-label"
+      for="toggle-switch"
+    />
+  </div>
 </div>
 `;
 
 exports[`<ToggleSwitch /> should render label 1`] = `
-<div
-  className="form-check form-switch"
->
-  <input
-    className="form-check-input m-0 undefined"
-    id="toggle-switch"
-    onClick={[Function]}
-    role="switch"
-    type="checkbox"
-  />
-  <label
-    className="form-check-label"
-    htmlFor="toggle-switch"
+<div>
+  <div
+    class="form-check form-switch"
   >
-    this is a label
-  </label>
+    <input
+      class="form-check-input m-0 undefined"
+      id="toggle-switch"
+      role="switch"
+      type="checkbox"
+    />
+    <label
+      class="form-check-label"
+      for="toggle-switch"
+    >
+      this is a label
+    </label>
+  </div>
 </div>
 `;

@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Card /> should render 1`] = `
-<div
-  className="card"
->
-  <p>
-    Children
-  </p>
+<div>
+  <div
+    class="card"
+  >
+    <p>
+      Children
+    </p>
+  </div>
 </div>
 `;

@@ -27,7 +27,7 @@ const Stepper: React.FC<Props> = ({ activeStep = 0, className, steps, ...other }
   }
 
   return (
-    <div {...other} className={classes} data-test-id="stepper">
+    <div {...other} className={classes} data-testid="stepper">
       {steps.map((step, i) => (
         <Step
           activeStep={activeStep}

@@ -60,19 +60,19 @@ const CampaignTemplateCard: React.FC<Props> = ({
       <div
         style={imgStyles}
         className="bg-cover bg-gray-900 w-100 campaign-template-card-image"
-        data-test-id="campaign-template-card-image"
+        data-testid="campaign-template-card-image"
       />
       <div className="p-3 d-flex h-100 flex-column justify-content-between">
         <div>
-          <h4 data-test-id="campaign-template-card-title" className="mb-1">
+          <h4 data-testid="campaign-template-card-title" className="mb-1">
             {title}
           </h4>
-          <div className="text-sm" data-test-id="campaign-template-card-description">
+          <div className="text-sm" data-testid="campaign-template-card-description">
             {description}
           </div>
         </div>
         <div>
-          <Button isBlock data-test-id="campaign-template-card-button" {...btnProps} />
+          <Button isBlock data-testid="campaign-template-card-button" {...btnProps} />
         </div>
       </div>
     </div>
