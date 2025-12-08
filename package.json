@@ -6,7 +6,7 @@
   "types": "dist/js/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && yarn build:icons && run-p build:css build:js",
-    "build:css": "sass src/scss/ray.scss dist/css/ray.css",
+    "build:css": "sass --load-path=node_modules src/scss/ray.scss dist/css/ray.css",
     "build:icons": "ts-node scripts/buildIcons.ts --svg-dir src/icons --output-file src/js/components/Icon/icons.tsx",
     "build:js": "tsc",
     "build:storybook": "storybook build -o storybook",
